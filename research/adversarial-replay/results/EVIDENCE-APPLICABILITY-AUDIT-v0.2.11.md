@@ -2,7 +2,7 @@
 
 Status: `RESEARCH_RESULT / NOT_PROMOTED`
 
-Primary replay case: `HAR-006`
+Primary replay cases: `HAR-006`, `HAR-010`
 
 ## Result
 
@@ -10,7 +10,14 @@ Primary replay case: `HAR-006`
 
 No current evidence requires a new Constitution principle.
 
-The v0.2.11 Evidence Model already contains most of the conceptual ingredients: provenance, epoch, limitations, scoped trust, observation window, revalidation, host identity, and the rule that cross-domain transfer is a new claim. The machine-readable contracts do not consistently make the applicability envelope explicit enough to prevent evidence from one runtime subject/state from being silently reused for another.
+The v0.2.11 Evidence Model already contains most of the conceptual ingredients: provenance, epoch, limitations, scoped trust, observation window, revalidation, host identity, and the rule that cross-domain transfer is a new claim. The machine-readable contracts do not consistently make the applicability envelope explicit enough to prevent evidence from one runtime subject/state/interval from being silently reused for another.
+
+The evidence base now includes two structurally independent real cases:
+
+- `HAR-006` — runtime instance/configuration-state transfer: observations from different gateway instances/states were incorrectly used to reason about the active 15-second server-side rate limit.
+- `HAR-010` — temporal-interval transfer: a morning closure was locally truthful but could not be inherited unchanged as a whole-day completion claim after later activation/events.
+
+These cases support the same boundary structure without requiring the same subsystem.
 
 ## Contract audit
 
@@ -53,7 +60,7 @@ Likely fix layer: `EXAMPLE / NO NEW NORMATIVE RULE`.
 
 Field support: `MISSING AS FIRST-CLASS MACHINE FIELD`
 
-This is the HAR-006 failure shape.
+This is the direct `HAR-006` failure shape.
 
 Likely fix layer: `SCHEMA/TEMPLATE TIGHTENING`.
 
@@ -80,6 +87,14 @@ Field support: `EXPLICIT`
 `ENA-CON-037` and enforcement-surface semantics already cover this strongly.
 
 Likely fix layer: `NO NEW RULE`.
+
+### 8. Completion at interval T1 != completion over expanded interval T1..T2
+
+Field support: `EXPLICIT IN PROSE / WEAK IN MACHINE CONTRACT`
+
+`HAR-010` shows that a locally truthful completion can become overbroad after silent temporal expansion. The Evidence Model already contains observation-window/revalidation semantics, but the main evidence schemas do not require an explicit observed-from/observed-to applicability interval.
+
+Likely fix layer: `SCHEMA/TEMPLATE TIGHTENING`.
 
 ## Minimal research-level applicability envelope
 
@@ -112,12 +127,15 @@ and operationally:
 
 > **An observation supports only the subject, state, scope, and interval it actually observed.**
 
-But current evidence suggests this can probably be expressed by tightening the existing Evidence Model and contracts rather than creating a new Constitutional invariant.
+The second independent case strengthens the case that applicability is a recurrent boundary property, but it simultaneously weakens the case for a new Constitution rule because existing ENA prose already handles both failures when scoped evidence/revalidation semantics are applied correctly.
 
-## Next evidence needed
+The most economical next move is therefore to prototype first-class applicability fields in research schemas/templates and test whether that removes the ambiguity.
+
+## Next evidence / experiment needed
 
 Before any normative promotion:
 
-1. test the prototype applicability envelope against at least one additional independent failure domain;
-2. determine whether existing `epoch + provenance + scope + revalidation` semantics become unambiguous once the fields are made explicit;
-3. only consider a normative gap if false cross-boundary inheritance remains possible after that clarification.
+1. prototype applicability fields outside MAINLINE and map existing evidence records into them;
+2. test whether `HAR-006` and `HAR-010` become unambiguous without adding normative semantics;
+3. test one additional environment/production or subject-identity transfer case if available;
+4. only consider a normative gap if false cross-boundary inheritance remains possible after explicit applicability + revalidation contracts.
