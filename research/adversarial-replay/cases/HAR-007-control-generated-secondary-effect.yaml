@@ -1,0 +1,58 @@
+case_id: HAR-007
+title: "B2B guard suppression action triggered Telegram error handling and created an echo loop"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/b2b-guard-debug"
+  artifact: "README.md / B2B Guard Break Mechanism Debug Log"
+  commit_or_ref: "6e0863b96ec9f9eed826aa370c94acf31f8df71a"
+  evidence_refs:
+    - "before_agent_run with handled:true was interpreted as send failure"
+    - "Telegram error handling emitted DM notification"
+    - "the secondary notification path formed an infinite loop"
+    - "switching to before_dispatch plus silent error policy resolved the loop"
+  cognitive_context_lineage: "historical B2B guard debugging"
+
+incident:
+  observed_facts:
+    - "A guard hook attempted to suppress output using before_agent_run with handled:true."
+    - "Telegram interpreted that result as a send failure rather than silent suppression."
+    - "The platform's error handling generated a DM notification."
+    - "The newly generated message re-entered the system and produced an echo loop."
+    - "The implementation was changed to before_dispatch with a silent error policy."
+  inferences:
+    - "A control can become an effect-generating path when its output is interpreted by another subsystem."
+    - "Auditing only bypass paths around a control can miss secondary effects created by the control itself."
+  unknowns: []
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: PROTECTION
+  claim: "The suppression guard reduces the messaging effect surface because handled:true stops the intended message path."
+  why_false_or_overbroad: "The control output activated a different platform path that emitted new messages and amplified the very behavior the guard was intended to suppress."
+
+boundary_crossed:
+  - COMPOSITION
+  - PROJECTION
+  - OTHER
+
+current_ena_mapping:
+  references:
+    - "ENA-CON-036: Local Validity Does Not Imply Composed Validity"
+    - "ENA-CON-037: Enforcement Strength Must Reflect the Whole Effect Surface"
+    - "ENA-CAP-058: Enforcement Surface / Effect-Equivalent Path Discovery"
+    - "Self-Positioning Side-Effect Boundary semantics"
+  analysis: "Existing v0.2.11 semantics already require composition revalidation and whole-effect-surface honesty, so the incident is not a clear normative gap. The ambiguity is that CAP-058 is framed mainly around alternative paths capable of producing the protected consequence or bypassing the primary Gate. This case shows that a control result can itself be input to another subsystem that generates a new secondary effect path."
+  expected_behavior: "When a control changes or suppresses a consequential path, test not only bypasses but also how downstream platforms interpret the control result and whether error/retry/notification/fallback channels create new effects or feedback loops."
+
+candidate_relation:
+  candidate: "Effect-Generating Control Paths"
+  relation: PARTIALLY_SUPPORTS
+
+verdict: COVERED_BUT_AMBIGUOUS
+next_action: "Keep as CAP-058/CON-036 adversarial evidence. Seek an independent non-messaging case before deciding whether enforcement-surface wording needs a clarification."
+notes:
+  - "A Gate can fail by being bypassed, and a control can fail by creating a new path."
+  - "Do not add a new Capability from this case alone."
