@@ -1,0 +1,38 @@
+case_id: HAR-000
+title: "Replace with incident title"
+status: DRAFT
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: ""
+  artifact: ""
+  commit_or_ref: ""
+  evidence_refs: []
+  cognitive_context_lineage: ""
+
+incident:
+  observed_facts: []
+  inferences: []
+  unknowns: []
+  evidence_grade: UNKNOWN
+
+false_claim:
+  claim_type: OTHER
+  claim: ""
+  why_false_or_overbroad: ""
+
+boundary_crossed: []
+
+current_ena_mapping:
+  references: []
+  analysis: ""
+  expected_behavior: ""
+
+candidate_relation:
+  candidate: ""
+  relation: NONE
+
+verdict: UNKNOWN
+next_action: ""
+notes: []
