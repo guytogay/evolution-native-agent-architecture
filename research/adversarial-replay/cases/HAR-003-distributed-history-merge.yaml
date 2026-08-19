@@ -1,0 +1,57 @@
+case_id: HAR-003
+title: "Concurrent interbot history writers produced unresolved Git conflict inside the shared iteration log"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/interbot"
+  artifact: "iteration-log.md"
+  commit_or_ref: "2a8c6f180ec60f03ddb18c2b00357d83a6d43b94"
+  evidence_refs:
+    - "iteration-log.md contains explicit shared-history coordination rules"
+    - "iteration-log.md contains literal <<<<<<< HEAD / ======= / >>>>>>> origin/master conflict markers"
+  cognitive_context_lineage: "historical multi-agent interbot operation"
+
+incident:
+  observed_facts:
+    - "The iteration log states that all iteration records belong in the shared file and that both sides should align changes before pushing."
+    - "The same file later contains an unresolved Git merge conflict between a 2026-04-02 01:50 routing-fix entry and a 2026-04-02 01:49 ConvTracker/whiteboard-fix entry."
+    - "Both branches contain plausible contemporaneous operational history rather than one obvious synthetic duplicate."
+    - "Later entries continue after the unresolved conflict block."
+  inferences:
+    - "Append-only intent did not prevent concurrent writers from creating divergent but individually truthful history branches."
+    - "A single-file canonical-history design requires explicit reconciliation semantics when multiple independent writers exist."
+  unknowns:
+    - "Which writer first introduced the unresolved conflict into the branch that became the cited repository state."
+    - "Whether any external log preserved a previously resolved form of both entries."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: HISTORY
+  claim: "An append-only shared history is sufficient to provide one coherent canonical history under concurrent writers."
+  why_false_or_overbroad: "Append-only preservation can retain both truthful branches while still leaving the canonical sequence structurally unresolved. Preservation and concurrency reconciliation are different properties."
+
+boundary_crossed:
+  - CONCURRENCY
+  - COMPOSITION
+  - HISTORY
+
+current_ena_mapping:
+  references:
+    - "ENA-CON-008: History Is Append-Only in Meaning"
+    - "25-HISTORY-AND-KNOWLEDGE-PROJECTION.md: canonical history preserves material occurrence truth"
+    - "ENA-CON-036: Local Validity Does Not Imply Composed Validity"
+    - "06-INHERITED-KNOWLEDGE.md: version-control history is a possible host-specific history substrate"
+  analysis: "v0.2.11 protects occurrence truth and recognizes version control as a possible history substrate, but it does not make concurrent-writer reconciliation explicit. Both branches can satisfy append-only intent locally while the merged artifact is not yet a coherent canonical projection of shared history. Existing composition semantics help, so this is not yet evidence for a new Constitution principle; it is a strong clarification pressure on canonical-history claims in plural-authority hosts."
+  expected_behavior: "A host with multiple history writers should not claim one reconciled canonical history merely because all writers append. Divergent branches and unresolved conflicts should remain visible until reconciliation preserves both occurrence lineages and makes any ordering/merge judgment explicit."
+
+candidate_relation:
+  candidate: "Distributed History Merge Semantics"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "Search for at least one independent non-Git multi-writer history case before considering Universal normative promotion. Test whether existing CON-036 plus a history-substrate clarification is sufficient."
+notes:
+  - "Append-only is a property of history preservation, not a concurrency protocol."
+  - "A history can be truthful on both branches before it is reconciled."
