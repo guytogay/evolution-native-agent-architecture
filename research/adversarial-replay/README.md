@@ -49,16 +49,19 @@ A clever abstraction is not evidence of a Universal gap.
 | HAR-006 | Evidence Applicability across gateway instances/states | `CLARIFICATION_GAP` |
 | HAR-007 | Control-generated secondary effect path | `COVERED_BUT_AMBIGUOUS` |
 | HAR-008 | Autobiographical Provenance Integrity | `CLARIFICATION_GAP` |
+| HAR-009 | Belief/Immediate Confidence vs Stable Fix Evidence | `COVERED` |
+| HAR-010 | Temporal Completion Scope | `COVERED` |
 
 **Current `NORMATIVE_GAP` count: 0.**
 
-That is a positive result. HAR is already increasing real-failure coverage while reducing pressure to grow the Universal rule set.
+That is a positive result. HAR is increasing real-failure coverage while reducing pressure to grow the Universal rule set.
 
 ### Current interpretation
 
-- `Activation Witness / Trigger Effect Evidence` currently collapses into existing activation semantics and is best retained as a worked example/reference case.
+- `Activation Witness / Trigger Effect Evidence` collapses into existing activation semantics and is best retained as a worked example/reference case.
 - the DSH k-0083 incident is already semantically covered by v0.2.11 History/Projection rules; remaining pressure is host implementation, restore reconciliation, and salience/application.
-- `Evidence Applicability Boundary` remains the strongest clarification/schema-tightening candidate. The first field audit found conceptual coverage but weak first-class machine binding for runtime instance/configuration state/applicability interval.
+- `Evidence Applicability Boundary` remains the strongest clarification/schema-tightening candidate. It now has two independent real-domain forms: runtime instance/configuration-state transfer (`HAR-006`) and temporal-interval expansion (`HAR-010`). The evidence therefore supports a research-only applicability-contract prototype, but still does not require a new Constitution rule.
+- `HAR-009` strengthens existing Evidence Grade / Assertion Maturity / Completion semantics: sincere belief in a fix is not stable operational evidence.
 - `General Projection Semantics` remains promising but is not yet justified as a Universal architecture. The 0–100 memory-health model found in historical code is design-risk evidence, not an observed failure, and is intentionally not counted as an independent HAR incident.
 - `Distributed History Merge Semantics` needs an independent non-Git multi-writer case before stronger promotion pressure is warranted.
 - `Autobiographical Provenance Integrity` is supported by the Nyx false-autobiography incident, but needs independent evidence where provenance confusion materially changes responsibility, authority, trust, or consequence.
@@ -68,8 +71,9 @@ That is a positive result. HAR is already increasing real-failure coverage while
 ## Active targeted work
 
 - `results/EVIDENCE-APPLICABILITY-AUDIT-v0.2.11.md` — current result: clarification + schema/template tightening candidate; no Constitution change justified.
+- `../prototypes/evidence-applicability-envelope.schema.json` — research-only applicability envelope prototype, with HAR-006 and HAR-010 example mappings.
 - `../experiments/SESSION-LINEAGE-COUNTERFACTUAL-PLAN.md` — clean-session comparison plan for three semantic judgments; mechanical promotion evidence is not repeated.
-- `schema/case.schema.json` + `tools/validate_cases.py` + GitHub Actions workflow — structural validation for research records only. A validator PASS does not prove the research conclusion.
+- `schema/case.schema.json` + structural validators + GitHub Actions workflow — research-record validation only. A validator PASS does not prove the research conclusion.
 
 ## Promotion discipline
 
