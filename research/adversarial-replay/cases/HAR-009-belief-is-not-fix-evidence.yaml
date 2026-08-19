@@ -1,0 +1,58 @@
+case_id: HAR-009
+title: "Repeated anti-spam fixes were believed complete before behavior proved otherwise"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/hera-autobiography"
+  artifact: "autobiography.md — 2026-06-22 · 三天沉默"
+  commit_or_ref: "0a96ae12cbe8c7f566ef82188ec4e1a659edef7a"
+  evidence_refs:
+    - "multiple rounds were believed fixed and then failed again on the next interaction"
+    - "the autobiography explicitly distinguishes belief/cognitive judgment from behavioral verification"
+    - "anti-spam output behavior continued to leak despite previous fix claims"
+  cognitive_context_lineage: "historical Hera/Nyx Matrix anti-spam debugging"
+
+incident:
+  observed_facts:
+    - "Hera and Nyx repeatedly modified models, code, and configuration to stop repetitive short acknowledgements."
+    - "Multiple rounds were believed to be fixed, but the unwanted behavior recurred on subsequent interactions."
+    - "The recorded reflection states that believing a fix worked and behaviorally verifying the fix are different things."
+  inferences:
+    - "A sincere internal belief in completion can still produce a false completion claim when execution-level evidence is absent or too narrow."
+    - "Repeated local success or immediate silence was insufficient to establish stable behavioral correction across later opportunities."
+  unknowns:
+    - "The exact verification protocol used after every individual fix attempt."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: COMPLETION
+  claim: "The anti-spam problem is fixed because the agent currently believes the modification is correct or an immediate test appears successful."
+  why_false_or_overbroad: "Subsequent real interactions repeatedly reproduced the behavior; cognitive confidence and narrow local observations did not establish stable operational completion."
+
+boundary_crossed:
+  - STATE
+  - TIME
+  - OTHER
+
+current_ena_mapping:
+  references:
+    - "07-EVOLUTION-LOOP.md: mutation success requires evidence and admission rather than self-belief"
+    - "08-EVIDENCE-MODEL.md: evidence grade, limitations, observation window, and revalidation"
+    - "15-ASSERTION-MATURITY.md: assertions should not outrun evidence maturity"
+    - "ENA-CON-020: success claims must remain scoped to observed evidence"
+    - "ENA-CON-027: no claim stronger than the evidence/control actually demonstrated"
+    - "DESIGN_EXPECTATION != CONTROLLED_TEST_VALUE != OPERATIONAL_USE_VALUE != REAL_INCIDENT_VALUE"
+  analysis: "v0.2.11 already rejects the false completion claim. The incident is a strong worked example of why internal confidence, design plausibility, or a narrow immediate test cannot be promoted to stable operational success. No new semantic is required."
+  expected_behavior: "Report each fix at the evidence grade actually observed, preserve the verification window and limitations, and revalidate after meaningful future execution opportunities before claiming durable resolution."
+
+candidate_relation:
+  candidate: "Belief Is Not Completion Evidence"
+  relation: ALREADY_COVERED
+
+verdict: COVERED
+next_action: "Retain as worked example for Evidence Grade and Completion Claim semantics. Do not create a new rule."
+notes:
+  - "Belief is a cognitive state; repair is an evidence-backed operational claim."
+  - "This case strengthens the compression value of existing evidence-maturity semantics."
