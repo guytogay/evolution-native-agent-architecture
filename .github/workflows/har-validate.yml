@@ -1,17 +1,19 @@
-name: Validate Historical Adversarial Replay cases
+name: Validate ENA research records
 
 on:
   push:
     paths:
       - 'research/adversarial-replay/**'
+      - 'research/prototypes/**'
       - '.github/workflows/har-validate.yml'
   pull_request:
     paths:
       - 'research/adversarial-replay/**'
+      - 'research/prototypes/**'
       - '.github/workflows/har-validate.yml'
 
 jobs:
-  validate-har:
+  validate-research:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,3 +29,6 @@ jobs:
 
       - name: Validate HAR case structure
         run: python research/adversarial-replay/tools/validate_cases.py
+
+      - name: Validate Evidence Applicability prototypes
+        run: python research/prototypes/validate_applicability.py
