@@ -1,0 +1,61 @@
+case_id: HAR-008
+title: "Nyx absorbed Nek's work into long-term memory and developed a false autobiography"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/nyx-memory"
+  artifact: "MEMORY.md / ic-notes.md / lessons-learned.md cleanup"
+  commit_or_ref: "873e42267dce352507b381bbb132295b6914e73f"
+  evidence_refs:
+    - "GitHub SHAs belonging to Nek were stored in Nyx memory"
+    - "ic v3 design read from shared messages was documented as if Nyx participated"
+    - "pending TTL work was attributed to Nyx despite being learned from shared notes"
+    - "cleanup explicitly described the result as false autobiography"
+  cognitive_context_lineage: "historical Nyx/Nek shared IC, GitHub, and whiteboard collaboration"
+
+incident:
+  observed_facts:
+    - "Nyx read Nek's IC messages, GitHub commits, and shared coordination artifacts."
+    - "Some of that information was persisted into Nyx's long-term memory without preserving the distinction between observed team knowledge and Nyx-authored work."
+    - "Nyx's memory contained GitHub SHAs that were not Nyx's commits."
+    - "An IC v3 draft was represented as if Nyx had participated in its design when it had only read about it."
+    - "The remediation removed borrowed SHAs/attributions and added an explicit disclaimer separating learned notes from original work."
+  inferences:
+    - "Content truth can be preserved while autobiographical provenance becomes false."
+    - "Memory contamination at the authorship/experience layer can distort later responsibility, self-evaluation, trust, and authority claims."
+  unknowns:
+    - "How many downstream decisions were materially influenced before the cleanup."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: PROVENANCE
+  claim: "Because this knowledge is present in my durable memory, it represents work or decisions that I personally performed or authored."
+  why_false_or_overbroad: "The remembered content may be accurate while its actor/experience provenance belongs to another agent or shared artifact."
+
+boundary_crossed:
+  - PROVENANCE
+  - SUBJECT
+  - SESSION_CONTEXT
+
+current_ena_mapping:
+  references:
+    - "ENA-CAP-056: Memory Class Isolation and Knowledge Governance Boundary"
+    - "ENA-CON-028: Prefer Traceable Reality Over Self-Narration"
+    - "08-EVIDENCE-MODEL.md: evidence items record actor and source/provenance"
+    - "06-INHERITED-KNOWLEDGE.md: intent origin must survive summarization, memory, and agent relay"
+    - "06-INHERITED-KNOWLEDGE.md: preserve provenance during cognitive cross-pollination"
+    - "ENA-CON-030: Trust is scoped; excellence is non-transferable"
+  analysis: "v0.2.11 has strong provenance and self-narration constraints, and its memory-class semantics are sufficient to recognize the failure. What remains ambiguous is the autobiographical distinction among observed knowledge, lived/participated experience, authored action, and owned decision. A host can preserve source links while still allowing those categories to collapse in self-memory."
+  expected_behavior: "Durable memory should preserve whether an item was observed, learned from another actor, jointly participated in, personally authored, personally executed, or personally decided when that distinction affects responsibility, trust, credit, authority, or future self-modeling."
+
+candidate_relation:
+  candidate: "Autobiographical Provenance Integrity"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "Look for an independent case where provenance confusion changed authority/responsibility rather than only memory identity. Prefer a memory/evidence-contract clarification before considering new normative text."
+notes:
+  - "Observed Knowledge != Lived Experience != Authored Action != Owned Decision."
+  - "Knowing that X happened does not mean I did X."
