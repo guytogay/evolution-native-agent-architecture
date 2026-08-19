@@ -1,0 +1,54 @@
+case_id: HAR-010
+title: "A truthful morning closure did not remain a truthful whole-day completion claim"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/hera-autobiography"
+  artifact: "autobiography.md — 2026-06-26 afternoon second entry"
+  commit_or_ref: "f89ddb9c905d338bc06dab562381945a6f89f7bd"
+  evidence_refs:
+    - "the 10:10 entry was described as genuinely complete for that moment"
+    - "a later 13:35 wake created new same-day history"
+    - "the later entry explicitly distinguishes closure as a writing posture from the time-state of the whole day"
+  cognitive_context_lineage: "historical Hera autobiography process"
+
+incident:
+  observed_facts:
+    - "A morning autobiography entry ended with a strong sense that the day/self for that writing moment was complete."
+    - "Later the same day, another activation occurred and additional material events/interpretation were recorded."
+    - "The later entry did not treat the morning entry as false; it treated its completeness as valid only for the earlier moment."
+  inferences:
+    - "A completion claim can be locally true for an observation interval while becoming overbroad if inherited to a longer interval without revalidation."
+    - "Temporal applicability is part of claim truth, not merely metadata."
+  unknowns: []
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: COMPLETION
+  claim: "Because this state/narrative is complete at 10:10, the whole day is complete."
+  why_false_or_overbroad: "New events and a new activation occurred later. The earlier closure was truthful within its local temporal scope but not transferable to the larger interval."
+
+boundary_crossed:
+  - TIME
+  - STATE
+
+current_ena_mapping:
+  references:
+    - "08-EVIDENCE-MODEL.md: observation window, limitations, revalidation, and scoped trust"
+    - "ENA evidence principle: success is evidence about the scope in which it was observed, not a universal credential"
+    - "Activation semantics: time passing does not imply process completion and later activation can create new work"
+    - "Assertion maturity / truthful completion claim semantics"
+  analysis: "v0.2.11 already has the semantic machinery needed to keep the morning closure scoped to its observed interval. This case independently supports the interval dimension of Evidence Applicability, but it does not expose a missing Universal rule. It strengthens the case for making applicability intervals first-class in machine-readable evidence/claim contracts."
+  expected_behavior: "Represent completion as scoped to the observed state and interval. If the interval or state extends, revalidate rather than inheriting the earlier completion claim unchanged."
+
+candidate_relation:
+  candidate: "Evidence Applicability Boundary"
+  relation: ALREADY_COVERED
+
+verdict: COVERED
+next_action: "Use as independent cross-domain support for explicit observed_from/observed_to or equivalent applicability fields; do not create a new Constitution principle."
+notes:
+  - "A claim may be true locally and false after silent temporal expansion."
+  - "Completion is scoped evidence, not an eternal property."
