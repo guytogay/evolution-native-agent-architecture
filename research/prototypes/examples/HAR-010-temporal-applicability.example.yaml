@@ -1,0 +1,30 @@
+# NON-NORMATIVE research prototype mapped from HAR-010.
+# The original morning closure is not treated as false; its applicability is scoped.
+
+applicability:
+  subject_ref: "Hera autobiography completion claim at the morning writing event"
+  host_identity: "historical Hera autobiography process"
+  runtime_instance_ref: null
+  configuration_state_ref: null
+  epoch_or_version: "2026-06-26"
+  scope:
+    - "completeness of the 10:10 autobiography entry and the state observed at that writing event"
+  observed_from: "2026-06-26T10:10:00+08:00"
+  observed_to: "2026-06-26T10:10:00+08:00"
+  environment_ref: "autobiography process with later cron-triggered activations possible"
+  limitations:
+    - "The claim does not establish that no later same-day activation or event will occur."
+    - "The claim is not a whole-day terminal-state assertion."
+  transfer_constraints:
+    - boundary: TIME
+      rule: "Do not expand the morning completion claim to a larger temporal interval without revalidation."
+      transfer_status: NOT_VALIDATED
+      validation_evidence_refs: []
+    - boundary: SCOPE
+      rule: "Entry completeness does not imply day completeness."
+      transfer_status: NOT_VALIDATED
+      validation_evidence_refs: []
+  revalidate_when:
+    - "a later activation occurs"
+    - "new same-day events or observations are produced"
+    - "the consumer attempts to make a whole-day completion claim"
