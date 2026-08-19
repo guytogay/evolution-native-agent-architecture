@@ -1,0 +1,59 @@
+case_id: HAR-006
+title: "B2B rate-limit evidence was transferred across different gateway instances/configuration states"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/b2b-guard-debug"
+  artifact: "README.md / B2B Guard Break Mechanism Debug Log"
+  commit_or_ref: "6e0863b96ec9f9eed826aa370c94acf31f8df71a"
+  evidence_refs:
+    - "Early hypothesis: rate limit was 5 seconds"
+    - "Actual finding: server-side B2B_RATE_WINDOW_MS was always 15,000 ms"
+    - "The 5-second readings came from comparing different gateway instances with different configurations"
+  cognitive_context_lineage: "historical B2B guard debugging by Ken, Hera, and Nyx"
+
+incident:
+  observed_facts:
+    - "The investigation initially treated observed 5-second behavior as evidence about the active server-side rate-limit configuration."
+    - "The resolved finding was that the server-side rate-limit value was 15 seconds."
+    - "The apparent 5-second readings came from different gateway instances/configuration states being compared."
+  inferences:
+    - "The individual observations could be locally valid while being inapplicable to the runtime instance/state about which the final claim was made."
+    - "The error was evidence transfer across an unverified subject/state boundary rather than simple fabricated evidence."
+  unknowns:
+    - "The exact configuration lineage of every gateway instance that contributed to the early hypothesis."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: EVIDENCE
+  claim: "A valid rate-limit observation from one gateway instance/configuration state supports the current rate-limit claim for another gateway instance/state."
+  why_false_or_overbroad: "Evidence validity is local to the subject/state/interval actually observed unless transfer across the boundary is independently justified."
+
+boundary_crossed:
+  - SUBJECT
+  - STATE
+  - INSTANCE
+  - EPOCH
+
+current_ena_mapping:
+  references:
+    - "08-EVIDENCE-MODEL.md: evidence should record time, actor, epoch, claim, method, result, limitations, source/provenance, correlation, independence, and revalidation rule"
+    - "08-EVIDENCE-MODEL.md: scoped trustworthiness evidence is not universally fungible"
+    - "08-EVIDENCE-MODEL.md: cross-domain transfer is a new claim and requires its own evidence"
+    - "11-SESSION-REALITY-BOOTSTRAP.md: host identity and epoch/version are part of current reality"
+    - "ENA-CON-036: Local Validity Does Not Imply Composed Validity"
+  analysis: "v0.2.11 contains the ingredients needed to avoid this error: provenance, epoch, host identity, limitations, scoped trust, and revalidation. However, the Evidence Model is much more explicit about cross-domain trust transfer than about evidence applicability across runtime subject/instance/state boundaries. A reader can record epoch/provenance correctly yet still fail to state that evidence from A does not automatically support B."
+  expected_behavior: "An observation should support only the subject, state, scope, and interval it actually observed. Transfer across runtime instance, configuration state, epoch, or equivalent boundaries should be treated as a new claim requiring revalidation."
+
+candidate_relation:
+  candidate: "Evidence Applicability Boundary"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "Audit 08-EVIDENCE-MODEL.md and its schemas/templates for whether subject/state/instance applicability is explicit enough to machine-check. Prefer a clarification/schema tightening before considering a new Constitution principle."
+notes:
+  - "Evidence validity != evidence applicability."
+  - "Do not inherit evidence across unverified state boundaries."
+  - "An observation supports only the subject, state, scope, and interval it actually observed."
