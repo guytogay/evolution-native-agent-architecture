@@ -1,0 +1,52 @@
+case_id: HAR-001
+title: "ENA work continued in an unrelated pre-existing Anytype/Obsidian session"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: CONVERSATION_INCIDENT
+  artifact: "User-reported DSH session misrouting incident, 2026-08-20"
+  evidence_refs: []
+  cognitive_context_lineage: "PREEXISTING_ANYTYPE_OBSIDIAN_SESSION -> ENA_v0.2.9_AND_LATER_RESEARCH"
+
+incident:
+  observed_facts:
+    - "The DSH session used for ENA work from v0.2.9 onward had originally been a session about Anytype and Obsidian, unrelated to ENA."
+    - "The wrong-session use was accidental and was discovered only after substantial ENA work had already been performed in that session."
+    - "Mechanical DSH evidence produced in that session includes filesystem, authorization, restore/history, package/hash, transaction, and validation observations."
+  inferences:
+    - "Prior unrelated session content may have influenced salience, framing, retrieval, or interpretation of later ENA questions."
+    - "The existence of unrelated prior context does not by itself invalidate mechanically observed host evidence."
+  unknowns:
+    - "The magnitude and direction of any framing effect caused by the earlier Anytype/Obsidian context."
+    - "Whether clean-session semantic judgments would materially differ on selected ENA questions."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: PROVENANCE
+  claim: "Host continuity or durable-state continuity is sufficient to describe the cognitive execution context of the ENA work."
+  why_false_or_overbroad: "The same host and durable state can be reached through materially different session histories; those histories may alter what is retrieved, salient, or applied even when mechanical host evidence remains unchanged."
+
+boundary_crossed:
+  - SESSION_CONTEXT
+  - PROVENANCE
+
+current_ena_mapping:
+  references:
+    - "11-SESSION-REALITY-BOOTSTRAP.md: a new session is a new cognitive context, not a new governance universe"
+    - "11-SESSION-REALITY-BOOTSTRAP.md: refresh durable reality before self-affecting durable change"
+    - "08-EVIDENCE-MODEL.md: evidence provenance and limitations"
+    - "25-HISTORY-AND-KNOWLEDGE-PROJECTION.md: Known != Retrieved != Salient != Applied research distinction"
+  analysis: "v0.2.11 already recognizes session-level cognitive context and durable-state revalidation, so the incident does not show that ENA mistakes a session for a new governance universe. However, the minimal session_reality contract records host/epoch/state/authority/recovery facts but not the lineage of the cognitive context itself. This leaves an ambiguity when a materially different pre-existing session history may influence semantic judgment without invalidating mechanical evidence."
+  expected_behavior: "ENA should preserve the distinction between mechanical evidence validity and cognitive-context provenance, avoid claiming context purity, and make material context lineage legible when it could affect interpretation or salience."
+
+candidate_relation:
+  candidate: "Session Context Lineage / Cognitive Context Provenance"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "Run a small clean-session counterfactual replay on 2-3 semantic judgment questions; do not redo mechanical promotion/adoption evidence and do not create v0.2.12 from this case alone."
+notes:
+  - "Context provenance, not context purity."
+  - "Host continuity != cognitive-context continuity."
+  - "UNKNOWN stays UNKNOWN regarding actual framing impact."
