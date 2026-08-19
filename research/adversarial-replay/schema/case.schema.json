@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ena.local/research/adversarial-replay/case.schema.json",
+  "title": "ENA Historical Adversarial Replay Case",
+  "description": "Non-normative research schema for testing ENA MAINLINE semantics against real historical failures.",
+  "type": "object",
+  "required": [
+    "case_id",
+    "title",
+    "ena_baseline",
+    "source",
+    "incident",
+    "false_claim",
+    "current_ena_mapping",
+    "verdict"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "pattern": "^HAR-[0-9]{3,}$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "EVIDENCED", "REPLAYED", "NEEDS_MORE_EVIDENCE", "CLOSED"]
+    },
+    "ena_baseline": {"type": "string", "const": "v0.2.11 MAINLINE"},
+    "source": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {"type": "string", "enum": ["GITHUB_HISTORY", "DSH_HOST_EVIDENCE", "CONVERSATION_INCIDENT", "OTHER"]},
+        "repository": {"type": "string"},
+        "artifact": {"type": "string"},
+        "commit_or_ref": {"type": "string"},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "cognitive_context_lineage": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "incident": {
+      "type": "object",
+      "required": ["observed_facts"],
+      "properties": {
+        "observed_facts": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "inferences": {"type": "array", "items": {"type": "string"}},
+        "unknowns": {"type": "array", "items": {"type": "string"}},
+        "evidence_grade": {
+          "type": "string",
+          "enum": ["DESIGN_EXPECTATION", "CONTROLLED_TEST_EVIDENCE", "OPERATIONAL_USE_EVIDENCE", "REAL_INCIDENT_EVIDENCE", "MIXED", "UNKNOWN"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "false_claim": {
+      "type": "object",
+      "required": ["claim_type", "claim"],
+      "properties": {
+        "claim_type": {
+          "type": "string",
+          "enum": ["PROTECTION", "HEALTH", "EVIDENCE", "AUTHORITY", "COMPLETION", "PROVENANCE", "HISTORY", "ACTIVATION", "OTHER"]
+        },
+        "claim": {"type": "string"},
+        "why_false_or_overbroad": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "boundary_crossed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SUBJECT",
+          "STATE",
+          "INSTANCE",
+          "EPOCH",
+          "TIME",
+          "PROJECTION",
+          "COMPOSITION",
+          "RECOVERY",
+          "AUTHORITY",
+          "FAILURE_DOMAIN",
+          "SESSION_CONTEXT",
+          "PROVENANCE",
+          "CONCURRENCY",
+          "OTHER"
+        ]
+      }
+    },
+    "current_ena_mapping": {
+      "type": "object",
+      "required": ["references", "analysis"],
+      "properties": {
+        "references": {"type": "array", "items": {"type": "string"}},
+        "analysis": {"type": "string"},
+        "expected_behavior": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "candidate_relation": {
+      "type": "object",
+      "properties": {
+        "candidate": {"type": "string"},
+        "relation": {
+          "type": "string",
+          "enum": ["SUPPORTS", "PARTIALLY_SUPPORTS", "CONTRADICTS", "ALREADY_COVERED", "INSUFFICIENT_EVIDENCE", "NONE"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["COVERED", "COVERED_BUT_AMBIGUOUS", "HOST_SPECIFIC", "CLARIFICATION_GAP", "NORMATIVE_GAP", "UNKNOWN"]
+    },
+    "next_action": {"type": "string"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
