@@ -1,0 +1,57 @@
+case_id: HAR-002
+title: "DSH restore removed post-baseline k-0083 while ev-1205 survived"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: DSH_HOST_EVIDENCE
+  artifact: "ENA v0.2.11 Promotion Reconciliation & Restore-History Lineage Audit - DSH - 2026-08-19"
+  evidence_refs:
+    - "k-0083"
+    - "ev-1205"
+  cognitive_context_lineage: "PREEXISTING_ANYTYPE_OBSIDIAN_SESSION -> ENA_RESEARCH_CONTINUATION"
+
+incident:
+  observed_facts:
+    - "DSH restored the pre-dedup 81-occurrence KNOWLEDGE baseline and created a derived projection."
+    - "A later knowledge occurrence k-0083 was referenced by event ev-1205."
+    - "A subsequent restore from the older backup removed k-0083 while ev-1205 survived."
+    - "The original k-0083 claim text could not be recovered from the surviving canonical artifacts; only the event reference remained."
+  inferences:
+    - "Mutable state rollback crossed a historical-time boundary without reconciling post-checkpoint occurrence truth."
+    - "The surviving event reference proves a historical gap but does not prove the missing claim content."
+  unknowns:
+    - "The exact claim text of k-0083."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: HISTORY
+  claim: "A successful state restore implies that canonical occurrence history is complete after the restore."
+  why_false_or_overbroad: "The restored state can be mechanically valid while material post-checkpoint occurrences are lost; surviving references may show that history is only partially preserved."
+
+boundary_crossed:
+  - RECOVERY
+  - TIME
+  - PROVENANCE
+
+current_ena_mapping:
+  references:
+    - "25-HISTORY-AND-KNOWLEDGE-PROJECTION.md: Canonical History != Derived Knowledge Projection"
+    - "25-HISTORY-AND-KNOWLEDGE-PROJECTION.md: deduplicate the projection, not the history"
+    - "VAL-030: destructive canonical-history change requires explicit exception semantics"
+    - "VAL-031: transformation should preserve occurrence/reference integrity"
+    - "VAL-032: deduplication must not erase recurrence semantics"
+    - "CON-011 / history integrity semantics"
+  analysis: "v0.2.11 already contains the semantic distinction required to reject the false completion claim. The incident does not demonstrate a missing Universal rule. It demonstrates that a host can know/retrieve relevant history-integrity semantics yet still fail to apply them at the decision surface, and that restore implementation needs reconciliation if canonical occurrences may exist after the checkpoint."
+  expected_behavior: "Report restored mutable state separately from historical completeness; preserve or reconcile post-checkpoint canonical occurrences, or explicitly expose the gap. Keep the missing k-0083 claim UNKNOWN rather than reconstructing it from inference."
+
+candidate_relation:
+  candidate: "Recovery State != Historical Time / Monotonic History Across Restore"
+  relation: ALREADY_COVERED
+
+verdict: COVERED
+next_action: "Retain as reference-host evidence for Salience and restore-reconciliation research. Do not add a new Constitution rule from this incident alone."
+notes:
+  - "Rollback state; preserve history."
+  - "Transformation may change representation; it must not silently rewrite canonical occurrence truth."
+  - "UNKNOWN stays UNKNOWN."
