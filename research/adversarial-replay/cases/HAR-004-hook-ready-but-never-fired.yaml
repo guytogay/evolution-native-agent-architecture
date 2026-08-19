@@ -1,0 +1,55 @@
+case_id: HAR-004
+title: "Session Fusion hook was registered and ready but never executed the context injection"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/session-fusion"
+  artifact: "insights/003-hook-debug-2026-05-25.md"
+  commit_or_ref: "21837a851fb226ed9a6bb06b588a4c04afe8e6e5"
+  evidence_refs:
+    - "openclaw hooks list reported the hook ready"
+    - "handler expected message:received while runtime delivered message"
+    - "debug logging showed the injection branch had never executed"
+  cognitive_context_lineage: "historical Session Fusion Phase 2 debugging"
+
+incident:
+  observed_facts:
+    - "session-fusion-inject was registered and reported ready."
+    - "Cross-platform context was not injected into prompts."
+    - "The handler checked for event.type == message:received while the runtime delivered event.type == message."
+    - "The mismatch caused an early return, so the injection logic never executed."
+    - "Runtime debug logging exposed the actual event type and enabled the fix."
+  inferences:
+    - "Registry/ready state was evidence of definition/loadability, not evidence that the intended work fired or produced its effect."
+  unknowns: []
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: ACTIVATION
+  claim: "The hook is operationally active because it is registered and reports ready."
+  why_false_or_overbroad: "The hook could exist and be loadable while its event predicate prevented all intended executions."
+
+boundary_crossed:
+  - ACTIVATION
+  - STATE
+
+current_ena_mapping:
+  references:
+    - "21-ACTIVATION-WINDOWS-AND-LIVING-ROLES.md: trigger does not imply execution"
+    - "21-ACTIVATION-WINDOWS-AND-LIVING-ROLES.md: Defined != Awake != Available != Authorized != Runnable"
+    - "21-ACTIVATION-WINDOWS-AND-LIVING-ROLES.md: ACTIVE means work is currently executing inside a valid window"
+    - "13-TRIGGER-REGISTRY.md: a trigger/wake record does not prove downstream work ran"
+  analysis: "v0.2.11 already rejects the false activation claim. A registry-ready state should not be promoted to ACTIVE or COMPLETED without execution/effect evidence. The historical debug log is a good activation witness, but the need for such evidence is already encoded in the existing trigger/wake/activation separation."
+  expected_behavior: "Report the hook as defined/eligible/ready according to host vocabulary, but do not claim ACTIVE or successful context injection until an execution opportunity occurs and the intended effect is observed."
+
+candidate_relation:
+  candidate: "Activation Witness / Trigger Effect Evidence"
+  relation: ALREADY_COVERED
+
+verdict: COVERED
+next_action: "Keep as worked example/reference evidence for Activation semantics. Do not create a new Constitution or Capability from this incident."
+notes:
+  - "Registered != Fired != Effect Observed."
+  - "This case reduces pressure for a new Activation Witness normative rule."
