@@ -1,0 +1,54 @@
+case_id: HAR-005
+title: "Session Fusion 500-character context projection cut a message mid-sentence"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: GITHUB_HISTORY
+  repository: "guytogay/session-fusion"
+  artifact: "insights/004-message-truncation.md"
+  commit_or_ref: "bba11ff982e789e55534c5ce89ff0c768f368571"
+  evidence_refs:
+    - "get_recent_messages() truncated text above 500 characters"
+    - "the final message about 谢南枝 was cut off mid-sentence"
+    - "the recorded Phase 3 requirement called for full message content rather than the truncated representation"
+  cognitive_context_lineage: "historical Session Fusion Phase 3 context-continuity work"
+
+incident:
+  observed_facts:
+    - "The aggregator applied a hard 500-character truncation to recent message text."
+    - "A real recent message was cut off mid-sentence."
+    - "The resulting context artifact was therefore a lossy representation of the source conversation."
+    - "The project recorded that Phase 3 context continuity required the full message content for that use case."
+  inferences:
+    - "A lossy context projection can still be useful for awareness while being insufficient for claims that require complete conversational content."
+  unknowns:
+    - "Whether every downstream consumer treated the truncated projection as complete rather than merely partial context."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: EVIDENCE
+  claim: "The projected recent-message context preserves the complete source message semantics needed by downstream reasoning."
+  why_false_or_overbroad: "The transformation deliberately removed content and in at least one observed case cut the source mid-sentence."
+
+boundary_crossed:
+  - PROJECTION
+  - PROVENANCE
+
+current_ena_mapping:
+  references:
+    - "08-EVIDENCE-MODEL.md: each evidence item should record limitations and source/provenance"
+    - "08-EVIDENCE-MODEL.md: derived indexes, summaries, dashboards, and search projections are not automatically the source occurrence record"
+    - "25-HISTORY-AND-KNOWLEDGE-PROJECTION.md: derived projections may simplify representation while source occurrence truth remains distinct"
+  analysis: "v0.2.11 already prevents a derived summary/projection from automatically inheriting the semantics of the canonical occurrence it represents. That logic strongly applies to the Session Fusion incident. However, the explicit normative treatment is centered on evidence/history/knowledge projection rather than a general Context Projection contract, so a downstream context-completeness claim can still be semantically ambiguous unless its truncation/coverage limitations are made legible."
+  expected_behavior: "A lossy context artifact should expose that it is a projection, its truncation/coverage limits, and the claim envelope it can support. It may support awareness while remaining insufficient evidence for complete-conversation or exact-message claims."
+
+candidate_relation:
+  candidate: "General Projection Semantics"
+  relation: PARTIALLY_SUPPORTS
+
+verdict: COVERED_BUT_AMBIGUOUS
+next_action: "Seek independent non-history/non-conversation projection failures (for example health or compliance projection) before deciding whether a general Projection semantic deserves portable clarification or new normative text."
+notes:
+  - "A projection may simplify representation, but stronger truth semantics must be earned by the transformation and provenance."
+  - "This case does not by itself justify a Universal Projection Architecture."
