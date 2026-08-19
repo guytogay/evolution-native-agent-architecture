@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ena.local/research/prototypes/evidence-applicability-envelope.schema.json",
+  "title": "ENA Research Prototype — Evidence Applicability Envelope",
+  "description": "NON-NORMATIVE prototype for making the applicability boundary of an evidence item machine-legible. This is not part of ENA v0.2.11 MAINLINE.",
+  "type": "object",
+  "required": ["applicability"],
+  "properties": {
+    "applicability": {
+      "type": "object",
+      "required": ["subject_ref", "scope", "revalidate_when"],
+      "properties": {
+        "subject_ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The specific object/actor/system/property actually observed."
+        },
+        "host_identity": {
+          "type": ["string", "null"],
+          "description": "Host identity when applicability depends on host reality."
+        },
+        "runtime_instance_ref": {
+          "type": ["string", "null"],
+          "description": "Concrete runtime/process/gateway/session instance when evidence is instance-bound."
+        },
+        "configuration_state_ref": {
+          "type": ["string", "null"],
+          "description": "Configuration/override/state identity actually observed."
+        },
+        "epoch_or_version": {
+          "type": ["string", "null"],
+          "description": "Epoch, generation, release, or equivalent continuity marker."
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1},
+          "description": "Consequences/properties/channels/capabilities for which this evidence is applicable."
+        },
+        "observed_from": {
+          "type": ["string", "null"],
+          "description": "Beginning of the observation interval; ISO-8601 preferred where applicable."
+        },
+        "observed_to": {
+          "type": ["string", "null"],
+          "description": "End of the observation interval; ISO-8601 preferred where applicable."
+        },
+        "environment_ref": {
+          "type": ["string", "null"],
+          "description": "Environment/topology/deployment context needed for truthful transfer."
+        },
+        "limitations": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "transfer_constraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["boundary", "rule"],
+            "properties": {
+              "boundary": {
+                "type": "string",
+                "enum": ["SUBJECT", "HOST", "INSTANCE", "CONFIGURATION_STATE", "EPOCH", "TIME", "ENVIRONMENT", "SCOPE", "AUTHORITY_PATH", "OTHER"]
+              },
+              "rule": {"type": "string", "minLength": 1},
+              "transfer_status": {
+                "type": "string",
+                "enum": ["NOT_VALIDATED", "VALIDATED", "NOT_APPLICABLE", "UNKNOWN"]
+              },
+              "validation_evidence_refs": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "revalidate_when": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
