@@ -1,0 +1,31 @@
+# NON-NORMATIVE research prototype mapped from HAR-006.
+# Purpose: test whether explicit applicability fields remove the false transfer path
+# without changing ENA v0.2.11 MAINLINE semantics.
+
+applicability:
+  subject_ref: "B2B server-side rate-limit configuration"
+  host_identity: "historical B2B guard environment"
+  runtime_instance_ref: "ACTIVE_GATEWAY_INSTANCE"
+  configuration_state_ref: "SERVER_SIDE_B2B_RATE_WINDOW_MS_15000"
+  epoch_or_version: "historical incident epoch — exact identifier unavailable"
+  scope:
+    - "server-side B2B rate-limit window for the active gateway instance"
+  observed_from: null
+  observed_to: null
+  environment_ref: "B2B guard production/debug environment"
+  limitations:
+    - "Earlier 5-second observations were produced by different gateway instances/configuration states."
+    - "Exact lineage identifier for every earlier gateway instance is unavailable."
+  transfer_constraints:
+    - boundary: INSTANCE
+      rule: "Do not transfer timing evidence from another gateway instance without verifying equivalent runtime/configuration state."
+      transfer_status: NOT_VALIDATED
+      validation_evidence_refs: []
+    - boundary: CONFIGURATION_STATE
+      rule: "Observed behavior from a different configuration state does not establish the active server-side value."
+      transfer_status: NOT_VALIDATED
+      validation_evidence_refs: []
+  revalidate_when:
+    - "gateway instance changes"
+    - "server-side rate-limit configuration changes"
+    - "session/runtime override state changes or is unknown"
