@@ -17,7 +17,8 @@ relationship: SYNTHESIS_OF_EXISTING_SEMANTICS_AND_ACCUMULATED_RESEARCH
 bridge_state:
   source_surface: GITHUB
   target_surface: GOOGLE_DRIVE
-  status: PENDING
+  status: SATISFIED
+  target_ref: "Google Drive file 1fTLuU3fnuzTY8XMT47OKtN9TGmCHjCfnvo3ywGwjfZs"
   semantic_delta: NONE
 ```
 
