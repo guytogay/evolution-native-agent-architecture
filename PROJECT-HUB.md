@@ -4,9 +4,7 @@ Status: `PROJECT_ENTRYPOINT / CURRENT`
 
 Project: **Evolution-Native Agent Architecture (ENA)**
 
-This file is the standard entrypoint for any participant asked to continue, review, research, advise on, experiment on, or contribute to ENA.
-
-Participants may include ChatGPT sessions, Gemini, OpenClaw, Hermes Agent, DeepSeek Harness, Codex, humans, bots, or other systems with access to at least one declared persistent project surface.
+This is the stable entrypoint for any participant asked to continue, review, research, advise on, experiment on, or contribute to ENA. Participants may include ChatGPT sessions, Gemini, OpenClaw, Hermes Agent, DeepSeek Harness, Codex, humans, bots, or other systems with access to at least one declared persistent project surface.
 
 The participant does not need shared hidden context with previous participants. It needs legible persisted project state.
 
@@ -14,89 +12,107 @@ The participant does not need shared hidden context with previous participants. 
 
 Formal baseline: **ENA v0.2.11 MAINLINE**
 
-Release posture:
-
 - adopted from v0.2.11 Candidate Revision 2;
 - promotion transition complete;
 - normative semantic delta from Candidate Revision 2: `NONE`;
 - known DSH host defects remain visible;
 - no v0.2.12 is currently open.
 
-Do not infer that a research artifact, Issue, prototype, contribution, or committed file is part of MAINLINE unless it is explicitly promoted.
+Do not infer that a research artifact, Issue, prototype, contribution, committed file, or Drive document is part of MAINLINE unless it is explicitly promoted.
+
+Machine-readable navigation/state: `PROJECT-METADATA.yaml`.
 
 ## First-read order
 
-When the user says another session/agent has been working on ENA, or asks you to continue/review/contribute:
-
 1. Read this file.
-2. Read `README.md` for repository role and baseline identity.
-3. Read `research/EVOLUTION-INBOX.md` for current unpromoted candidates.
-4. Read `research/adversarial-replay/README.md` when the task concerns current research pressure or historical incidents.
-5. Check `collaboration/inbox/` for unreconciled contributions from parallel participants.
-6. Check `collaboration/reconciliation/` for prior handling of contributions.
-7. Read only the specific MAINLINE/release/evidence artifacts needed for the task.
+2. Read `PROJECT-METADATA.yaml` for exact surface paths and IDs.
+3. Read `README.md` for repository role and baseline identity.
+4. Read `research/evolution-inbox/README.md` for current unpromoted candidate state.
+5. Read `research/adversarial-replay/README.md` when the task concerns current research pressure or historical incidents.
+6. Check `collaboration/inbox/` for unreconciled GitHub-side contributions.
+7. Check `collaboration/reconciliation/` for prior handling of contributions.
+8. If Drive is available, check the Drive Project Hub and Drive Collaboration Inbox for Drive-only contributions.
+9. Read only the specific MAINLINE/release/evidence artifacts needed for the task.
 
-Do not rely only on remembered conversational context when persisted state may have changed.
+Compatibility: `research/EVOLUTION-INBOX.md` remains as a pointer for older participants.
 
-## Global collaboration protocol
+## Global collaboration infrastructure
 
-ENA adopts the **Persistent Project Collaboration Protocol**.
+ENA adopts the **Persistent Project Collaboration Protocol** and **Persistent Project Structure and Naming Standard**.
 
-Global discovery index in Google Drive:
-`Persistent Project Registry`
+Google Drive global discovery:
 
-General protocol in Google Drive:
-`Persistent Project Collaboration Protocol`
+`My Drive / 00 Persistent Collaboration`
+
+Key global artifacts:
+
+- `00 START HERE - Persistent Project Collaboration`
+- `Persistent Project Registry`
+- `Persistent Project Collaboration Protocol`
+- `Persistent Project Structure and Naming Standard`
+- `Persistent Project Collaboration Bootstrap Template`
 
 Core rules:
 
+- project-first, not Agent-first;
 - persistent project state is the collaboration bus;
 - tool access is connectivity, not project authority;
 - one contribution should normally be one independent artifact;
 - contribution and reconciliation are separate;
 - conflicts remain visible until evidence/authorized decision resolves them;
+- copy is not synchronization;
 - project continuity does not depend on one permanent owning session/agent.
 
-## Shared persistence layers
+## Persistent surfaces
 
 ### GitHub
 
-Repository:
-`guytogay/evolution-native-agent-architecture`
+Repository: `guytogay/evolution-native-agent-architecture`
 
-Role:
+Role: diff-friendly engineering/research lineage, structured research, Issues, experiments, prototypes, contributions, future candidate/release work.
 
-- diff-friendly engineering/research lineage;
-- structured research;
-- Issues / experiments / prototypes;
-- collaboration contributions;
-- future candidate/release work.
+Primary paths:
+
+- Evolution Inbox: `research/evolution-inbox/`
+- Historical Adversarial Replay: `research/adversarial-replay/`
+- Experiments: `research/experiments/`
+- Prototypes: `research/prototypes/`
+- Contributions: `collaboration/inbox/`
+- Reconciliation: `collaboration/reconciliation/`
+- Decisions: `decisions/`
 
 ### Google Drive
 
-Primary project folder:
-`ChatGPT Knowledge`
+Project root:
 
-Folder ID:
-`1NjWvXzlvkt7xgOs4yDPfit5DlszUDsPr`
+`My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture`
 
-General discovery index:
-`Persistent Project Registry`
+Folder ID: `1uRMP44TsHEhiJZG8Jcc4ja3UHpyZqRmi`
 
-General collaboration protocol:
-`Persistent Project Collaboration Protocol`
+Stable Drive entrypoint:
 
-Important ENA Drive artifacts include:
+`00 Project Hub / ENA - PROJECT HUB`
 
-- validated ENA v0.2.11 MAINLINE release artifacts;
-- ENA Historical Adversarial Replay Register;
-- the living ENA research document;
-- ENA GitHub fossil/adversarial review input;
-- ENA Parallel Research Node Collaboration Protocol.
+Drive layout:
 
-Drive is the durable artifact/research recovery layer. GitHub is the structured engineering/research lineage from repository adoption onward.
+- `10 Mainline`
+- `20 Research / 00 Evolution Inbox`
+- `20 Research / 10 Historical Adversarial Replay`
+- `20 Research / 20 Experiments`
+- `20 Research / 30 Prototypes`
+- `30 Evidence / 10 DSH`
+- `30 Evidence / 20 Historical and External`
+- `40 Releases / 10 Current`
+- `40 Releases / 90 Archive`
+- `50 Collaboration / 10 Inbox`
+- `50 Collaboration / 20 Reconciliation`
+- `50 Collaboration / 30 Templates`
+- `60 Decisions`
+- `90 Archive`
 
-A participant may join with GitHub-only or Drive-only access, provided it follows the available entrypoint and does not claim access/persistence it does not have.
+Drive role: durable release artifacts, human-readable research/evidence reports, Drive-only discovery/contributions, and independent recovery anchors.
+
+`ChatGPT Knowledge` is now a legacy/general knowledge location, **not** the ENA project root.
 
 ## Participant capability and authority
 
@@ -119,48 +135,35 @@ These fields describe provenance and technical capability, not project authority
 
 **Drive WRITE != authority to promote research or rewrite evidence.**
 
-Implementation/promotion/remediation authority must be separately justified.
+Implementation, promotion, deployment, remediation, and scope-expansion authority must be separately justified.
 
-## Where parallel participants should contribute
+## Contribution workflow
 
 Do **not** normally edit one shared Inbox file concurrently.
 
-Create a new contribution under:
+GitHub contribution: create one independent artifact under `collaboration/inbox/`.
 
-`collaboration/inbox/`
+Drive-only contribution: create one independent artifact under `50 Collaboration / 10 Inbox`.
 
-Preferred filename:
+Preferred GitHub filename:
 
-`YYYY-MM-DD-HHMM-<short-topic>.md`
+`YYYY-MM-DD-HHMM-<participant-or-source>-<short-topic>.md`
 
 Use `collaboration/CONTRIBUTION-TEMPLATE.md` when useful.
 
-A contribution can contain:
-
-- advice;
-- new evidence;
-- a counterexample;
-- a conflicting interpretation;
-- a design concern;
-- a historical incident;
-- a clarification suggestion;
-- a proposed experiment;
-- a negative result;
-- implementation review.
-
-Default contribution status:
+Default status:
 
 `UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED`
 
 ## Reconciliation
 
-The participant currently acting as Project Steward should review new contribution files during substantive ENA maintenance.
+Reconciliation is a separate artifact; never rewrite the original contribution merely because it was handled.
 
-Reconciliation records belong under:
+GitHub: `collaboration/reconciliation/`
 
-`collaboration/reconciliation/`
+Drive: `50 Collaboration / 20 Reconciliation`
 
-Possible outcomes:
+Possible outcomes include:
 
 - `ACCEPT_AS_EVIDENCE`
 - `ACCEPT_AS_CLARIFICATION`
@@ -173,8 +176,6 @@ Possible outcomes:
 - `PRESERVE_CONFLICT`
 - `UNKNOWN`
 
-Do not delete or rewrite the original contribution merely because it was reconciled.
-
 ## Current research posture
 
 Historical Adversarial Replay checkpoint:
@@ -183,9 +184,9 @@ Historical Adversarial Replay checkpoint:
 
 Current high-priority research:
 
-1. Evidence Applicability contract falsification on DSH — GitHub Issue #4.
-2. Session Context Lineage clean-session counterfactual — GitHub Issue #3.
-3. Influence Integrity / Persuasion Boundary as an open cross-cutting vector touching Evidence/Claim support, Authorization, and Governance Salience.
+1. Evidence Applicability contract falsification on DSH — Issue #4.
+2. Session Context Lineage clean-session counterfactual — Issue #3.
+3. Influence Integrity / Persuasion Boundary — open cross-cutting research vector.
 
 Current discipline:
 
@@ -195,34 +196,14 @@ Current discipline:
 
 ## Modification guardrails
 
-Review/research access does not automatically authorize MAINLINE changes.
-
 Do not silently:
 
 - create v0.2.12;
 - edit Constitution/Capability/Validation semantics because a candidate sounds elegant;
-- promote a contribution because another model/agent proposed it;
+- promote a contribution because another participant proposed it;
 - remediate unrelated DSH defects;
 - erase conflicting interpretations to make participants agree;
 - confuse review/advice authority with implementation authority;
 - use a technically available write path as proof of mandate.
 
-## Collaboration topology
-
-```text
-ChatGPT ─┐
-Gemini  ─┤
-Hermes  ─┤
-DSH     ─┼→ independent contribution/evidence → reconciliation → candidate → MAINLINE only when justified
-OpenClaw─┤
-Human   ─┤
-Other   ─┘
-```
-
-Participants do not need shared live context.
-
-They need shared discoverability, lineage, evidence, contribution state, and explicit authority boundaries.
-
-> Persistent project state is the collaboration bus.
-
-> Protocol-level unity + cognitive diversity + implementation diversity.
+Participants need shared discoverability, lineage, evidence, contribution state, and explicit authority boundaries—not shared hidden internal state.
