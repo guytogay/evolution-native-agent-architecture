@@ -51,6 +51,7 @@ A clever abstraction is not evidence of a Universal gap.
 | HAR-008 | Autobiographical Provenance Integrity | `CLARIFICATION_GAP` |
 | HAR-009 | Belief/Immediate Confidence vs Stable Fix Evidence | `COVERED` |
 | HAR-010 | Temporal Completion Scope | `COVERED` |
+| HAR-011 | Triggered obligation not externalized after Drive persistence | `CLARIFICATION_GAP` |
 
 **Current `NORMATIVE_GAP` count: 0.**
 
@@ -60,19 +61,22 @@ That is a positive result. HAR is increasing real-failure coverage while reducin
 
 - `Activation Witness / Trigger Effect Evidence` collapses into existing activation semantics and is best retained as a worked example/reference case.
 - the DSH k-0083 incident is already semantically covered by v0.2.11 History/Projection rules; remaining pressure is host implementation, restore reconciliation, and salience/application.
-- `Evidence Applicability Boundary` remains the strongest clarification/schema-tightening candidate. It now has two independent real-domain forms: runtime instance/configuration-state transfer (`HAR-006`) and temporal-interval expansion (`HAR-010`). The evidence therefore supports a research-only applicability-contract prototype, but still does not require a new Constitution rule.
+- `Evidence Applicability Boundary` remains the strongest clarification/schema-tightening candidate. It now has two independent real-domain forms: runtime instance/configuration-state transfer (`HAR-006`) and temporal-interval expansion (`HAR-010`).
 - `HAR-009` strengthens existing Evidence Grade / Assertion Maturity / Completion semantics: sincere belief in a fix is not stable operational evidence.
-- `General Projection Semantics` remains promising but is not yet justified as a Universal architecture. The 0–100 memory-health model found in historical code is design-risk evidence, not an observed failure, and is intentionally not counted as an independent HAR incident.
+- `HAR-011` exposes a different execution gap: a rule may exist in persistent project state while a conditionally triggered follow-up obligation never becomes first-class execution state. Only `Applied=NO` is directly observed; whether the rule was Retrieved or Salient at the decision window remains UNKNOWN. The current repair direction is `Triggered Obligation Externalization / Obligation Closure`, not a new Constitution rule.
+- `General Projection Semantics` remains promising but is not yet justified as a Universal architecture.
 - `Distributed History Merge Semantics` needs an independent non-Git multi-writer case before stronger promotion pressure is warranted.
 - `Autobiographical Provenance Integrity` is supported by the Nyx false-autobiography incident, but needs independent evidence where provenance confusion materially changes responsibility, authority, trust, or consequence.
 - `Effect-Generating Control Paths` is supported by the B2B Telegram echo-loop incident, but current CON-036/CON-037/CAP-058 already cover much of the structure; seek an independent non-messaging case before any wording change.
-- `Witness Survivability / Failure-Domain Independence` currently has a strong `/tmp/OPENCLAW_CHANGING` design-risk example but no recovered incident showing marker loss actually produced a false clean-state conclusion. It therefore remains outside the HAR incident count.
+- `Witness Survivability / Failure-Domain Independence` remains design-risk evidence rather than a recovered incident.
 
 ## Active targeted work
 
-- `results/EVIDENCE-APPLICABILITY-AUDIT-v0.2.11.md` — current result: clarification + schema/template tightening candidate; no Constitution change justified.
-- `../prototypes/evidence-applicability-envelope.schema.json` — research-only applicability envelope prototype, with HAR-006 and HAR-010 example mappings.
-- `../experiments/SESSION-LINEAGE-COUNTERFACTUAL-PLAN.md` — clean-session comparison plan for three semantic judgments; mechanical promotion evidence is not repeated.
+- `results/EVIDENCE-APPLICABILITY-AUDIT-v0.2.11.md` — clarification + schema/template tightening candidate; no Constitution change justified.
+- `../prototypes/evidence-applicability-envelope.schema.json` — research-only applicability envelope prototype.
+- `../prototypes/triggered-obligation-state.schema.json` — research-only prototype for externalizing material conditional obligations after their trigger is observed.
+- `../prototypes/examples/HAR-011-triggered-bridge-obligation.example.yaml` — HAR-011 mapping into the obligation-state prototype.
+- `../experiments/SESSION-LINEAGE-COUNTERFACTUAL-PLAN.md` — clean-session comparison plan for three semantic judgments.
 - `schema/case.schema.json` + structural validators + GitHub Actions workflow — research-record validation only. A validator PASS does not prove the research conclusion.
 
 ## Promotion discipline
