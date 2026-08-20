@@ -19,13 +19,27 @@ Status: strong candidate; supported by DSH k-0083 restore/history gap evidence.
 A restore procedure should not silently erase material post-checkpoint occurrence truth. If history cannot be fully preserved, the gap itself should remain visible.
 Status: strong candidate; not promoted.
 
-### Evidence Applicability Boundary
+### Evidence Applicability Boundary / Claim↔Evidence Support Contract
 Valid evidence about one subject/state/instance/epoch/interval does not automatically support another.
+> Evidence validity does not imply evidence applicability.
 > An observation supports only the subject, state, scope, and interval it actually observed.
-> Do not inherit evidence across unverified state boundaries.
-Reference incidents include gateway/config state confusion and temporal completion-scope expansion.
-Current hypothesis: likely clarification/tightening of the existing Evidence Model rather than a new Constitution principle.
-Research-only applicability-contract work is tracked under `research/prototypes/` and DSH falsification Issue #4.
+
+DSH Issue #4 falsification completed on 2026-08-20 with final verdict:
+
+`CLAIM_EVIDENCE_LINK_CONTRACT_REQUIRED`
+
+The evidence-only applicability envelope was **falsified as sufficient**. It provides real machine legibility for the evidence observation boundary, but 6/6 adversarial transfer envelopes still schema-PASS because the invalid expansion occurs at the claim-support boundary. Legitimate-transfer tests also exposed overconstraint in per-property transfer, equivalence/invariance representation, and recursive transfer evidence.
+
+Current research placement:
+
+`Evidence envelope + Claim scope + Evidence→Claim support relation`
+
+The machine question is not merely whether evidence is well-formed, but whether that evidence supports that claim within the asserted boundary or via a separately evidenced transfer/equivalence claim.
+
+Current judgment: MAINLINE semantics already cover the conceptual property; the demonstrated gap is a machine-contract/artifact-layer gap, not a new Constitution principle or Capability. No v0.2.12 is opened by this result.
+
+Result artifact: `research/experiments/EVIDENCE-APPLICABILITY-DSH-RESULT-2026-08-20.md`.
+Status: strong machine-contract research result; concrete link-contract schema remains unformalized pending further falsification/governance-value review.
 
 ### General Projection Semantics
 Projection is necessary and may legitimately truncate, summarize, deduplicate, rank, merge, omit, or decay information. The danger is semantic inflation.
@@ -93,7 +107,8 @@ Status: host evidence / research vector; not promoted. Clean-session counterfact
 ### Known ≠ Retrieved ≠ Salient ≠ Applied
 DSH knowledge-dedup reconstruction suggests relevant rules were known and even retrieved, yet failed to dominate the final decision surface when a clean local optimization target became salient.
 Influence Integrity adds an attack vector: urgency, praise, shame, relationship framing, or repeated insistence may compete for salience without changing underlying evidence or authority.
-Status: open research question; no mechanism selected.
+Recent triggered-obligation research adds an operational direction: material rules should not depend indefinitely on cognitive salience once their trigger has been observed; important triggered duties may need explicit externalized state until closed.
+Status: open research question; no Mainline mechanism selected.
 
 ## Clarification candidates
 
@@ -115,7 +130,7 @@ Status: supported by DSH authorization-lineage audit; likely already covered by 
 Preferred loop:
 `Historical incident → concrete failure claim → current ENA mapping → false claim that became possible → should current ENA stop it? → COVERED / AMBIGUOUS / HOST-SPECIFIC / GAP`
 
-Current HAR checkpoint: **10 replay cases, 0 NORMATIVE_GAP**.
+Current HAR checkpoint: **13 replay cases, 0 NORMATIVE_GAP**.
 
 ## Contribution rule
 Do not append parallel-agent advice directly into this file by default. Put one contribution per artifact under `collaboration/inbox/`; reconcile it separately. This directory represents structured candidate state, not an uncontrolled shared scratchpad.
