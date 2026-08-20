@@ -16,8 +16,12 @@ participant:
 relationship: DEEPER_BOUNDARY_CONDITION
 bridge_state:
   source_surface: GITHUB
+  source_ref: "collaboration/inbox/2026-08-20-1333-chatgpt-ecological-specialization-for-imperfect-models.md"
   target_surface: GOOGLE_DRIVE
-  status: PENDING
+  target_ref:
+    title: "ENA BRIDGE - Ecological Specialization for Imperfect Models"
+    file_id: "1mVkXRoBfNurLOToApyN_qUvMSxeAGws1jBvIVcWCZHU"
+  status: BRIDGED
   semantic_delta: NONE
 ```
 
