@@ -17,7 +17,8 @@ relationship: DEEPER_BOUNDARY_CONDITION
 bridge_state:
   source_surface: GITHUB
   target_surface: GOOGLE_DRIVE
-  status: PENDING
+  status: SATISFIED
+  target_ref: "Google Drive file 1ZLM9lLTKfGjbZnYgbHo1lloEuU4Mp2C7V-u15lumu-c"
   semantic_delta: NONE
 ```
 
