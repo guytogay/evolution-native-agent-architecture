@@ -1,4 +1,4 @@
-name: Validate ENA Current
+name: Validate and package ENA Current
 
 on:
   push:
@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -55,3 +57,78 @@ jobs:
           assert not (root / '07-BETA-ADOPTION-AND-FIELD-VALIDATION.md').exists()
           print('current-baseline-pointer-pass')
           PY
+
+      - name: Build deterministic package from canonical committed Current bytes
+        id: package
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE_COMMIT="$(git log -1 --format=%H -- releases/current)"
+          echo "source_commit=$SOURCE_COMMIT" >> "$GITHUB_OUTPUT"
+          echo "Canonical Current source commit: $SOURCE_COMMIT"
+          rm -rf release-build
+          mkdir -p release-build/current release-build/out
+          git ls-tree -r --name-only "$SOURCE_COMMIT" releases/current | sort > release-build/source-paths.txt
+          while IFS= read -r path; do
+            rel="${path#releases/current/}"
+            mkdir -p "release-build/current/$(dirname "$rel")"
+            git show "$SOURCE_COMMIT:$path" > "release-build/current/$rel"
+          done < release-build/source-paths.txt
+          SOURCE_COMMIT="$SOURCE_COMMIT" python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, os, zipfile
+
+          root = Path('release-build/current')
+          out = Path('release-build/out')
+          zip_path = out / 'ENA-v0.3.2-CURRENT.zip'
+          files = sorted(p for p in root.rglob('*') if p.is_file())
+          file_hashes = {}
+          with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+              for path in files:
+                  rel = path.relative_to(root).as_posix()
+                  data = path.read_bytes()
+                  file_hashes[rel] = hashlib.sha256(data).hexdigest()
+                  info = zipfile.ZipInfo(rel, (1980, 1, 1, 0, 0, 0))
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  info.external_attr = 0o100644 << 16
+                  zf.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+
+          with zipfile.ZipFile(zip_path, 'r') as zf:
+              names = sorted(zf.namelist())
+              expected = sorted(file_hashes)
+              assert names == expected, {'zip': names, 'source': expected}
+              for name in names:
+                  assert hashlib.sha256(zf.read(name)).hexdigest() == file_hashes[name], name
+
+          zip_sha = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+          (out / 'ENA-v0.3.2-CURRENT.zip.sha256').write_text(
+              f'{zip_sha}  ENA-v0.3.2-CURRENT.zip\n', encoding='utf-8'
+          )
+          evidence = {
+              'ena_version': 'v0.3.2',
+              'status': 'FIELD_VALIDATION',
+              'canonical_current_source_commit': os.environ['SOURCE_COMMIT'],
+              'package_file': zip_path.name,
+              'package_sha256': zip_sha,
+              'file_count': len(files),
+              'files_sha256': file_hashes,
+              'verification': {
+                  'source_bytes_from_git_objects': True,
+                  'exact_file_set_parity': True,
+                  'per_file_sha256_parity_after_zip_readback': True,
+                  'deterministic_zip_metadata': True
+              }
+          }
+          (out / 'ENA-v0.3.2-RELEASE-EVIDENCE.json').write_text(
+              json.dumps(evidence, indent=2, sort_keys=True) + '\n', encoding='utf-8'
+          )
+          print(json.dumps({k: evidence[k] for k in ['ena_version','canonical_current_source_commit','package_sha256','file_count']}, indent=2))
+          PY
+
+      - name: Upload v0.3.2 release evidence and package
+        uses: actions/upload-artifact@v4
+        with:
+          name: ENA-v0.3.2-release-package
+          path: release-build/out/*
+          if-no-files-found: error
+          retention-days: 90
