@@ -8,6 +8,12 @@
 >
 > Full map, local projection.
 
+## Cross-session / project entrypoint
+
+If you are a ChatGPT session asked to continue, review, research, advise on, or contribute to ENA — especially when the user says another session has already been working on it — **read [`PROJECT-HUB.md`](PROJECT-HUB.md) first**.
+
+The project hub explains current canonical state, Google Drive anchors, collaboration inbox/reconciliation paths, active research, and modification guardrails.
+
 ## Repository role
 
 This private repository is the engineering source of truth for ENA from the point of GitHub adoption onward.
