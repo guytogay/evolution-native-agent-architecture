@@ -1,0 +1,57 @@
+name: Validate ENA Current
+
+on:
+  push:
+    paths:
+      - 'releases/current/**'
+      - '.github/workflows/current-validate.yml'
+  pull_request:
+    paths:
+      - 'releases/current/**'
+      - '.github/workflows/current-validate.yml'
+
+jobs:
+  validate-current:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Parse all Current JSON schemas
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in sorted(Path('releases/current/schemas').glob('*.json')):
+              json.loads(path.read_text(encoding='utf-8'))
+              print('schema-parse-pass', path)
+          PY
+
+      - name: Run semantic contract fixtures
+        run: python releases/current/tools/validate_contracts.py selftest
+
+      - name: Validate Current baseline pointers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/current')
+          doc = yaml.safe_load((root / 'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['ena_version'] == 'v0.3.2'
+          assert doc['complete_adoption_baseline'] is True
+          assert doc['requires_older_release_composition'] is False
+          for rel in doc.get('core_files', []):
+              assert (root / rel).is_file(), f'missing core file: {rel}'
+          lite = doc.get('lite_entrypoint')
+          assert lite and (root / lite).is_file(), f'missing LITE entrypoint: {lite}'
+          assert not (root / '07-BETA-ADOPTION-AND-FIELD-VALIDATION.md').exists()
+          print('current-baseline-pointer-pass')
+          PY
