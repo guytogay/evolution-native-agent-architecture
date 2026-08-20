@@ -7,6 +7,32 @@ Date: `2026-08-20`
 
 Candidate 1 remains the comprehensive consolidation map. Candidate 2 does not replace that map; it adds the production-readiness layer needed to make ENA usable in real Agents while allowing field operation to feed future ENA evolution.
 
+## Candidate status does not mean observe-only
+
+`NOT_MAINLINE / NOT_PROMOTED` is an epistemic and release-status statement, not a prohibition on real use.
+
+Candidate 2 is explicitly intended for bounded Shadow, Canary, and experimental production adoption where the host has authority and appropriate consequence controls.
+
+Recommended pilot identity:
+
+```text
+ENA v0.2.11 MAINLINE
++ v0.3.0 Candidate 2 experimental production profile / selected mechanisms
++ declared host-local extensions
+```
+
+During such a pilot:
+
+- v0.2.11 remains the promoted normative floor and the basis for Mainline conformance claims;
+- selected Candidate 2 mechanisms are actually applied and tested in real operation;
+- Candidate 2 must not silently weaken or override promoted Mainline invariants;
+- the host must not report the pilot as `v0.3.0 MAINLINE`, `fully promoted`, or universally validated;
+- field evidence may justify later promotion, simplification, replacement, dormancy, merge, or rejection.
+
+> Formal baseline answers: **what ENA has already promoted.**
+>
+> Active Candidate answers: **what ENA is deliberately testing in real operation next.**
+
 ## Why Candidate 2 exists
 
 Candidate 1 consolidated the broad ENA research surface, but production adoption needs a smaller executable selection surface:
