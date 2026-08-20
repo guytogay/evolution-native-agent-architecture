@@ -1,18 +1,20 @@
-# ENA Cross-Session Collaboration Inbox
+# ENA Collaboration Inbox
 
 Status: `CONTRIBUTION_INBOX / NON_NORMATIVE`
 
-This directory receives independent contributions from parallel ChatGPT sessions or other project research nodes.
+This directory receives independent contributions from humans, ChatGPT sessions, Gemini, OpenClaw, Hermes Agent, DeepSeek Harness, Codex, bots, or other project participants.
 
 ## Default behavior
 
-Prefer **one file per contribution** instead of multiple sessions editing one shared inbox file.
+Prefer **one artifact per contribution** instead of multiple participants editing one shared Inbox file.
 
 Preferred filename:
 
-`YYYY-MM-DD-HHMM-<short-topic>.md`
+`YYYY-MM-DD-HHMM-<participant-or-source>-<short-topic>.md`
 
 Use `../CONTRIBUTION-TEMPLATE.md` when useful.
+
+The artifact body should carry an offset-aware `created_at` timestamp when available; filename time is a sorting aid, not authoritative chronology.
 
 ## Allowed contribution types
 
@@ -25,13 +27,13 @@ Use `../CONTRIBUTION-TEMPLATE.md` when useful.
 - clarification suggestion;
 - experiment proposal;
 - negative result;
-- implementation concern.
+- implementation concern/review.
 
-## Default authority
+## Default semantic status
 
 A file appearing here means only:
 
-`PERSISTED CONTRIBUTION`
+`PERSISTED CONTRIBUTION / UNRECONCILED`
 
 It does **not** mean:
 
@@ -40,6 +42,18 @@ It does **not** mean:
 `AUTHORIZED FOR IMPLEMENTATION`
 `MAINLINE`
 
-Project-maintaining sessions should inspect new files and create reconciliation records under `../reconciliation/`.
+Tool access is connectivity, not project authority.
+
+## Drive-only participants
+
+Google Drive contribution surface:
+
+`My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture / 50 Collaboration / 10 Inbox`
+
+If a contribution is bridged between Drive and GitHub, preserve participant provenance and original semantic status. Do not transform “participant proposed X” into “project decided X”.
+
+## After contribution
+
+A Project Steward or authorized maintainer should inspect new contributions and create a separate reconciliation record under `../reconciliation/`.
 
 Original contributions should normally remain preserved after reconciliation.
