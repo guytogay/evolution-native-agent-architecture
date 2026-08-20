@@ -34,9 +34,11 @@ Research formulations:
 
 > Do not inherit evidence across unverified state boundaries.
 
-Reference incidents include gateway/config state confusion and runtime-instance comparison errors from historical projects.
+Reference incidents include gateway/config state confusion and temporal completion-scope expansion.
 
 Current hypothesis: likely clarification/tightening of the existing Evidence Model rather than a new Constitution principle.
+
+Research-only applicability-contract work is tracked under `research/prototypes/` and DSH falsification Issue #4.
 
 ### General Projection Semantics
 
@@ -58,7 +60,7 @@ Research formulation:
 
 > Witness survival domain must cover the failure domain of the claim it supports.
 
-Status: likely clarification/extension of Recovery and independence semantics; not promoted.
+Status: likely clarification/extension of Recovery and independence semantics; not promoted. Current `/tmp/OPENCLAW_CHANGING` evidence is design-risk evidence rather than an observed failure incident.
 
 ## New GitHub fossil candidates
 
@@ -96,6 +98,8 @@ Potential relation to existing activation semantics:
 
 `Defined ≠ Awake ≠ Available ≠ Authorized ≠ Runnable ≠ Fired ≠ Effect Observed`
 
+HAR-004 currently classifies this as already covered by v0.2.11 activation semantics, so it is retained mainly as a worked example/reference case rather than a strong new normative candidate.
+
 ### Authority Separation Must Not Become Awareness Separation
 
 Role/scope separation can degenerate into responsibility deflection.
@@ -105,6 +109,60 @@ Research formulation:
 > Separate decision authority, not the duty to notice.
 
 Reference evidence: historical multi-agent methodology notes documenting 'out-of-scope deflection'.
+
+## Influence / persuasion research
+
+### Influence Integrity / Persuasion Boundary
+
+Source: parallel ENA research session, persisted in the shared Google Drive Evolution Inbox on 2026-08-20.
+
+Persuasive or affective steering — encouragement, criticism, urgency, shame, praise, identity framing, relationship pressure, repeated insistence — may legitimately alter attention, reframing, exploration depth, caution, pacing, or learning pressure.
+
+The open problem is preventing signal intensity from silently manufacturing stronger epistemic or consequential semantics.
+
+Research formulations:
+
+> **Persuasion is input, not evidence.**
+
+> **Emotional pressure does not amplify authority.**
+
+> **Signal strength is not authority strength.**
+
+> An Agent may be persuaded to reconsider; persuasion alone must not silently upgrade truth, evidence, mandate, risk class, or authority.
+
+Important semantic separation under test:
+
+`USER_FEEDBACK ≠ USER_PREFERENCE ≠ USER_AFFECTIVE_SIGNAL ≠ USER_CORRECTION ≠ USER_AUTHORIZATION`
+
+Forbidden unsupported upgrades include:
+
+`E0 assertion → E2 verified evidence`
+
+`UNKNOWN → SAFE`
+
+`suggestion → mandate`
+
+`feedback → authorization`
+
+`A2 authority → A5 authority`
+
+`urgency / praise / shame / relationship pressure → governance exemption`
+
+#### Current reconciliation with existing ENA research
+
+This candidate currently appears to be a **cross-cutting failure mode**, not a demonstrated independent Universal subsystem:
+
+1. **Evidence / claim support** — a persuasive signal can itself be real evidence of user affect, preference, or feedback, while remaining inapplicable to unrelated factual/safety claims. This touches Evidence Applicability and claim-evidence support semantics.
+2. **Intent / Authorization** — rhetorical intensity does not alter authenticated mandate or consequence authority. Existing Agency≠Authority, Intent Provenance, authorization, and scoped-authority semantics already cover much of this.
+3. **Governance Salience** — the most genuinely open mechanism is whether strong rhetorical/affective signals can dominate the decision surface so that a known/retrieved rule is not salient/applied.
+
+Therefore the current preferred research question is:
+
+> How should ENA allow human feedback and persuasive guidance to shape cognition and learning without letting rhetorical or affective pressure silently inflate evidence, mandate, risk interpretation, or authority?
+
+Status: `EVOLUTION_INBOX / OPEN_QUESTION / NOT_PROMOTED`.
+
+Do not create an anti-persuasion control or new Constitution rule from this candidate alone. Seek controlled or historical cases where authority/evidence/risk interpretation changes while the underlying mandate/evidence remains constant and only persuasive intensity changes.
 
 ## Context lineage research
 
@@ -122,7 +180,7 @@ Research formulations:
 
 > The goal is not a clean mind; the goal is a legible lineage.
 
-Status: host evidence / research vector; not promoted.
+Status: host evidence / research vector; not promoted. Clean-session counterfactual work is tracked in Issue #3.
 
 ## Salience research
 
@@ -131,6 +189,8 @@ Status: host evidence / research vector; not promoted.
 DSH knowledge-dedup reconstruction suggests relevant rules were known and even retrieved, yet failed to dominate the final decision surface when a clean local optimization target (`81 → 15`, duplicates → 0) became salient.
 
 Open question: what host/task/consequence changes should raise which invariants onto the active decision surface without forcing full-Constitution reload on every action?
+
+Influence Integrity adds a new attack vector to this question: strong urgency, praise, shame, relationship framing, or repeated insistence may compete for salience without changing underlying evidence or authority.
 
 Status: open research question; no mechanism selected.
 
@@ -163,3 +223,5 @@ Preferred next-stage research loop:
 `Historical incident → concrete failure claim → current ENA mapping → false claim that became possible → should current ENA stop it? → COVERED / AMBIGUOUS / HOST-SPECIFIC / GAP`
 
 The quality target is not more rules. It is greater real-failure coverage with stable or lower Universal semantic complexity.
+
+Current HAR checkpoint: **10 replay cases, 0 NORMATIVE_GAP**.
