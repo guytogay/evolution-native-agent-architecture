@@ -4,7 +4,7 @@ status: REPLAYED
 ena_baseline: "v0.2.11 MAINLINE"
 
 source:
-  kind: REAL_INCIDENT
+  kind: OTHER
   repository: "guytogay/evolution-native-agent-architecture"
   artifact: "Persistent Project Collaboration Protocol + Drive contribution + later GitHub bridge"
   commit_or_ref: "7f8812fdd7fd8801b67f25a411af57b05aebf28d"
