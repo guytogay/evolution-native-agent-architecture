@@ -44,6 +44,28 @@ Tool access does not authorize Mainline modification, release, deployment, remed
 
 - 
 
+## Triggered follow-up obligations
+
+Use this section only when the contribution event activates a material conditional follow-up requirement. Do not create paperwork for non-material possibilities.
+
+```yaml
+triggered_obligations:
+  - obligation_id: "<stable/local id>"
+    rule_ref: "<protocol/project rule>"
+    applicability: "APPLICABLE | NOT_APPLICABLE | UNKNOWN"
+    materiality: "MATERIAL_TO_COMPLETION | NON_MATERIAL | UNKNOWN"
+    status: "PENDING | SATISFIED | NOT_REQUIRED | DEFERRED_AUTHORIZED | FAILED | UNKNOWN"
+    required_before_claim: "<workflow/completion claim, if any>"
+    evidence_refs: []
+    resolution_reason: ""
+```
+
+A material conditional obligation should not remain silently absent after its trigger is observed.
+
+`Primary action success != workflow completion.`
+
+For multi-surface collaboration, explicitly evaluate bridge disposition when relevant; duplication is not automatically required, but `NOT_REQUIRED` should be a deliberate state rather than an implicit omission.
+
 ## Requested reconciliation
 
 - 
