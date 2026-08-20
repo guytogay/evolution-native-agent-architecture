@@ -57,6 +57,20 @@ Relevant rules may be known and retrievable yet fail to dominate the final decis
 
 The current baseline already includes Triggered Material Obligation Closure and Influence Integrity as operational protections; this research area remains open for additional failure modes.
 
+### Minimum Sufficient Intervention / Ecological Governance
+
+Research whether ENA should explicitly prefer the **lowest intervention layer sufficient to protect viability and contain material externality**, rather than accumulating stronger controls by default.
+
+Candidate ladder under test:
+
+`OBSERVE -> EXPOSE_SIGNAL -> SHAPE_CONDITIONS -> LOCAL_COORDINATION -> SCOPED_HARD_BOUNDARY -> EMERGENCY_CONTAINMENT`
+
+This is **not Current semantics**. The research must test both under-intervention and over-intervention failure modes, including bad equilibria, externality, monoculture, governance debt, and lost behavioral variety.
+
+- Tracker: Issue #11
+- Research note: `MINIMUM-SUFFICIENT-INTERVENTION.md`
+- Experiment: `../experiments/MINIMUM-SUFFICIENT-INTERVENTION-EXPERIMENT.md`
+
 ### Release Identity ≠ Artifact Schema Identity
 An ENA release version and an artifact schema-contract version may legitimately differ. Keep the relationship explicit when it matters.
 

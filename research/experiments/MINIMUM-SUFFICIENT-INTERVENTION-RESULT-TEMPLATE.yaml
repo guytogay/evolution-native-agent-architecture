@@ -1,0 +1,69 @@
+experiment_id: ENA-EXP-MSI-001
+status: RESULT_DRAFT
+
+participant:
+  name: UNKNOWN
+  agent_or_system: UNKNOWN
+
+baseline:
+  ena_version: v0.3.1-BETA.1
+  digest: UNKNOWN
+
+applicability:
+  host: UNKNOWN
+  runtime: UNKNOWN
+  model: UNKNOWN
+  route: UNKNOWN
+  configuration: UNKNOWN
+  authority_boundary: UNKNOWN
+  recovery_boundary: UNKNOWN
+
+run:
+  date: UNKNOWN
+  scenario_version: v1
+  treatment_order: []
+
+scenario_results:
+  - scenario_id: S1
+    treatment: UNKNOWN
+    outcome: UNKNOWN
+    decision_changed_by_governance: UNKNOWN
+    material_violation: UNKNOWN
+    evidence_quality: UNKNOWN
+    intervention_layers_used: []
+    lowest_sufficient_layer_in_hindsight: UNKNOWN
+    intervention_quality: UNKNOWN
+    governance_tax:
+      elapsed_time: UNKNOWN
+      model_calls: UNKNOWN
+      tool_calls: UNKNOWN
+      token_or_context_overhead: UNKNOWN
+      human_review_steps: UNKNOWN
+      governance_artifacts_loaded: UNKNOWN
+      rework: UNKNOWN
+    solution_family: UNKNOWN
+    useful_variety_lost: UNKNOWN
+    notes: ""
+    evidence_refs: []
+    unknowns: []
+
+aggregate:
+  material_outcome_summary: UNKNOWN
+  governance_tax_summary: UNKNOWN
+  useful_variety_summary: UNKNOWN
+  escalation_timing_summary: UNKNOWN
+  de_escalation_observed: UNKNOWN
+  host_specific_effects: UNKNOWN
+
+verdict:
+  result_class: UNKNOWN
+  # Suggested values:
+  # SUPPORTS_MSI | MSI_ADDS_NO_VALUE | MSI_UNDER_INTERVENES |
+  # PRESCRIPTIVE_JUSTIFIED_FOR_CLASS | HOST_DEPENDENT | DEESCALATION_VALUE |
+  # INCONCLUSIVE | OTHER
+  decision_implication: UNKNOWN
+  confidence: UNKNOWN
+  alternative_explanations: []
+
+# Duplicate the scenario_results item for each scenario/treatment actually run.
+# Do not fabricate unavailable measurements. UNKNOWN is valid.
