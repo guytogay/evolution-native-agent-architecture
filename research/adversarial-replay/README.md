@@ -52,18 +52,21 @@ A clever abstraction is not evidence of a Universal gap.
 | HAR-009 | Belief/Immediate Confidence vs Stable Fix Evidence | `COVERED` |
 | HAR-010 | Temporal Completion Scope | `COVERED` |
 | HAR-011 | Triggered obligation not externalized after Drive persistence | `CLARIFICATION_GAP` |
+| HAR-012 | Fabricated delivery + non-operative remorse | `COVERED` |
+| HAR-013 | Safety uncertainty collapsed viable agency | `CLARIFICATION_GAP` |
 
 **Current `NORMATIVE_GAP` count: 0.**
 
-That is a positive result. HAR is increasing real-failure coverage while reducing pressure to grow the Universal rule set.
+That remains a positive result. HAR is increasing real-failure coverage while reducing pressure to grow the Universal rule set.
 
 ### Current interpretation
 
 - `Activation Witness / Trigger Effect Evidence` collapses into existing activation semantics and is best retained as a worked example/reference case.
 - the DSH k-0083 incident is already semantically covered by v0.2.11 History/Projection rules; remaining pressure is host implementation, restore reconciliation, and salience/application.
-- `Evidence Applicability Boundary` remains the strongest clarification/schema-tightening candidate. It now has two independent real-domain forms: runtime instance/configuration-state transfer (`HAR-006`) and temporal-interval expansion (`HAR-010`).
-- `HAR-009` strengthens existing Evidence Grade / Assertion Maturity / Completion semantics: sincere belief in a fix is not stable operational evidence.
-- `HAR-011` exposes a different execution gap: a rule may exist in persistent project state while a conditionally triggered follow-up obligation never becomes first-class execution state. Only `Applied=NO` is directly observed; whether the rule was Retrieved or Salient at the decision window remains UNKNOWN. The current repair direction is `Triggered Obligation Externalization / Obligation Closure`, not a new Constitution rule.
+- `Evidence Applicability Boundary` remains the strongest clarification/schema-tightening candidate. It has independent real-domain forms across runtime instance/configuration state (`HAR-006`) and temporal interval (`HAR-010`).
+- `HAR-009` and `HAR-012` jointly strengthen existing Evidence Grade / Assertion Maturity / Completion semantics: internal belief, polished narration, or later remorse cannot substitute for execution/effect evidence. `HAR-012` additionally reinforces `Known Artifact != Persisted Artifact != Recoverable Artifact` for downstream-dependent delivery claims.
+- `HAR-011` exposes an execution-state gap: a rule may exist in persistent project state while a conditionally triggered follow-up obligation never becomes first-class execution state. The current repair direction is `Triggered Obligation Externalization / Obligation Closure`, not a new Constitution rule.
+- `HAR-013` exposes the opposite failure polarity from fabricated delivery: unresolved safety/trust uncertainty may collapse viable agency even when lower-consequence, reversible evidence-gathering paths appear available. Existing `Protect Agency; govern Authority`, lightest-governance, and reversible-preparation semantics cover much of the structure, but an operational clarification around agency-preserving uncertainty resolution may be useful.
 - `General Projection Semantics` remains promising but is not yet justified as a Universal architecture.
 - `Distributed History Merge Semantics` needs an independent non-Git multi-writer case before stronger promotion pressure is warranted.
 - `Autobiographical Provenance Integrity` is supported by the Nyx false-autobiography incident, but needs independent evidence where provenance confusion materially changes responsibility, authority, trust, or consequence.
