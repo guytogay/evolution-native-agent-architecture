@@ -1,0 +1,69 @@
+schema_version: "1.0"
+project_id: ena
+name: "Evolution-Native Agent Architecture"
+aliases:
+  - ENA
+  - "Evolution Native Agent Architecture"
+status: ACTIVE
+lifecycle: MAINLINE_HARDENING
+updated_at: "2026-08-20T11:45:00+08:00"
+
+canonical_state:
+  formal_baseline: "ENA v0.2.11 MAINLINE"
+  normative_semantic_delta_from_candidate_rev2: NONE
+  next_revision_open: false
+
+entrypoints:
+  github: "PROJECT-HUB.md"
+  drive_project_hub:
+    title: "ENA - PROJECT HUB"
+    file_id: "1WpvGf0umu8Ky0fNGG2ZLec2XilbHwU6G9uc-VZuzOWo"
+  drive_evolution_inbox:
+    title: "ENA Evolution Inbox - INDEX"
+    file_id: "1Xb-F4B8XJuJXEr4MnUvY-W7LvllNDNArUCpyXLPx3yM"
+
+surfaces:
+  github:
+    repository: "guytogay/evolution-native-agent-architecture"
+    role: "DIFF_FRIENDLY_ENGINEERING_AND_RESEARCH_LINEAGE"
+    main_branch: main
+    evolution_inbox: "research/evolution-inbox/README.md"
+    contributions: "collaboration/inbox/"
+    reconciliation: "collaboration/reconciliation/"
+  google_drive:
+    role: "DURABLE_ARTIFACT_RESEARCH_DISCOVERY_AND_DRIVE_ONLY_COLLABORATION"
+    root_path: "My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture"
+    root_folder_id: "1uRMP44TsHEhiJZG8Jcc4ja3UHpyZqRmi"
+    mainline_folder_id: "18mA6OAZJEWUPoZun_6MXNboKEzPoQn0e"
+    research_folder_id: "1gZU67D1tsQQs9xOfQVZY3GHlgEhK04B2"
+    evolution_inbox_folder_id: "1bFuFW78Lpu_s87h0B38-mJHoJa7WGO9_"
+    evidence_folder_id: "1wt1M2oAF9tZBFONlsoSdPwvfED5J4Z3K"
+    releases_folder_id: "1csbIocVABjJTBoF9ELE0xrdv5F3gVspC"
+    collaboration_folder_id: "1EFAKjWtgHBKE4jQEmdwF77S-1WOPgZDv"
+    contribution_folder_id: "1s2y0t7R0ILJXgQQ1X65zpcDTiiPoKIBa"
+    reconciliation_folder_id: "1TrdNWFYzsriLEanLt7Xe6rBMlpEuqYQS"
+
+current_priorities:
+  - "Issue #4 — Evidence Applicability contract falsification on DSH"
+  - "Issue #3 — Session Context Lineage clean-session counterfactual"
+  - "Influence Integrity / Persuasion Boundary — research only"
+
+research_checkpoint:
+  historical_adversarial_replay_cases: 10
+  normative_gap_count: 0
+
+authority_defaults:
+  contribution: "UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED"
+  github_write_means_mainline_authority: false
+  drive_write_means_promotion_authority: false
+  review_authority_implies_implementation_authority: false
+
+bridge_policy:
+  persistence_is_synchronization: false
+  surface_partition_must_be_exposed: true
+  bridge_must_preserve_provenance: true
+  bridge_may_upgrade_semantic_status_without_authority: false
+
+migration_notes:
+  - "Google Drive ENA project state was migrated from the legacy flat ChatGPT Knowledge layout on 2026-08-20. Existing Drive file IDs were preserved where files were moved."
+  - "research/EVOLUTION-INBOX.md remains as a compatibility pointer to research/evolution-inbox/README.md."
