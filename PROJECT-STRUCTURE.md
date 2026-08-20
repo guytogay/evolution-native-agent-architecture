@@ -19,11 +19,13 @@ ENA uses one persistent project with multiple semantic areas. Participants do no
 | Reconciliation | `collaboration/reconciliation/` | handling/selection of contributions |
 | Decisions | `decisions/` | durable architecture/process decisions |
 
-GitHub does **not** maintain duplicate live release/archive directories. Superseded releases/candidates remain recoverable through Git history.
+GitHub does **not** maintain duplicate live release/archive directories. Superseded releases/candidates remain recoverable through Git history and, when available, maintainer recovery artifacts.
 
-## Google Drive
+## Maintainer recovery mirror
 
-Drive is a complementary durable artifact, research, evidence, contribution, and recovery surface. Historical recovery snapshots may exist there without becoming additional ENA runtime/adoption layers.
+The maintainer may keep a private complementary durable artifact/research/evidence/recovery surface. Its storage coordinates are intentionally outside public project metadata.
+
+That surface is not required for adoption and does not create another ENA runtime/adoption layer.
 
 ## Core information rules
 

@@ -2,7 +2,8 @@
 
 Date: 2026-08-20
 Repository: `guytogay/evolution-native-agent-architecture`
-Visibility: private
+Initial visibility at repository adoption: `PRIVATE`
+Public-readiness decision: `APPROVED / APACHE-2.0 / PUBLICATION_PREPARATION`
 
 ## Meaning of this repository
 
@@ -10,7 +11,7 @@ This repository was created after ENA v0.2.11 MAINLINE had already been develope
 
 Therefore the first Git commits represent **GitHub repository adoption**, not the historical birth of ENA.
 
-Historical releases before repository adoption must not be backfilled as fabricated chronological commits. Their real lineage is preserved through release artifacts, migration records, promotion records, DSH evidence, Google Drive archives, and conversation/research provenance.
+Historical releases before repository adoption must not be backfilled as fabricated chronological commits. Their real lineage is preserved through release artifacts, migration/promotion records, DSH evidence, durable recovery artifacts, and conversation/research provenance where available.
 
 ## Initial formal baseline
 
@@ -30,11 +31,12 @@ GitHub adoption does not authorize rewriting ENA semantics, DSH host evidence, h
 
 > Promotion changes status; it does not rewrite evidence.
 
-## Dual preservation
+## Public canonical surface and private recovery
 
-From this point forward:
+GitHub is the canonical engineering lineage and current-adoption source for editable ENA specification, diffs, Issues, research, evidence links, contributions, and future releases.
 
-- GitHub is the preferred engineering lineage for editable ENA specification, diffs, issues, candidates, evidence links, and future releases.
-- Google Drive remains a durable backup/archive layer for complete artifacts, research documents, reports, and recoverable release packages.
+The maintainer may retain private recovery mirrors for durable backup of complete artifacts and research material. Those private coordinates are not public project dependencies, not runtime version layers, and do not replace GitHub as the canonical public adoption source.
 
-A successful ENA release should eventually be recoverable from both preservation layers when practical.
+> Persistence != synchronization.
+
+> Preserve history durably; retrieve history selectively.

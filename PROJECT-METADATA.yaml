@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -6,6 +6,7 @@ aliases:
   - "Evolution Native Agent Architecture"
 status: ACTIVE
 lifecycle: BETA_FIELD_VALIDATION
+license: Apache-2.0
 
 canonical_state:
   current_adoption_baseline: "ENA v0.3.1-BETA.1"
@@ -22,17 +23,12 @@ entrypoints:
   github_contributing: "CONTRIBUTING.md"
   field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
   field_experience_template: "releases/current/templates/field-experience.v1.yaml"
-  drive_project_hub:
-    title: "ENA - PROJECT HUB"
-    file_id: "1WpvGf0umu8Ky0fNGG2ZLec2XilbHwU6G9uc-VZuzOWo"
-  drive_current_release_index:
-    title: "ENA Releases - Current INDEX"
-    file_id: "1TejAQTEJXmAGYpNyKW6DKYMXdoVwHPLUmfqKILncvv0"
 
 surfaces:
   github:
     repository: "guytogay/evolution-native-agent-architecture"
-    role: "DIFF_FRIENDLY_ENGINEERING_RESEARCH_AND_CURRENT_ADOPTION_SOURCE"
+    visibility_intent: PUBLIC
+    role: "CANONICAL_PUBLIC_ENGINEERING_RESEARCH_LINEAGE_AND_CURRENT_ADOPTION_SOURCE"
     main_branch: main
     current_adoption_baseline: "releases/current/"
     evolution_inbox: "research/evolution-inbox/README.md"
@@ -40,15 +36,12 @@ surfaces:
     reconciliation: "collaboration/reconciliation/"
     decisions: "decisions/"
     evidence_index: "evidence/README.md"
-  google_drive:
-    role: "DURABLE_ARTIFACT_RESEARCH_DISCOVERY_AND_RECOVERY_SURFACE"
-    root_path: "My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture"
-    root_folder_id: "1uRMP44TsHEhiJZG8Jcc4ja3UHpyZqRmi"
-    current_release_folder_id: "16Jg0goFFD1msBwG2dn-aftqCoU-gk6lw"
-    release_archive_folder_id: "1qaCbOGinFNDyjmJwPkeiA5FOM7Yf7mz4"
-    evolution_inbox_folder_id: "1bFuFW78Lpu_s87h0B38-mJHoJa7WGO9_"
-    contribution_folder_id: "1s2y0t7R0ILJXgQQ1X65zpcDTiiPoKIBa"
-    reconciliation_folder_id: "1TrdNWFYzsriLEanLt7Xe6rBMlpEuqYQS"
+  maintainer_private_recovery_mirror:
+    role: "DURABLE_ARTIFACT_RESEARCH_EVIDENCE_AND_RECOVERY_SURFACE"
+    public_dependency: false
+    canonical_runtime_source: false
+    coordinates_published: false
+    synchronization_assumed: false
 
 current_validation:
   baseline: "v0.3.1-BETA.1"
@@ -71,7 +64,6 @@ research_checkpoint:
 authority_defaults:
   contribution: "UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED"
   github_write_means_mainline_authority: false
-  drive_write_means_promotion_authority: false
   review_authority_implies_implementation_authority: false
   field_use_means_project_authority: false
 
@@ -82,6 +74,16 @@ release_policy:
   preserve_history_durably: true
   retrieve_history_selectively: true
   open_knowledge_means_always_loaded: false
+  current_adoption_identity_should_be_immutable: true
+  distribution_parity_must_be_evidenced: true
+
+contribution_policy:
+  public_read_access: true
+  public_inquiry_allowed: true
+  public_issue_and_pr_intake: true
+  contribution_is_promotion: false
+  pull_request_is_acceptance: false
+  credentials_or_unrelated_secrets_allowed_in_contributions: false
 
 bridge_policy:
   persistence_is_synchronization: false
