@@ -15,12 +15,20 @@ canonical_state:
 
 entrypoints:
   github: "PROJECT-HUB.md"
+  github_structure: "PROJECT-STRUCTURE.md"
+  github_contributing: "CONTRIBUTING.md"
   drive_project_hub:
     title: "ENA - PROJECT HUB"
     file_id: "1WpvGf0umu8Ky0fNGG2ZLec2XilbHwU6G9uc-VZuzOWo"
+  drive_mainline_index:
+    title: "ENA Mainline - INDEX"
+    file_id: "12qNHKLOahwP9tpPstFGCZOi_nz-3XUXx8EGGKzuK8_c"
   drive_evolution_inbox:
     title: "ENA Evolution Inbox - INDEX"
     file_id: "1Xb-F4B8XJuJXEr4MnUvY-W7LvllNDNArUCpyXLPx3yM"
+  drive_current_release_index:
+    title: "ENA Releases - Current INDEX"
+    file_id: "1TejAQTEJXmAGYpNyKW6DKYMXdoVwHPLUmfqKILncvv0"
 
 surfaces:
   github:
@@ -30,6 +38,10 @@ surfaces:
     evolution_inbox: "research/evolution-inbox/README.md"
     contributions: "collaboration/inbox/"
     reconciliation: "collaboration/reconciliation/"
+    decisions: "decisions/"
+    current_release_index: "releases/current/README.md"
+    release_archive_index: "releases/archive/README.md"
+    evidence_index: "evidence/README.md"
   google_drive:
     role: "DURABLE_ARTIFACT_RESEARCH_DISCOVERY_AND_DRIVE_ONLY_COLLABORATION"
     root_path: "My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture"
@@ -39,9 +51,14 @@ surfaces:
     evolution_inbox_folder_id: "1bFuFW78Lpu_s87h0B38-mJHoJa7WGO9_"
     evidence_folder_id: "1wt1M2oAF9tZBFONlsoSdPwvfED5J4Z3K"
     releases_folder_id: "1csbIocVABjJTBoF9ELE0xrdv5F3gVspC"
+    current_release_folder_id: "16Jg0goFFD1msBwG2dn-aftqCoU-gk6lw"
+    release_archive_folder_id: "1qaCbOGinFNDyjmJwPkeiA5FOM7Yf7mz4"
     collaboration_folder_id: "1EFAKjWtgHBKE4jQEmdwF77S-1WOPgZDv"
     contribution_folder_id: "1s2y0t7R0ILJXgQQ1X65zpcDTiiPoKIBa"
     reconciliation_folder_id: "1TrdNWFYzsriLEanLt7Xe6rBMlpEuqYQS"
+    templates_folder_id: "1Dl6H62bQRQDXgLxll64GYwS3k3GTMOpo"
+    decisions_folder_id: "1o22t15yp8IJ_eQCp_Y5ByoD4YOQU6EWi"
+    archive_folder_id: "1qgGTFQhrFgSyrWJ2uwFW-QBAqJ8jKbOG"
 
 current_priorities:
   - "Issue #4 — Evidence Applicability contract falsification on DSH"
@@ -67,3 +84,4 @@ bridge_policy:
 migration_notes:
   - "Google Drive ENA project state was migrated from the legacy flat ChatGPT Knowledge layout on 2026-08-20. Existing Drive file IDs were preserved where files were moved."
   - "research/EVOLUTION-INBOX.md remains as a compatibility pointer to research/evolution-inbox/README.md."
+  - "ADR-001 records the project-first persistent information architecture decision."
