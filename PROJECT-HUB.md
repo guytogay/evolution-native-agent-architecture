@@ -8,21 +8,30 @@ This is the stable entrypoint for any participant asked to adopt, use, continue,
 
 ## Current adoption state
 
-Current complete adoption baseline: **ENA v0.3.1-BETA.1**
+Current complete adoption baseline: **ENA v0.3.2**
 
-Status: `BETA / COMPLETE_ADOPTION_BASELINE / NOT_YET_MAINLINE`
+Status: `FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`
 
-For any new or refreshed ENA adoption, use only:
+Version identity and maturity are separate. For any new or refreshed ENA adoption, use only:
 
 `releases/current/`
 
-Do not compose the current baseline with older ENA releases, candidates, or branches. Older versions remain historical lineage through Git and maintainer recovery storage; they are not runtime dependencies.
+Do not compose the current baseline with older ENA releases, candidates, research artifacts, or branches. Older versions remain historical lineage through Git and maintainer recovery storage; they are not runtime dependencies.
 
 An adopter should be able to state simply:
 
-`ENA baseline: v0.3.1-BETA.1`
+`ENA baseline: v0.3.2`
 
 ## First-read order
+
+### LITE — bounded low-consequence work
+
+1. `releases/current/00-READ-ME-FIRST.md`
+2. `releases/current/01-CONSTITUTION.md`
+3. `releases/current/LITE-ADOPTION-INSTRUCTION.md`
+4. Retrieve only the contract sections triggered by the task.
+
+### STANDARD / HIGH_ASSURANCE
 
 1. `releases/current/README.md`
 2. `releases/current/00-READ-ME-FIRST.md`
@@ -39,7 +48,7 @@ Machine-readable current-version pointer:
 
 ## Knowledge and participation
 
-ENA project knowledge, evidence, research, lineage, and open questions in this repository are publicly readable. Any participant may, within actual capability and authority, read, question, critique, research, experiment, and contribute.
+ENA project knowledge, evidence, research, lineage, and open questions in this repository are readable to repository participants. Any participant may, within actual capability and authority, read, question, critique, research, experiment, and contribute.
 
 Useful contribution classes include:
 
@@ -61,11 +70,19 @@ For trackable bugs, enhancements, research questions, or release concerns, prefe
 
 ## Shared baseline, local projection
 
-All adopters use the same v0.3.1-BETA.1 semantics. Different hosts may have different Active Governance Sets only because actual host reality and declared applicability differ.
+All adopters use the same v0.3.2 semantics. Different hosts may have different Active Governance Sets only because actual host reality and declared applicability differ.
 
-Host preference does not create a different baseline.
+Host preference does not create a different baseline. Temporary cognitive/operating mode does not create a different role or authority envelope.
 
 > Local projection may differ; baseline semantics must not drift silently.
+
+## ENA narrow waist
+
+Keep universal semantics focused on the properties required for truthful, viable interoperability. Host/model/tool/cognitive/organizational implementations may differ without being translated into one universal control plane.
+
+> Standardize the property; discover the organ.
+
+> Universal semantics != universal implementation burden.
 
 ## Persistent project surfaces
 
@@ -73,7 +90,7 @@ Host preference does not create a different baseline.
 
 Repository: `guytogay/evolution-native-agent-architecture`
 
-GitHub is the canonical public engineering, research-lineage, and current-adoption surface.
+GitHub is the canonical engineering, research-lineage, and current-adoption surface.
 
 - Current adoption baseline: `releases/current/`
 - Evolution Inbox: `research/evolution-inbox/`
@@ -110,17 +127,20 @@ GitHub write capability does not grant promotion, Mainline, deployment, remediat
 
 ## Current field-validation posture
 
-v0.3.1-BETA.1 is intended for real bounded adoption and heterogeneous field validation.
+v0.3.2 is intended for real bounded adoption and heterogeneous field validation.
 
 Current high-value observation areas include:
 
-- Claim ↔ Evidence Support;
-- Triggered Material Obligation Closure;
+- LITE adoption cost/outcome versus STANDARD;
+- Claim ↔ Evidence provenance independence and closure;
+- Authority/subject/mandate lifecycle;
+- effect identity, retry, replay, failover, cancellation, and concurrency semantics;
 - Recovery State ≠ Historical Time;
 - Capability/Model/Route Binding;
-- ENA friction and viability economics;
-- Influence Integrity;
-- applicability/local-projection portability;
+- ENA friction, control-composition debt, and viability economics;
+- Influence Integrity / ambient-authority misuse;
+- local-projection portability;
+- release/distribution parity;
 - unexpected failure modes, counterexamples, or useful new mechanisms.
 
 Current discipline:
@@ -133,17 +153,25 @@ Current discipline:
 
 > Production before perfection; not production without evidence.
 
+## Release rhythm
+
+Problems and ideas are collected durably first. A new version is released when a coherent batch of changes justifies the integration/validation cost. Do not micro-release every small observation by default.
+
+Research may branch. Adoption versions remain linear, flattened, and self-contained.
+
 ## Modification guardrails
 
 Do not silently:
 
-- report this Beta as Mainline;
-- compose it with older ENA versions to create an undocumented baseline;
+- report field-validation status as Mainline;
+- compose Current with older ENA versions to create an undocumented baseline;
 - weaken current baseline semantics because a host cannot implement a mechanism;
 - treat schema PASS as semantic truth;
-- turn field recurrence into automatic Universal truth;
+- turn field recurrence into automatic independent corroboration or Universal truth;
 - promote a contribution merely because another participant proposed it;
 - erase conflicting evidence for convenience;
-- use a technically available write path as proof of mandate.
+- use a technically available write path as proof of mandate;
+- treat a renewed credential as automatic renewal of the underlying mandate;
+- retry/cancel/failover consequential effects without considering effect semantics.
 
 The whole project may evolve. The currently adopted version must remain singular, legible, and evidence-backed.
