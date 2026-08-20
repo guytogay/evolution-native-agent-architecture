@@ -1,0 +1,16 @@
+schema_version: "1.0"
+ena_version: "v0.3.1-BETA.1"
+status: BETA
+complete_adoption_baseline: true
+requires_older_release_composition: false
+mainline_claim_allowed: false
+current_files:
+  - 00-READ-ME-FIRST.md
+  - 01-CONSTITUTION.md
+  - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
+  - 03-ROLES-AND-DEVELOPMENTAL-STAGES.md
+  - 04-CAPABILITY-MAP.md
+  - 05-CORE-OPERATIONAL-CONTRACTS.md
+  - 06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md
+  - 07-BETA-ADOPTION-AND-FIELD-VALIDATION.md
+  - 08-RELEASE-DISCIPLINE.md
