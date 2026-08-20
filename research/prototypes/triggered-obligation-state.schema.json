@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ena.local/research/prototypes/triggered-obligation-state.schema.json",
+  "title": "ENA Research Prototype — Triggered Obligation State",
+  "description": "NON-NORMATIVE prototype for externalizing material conditional follow-up obligations after their trigger is observed. This is not part of ENA v0.2.11 MAINLINE.",
+  "type": "object",
+  "required": ["obligation_id", "trigger", "rule_ref", "materiality", "status"],
+  "properties": {
+    "obligation_id": {"type": "string", "minLength": 1},
+    "trigger": {
+      "type": "object",
+      "required": ["event_ref", "observed_at"],
+      "properties": {
+        "event_ref": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "minLength": 1},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "rule_ref": {"type": "string", "minLength": 1},
+    "applicability": {
+      "type": "string",
+      "enum": ["APPLICABLE", "NOT_APPLICABLE", "UNKNOWN"]
+    },
+    "materiality": {
+      "type": "string",
+      "enum": ["MATERIAL_TO_COMPLETION", "NON_MATERIAL", "UNKNOWN"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "SATISFIED", "NOT_REQUIRED", "DEFERRED_AUTHORIZED", "FAILED", "UNKNOWN"]
+    },
+    "required_before_claim": {
+      "type": ["string", "null"],
+      "description": "The workflow/completion claim that must not be made while this material obligation remains unaccounted for."
+    },
+    "assigned_actor_ref": {"type": ["string", "null"]},
+    "authority_ref": {"type": ["string", "null"]},
+    "resolution": {
+      "type": "object",
+      "properties": {
+        "resolved_at": {"type": ["string", "null"]},
+        "resolution_reason": {"type": ["string", "null"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "residual_risk": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
