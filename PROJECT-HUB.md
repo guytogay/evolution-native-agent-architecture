@@ -4,7 +4,7 @@ Status: `PROJECT_ENTRYPOINT / CURRENT`
 
 Project: **Evolution-Native Agent Architecture (ENA)**
 
-This is the stable entrypoint for any participant asked to continue, review, research, advise on, experiment on, or contribute to ENA. Participants may include ChatGPT sessions, Gemini, OpenClaw, Hermes Agent, DeepSeek Harness, Codex, humans, bots, or other systems with access to at least one declared persistent project surface.
+This is the stable entrypoint for any participant asked to continue, review, research, advise on, experiment on, adopt, or contribute to ENA. Participants may include ChatGPT sessions, Gemini, OpenClaw, Hermes Agent, DeepSeek Harness, Codex, humans, bots, or other systems with access to at least one declared persistent project surface.
 
 The participant does not need shared hidden context with previous participants. It needs legible persisted project state.
 
@@ -12,29 +12,61 @@ The participant does not need shared hidden context with previous participants. 
 
 Formal baseline: **ENA v0.2.11 MAINLINE**
 
-- adopted from v0.2.11 Candidate Revision 2;
-- promotion transition complete;
-- normative semantic delta from Candidate Revision 2: `NONE`;
-- known DSH host defects remain visible;
-- no v0.2.12 is currently open.
+Active candidate: **ENA v0.3.0 Candidate 2 — Production Readiness & Living Evolution Integration** (`NOT_MAINLINE / NOT_PROMOTED`).
 
-Do not infer that a research artifact, Issue, prototype, contribution, committed file, or Drive document is part of MAINLINE unless it is explicitly promoted.
+Candidate lineage:
+
+- Candidate 1 = comprehensive evolution/viability consolidation and heritage map;
+- Candidate 2 = productionization increment, ROI validation, Recovery-History correction, field feedback, and machine-contract prototypes.
+
+Formal Mainline facts:
+
+- v0.2.11 was adopted from Candidate Revision 2;
+- promotion transition is complete;
+- normative semantic delta from Candidate Revision 2: `NONE`;
+- known DSH host defects remain visible.
+
+Do not infer that a candidate, research artifact, Issue, prototype, contribution, committed file, or Drive document is part of MAINLINE unless it is explicitly promoted.
 
 Machine-readable navigation/state: `PROJECT-METADATA.yaml`.
 
 ## First-read order
 
 1. Read this file.
-2. Read `PROJECT-METADATA.yaml` for exact surface paths and IDs.
-3. Read `README.md` for repository role and baseline identity.
-4. Read `research/evolution-inbox/README.md` for current unpromoted candidate state.
-5. Read `research/adversarial-replay/README.md` when the task concerns current research pressure or historical incidents.
-6. Check `collaboration/inbox/` for unreconciled GitHub-side contributions.
-7. Check `collaboration/reconciliation/` for prior handling of contributions.
-8. If Drive is available, check the Drive Project Hub and Drive Collaboration Inbox for Drive-only contributions.
-9. Read only the specific MAINLINE/release/evidence artifacts needed for the task.
+2. Read `PROJECT-METADATA.yaml` for exact current state and surface paths.
+3. Read `README.md` for repository role and formal baseline identity.
+4. Read `releases/current/README.md` for active candidate/release state.
+5. For full candidate context, read `releases/current/v0.3.0-candidate-1/README.md` and `COMPREHENSIVE-CONSOLIDATION.md`.
+6. For current production work, read `releases/current/v0.3.0-candidate-2/AGENT-LEARNING-ORDER.md`, then Candidate 2 production files/profile.
+7. Read `research/evolution-inbox/README.md` for still-unpromoted/open research state.
+8. Read `research/adversarial-replay/README.md` when the task concerns research pressure or historical incidents.
+9. Check `collaboration/inbox/` for unreconciled GitHub-side contributions and `collaboration/reconciliation/` for prior handling.
+10. If Drive is available, check the Drive Project Hub and Drive Collaboration areas for Drive-only contributions/reconciliation.
+11. Read only the specific Mainline/release/evidence artifacts needed for the task.
 
 Compatibility: `research/EVOLUTION-INBOX.md` remains as a pointer for older participants.
+
+## Productionization posture
+
+Candidate 2 separates two planes:
+
+- **Production Runtime Plane** — runs a declared, frozen ENA profile with bounded candidate mechanisms;
+- **ENA Project / Evolution Plane** — receives field experience, research, experiments, reconciliation, and future candidate work.
+
+Production Agents should not carry the whole ENA research surface in the hot path.
+
+Initial Production Core candidate families:
+
+- Claim ↔ Evidence Support;
+- Triggered Material Obligation Closure;
+- Recovery-History Monotonicity;
+- Capability/Route Binding where bindings can materially change.
+
+Initial Shadow families include Viability Economics, projection freshness, uncertainty behavior, ecological specialization, Influence Integrity, and capability-graph experiments.
+
+Every ENA-using Agent may contribute field experience, but:
+
+`Contribution != Reconciliation != Promotion != Mainline Authority.`
 
 ## Global collaboration infrastructure
 
@@ -69,10 +101,11 @@ Core rules:
 
 Repository: `guytogay/evolution-native-agent-architecture`
 
-Role: diff-friendly engineering/research lineage, structured research, Issues, experiments, prototypes, contributions, future candidate/release work.
+Role: diff-friendly engineering/research lineage, structured research, Issues, experiments, prototypes, contributions, candidate/release work.
 
 Primary paths:
 
+- Current release/candidates: `releases/current/`
 - Evolution Inbox: `research/evolution-inbox/`
 - Historical Adversarial Replay: `research/adversarial-replay/`
 - Experiments: `research/experiments/`
@@ -112,7 +145,7 @@ Drive layout:
 
 Drive role: durable release artifacts, human-readable research/evidence reports, Drive-only discovery/contributions, and independent recovery anchors.
 
-`ChatGPT Knowledge` is now a legacy/general knowledge location, **not** the ENA project root.
+`ChatGPT Knowledge` is a legacy/general knowledge location, **not** the ENA project root.
 
 ## Participant capability and authority
 
@@ -145,13 +178,9 @@ GitHub contribution: create one independent artifact under `collaboration/inbox/
 
 Drive-only contribution: create one independent artifact under `50 Collaboration / 10 Inbox`.
 
-Preferred GitHub filename:
+Field nodes may also use the Candidate 2 `templates/field-experience.v1.yaml` structure as a source format before creating a normal contribution artifact.
 
-`YYYY-MM-DD-HHMM-<participant-or-source>-<short-topic>.md`
-
-Use `collaboration/CONTRIBUTION-TEMPLATE.md` when useful.
-
-Default status:
+Default contribution status:
 
 `UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED`
 
@@ -176,21 +205,29 @@ Possible outcomes include:
 - `PRESERVE_CONFLICT`
 - `UNKNOWN`
 
-## Current research posture
+## Current research / validation posture
 
 Historical Adversarial Replay checkpoint:
 
-`10 HAR cases -> 0 NORMATIVE_GAP`
+`13 HAR cases -> 0 NORMATIVE_GAP`
 
-Current high-priority research:
+Current high-priority work:
 
-1. Evidence Applicability contract falsification on DSH — Issue #4.
-2. Session Context Lineage clean-session counterfactual — Issue #3.
-3. Influence Integrity / Persuasion Boundary — open cross-cutting research vector.
+1. Candidate 2 Production Core V0/V1 validation.
+2. Claim ↔ Evidence Support prototype falsification after the DSH evidence-applicability result.
+3. Recovery-History transition validation using k-0083 and controlled restore cases.
+4. Triggered Obligation closure testing on representative workflows.
+5. Production Shadow observation of ENA overhead/value.
+6. Field-feedback canary across heterogeneous ENA Agents.
+7. Session Context Lineage and Influence Integrity remain research vectors unless they become production decision-critical.
 
 Current discipline:
 
 > Falsify before formalize.
+
+> Cheap falsification before expensive validation.
+
+> Batch variation; concentrate expensive selection.
 
 > Historical Failure Coverage ↑ while Universal Semantic Complexity stays stable or decreases.
 
@@ -198,12 +235,13 @@ Current discipline:
 
 Do not silently:
 
-- create v0.2.12;
-- edit Constitution/Capability/Validation semantics because a candidate sounds elegant;
-- promote a contribution because another participant proposed it;
+- promote Candidate 2;
+- edit Constitution/Mainline semantics because a candidate sounds elegant;
+- treat schema PASS as semantic truth;
+- promote a field contribution because it recurs locally;
 - remediate unrelated DSH defects;
 - erase conflicting interpretations to make participants agree;
-- confuse review/advice authority with implementation authority;
+- confuse review/advice authority with implementation/promotion authority;
 - use a technically available write path as proof of mandate.
 
 Participants need shared discoverability, lineage, evidence, contribution state, and explicit authority boundaries—not shared hidden internal state.
