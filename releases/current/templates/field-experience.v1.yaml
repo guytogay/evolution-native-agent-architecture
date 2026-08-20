@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.1"
 artifact_type: "ENA_FIELD_EXPERIENCE"
 status: "UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED"
 
@@ -6,8 +6,9 @@ participant:
   kind: "UNKNOWN"
   runtime_or_model: "UNKNOWN"
   host_or_runtime: "UNKNOWN"
-  ena_baseline: "v0.3.1-BETA.1"
+  ena_baseline: "v0.3.2"
   ena_profile: "UNKNOWN"
+  baseline_digest_or_source_ref: "UNKNOWN"
   local_extension_or_experiment: "NONE_OR_DESCRIBE"
 
 experience:
@@ -33,15 +34,18 @@ experience:
   active_governance_set: []
   decision_changed: "UNKNOWN"
   prevented_loss_or_rework: "UNKNOWN"
+  authority_or_effect_context: "UNKNOWN"
 
 evidence:
   references: []
+  source_independence: "UNKNOWN"
   limitations: []
   applicability:
     host: "UNKNOWN"
     model_binding: "UNKNOWN"
     route: "UNKNOWN"
     configuration: "UNKNOWN"
+    epoch_or_incarnation: "UNKNOWN"
     time_interval: "UNKNOWN"
     task_scope: "UNKNOWN"
 
@@ -51,6 +55,7 @@ economics:
   added_tool_calls: "UNKNOWN"
   added_human_review: "UNKNOWN"
   added_cost: "UNKNOWN"
+  ecosystem_compensation_cost: "UNKNOWN"
   avoided_rework_or_loss: "UNKNOWN"
 
 privacy:
