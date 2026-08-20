@@ -1,10 +1,28 @@
-schema_version: "1.0"
-ena_version: "v0.3.1-BETA.1"
-status: BETA
+schema_version: "1.1"
+ena_version: "v0.3.2"
+status: FIELD_VALIDATION
 complete_adoption_baseline: true
 requires_older_release_composition: false
 mainline_claim_allowed: false
-current_files:
+version_identity_includes_maturity_status: false
+package_scope: "ALL_FILES_UNDER_RELEASES_CURRENT"
+
+release_identity:
+  immutable_effective_content_required: true
+  canonical_source_commit_or_tree_evidence_required: true
+  package_digest_required: true
+  exact_file_set_and_hash_parity_required: true
+  published_mirror_readback_required: true
+  bundled_manifest_alone_is_canonical_authority: false
+
+profiles:
+  - LITE
+  - STANDARD
+  - HIGH_ASSURANCE
+  - CUSTOM
+lite_entrypoint: "LITE-ADOPTION-INSTRUCTION.md"
+
+core_files:
   - 00-READ-ME-FIRST.md
   - 01-CONSTITUTION.md
   - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
@@ -12,5 +30,5 @@ current_files:
   - 04-CAPABILITY-MAP.md
   - 05-CORE-OPERATIONAL-CONTRACTS.md
   - 06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md
-  - 07-BETA-ADOPTION-AND-FIELD-VALIDATION.md
+  - 07-ADOPTION-AND-FIELD-VALIDATION.md
   - 08-RELEASE-DISCIPLINE.md
