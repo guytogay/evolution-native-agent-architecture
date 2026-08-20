@@ -4,6 +4,18 @@ Status: `RESEARCH_PROTOTYPE / NON_NORMATIVE / MAINLINE_UNCHANGED`
 Baseline: `ENA v0.2.11 MAINLINE`
 Date: `2026-08-20`
 
+Bridge status:
+
+```yaml
+bridge_state:
+  source_surface: GITHUB
+  target_surface: GOOGLE_DRIVE
+  target_location: "ENA / 20 Research / 30 Prototypes"
+  status: FAILED
+  reason: "Drive connector blocked the create action because it could not determine the request safety state."
+  persisted_on_drive: false
+```
+
 ## Purpose
 
 Operationalize an already-existing ENA requirement: developmental stage admission must be evidence-gated. Agent self-report may propose a claim, but cannot by itself establish capability, role qualification, health, recovery, or developmental-stage eligibility.
