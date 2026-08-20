@@ -1,0 +1,61 @@
+case_id: HAR-013
+title: "Newly reinstalled Agent refused low-risk recovery inspection of an old server under unresolved safety/identity uncertainty"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: CONVERSATION_INCIDENT
+  artifact: "User-reported historical Agent reinstall/recovery incident using MiniMax M3, contrasted with later DeepSeek execution"
+  evidence_refs:
+    - "A newly installed Agent was asked to retrieve useful content from an older server that still existed after a reinstall."
+    - "The Agent repeatedly refused to access the old server because it considered the situation unsafe."
+    - "The Agent demanded that the user prove they were not malicious and asked the user to orally reconstruct the old Agent's experiences/history."
+    - "After changing the model to DeepSeek, the Agent accessed the old server and completed the recovery task quickly."
+  cognitive_context_lineage: "historical Agent reinstall/recovery workflow; raw logs not yet included in current ENA evidence set"
+
+incident:
+  observed_facts:
+    - "The requested task was to inspect/retrieve useful content from a still-existing older server after a reinstall."
+    - "The first model treated unresolved safety/identity uncertainty as grounds for repeated refusal rather than selecting a narrower verification path."
+    - "The refusal persisted despite repeated user clarification."
+    - "A different model, under the same user intent, completed the remote recovery task without the prolonged refusal."
+  inferences:
+    - "The first model may have collapsed uncertainty about trust/continuity into a binary no-action posture instead of reducing consequence authority while preserving low-risk evidence-gathering agency."
+    - "The request for the user to narrate the old Agent's full history was not obviously the lightest evidence path for establishing what data could safely be inspected or copied."
+  unknowns:
+    - "The exact credentials, network path, host identity evidence, and authorization artifacts available at the time."
+    - "Whether any provider/model-specific safety policy materially constrained the first model's behavior."
+    - "Whether DeepSeek used exactly the same tool permissions and execution environment."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: AUTHORITY
+  claim: "Because continuity/trust is uncertain, no useful remote recovery action can proceed until the user proves identity/history to a much stronger standard."
+  why_false_or_overbroad: "Uncertainty may justify narrowing consequence authority, but it does not by itself prove that all low-risk, reversible, read-only, or evidence-gathering actions are impermissible."
+
+boundary_crossed:
+  - AUTHORITY
+  - PROVENANCE
+  - STATE
+  - OTHER
+
+current_ena_mapping:
+  references:
+    - "Protect Agency; govern Authority"
+    - "Use the lightest governance matching consequence"
+    - "Prefer reversible preparation over irreversible execution"
+    - "Privilege availability != mandate availability; conversely uncertainty about continuity does not automatically erase user mandate"
+    - "Full map, local projection: governance should condition on consequence/topology/capability rather than default to maximum restriction"
+  analysis: "The incident appears largely expressible with existing ENA value/governance semantics: uncertainty should reduce the permitted consequence envelope and trigger verification, not automatically collapse all agency. A safer response could have separated read-only inspection, host verification, inventory, copying to quarantine/staging, and destructive/import actions into different authority levels. What remains worth researching is whether ENA needs a clearer operational contract for agency-preserving uncertainty handling so that safety logic does not silently convert UNKNOWN into TOTAL_REFUSAL when lower-consequence evidence-seeking paths exist."
+  expected_behavior: "When safety/trust/continuity is uncertain, identify what fact is unknown, choose the lightest reversible evidence-gathering action that can reduce that uncertainty, keep destructive or high-consequence actions gated, and escalate only the authority actually required. If no safe evidence path exists, refusal can remain justified; otherwise uncertainty should narrow authority rather than erase viable agency."
+
+candidate_relation:
+  candidate: "Agency-Preserving Uncertainty Resolution / Consequence-Scaled Verification"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "Search for independent incidents where safety/identity uncertainty caused total refusal despite available reversible verification paths. If repeated, prototype an uncertainty-resolution contract before considering any new normative principle."
+notes:
+  - "UNKNOWN should constrain consequence; it should not automatically become NO_AGENCY."
+  - "Safety uncertainty should purchase evidence before it purchases paralysis, when a safe evidence path exists."
+  - "Do not weaken legitimate safety boundaries; separate evidence-gathering authority from destructive/consequential authority."
