@@ -10,23 +10,24 @@
 
 ## Cross-session / project entrypoint
 
-If you are a ChatGPT session asked to continue, review, research, advise on, or contribute to ENA — especially when the user says another session has already been working on it — **read [`PROJECT-HUB.md`](PROJECT-HUB.md) first**.
+If you are an Agent/session asked to continue, review, research, adopt, advise on, or contribute to ENA — especially when another participant has already been working on it — **read [`PROJECT-HUB.md`](PROJECT-HUB.md) first**.
 
-The project hub explains current canonical state, Google Drive anchors, collaboration inbox/reconciliation paths, active research, and modification guardrails.
+The project hub explains current formal state, active candidate, Google Drive anchors, collaboration inbox/reconciliation paths, productionization work, active research, and modification guardrails.
 
 ## Repository role
 
-This private repository is the engineering source of truth for ENA from the point of GitHub adoption onward.
+This repository is the diff-friendly engineering and research lineage surface for ENA from the point of GitHub adoption onward.
 
 It preserves:
 
-- the current MAINLINE specification;
+- the current formal MAINLINE identity;
 - machine-readable schemas, validators, templates, and examples;
-- release, migration, and promotion lineage;
+- release, migration, candidate, and promotion lineage;
 - reference-host evidence;
-- post-release research and Evolution Inbox candidates.
+- post-release research and Evolution Inbox candidates;
+- persistent collaboration contributions and reconciliation.
 
-Historical ENA versions that predate this repository are **not retroactively reconstructed as fake Git commits**. Their lineage remains represented by the release artifacts, migration records, promotion records, and archived backups that existed before GitHub adoption.
+Historical ENA versions that predate this repository are **not retroactively reconstructed as fake Git commits**. Their lineage remains represented by the release artifacts, migration records, promotion records, archived backups, and preserved research heritage that existed before GitHub adoption.
 
 ## Current formal baseline
 
@@ -40,26 +41,51 @@ Promotion status:
 
 Known DSH host defects remain host reality and are not erased by ENA promotion.
 
+## Current active candidate
+
+**ENA v0.3.0 Candidate 2 — Production Readiness & Living Evolution Integration**
+
+Status: `CANDIDATE / NOT_MAINLINE / NOT_PROMOTED`.
+
+Candidate lineage:
+
+- Candidate 1 is the broad Comprehensive Evolution & Viability Consolidation map;
+- Candidate 2 adds production Runtime/Evolution plane separation, Production Core/Shadow lanes, ROI validation, Recovery-History monotonicity, field feedback, and machine-contract prototypes.
+
+Agents that need to learn the current candidate from a clone/offline package should follow:
+
+`releases/current/v0.3.0-candidate-2/AGENT-LEARNING-ORDER.md`
+
 ## Preservation model
 
 GitHub and Google Drive have complementary roles:
 
 - **GitHub** — engineering lineage, diffs, candidate changes, evidence linkage, issues/PRs, future releases;
-- **Google Drive** — durable artifact backup, research archive, reports, human-readable preservation.
+- **Google Drive** — durable artifact backup, research archive, reports, human-readable preservation, and Drive-only collaboration.
 
 A version is not considered safely preserved merely because it is known in conversation.
 
 > Known Artifact ≠ Persisted Artifact ≠ Recoverable Artifact.
 
-## Research discipline
+> Persistence ≠ Synchronization.
+
+## Research and production discipline
 
 New ideas do not automatically become Constitution rules or new releases.
 
 Default path:
 
-`Historical incident → concrete failure claim → current ENA mapping → already covered? → ambiguity only? → host-specific? → repeated across independent domains? → Evolution Inbox → candidate change → evidence → promotion`
+`Field/historical incident → concrete failure/value claim → current ENA mapping → already covered? → host-specific? → contribution/evidence → reconciliation → candidate mechanism → cheapest decision-changing validation → bounded production/shadow use → promotion decision`
 
-Current research should prefer adversarial testing of stable abstractions over adding new governance organs.
+Current productionization follows:
+
+> Production before perfection; not production without evidence.
+
+> Run a frozen profile; evolve in a separate plane.
+
+> Batch variation; concentrate expensive selection.
+
+> Every field node may contribute variation; none receives automatic promotion authority.
 
 ## Repository adoption note
 
