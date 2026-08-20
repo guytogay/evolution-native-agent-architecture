@@ -1,37 +1,30 @@
-schema_version: "1.0"
+schema_version: "1.1"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
   - ENA
   - "Evolution Native Agent Architecture"
 status: ACTIVE
-lifecycle: CANDIDATE_VALIDATION_AND_PRODUCTIONIZATION
-updated_at: "2026-08-20T17:08:00+08:00"
+lifecycle: BETA_FIELD_VALIDATION
 
 canonical_state:
-  formal_baseline: "ENA v0.2.11 MAINLINE"
-  normative_semantic_delta_from_candidate_rev2: NONE
-  active_candidate: "ENA v0.3.0 Candidate 2 — Production Readiness & Living Evolution Integration"
-  parent_candidate: "ENA v0.3.0 Candidate 1 — Comprehensive Evolution & Viability Consolidation"
-  next_revision_open: true
-  candidate_promoted: false
+  current_adoption_baseline: "ENA v0.3.1-BETA.1"
+  status: BETA
+  complete_adoption_baseline: true
+  mainline_claim_allowed: false
+  requires_older_release_composition: false
+  historical_promoted_baseline: "ENA v0.2.11 MAINLINE"
 
 entrypoints:
   github: "PROJECT-HUB.md"
-  github_structure: "PROJECT-STRUCTURE.md"
-  github_contributing: "CONTRIBUTING.md"
   github_current_release: "releases/current/README.md"
-  github_active_candidate: "releases/current/v0.3.0-candidate-2/README.md"
-  github_agent_learning_order: "releases/current/v0.3.0-candidate-2/AGENT-LEARNING-ORDER.md"
+  github_current_baseline: "releases/current/CURRENT-BASELINE.yaml"
+  github_contributing: "CONTRIBUTING.md"
+  field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
+  field_experience_template: "releases/current/templates/field-experience.v1.yaml"
   drive_project_hub:
     title: "ENA - PROJECT HUB"
     file_id: "1WpvGf0umu8Ky0fNGG2ZLec2XilbHwU6G9uc-VZuzOWo"
-  drive_mainline_index:
-    title: "ENA Mainline - INDEX"
-    file_id: "12qNHKLOahwP9tpPstFGCZOi_nz-3XUXx8EGGKzuK8_c"
-  drive_evolution_inbox:
-    title: "ENA Evolution Inbox - INDEX"
-    file_id: "1Xb-F4B8XJuJXEr4MnUvY-W7LvllNDNArUCpyXLPx3yM"
   drive_current_release_index:
     title: "ENA Releases - Current INDEX"
     file_id: "1TejAQTEJXmAGYpNyKW6DKYMXdoVwHPLUmfqKILncvv0"
@@ -39,74 +32,58 @@ entrypoints:
 surfaces:
   github:
     repository: "guytogay/evolution-native-agent-architecture"
-    role: "DIFF_FRIENDLY_ENGINEERING_AND_RESEARCH_LINEAGE"
+    role: "DIFF_FRIENDLY_ENGINEERING_RESEARCH_AND_CURRENT_ADOPTION_SOURCE"
     main_branch: main
+    current_adoption_baseline: "releases/current/"
     evolution_inbox: "research/evolution-inbox/README.md"
     contributions: "collaboration/inbox/"
     reconciliation: "collaboration/reconciliation/"
     decisions: "decisions/"
-    current_release_index: "releases/current/README.md"
-    active_candidate: "releases/current/v0.3.0-candidate-2/"
-    release_archive_index: "releases/archive/README.md"
     evidence_index: "evidence/README.md"
   google_drive:
-    role: "DURABLE_ARTIFACT_RESEARCH_DISCOVERY_AND_DRIVE_ONLY_COLLABORATION"
+    role: "DURABLE_ARTIFACT_RESEARCH_DISCOVERY_AND_RECOVERY_SURFACE"
     root_path: "My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture"
     root_folder_id: "1uRMP44TsHEhiJZG8Jcc4ja3UHpyZqRmi"
-    mainline_folder_id: "18mA6OAZJEWUPoZun_6MXNboKEzPoQn0e"
-    research_folder_id: "1gZU67D1tsQQs9xOfQVZY3GHlgEhK04B2"
-    evolution_inbox_folder_id: "1bFuFW78Lpu_s87h0B38-mJHoJa7WGO9_"
-    evidence_folder_id: "1wt1M2oAF9tZBFONlsoSdPwvfED5J4Z3K"
-    releases_folder_id: "1csbIocVABjJTBoF9ELE0xrdv5F3gVspC"
     current_release_folder_id: "16Jg0goFFD1msBwG2dn-aftqCoU-gk6lw"
     release_archive_folder_id: "1qaCbOGinFNDyjmJwPkeiA5FOM7Yf7mz4"
-    collaboration_folder_id: "1EFAKjWtgHBKE4jQEmdwF77S-1WOPgZDv"
+    evolution_inbox_folder_id: "1bFuFW78Lpu_s87h0B38-mJHoJa7WGO9_"
     contribution_folder_id: "1s2y0t7R0ILJXgQQ1X65zpcDTiiPoKIBa"
     reconciliation_folder_id: "1TrdNWFYzsriLEanLt7Xe6rBMlpEuqYQS"
-    templates_folder_id: "1Dl6H62bQRQDXgLxll64GYwS3k3GTMOpo"
-    decisions_folder_id: "1o22t15yp8IJ_eQCp_Y5ByoD4YOQU6EWi"
-    archive_folder_id: "1qgGTFQhrFgSyrWJ2uwFW-QBAqJ8jKbOG"
 
-production_candidate:
-  runtime_profile: "releases/current/v0.3.0-candidate-2/profiles/production-core-v1.yaml"
-  production_readiness: "releases/current/v0.3.0-candidate-2/PRODUCTION-READINESS.md"
-  validation_plan: "releases/current/v0.3.0-candidate-2/VALIDATION-PLAN.md"
-  living_evolution_loop: "releases/current/v0.3.0-candidate-2/LIVING-EVOLUTION-LOOP.md"
-  field_experience_template: "releases/current/v0.3.0-candidate-2/templates/field-experience.v1.yaml"
-  production_core:
+current_validation:
+  baseline: "v0.3.1-BETA.1"
+  focus:
     - "Claim↔Evidence Support"
     - "Triggered Material Obligation Closure"
-    - "Recovery-History Monotonicity"
-    - "Capability/Route Binding when materially variable"
-
-current_priorities:
-  - "Candidate 2 Production Core V0/V1 validation"
-  - "Claim↔Evidence Support prototype falsification"
-  - "Recovery-History transition validation"
-  - "Triggered Obligation representative-workflow validation"
-  - "Production Shadow viability/overhead observation"
-  - "Field-feedback canary across heterogeneous ENA Agents"
+    - "Recovery State ≠ Historical Time"
+    - "Capability/Model/Route Binding"
+    - "Viability Economics and friction"
+    - "Influence Integrity"
+    - "Local-projection portability"
+    - "Unexpected counterexamples and new variations"
+  field_use_intended: true
+  field_participation_open: true
 
 research_checkpoint:
   historical_adversarial_replay_cases: 13
-  normative_gap_count: 0
+  normative_gap_count_before_beta_flattening: 0
 
 authority_defaults:
   contribution: "UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED"
-  candidate: "NOT_MAINLINE / NOT_PROMOTED"
   github_write_means_mainline_authority: false
   drive_write_means_promotion_authority: false
   review_authority_implies_implementation_authority: false
   field_use_means_project_authority: false
 
+release_policy:
+  adoption_version_must_be_self_contained: true
+  runtime_version_composition_allowed: false
+  historical_versions_are_runtime_dependencies: false
+  preserve_history_durably: true
+  retrieve_history_selectively: true
+  open_knowledge_means_always_loaded: false
+
 bridge_policy:
   persistence_is_synchronization: false
-  surface_partition_must_be_exposed: true
   bridge_must_preserve_provenance: true
   bridge_may_upgrade_semantic_status_without_authority: false
-
-migration_notes:
-  - "Google Drive ENA project state was migrated from the legacy flat ChatGPT Knowledge layout on 2026-08-20. Existing Drive file IDs were preserved where files were moved."
-  - "research/EVOLUTION-INBOX.md remains as a compatibility pointer to research/evolution-inbox/README.md."
-  - "ADR-001 records the project-first persistent information architecture decision."
-  - "Candidate 2 repairs prior project-state projection drift where Candidate 1 existed while metadata still reported next_revision_open=false."
