@@ -8,16 +8,29 @@ The default rule is: **do not convert a clever abstraction into a Constitution r
 
 Drive discovery mirror/index: `My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture / 20 Research / 00 Evolution Inbox / ENA Evolution Inbox - INDEX`.
 
+## Current candidate bridge
+
+`v0.3.0 Candidate 2 — Production Readiness & Living Evolution Integration` now carries production-oriented prototypes for several Inbox families. Candidate inclusion does **not** mean Mainline promotion.
+
+Current prototype paths include:
+
+- Claim and Claim↔Evidence Support schemas;
+- Triggered Obligation schema;
+- Recovery-History Transition schema;
+- Capability/Route Binding schema;
+- production-core profile;
+- Field Experience contribution template.
+
 ## Strong / recurring candidates
 
 ### Recovery State ≠ Historical Time
 Rollback may restore mutable state without authorizing silent rewrite of canonical occurrence history.
 > Rollback state; preserve history.
-Status: strong candidate; supported by DSH k-0083 restore/history gap evidence.
+Status: strong candidate; supported by DSH k-0083 restore/history gap evidence; explicitly represented in Candidate 2 Recovery-History contract and schema; **not promoted**.
 
 ### Monotonic History Across Restore
 A restore procedure should not silently erase material post-checkpoint occurrence truth. If history cannot be fully preserved, the gap itself should remain visible.
-Status: strong candidate; not promoted.
+Status: strong candidate; represented in Candidate 2 for validation; **not promoted**.
 
 ### Evidence Applicability Boundary / Claim↔Evidence Support Contract
 Valid evidence about one subject/state/instance/epoch/interval does not automatically support another.
@@ -36,16 +49,17 @@ Current research placement:
 
 The machine question is not merely whether evidence is well-formed, but whether that evidence supports that claim within the asserted boundary or via a separately evidenced transfer/equivalence claim.
 
-Current judgment: MAINLINE semantics already cover the conceptual property; the demonstrated gap is a machine-contract/artifact-layer gap, not a new Constitution principle or Capability. No v0.2.12 is opened by this result.
+Current judgment: MAINLINE semantics already cover the conceptual property; the demonstrated gap is a machine-contract/artifact-layer gap, not a new Constitution principle.
 
 Result artifact: `research/experiments/EVIDENCE-APPLICABILITY-DSH-RESULT-2026-08-20.md`.
-Status: strong machine-contract research result; concrete link-contract schema remains unformalized pending further falsification/governance-value review.
+
+Candidate 2 now includes provisional `claim.v1.schema.json` and `evidence-support-relation.v1.schema.json` prototypes. These require V0/V1/V2 falsification and do not become Mainline merely because they parse or schema-PASS.
 
 ### General Projection Semantics
 Projection is necessary and may legitimately truncate, summarize, deduplicate, rank, merge, omit, or decay information. The danger is semantic inflation.
 > A projection may simplify representation, but must not silently acquire stronger truth semantics than its transformation supports.
-Reference domains include history→knowledge, conversation→context, runtime→health, and source artifacts→derived themes.
-Status: promising cross-domain structure; evidence still insufficient for a Universal Projection Architecture.
+Reference domains include history→knowledge, conversation→context, runtime→health, source artifacts→derived themes, and project metadata/indexes→current project state.
+Status: promising cross-domain structure; evidence still insufficient for a Universal Projection Architecture. The real Candidate-1/metadata drift incident is additional project-process evidence.
 
 ### Witness Survivability / Failure-Domain Independence
 A witness/control that claims to detect or recover from a failure should survive, or remain independently observable across, the relevant failure domain.
@@ -91,7 +105,7 @@ Important semantic separation under test:
 `USER_FEEDBACK ≠ USER_PREFERENCE ≠ USER_AFFECTIVE_SIGNAL ≠ USER_CORRECTION ≠ USER_AUTHORIZATION`
 
 Current reconciliation: likely a cross-cutting failure mode touching Evidence/Claim support, Intent/Authorization, and Governance Salience rather than a demonstrated independent Universal subsystem.
-Status: `EVOLUTION_INBOX / OPEN_QUESTION / NOT_PROMOTED`.
+Status: `EVOLUTION_INBOX / OPEN_QUESTION / NOT_PROMOTED`; Candidate 2 treats this as Production Shadow observation, not a hot-path gate.
 
 ## Context lineage research
 
@@ -107,8 +121,23 @@ Status: host evidence / research vector; not promoted. Clean-session counterfact
 ### Known ≠ Retrieved ≠ Salient ≠ Applied
 DSH knowledge-dedup reconstruction suggests relevant rules were known and even retrieved, yet failed to dominate the final decision surface when a clean local optimization target became salient.
 Influence Integrity adds an attack vector: urgency, praise, shame, relationship framing, or repeated insistence may compete for salience without changing underlying evidence or authority.
-Recent triggered-obligation research adds an operational direction: material rules should not depend indefinitely on cognitive salience once their trigger has been observed; important triggered duties may need explicit externalized state until closed.
-Status: open research question; no Mainline mechanism selected.
+Triggered-obligation research adds an operational direction: material rules should not depend indefinitely on cognitive salience once their trigger has been observed; important triggered duties may need explicit externalized state until closed.
+Status: open research question. Candidate 2 includes a provisional Triggered Obligation schema as an operational falsification target; this is not a new Mainline rule.
+
+## Production / living-project research
+
+### Production Runtime Plane ≠ Evolution Plane
+A production Agent should run a declared, versioned profile rather than loading the full research surface into every task. Broader variation, evidence aggregation, reconciliation, and candidate evolution occur in a separate project/evolution plane.
+Status: Candidate 2 productionization architecture; not Mainline.
+
+### ENA Field Nodes / Living Evolution Loop
+Every ENA-using Agent may contribute situated incidents, near misses, friction, observed value, counterexamples, portability findings, variations, and evidence results.
+> Contribution != Reconciliation != Promotion != Mainline Authority.
+Status: Candidate 2 project-process experiment. Field contributions require provenance and applicability and should minimize secrets/private content.
+
+### Production Shadow / Viability Economics
+Observe governance cost, latency, human attention, retries/rework, prevented loss, evidence reuse, and other dimensions without turning all measurable signals into gates or a single score.
+Status: Candidate 2 Shadow lane; evidence collection should itself pay rent.
 
 ## Clarification candidates
 
@@ -133,4 +162,4 @@ Preferred loop:
 Current HAR checkpoint: **13 replay cases, 0 NORMATIVE_GAP**.
 
 ## Contribution rule
-Do not append parallel-agent advice directly into this file by default. Put one contribution per artifact under `collaboration/inbox/`; reconcile it separately. This directory represents structured candidate state, not an uncontrolled shared scratchpad.
+Do not append parallel-agent advice directly into this file by default. Put one contribution per artifact under `collaboration/inbox/`; reconcile it separately. Field Experience templates are source formats for contributions, not permission to bypass this separation. This directory represents structured candidate state, not an uncontrolled shared scratchpad.
