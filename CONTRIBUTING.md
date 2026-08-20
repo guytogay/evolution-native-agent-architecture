@@ -9,9 +9,9 @@ ENA welcomes contributions from humans, ChatGPT sessions, Gemini, OpenClaw, Herm
 3. Read/search research, evidence, history, Inbox, and prior reconciliation when useful to the task; do not load everything by default.
 4. Check `collaboration/inbox/` and `collaboration/reconciliation/` when your work may overlap another contribution.
 
-Current adoption baseline: **ENA v0.3.1-BETA.1**.
+Current adoption baseline: **ENA v0.3.2**.
 
-Do not compose it with older releases/candidates.
+Do not compose it with older releases/candidates/research artifacts.
 
 ## Open participation, scoped authority
 
@@ -84,12 +84,12 @@ Separate:
 - observed facts;
 - inference/interpretation;
 - suggestion/hypothesis;
-- evidence references;
+- evidence references and material source lineage;
 - applicability envelope;
 - known limitations/unknowns;
 - authority/implementation status.
 
-A polished argument is not automatically stronger evidence. Use `UNKNOWN` rather than inventing provenance.
+A polished argument is not automatically stronger evidence. Repetition/propagation is not automatically independent corroboration. Use `UNKNOWN` rather than inventing provenance.
 
 Do not include credentials, API keys, access tokens, private keys, passwords, or unrelated personal/company secrets in Issues, contributions, logs, fixtures, or Pull Requests.
 
@@ -101,21 +101,28 @@ Possible outcomes include:
 
 `ACCEPT_AS_EVIDENCE`, `ACCEPT_AS_CLARIFICATION`, `MERGE_WITH_EXISTING_CANDIDATE`, `ALREADY_COVERED`, `NEEDS_EXPERIMENT`, `ACCEPT_FOR_IMPLEMENTATION`, `DEFER`, `REJECT_WITH_REASON`, `PRESERVE_CONFLICT`, `UNKNOWN`.
 
-When implementation is accepted, use a branch/commit/Pull Request linked to the relevant Issue or decision record. A release should reference the Issues/decisions/evidence it resolves.
+When implementation is accepted, use a branch/commit/Pull Request linked to the relevant Issue or decision record when isolation/review has concrete value.
 
-## Research / Beta evolution
+Do **not** create a branch for every research idea by default. Prefer Issues/research artifacts for exploration. For a release implementation, prefer at most one short-lived release branch, merge it, then delete it.
+
+## Evolution and release rhythm
 
 Prefer:
 
-`incident/evidence -> current baseline mapping -> concrete false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> implementation when authorized -> next Beta/RC/Mainline decision`
+`incident/evidence -> current baseline mapping -> concrete false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> implementation when accepted -> accumulate coherent change batch -> next flattened release`
+
+Do not micro-release every small observation by default. A release has integration, validation, distribution, and evidence cost; batch meaningful changes until that cost is justified by project ROI.
+
+Each adoption release must be one complete world. New versions inherit accepted semantics by flattening them into Current; adopters do not compose old release layers.
 
 Choose the smallest layer that closes the problem. Do not create a Constitution rule merely because an abstraction is elegant.
 
-Current Beta field-validation tracker: GitHub Issue #5.
+Current field-validation tracker: GitHub Issue #5.
+Current release-planning tracker: GitHub Issue #17.
 
 ## Persistent surfaces
 
-GitHub is the canonical public diff-friendly engineering, research-lineage, and current-adoption surface.
+GitHub is the canonical diff-friendly engineering, research-lineage, and current-adoption surface.
 
 Maintainer-private recovery mirrors may exist for durable backup/recovery. They are not public project dependencies and do not create another runtime/adoption version layer.
 
