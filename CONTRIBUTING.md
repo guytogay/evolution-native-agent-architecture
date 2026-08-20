@@ -15,42 +15,67 @@ Do not compose it with older releases/candidates.
 
 ## Open participation, scoped authority
 
-All legitimate participants may, within their actual capability and authority:
+All participants may, within their actual capability and authority:
 
 - read and search project knowledge;
 - question and critique ENA;
 - research alternatives;
 - propose mechanisms/hypotheses;
 - perform bounded experiments;
-- contribute evidence and field experience.
+- contribute evidence and field experience;
+- open Issues and submit Pull Requests.
 
 Technical access does not grant consequential project authority.
 
 - GitHub WRITE != Mainline/promotion authority.
-- Drive WRITE != promotion authority.
 - Ability to deploy != authorization to deploy.
 - Review/advice != implementation authority.
 - Field use != authority to rewrite the shared baseline.
+- Pull Request != acceptance or promotion.
 
 > Knowledge is commons. Inquiry is open. Authority is scoped. Adoption is governed.
 
-## Normal contribution path
+## Durable intake: Issues first when appropriate
 
-Create one independent artifact per material contribution under `collaboration/inbox/`.
+For a trackable bug, enhancement, release-engineering problem, portability finding, research question, or other item that requires resolution, prefer a GitHub Issue as the smallest durable tracker.
+
+Useful intake classes include:
+
+`BUG | INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | ENHANCEMENT | NEW_VARIATION | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | EXPERIMENT | CRITIQUE | RELEASE_ENGINEERING | PROCESS`
+
+When available, preserve:
+
+- source / participant;
+- ENA version or baseline involved;
+- observed facts;
+- interpretation separated from facts;
+- relevant evidence or reproduction;
+- host/model/runtime/applicability context when material;
+- expected vs observed behavior;
+- impact;
+- suggested direction, if any;
+- unknowns and alternative explanations;
+- links to related Issues, contributions, experiments, commits, or releases.
+
+Do not force fields that have no decision value.
+
+`Issue != evidence truth != implementation != promotion.`
+
+## Substantial contribution artifacts
+
+Use an independent artifact under `collaboration/inbox/` when the contribution itself needs preserved analysis, evidence, provenance, or context beyond what belongs in an Issue.
 
 Recommended filename:
 
 `YYYY-MM-DD-HHMM-<participant-or-source>-<short-topic>.md`
-
-Useful classes:
-
-`INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | NEW_VARIATION | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | CRITIQUE`
 
 For field use, `releases/current/templates/field-experience.v1.yaml` is an optional source format.
 
 Default status:
 
 `UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED`
+
+Do not rewrite an original contribution merely because it has later been reconciled.
 
 ## Evidence hygiene
 
@@ -66,19 +91,23 @@ Separate:
 
 A polished argument is not automatically stronger evidence. Use `UNKNOWN` rather than inventing provenance.
 
-## Reconciliation
+Do not include credentials, API keys, access tokens, private keys, passwords, or unrelated personal/company secrets in Issues, contributions, logs, fixtures, or Pull Requests.
 
-Reconciliation is a separate artifact under `collaboration/reconciliation/`; do not rewrite the original contribution merely because it has been handled.
+## Reconciliation and implementation
+
+Reconciliation is a separate artifact under `collaboration/reconciliation/`; do not silently upgrade a contribution merely because it was committed to GitHub.
 
 Possible outcomes include:
 
 `ACCEPT_AS_EVIDENCE`, `ACCEPT_AS_CLARIFICATION`, `MERGE_WITH_EXISTING_CANDIDATE`, `ALREADY_COVERED`, `NEEDS_EXPERIMENT`, `ACCEPT_FOR_IMPLEMENTATION`, `DEFER`, `REJECT_WITH_REASON`, `PRESERVE_CONFLICT`, `UNKNOWN`.
 
+When implementation is accepted, use a branch/commit/Pull Request linked to the relevant Issue or decision record. A release should reference the Issues/decisions/evidence it resolves.
+
 ## Research / Beta evolution
 
 Prefer:
 
-`incident/evidence -> current baseline mapping -> concrete false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> next Beta/RC/Mainline decision`
+`incident/evidence -> current baseline mapping -> concrete false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> implementation when authorized -> next Beta/RC/Mainline decision`
 
 Choose the smallest layer that closes the problem. Do not create a Constitution rule merely because an abstraction is elegant.
 
@@ -86,14 +115,14 @@ Current Beta field-validation tracker: GitHub Issue #5.
 
 ## Persistent surfaces
 
-GitHub is the diff-friendly current adoption/research lineage surface.
+GitHub is the canonical public diff-friendly engineering, research-lineage, and current-adoption surface.
 
-Google Drive project root:
-
-`My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture`
-
-Drive is a durable artifact/research/evidence/recovery surface, not another runtime version layer.
+Maintainer-private recovery mirrors may exist for durable backup/recovery. They are not public project dependencies and do not create another runtime/adoption version layer.
 
 > Persistence != synchronization.
 
 > Preserve history durably; retrieve history selectively.
+
+## License of contributions
+
+Unless explicitly stated otherwise, contributions intentionally submitted for inclusion in ENA are handled under the repository's Apache License 2.0 terms. See `LICENSE`.

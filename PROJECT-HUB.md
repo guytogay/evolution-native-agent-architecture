@@ -16,7 +16,7 @@ For any new or refreshed ENA adoption, use only:
 
 `releases/current/`
 
-Do not compose the current baseline with older ENA releases, candidates, or branches. Older versions remain historical lineage through Git and durable recovery storage; they are not runtime dependencies.
+Do not compose the current baseline with older ENA releases, candidates, or branches. Older versions remain historical lineage through Git and maintainer recovery storage; they are not runtime dependencies.
 
 An adopter should be able to state simply:
 
@@ -39,7 +39,7 @@ Machine-readable current-version pointer:
 
 ## Knowledge and participation
 
-ENA project knowledge, evidence, research, lineage, and open questions are available to legitimate participants. Any participant may, within actual capability and authority, read, question, critique, research, experiment, and contribute.
+ENA project knowledge, evidence, research, lineage, and open questions in this repository are publicly readable. Any participant may, within actual capability and authority, read, question, critique, research, experiment, and contribute.
 
 Useful contribution classes include:
 
@@ -47,10 +47,13 @@ Useful contribution classes include:
 
 Contribution guidance:
 
+- root `CONTRIBUTING.md`
 - `releases/current/CONTRIBUTION-PROTOCOL.md`
 - `releases/current/templates/field-experience.v1.yaml`
 - GitHub contribution artifacts: `collaboration/inbox/`
 - Reconciliation artifacts: `collaboration/reconciliation/`
+
+For trackable bugs, enhancements, research questions, or release concerns, prefer a GitHub Issue when it is the smallest useful durable tracker.
 
 `Contribution != Reconciliation != Promotion != Mainline Authority.`
 
@@ -70,6 +73,8 @@ Host preference does not create a different baseline.
 
 Repository: `guytogay/evolution-native-agent-architecture`
 
+GitHub is the canonical public engineering, research-lineage, and current-adoption surface.
+
 - Current adoption baseline: `releases/current/`
 - Evolution Inbox: `research/evolution-inbox/`
 - Historical Adversarial Replay: `research/adversarial-replay/`
@@ -79,26 +84,29 @@ Repository: `guytogay/evolution-native-agent-architecture`
 - Reconciliation: `collaboration/reconciliation/`
 - Decisions: `decisions/`
 
-### Google Drive
+### Maintainer recovery mirror
 
-Project root:
+The maintainer may keep private durable backup/recovery copies of project artifacts. Those coordinates are intentionally not part of the public project metadata.
 
-`My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture`
+The private recovery mirror:
 
-Drive remains a durable artifact/research/evidence/recovery surface. It is not an additional version layer.
+- is not required to read or adopt ENA;
+- is not a second canonical runtime/adoption version;
+- does not silently synchronize with GitHub;
+- does not grant promotion authority to anyone who can access it.
 
 ## Persistent collaboration rules
 
 - project-first, not Agent-first;
 - persistent project state is the collaboration bus;
 - tool access is connectivity, not project authority;
-- one contribution should normally be one independent artifact;
+- one substantial contribution should normally be one independent artifact;
 - contribution and reconciliation are separate;
 - conflicts remain visible until evidence/authorized decision resolves them;
 - persistence is not synchronization;
 - project continuity does not depend on one permanent owning session/Agent.
 
-GitHub/Drive write capability does not grant promotion, Mainline, deployment, remediation, or scope-expansion authority.
+GitHub write capability does not grant promotion, Mainline, deployment, remediation, or scope-expansion authority.
 
 ## Current field-validation posture
 
