@@ -1,92 +1,55 @@
 # Evolution-Native Agent Architecture (ENA)
 
-**Evolution-Native Agent Architecture (ENA)** is a mechanism-first architecture for agents that are expected to change, learn, recover, and evolve without silently losing evidence, authority boundaries, or the ability to continue improving.
+ENA is a mechanism-first architecture for Agents that are expected to change, learn, recover, and evolve without silently losing evidence, authority boundaries, or the ability to continue improving.
 
 > Protect Agency; govern Authority.
 >
 > Governance must pay rent.
 >
 > Full map, local projection.
+>
+> Broad knowledge, narrow authority.
 
-## Cross-session / project entrypoint
+## Current adoption target
 
-If you are an Agent/session asked to continue, review, research, adopt, advise on, or contribute to ENA — especially when another participant has already been working on it — **read [`PROJECT-HUB.md`](PROJECT-HUB.md) first**.
+**ENA v0.3.1-BETA.1**
 
-The project hub explains current formal state, active candidate, Google Drive anchors, collaboration inbox/reconciliation paths, productionization work, active research, and modification guardrails.
+Status: `BETA / COMPLETE_ADOPTION_BASELINE / NOT_YET_MAINLINE`
+
+For adoption, use only:
+
+`releases/current/`
+
+This is one self-contained baseline. Do not compose it with older ENA releases, candidates, or branches.
+
+Start at [`PROJECT-HUB.md`](PROJECT-HUB.md), then follow `releases/current/README.md`.
 
 ## Repository role
 
-This repository is the diff-friendly engineering and research lineage surface for ENA from the point of GitHub adoption onward.
+This repository provides:
 
-It preserves:
+- the current complete ENA adoption baseline;
+- schemas, templates, and reference tooling;
+- project research and Evolution Inbox;
+- evidence and historical adversarial replay;
+- experiments and prototypes;
+- open contributions, reconciliation, and decisions;
+- Git history for previous releases/candidates without duplicating them inside Current.
 
-- the current formal MAINLINE identity;
-- machine-readable schemas, validators, templates, and examples;
-- release, migration, candidate, and promotion lineage;
-- reference-host evidence;
-- post-release research and Evolution Inbox candidates;
-- persistent collaboration contributions and reconciliation.
+Knowledge and research are open to legitimate project participants. Availability does not mean every artifact must be loaded into every task.
 
-Historical ENA versions that predate this repository are **not retroactively reconstructed as fake Git commits**. Their lineage remains represented by the release artifacts, migration records, promotion records, archived backups, and preserved research heritage that existed before GitHub adoption.
+> Open knowledge does not mean always-loaded knowledge.
 
-## Current formal baseline
+Any participant may question, critique, research, experiment within existing authority, and contribute evidence or variation. Contribution does not itself grant reconciliation, promotion, Mainline, deployment, or unrelated implementation authority.
 
-**ENA v0.2.11 MAINLINE**
+## Field validation
 
-Promotion status:
+v0.3.1-BETA.1 is intended for bounded real adoption and heterogeneous field feedback.
 
-- adopted from v0.2.11 Candidate Revision 2;
-- promotion verdict: `PROMOTE_WITH_KNOWN_HOST_DEFECT`;
-- normative semantic delta from Candidate Revision 2: `NONE`.
+Particularly useful reports include incidents, near misses, friction, observed value, counterexamples, portability findings, new variations, evidence results, research hypotheses, and critiques.
 
-Known DSH host defects remain host reality and are not erased by ENA promotion.
-
-## Current active candidate
-
-**ENA v0.3.0 Candidate 2 — Production Readiness & Living Evolution Integration**
-
-Status: `CANDIDATE / NOT_MAINLINE / NOT_PROMOTED`.
-
-Candidate lineage:
-
-- Candidate 1 is the broad Comprehensive Evolution & Viability Consolidation map;
-- Candidate 2 adds production Runtime/Evolution plane separation, Production Core/Shadow lanes, ROI validation, Recovery-History monotonicity, field feedback, and machine-contract prototypes.
-
-Agents that need to learn the current candidate from a clone/offline package should follow:
-
-`releases/current/v0.3.0-candidate-2/AGENT-LEARNING-ORDER.md`
-
-## Preservation model
-
-GitHub and Google Drive have complementary roles:
-
-- **GitHub** — engineering lineage, diffs, candidate changes, evidence linkage, issues/PRs, future releases;
-- **Google Drive** — durable artifact backup, research archive, reports, human-readable preservation, and Drive-only collaboration.
-
-A version is not considered safely preserved merely because it is known in conversation.
-
-> Known Artifact ≠ Persisted Artifact ≠ Recoverable Artifact.
-
-> Persistence ≠ Synchronization.
-
-## Research and production discipline
-
-New ideas do not automatically become Constitution rules or new releases.
-
-Default path:
-
-`Field/historical incident → concrete failure/value claim → current ENA mapping → already covered? → host-specific? → contribution/evidence → reconciliation → candidate mechanism → cheapest decision-changing validation → bounded production/shadow use → promotion decision`
-
-Current productionization follows:
+Use `releases/current/CONTRIBUTION-PROTOCOL.md` and `releases/current/templates/field-experience.v1.yaml` when useful.
 
 > Production before perfection; not production without evidence.
-
-> Run a frozen profile; evolve in a separate plane.
-
-> Batch variation; concentrate expensive selection.
-
-> Every field node may contribute variation; none receives automatic promotion authority.
-
-## Repository adoption note
-
-This repository was created after ENA v0.2.11 MAINLINE had already been developed and promoted. The first baseline import therefore records **repository adoption**, not the historical birth of ENA.
+>
+> Preserve history durably; retrieve history selectively.
