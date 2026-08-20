@@ -16,11 +16,14 @@ This experiment does **not** modify the current ENA baseline and does not grant 
 2. Read:
    - `research/evolution-inbox/MINIMUM-SUFFICIENT-INTERVENTION.md`
    - `research/experiments/MINIMUM-SUFFICIENT-INTERVENTION-EXPERIMENT.md`
+   - `research/experiments/MINIMUM-SUFFICIENT-INTERVENTION-FIXTURES-v1.md`
 3. Do not load unrelated ENA history merely to run this experiment.
 
-### What to test
+### Use the fixed fixtures first
 
-Where practical, compare three treatments on the same bounded scenario:
+For cross-Agent comparability, use the v1 synthetic fixtures without changing their facts before inventing additional scenarios.
+
+Where practical, compare three treatments on each same fixture:
 
 - `PRESCRIPTIVE` — stronger detailed governance from the start;
 - `MSI` — begin with the lowest sufficient layer and escalate only when consequence/evidence requires it;
@@ -30,7 +33,7 @@ MSI ladder:
 
 `OBSERVE -> EXPOSE_SIGNAL -> SHAPE_CONDITIONS -> LOCAL_COORDINATION -> SCOPED_HARD_BOUNDARY -> EMERGENCY_CONTAINMENT`
 
-Run the scenarios that are feasible in your environment. Synthetic/disposable tests are preferred before real consequential use.
+Synthetic/disposable tests are preferred before real consequential use.
 
 ### Do not optimize for ENA looking good
 
@@ -55,7 +58,7 @@ At minimum record:
 
 - ENA version/digest when available;
 - host/runtime/model applicability when material;
-- scenario and treatment;
+- fixture/scenario and treatment;
 - observed outcome;
 - whether governance changed a decision;
 - intervention layer(s) used;
@@ -66,6 +69,14 @@ At minimum record:
 - UNKNOWNs and alternative explanations;
 - what project decision this result should change.
 
+### Independence disclosure
+
+State whether the run is:
+
+`INDEPENDENT_AGENT | SAME_DESIGNER_SELF_TEST | SAME_MODEL_DIFFERENT_SESSION | OTHER`
+
+Do not present designer/self-test results as independent validation.
+
 ### Contribution
 
 If you have authorized GitHub write/contribution capability, preserve the result as an independent contribution or experiment result and link Issue #11.
@@ -74,7 +85,7 @@ Do not directly modify `releases/current/` from this experiment.
 
 If you cannot persist to GitHub, return the structured result to the maintainer for bridging.
 
-### Final question
+### Final questions
 
 After the run, answer:
 
@@ -83,5 +94,9 @@ After the run, answer:
 Then answer the inverse:
 
 > What evidence, if any, shows that a lower intervention would have been insufficient?
+
+Finally answer:
+
+> Did MSI produce a decision that Current ENA would not already have produced? If yes, identify the delta.
 
 Issue: https://github.com/guytogay/evolution-native-agent-architecture/issues/11
