@@ -1,0 +1,366 @@
+{
+  "summary": {
+    "ADVERSARIAL_blocked": 7,
+    "ADVERSARIAL_total": 7,
+    "POSITIVE_preserved": 10,
+    "POSITIVE_total": 10,
+    "SECOND_ORDER_blocked": 6,
+    "SECOND_ORDER_total": 6
+  },
+  "detail": [
+    {
+      "id": "P1-supported-with-refs",
+      "kind": "POSITIVE",
+      "vector": "I_KNOW",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P2-asserted-ok",
+      "kind": "POSITIVE",
+      "vector": "I_KNOW",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P3-authority-with-mandate",
+      "kind": "POSITIVE",
+      "vector": "I_HAVE_AUTHORITY",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P4-no-authority-ok",
+      "kind": "POSITIVE",
+      "vector": "I_HAVE_AUTHORITY",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P5-completion-satisfied",
+      "kind": "POSITIVE",
+      "vector": "I_COMPLETED",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P6-nonmaterial-obligation-ok",
+      "kind": "POSITIVE",
+      "vector": "I_COMPLETED",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P7-recovery-with-history-evidence",
+      "kind": "POSITIVE",
+      "vector": "I_RECOVERED",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P8-recovery-state-only",
+      "kind": "POSITIVE",
+      "vector": "I_RECOVERED",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P9-independence-distinct-roots",
+      "kind": "POSITIVE",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "P10-verified-with-e2",
+      "kind": "POSITIVE",
+      "vector": "I_VERIFIED",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": []
+    },
+    {
+      "id": "A1-supported-zero-refs",
+      "kind": "ADVERSARIAL",
+      "vector": "I_KNOW",
+      "blocked": true,
+      "codes": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ],
+      "expected": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ],
+      "matched_expected": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ]
+    },
+    {
+      "id": "A2-verified-schema-pass-log",
+      "kind": "ADVERSARIAL",
+      "vector": "I_VERIFIED",
+      "blocked": true,
+      "codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "expected": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "matched_expected": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ]
+    },
+    {
+      "id": "A3-authority-restore-no-mandate",
+      "kind": "ADVERSARIAL",
+      "vector": "I_HAVE_AUTHORITY",
+      "blocked": true,
+      "codes": [
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE"
+      ],
+      "expected": [
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE"
+      ],
+      "matched_expected": [
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE"
+      ]
+    },
+    {
+      "id": "A4-completion-no-obligation-refs",
+      "kind": "ADVERSARIAL",
+      "vector": "I_COMPLETED",
+      "blocked": true,
+      "codes": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "expected": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "matched_expected": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ]
+    },
+    {
+      "id": "A5-recovery-preserved-no-evidence",
+      "kind": "ADVERSARIAL",
+      "vector": "I_RECOVERED",
+      "blocked": true,
+      "codes": [
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE"
+      ],
+      "expected": [
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE",
+        "HISTORY_PRESERVED_WITHOUT_DELTA_CAPTURE"
+      ],
+      "matched_expected": [
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE"
+      ]
+    },
+    {
+      "id": "A6-independence-laundering",
+      "kind": "ADVERSARIAL",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "blocked": true,
+      "codes": [
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE"
+      ],
+      "expected": [
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE"
+      ],
+      "matched_expected": [
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE"
+      ]
+    },
+    {
+      "id": "A6b-independence-one-root",
+      "kind": "ADVERSARIAL",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "blocked": true,
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expected": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "matched_expected": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ]
+    },
+    {
+      "id": "S1-supported-ref-to-empty-support",
+      "kind": "SECOND_ORDER",
+      "vector": "I_KNOW",
+      "blocked": true,
+      "codes": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ],
+      "expected": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ],
+      "matched_expected": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ]
+    },
+    {
+      "id": "S2-authority-mandate-restore",
+      "kind": "SECOND_ORDER",
+      "vector": "I_HAVE_AUTHORITY",
+      "blocked": true,
+      "codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "expected": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "matched_expected": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ]
+    },
+    {
+      "id": "S3-completion-with-open-obligation",
+      "kind": "SECOND_ORDER",
+      "vector": "I_COMPLETED",
+      "blocked": true,
+      "codes": [
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION"
+      ],
+      "expected": [
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION"
+      ],
+      "matched_expected": [
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION"
+      ]
+    },
+    {
+      "id": "S4-recovery-history-same-evidence",
+      "kind": "SECOND_ORDER",
+      "vector": "I_RECOVERED",
+      "blocked": true,
+      "codes": [
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE"
+      ],
+      "expected": [
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE"
+      ],
+      "matched_expected": [
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE"
+      ]
+    },
+    {
+      "id": "S5-independence-count-vs-roots",
+      "kind": "SECOND_ORDER",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "blocked": true,
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expected": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "matched_expected": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ]
+    },
+    {
+      "id": "S6-verified-grade-e0",
+      "kind": "SECOND_ORDER",
+      "vector": "I_VERIFIED",
+      "blocked": true,
+      "codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "expected": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "matched_expected": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ]
+    }
+  ],
+  "ledger": [
+    {
+      "rule": "CLAIM_SUPPORTED_REQUIRES_REFS",
+      "vector": "I_KNOW",
+      "false_claim_blocked": "YES (A1)",
+      "legit_preserved": "YES (P1,P2)",
+      "new_fields": "none (uses existing support_relation_refs)",
+      "new_rules": "1 validator rule",
+      "cost": "O(1) per claim; no tool/runtime change",
+      "new_false_positive_surface": "LOW: SUPPORTED with refs to missing support not yet resolved (second-order S1 needs relation registry)",
+      "protection_beyond_prose": "YES: prose already says supported needs support; now a machine rule enforces non-empty refs"
+    },
+    {
+      "rule": "VERIFIED_REQUIRES_GRADE",
+      "vector": "I_VERIFIED",
+      "false_claim_blocked": "YES (A2)",
+      "legit_preserved": "YES (P10)",
+      "new_fields": "evidence_grade on capability evidence_refs entries",
+      "new_rules": "1 validator rule (grade > E1 required for verified)",
+      "cost": "schema field + validator; no runtime",
+      "new_false_positive_surface": "MEDIUM: grade is self-asserted; E2 can be claimed without proof (documented residual)",
+      "protection_beyond_prose": "PARTIAL: blocks 'static-structure log as verification'; grade truth still self-declared"
+    },
+    {
+      "rule": "AUTHORITY_REQUIRES_MANDATE",
+      "vector": "I_HAVE_AUTHORITY",
+      "false_claim_blocked": "YES (A3, S2)",
+      "legit_preserved": "YES (P3,P4)",
+      "new_fields": "mandate.source + mandate.expires_at",
+      "new_rules": "2 validator rules (source required; source not restore/clone/credential; horizon required)",
+      "cost": "schema field + validator; no runtime",
+      "new_false_positive_surface": "MEDIUM: mandate source is a string; 'USER_EXPLICIT_GRANT' can be forged without verification (CON-029/027 residual)",
+      "protection_beyond_prose": "YES: machine-izes 'credential/restore != mandate'; stops the naive restore-authority claim"
+    },
+    {
+      "rule": "OBLIGATION_CLAIM_LINK",
+      "vector": "I_COMPLETED",
+      "false_claim_blocked": "YES (A4, S3)",
+      "legit_preserved": "YES (P5,P6)",
+      "new_fields": "claim.required_obligation_refs",
+      "new_rules": "1 validator rule resolving claim-side obligation linkage",
+      "cost": "schema field + validator; obligations must be resolvable",
+      "new_false_positive_surface": "MEDIUM: requires obligations registry; unenumerated obligations still invisible (residual)",
+      "protection_beyond_prose": "YES: closes the claim-side hole (obligation→claim existed; claim→obligation did not)"
+    },
+    {
+      "rule": "RECOVERY_HISTORY_EVIDENCE",
+      "vector": "I_RECOVERED",
+      "false_claim_blocked": "YES (A5, S4)",
+      "legit_preserved": "YES (P7,P8)",
+      "new_fields": "none (existing history_continuity fields)",
+      "new_rules": "3 validator rules (evidence non-empty; delta captured; history evidence != state evidence)",
+      "cost": "validator-only; no schema change",
+      "new_false_positive_surface": "LOW-MEDIUM: distinct-ref requirement is heuristic; attacker can name two different fabricated logs (content truth unverifiable)",
+      "protection_beyond_prose": "YES: 'PRESERVED' status word alone no longer suffices; requires delta capture + distinct history evidence"
+    },
+    {
+      "rule": "INDEPENDENCE_ROOT",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "false_claim_blocked": "YES (A6, A6b, S5)",
+      "legit_preserved": "YES (P9)",
+      "new_fields": "independence_basis.root_provenance",
+      "new_rules": "2 validator rules (roots required when count claimed; count <= distinct roots)",
+      "cost": "schema field + validator",
+      "new_false_positive_surface": "MEDIUM: root_provenance is self-declared; attacker can declare 3 fake distinct roots (laundering moves one level down)",
+      "protection_beyond_prose": "YES: stops label-string laundering; shifts the trust boundary to root identity"
+    }
+  ]
+}
