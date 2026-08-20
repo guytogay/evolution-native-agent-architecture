@@ -71,6 +71,30 @@ This is **not Current semantics**. The research must test both under-interventio
 - Research note: `MINIMUM-SUFFICIENT-INTERVENTION.md`
 - Experiment: `../experiments/MINIMUM-SUFFICIENT-INTERVENTION-EXPERIMENT.md`
 
+### Network-Protocol Design Extraction
+
+The first divergent network-protocol exploration has now been deliberately converged. Current actionable candidates are:
+
+- circular provenance / self-confirming support paths;
+- mixed-baseline transition safety;
+- authority lease / expiry semantics.
+
+OSPF/DNS/TCP/LLDP/CSMA-style analogies mostly reinforce existing ENA semantics and should not become new mechanisms merely because the analogy is attractive.
+
+- Tracker: Issue #14
+- Convergence note: `NETWORK-PROTOCOL-DESIGN-EXTRACTION.md`
+- Experiments: `ENA-EXP-NET-001..003` under `../experiments/`
+
+### Task-Scoped Cognitive Modes / Explicit Mode Transitions
+
+Research whether temporary cognitive/operating modes should be task-scoped and bounded by explicit exit/transition conditions rather than treated as persistent Agent identity or authority.
+
+Observed motivating case: a temporary Divergent Explorer mode was useful for network-protocol ideation but became inappropriate once the maintainer requested convergence and implementation.
+
+`Agent identity != cognitive mode != role != authority`
+
+- Tracker: Issue #15
+
 ### Release Identity ≠ Artifact Schema Identity
 An ENA release version and an artifact schema-contract version may legitimately differ. Keep the relationship explicit when it matters.
 
