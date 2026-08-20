@@ -1,0 +1,64 @@
+case_id: HAR-011
+title: "Bridge rule was known in persistent protocol but no bridge obligation was externalized after a Drive contribution"
+status: REPLAYED
+ena_baseline: "v0.2.11 MAINLINE"
+
+source:
+  kind: REAL_INCIDENT
+  repository: "guytogay/evolution-native-agent-architecture"
+  artifact: "Persistent Project Collaboration Protocol + Drive contribution + later GitHub bridge"
+  commit_or_ref: "7f8812fdd7fd8801b67f25a411af57b05aebf28d"
+  evidence_refs:
+    - "Persistent Project Collaboration Protocol section 18 already defined the surface-overlap/bridge rule and a bridge_state model."
+    - "A new ENA contribution was persisted to Google Drive only."
+    - "The creating participant had WRITE access to both Google Drive and GitHub."
+    - "No corresponding GitHub contribution/bridge artifact was created until the user explicitly asked whether the content existed only in Drive."
+    - "The later GitHub artifact preserved source Drive provenance and declared semantic_delta: NONE."
+  cognitive_context_lineage: "same ChatGPT project-steward session that authored/applied the collaboration protocol"
+
+incident:
+  observed_facts:
+    - "The bridge rule existed in persistent project protocol before the Drive-only contribution was created."
+    - "The Drive contribution write succeeded and was treated operationally as a completed persistence action."
+    - "A bridge disposition was not recorded at creation time as NOT_REQUIRED, PENDING, BRIDGED, FAILED, or UNKNOWN."
+    - "The missing GitHub bridge was detected only by later user review."
+    - "The bridge was then created without changing the contribution's semantics."
+  inferences:
+    - "The protocol encoded a conditional rule but did not mechanically convert its trigger into an explicit pending obligation."
+    - "Local success of the primary write created a plausible premature closure point."
+    - "A natural-language rule can remain persistently known while its conditionally activated follow-up work is not represented in execution state."
+  unknowns:
+    - "Whether the bridge rule was actively retrieved in the model's immediate cognitive context at the exact Drive-write decision window."
+    - "Whether it was retrieved but lost salience, or not retrieved at all."
+  evidence_grade: REAL_INCIDENT_EVIDENCE
+
+false_claim:
+  claim_type: COMPLETION
+  claim: "The durable-contribution persistence workflow is complete because the source-surface write succeeded."
+  why_false_or_overbroad: "For a multi-surface project, source persistence can activate a separate bridge/discoverability obligation. The primary write can be locally successful while the project-level persistence workflow still has an unaccounted follow-up obligation."
+
+boundary_crossed:
+  - COMPOSITION
+  - STATE
+  - OTHER
+
+current_ena_mapping:
+  references:
+    - "Known != Retrieved != Salient != Applied — current ENA research distinction"
+    - "ENA-CON-036: Local Validity Does Not Imply Composed Validity"
+    - "Assertion/completion claims should remain scoped to observed evidence"
+    - "Activation semantics distinguish defined/eligible state from actual execution"
+    - "Persistent Project Collaboration Protocol section 18: surface overlap and bridge rule"
+  analysis: "Existing ENA concepts explain the failure after the fact: the Drive write was locally valid, but local validity did not imply completion of the composed multi-surface persistence workflow; a defined rule did not imply its execution; and the only directly observable endpoint in the Known/Retrieved/Salient/Applied chain is Applied=NO. What is not yet explicit is an operational contract that material conditional obligations become first-class pending state when their trigger fires. Without that, the system still depends on remembering to remember."
+  expected_behavior: "When an observed event activates a material conditional obligation, externalize the obligation into explicit state before claiming workflow completion. The obligation must be resolved as satisfied, not required, deferred/authorized, failed, or unknown rather than silently remaining absent."
+
+candidate_relation:
+  candidate: "Triggered Obligation Externalization / Obligation Closure"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "Prototype an obligation-state contract and update the collaboration protocol so multi-surface contribution creation requires an explicit bridge disposition before persistence workflow completion. Test whether the same pattern appears in release, recovery, experiment, and remediation workflows before considering broader ENA normative promotion."
+notes:
+  - "Rule defined != obligation activated != obligation represented != obligation executed != obligation closed."
+  - "Do not solve forgetting by adding more prose that itself can be forgotten."
+  - "Completion should be blocked by material triggered obligations that remain unaccounted for."
