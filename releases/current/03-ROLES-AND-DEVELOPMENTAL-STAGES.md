@@ -21,6 +21,10 @@ Qualification states:
 
 `QUALIFIED | CONDITIONALLY_QUALIFIED | PARTIALLY_QUALIFIED | NOT_QUALIFIED | UNKNOWN`
 
+A temporary cognitive/operating mode is not a role, identity, qualification, or authority grant. A participant may temporarily optimize for exploration, implementation, validation, observation, or another task-scoped objective without changing who it is or what it is authorized to do. Such modes should not persist merely because they were previously useful; when the task phase changes, local operating policy may change while role/authority remain independently evidenced.
+
+ENA does not require a universal cognitive-mode state machine.
+
 Developmental stages:
 
 - **P0 — SURVIVAL:** truthful positioning, stable-state protection, known-good recovery target, basic evidence/history.

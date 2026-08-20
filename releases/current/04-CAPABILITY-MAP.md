@@ -2,7 +2,7 @@
 
 Every capability is scoped and evidenced. A capability title does not grant the capability, and a capability does not automatically grant authority.
 
-Core capability vocabulary retained in this Beta:
+Core capability vocabulary retained in v0.3.2:
 
 `ENA-CAP-001` Read Workspace / Project State  
 `ENA-CAP-002` Write Workspace / Project State  
@@ -70,20 +70,22 @@ Core capability vocabulary retained in this Beta:
 `ENA-CAP-064` Canonical History / Derived Knowledge Projection Separation  
 `ENA-CAP-065` Claim–Evidence Support Relation  
 `ENA-CAP-066` Triggered Material Obligation Closure  
-`ENA-CAP-067` Layered Capability Composition and Route Binding  
+`ENA-CAP-067` Layered Capability / Route / Authority Binding  
 `ENA-CAP-068` Evidence-Backed Stage Admission Pack  
 `ENA-CAP-069` Agency-Preserving Uncertainty Resolution  
 `ENA-CAP-070` Viability Economics and Project-Scale Governance Fitness  
 `ENA-CAP-071` Persistent Evolution and Open Contribution Substrate
 
-For `ENA-CAP-065..071` in this Beta:
+For `ENA-CAP-065..071` in v0.3.2:
 
-- **CAP-065:** represent claim, observed evidence, claimed/evidence scope, and explicit support relation; cross-boundary transfer requires independently evidenced transfer/equivalence/invariance.
-- **CAP-066:** when a material trigger occurs, externalize the duty through explicit states such as `PENDING`, `SATISFIED`, `NOT_REQUIRED`, `DEFERRED_AUTHORIZED`, `FAILED`, `UNKNOWN`; broad completion cannot ignore unresolved material obligations.
-- **CAP-067:** distinguish Agent, Host, model, tool/service/adapter, credential/configuration, route, capability evidence, and authority; material binding change selectively invalidates affected evidence rather than causing global Agent rebirth.
+- **CAP-065:** represent claim, observed evidence, claimed/evidence scope, explicit support relation, and material provenance/independence basis; cross-boundary transfer requires independently evidenced transfer/equivalence/invariance, and derivative repetition must not be counted as independent corroboration.
+- **CAP-066:** when a material trigger occurs, externalize the duty through explicit states such as `PENDING`, `SATISFIED`, `NOT_REQUIRED`, `DEFERRED_AUTHORIZED`, `FAILED`, `UNKNOWN`; broad completion cannot ignore unresolved material obligations, and `SATISFIED` requires appropriate closure evidence.
+- **CAP-067:** distinguish Agent, Host, model, tool/service/adapter, credential/configuration, route, capability evidence, subject control, mandate, and authority; material binding change selectively invalidates affected evidence/authority rather than causing global Agent rebirth.
 - **CAP-068:** keep requested stage distinct from admitted stage; self-assessment is hypothesis, not qualification evidence.
 - **CAP-069:** `UNKNOWN` should constrain consequence while permitting low-risk/reversible/read-only/evidence-seeking action when available; uncertainty is not automatically safety or paralysis.
-- **CAP-070:** observe governance cost, latency, human attention, coordination, rework, prevented failure, reusable evidence, and project viability without forcing one universal scalar.
+- **CAP-070:** observe governance cost, latency, human attention, coordination, rework, control-composition/compensation complexity, prevented failure, reusable evidence, useful variety, and project viability without forcing one universal scalar.
 - **CAP-071:** preserve project continuity across sessions/Agents/models/hosts through durable project state and open contribution while keeping contribution, reconciliation, promotion, and implementation authority distinct.
+
+Capability enumeration is a map, not a requirement to instantiate or validate all capabilities for every task. LITE adoption should externalize only material capabilities for the current consequence envelope.
 
 ---

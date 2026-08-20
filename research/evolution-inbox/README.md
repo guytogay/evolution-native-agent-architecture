@@ -4,7 +4,7 @@ Status: `RESEARCH / OPEN / NOT_CURRENT_BASELINE`
 
 This directory holds durable ENA research directions, unresolved questions, counterexamples, historical candidate material, and evidence vectors that may inform future ENA versions.
 
-The current adoption baseline is **ENA v0.3.1-BETA.1** at `releases/current/`.
+The current adoption baseline is **ENA v0.3.2** at `releases/current/`.
 
 Nothing in this Inbox is an additional runtime layer. Do not compose Inbox material with the Current baseline unless a later ENA release explicitly incorporates it.
 
@@ -21,14 +21,8 @@ Projection may legitimately truncate, summarize, deduplicate, rank, merge, omit,
 
 > A projection may simplify representation, but must not silently acquire stronger truth semantics than its transformation supports.
 
-Reference domains include history→knowledge, conversation→context, runtime→health, source artifacts→derived themes, and project metadata/indexes→current project state.
-
 ### Witness Survivability / Failure-Domain Independence
-A witness/control that claims to detect or recover from a failure should survive, or remain independently observable across, the relevant failure domain.
-
-> Witness survival domain must cover the failure domain of the claim it supports.
-
-Current evidence is still insufficient for a separate Universal subsystem.
+A witness/control that claims to detect or recover from a failure should survive, or remain independently observable across, the relevant failure domain. v0.3.2 also clarifies that authority independence and failure-path congruence are separate concerns.
 
 ### Distributed History Merge Semantics
 Append-only preservation does not make concurrent writers conflict-free.
@@ -55,17 +49,13 @@ Relevant rules may be known and retrievable yet fail to dominate the final decis
 
 `Known != Retrieved != Salient != Applied`
 
-The current baseline already includes Triggered Material Obligation Closure and Influence Integrity as operational protections; this research area remains open for additional failure modes.
-
 ### Minimum Sufficient Intervention / Ecological Governance
 
-Research whether ENA should explicitly prefer the **lowest intervention layer sufficient to protect viability and contain material externality**, rather than accumulating stronger controls by default.
-
-Candidate ladder under test:
+The named experimental ladder remains research:
 
 `OBSERVE -> EXPOSE_SIGNAL -> SHAPE_CONDITIONS -> LOCAL_COORDINATION -> SCOPED_HARD_BOUNDARY -> EMERGENCY_CONTAINMENT`
 
-This is **not Current semantics**. The research must test both under-intervention and over-intervention failure modes, including bad equilibria, externality, monoculture, governance debt, and lost behavioral variety.
+v0.3.2 incorporates only the narrower reconciled property: prefer the lowest-cost intervention that honestly protects the required property, while allowing immediate escalation to a hard boundary when lower layers are insufficient. The fixed ladder is not Current normative machinery.
 
 - Tracker: Issue #11
 - Research note: `MINIMUM-SUFFICIENT-INTERVENTION.md`
@@ -73,25 +63,23 @@ This is **not Current semantics**. The research must test both under-interventio
 
 ### Network-Protocol Design Extraction
 
-The first divergent network-protocol exploration has now been deliberately converged. Current actionable candidates are:
+The 62-pass network-protocol exploration is now reconciled into v0.3.2 where it earned operational value:
 
-- circular provenance / self-confirming support paths;
-- mixed-baseline transition safety;
-- authority lease / expiry semantics.
+- provenance independence/derivative-support handling -> existing Claim ↔ Evidence contract;
+- authority lease/expiry/subject binding -> existing Capability/Route/Authority Binding contract;
+- mixed-baseline transition safety -> Release Discipline;
+- effect retry/concurrency/replay/cancel semantics -> Composition/Effect contract;
+- narrow-waist principle -> shared architecture/release guidance.
 
-OSPF/DNS/TCP/LLDP/CSMA-style analogies mostly reinforce existing ENA semantics and should not become new mechanisms merely because the analogy is attractive.
-
-- Tracker: Issue #14
-- Convergence note: `NETWORK-PROTOCOL-DESIGN-EXTRACTION.md`
-- Experiments: `ENA-EXP-NET-001..003` under `../experiments/`
+Protocol-specific machinery and unresolved patterns remain research; Issue #14 is closed as the completed divergent research pass.
 
 ### Task-Scoped Cognitive Modes / Explicit Mode Transitions
 
-Research whether temporary cognitive/operating modes should be task-scoped and bounded by explicit exit/transition conditions rather than treated as persistent Agent identity or authority.
-
-Observed motivating case: a temporary Divergent Explorer mode was useful for network-protocol ideation but became inappropriate once the maintainer requested convergence and implementation.
+v0.3.2 incorporates only the boundary:
 
 `Agent identity != cognitive mode != role != authority`
+
+A fixed universal cognitive-mode state machine remains research. Evidence is still insufficient to standardize exact mode names/transitions.
 
 - Tracker: Issue #15
 
@@ -101,29 +89,32 @@ An ENA release version and an artifact schema-contract version may legitimately 
 ### Migration Is Not Remediation Mandate
 A migration/adoption task does not silently authorize adjacent remediation merely because remediation appears useful.
 
-## Already incorporated into the Current Beta baseline
+## Incorporated into Current v0.3.2
 
-The following research families are now part of `v0.3.1-BETA.1` and should be field-tested as Current semantics rather than treated as separate overlays:
+The following families are Current semantics and should be field-tested rather than loaded as research overlays:
 
-- Claim ↔ Evidence Support;
+- Claim ↔ Evidence Support, including provenance-independence/closure refinements;
 - Triggered Material Obligation Closure;
 - Recovery State ≠ Historical Time / Monotonic History Across Restore;
-- Capability / Model / Route Binding;
+- Capability / Model / Route / Authority Binding;
+- effect identity, replay/retry/concurrency/cancel semantics;
 - Agency-Preserving Uncertainty;
-- Viability Economics;
+- Viability Economics, including control-composition/compensation cost;
 - Influence Integrity;
-- open participation and field contribution;
-- singular self-contained adoption-version discipline.
+- concrete LITE adoption projection;
+- narrow-waist implementation-diversity discipline;
+- immutable self-contained adoption-version/distribution parity discipline;
+- open participation and field contribution.
 
-Their presence in the Beta means **field validation is requested**, not that they are universally proven or Mainline-promoted.
+Current status is `FIELD_VALIDATION / NOT_MAINLINE`; inclusion does not mean universal proof.
 
 ## Historical adversarial replay
 
 Preferred loop:
 
-`Historical incident -> concrete failure claim -> current ENA mapping -> false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> next release decision`
+`Historical incident -> concrete failure claim -> current ENA mapping -> false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> accumulate coherent change batch -> next flattened release`
 
-Current HAR checkpoint before Beta flattening: **13 replay cases, 0 new Constitution-level normative gaps**.
+Historical HAR checkpoint before v0.3.1 flattening: **13 replay cases, 0 new Constitution-level normative gaps**.
 
 ## Contribution rule
 

@@ -1,22 +1,27 @@
-# Evolution-Native Agent Architecture — v0.3.1-BETA.1
+# Evolution-Native Agent Architecture — v0.3.2
 
-Status: **BETA / COMPLETE ADOPTION BASELINE / NOT YET MAINLINE**
+Status: **FIELD VALIDATION / COMPLETE ADOPTION BASELINE / NOT MAINLINE**
 
-This document is the complete effective ENA baseline for this Beta. It is intended for real bounded adoption and field validation. Do not combine it with older ENA releases, candidates, or branches to determine what is currently effective.
+This directory is the complete effective ENA v0.3.2 baseline. It is intended for real bounded adoption and field validation. Do not combine it with older ENA releases, candidates, research artifacts, or branches to determine what is currently effective.
 
 An adopter should be able to state simply:
 
-`ENA baseline: v0.3.1-BETA.1`
+`ENA baseline: v0.3.2`
+
+Version identity and maturity status are separate. `v0.3.2` identifies one immutable adoption world; `FIELD_VALIDATION` describes its current evidence/maturity state.
 
 Historical releases remain lineage, not runtime dependencies.
 
 ## Start here
 
-1. Perform Self-Positioning before claiming consequential capability or authority.
-2. Derive the local Active Governance Set from actual host reality and declared applicability rules, not preference.
-3. Use the same semantic baseline on every host; allow only evidence-backed local projection and host-specific implementation to differ.
-4. Read only the sections relevant to the current task. Broader ENA research, evidence, and history remain discoverable when useful.
+1. Choose the lightest adoption profile that honestly matches the task and consequence envelope.
+   - For low-consequence bounded work, use `LITE-ADOPTION-INSTRUCTION.md`.
+   - For broader or higher-consequence work, perform full Self-Positioning using `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`.
+2. Establish material capability, authority, effect, recovery, and uncertainty boundaries before consequential action.
+3. Derive the local Active Governance Set from actual host reality and declared applicability rules, not preference.
+4. Read only the contracts relevant to the present task. Broader capability maps, roles, research, evidence, and history remain discoverable on demand.
 5. Operate, observe, critique, and contribute evidence or variation when useful.
+6. Escalate governance only as far as the current consequence requires; do not delay a hard boundary when lower-intervention mechanisms cannot protect the relevant property.
 
 > **Protect Agency; govern Authority.**
 >
@@ -25,5 +30,7 @@ Historical releases remain lineage, not runtime dependencies.
 > **Full map, local projection.**
 >
 > **Broad knowledge, narrow authority.**
+>
+> **Standardize the narrow waist; let local mechanisms differ.**
 
 ---

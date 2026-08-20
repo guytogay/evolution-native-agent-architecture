@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reference semantic validator for ENA v0.3.1-BETA.1 operational contracts.
+"""Reference semantic validator for ENA v0.3.2 operational contracts.
 
 This validator deliberately checks only a few high-ROI cross-object invariants that
 JSON Schema alone cannot prove. Structural schema PASS is not semantic truth.
@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 SCOPE_KEYS = ("host", "runtime_instance", "model_binding", "route", "configuration", "epoch", "time_interval", "task_scope")
+DEFAULT_FIXTURES = Path(__file__).with_name("contract-fixtures.v1.json")
 
 
 def load(path: str | Path) -> dict[str, Any]:
@@ -48,6 +49,19 @@ def validate_support(claim: dict[str, Any], support: dict[str, Any]) -> dict[str
         return result(False, "CLAIM_REF_MISMATCH")
     if support.get("support_status") not in {"SUPPORTS", "PARTIAL"}:
         return result(True, "NO_POSITIVE_SUPPORT_CLAIMED")
+
+    independence = support.get("independence_basis") or {}
+    claimed_independent_count = independence.get("claimed_independent_count")
+    source_origins = independence.get("source_origins") or []
+    if claimed_independent_count is not None:
+        unique_origins = {str(x) for x in source_origins if x not in (None, "", "UNKNOWN")}
+        if claimed_independent_count > len(unique_origins):
+            return result(
+                False,
+                "INDEPENDENCE_OVERCLAIMED",
+                {"claimed_independent_count": claimed_independent_count, "unique_source_origins": sorted(unique_origins)},
+            )
+
     observed = support.get("observed_scope") or {}
     claimed = support.get("claimed_scope") or claim.get("scope") or {}
     mismatches = _scope_mismatches(observed, claimed)
@@ -93,16 +107,53 @@ def validate_recovery(transition: dict[str, Any]) -> dict[str, Any]:
     return result(False, "UNKNOWN_RECOVERY_CLAIM_SCOPE", {"claim_scope": claim_scope})
 
 
+def _run_fixture(case: dict[str, Any]) -> dict[str, Any]:
+    mode = case.get("mode")
+    payload = case.get("input") or {}
+    if mode == "support":
+        actual = validate_support(payload.get("claim") or {}, payload.get("support") or {})
+    elif mode == "obligation":
+        actual = validate_obligation(payload.get("obligation") or {})
+    elif mode == "recovery":
+        actual = validate_recovery(payload.get("transition") or {})
+    else:
+        actual = result(False, "UNKNOWN_FIXTURE_MODE", {"mode": mode})
+    expected = case.get("expect") or {}
+    passed = actual.get("ok") == expected.get("ok") and actual.get("code") == expected.get("code")
+    return {"id": case.get("id"), "passed": passed, "expected": expected, "actual": actual}
+
+
+def run_selftest(fixtures_path: str | Path) -> dict[str, Any]:
+    fixture_doc = load(fixtures_path)
+    cases = fixture_doc.get("cases") or []
+    results = [_run_fixture(case) for case in cases]
+    failed = [r for r in results if not r["passed"]]
+    return {
+        "ok": not failed,
+        "code": "SELFTEST_PASS" if not failed else "SELFTEST_FAIL",
+        "fixture_version": fixture_doc.get("fixture_version"),
+        "total": len(results),
+        "failed": len(failed),
+        "results": results,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="mode", required=True)
     p = sub.add_parser("support"); p.add_argument("claim"); p.add_argument("support")
     p = sub.add_parser("obligation"); p.add_argument("obligation")
     p = sub.add_parser("recovery"); p.add_argument("transition")
+    p = sub.add_parser("selftest"); p.add_argument("fixtures", nargs="?", default=str(DEFAULT_FIXTURES))
     args = parser.parse_args()
-    if args.mode == "support": out = validate_support(load(args.claim), load(args.support))
-    elif args.mode == "obligation": out = validate_obligation(load(args.obligation))
-    else: out = validate_recovery(load(args.transition))
+    if args.mode == "support":
+        out = validate_support(load(args.claim), load(args.support))
+    elif args.mode == "obligation":
+        out = validate_obligation(load(args.obligation))
+    elif args.mode == "recovery":
+        out = validate_recovery(load(args.transition))
+    else:
+        out = run_selftest(args.fixtures)
     print(json.dumps(out, ensure_ascii=False, indent=2))
     return 0 if out["ok"] else 2
 
