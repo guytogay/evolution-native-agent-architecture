@@ -1,0 +1,92 @@
+{
+  "fixture_version": "1.0",
+  "ena_version": "v0.3.2",
+  "purpose": "Deterministic positive/negative fixtures for decision-changing semantic checks in validate_contracts.py.",
+  "cases": [
+    {
+      "id": "support-direct-pass",
+      "mode": "support",
+      "input": {
+        "claim": {"claim_id": "C1", "scope": {"host": "H1", "task_scope": "T1"}},
+        "support": {"claim_ref": "C1", "support_status": "SUPPORTS", "observed_scope": {"host": "H1", "task_scope": "T1"}, "claimed_scope": {"host": "H1", "task_scope": "T1"}}
+      },
+      "expect": {"ok": true, "code": "SUPPORT_SCOPE_DIRECT_MATCH"}
+    },
+    {
+      "id": "support-transfer-required-fail",
+      "mode": "support",
+      "input": {
+        "claim": {"claim_id": "C2", "scope": {"host": "H2"}},
+        "support": {"claim_ref": "C2", "support_status": "SUPPORTS", "observed_scope": {"host": "H1"}, "claimed_scope": {"host": "H2"}}
+      },
+      "expect": {"ok": false, "code": "TRANSFER_EVIDENCE_REQUIRED"}
+    },
+    {
+      "id": "support-transfer-declared-pass",
+      "mode": "support",
+      "input": {
+        "claim": {"claim_id": "C3", "scope": {"host": "H2"}},
+        "support": {"claim_ref": "C3", "support_status": "SUPPORTS", "observed_scope": {"host": "H1"}, "claimed_scope": {"host": "H2"}, "transfer_basis": {"required": true, "type": "TRANSFER", "evidence_refs": ["E-TRANSFER-1"]}}
+      },
+      "expect": {"ok": true, "code": "SUPPORT_SCOPE_TRANSFER_DECLARED"}
+    },
+    {
+      "id": "support-derivative-independence-fail",
+      "mode": "support",
+      "input": {
+        "claim": {"claim_id": "C4", "scope": {"host": "H1"}},
+        "support": {"claim_ref": "C4", "support_status": "SUPPORTS", "observed_scope": {"host": "H1"}, "claimed_scope": {"host": "H1"}, "evidence_refs": ["E-A", "E-B", "E-C"], "independence_basis": {"claimed_independent_count": 3, "source_origins": ["ORIGIN-A", "ORIGIN-A", "ORIGIN-A"]}}
+      },
+      "expect": {"ok": false, "code": "INDEPENDENCE_OVERCLAIMED"}
+    },
+    {
+      "id": "support-independent-origins-pass",
+      "mode": "support",
+      "input": {
+        "claim": {"claim_id": "C5", "scope": {"host": "H1"}},
+        "support": {"claim_ref": "C5", "support_status": "SUPPORTS", "observed_scope": {"host": "H1"}, "claimed_scope": {"host": "H1"}, "evidence_refs": ["E-A", "E-B"], "independence_basis": {"claimed_independent_count": 2, "source_origins": ["ORIGIN-A", "ORIGIN-B"]}}
+      },
+      "expect": {"ok": true, "code": "SUPPORT_SCOPE_DIRECT_MATCH"}
+    },
+    {
+      "id": "obligation-material-pending-fail",
+      "mode": "obligation",
+      "input": {
+        "obligation": {"materiality": "MATERIAL", "trigger": {"observed": true}, "status": "PENDING", "required_before_claim_refs": ["C-COMPLETE"]}
+      },
+      "expect": {"ok": false, "code": "MATERIAL_OBLIGATION_BLOCKS_CLAIM"}
+    },
+    {
+      "id": "obligation-satisfied-without-evidence-fail",
+      "mode": "obligation",
+      "input": {
+        "obligation": {"materiality": "MATERIAL", "trigger": {"observed": true}, "status": "SATISFIED", "closure_evidence_refs": []}
+      },
+      "expect": {"ok": false, "code": "SATISFIED_WITHOUT_CLOSURE_EVIDENCE"}
+    },
+    {
+      "id": "obligation-satisfied-pass",
+      "mode": "obligation",
+      "input": {
+        "obligation": {"materiality": "MATERIAL", "trigger": {"observed": true}, "status": "SATISFIED", "closure_evidence_refs": ["E-CLOSE-1"]}
+      },
+      "expect": {"ok": true, "code": "OBLIGATION_STATE_ACCEPTABLE"}
+    },
+    {
+      "id": "recovery-state-only-pass",
+      "mode": "recovery",
+      "input": {
+        "transition": {"state_restore": {"result": "SUCCESS"}, "history_continuity": {"status": "GAP_VISIBLE"}, "recovery_claim": {"scope": "STATE_ONLY"}}
+      },
+      "expect": {"ok": true, "code": "STATE_ONLY_RECOVERY_SUPPORTED"}
+    },
+    {
+      "id": "recovery-full-history-fail",
+      "mode": "recovery",
+      "input": {
+        "transition": {"state_restore": {"result": "SUCCESS"}, "history_continuity": {"status": "PARTIAL"}, "recovery_claim": {"scope": "STATE_AND_HISTORY"}}
+      },
+      "expect": {"ok": false, "code": "FULL_RECOVERY_REQUIRES_PRESERVED_HISTORY"}
+    }
+  ]
+}
