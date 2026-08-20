@@ -1,0 +1,29 @@
+# NON-NORMATIVE research prototype mapped from HAR-011.
+# The point is not to require every artifact to exist on every surface.
+# The point is that a material conditional bridge obligation cannot remain silently unrepresented.
+
+obligation_id: "obl-har011-bridge-001"
+trigger:
+  event_ref: "Drive contribution persisted: 1zQunDkN8m7LJTMdw8rqEYI4JrAuKahbwQKBt-FrQyXU"
+  observed_at: "2026-08-20T12:57:00+08:00"
+  evidence_refs:
+    - "Persistent Project Collaboration Protocol §18"
+    - "PROJECT-METADATA.yaml bridge_policy"
+rule_ref: "Persistent Project Collaboration Protocol §18 — Surface overlap and bridge rule"
+applicability: APPLICABLE
+materiality: MATERIAL_TO_COMPLETION
+status: SATISFIED
+required_before_claim: "cross-surface contribution persistence workflow complete"
+assigned_actor_ref: "ChatGPT project-steward participant"
+authority_ref: "user-authorized project maintenance / contribution persistence"
+resolution:
+  resolved_at: "2026-08-20T12:57:00+08:00"
+  resolution_reason: "GitHub bridge artifact created with source Drive provenance and semantic_delta=NONE after user detected the missing bridge."
+  evidence_refs:
+    - "GitHub commit 7f8812fdd7fd8801b67f25a411af57b05aebf28d"
+    - "collaboration/inbox/2026-08-20-1257-chatgpt-persistent-collaboration-evolution-substrate.md"
+  residual_risk: "The obligation was detected reactively by the user rather than proactively by the workflow; future writes still need an activation/closure mechanism."
+notes:
+  - "The original failure state would have been status=PENDING or UNKNOWN immediately after the Drive write."
+  - "NOT_REQUIRED is a valid explicit outcome when project policy determines no bridge is needed."
+  - "Silently absent obligation state is the failure mode under study."
