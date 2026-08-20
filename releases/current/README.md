@@ -1,46 +1,21 @@
-# Current ENA Release
+# ENA v0.3.1-BETA.1 — Current Adoption Baseline
 
-Status: `RELEASE_INDEX / CURRENT`
+Status: `BETA / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`
 
-Current formal baseline: **ENA v0.2.11 MAINLINE**.
+This directory is the complete current ENA adoption target. Every effective runtime document under `releases/current/` belongs to the same version: **v0.3.1-BETA.1**.
 
-Current active large-version candidate: **ENA v0.3.0 Candidate 2 — Production Readiness & Living Evolution Integration** (`NOT_MAINLINE / NOT_PROMOTED`).
+Do **not** compose this baseline with older ENA releases, candidates, or branches.
 
-Candidate lineage:
+## Start
 
-- `v0.3.0 Candidate 1` — Comprehensive Evolution & Viability Consolidation; broad research/heritage selection surface.
-- `v0.3.0 Candidate 2` — productionization increment; adds Production Core/Shadow lanes, Recovery-History correction, ROI validation, field feedback, and machine-contract prototypes.
+1. Read `00-READ-ME-FIRST.md`.
+2. Perform Self-Positioning using `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`.
+3. Read the Constitution and only the contracts relevant to the current task/consequence envelope.
+4. Use `CURRENT-BASELINE.yaml` as the machine-readable current-version pointer.
+5. Use `CONTRIBUTION-PROTOCOL.md` and `templates/field-experience.v1.yaml` when contributing field evidence or research.
 
-GitHub release metadata/source index:
+Project research/evidence/history outside this directory remains open and discoverable, but it is not an additional runtime version layer.
 
-- `releases/v0.2.11/README.md` — formal Mainline baseline
-- `releases/current/v0.3.0-candidate-1/README.md` — Candidate 1 index
-- `releases/current/v0.3.0-candidate-1/COMPREHENSIVE-CONSOLIDATION.md` — Candidate 1 comprehensive body
-- `releases/current/v0.3.0-candidate-2/README.md` — active Candidate 2 index
-- `releases/current/v0.3.0-candidate-2/AGENT-LEARNING-ORDER.md` — learning order for clones/offline packs
-- `releases/current/v0.3.0-candidate-2/PRODUCTION-READINESS.md` — production adoption surface
-- `PROJECT-METADATA.yaml`
-
-Durable formal Mainline release artifacts are stored in Google Drive:
-
-`My Drive / 10 Projects / ENA - Evolution-Native Agent Architecture / 40 Releases / 10 Current`
-
-Current Drive formal artifact set includes:
-
-- Full MAINLINE ZIP
-- Active Baseline MAINLINE ZIP
-- Full Single-File Markdown
-- Active Baseline Single-File Markdown
-- Promotion Record
-
-Formal release identity:
-
-- v0.2.11 promoted from Candidate Revision 2;
-- promotion verdict: `PROMOTE_WITH_KNOWN_HOST_DEFECT`;
-- normative semantic delta from Candidate Revision 2: `NONE`.
-
-Neither v0.3.0 Candidate 1 nor Candidate 2 silently replaces this formal baseline.
-
-Current release status does not erase known DSH host defects or reclassify evidence.
-
-Do not use a generic `latest` artifact as the sole durable identity; keep explicit version/status and checksum/manifest evidence where available.
+> **Open knowledge does not mean always-loaded knowledge.**
+>
+> **Research may branch; an adoption baseline must be singular.**
