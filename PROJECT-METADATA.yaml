@@ -9,7 +9,7 @@ lifecycle: FIELD_VALIDATION
 license: Apache-2.0
 
 canonical_state:
-  current_adoption_baseline: "ENA v0.3.2"
+  current_adoption_baseline: "ENA v0.3.3"
   status: FIELD_VALIDATION
   complete_adoption_baseline: true
   mainline_claim_allowed: false
@@ -48,7 +48,7 @@ surfaces:
     synchronization_assumed: false
 
 current_validation:
-  baseline: "v0.3.2"
+  baseline: "v0.3.3"
   focus:
     - "LITE adoption viability versus STANDARD"
     - "Claim↔Evidence provenance independence and closure"

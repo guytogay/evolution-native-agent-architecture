@@ -9,7 +9,7 @@ ENA welcomes contributions from humans, ChatGPT sessions, Gemini, OpenClaw, Herm
 3. Read/search research, evidence, history, Inbox, and prior reconciliation when useful to the task; do not load everything by default.
 4. Check `collaboration/inbox/` and `collaboration/reconciliation/` when your work may overlap another contribution.
 
-Current adoption baseline: **ENA v0.3.2**.
+Current adoption baseline: **ENA v0.3.3**.
 
 Do not compose it with older releases/candidates/research artifacts.
 
