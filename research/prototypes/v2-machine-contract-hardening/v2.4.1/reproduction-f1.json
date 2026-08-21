@@ -1,0 +1,238 @@
+{
+  "frozen_ref": "47e0e1b121b1ef1e8911c59980c99805ded5a963",
+  "evaluated_at": "2026-08-21",
+  "results": [
+    {
+      "id": "IND-01",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK (independent) / actual likely OK",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-02E",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "Resolve E2 (OK) or REGISTRY_MALFORMED; NOT silent false-block",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-02E-rev",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "OK but artifact identity confused (declared E2, resolved as E1)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-02E-ctrl",
+      "wb_expect": "OK",
+      "wb_predicted": "OK (control: key==id works)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-02O",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "Resolve O2 (OK) or REGISTRY_MALFORMED; NOT silent false-block",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-02R",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "Resolve R2 (OK) or REGISTRY_MALFORMED; NOT silent false-block",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "ROOT_REF_UNRESOLVABLE"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-02A",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "Resolve G2 (OK) or REGISTRY_MALFORMED; NOT silent false-block",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-03Ea",
+      "wb_expect": "OK",
+      "wb_predicted": "OK (dict tolerates missing id via key backfill)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-03Eb",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK REGISTRY_MALFORMED (list rejects missing id)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "REGISTRY_MALFORMED",
+        "evidence registry"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-04",
+      "wb_expect": "OK",
+      "wb_predicted": "OK but UNVERIFIED (residual: omission evades existence check)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-05",
+      "wb_expect": "OK",
+      "wb_predicted": "BLOCK or UNKNOWN (independent) / actual likely OK",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-06",
+      "wb_expect": "OK",
+      "wb_predicted": "OK but wildcard grant = unnecessary trust boundary",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-07",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "OK/UNKNOWN (independent) / actual likely BLOCK (false)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "ROOT_REF_UNRESOLVABLE"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-08",
+      "wb_expect": "UNKNOWN",
+      "wb_predicted": "OK (independent: provenance self-contained) / actual likely UNKNOWN",
+      "frozen_actual": "UNKNOWN",
+      "codes": [
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-09",
+      "wb_expect": "UNKNOWN",
+      "wb_predicted": "BLOCK (fail-closed, independent) / actual likely UNKNOWN",
+      "frozen_actual": "UNKNOWN",
+      "codes": [
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-10",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK HISTORY_EVIDENCE_SHARED_ROOT (control/correct)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-11",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK REGISTRY_MALFORMED, no exception (control: exception safety)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "REGISTRY_MALFORMED",
+        "evidence registry"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-12a",
+      "wb_expect": "OK",
+      "wb_predicted": "OK (dedup byte-identical, control)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-12b",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK DUPLICATE_REF_ID (control)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "DUPLICATE_REF_ID"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-13a",
+      "wb_expect": "UNKNOWN",
+      "wb_predicted": "UNKNOWN PARTIAL_SUPPORT_ONLY (control/correct)",
+      "frozen_actual": "UNKNOWN",
+      "codes": [
+        "PARTIAL_SUPPORT_ONLY"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-13b",
+      "wb_expect": "OK",
+      "wb_predicted": "OK (control: narrowed PARTIAL accepted)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    },
+    {
+      "id": "IND-14",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK SUPPORT_TARGET_MISMATCH (control/correct)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "SUPPORT_TARGET_MISMATCH"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-15",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK MANDATE_EXPIRED (control/correct)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-16",
+      "wb_expect": "BLOCK",
+      "wb_predicted": "BLOCK COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS (control/correct)",
+      "frozen_actual": "BLOCK",
+      "codes": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "exception": null
+    },
+    {
+      "id": "IND-17",
+      "wb_expect": "OK",
+      "wb_predicted": "OK (control: clean happy path)",
+      "frozen_actual": "OK",
+      "codes": [],
+      "exception": null
+    }
+  ]
+}
