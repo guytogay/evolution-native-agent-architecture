@@ -1,0 +1,387 @@
+{
+  "acceptance_semantics": {
+    "BLOCK": "materially false/invalid claim OR claim requiring mandatory support whose references cannot be resolved",
+    "OK": "legitimate claim with sufficient resolvable support",
+    "UNKNOWN": "legitimate but materially unverifiable claim where uncertainty is allowed (deliberately distinct from BLOCK)"
+  },
+  "fixture_counts": {
+    "v2": 23,
+    "v21": 18,
+    "v22": 7,
+    "migrated": 5,
+    "total": 53
+  },
+  "manifest": [
+    {
+      "id": "P1-supported-with-refs",
+      "kind": "POSITIVE",
+      "semantic_category": "mandatory_unresolvable",
+      "expected_verdict": "BLOCK",
+      "rationale": "claim requires mandatory resolvable support (SUPPORTED/completion); references cannot be resolved (registry absent) -> fail-closed BLOCK; uncertainty is NOT allowed for a mandatory precondition"
+    },
+    {
+      "id": "P2-asserted-ok",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P3-authority-with-mandate",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P4-no-authority-ok",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P5-completion-satisfied",
+      "kind": "POSITIVE",
+      "semantic_category": "mandatory_unresolvable",
+      "expected_verdict": "BLOCK",
+      "rationale": "claim requires mandatory resolvable support (SUPPORTED/completion); references cannot be resolved (registry absent) -> fail-closed BLOCK; uncertainty is NOT allowed for a mandatory precondition"
+    },
+    {
+      "id": "P6-nonmaterial-obligation-ok",
+      "kind": "POSITIVE",
+      "semantic_category": "mandatory_unresolvable",
+      "expected_verdict": "BLOCK",
+      "rationale": "claim requires mandatory resolvable support (SUPPORTED/completion); references cannot be resolved (registry absent) -> fail-closed BLOCK; uncertainty is NOT allowed for a mandatory precondition"
+    },
+    {
+      "id": "P7-recovery-with-history-evidence",
+      "kind": "POSITIVE",
+      "semantic_category": "uncertainty_positive",
+      "expected_verdict": "UNKNOWN",
+      "rationale": "legitimate claim; verification capability (registry) absent so a deeper property cannot be verified; uncertainty allowed -> UNKNOWN, deliberately not BLOCK"
+    },
+    {
+      "id": "P8-recovery-state-only",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P9-independence-distinct-roots",
+      "kind": "POSITIVE",
+      "semantic_category": "uncertainty_positive",
+      "expected_verdict": "UNKNOWN",
+      "rationale": "legitimate claim; verification capability (registry) absent so a deeper property cannot be verified; uncertainty allowed -> UNKNOWN, deliberately not BLOCK"
+    },
+    {
+      "id": "P10-verified-with-e2",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "A1-supported-zero-refs",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A2-verified-schema-pass-log",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A3-authority-restore-no-mandate",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A4-completion-no-obligation-refs",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A5-recovery-preserved-no-evidence",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A6-independence-laundering",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A6b-independence-one-root",
+      "kind": "ADVERSARIAL",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "S1-supported-ref-to-empty-support",
+      "kind": "SECOND_ORDER",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "S2-authority-mandate-restore",
+      "kind": "SECOND_ORDER",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "S3-completion-with-open-obligation",
+      "kind": "SECOND_ORDER",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "S4-recovery-history-same-evidence",
+      "kind": "SECOND_ORDER",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "S5-independence-count-vs-roots",
+      "kind": "SECOND_ORDER",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "S6-verified-grade-e0",
+      "kind": "SECOND_ORDER",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-1-support-ref-unresolvable",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-2-obligation-ref-unresolvable",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-3-grade-garbage",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-3b-grade-out-of-range",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-4-mandate-expired",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-4b-mandate-malformed",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-5-recovery-same-root",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-6-fabricated-roots",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-7-support-ref-registry-absent",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-8-duplicate-support-id",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "A21-9-applicability-mismatch",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "P21-1-supported-resolvable",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P21-2-completion-resolvable",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P21-3-grade-e2",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P21-4-mandate-current",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P21-5-recovery-distinct-roots",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P21-6-independence-real-roots",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "P21-7-completion-nonmaterial",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "V22-P1-full-stack-composition",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "V22-A1-support-ref-points-at-obligation",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "V22-A2-duplicate-obligation-id",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "V22-A3-mandate-expires-tomorrow-eval-today",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "V22-P3-mandate-expires-tomorrow-eval-today-valid",
+      "kind": "POSITIVE",
+      "semantic_category": "sufficient_positive",
+      "expected_verdict": "OK",
+      "rationale": "legitimate claim with sufficient resolvable support; every required reference resolves and every resolved artifact carries the required evidence"
+    },
+    {
+      "id": "V22-A4-recovery-same-root-via-registry",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "V22-A5-independence-mirror-roots",
+      "kind": "ATTACK",
+      "semantic_category": "adversarial",
+      "expected_verdict": "BLOCK",
+      "rationale": "materially false/invalid claim; contract must refuse endorsement"
+    },
+    {
+      "id": "P1m-supported-with-refs",
+      "kind": "POSITIVE",
+      "semantic_category": "migrated_positive",
+      "expected_verdict": "OK",
+      "rationale": "migrated equivalent supplying the registry/provenance/support information the cumulative contract now legitimately requires; must reach OK"
+    },
+    {
+      "id": "P5m-completion-satisfied",
+      "kind": "POSITIVE",
+      "semantic_category": "migrated_positive",
+      "expected_verdict": "OK",
+      "rationale": "migrated equivalent supplying the registry/provenance/support information the cumulative contract now legitimately requires; must reach OK"
+    },
+    {
+      "id": "P6m-nonmaterial-obligation-ok",
+      "kind": "POSITIVE",
+      "semantic_category": "migrated_positive",
+      "expected_verdict": "OK",
+      "rationale": "migrated equivalent supplying the registry/provenance/support information the cumulative contract now legitimately requires; must reach OK"
+    },
+    {
+      "id": "P7m-recovery-with-history-evidence",
+      "kind": "POSITIVE",
+      "semantic_category": "migrated_positive",
+      "expected_verdict": "OK",
+      "rationale": "migrated equivalent supplying the registry/provenance/support information the cumulative contract now legitimately requires; must reach OK"
+    },
+    {
+      "id": "P9m-independence-distinct-roots",
+      "kind": "POSITIVE",
+      "semantic_category": "migrated_positive",
+      "expected_verdict": "OK",
+      "rationale": "migrated equivalent supplying the registry/provenance/support information the cumulative contract now legitimately requires; must reach OK"
+    }
+  ]
+}
