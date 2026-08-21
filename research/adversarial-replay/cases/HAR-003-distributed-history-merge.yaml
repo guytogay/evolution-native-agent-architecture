@@ -35,7 +35,6 @@ false_claim:
 boundary_crossed:
   - CONCURRENCY
   - COMPOSITION
-  - HISTORY
 
 current_ena_mapping:
   references:
@@ -55,3 +54,4 @@ next_action: "Search for at least one independent non-Git multi-writer history c
 notes:
   - "Append-only is a property of history preservation, not a concurrency protocol."
   - "A history can be truthful on both branches before it is reconciled."
+  - "HISTORY is the false-claim category here; the crossed boundary dimensions are CONCURRENCY and COMPOSITION, so HISTORY is intentionally not duplicated into boundary_crossed."
