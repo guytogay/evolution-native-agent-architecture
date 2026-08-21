@@ -1,0 +1,271 @@
+{
+  "summary": {
+    "ATTACK_blocked": 11,
+    "ATTACK_total": 11,
+    "POSITIVE_preserved": 7,
+    "POSITIVE_total": 7
+  },
+  "detail": [
+    {
+      "id": "A21-1-support-ref-unresolvable",
+      "kind": "ATTACK",
+      "case": "SUPPORTED claim points to nonexistent support_relation_ref; no registry supplied",
+      "blocked": true,
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expected": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "matched_expected": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-2-obligation-ref-unresolvable",
+      "kind": "ATTACK",
+      "case": "Completion claim references obligation that does not exist in registry",
+      "blocked": true,
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE",
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "expected": [
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "matched_expected": [
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-3-grade-garbage",
+      "kind": "ATTACK",
+      "case": "grade='GARBAGE' bypasses C2 (all(g in E0,E1) is False -> passes)",
+      "blocked": true,
+      "codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "expected": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "matched_expected": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-3b-grade-out-of-range",
+      "kind": "ATTACK",
+      "case": "grade='E9' (out of range) also passes C2",
+      "blocked": true,
+      "codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "expected": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "matched_expected": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-4-mandate-expired",
+      "kind": "ATTACK",
+      "case": "expires_at in the past; C3 only checks non-empty",
+      "blocked": true,
+      "codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "expected": [
+        "MANDATE_EXPIRED"
+      ],
+      "matched_expected": [
+        "MANDATE_EXPIRED"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-4b-mandate-malformed",
+      "kind": "ATTACK",
+      "case": "expires_at='not-a-date' unparseable; C3 passes (non-empty)",
+      "blocked": true,
+      "codes": [
+        "MANDATE_DATE_UNPARSEABLE"
+      ],
+      "expected": [
+        "MANDATE_DATE_UNPARSEABLE"
+      ],
+      "matched_expected": [
+        "MANDATE_DATE_UNPARSEABLE"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-5-recovery-same-root",
+      "kind": "ATTACK",
+      "case": "history evidence ref E-HIST is a derived copy of E-STATE (same root); C5 only string-compares",
+      "blocked": true,
+      "codes": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "expected": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "matched_expected": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-6-fabricated-roots",
+      "kind": "ATTACK",
+      "case": "3 distinct root_provenance strings that are all mirrors of one actual origin; C6 counts strings",
+      "blocked": true,
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expected": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "matched_expected": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-7-support-ref-registry-absent",
+      "kind": "ATTACK",
+      "case": "no registry supplied at all; validator cannot resolve any ref; V2 silently passes",
+      "blocked": true,
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expected": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "matched_expected": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-8-duplicate-support-id",
+      "kind": "ATTACK",
+      "case": "two different support relations share support_id S-DUP with contradictory support_status",
+      "blocked": true,
+      "codes": [
+        "DUPLICATE_REF_ID"
+      ],
+      "expected": [
+        "DUPLICATE_REF_ID"
+      ],
+      "matched_expected": [
+        "DUPLICATE_REF_ID"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "A21-9-applicability-mismatch",
+      "kind": "ATTACK",
+      "case": "support resolves; observed_scope host=H1 but claim scope host=H2; no transfer basis; base validator would catch host mismatch, but hardened path must too",
+      "blocked": true,
+      "codes": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "expected": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "matched_expected": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "v2_was_vulnerable": true
+    },
+    {
+      "id": "P21-1-supported-resolvable",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    },
+    {
+      "id": "P21-2-completion-resolvable",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    },
+    {
+      "id": "P21-3-grade-e2",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    },
+    {
+      "id": "P21-4-mandate-current",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    },
+    {
+      "id": "P21-5-recovery-distinct-roots",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    },
+    {
+      "id": "P21-6-independence-real-roots",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    },
+    {
+      "id": "P21-7-completion-nonmaterial",
+      "kind": "POSITIVE",
+      "case": "",
+      "blocked": false,
+      "codes": [],
+      "expected": [],
+      "matched_expected": [],
+      "v2_was_vulnerable": false
+    }
+  ],
+  "v2_leaks": [
+    "A21-1-support-ref-unresolvable",
+    "A21-2-obligation-ref-unresolvable",
+    "A21-3-grade-garbage",
+    "A21-3b-grade-out-of-range",
+    "A21-4-mandate-expired",
+    "A21-4b-mandate-malformed",
+    "A21-5-recovery-same-root",
+    "A21-6-fabricated-roots",
+    "A21-7-support-ref-registry-absent",
+    "A21-8-duplicate-support-id",
+    "A21-9-applicability-mismatch"
+  ],
+  "fixture_version": "2.1"
+}
