@@ -32,7 +32,6 @@ false_claim:
   why_false_or_overbroad: "The hook could exist and be loadable while its event predicate prevented all intended executions."
 
 boundary_crossed:
-  - ACTIVATION
   - STATE
 
 current_ena_mapping:
@@ -53,3 +52,4 @@ next_action: "Keep as worked example/reference evidence for Activation semantics
 notes:
   - "Registered != Fired != Effect Observed."
   - "This case reduces pressure for a new Activation Witness normative rule."
+  - "ACTIVATION is the false-claim category here; the crossed boundary dimension is STATE, so ACTIVATION is intentionally not duplicated into boundary_crossed."
