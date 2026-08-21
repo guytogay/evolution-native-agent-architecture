@@ -85,9 +85,11 @@ jobs:
                   args += ['--eval-time', case['eval_time']]
               out = subprocess.run(args, capture_output=True, text=True)
               os.unlink(path)
-              if out.returncode != 0:
-                  print('FAIL', cid, 'exit', out.returncode, out.stderr[:300]); sys.exit(1)
-              res = json.loads(out.stdout)
+              # BLOCK/UNKNOWN verdicts legitimately exit non-zero; judge by stdout.
+              try:
+                  res = json.loads(out.stdout)
+              except Exception:
+                  print('FAIL', cid, 'no-json', out.stdout[:200], out.stderr[:200]); sys.exit(1)
               assert res['verdict'] == exp_verdict, (cid, res['verdict'], exp_verdict)
               print('cli-case-pass', cid, res['verdict'])
           PY
