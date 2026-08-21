@@ -8,7 +8,7 @@ This is the stable entrypoint for any participant asked to adopt, use, continue,
 
 ## Current adoption state
 
-Current complete adoption baseline: **ENA v0.3.2**
+Current complete adoption baseline: **ENA v0.3.3**
 
 Status: `FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`
 
@@ -20,7 +20,7 @@ Do not compose the current baseline with older ENA releases, candidates, researc
 
 An adopter should be able to state simply:
 
-`ENA baseline: v0.3.2`
+`ENA baseline: v0.3.3`
 
 ## First-read order
 
@@ -70,7 +70,7 @@ For trackable bugs, enhancements, research questions, or release concerns, prefe
 
 ## Shared baseline, local projection
 
-All adopters use the same v0.3.2 semantics. Different hosts may have different Active Governance Sets only because actual host reality and declared applicability differ.
+All adopters use the same v0.3.3 semantics. Different hosts may have different Active Governance Sets only because actual host reality and declared applicability differ.
 
 Host preference does not create a different baseline. Temporary cognitive/operating mode does not create a different role or authority envelope.
 
@@ -127,7 +127,7 @@ GitHub write capability does not grant promotion, Mainline, deployment, remediat
 
 ## Current field-validation posture
 
-v0.3.2 is intended for real bounded adoption and heterogeneous field validation.
+v0.3.3 is intended for real bounded adoption and heterogeneous field validation.
 
 Current high-value observation areas include:
 

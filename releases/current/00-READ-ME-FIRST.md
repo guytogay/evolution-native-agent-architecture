@@ -1,14 +1,14 @@
-# Evolution-Native Agent Architecture — v0.3.2
+# Evolution-Native Agent Architecture — v0.3.3
 
 Status: **FIELD VALIDATION / COMPLETE ADOPTION BASELINE / NOT MAINLINE**
 
-This directory is the complete effective ENA v0.3.2 baseline. It is intended for real bounded adoption and field validation. Do not combine it with older ENA releases, candidates, research artifacts, or branches to determine what is currently effective.
+This directory is the complete effective ENA v0.3.3 baseline. It is intended for real bounded adoption and field validation. Do not combine it with older ENA releases, candidates, research artifacts, or branches to determine what is currently effective.
 
 An adopter should be able to state simply:
 
-`ENA baseline: v0.3.2`
+`ENA baseline: v0.3.3`
 
-Version identity and maturity status are separate. `v0.3.2` identifies one immutable adoption world; `FIELD_VALIDATION` describes its current evidence/maturity state.
+Version identity and maturity status are separate. `v0.3.3` identifies one immutable adoption world; `FIELD_VALIDATION` describes its current evidence/maturity state.
 
 Historical releases remain lineage, not runtime dependencies.
 

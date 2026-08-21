@@ -223,3 +223,128 @@ An external source may legitimately influence *what* an Agent inspects without b
 > **Signal strength is not authority strength.**
 
 ---
+
+## 5.13 Composed Claim-Pack Validation (v0.3.3)
+
+This section documents the composed validation semantics carried into the
+v0.3.3 Current baseline from the accepted V2.4.1 mechanism set
+(reconciliation `ACCEPT_FOR_IMPLEMENTATION`, PR #34; mechanism source
+`daacab1f042c38f3856ef4d0366febd1b5e47600`). It is an operational-contract
+extension implemented in `tools/validate_contracts.py :: validate_case()`; it
+does not modify the v0.3.2 semantic checks in sections 5.1–5.12 (the shipped
+core remains byte-identical and its selftests are intentionally preserved).
+
+### 5.13.1 One canonical typed resolution layer
+
+Every consequential cross-artifact reference (support relation, obligation,
+evidence, root, authority grant) resolves through one canonical typed resolver
+in its own artifact namespace. A reference never resolves across namespaces
+(e.g. an evidence id is not a support id). References that cannot resolve are
+never silently accepted: absent registry, present-but-missing artifact, and
+malformed registry are distinguishable, and a supplied registry that cannot
+resolve the referenced artifact fails closed (no raw-reference fallback).
+
+### 5.13.2 Support binding and applicability envelope
+
+Resolved support must bind back to the target claim (`claim_ref == claim_id`).
+The complete v0.3.2 applicability envelope (host, runtime_instance,
+model_binding, route, configuration, epoch, time_interval, task_scope) is
+preserved: a material claimed dimension with no observed value is a mismatch,
+not a silent match. Scope expansion requires a transfer basis whose evidence
+references resolve where an evidence registry is supplied.
+
+### 5.13.3 Evidence existence
+
+Where evidence existence is a mandatory precondition (support, verified
+capability, transfer/equivalence, recovery state/history, obligation closure),
+evidence references resolve when an evidence registry is supplied (missing →
+BLOCK). When no evidence registry is supplied, support/capability/transfer/
+closure evidence keeps the v0.3.2 posture (non-empty requirement; existence is
+not invented), while recovery provenance and independence roots keep absent
+registry → UNKNOWN (uncertainty, not rejection).
+
+### 5.13.4 Duplicate identity, representation composition, claim-aware obligations
+
+Ambiguous duplicate identities fail closed (byte-identical duplicates dedupe;
+any substantive divergence → BLOCK). Top-level support and registry support
+representations compose consistently (dict/list forms; dict keys are identity,
+see 5.13.6). Obligation blocking is claim-aware: only obligations referenced by
+the completion claim or explicitly bound to it gate the claim; an unrelated
+obligation tied to another claim does not poison a narrower truthful
+completion, while the claim's own open material obligations still block.
+
+### 5.13.5 Authority, recovery, partial support
+
+Authority source semantics are positively typed (explicit authorizing
+vocabulary) or verified via an optional authority registry (upstream grant
+covering the binding). `STATE_AND_HISTORY` recovery establishes both
+state-restoration and history-continuity evidence, adequately resolved. PARTIAL
+support cannot establish a full SUPPORTED claim unless the claim is explicitly
+narrowed (`support_claim == "PARTIAL"`).
+
+### 5.13.6 Registry identity rule (R12) and malformed inputs
+
+For dict-form registries the dict key is the authoritative identity. An
+entry's explicit inner id (`support_id` / `obligation_id` / `evidence_id` /
+`root_id` / `grant_id`) must equal the key; otherwise the registry is
+`REGISTRY_MALFORMED` (the validator does not guess which identity is
+authoritative). A missing inner id is backfilled from the key. List-form
+entries must declare their inner id. Malformed registry shapes produce machine
+verdicts (`REGISTRY_MALFORMED`), never uncaught exceptions; residual faults
+fail closed (`EVALUATOR_FAULT`).
+
+### 5.13.7 Obligation status vocabulary (F2, defense in depth)
+
+Obligation status is validated against the shipped
+`triggered-obligation.v1.schema.json` enum at the semantic boundary: any status
+outside that vocabulary (e.g. OPEN) is rejected
+(`OBLIGATION_STATUS_OUTSIDE_VOCABULARY`). The vocabulary is NOT expanded by this
+candidate; the shipped schema remains the canonical input contract.
+
+### 5.13.8 Retained trust boundaries (unchanged from research acceptance)
+
+The composed validator does not establish external truth. Registry content,
+evidence grades, mandate content, and observed scope remain self-declared
+(attestation by an external authority is outside this validator). `eval_time`
+is caller-controlled and explicitly required — it is never silently defaulted.
+Schema PASS remains distinct from semantic support.
+
+### 5.13.9 D1/D2/D3 corrections (accepted in v0.3.3)
+
+The composed validation closes the three defects found by fresh independent
+implementation validation (PR #38, NEEDS_REVISION) and confirmed by
+prior-falsifier targeted revalidation (PR #41, SUPPORTED):
+
+- **D1 — bound obligations gate ALL claims.** An obligation whose
+  `required_before_claim_refs` explicitly contains the current claim ID gates
+  that claim regardless of claim type: a non-completion claim with a material
+  `PENDING`/`FAILED`/`UNKNOWN` bound obligation is `BLOCK`ed; an unrelated
+  obligation bound to another claim never poisons any claim; a bound
+  legitimate closed/acceptable obligation allows the claim subject to other
+  checks. Completion claims keep their `required_obligation_refs` requirement
+  and referenced-obligation gating; an obligation both referenced and bound is
+  evaluated once. (R7 corrected; fixes P42 false OK.)
+- **D2 — direct vs registry-addressable top-level support.** Top-level support
+  is split into a direct representation (id-less, standalone — legitimate, per
+  the v0.3.2 posture) and a registry-addressable representation (id-carrying).
+  An id-less direct support never invents a pseudo identity and never silently
+  satisfies a claim's `support_relation_refs`; referenced support still
+  requires a resolvable identity. Dict-form R12, list-form declared-ID, and
+  malformed-registry fail-closed rules are unchanged. (R6 clarified; fixes P10
+  false BLOCK.)
+- **D3 — root-provenance independence is authoritative.** When
+  `independence_basis` declares `root_provenance`, the composed
+  root-registry-backed check is authoritative and the legacy `source_origins`
+  check is suppressed for that artifact (the shipped core remains byte-identical;
+  the suppression happens in the composed layer). Composed independence states:
+  claimed count > distinct root strings → `BLOCK`; valid roots + absent root
+  registry → `UNKNOWN`; roots + distinct registered actual origins → `OK`;
+  multiple roots collapsing to fewer actual origins → `BLOCK`; claimed
+  independence without root provenance → `BLOCK`. `source_origins`-only
+  representations remain legacy-coherent; when both are supplied the root
+  representation is authoritative (deterministic). (Fixes P16/P17 false BLOCK.)
+
+No other accepted behavior changed: R1–R12, F2, explicit caller-controlled
+`eval_time`, and the retained trust boundaries (5.13.8) are preserved.
+
+---

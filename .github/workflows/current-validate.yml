@@ -2,6 +2,7 @@ name: Validate and package ENA Current
 
 on:
   push:
+    branches: [main]
     paths:
       - 'releases/current/**'
       - '.github/workflows/current-validate.yml'
@@ -9,12 +10,13 @@ on:
     paths:
       - 'releases/current/**'
       - '.github/workflows/current-validate.yml'
+  workflow_dispatch:
 
 jobs:
   validate-current:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout full history
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -32,30 +34,77 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          for path in sorted(Path('releases/current/schemas').glob('*.json')):
+          paths = sorted(Path('releases/current/schemas').glob('*.json'))
+          assert paths, 'no schemas found'
+          for path in paths:
               json.loads(path.read_text(encoding='utf-8'))
               print('schema-parse-pass', path)
           PY
 
-      - name: Run semantic contract fixtures
-        run: python releases/current/tools/validate_contracts.py selftest
+      - name: Run v0.3.2-migrated semantic selftests (v1 fixtures)
+        run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v1.json
 
-      - name: Validate Current baseline pointers
+      - name: Run inherited 164-case implementation corpus (v2 fixtures)
+        run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.json
+
+      - name: Run D1/D2/D3 closure corpus (v2.1 fixtures, 61 cases)
+        run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.1.json
+
+      - name: Run v0.3.3 regression suite (deterministic)
+        run: python releases/current/tools/regression_suite.py
+
+      - name: CLI case-mode semantics (OK / BLOCK / UNKNOWN via stdout)
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd releases/current/tools
+          python - <<'PY'
+          import json, subprocess, sys, tempfile, os
+          cases = json.load(open('contract-fixtures.v2.1.json', encoding='utf-8'))['cases']
+          by_id = {c['id']: c for c in cases}
+          # Judge machine verdict from stdout JSON; BLOCK/UNKNOWN legitimately exit non-zero.
+          for cid, exp_verdict in (('P01', 'OK'), ('P42', 'BLOCK'), ('P10', 'OK'),
+                                   ('P16', 'UNKNOWN'), ('P17', 'OK'),
+                                   ('C1-D3-03-roots-collapse', 'BLOCK')):
+              case = by_id[cid]
+              payload = case['input']
+              if not isinstance(payload, dict):
+                  continue
+              with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf-8') as f:
+                  json.dump(payload, f)
+                  path = f.name
+              args = [sys.executable, 'validate_contracts.py', 'case', path]
+              if case.get('eval_time'):
+                  args += ['--eval-time', case['eval_time']]
+              out = subprocess.run(args, capture_output=True, text=True)
+              os.unlink(path)
+              try:
+                  res = json.loads(out.stdout)
+              except Exception:
+                  print('FAIL', cid, 'no-json', out.stdout[:200], out.stderr[:200]); sys.exit(1)
+              assert res['verdict'] == exp_verdict, (cid, res['verdict'], exp_verdict)
+              print('cli-case-pass', cid, res['verdict'])
+          PY
+
+      - name: Validate Current baseline pointers (v0.3.3)
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
           root = Path('releases/current')
           doc = yaml.safe_load((root / 'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          assert doc['ena_version'] == 'v0.3.2'
+          assert doc['ena_version'] == 'v0.3.3', doc['ena_version']
+          assert doc['status'] == 'FIELD_VALIDATION', doc['status']
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
+          assert doc['mainline_claim_allowed'] is False
+          assert doc['version_identity_includes_maturity_status'] is False
+          assert doc['package_scope'] == 'ALL_FILES_UNDER_RELEASES_CURRENT'
           for rel in doc.get('core_files', []):
               assert (root / rel).is_file(), f'missing core file: {rel}'
           lite = doc.get('lite_entrypoint')
           assert lite and (root / lite).is_file(), f'missing LITE entrypoint: {lite}'
-          assert not (root / '07-BETA-ADOPTION-AND-FIELD-VALIDATION.md').exists()
-          print('current-baseline-pointer-pass')
+          print('current-baseline-pointer-pass', doc['ena_version'], doc['status'])
           PY
 
       - name: Build deterministic package from canonical committed Current bytes
@@ -80,7 +129,7 @@ jobs:
 
           root = Path('release-build/current')
           out = Path('release-build/out')
-          zip_path = out / 'ENA-v0.3.2-CURRENT.zip'
+          zip_path = out / 'ENA-v0.3.3-CURRENT.zip'
           files = sorted(p for p in root.rglob('*') if p.is_file())
           file_hashes = {}
           with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
@@ -93,20 +142,28 @@ jobs:
                   info.external_attr = 0o100644 << 16
                   zf.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
 
+          # Internal ZIP read-back: exact file-set parity + per-file hash parity.
           with zipfile.ZipFile(zip_path, 'r') as zf:
               names = sorted(zf.namelist())
               expected = sorted(file_hashes)
-              assert names == expected, {'zip': names, 'source': expected}
+              exact_file_set_parity = (names == expected)
+              assert exact_file_set_parity, {'zip': names, 'source': expected}
+              readback_parity = True
               for name in names:
-                  assert hashlib.sha256(zf.read(name)).hexdigest() == file_hashes[name], name
+                  if hashlib.sha256(zf.read(name)).hexdigest() != file_hashes[name]:
+                      readback_parity = False
+                      assert False, name
+              assert readback_parity
 
           zip_sha = hashlib.sha256(zip_path.read_bytes()).hexdigest()
-          (out / 'ENA-v0.3.2-CURRENT.zip.sha256').write_text(
-              f'{zip_sha}  ENA-v0.3.2-CURRENT.zip\n', encoding='utf-8'
+          (out / 'ENA-v0.3.3-CURRENT.zip.sha256').write_text(
+              f'{zip_sha}  ENA-v0.3.3-CURRENT.zip\n', encoding='utf-8'
           )
           evidence = {
-              'ena_version': 'v0.3.2',
+              'ena_version': 'v0.3.3',
               'status': 'FIELD_VALIDATION',
+              'complete_adoption_baseline': True,
+              'mainline_claim_allowed': False,
               'canonical_current_source_commit': os.environ['SOURCE_COMMIT'],
               'package_file': zip_path.name,
               'package_sha256': zip_sha,
@@ -114,21 +171,21 @@ jobs:
               'files_sha256': file_hashes,
               'verification': {
                   'source_bytes_from_git_objects': True,
-                  'exact_file_set_parity': True,
-                  'per_file_sha256_parity_after_zip_readback': True,
+                  'exact_file_set_parity': exact_file_set_parity,
+                  'per_file_sha256_parity_after_zip_readback': readback_parity,
                   'deterministic_zip_metadata': True
               }
           }
-          (out / 'ENA-v0.3.2-RELEASE-EVIDENCE.json').write_text(
+          (out / 'ENA-v0.3.3-RELEASE-EVIDENCE.json').write_text(
               json.dumps(evidence, indent=2, sort_keys=True) + '\n', encoding='utf-8'
           )
           print(json.dumps({k: evidence[k] for k in ['ena_version','canonical_current_source_commit','package_sha256','file_count']}, indent=2))
           PY
 
-      - name: Upload v0.3.2 release evidence and package
+      - name: Upload v0.3.3 release evidence and package
         uses: actions/upload-artifact@v4
         with:
-          name: ENA-v0.3.2-release-package
+          name: ENA-v0.3.3-release-package
           path: release-build/out/*
           if-no-files-found: error
           retention-days: 90

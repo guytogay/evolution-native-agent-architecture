@@ -12,11 +12,11 @@ ENA is a mechanism-first architecture for Agents expected to change, learn, reco
 
 ## Project status
 
-Current adoption baseline: **ENA v0.3.2**
+Current adoption baseline: **ENA v0.3.3**
 
 Status: `FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`
 
-Version identity and maturity are separate. `v0.3.2` is one complete immutable adoption world; `FIELD_VALIDATION` describes its current evidence posture.
+Version identity and maturity are separate. `v0.3.3` is one complete immutable adoption world; `FIELD_VALIDATION` describes its current evidence posture.
 
 ENA is experimental and intended for real bounded use and heterogeneous field feedback. Field-validation status does **not** mean Mainline or universal validation.
 
@@ -71,7 +71,7 @@ Reading, questioning, forking, experimenting, filing Issues, or submitting Pull 
 
 ## Field validation
 
-ENA v0.3.2 is intended for heterogeneous field validation. Reports of failure, useless overhead, ambiguity, and counterexamples are as valuable as reports of success.
+ENA v0.3.3 is intended for heterogeneous field validation. Reports of failure, useless overhead, ambiguity, and counterexamples are as valuable as reports of success.
 
 High-value validation areas include LITE adoption economics, authority/subject/mandate lifecycle, effect-level retry/concurrency semantics, provenance independence/closure, release parity, and unexpected composition failures.
 

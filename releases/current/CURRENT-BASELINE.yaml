@@ -1,11 +1,18 @@
 schema_version: "1.1"
-ena_version: "v0.3.2"
+ena_version: "v0.3.3"
 status: FIELD_VALIDATION
 complete_adoption_baseline: true
 requires_older_release_composition: false
 mainline_claim_allowed: false
 version_identity_includes_maturity_status: false
 package_scope: "ALL_FILES_UNDER_RELEASES_CURRENT"
+
+# ENA v0.3.3 — Current adoption baseline (NOT Mainline). Release lineage:
+# v0.3.3-candidate (f7dc620, fresh independent validation PR #38
+# NEEDS_REVISION) -> v0.3.3-candidate.1 (034b789, D1/D2/D3 corrected,
+# prior-falsifier revalidation PR #41 SUPPORTED) -> this Current baseline.
+# Historical candidates/validation PRs are lineage, not runtime dependencies.
+# Release identity requirements remain enabled.
 
 release_identity:
   immutable_effective_content_required: true

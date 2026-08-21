@@ -1,10 +1,10 @@
 # 7. Adoption and Field Validation
 
-`v0.3.2` is one complete adoption baseline, not a composition of old releases.
+`v0.3.3` is one complete adoption baseline, not a composition of old releases.
 
 Release status: `FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`.
 
-Version identity and maturity are separate: `v0.3.2` names the immutable adoption content; `FIELD_VALIDATION` describes the current evidence posture.
+Version identity and maturity are separate: `v0.3.3` names the immutable adoption content; `FIELD_VALIDATION` describes the current evidence posture.
 
 Real bounded adoption is intended. Shadow observation and Canary enforcement are allowed/expected where authorized. The baseline is not a Mainline or universal-validation claim.
 
@@ -23,7 +23,7 @@ Profile choice is not a badge. Escalate/de-escalate as task consequence changes.
 
 All field feedback should identify, where possible and decision-relevant:
 
-- `ena_version: v0.3.2`;
+- `ena_version: v0.3.3`;
 - exact source/package digest or release evidence when available;
 - selected adoption profile;
 - relevant Host/runtime/model/tool/route/configuration identity;

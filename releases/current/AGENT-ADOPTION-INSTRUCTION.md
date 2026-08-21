@@ -1,8 +1,8 @@
-# Agent Adoption Instruction — ENA v0.3.2
+# Agent Adoption Instruction — ENA v0.3.3
 
 ## Minimal instruction
 
-Adopt **ENA v0.3.2** from this `releases/current/` directory as one complete, self-contained ENA baseline.
+Adopt **ENA v0.3.3** from this `releases/current/` directory as one complete, self-contained ENA baseline.
 
 Do not combine it with older ENA releases, candidates, research artifacts, or branches.
 
@@ -32,7 +32,7 @@ For consequential work remember:
 
 When reporting adoption, state at minimum when material:
 
-- `ENA baseline: v0.3.2`;
+- `ENA baseline: v0.3.3`;
 - host/runtime identity if observable;
 - selected adoption profile;
 - important Active/Dormant/Not-Applicable/Unavailable/Unknown governance states;

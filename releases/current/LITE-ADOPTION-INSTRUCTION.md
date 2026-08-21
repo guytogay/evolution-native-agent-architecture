@@ -1,4 +1,4 @@
-# ENA v0.3.2 — LITE Adoption Instruction
+# ENA v0.3.3 — LITE Adoption Instruction
 
 Use this profile for bounded, low-consequence work when full STANDARD adoption would add more governance cost than decision value.
 
@@ -18,7 +18,7 @@ Then retrieve only the sections of `05-CORE-OPERATIONAL-CONTRACTS.md` needed by 
 
 Before consequential action, state or determine only what matters now:
 
-- `ENA baseline: v0.3.2`;
+- `ENA baseline: v0.3.3`;
 - `profile: LITE`;
 - current task/purpose;
 - observable Agent/Host/runtime identity sufficient to distinguish this execution context;
@@ -60,7 +60,7 @@ Escalation is consequence-triggered, not sequential ceremony. A hard boundary ma
 For material work, a compact handoff is enough:
 
 ```text
-ENA baseline: v0.3.2
+ENA baseline: v0.3.3
 profile: LITE
 task: <short description>
 material authority/effect: <none | scoped description>
