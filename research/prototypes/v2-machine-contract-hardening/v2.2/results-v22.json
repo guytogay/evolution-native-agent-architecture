@@ -1,0 +1,707 @@
+{
+  "cumulative": {
+    "TOTAL_ADVERSARIAL_BLOCKED": 29,
+    "TOTAL_ADVERSARIAL": 29,
+    "ADVERSARIAL_UNKNOWN": 0,
+    "TOTAL_POSITIVE_PRESERVED": 14,
+    "TOTAL_POSITIVE": 19,
+    "POSITIVE_UNKNOWN": 2,
+    "POSITIVE_BLOCKED": 3
+  },
+  "composition_findings": [
+    {
+      "type": "COMPOSITION_BLOCK_ON_POSITIVE",
+      "id": "P1-supported-with-refs",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "note": "legitimate control blocked by a composed protection"
+    },
+    {
+      "type": "COMPOSITION_BLOCK_ON_POSITIVE",
+      "id": "P5-completion-satisfied",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE",
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "note": "legitimate control blocked by a composed protection"
+    },
+    {
+      "type": "COMPOSITION_BLOCK_ON_POSITIVE",
+      "id": "P6-nonmaterial-obligation-ok",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE",
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "note": "legitimate control blocked by a composed protection"
+    },
+    {
+      "type": "COMPOSITION_UNKNOWN_ON_POSITIVE",
+      "id": "P7-recovery-with-history-evidence",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED",
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "note": "legitimate control degrades to UNKNOWN (registry unavailable)"
+    },
+    {
+      "type": "COMPOSITION_UNKNOWN_ON_POSITIVE",
+      "id": "P9-independence-distinct-roots",
+      "codes": [
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "note": "legitimate control degrades to UNKNOWN (registry unavailable)"
+    }
+  ],
+  "results": [
+    {
+      "id": "P1-supported-with-refs",
+      "kind": "POSITIVE",
+      "vector": "I_KNOW",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P2-asserted-ok",
+      "kind": "POSITIVE",
+      "vector": "I_KNOW",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P3-authority-with-mandate",
+      "kind": "POSITIVE",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P4-no-authority-ok",
+      "kind": "POSITIVE",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P5-completion-satisfied",
+      "kind": "POSITIVE",
+      "vector": "I_COMPLETED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE",
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P6-nonmaterial-obligation-ok",
+      "kind": "POSITIVE",
+      "vector": "I_COMPLETED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE",
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P7-recovery-with-history-evidence",
+      "kind": "POSITIVE",
+      "vector": "I_RECOVERED",
+      "case": "",
+      "final": "UNKNOWN",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED",
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P8-recovery-state-only",
+      "kind": "POSITIVE",
+      "vector": "I_RECOVERED",
+      "case": "",
+      "final": "OK",
+      "codes": [
+        "STATE_ONLY_RECOVERY_SUPPORTED"
+      ],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P9-independence-distinct-roots",
+      "kind": "POSITIVE",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "",
+      "final": "UNKNOWN",
+      "codes": [
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "P10-verified-with-e2",
+      "kind": "POSITIVE",
+      "vector": "I_VERIFIED",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": false
+    },
+    {
+      "id": "A1-supported-zero-refs",
+      "kind": "ADVERSARIAL",
+      "vector": "I_KNOW",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS",
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ],
+      "expect_block": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A2-verified-schema-pass-log",
+      "kind": "ADVERSARIAL",
+      "vector": "I_VERIFIED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE",
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "expect_block": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A3-authority-restore-no-mandate",
+      "kind": "ADVERSARIAL",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE",
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE"
+      ],
+      "expect_block": [
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A4-completion-no-obligation-refs",
+      "kind": "ADVERSARIAL",
+      "vector": "I_COMPLETED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "MATERIAL_OBLIGATION_BLOCKS_CLAIM",
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS",
+        "SUPPORT_REF_UNRESOLVABLE",
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "expect_block": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A5-recovery-preserved-no-evidence",
+      "kind": "ADVERSARIAL",
+      "vector": "I_RECOVERED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED",
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE",
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE"
+      ],
+      "expect_block": [
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE",
+        "HISTORY_PRESERVED_WITHOUT_DELTA_CAPTURE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A6-independence-laundering",
+      "kind": "ADVERSARIAL",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE",
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE"
+      ],
+      "expect_block": [
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A6b-independence-one-root",
+      "kind": "ADVERSARIAL",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED",
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "expect_block": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "S1-supported-ref-to-empty-support",
+      "kind": "SECOND_ORDER",
+      "vector": "I_KNOW",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ],
+      "expect_block": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "S2-authority-mandate-restore",
+      "kind": "SECOND_ORDER",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING",
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "expect_block": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "S3-completion-with-open-obligation",
+      "kind": "SECOND_ORDER",
+      "vector": "I_COMPLETED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "MATERIAL_OBLIGATION_BLOCKS_CLAIM",
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION",
+        "SUPPORT_REF_UNRESOLVABLE",
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION"
+      ],
+      "expect_block": [
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "S4-recovery-history-same-evidence",
+      "kind": "SECOND_ORDER",
+      "vector": "I_RECOVERED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED",
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE",
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE"
+      ],
+      "expect_block": [
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "S5-independence-count-vs-roots",
+      "kind": "SECOND_ORDER",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED",
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "expect_block": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "S6-verified-grade-e0",
+      "kind": "SECOND_ORDER",
+      "vector": "I_VERIFIED",
+      "case": "",
+      "final": "BLOCK",
+      "codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE",
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "expect_block": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-1-support-ref-unresolvable",
+      "kind": "ATTACK",
+      "vector": "I_KNOW",
+      "case": "SUPPORTED claim points to nonexistent support_relation_ref; no registry supplied",
+      "final": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-2-obligation-ref-unresolvable",
+      "kind": "ATTACK",
+      "vector": "I_COMPLETED",
+      "case": "Completion claim references obligation that does not exist in registry",
+      "final": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE",
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-3-grade-garbage",
+      "kind": "ATTACK",
+      "vector": "I_VERIFIED",
+      "case": "grade='GARBAGE' bypasses C2 (all(g in E0,E1) is False -> passes)",
+      "final": "BLOCK",
+      "codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "expect_block": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-3b-grade-out-of-range",
+      "kind": "ATTACK",
+      "vector": "I_VERIFIED",
+      "case": "grade='E9' (out of range) also passes C2",
+      "final": "BLOCK",
+      "codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "expect_block": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-4-mandate-expired",
+      "kind": "ATTACK",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "expires_at in the past; C3 only checks non-empty",
+      "final": "BLOCK",
+      "codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "expect_block": [
+        "MANDATE_EXPIRED"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-4b-mandate-malformed",
+      "kind": "ATTACK",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "expires_at='not-a-date' unparseable; C3 passes (non-empty)",
+      "final": "BLOCK",
+      "codes": [
+        "MANDATE_DATE_UNPARSEABLE"
+      ],
+      "expect_block": [
+        "MANDATE_DATE_UNPARSEABLE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-5-recovery-same-root",
+      "kind": "ATTACK",
+      "vector": "I_RECOVERED",
+      "case": "history evidence ref E-HIST is a derived copy of E-STATE (same root); C5 only string-compares",
+      "final": "BLOCK",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED",
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "expect_block": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-6-fabricated-roots",
+      "kind": "ATTACK",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "3 distinct root_provenance strings that are all mirrors of one actual origin; C6 counts strings",
+      "final": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expect_block": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-7-support-ref-registry-absent",
+      "kind": "ATTACK",
+      "vector": "I_KNOW",
+      "case": "no registry supplied at all; validator cannot resolve any ref; V2 silently passes",
+      "final": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-8-duplicate-support-id",
+      "kind": "ATTACK",
+      "vector": "I_KNOW",
+      "case": "two different support relations share support_id S-DUP with contradictory support_status",
+      "final": "BLOCK",
+      "codes": [
+        "DUPLICATE_REF_ID"
+      ],
+      "expect_block": [
+        "DUPLICATE_REF_ID"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "A21-9-applicability-mismatch",
+      "kind": "ATTACK",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "support resolves; observed_scope host=H1 but claim scope host=H2; no transfer basis; base validator would catch host mismatch, but hardened path must too",
+      "final": "BLOCK",
+      "codes": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "expect_block": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "P21-1-supported-resolvable",
+      "kind": "POSITIVE",
+      "vector": "I_KNOW",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "P21-2-completion-resolvable",
+      "kind": "POSITIVE",
+      "vector": "I_COMPLETED",
+      "case": "",
+      "final": "OK",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "P21-3-grade-e2",
+      "kind": "POSITIVE",
+      "vector": "I_VERIFIED",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "P21-4-mandate-current",
+      "kind": "POSITIVE",
+      "vector": "I_HAVE_AUTHORITY",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "P21-5-recovery-distinct-roots",
+      "kind": "POSITIVE",
+      "vector": "I_RECOVERED",
+      "case": "",
+      "final": "OK",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED"
+      ],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "P21-6-independence-real-roots",
+      "kind": "POSITIVE",
+      "vector": "EVIDENCE_INDEPENDENT",
+      "case": "",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "P21-7-completion-nonmaterial",
+      "kind": "POSITIVE",
+      "vector": "I_COMPLETED",
+      "case": "",
+      "final": "OK",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE"
+      ],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "V22-P1-full-stack-composition",
+      "kind": "POSITIVE",
+      "vector": "COMPOSITION",
+      "case": "claim->support->evidence->root all resolve, applicable, valid",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "V22-A1-support-ref-points-at-obligation",
+      "kind": "ATTACK",
+      "vector": "COMPOSITION",
+      "case": "support ref string collides with an obligation id; typed resolution must reject",
+      "final": "BLOCK",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE",
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_block": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "V22-A2-duplicate-obligation-id",
+      "kind": "ATTACK",
+      "vector": "COMPOSITION",
+      "case": "two obligations share an id with contradictory states",
+      "final": "BLOCK",
+      "codes": [
+        "OBLIGATION_STATE_ACCEPTABLE",
+        "MATERIAL_OBLIGATION_BLOCKS_CLAIM",
+        "COMPLETION_WITH_OPEN_MATERIAL_OBLIGATION",
+        "DUPLICATE_OBLIGATION_ID"
+      ],
+      "expect_block": [
+        "DUPLICATE_OBLIGATION_ID"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "V22-A3-mandate-expires-tomorrow-eval-today",
+      "kind": "ATTACK",
+      "vector": "COMPOSITION",
+      "case": "mandate expires 2026-08-21; eval 2026-08-20 -> valid; eval 2026-08-22 -> expired (eval-time driven)",
+      "final": "BLOCK",
+      "codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "expect_block": [
+        "MANDATE_EXPIRED"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "V22-P3-mandate-expires-tomorrow-eval-today-valid",
+      "kind": "POSITIVE",
+      "vector": "COMPOSITION",
+      "case": "same mandate evaluated 2026-08-20 -> still valid (eval-time driven, not hardcoded)",
+      "final": "OK",
+      "codes": [],
+      "expect_block": [],
+      "expect_pass": true
+    },
+    {
+      "id": "V22-A4-recovery-same-root-via-registry",
+      "kind": "ATTACK",
+      "vector": "COMPOSITION",
+      "case": "distinct ref strings, registry reveals same root -> blocked (composed V2.1 root check)",
+      "final": "BLOCK",
+      "codes": [
+        "STATE_AND_HISTORY_RECOVERY_SUPPORTED",
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "expect_block": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "expect_pass": false
+    },
+    {
+      "id": "V22-A5-independence-mirror-roots",
+      "kind": "ATTACK",
+      "vector": "COMPOSITION",
+      "case": "3 mirror roots, root registry reveals 1 origin -> overclaim blocked",
+      "final": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expect_block": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "expect_pass": false
+    }
+  ],
+  "fixture_counts": {
+    "v2": 23,
+    "v21": 18,
+    "v22": 7,
+    "total": 48
+  }
+}
