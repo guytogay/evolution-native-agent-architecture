@@ -1,0 +1,29 @@
+{
+  "phase_H": "corpus-coverage metadata correction",
+  "inherited_v2_corpus": {
+    "path": "releases/v0.3.3-candidate.1/tools/contract-fixtures.v2.json",
+    "total_cases": 164,
+    "independence_basis_occurrences": 20,
+    "forms": {
+      "source_origins_only": 3,
+      "both_root_and_source": 11,
+      "root_provenance_only": 6
+    },
+    "cases_exercising_root_provenance_D3_path": 17
+  },
+  "closure_v21_corpus": {
+    "path": "releases/v0.3.3-candidate.1/tools/contract-fixtures.v2.1.json",
+    "total_cases": 61,
+    "independence_basis_occurrences": 11,
+    "forms": {
+      "root_provenance_only": 7,
+      "neither_empty": 2,
+      "both_root_and_source": 2
+    },
+    "cases_exercising_root_provenance_D3_path": 9
+  },
+  "pr38_prior_claim": "0 supports with independence_basis (INCORRECT)",
+  "corrected_count": 20,
+  "changes_D3_conclusion": false,
+  "note": "D3 was independently reproduced by P16/P17, not by corpus coverage. The 20 inherited cases passed 164/164 on the OLD candidate, meaning the corpus oracle agreed with the buggy old behavior; the semantic defect was caught only by independent semantic expectation."
+}
