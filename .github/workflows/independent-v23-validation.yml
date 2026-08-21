@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - '.github/workflows/independent-v23-validation.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/independent-v23-validation.yml'
   workflow_dispatch:
 
 permissions:
@@ -250,7 +253,6 @@ jobs:
                   'codes': codes, 'exception': exc, 'rationale': c['rationale']
               })
 
-          # Challenge the author's oracle independently of candidate verdicts.
           oracle_probes = []
           mislabeled_legit = {
               'id': 'O01-legitimate-but-labeled-ATTACK', 'kind': 'ATTACK',
