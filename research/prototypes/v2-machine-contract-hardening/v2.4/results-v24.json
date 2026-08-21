@@ -1,0 +1,1691 @@
+{
+  "candidate": "v2.4/successor_contract.py (single canonical typed-resolution layer)",
+  "corpus_counts": {
+    "frozen_v23": 53,
+    "independent": 20,
+    "successor_control": 25,
+    "total": 98
+  },
+  "summary": {
+    "TOTAL": 98,
+    "FROZEN_V23": 53,
+    "INDEPENDENT": 20,
+    "SUCCESSOR_CONTROL": 25,
+    "UNEXPECTED_VERDICTS": 0,
+    "frozen_verdict_preserved": {
+      "preserved": 53,
+      "total": 53
+    },
+    "oracle_independent_consistent": 20,
+    "oracle_independent_total": 20,
+    "complexity": {
+      "frozen_cumulative_contract": {
+        "lines": 391,
+        "distinct_explicit_codes": 57
+      },
+      "successor_contract": {
+        "lines": 528,
+        "distinct_explicit_codes": 45
+      }
+    },
+    "expected_verdict_counts": {
+      "BLOCK": 55,
+      "OK": 40,
+      "UNKNOWN": 3
+    },
+    "actual_verdict_counts": {
+      "BLOCK": 55,
+      "OK": 40,
+      "UNKNOWN": 3
+    }
+  },
+  "results": [
+    {
+      "id": "P1-supported-with-refs",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P2-asserted-ok",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P3-authority-with-mandate",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P4-no-authority-ok",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P5-completion-satisfied",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P6-nonmaterial-obligation-ok",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P7-recovery-with-history-evidence",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "codes": [
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P8-recovery-state-only",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P9-independence-distinct-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "codes": [
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P10-verified-with-e2",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A1-supported-zero-refs",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A2-verified-schema-pass-log",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A3-authority-restore-no-mandate",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "AUTHORITY_WITHOUT_MANDATE_SOURCE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A4-completion-no-obligation-refs",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE",
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A5-recovery-preserved-no-evidence",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "HISTORY_PRESERVED_WITHOUT_EVIDENCE",
+        "HISTORY_PRESERVED_WITHOUT_DELTA_CAPTURE",
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A6-independence-laundering",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_WITHOUT_ROOT_PROVENANCE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A6b-independence-one-root",
+      "corpus": "FROZEN_V23",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "S1-supported-ref-to-empty-support",
+      "corpus": "FROZEN_V23",
+      "kind": "SECOND_ORDER",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "S2-authority-mandate-restore",
+      "corpus": "FROZEN_V23",
+      "kind": "SECOND_ORDER",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "S3-completion-with-open-obligation",
+      "corpus": "FROZEN_V23",
+      "kind": "SECOND_ORDER",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE",
+        "MATERIAL_OBLIGATION_BLOCKS_CLAIM"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "S4-recovery-history-same-evidence",
+      "corpus": "FROZEN_V23",
+      "kind": "SECOND_ORDER",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE",
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "S5-independence-count-vs-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "SECOND_ORDER",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "S6-verified-grade-e0",
+      "corpus": "FROZEN_V23",
+      "kind": "SECOND_ORDER",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-1-support-ref-unresolvable",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-2-obligation-ref-unresolvable",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE",
+        "OBLIGATION_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-3-grade-garbage",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-3b-grade-out-of-range",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-4-mandate-expired",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-4b-mandate-malformed",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "MANDATE_DATE_UNPARSEABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-5-recovery-same-root",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-6-fabricated-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-7-support-ref-registry-absent",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-8-duplicate-support-id",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "DUPLICATE_REF_ID"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "A21-9-applicability-mismatch",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-1-supported-resolvable",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-2-completion-resolvable",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-3-grade-e2",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-4-mandate-current",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-5-recovery-distinct-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-6-independence-real-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P21-7-completion-nonmaterial",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-P1-full-stack-composition",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-A1-support-ref-points-at-obligation",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-A2-duplicate-obligation-id",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "DUPLICATE_OBLIGATION_ID"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-A3-mandate-expires-tomorrow-eval-today",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-P3-mandate-expires-tomorrow-eval-today-valid",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-A4-recovery-same-root-via-registry",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "V22-A5-independence-mirror-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "ATTACK",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P1m-supported-with-refs",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P5m-completion-satisfied",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P6m-nonmaterial-obligation-ok",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P7m-recovery-with-history-evidence",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "P9m-independence-distinct-roots",
+      "corpus": "FROZEN_V23",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "",
+      "independent_expect": null
+    },
+    {
+      "id": "I01-support-target-mismatch",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_TARGET_MISMATCH"
+      ],
+      "verdict_matched": true,
+      "rationale": "Resolved support relation targets another claim; borrowing another claim support must not endorse C1.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I02-recovery-empty-present-registry",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE",
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "Registry is present but both mandatory evidence refs are unresolved; this is broken evidence, not verified distinct provenance.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I03-independence-empty-present-root-registry",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "ROOT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "Present-but-incomplete root registry must not fall back to raw root labels as verified origins.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I04-support-model-binding-mismatch",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "verdict_matched": true,
+      "rationale": "Model binding is an applicability boundary in the baseline contract; mismatch needs transfer evidence.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I05-support-missing-runtime-observation",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "TRANSFER_EVIDENCE_REQUIRED"
+      ],
+      "verdict_matched": true,
+      "rationale": "Claimed runtime instance is not observed; absence of observed applicability cannot be treated as a direct match.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I06-top-level-support-composes-legitimately",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "The exact referenced support artifact is present as the top-level support object and passes the shipped support validator.",
+      "independent_expect": "OK"
+    },
+    {
+      "id": "I07-unrelated-open-obligation-does-not-block-narrow-claim",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "Core semantics explicitly allow narrower truthful completion; an unrelated obligation tied to another claim should not globally poison this claim.",
+      "independent_expect": "OK"
+    },
+    {
+      "id": "I08-duplicate-support-id-same-status-ambiguous",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "DUPLICATE_REF_ID"
+      ],
+      "verdict_matched": true,
+      "rationale": "Duplicate IDs remain ambiguous even when support_status strings happen to match; resolution order must not decide truth.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I09-support-evidence-ref-unresolved",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "A support artifact carrying a nonempty but nonexistent evidence ref does not have resolvable evidence.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I10-verified-capability-evidence-ref-unresolved",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "A high self-declared grade cannot substitute for existence/resolution of the referenced evidence artifact.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I11-self-asserted-mandate-source",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "verdict_matched": true,
+      "rationale": "A source token that is explicitly self-asserted is not an authorizing mandate source merely because it is nonempty and not on a small denylist.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I12-transfer-evidence-ref-unresolved",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE",
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "Scope transfer is itself consequential evidence and its evidence refs must resolve; nonempty strings are insufficient.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I13-recovery-full-claim-without-state-evidence",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "STATE_RESTORE_WITHOUT_EVIDENCE"
+      ],
+      "verdict_matched": true,
+      "rationale": "A consequential STATE_AND_HISTORY recovery claim needs positive evidence of state restoration as well as history continuity.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "I14-supported-claim-only-partial-support",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "codes": [
+        "PARTIAL_SUPPORT_ONLY"
+      ],
+      "verdict_matched": true,
+      "rationale": "PARTIAL support does not by itself establish a full SUPPORTED claim unless the assertion is explicitly narrowed to the supported envelope.",
+      "independent_expect": "UNKNOWN_OR_BLOCK"
+    },
+    {
+      "id": "I15-root-registry-list-shape",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "evaluate() accepts list-valued *_registry inputs generically; a plausible registry shape should not crash the machine contract.",
+      "independent_expect": "NO_EXCEPTION"
+    },
+    {
+      "id": "I16-support-registry-dict-shape",
+      "corpus": "INDEPENDENT",
+      "kind": "INDEPENDENT",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "evaluate() accepts dict-valued *_registry inputs generically; registry representation differences should fail semantically, not raise AttributeError.",
+      "independent_expect": "NO_EXCEPTION"
+    },
+    {
+      "id": "O01-legitimate-but-labeled-ATTACK",
+      "corpus": "INDEPENDENT",
+      "kind": "ORACLE_PROBE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "Expected verdict must derive from semantics, not from fixture kind label (ATTACK).",
+      "independent_expect": "OK"
+    },
+    {
+      "id": "O02-malformed-reusing-migrated-id",
+      "corpus": "INDEPENDENT",
+      "kind": "ORACLE_PROBE",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "Reusing a hard-coded migrated ID must not force expected OK; structure (no registries) decides the verdict.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "O03-empty-registry-recovery-classifier",
+      "corpus": "INDEPENDENT",
+      "kind": "ORACLE_PROBE",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE",
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "Empty present evidence registry must not classify as sufficient-positive; the shared blind spot must not reappear in the oracle.",
+      "independent_expect": "BLOCK"
+    },
+    {
+      "id": "O04-top-level-support-classifier",
+      "corpus": "INDEPENDENT",
+      "kind": "ORACLE_PROBE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "Top-level support composition is legitimate; oracle and evaluator must agree on representation.",
+      "independent_expect": "OK"
+    },
+    {
+      "id": "V24-P01-full-stack-supported",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I01 (support-target binding) and I09 (support evidence resolution)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P02-verified-capability-resolvable-evidence",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I10 (evidence existence on capability path)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P03-full-recovery-both-evidence",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I02 (present-but-missing evidence) and I13 (state evidence)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P04-independence-resolvable-roots",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I03 (root resolution) and I15 (list-form root registry)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P05-transfer-with-resolvable-evidence",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I12 (transfer evidence resolution)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P06-full-applicability-envelope",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I04/I05 (full applicability envelope, all dimensions observed)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P07-top-level-support",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I06 (top-level support representation composes)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P08-narrow-completion-unrelated-obligation",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I07 (claim-aware obligation blocking)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P09-dict-support-registry-unique-ids",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I08 (identity uniqueness) and I16 (dict-form support registry)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P10-typed-mandate-source",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I11 (positively typed mandate source)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P11-narrowed-partial-claim",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "legitimate positive control for I14 (explicitly narrowed partial claim is OK)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P12-identical-duplicate-dedup",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "R5: byte-identical duplicates are the same artifact, not an ambiguity",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P13-authority-registry-grant",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "R9: mandate source positively verified via an upstream authority registry",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P14-top-level-and-registry-consistent",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "R6: identical top-level and registry representations compose (deduped)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-P15-list-evidence-registry",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "POSITIVE",
+      "expected": "OK",
+      "actual": "OK",
+      "codes": [],
+      "verdict_matched": true,
+      "rationale": "R3: list-form evidence registry composes with support evidence resolution",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A01-top-level-support-wrong-claim-ref",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_TARGET_MISMATCH"
+      ],
+      "verdict_matched": true,
+      "rationale": "I06 fix (top-level support composes) must not reopen I01: wrong claim_ref still BLOCKs",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A02-own-open-obligation-blocks",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "MATERIAL_OBLIGATION_BLOCKS_CLAIM"
+      ],
+      "verdict_matched": true,
+      "rationale": "I07 fix (claim-aware) must not reopen S3: the claim's OWN open material obligation still BLOCKs",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A03-bound-open-obligation-blocks",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "MATERIAL_OBLIGATION_BLOCKS_CLAIM"
+      ],
+      "verdict_matched": true,
+      "rationale": "R7: an open obligation explicitly bound to this claim still gates it",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A04-malformed-support-registry",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "REGISTRY_MALFORMED",
+        "support sources"
+      ],
+      "verdict_matched": true,
+      "rationale": "R11: malformed registry shape yields REGISTRY_MALFORMED, never an exception",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A05-malformed-root-registry",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "REGISTRY_MALFORMED",
+        "root registry"
+      ],
+      "verdict_matched": true,
+      "rationale": "R11: malformed root registry shape yields REGISTRY_MALFORMED, never an exception",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A06-support-ref-type-scoped",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "R1: refs resolve within their own artifact type; an evidence id is not a support",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A07-capability-evidence-missing-present-registry",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "R3: grade E2 cannot substitute for evidence existence when the registry is supplied",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A08-duplicate-same-status-different-scope",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "DUPLICATE_REF_ID"
+      ],
+      "verdict_matched": true,
+      "rationale": "R5: identity ambiguity exists beyond status-token differences (different scope)",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A09-authority-registry-missing-grant",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "verdict_matched": true,
+      "rationale": "R9: a present authority registry that does not contain the grant does not authorize",
+      "independent_expect": null
+    },
+    {
+      "id": "V24-A10-support-evidence-missing-list-registry",
+      "corpus": "SUCCESSOR_CONTROL",
+      "kind": "ADVERSARIAL",
+      "expected": "BLOCK",
+      "actual": "BLOCK",
+      "codes": [
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "verdict_matched": true,
+      "rationale": "R3: list-form registry present but missing the referenced evidence still BLOCKs",
+      "independent_expect": null
+    }
+  ],
+  "frozen_preservation": [
+    {
+      "id": "P1-supported-with-refs",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "P2-asserted-ok",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P3-authority-with-mandate",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P4-no-authority-ok",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P5-completion-satisfied",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "P6-nonmaterial-obligation-ok",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "P7-recovery-with-history-evidence",
+      "frozen_expected": "UNKNOWN",
+      "successor_actual": "UNKNOWN",
+      "preserved": true
+    },
+    {
+      "id": "P8-recovery-state-only",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P9-independence-distinct-roots",
+      "frozen_expected": "UNKNOWN",
+      "successor_actual": "UNKNOWN",
+      "preserved": true
+    },
+    {
+      "id": "P10-verified-with-e2",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "A1-supported-zero-refs",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A2-verified-schema-pass-log",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A3-authority-restore-no-mandate",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A4-completion-no-obligation-refs",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A5-recovery-preserved-no-evidence",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A6-independence-laundering",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A6b-independence-one-root",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "S1-supported-ref-to-empty-support",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "S2-authority-mandate-restore",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "S3-completion-with-open-obligation",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "S4-recovery-history-same-evidence",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "S5-independence-count-vs-roots",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "S6-verified-grade-e0",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-1-support-ref-unresolvable",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-2-obligation-ref-unresolvable",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-3-grade-garbage",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-3b-grade-out-of-range",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-4-mandate-expired",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-4b-mandate-malformed",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-5-recovery-same-root",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-6-fabricated-roots",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-7-support-ref-registry-absent",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-8-duplicate-support-id",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "A21-9-applicability-mismatch",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "P21-1-supported-resolvable",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P21-2-completion-resolvable",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P21-3-grade-e2",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P21-4-mandate-current",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P21-5-recovery-distinct-roots",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P21-6-independence-real-roots",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P21-7-completion-nonmaterial",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "V22-P1-full-stack-composition",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "V22-A1-support-ref-points-at-obligation",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "V22-A2-duplicate-obligation-id",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "V22-A3-mandate-expires-tomorrow-eval-today",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "V22-P3-mandate-expires-tomorrow-eval-today-valid",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "V22-A4-recovery-same-root-via-registry",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "V22-A5-independence-mirror-roots",
+      "frozen_expected": "BLOCK",
+      "successor_actual": "BLOCK",
+      "preserved": true
+    },
+    {
+      "id": "P1m-supported-with-refs",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P5m-completion-satisfied",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P6m-nonmaterial-obligation-ok",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P7m-recovery-with-history-evidence",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    },
+    {
+      "id": "P9m-independence-distinct-roots",
+      "frozen_expected": "OK",
+      "successor_actual": "OK",
+      "preserved": true
+    }
+  ],
+  "oracle_independent_consistency": [
+    {
+      "id": "I01-support-target-mismatch",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I02-recovery-empty-present-registry",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I03-independence-empty-present-root-registry",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I04-support-model-binding-mismatch",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I05-support-missing-runtime-observation",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I06-top-level-support-composes-legitimately",
+      "independent_expect": "OK",
+      "oracle_expected": "OK",
+      "consistent": true
+    },
+    {
+      "id": "I07-unrelated-open-obligation-does-not-block-narrow-claim",
+      "independent_expect": "OK",
+      "oracle_expected": "OK",
+      "consistent": true
+    },
+    {
+      "id": "I08-duplicate-support-id-same-status-ambiguous",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I09-support-evidence-ref-unresolved",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I10-verified-capability-evidence-ref-unresolved",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I11-self-asserted-mandate-source",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I12-transfer-evidence-ref-unresolved",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I13-recovery-full-claim-without-state-evidence",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "I14-supported-claim-only-partial-support",
+      "independent_expect": "UNKNOWN_OR_BLOCK",
+      "oracle_expected": "UNKNOWN",
+      "consistent": true
+    },
+    {
+      "id": "I15-root-registry-list-shape",
+      "independent_expect": "NO_EXCEPTION",
+      "oracle_expected": "OK",
+      "consistent": true
+    },
+    {
+      "id": "I16-support-registry-dict-shape",
+      "independent_expect": "NO_EXCEPTION",
+      "oracle_expected": "OK",
+      "consistent": true
+    },
+    {
+      "id": "O01-legitimate-but-labeled-ATTACK",
+      "independent_expect": "OK",
+      "oracle_expected": "OK",
+      "consistent": true
+    },
+    {
+      "id": "O02-malformed-reusing-migrated-id",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "O03-empty-registry-recovery-classifier",
+      "independent_expect": "BLOCK",
+      "oracle_expected": "BLOCK",
+      "consistent": true
+    },
+    {
+      "id": "O04-top-level-support-classifier",
+      "independent_expect": "OK",
+      "oracle_expected": "OK",
+      "consistent": true
+    }
+  ]
+}
