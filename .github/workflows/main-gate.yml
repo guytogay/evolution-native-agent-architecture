@@ -80,8 +80,7 @@ jobs:
           print('current-baseline-pointer-pass', doc.get('ena_version'), doc.get('status'))
           PY
 
-      - name: Validate research record structure
-        run: python research/adversarial-replay/tools/validate_cases.py
-
-      - name: Validate evidence-applicability prototype
-        run: python research/prototypes/validate_applicability.py
+      - name: Explain research validation separation
+        run: |
+          echo 'Research validation remains path-scoped in har-validate.yml.'
+          echo 'This always-on gate must not inherit unrelated pre-existing research drift.'
