@@ -1,9 +1,12 @@
-name: Independent V2.3 Frozen Replay
+name: Independent V2.3 Frozen Validation
 
 on:
   push:
     branches:
       - independent-validation/v23-gpt56sol-20260821
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -68,7 +71,30 @@ jobs:
           grep -q "UNEXPECTED_VERDICTS  : 0" replay.txt
           grep -q "TOTAL_FIXTURES       : 53" replay.txt
 
-      - name: Confirm replay regenerated committed outputs byte-for-byte
+      - name: Confirm replay regenerated committed outputs without semantic diff
         shell: bash
         run: |
           git diff --exit-code -- research/prototypes/v2-machine-contract-hardening/v2.3/results-v23.json research/prototypes/v2-machine-contract-hardening/v2.3/expected-verdict-manifest.json
+
+  independent-semantic-probes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout independent validator branch
+        uses: actions/checkout@v4
+
+      - name: Checkout exact frozen candidate separately
+        uses: actions/checkout@v4
+        with:
+          ref: 89d5f97c71a762ec8b06e3a43cb385c96d2ad926
+          path: frozen
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Execute independent probes against exact frozen implementation
+        shell: bash
+        run: |
+          python research/independent-validation/v23_independent_probes.py frozen | tee independent-probes.json
