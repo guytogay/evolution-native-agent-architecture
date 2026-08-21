@@ -1,0 +1,302 @@
+name: Independent ENA V2.3 Validation
+
+on:
+  push:
+    paths:
+      - '.github/workflows/independent-v23-validation.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/independent-v23-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-v23:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.12']
+    steps:
+      - name: Checkout validation branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Verify frozen identity and SHA-256 manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          CODE_REF=8eb5a9afa4c560645b4c50dc24af7874ed54a4f2
+          FREEZE_REF=89d5f97c71a762ec8b06e3a43cb385c96d2ad926
+          test "$(git rev-parse ${FREEZE_REF}^)" = "$CODE_REF"
+          cat > /tmp/expected-hashes.txt <<'EOF'
+          5de4e32a57c52e8c9fc427a03e1bdac23108270f2ff3858983c0de090a518788 research/prototypes/v2-machine-contract-hardening/hardened_rules.py
+          b71eb53f139d21e5a35a9b361598409e313d5dadf9cc47e74bff8425c6f5442f research/prototypes/v2-machine-contract-hardening/fixtures.py
+          0ba4915ba68974efca1d0108dcf99d536665920db508dacababf945bc02707f9 research/prototypes/v2-machine-contract-hardening/v2.1/fixtures_v21.py
+          f2f1a49f8873967f27a161a5f4646e64b94cc71170daa06b7cea246ceb49bab9 research/prototypes/v2-machine-contract-hardening/v2.2/cumulative_contract.py
+          fbda0869dfd3dac34b97ecca9f265992896d1f1033f1be1ab0e346fae2d4787b research/prototypes/v2-machine-contract-hardening/v2.2/fixtures_v22.py
+          91dbdc5e50cd5148ac560edd52f6a8e6b3d4899fa5ca921427a05867aba303f7 research/prototypes/v2-machine-contract-hardening/v2.2/run_v22.py
+          c50c667353027fc4e402d258580e4ac03f1b2d0e4e317e320f5585394c050277 research/prototypes/v2-machine-contract-hardening/v2.3/acceptance_semantics.py
+          f9e819a405a2837164d1f2f9dce807e8d02a6df63354b2d309067e6dc0753962 research/prototypes/v2-machine-contract-hardening/v2.3/fixtures_migrated.py
+          ecceb3e193a439ac820bca3ce7101435dfeb29ade738a80b1cab19e2c10bed15 research/prototypes/v2-machine-contract-hardening/v2.3/run_v23.py
+          27f37659b18ed41771a71cfe9d5a3e1e41bbda9203f08bc2ecf878497eac901b research/prototypes/v2-machine-contract-hardening/v2.3/expected-verdict-manifest.json
+          03acbee06c332ad5f8faddde2bf263815eed06c699ee1c020db07367b7710430 research/prototypes/v2-machine-contract-hardening/v2.3/results-v23.json
+          EOF
+          while read -r expected path; do
+            actual="$(git show "${CODE_REF}:${path}" | sha256sum | awk '{print $1}')"
+            printf '%s  %s\n' "$actual" "$path"
+            test "$actual" = "$expected"
+          done < /tmp/expected-hashes.txt
+          echo "IDENTITY_AND_HASHES_VERIFIED"
+
+      - name: Detached frozen replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/ena-v23
+          git worktree add --detach /tmp/ena-v23 8eb5a9afa4c560645b4c50dc24af7874ed54a4f2
+          cd /tmp/ena-v23
+          python research/prototypes/v2-machine-contract-hardening/v2.3/run_v23.py | tee /tmp/v23-replay-${{ matrix.python-version }}.txt
+          grep -F 'UNEXPECTED_VERDICTS  : 0' /tmp/v23-replay-${{ matrix.python-version }}.txt
+          test "$(sha256sum research/prototypes/v2-machine-contract-hardening/v2.3/expected-verdict-manifest.json | awk '{print $1}')" = "27f37659b18ed41771a71cfe9d5a3e1e41bbda9203f08bc2ecf878497eac901b"
+          test "$(sha256sum research/prototypes/v2-machine-contract-hardening/v2.3/results-v23.json | awk '{print $1}')" = "03acbee06c332ad5f8faddde2bf263815eed06c699ee1c020db07367b7710430"
+          echo "FROZEN_REPLAY_REPRODUCED"
+
+      - name: Independent semantic probes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ena-v23
+          python - <<'PY'
+          import copy
+          import json
+          import sys
+          from datetime import date
+          from pathlib import Path
+
+          root = Path.cwd()
+          proto = root / 'research/prototypes/v2-machine-contract-hardening'
+          sys.path.insert(0, str(proto / 'v2.3'))
+          sys.path.insert(0, str(proto / 'v2.2'))
+          from cumulative_contract import evaluate
+          from acceptance_semantics import classify, expected_verdict
+
+          NOW = date(2026, 8, 21)
+
+          def claim(cid='C1', **kw):
+              d = {
+                  'claim_id': cid,
+                  'claim_type': 'CAPABILITY_QUALIFICATION',
+                  'subject': {'kind': 'AGENT', 'id': 'agent-A'},
+                  'scope': {'host': 'H1'},
+                  'assertion': 'material claim',
+                  'status': 'SUPPORTED',
+                  'support_relation_refs': ['S1'],
+              }
+              d.update(kw)
+              return d
+
+          def support(sid='S1', cref='C1', **kw):
+              d = {
+                  'support_id': sid,
+                  'claim_ref': cref,
+                  'evidence_refs': ['E1'],
+                  'support_status': 'SUPPORTS',
+                  'observed_scope': {'host': 'H1'},
+                  'claimed_scope': {'host': 'H1'},
+              }
+              d.update(kw)
+              return d
+
+          cases = []
+          def add(name, semantic_expect, payload, rationale):
+              cases.append({'name': name, 'semantic_expect': semantic_expect,
+                            'fixture': {'id': name, 'kind': 'INDEPENDENT', 'payload': payload},
+                            'rationale': rationale})
+
+          add('I01-support-target-mismatch', 'BLOCK', {
+              'claim': claim(),
+              'support_registry': [support(cref='C-OTHER')],
+          }, 'Resolved support relation targets another claim; borrowing another claim support must not endorse C1.')
+
+          add('I02-recovery-empty-present-registry', 'BLOCK', {
+              'transition': {
+                  'transition_id': 'RT-I02',
+                  'state_restore': {'target_checkpoint': 'CP', 'result': 'SUCCESS', 'evidence_refs': ['E-STATE']},
+                  'history_continuity': {'status': 'PRESERVED', 'post_checkpoint_occurrence_delta_captured': True, 'evidence_refs': ['E-HIST']},
+                  'recovery_claim': {'claim_ref': 'C-REC-I02', 'scope': 'STATE_AND_HISTORY'},
+              },
+              'evidence_registry': {},
+          }, 'Registry is present but both mandatory evidence refs are unresolved; this is broken evidence, not verified distinct provenance.')
+
+          add('I03-independence-empty-present-root-registry', 'BLOCK', {
+              'support': {
+                  'support_id': 'S-I03', 'claim_ref': 'C-I03', 'evidence_refs': ['E1', 'E2'],
+                  'support_status': 'SUPPORTS', 'observed_scope': {'host': 'H1'}, 'claimed_scope': {'host': 'H1'},
+                  'independence_basis': {'claimed_independent_count': 2, 'source_origins': ['A', 'B'], 'root_provenance': ['R1', 'R2']},
+              },
+              'root_registry': {},
+          }, 'Present-but-incomplete root registry must not fall back to raw root labels as verified origins.')
+
+          add('I04-support-model-binding-mismatch', 'BLOCK', {
+              'claim': claim(scope={'host': 'H1', 'model_binding': 'M2'}),
+              'support_registry': [support(observed_scope={'host': 'H1', 'model_binding': 'M1'}, claimed_scope={'host': 'H1', 'model_binding': 'M2'})],
+          }, 'Model binding is an applicability boundary in the baseline contract; mismatch needs transfer evidence.')
+
+          add('I05-support-missing-runtime-observation', 'BLOCK', {
+              'claim': claim(scope={'host': 'H1', 'runtime_instance': 'R2'}),
+              'support_registry': [support(observed_scope={'host': 'H1'}, claimed_scope={'host': 'H1', 'runtime_instance': 'R2'})],
+          }, 'Claimed runtime instance is not observed; absence of observed applicability cannot be treated as a direct match.')
+
+          add('I06-top-level-support-composes-legitimately', 'OK', {
+              'claim': claim(),
+              'support': support(),
+          }, 'The exact referenced support artifact is present as the top-level support object and passes the shipped support validator.')
+
+          add('I07-unrelated-open-obligation-does-not-block-narrow-claim', 'OK', {
+              'claim': claim(claim_type='TASK_COMPLETION', required_obligation_refs=['O-GOOD']),
+              'support_registry': [support()],
+              'obligations': [
+                  {'obligation_id': 'O-GOOD', 'materiality': 'MATERIAL', 'trigger': {'rule_ref': 'R1', 'observed': True}, 'status': 'SATISFIED', 'closure_evidence_refs': ['E-CLOSE']},
+                  {'obligation_id': 'O-OTHER', 'materiality': 'MATERIAL', 'trigger': {'rule_ref': 'R2', 'observed': True}, 'status': 'PENDING', 'required_before_claim_refs': ['C-OTHER']},
+              ],
+          }, 'Core semantics explicitly allow narrower truthful completion; an unrelated obligation tied to another claim should not globally poison this claim.')
+
+          add('I08-duplicate-support-id-same-status-ambiguous', 'BLOCK', {
+              'claim': claim(),
+              'support_registry': [
+                  support(cref='C-OTHER', evidence_refs=['E-OTHER']),
+                  support(cref='C1', evidence_refs=['E-RIGHT']),
+              ],
+          }, 'Duplicate IDs remain ambiguous even when support_status strings happen to match; resolution order must not decide truth.')
+
+          add('I09-support-evidence-ref-unresolved', 'BLOCK', {
+              'claim': claim(),
+              'support_registry': [support(evidence_refs=['E-NOPE'])],
+              'evidence_registry': {},
+          }, 'A support artifact carrying a nonempty but nonexistent evidence ref does not have resolvable evidence.')
+
+          add('I10-verified-capability-evidence-ref-unresolved', 'BLOCK', {
+              'binding': {
+                  'binding_id': 'B-I10', 'agent': 'agent-A', 'host': 'H1', 'route': ['r'],
+                  'capabilities': [{'id': 'ENA-CAP-X', 'status': 'VERIFIED_AVAILABLE', 'evidence_refs': [{'ref': 'E-NOPE', 'grade': 'E5'}]}],
+              },
+              'evidence_registry': {},
+          }, 'A high self-declared grade cannot substitute for existence/resolution of the referenced evidence artifact.')
+
+          add('I11-self-asserted-mandate-source', 'BLOCK', {
+              'binding': {
+                  'binding_id': 'B-I11', 'agent': 'agent-A', 'host': 'H1', 'route': ['r'],
+                  'authority_envelope': ['approve consequential effect'],
+                  'mandate': {'source': 'SELF_ASSERTED', 'expires_at': '2999-01-01'},
+              },
+          }, 'A source token that is explicitly self-asserted is not an authorizing mandate source merely because it is nonempty and not on a small denylist.')
+
+          add('I12-transfer-evidence-ref-unresolved', 'BLOCK', {
+              'claim': claim(scope={'host': 'H2'}),
+              'support_registry': [support(observed_scope={'host': 'H1'}, claimed_scope={'host': 'H2'},
+                                           transfer_basis={'required': True, 'type': 'EQUIVALENCE', 'evidence_refs': ['E-TRANSFER-NOPE']})],
+              'evidence_registry': {},
+          }, 'Scope transfer is itself consequential evidence and its evidence refs must resolve; nonempty strings are insufficient.')
+
+          add('I13-recovery-full-claim-without-state-evidence', 'BLOCK', {
+              'transition': {
+                  'transition_id': 'RT-I13',
+                  'state_restore': {'target_checkpoint': 'CP', 'result': 'SUCCESS', 'evidence_refs': []},
+                  'history_continuity': {'status': 'PRESERVED', 'post_checkpoint_occurrence_delta_captured': True, 'evidence_refs': ['E-HIST']},
+                  'recovery_claim': {'claim_ref': 'C-REC-I13', 'scope': 'STATE_AND_HISTORY'},
+              },
+              'evidence_registry': {'E-HIST': {'root_provenance': 'RH'}},
+          }, 'A consequential STATE_AND_HISTORY recovery claim needs positive evidence of state restoration as well as history continuity.')
+
+          add('I14-supported-claim-only-partial-support', 'UNKNOWN_OR_BLOCK', {
+              'claim': claim(),
+              'support_registry': [support(support_status='PARTIAL')],
+          }, 'PARTIAL support does not by itself establish a full SUPPORTED claim unless the assertion is explicitly narrowed to the supported envelope.')
+
+          add('I15-root-registry-list-shape', 'NO_EXCEPTION', {
+              'support': {
+                  'support_id': 'S-I15', 'claim_ref': 'C-I15', 'evidence_refs': ['E1', 'E2'],
+                  'support_status': 'SUPPORTS', 'observed_scope': {'host': 'H1'}, 'claimed_scope': {'host': 'H1'},
+                  'independence_basis': {'claimed_independent_count': 2, 'source_origins': ['A', 'B'], 'root_provenance': ['R1', 'R2']},
+              },
+              'root_registry': [
+                  {'id': 'R1', 'actual_origin': 'O1'}, {'id': 'R2', 'actual_origin': 'O2'}
+              ],
+          }, 'evaluate() accepts list-valued *_registry inputs generically; a plausible registry shape should not crash the machine contract.')
+
+          add('I16-support-registry-dict-shape', 'NO_EXCEPTION', {
+              'claim': claim(),
+              'support_registry': {
+                  'S1': support(),
+              },
+          }, 'evaluate() accepts dict-valued *_registry inputs generically; registry representation differences should fail semantically, not raise AttributeError.')
+
+          results = []
+          for c in cases:
+              try:
+                  actual, codes = evaluate(copy.deepcopy(c['fixture']), NOW)
+                  exc = None
+              except Exception as e:
+                  actual, codes = 'EXCEPTION', []
+                  exc = f'{type(e).__name__}: {e}'
+              results.append({
+                  'name': c['name'], 'semantic_expect': c['semantic_expect'], 'actual': actual,
+                  'codes': codes, 'exception': exc, 'rationale': c['rationale']
+              })
+
+          oracle_probes = []
+          mislabeled_legit = {
+              'id': 'O01-legitimate-but-labeled-ATTACK', 'kind': 'ATTACK',
+              'payload': {'claim': {'claim_id': 'C-O1', 'claim_type': 'OTHER', 'subject': {'kind': 'TASK', 'id': 'T'},
+                                    'scope': {'host': 'H1'}, 'assertion': 'hypothesis', 'status': 'ASSERTED'}}
+          }
+          malformed_migrated = {
+              'id': 'P1m-supported-with-refs', 'kind': 'POSITIVE',
+              'payload': {'claim': claim(cid='C-OM')}
+          }
+          empty_registry_recovery = copy.deepcopy(next(c['fixture'] for c in cases if c['name'] == 'I02-recovery-empty-present-registry'))
+          empty_registry_recovery['id'] = 'O03-empty-registry-recovery-classifier'
+          empty_registry_recovery['kind'] = 'POSITIVE'
+          top_support = copy.deepcopy(next(c['fixture'] for c in cases if c['name'] == 'I06-top-level-support-composes-legitimately'))
+          top_support['id'] = 'O04-top-level-support-classifier'
+          top_support['kind'] = 'POSITIVE'
+          for fx in [mislabeled_legit, malformed_migrated, empty_registry_recovery, top_support]:
+              try:
+                  actual, codes = evaluate(copy.deepcopy(fx), NOW)
+              except Exception as e:
+                  actual, codes = 'EXCEPTION', [f'{type(e).__name__}: {e}']
+              oracle_probes.append({
+                  'id': fx['id'], 'kind': fx['kind'], 'classifier_category': classify(fx),
+                  'author_expected': expected_verdict(fx), 'candidate_actual': actual, 'codes': codes,
+              })
+
+          out = {
+              'provenance': 'Independent GPT-5.6 Sol validator; not DSH candidate-author lineage',
+              'candidate_ref': '8eb5a9afa4c560645b4c50dc24af7874ed54a4f2',
+              'evaluated_at': str(NOW),
+              'independent_cases': results,
+              'oracle_probes': oracle_probes,
+          }
+          p = Path('/tmp') / 'independent-probes.json'
+          p.write_text(json.dumps(out, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          print(json.dumps(out, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload independent validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: independent-v23-${{ matrix.python-version }}
+          path: |
+            /tmp/independent-probes.json
+            /tmp/v23-replay-${{ matrix.python-version }}.txt
+          if-no-files-found: error
+          retention-days: 30
