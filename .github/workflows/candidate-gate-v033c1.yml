@@ -1,0 +1,113 @@
+name: Candidate Gate (v0.3.3-candidate.1)
+
+on:
+  pull_request:
+    paths:
+      - 'releases/v0.3.3-candidate.1/**'
+      - '.github/workflows/candidate-gate-v033c1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'releases/v0.3.3-candidate.1/**'
+      - '.github/workflows/candidate-gate-v033c1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-gate:
+    name: v0.3.3-candidate.1 validation surface
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.12', '3.13']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Parse candidate schemas
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in sorted(Path('releases/v0.3.3-candidate.1/schemas').glob('*.json')):
+              json.loads(path.read_text(encoding='utf-8'))
+              print('schema-parse-pass', path)
+          PY
+
+      - name: Run candidate v0.3.2 migrated selftest (v1 fixtures)
+        run: |
+          python releases/v0.3.3-candidate.1/tools/validate_contracts.py selftest \
+            releases/v0.3.3-candidate.1/tools/contract-fixtures.v1.json
+
+      - name: Run inherited 164-case selftest (v2 fixtures)
+        run: |
+          python releases/v0.3.3-candidate.1/tools/validate_contracts.py selftest \
+            releases/v0.3.3-candidate.1/tools/contract-fixtures.v2.json
+
+      - name: Run closure selftest (v2.1 fixtures, 61 cases)
+        run: |
+          python releases/v0.3.3-candidate.1/tools/validate_contracts.py selftest \
+            releases/v0.3.3-candidate.1/tools/contract-fixtures.v2.1.json
+
+      - name: Run candidate regression suite (deterministic)
+        run: |
+          python releases/v0.3.3-candidate.1/tools/regression_suite.py
+
+      - name: CLI case-mode spot checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd releases/v0.3.3-candidate.1/tools
+          python - <<'PY'
+          import json, subprocess, sys, tempfile, os
+          cases = json.load(open('contract-fixtures.v2.1.json', encoding='utf-8'))['cases']
+          by_id = {c['id']: c for c in cases}
+          # BLOCK/UNKNOWN verdicts legitimately exit non-zero; judge by stdout JSON.
+          for cid, exp_verdict in (('P01', 'OK'), ('P42', 'BLOCK'), ('P10', 'OK'),
+                                   ('P16', 'UNKNOWN'), ('P17', 'OK'),
+                                   ('C1-D3-03-roots-collapse', 'BLOCK')):
+              case = by_id[cid]
+              payload = case['input']
+              if not isinstance(payload, dict):
+                  continue
+              with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf-8') as f:
+                  json.dump(payload, f)
+                  path = f.name
+              args = [sys.executable, 'validate_contracts.py', 'case', path]
+              if case.get('eval_time'):
+                  args += ['--eval-time', case['eval_time']]
+              out = subprocess.run(args, capture_output=True, text=True)
+              os.unlink(path)
+              try:
+                  res = json.loads(out.stdout)
+              except Exception:
+                  print('FAIL', cid, 'no-json', out.stdout[:200], out.stderr[:200]); sys.exit(1)
+              assert res['verdict'] == exp_verdict, (cid, res['verdict'], exp_verdict)
+              print('cli-case-pass', cid, res['verdict'])
+          PY
+
+      - name: Verify candidate baseline pointer
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.3-candidate.1')
+          doc = yaml.safe_load((root / 'CANDIDATE-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['ena_version'] == 'v0.3.3-candidate.1'
+          assert doc['status'] == 'IMPLEMENTATION_CANDIDATE'
+          assert doc['mainline_claim_allowed'] is False
+          print('candidate-baseline-pointer-pass', doc['ena_version'], doc['status'])
+          PY
