@@ -1,0 +1,1 @@
+Validation-only trigger for exact frozen V2.3 replay. No candidate or mainline content is modified.
