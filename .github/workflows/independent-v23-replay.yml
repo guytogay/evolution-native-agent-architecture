@@ -37,15 +37,6 @@ jobs:
         run: |
           python research/prototypes/v2-machine-contract-hardening/v2.3/freeze_hashes.py 8eb5a9afa4c560645b4c50dc24af7874ed54a4f2 > frozen-hashes.txt
           cat frozen-hashes.txt
-          cat > expected-hashes.txt <<'EOF'
-          5de4e32a57c52e8c9fc427a03e1bdac23108270f2ff3858983c0de090a518788  research/prototypes/v2-machine-contract-hardening/hardened_rules.py
-          b71eb53f139d21e5a35a9b361598409e313d5dadf9cc47e74bff8425c6f5442f  research/prototypes/v2-machine-contract-hardening/fixtures.py
-          0ba4915ba68974efca1d0108dcf99d536665920db508dacababf945bc02707f9  research/prototypes/v2-machine-contract-hardening/v2.1/fixtures_v21.py
-          f2f1a49f8873967f27a161a5f4646e64b94cc71170daa06b7cea246ceb49bab9  research/prototypes/v2-machine-contract-hardening/v2.2/cumulative_contract.py
-          fbda0869dfd3dac34b97ecca9f265992896d1f1033f1be1ab0e346fae2d4787b  research/prototypes/v2-machine-contract-hardening/v2.2/fixtures_v22.py
-          91dbdc5e50cd5148ac560645b4c50dc24af7874ed54a4f2PLACEHOLDER  invalid
-          EOF
-          # Compare the ten V2/V2.1/V2.2/V2.3 input/output files listed by the freeze record.
           python - <<'PY'
           from pathlib import Path
           expected = {
@@ -54,7 +45,7 @@ jobs:
           'research/prototypes/v2-machine-contract-hardening/v2.1/fixtures_v21.py':'0ba4915ba68974efca1d0108dcf99d536665920db508dacababf945bc02707f9',
           'research/prototypes/v2-machine-contract-hardening/v2.2/cumulative_contract.py':'f2f1a49f8873967f27a161a5f4646e64b94cc71170daa06b7cea246ceb49bab9',
           'research/prototypes/v2-machine-contract-hardening/v2.2/fixtures_v22.py':'fbda0869dfd3dac34b97ecca9f265992896d1f1033f1be1ab0e346fae2d4787b',
-          'research/prototypes/v2-machine-contract-hardening/v2.2/run_v22.py':'91dbdc5e50cd5148ac560645b4c50dc24af7874ed54a4f2PLACEHOLDER',
+          'research/prototypes/v2-machine-contract-hardening/v2.2/run_v22.py':'91dbdc5e50cd5148ac560edd52f6a8e6b3d4899fa5ca921427a05867aba303f7',
           'research/prototypes/v2-machine-contract-hardening/v2.3/acceptance_semantics.py':'c50c667353027fc4e402d258580e4ac03f1b2d0e4e317e320f5585394c050277',
           'research/prototypes/v2-machine-contract-hardening/v2.3/fixtures_migrated.py':'f9e819a405a2837164d1f2f9dce807e8d02a6df63354b2d309067e6dc0753962',
           'research/prototypes/v2-machine-contract-hardening/v2.3/run_v23.py':'ecceb3e193a439ac820bca3ce7101435dfeb29ade738a80b1cab19e2c10bed15',
@@ -64,12 +55,10 @@ jobs:
           actual={}
           for line in Path('frozen-hashes.txt').read_text().splitlines():
               h,p=line.split('  ',1); actual[p]=h
-          # run_v22 hash is intentionally checked separately below after reading the authoritative freeze record;
-          # all other entries must match exactly here.
+          assert set(actual) == set(expected), (set(actual)-set(expected), set(expected)-set(actual))
           for p,h in expected.items():
-              if 'PLACEHOLDER' in h: continue
-              assert actual.get(p)==h, (p, actual.get(p), h)
-          print('freeze manifest hashes matched for all non-placeholder entries')
+              assert actual[p]==h, (p, actual[p], h)
+          print('all 11 freeze-manifest SHA-256 entries matched')
           PY
 
       - name: Frozen replay
