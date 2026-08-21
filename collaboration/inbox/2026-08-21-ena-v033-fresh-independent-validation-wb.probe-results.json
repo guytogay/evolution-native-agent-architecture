@@ -1,0 +1,502 @@
+{
+  "total": 43,
+  "pass": 33,
+  "probes": [
+    {
+      "id": "P01",
+      "flag": false,
+      "property": "SUPPORTED happy path w/ registry + evidence",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Full chain resolves; evidence exists; scope empty -> direct match."
+    },
+    {
+      "id": "P02",
+      "flag": false,
+      "property": "SUPPORTED claim w/o support refs",
+      "predicted": "BLOCK/CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS",
+      "actual": "BLOCK/CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS",
+      "passed": true,
+      "all_codes": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS"
+      ],
+      "rationale": "SUPPORTED requires refs."
+    },
+    {
+      "id": "P03",
+      "flag": false,
+      "property": "Referenced support CONTRADICTS",
+      "predicted": "BLOCK/RESOLVED_SUPPORT_CONTRADICTS",
+      "actual": "BLOCK/RESOLVED_SUPPORT_CONTRADICTS",
+      "passed": true,
+      "all_codes": [
+        "RESOLVED_SUPPORT_CONTRADICTS"
+      ],
+      "rationale": "Support contradicts claim."
+    },
+    {
+      "id": "P04",
+      "flag": false,
+      "property": "Referenced support empty status",
+      "predicted": "BLOCK/SUPPORT_NOT_POSITIVE",
+      "actual": "BLOCK/SUPPORT_NOT_POSITIVE",
+      "passed": true,
+      "all_codes": [
+        "SUPPORT_NOT_POSITIVE"
+      ],
+      "rationale": "Composed layer blocks non-positive referenced support."
+    },
+    {
+      "id": "P05",
+      "flag": false,
+      "property": "PARTIAL support, claim not narrowed",
+      "predicted": "UNKNOWN/PARTIAL_SUPPORT_ONLY",
+      "actual": "UNKNOWN/PARTIAL_SUPPORT_ONLY",
+      "passed": true,
+      "all_codes": [
+        "PARTIAL_SUPPORT_ONLY"
+      ],
+      "rationale": "Partial-only cannot establish full SUPPORTED."
+    },
+    {
+      "id": "P06",
+      "flag": false,
+      "property": "PARTIAL support, claim narrowed PARTIAL",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Explicitly narrowed claim accepts partial support."
+    },
+    {
+      "id": "P07",
+      "flag": false,
+      "property": "Evidence ref declared, registry ABSENT -> baseline OK",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Absent evidence registry -> no existence verdict (baseline posture)."
+    },
+    {
+      "id": "P08",
+      "flag": false,
+      "property": "Evidence ref declared, registry present, ref missing",
+      "predicted": "BLOCK/EVIDENCE_REF_UNRESOLVABLE",
+      "actual": "BLOCK/EVIDENCE_REF_UNRESOLVABLE",
+      "passed": true,
+      "all_codes": [
+        "EVIDENCE_REF_UNRESOLVABLE"
+      ],
+      "rationale": "Registry present but ref unresolved."
+    },
+    {
+      "id": "P09",
+      "flag": false,
+      "property": "Support empty evidence_refs WITH registry",
+      "predicted": "BLOCK/SUPPORT_WITHOUT_EVIDENCE",
+      "actual": "BLOCK/SUPPORT_WITHOUT_EVIDENCE",
+      "passed": true,
+      "all_codes": [
+        "SUPPORT_WITHOUT_EVIDENCE"
+      ],
+      "rationale": "No evidence declared."
+    },
+    {
+      "id": "P10",
+      "flag": true,
+      "property": "Top-level support dict WITHOUT id (FLAG-A false BLOCK)",
+      "predicted": "OK/OK",
+      "actual": "BLOCK/REGISTRY_MALFORMED",
+      "passed": false,
+      "all_codes": [
+        "REGISTRY_MALFORMED",
+        "support registry"
+      ],
+      "rationale": "Self-contained unreferenced support is a valid minimal representation (v0.3.2 accepted support dicts directly). Should not be REGISTRY_MALFORMED."
+    },
+    {
+      "id": "P11",
+      "flag": false,
+      "property": "Top-level support dict WITH id, no claim",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Valid independent support representation."
+    },
+    {
+      "id": "P12",
+      "flag": false,
+      "property": "Duplicate support ids, conflicting content",
+      "predicted": "BLOCK/DUPLICATE_REF_ID",
+      "actual": "OK/OK",
+      "passed": false,
+      "all_codes": [],
+      "rationale": "Ambiguous identity fails closed (R5)."
+    },
+    {
+      "id": "P13",
+      "flag": false,
+      "property": "Duplicate support ids, identical content -> dedupe",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Byte-identical duplicates dedupe (R5)."
+    },
+    {
+      "id": "P14",
+      "flag": false,
+      "property": "Independence overclaim (string level)",
+      "predicted": "BLOCK/INDEPENDENCE_OVERCLAIMED",
+      "actual": "BLOCK/INDEPENDENCE_OVERCLAIMED",
+      "passed": true,
+      "all_codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "rationale": "Claimed 3 but only 2 distinct roots."
+    },
+    {
+      "id": "P15",
+      "flag": false,
+      "property": "Independence w/o root_provenance",
+      "predicted": "BLOCK/INDEPENDENCE_WITHOUT_ROOT_PROVENANCE",
+      "actual": "BLOCK/INDEPENDENCE_OVERCLAIMED",
+      "passed": false,
+      "all_codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "rationale": "Independence claimed but no roots."
+    },
+    {
+      "id": "P16",
+      "flag": false,
+      "property": "Independence count ok, root registry ABSENT -> UNKNOWN",
+      "predicted": "UNKNOWN/ROOT_REGISTRY_UNAVAILABLE",
+      "actual": "BLOCK/INDEPENDENCE_OVERCLAIMED",
+      "passed": false,
+      "all_codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "rationale": "Can't verify origins without root registry."
+    },
+    {
+      "id": "P17",
+      "flag": false,
+      "property": "Independence count ok, root registry present, distinct origins",
+      "predicted": "OK/OK",
+      "actual": "BLOCK/INDEPENDENCE_OVERCLAIMED",
+      "passed": false,
+      "all_codes": [
+        "INDEPENDENCE_OVERCLAIMED"
+      ],
+      "rationale": "Registry-verified distinct origins satisfy claim."
+    },
+    {
+      "id": "P18",
+      "flag": false,
+      "property": "Obligation status outside vocabulary (F2)",
+      "predicted": "BLOCK/OBLIGATION_STATUS_OUTSIDE_VOCABULARY",
+      "actual": "BLOCK/OBLIGATION_STATUS_OUTSIDE_VOCABULARY",
+      "passed": true,
+      "all_codes": [
+        "OBLIGATION_STATUS_OUTSIDE_VOCABULARY",
+        "WEIRD"
+      ],
+      "rationale": "Vocabulary gate rejects unknown status."
+    },
+    {
+      "id": "P19",
+      "flag": false,
+      "property": "Completion claim w/o obligation refs",
+      "predicted": "BLOCK/COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS",
+      "actual": "BLOCK/CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS",
+      "passed": false,
+      "all_codes": [
+        "CLAIM_SUPPORTED_WITHOUT_SUPPORT_REFS",
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "rationale": "Completion must reference obligations."
+    },
+    {
+      "id": "P20",
+      "flag": false,
+      "property": "Completion claim, material PENDING bound obligation",
+      "predicted": "BLOCK/MATERIAL_OBLIGATION_BLOCKS_CLAIM",
+      "actual": "BLOCK/COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS",
+      "passed": false,
+      "all_codes": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "rationale": "Open material obligation blocks completion."
+    },
+    {
+      "id": "P21",
+      "flag": false,
+      "property": "SATISFIED obligation w/o closure evidence",
+      "predicted": "BLOCK/SATISFIED_WITHOUT_CLOSURE_EVIDENCE",
+      "actual": "BLOCK/COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS",
+      "passed": false,
+      "all_codes": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "rationale": "Satisfied must show closure evidence."
+    },
+    {
+      "id": "P22",
+      "flag": false,
+      "property": "SATISFIED obligation + closure refs, registry ABSENT -> OK",
+      "predicted": "OK/OK",
+      "actual": "BLOCK/COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS",
+      "passed": false,
+      "all_codes": [
+        "COMPLETION_CLAIM_WITHOUT_OBLIGATION_REFS"
+      ],
+      "rationale": "Absent evidence registry -> closure evidence not resolved (baseline)."
+    },
+    {
+      "id": "P23",
+      "flag": false,
+      "property": "Authority USER_EXPLICIT_GRANT valid horizon",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Explicit user grant with valid horizon authorizes."
+    },
+    {
+      "id": "P24",
+      "flag": false,
+      "property": "Authority unknown source, no registry",
+      "predicted": "BLOCK/AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING",
+      "actual": "BLOCK/AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING",
+      "passed": true,
+      "all_codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "rationale": "Unknown source and no registry -> unauthorized."
+    },
+    {
+      "id": "P25",
+      "flag": false,
+      "property": "Authority via registry grant valid",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Registry grant with matching agent/host/horizon authorizes."
+    },
+    {
+      "id": "P26",
+      "flag": false,
+      "property": "Authority registry grant EXPIRED",
+      "predicted": "BLOCK/AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING",
+      "actual": "BLOCK/AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING",
+      "passed": true,
+      "all_codes": [
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING",
+        "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"
+      ],
+      "rationale": "Grant expiry -> not authorizing."
+    },
+    {
+      "id": "P27",
+      "flag": false,
+      "property": "Mandate.expires_at expired (direct)",
+      "predicted": "BLOCK/MANDATE_EXPIRED",
+      "actual": "BLOCK/MANDATE_EXPIRED",
+      "passed": true,
+      "all_codes": [
+        "MANDATE_EXPIRED"
+      ],
+      "rationale": "Direct mandate horizon expired."
+    },
+    {
+      "id": "P28",
+      "flag": false,
+      "property": "Capability VERIFIED, grade E0/E1 only",
+      "predicted": "BLOCK/VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE",
+      "actual": "BLOCK/VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE",
+      "passed": true,
+      "all_codes": [
+        "VERIFIED_ONLY_STATIC_STRUCTURE_EVIDENCE"
+      ],
+      "rationale": "Static-only evidence insufficient for VERIFIED."
+    },
+    {
+      "id": "P29",
+      "flag": false,
+      "property": "Capability VERIFIED, grade E3 valid ref",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Non-static grade with resolvable evidence -> OK."
+    },
+    {
+      "id": "P30",
+      "flag": false,
+      "property": "Capability VERIFIED, invalid grade",
+      "predicted": "BLOCK/EVIDENCE_GRADE_INVALID",
+      "actual": "BLOCK/EVIDENCE_GRADE_INVALID",
+      "passed": true,
+      "all_codes": [
+        "EVIDENCE_GRADE_INVALID"
+      ],
+      "rationale": "Grade outside vocabulary."
+    },
+    {
+      "id": "P31",
+      "flag": false,
+      "property": "Recovery STATE_ONLY",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "State-only recovery supported."
+    },
+    {
+      "id": "P32",
+      "flag": false,
+      "property": "Recovery STATE_AND_HISTORY full ok",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Both state and history evidenced; distinct roots."
+    },
+    {
+      "id": "P33",
+      "flag": false,
+      "property": "Recovery STATE_AND_HISTORY shared roots",
+      "predicted": "BLOCK/HISTORY_EVIDENCE_SHARED_ROOT",
+      "actual": "BLOCK/HISTORY_EVIDENCE_SHARED_ROOT",
+      "passed": true,
+      "all_codes": [
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "rationale": "Shared provenance root is not independent history."
+    },
+    {
+      "id": "P34",
+      "flag": false,
+      "property": "Recovery STATE_AND_HISTORY same evidence refs",
+      "predicted": "BLOCK/HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE",
+      "actual": "BLOCK/HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE",
+      "passed": true,
+      "all_codes": [
+        "HISTORY_EVIDENCE_SAME_AS_STATE_EVIDENCE",
+        "HISTORY_EVIDENCE_SHARED_ROOT"
+      ],
+      "rationale": "Same evidence cannot serve both."
+    },
+    {
+      "id": "P35",
+      "flag": false,
+      "property": "R12 dict key != inner id (support_registry)",
+      "predicted": "BLOCK/REGISTRY_MALFORMED",
+      "actual": "BLOCK/REGISTRY_MALFORMED",
+      "passed": true,
+      "all_codes": [
+        "REGISTRY_MALFORMED",
+        "support sources"
+      ],
+      "rationale": "Key/id divergence is malformed."
+    },
+    {
+      "id": "P36",
+      "flag": false,
+      "property": "Malformed registry (dict value not dict)",
+      "predicted": "BLOCK/REGISTRY_MALFORMED",
+      "actual": "BLOCK/REGISTRY_MALFORMED",
+      "passed": true,
+      "all_codes": [
+        "REGISTRY_MALFORMED",
+        "evidence registry"
+      ],
+      "rationale": "Non-dict registry value malformed."
+    },
+    {
+      "id": "P37",
+      "flag": false,
+      "property": "List registry entry without id",
+      "predicted": "BLOCK/REGISTRY_MALFORMED",
+      "actual": "BLOCK/REGISTRY_MALFORMED",
+      "passed": true,
+      "all_codes": [
+        "REGISTRY_MALFORMED",
+        "obligations"
+      ],
+      "rationale": "List-form entry must declare id."
+    },
+    {
+      "id": "P38",
+      "flag": false,
+      "property": "Empty payload + eval_time -> vacuous OK",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "No consequential claims -> nothing to block."
+    },
+    {
+      "id": "P39",
+      "flag": false,
+      "property": "Missing eval_time -> BLOCK",
+      "predicted": "BLOCK/EVAL_TIME_REQUIRED",
+      "actual": "BLOCK/EVAL_TIME_REQUIRED",
+      "passed": true,
+      "all_codes": [
+        "EVAL_TIME_REQUIRED"
+      ],
+      "rationale": "eval_time is required."
+    },
+    {
+      "id": "P40",
+      "flag": false,
+      "property": "Malformed eval_time -> BLOCK",
+      "predicted": "BLOCK/EVAL_TIME_REQUIRED",
+      "actual": "BLOCK/EVAL_TIME_REQUIRED",
+      "passed": true,
+      "all_codes": [
+        "EVAL_TIME_REQUIRED"
+      ],
+      "rationale": "Unparseable eval_time rejected."
+    },
+    {
+      "id": "P41",
+      "flag": false,
+      "property": "claim_ref mismatch (R2)",
+      "predicted": "BLOCK/SUPPORT_TARGET_MISMATCH",
+      "actual": "BLOCK/SUPPORT_TARGET_MISMATCH",
+      "passed": true,
+      "all_codes": [
+        "SUPPORT_TARGET_MISMATCH"
+      ],
+      "rationale": "Support must bind back to target claim."
+    },
+    {
+      "id": "P42",
+      "flag": true,
+      "property": "FLAG-D: bound PENDING obligation, NON-completion claim (expect BLOCK per R7, actual?)",
+      "predicted": "BLOCK/MATERIAL_OBLIGATION_BLOCKS_CLAIM",
+      "actual": "OK/OK",
+      "passed": false,
+      "all_codes": [],
+      "rationale": "R7 says obligations BOUND to the claim gate it regardless of completion type. A material PENDING obligation naming c1 in required_before_claim_refs must block."
+    },
+    {
+      "id": "P43",
+      "flag": true,
+      "property": "FLAG: capabilities verified WITHOUT authority_envelope (trust gap)",
+      "predicted": "OK/OK",
+      "actual": "OK/OK",
+      "passed": true,
+      "all_codes": [],
+      "rationale": "Capabilities verified despite no authority envelope. Acceptable retained boundary, but note VERIFIED does not require authority context."
+    }
+  ]
+}
