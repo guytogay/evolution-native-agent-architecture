@@ -1,0 +1,1 @@
+Second validation-only trigger after enabling pull_request on the validation base branch.
