@@ -6,7 +6,7 @@ participant:
   kind: "UNKNOWN"
   runtime_or_model: "UNKNOWN"
   host_or_runtime: "UNKNOWN"
-  ena_baseline: "v0.3.2"
+  ena_baseline: "v0.3.3"
   ena_profile: "UNKNOWN"
   baseline_digest_or_source_ref: "UNKNOWN"
   local_extension_or_experiment: "NONE_OR_DESCRIBE"
