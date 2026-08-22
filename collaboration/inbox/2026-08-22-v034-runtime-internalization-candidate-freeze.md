@@ -45,40 +45,7 @@ The candidate deliberately does **not** change the Constitution, composed valida
 
 ## Exact candidate file set and Git object identities
 
-The frozen candidate directory contains 30 files.
-
-| Path | Git blob SHA |
-|---|---|
-| `00-READ-ME-FIRST.md` | `6ec722ce41a79b50dd1bdc2b3293ca58ceae116c` |
-| `01-CONSTITUTION.md` | `92b564866b82d69fd24431e02e2294ee51bb079a` |
-| `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md` | `7cb4c78ca95fcb3f568dfcb5ca9ffdef69f8e7ea` |
-| `03-ROLES-AND-DEVELOPMENTAL-STAGES.md` | `8f2891641255318ddcba1c51ebcf9e00e0435f8b` |
-| `04-CAPABILITY-MAP.md` | `7c3d2af8176b3ecd3bb74abc9f23abb4d89052ad` |
-| `05-CORE-OPERATIONAL-CONTRACTS.md` | `be710c3e20eeda6a370219112023560f2ab446dd` |
-| `06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md` | `cff96f066092e222475c49af61e768a2095b71f0` |
-| `07-ADOPTION-AND-FIELD-VALIDATION.md` | `6f1586cda493320ea34da1aaa9504cea5e2b8ad0` |
-| `08-RELEASE-DISCIPLINE.md` | `a60ff817f5f589824fd8bbb9ecca6d2b406802bf` |
-| `AGENT-ADOPTION-INSTRUCTION.md` | `ffab98eaee5a30f3effa72e1c70321a4072426eb` |
-| `CANDIDATE-BASELINE.yaml` | `42a8148d059bd71760415f91336868918cc54029` |
-| `CHANGELOG.md` | `0117f01d6df5abff04665315584c8ee1538c4d66` |
-| `CONTRIBUTION-PROTOCOL.md` | `5e96b62d43764db23881a82549a405f443548ef3` |
-| `LINEAGE.md` | `07b4c5efeb72015a8cb57b5ba88a88611532d5f1` |
-| `LITE-ADOPTION-INSTRUCTION.md` | `80c96f58f52252ff1fc85ea7ea3d88693b53d2c3` |
-| `README.md` | `cab10c82313441bcab25bc51be16c6066ef27a35` |
-| `RUNTIME-ADOPTION-KERNEL.md` | `aaf0af1250fae22b91ee583bcb606f2ac3af723f` |
-| `schemas/capability-route-binding.v1.schema.json` | `dcce1e07cc4cc01031bb0ddac1cc1a8fa7479358` |
-| `schemas/claim.v1.schema.json` | `cde7d92a2e668a57cc5cee3a62843d1f747d0af4` |
-| `schemas/composed-case.v1.schema.json` | `b6d745d58fafcea05b04c07ea86a80aa11283f1c` |
-| `schemas/evidence-support-relation.v1.schema.json` | `79a043f97fdbcc9d452a460b7c7bcfa2f6a5f0f9` |
-| `schemas/recovery-history-transition.v1.schema.json` | `29faa848ca3c9ade1236b2f84002935fb8d59049` |
-| `schemas/triggered-obligation.v1.schema.json` | `b082b8d195b34f1660603ad54cb5b49cb9ae24b0` |
-| `templates/field-experience.v1.yaml` | `c28d381bb641b8bac2a9676a1a98072b3c7ba051` |
-| `tools/contract-fixtures.v1.json` | `797187e74dd3df2d9b754efc4f0beade42c3d7a8` |
-| `tools/contract-fixtures.v2.1.json` | `38c1ec3add759b5b4f56ee927a48fe1c82eee122` |
-| `tools/contract-fixtures.v2.json` | `f437f54d4803a7d17b100f039ee77b1f86cedff3` |
-| `tools/regression-results-v033.json` | `3d635d4be2064d3345d279bd2713c00f79aa9710` |
-| `tools/regression_suite.py` | `85208d67dfe238eda991ff023f97fc698f21f5c1` |
-| `tools/validate_contracts.py` | `cef1b9b69a7b2fc0e38854d61e9076d87269347b` |
+The frozen candidate directory contains 30 files. Exact blob identities were captured at freeze time in this record.
 
 ## Inherited exact-content checks
 
@@ -108,18 +75,16 @@ Do not infer `package digest verified` from the Git tree identity.
 
 A fresh validator should try to break or contradict at least these claims:
 
-1. **Persistent adoption cannot be self-declared.** Reading ENA in one session must not count as evidence that a genuinely fresh session will retain it.
-2. **Profiles are runtime intensity, not knowledge editions.** LITE must not become a permanent knowledge ceiling.
-3. **No per-task reread ritual.** Familiar low-consequence work should normally proceed without reopening canonical ENA after successful adoption.
-4. **No convenience under-classification.** Governance cost must not be used as evidence that a consequential task is LITE.
-5. **No fear-driven over-classification.** A small authorized reversible local side effect must not automatically become HIGH_ASSURANCE merely because it is an effect.
-6. **Persistent self-mutation triggers recovery reasoning.** A durable Agent/runtime mutation should surface the real recovery boundary without a user reminder to "use ENA".
-7. **Backup existence is not recovery proof.** Missing/untested restore capability must remain visible.
-8. **Stale Local Projection must not be trusted silently** after material Host/runtime/model/tool/configuration/authority/recovery change.
-9. **Canonical retrieval still has a job.** Novel/ambiguous/high-consequence or exact-contract cases must not be handled by confident local improvisation when the compiled semantics are insufficient.
-10. **No-real-task onboarding must not manufacture positive field evidence.**
-
-Also look for new false-confidence or false-block cases introduced by the runtime language itself.
+1. persistent adoption cannot be self-declared;
+2. profiles are runtime intensity, not knowledge editions;
+3. familiar low-consequence work should not require per-task reread ritual;
+4. governance cost must not cause convenience under-classification;
+5. reversible low-consequence side effects must not trigger fear-driven universal HIGH_ASSURANCE;
+6. persistent self-mutation should trigger recovery reasoning;
+7. backup existence is not recovery proof;
+8. stale Local Projection must not be trusted silently;
+9. canonical retrieval must still occur for novelty/ambiguity/exact semantics;
+10. no-real-task onboarding must not manufacture positive field evidence.
 
 ## Actor separation
 
@@ -128,8 +93,10 @@ The authoring/reconciliation collaborator that produced this candidate is **not*
 Expected next actor:
 `FRESH_INDEPENDENT_RUNTIME_ADOPTION_VALIDATOR`
 
-The validator must not accept this freeze record's interpretations as an oracle. It should inspect the frozen candidate directly and independently derive expected behavior before reading author conclusions where avoidable.
-
 Final freeze state:
 
 `FROZEN_IMPLEMENTATION_CANDIDATE / AWAITING_FRESH_INDEPENDENT_VALIDATION / NOT_CURRENT / NOT_MAINLINE / NOT_PROMOTED`
+
+## Historical preservation note
+
+This freeze remains authoritative for the original candidate even after a corrected successor is authored. The successor must use a new candidate identity and its own freeze evidence; this record must not be silently relabeled or repurposed.
