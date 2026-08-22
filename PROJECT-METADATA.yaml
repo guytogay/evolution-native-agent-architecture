@@ -1,4 +1,4 @@
-schema_version: "1.3"
+schema_version: "1.4"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -9,18 +9,17 @@ lifecycle: FIELD_VALIDATION
 license: Apache-2.0
 
 canonical_state:
-  current_adoption_baseline: "ENA v0.3.3"
-  status: FIELD_VALIDATION
-  complete_adoption_baseline: true
-  mainline_claim_allowed: false
-  requires_older_release_composition: false
-  version_identity_includes_maturity_status: false
+  current_adoption_path: "releases/current/"
+  current_adoption_pointer: "releases/current/CURRENT-BASELINE.yaml"
+  current_version_and_maturity_must_be_read_from_pointer: true
+  infer_current_from_version_number_or_recency: false
   historical_promoted_baseline: "ENA v0.2.11 MAINLINE"
 
 entrypoints:
   github: "PROJECT-HUB.md"
   github_current_release: "releases/current/README.md"
   github_current_baseline: "releases/current/CURRENT-BASELINE.yaml"
+  github_history: "HISTORY.md"
   github_contributing: "CONTRIBUTING.md"
   lite_adoption: "releases/current/LITE-ADOPTION-INSTRUCTION.md"
   field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
@@ -48,21 +47,22 @@ surfaces:
     synchronization_assumed: false
 
 current_validation:
-  baseline: "v0.3.3"
+  baseline_pointer: "releases/current/CURRENT-BASELINE.yaml"
+  field_use_intended: true
+  field_participation_open: true
   focus:
-    - "LITE adoption viability versus STANDARD"
+    - "Persistent Runtime Kernel and Compiled Local Projection viability"
+    - "Hot-path versus canonical cold-path retrieval behavior"
+    - "Persistent self-mutation recovery salience"
+    - "Memory-budget, consolidation, truncation, and semantic-drift economics"
     - "Claim↔Evidence provenance independence and closure"
     - "Authority/subject/mandate lifecycle"
     - "Effect identity, retry, replay, failover, cancel, and concurrency semantics"
     - "Recovery State ≠ Historical Time"
     - "Capability/Model/Route Binding"
-    - "Viability Economics and control-composition friction"
-    - "Influence Integrity and ambient-authority misuse"
     - "Local-projection portability"
     - "Release/distribution parity"
     - "Unexpected counterexamples and new variations"
-  field_use_intended: true
-  field_participation_open: true
 
 research_checkpoint:
   historical_adversarial_replay_cases: 13
@@ -82,6 +82,9 @@ release_policy:
   historical_versions_are_runtime_dependencies: false
   preserve_history_durably: true
   retrieve_history_selectively: true
+  expose_single_adoption_surface: true
+  historical_release_directories_required_on_head: false
+  candidate_directories_are_adoption_choices: false
   open_knowledge_means_always_loaded: false
   current_adoption_identity_should_be_immutable: true
   distribution_parity_must_be_evidenced: true
