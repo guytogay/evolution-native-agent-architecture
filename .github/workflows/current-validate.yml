@@ -50,7 +50,7 @@ jobs:
       - name: Run D1/D2/D3 closure corpus (v2.1 fixtures, 61 cases)
         run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.1.json
 
-      - name: Run v0.3.3 regression suite (deterministic)
+      - name: Run inherited v0.3.3 regression suite (deterministic)
         run: python releases/current/tools/regression_suite.py
 
       - name: CLI case-mode semantics (OK / BLOCK / UNKNOWN via stdout)
@@ -86,14 +86,14 @@ jobs:
               print('cli-case-pass', cid, res['verdict'])
           PY
 
-      - name: Validate Current baseline pointers (v0.3.3)
+      - name: Validate Current baseline pointers (v0.3.4)
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
           root = Path('releases/current')
           doc = yaml.safe_load((root / 'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          assert doc['ena_version'] == 'v0.3.3', doc['ena_version']
+          assert doc['ena_version'] == 'v0.3.4', doc['ena_version']
           assert doc['status'] == 'FIELD_VALIDATION', doc['status']
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
@@ -104,6 +104,8 @@ jobs:
               assert (root / rel).is_file(), f'missing core file: {rel}'
           lite = doc.get('lite_entrypoint')
           assert lite and (root / lite).is_file(), f'missing LITE entrypoint: {lite}'
+          kernel = doc.get('runtime_adoption', {}).get('kernel_entrypoint')
+          assert kernel and (root / kernel).is_file(), f'missing runtime kernel: {kernel}'
           print('current-baseline-pointer-pass', doc['ena_version'], doc['status'])
           PY
 
@@ -129,7 +131,7 @@ jobs:
 
           root = Path('release-build/current')
           out = Path('release-build/out')
-          zip_path = out / 'ENA-v0.3.3-CURRENT.zip'
+          zip_path = out / 'ENA-v0.3.4-CURRENT.zip'
           files = sorted(p for p in root.rglob('*') if p.is_file())
           file_hashes = {}
           with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
@@ -156,11 +158,11 @@ jobs:
               assert readback_parity
 
           zip_sha = hashlib.sha256(zip_path.read_bytes()).hexdigest()
-          (out / 'ENA-v0.3.3-CURRENT.zip.sha256').write_text(
-              f'{zip_sha}  ENA-v0.3.3-CURRENT.zip\n', encoding='utf-8'
+          (out / 'ENA-v0.3.4-CURRENT.zip.sha256').write_text(
+              f'{zip_sha}  ENA-v0.3.4-CURRENT.zip\n', encoding='utf-8'
           )
           evidence = {
-              'ena_version': 'v0.3.3',
+              'ena_version': 'v0.3.4',
               'status': 'FIELD_VALIDATION',
               'complete_adoption_baseline': True,
               'mainline_claim_allowed': False,
@@ -176,16 +178,16 @@ jobs:
                   'deterministic_zip_metadata': True
               }
           }
-          (out / 'ENA-v0.3.3-RELEASE-EVIDENCE.json').write_text(
+          (out / 'ENA-v0.3.4-RELEASE-EVIDENCE.json').write_text(
               json.dumps(evidence, indent=2, sort_keys=True) + '\n', encoding='utf-8'
           )
           print(json.dumps({k: evidence[k] for k in ['ena_version','canonical_current_source_commit','package_sha256','file_count']}, indent=2))
           PY
 
-      - name: Upload v0.3.3 release evidence and package
+      - name: Upload v0.3.4 release evidence and package
         uses: actions/upload-artifact@v4
         with:
-          name: ENA-v0.3.3-release-package
+          name: ENA-v0.3.4-release-package
           path: release-build/out/*
           if-no-files-found: error
           retention-days: 90
