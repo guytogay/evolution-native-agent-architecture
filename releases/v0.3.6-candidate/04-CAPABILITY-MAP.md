@@ -76,7 +76,7 @@ Core capability vocabulary retained from v0.3.4:
 `ENA-CAP-070` Viability Economics and Project-Scale Governance Fitness  
 `ENA-CAP-071` Persistent Evolution and Open Contribution Substrate  
 
-v0.3.5 candidate adds explicit evolutionary-metabolism capabilities:
+The v0.3.6 candidate inherits the explicit evolutionary-metabolism capabilities released through v0.3.5 Current:
 
 `ENA-CAP-072` Evolution Signal Capture and Review  
 `ENA-CAP-073` Variation Space Provisioning / Mutation Containment  
@@ -98,7 +98,7 @@ For `ENA-CAP-065..071` retained from v0.3.4:
 - **CAP-070:** observe governance cost, latency, human attention, coordination, rework, control-composition/compensation complexity, prevented failure, reusable evidence, useful variety, and project viability without forcing one universal scalar.
 - **CAP-071:** preserve project continuity across sessions/Agents/models/hosts through durable project state and open contribution while keeping contribution, reconciliation, promotion, and implementation authority distinct.
 
-For v0.3.5 candidate additions:
+For `ENA-CAP-072..080` inherited from the v0.3.5 released evolution-metabolism surface:
 
 - **CAP-072:** capture corrections/failures/friction/success/opportunity/environment changes as evolution signals and review them without requiring every wake to produce a mutation.
 - **CAP-073:** provide or identify a real bounded surface where uncertain variation can meet reality; the space may permit meaningful internal self-change without self-minting external mandate.
@@ -110,7 +110,7 @@ For v0.3.5 candidate additions:
 - **CAP-079:** detect when further governance no longer has a plausible decision-changing path and stop adding ceremony while retaining honest residuals.
 - **CAP-080:** evaluate new compositions/recombinations for degradation, neutral/additive effects, super-additive benefit, and emergent capability as well as failure.
 
-Capability enumeration is a map, not a requirement to instantiate or validate all capabilities for every task. LITE adoption should externalize only material capabilities for the current consequence envelope.
+Capability enumeration is a map, not a requirement to instantiate or validate all capabilities for every task. LITE candidate evaluation should externalize only material capabilities for the current consequence envelope.
 
 A Host may implement several capabilities through one organ or one capability through several mechanisms.
 
