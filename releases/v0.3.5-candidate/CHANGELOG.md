@@ -1,28 +1,47 @@
-# Changelog — v0.3.5 candidate.1
+# Changelog — v0.3.5 candidate.2
 
-This is the first revision of the v0.3.5 candidate after the frozen predecessor was independently judged `NEEDS_REVISION`.
+candidate.2 is a narrow successor to frozen candidate.1 after the same DSH falsifier returned `TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS`.
 
-## candidate.1 — falsification-driven corrections
+## candidate.2 — release-decision residual closure
 
-No new Constitution rule was added for these implementation defects.
+No Constitution rule changed.
 
-- separates lifecycle state from evidence-backed selection state;
-- formal positive/negative selection requires represented experiment/reality contact;
-- `INTEGRATED` does not imply `SUPPORTED`;
-- archival/retirement does not erase selection history;
-- migration packet purpose derives from source selection, not lifecycle;
-- packets preserve source experiments/evaluations/integration/archive/migration lineage;
-- negative/unresolved source evidence cannot become local positive selection without receiver-side experiment/evaluation;
-- semantically contradictory packet purpose/selection combinations are rejected;
-- packet-local digest is explicitly not source authentication;
-- closure reads represented evolution state and cannot manufacture bare readiness from omitted caller fields;
-- evolution-record schema/template now match actual tool candidate records;
-- adaptation-packet schema now matches actual tool output and encodes purpose/selection consistency;
-- CI validates actual generated tool state/packet against schemas;
-- independent-failure adversarial regressions are executable in `tools/candidate1_adversarial.py`;
-- inherited composed-validator suite is labeled as regression preservation, not new v0.3.5 semantic coverage;
-- Runtime Kernel carries the reference-tool truth boundary;
-- Simplified Chinese first-adoption path restores immutable effective-content identity guidance.
+- CLI now rejects invalid `source_lifecycle_state` values in migration packets rather than relying on JSON Schema alone;
+- CLI fixes `source_authentication` to `NOT_AUTHENTICATED_BY_THIS_PACKET` and rejects stronger self-edited authentication claims;
+- CLI validates the fixed `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF` transfer-status claim;
+- adds `tools/candidate2_adversarial.py` for those residual packet-consistency/trust probes;
+- committed inherited-regression result now matches the current suite output;
+- CI regenerates the inherited result and fails if that committed generated evidence becomes dirty again;
+- active English and zh-CN adoption/projection identities advance to candidate.2.
+
+## candidate.1 — material falsification-driven corrections retained
+
+candidate.1 previously:
+
+- separated lifecycle state from evidence-backed selection state;
+- required represented experiment/reality contact before formal selection;
+- preserved negative/unknown selection across integration, archival, and migration;
+- preserved source experiments/evaluations/integration/archive/migration lineage;
+- allowed receiver-side reselection only after local experiment/evaluation while retaining source lineage;
+- made migration packet purpose derive from source selection rather than lifecycle;
+- made closure read represented evolution state;
+- connected actual tool records to JSON-schema validation;
+- made independently reproduced failures executable in `tools/candidate1_adversarial.py`;
+- explicitly bounded inherited composed-validator PASS as regression preservation only;
+- restored the Runtime Kernel and zh-CN adoption truth/identity boundaries.
+
+The same DSH falsifier mechanically re-ran those paths and found the material defects closed without evolution starvation.
+
+## Retained research/field residuals
+
+candidate.2 does not pretend every observation must become a release blocker. The following remain visible for future research/field evidence:
+
+- repeated reinterpretation/evaluation of the same experiment may be legitimate or may need stronger provenance semantics;
+- locally successful reselection after source failure preserves source negative lineage, but that lineage becomes nested rather than top-level;
+- archived/retired candidates have no in-place restore/reopen path in the reference tool; a new variation/export path remains available;
+- nested migration lineage can grow in depth across generations.
+
+These are not hidden and were not judged material blockers by the candidate.1 targeted revalidation.
 
 ## v0.3.5 semantic direction retained
 
