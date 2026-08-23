@@ -1,82 +1,62 @@
-# Evolution-Native Agent Architecture (ENA) — v0.3.5
+# Evolution-Native Agent Architecture — v0.3.6 Candidate
 
-Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
+Status: **WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED / DO_NOT ADOPT**
 
-This directory is the singular ENA adoption baseline. It was released from the frozen v0.3.5 candidate.2 lineage after the first frozen candidate was independently falsified, candidate.1 closed the material failures, and the same DSH falsifier later returned `NARROW_REVALIDATION_SUPPORTED` for candidate.2's release-decision residual closure.
+Current remains: **v0.3.5 / CURRENT / FIELD_VALIDATION**.
 
-## Purpose
+This candidate inherits the complete v0.3.5 Current effective-content baseline and explores an evolution-ecology extension. It must not be treated as an adoption baseline until it is coherent, validated, frozen, independently falsified/reconciled, and explicitly released.
+
+## Purpose retained
 
 **ENA exists to make sustained self-evolution viable.**
 
-**Evolution is the purpose. Governance protects evolvability.**
+**Evolution is the purpose; governance protects evolvability.**
 
-ENA should make it easier for an Agent or Agent system to generate variation, learn from reality, retain useful adaptations, discard or archive harmful/stale adaptations, share evidence-bearing adaptations across a population, discover composition effects and emergence, and continue evolving after mistakes.
+v0.3.6 does not replace this telos. It asks what a more life-like evolutionary ecology requires after v0.3.5 made the evolution metabolism explicit.
 
-Safety, evidence, authority, recovery, history, and governance are enabling infrastructure. They must not become a general veto on novelty.
+## Candidate direction
 
-ENA is exploration-forward:
+The working model becomes:
 
-- variation may precede certainty;
-- a mutation is not an improvement merely because it was intended as one;
-- evidence-backed selection follows reality contact;
-- internal self-structure may evolve, but external mandate cannot be self-minted;
-- source adaptations/negative evidence may migrate and be locally re-tested;
-- local success does not predict composed outcome;
-- governance must preserve future correction and stop when further checks no longer change the decision.
+`environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> migration/recombination -> renewed variation`
 
-## v0.3.5 release lineage
+Key candidate distinctions:
 
-The first frozen v0.3.5 candidate exposed false-confidence paths in `ena_evolve.py`. candidate.1 repaired the material state-machine, migration, closure, and schema-wiring defects. candidate.2 then closed the remaining cheap release-decision residuals without changing the Constitution:
+- `stimulus != mutation != improvement`;
+- variation does not require an immediate verdict;
+- `stored != expressed != applied != selected`;
+- dormant/latent variation may remain legitimately unresolved until a relevant context makes expression useful;
+- Runtime Kernel should favor compact salience cues over permanent full-policy loading;
+- Commons publication, receiver discovery/import, and local adoption are independent actions;
+- popularity, propagation, or source success does not create universal fitness or receiver proof;
+- local selection remains environment-scoped;
+- recovery for self-disabling mutation should remain reachable outside the damaged candidate when controllable;
+- canonical ENA evolution requires governed, reproducible lineage; GitHub is the current carrier, not an eternal metaphysical dependency;
+- governance should define the minimum semantic/consequence floor and avoid administrating ecology that can safely self-organize.
 
-1. CLI rejects invalid `source_lifecycle_state` rather than relying on schema validation alone;
-2. CLI rejects forged `source_authentication` rather than propagating a self-asserted trust label;
-3. CLI validates the fixed `transfer_status` claim;
-4. committed inherited-regression output stays synchronized with its generating suite;
-5. candidate.1 and candidate.2 adversarial regressions remain available as historical implementation checks.
+## Deliberately still open
 
-The final narrow DSH revalidation reported N1/N2/N7 and the adjacent transfer-status attack CLOSED, with no new MATERIAL/BLOCKING finding and no observed evolution-starvation or over-governance regression.
+This candidate does **not** define:
 
-No Constitution rule was added merely because an implementation bug was found.
+- a universal fitness function;
+- an Agent reproductive duty or motivation;
+- a formal definition of Agent descendants;
+- a civilization-scale domination, obedience, or coexistence telos;
+- a fixed cognitive-mode taxonomy;
+- mandatory artificial-adversity/persona training;
+- a universal external-ecosystem polling cadence;
+- a rule that every stored variation must eventually be judged or expressed.
 
-## Broader v0.3.5 themes
+## Working discipline
 
-- explicit self-evolution telos;
-- event + periodic/idle evolution wake;
-- Variation Space and outcome-based selection;
-- executable reference evolution metabolism;
-- adaptation/negative-evidence migration and Evolution Commons;
-- positive as well as negative composition emergence;
-- Evolutionary Subject / Protected Subject / Continuity Vector;
-- governance closure rather than infinite meta-review;
-- lawful redaction/deletion without rewriting occurrence truth;
-- effective-loaded-surface persistence evidence;
-- English + Simplified Chinese semantic projection;
-- Constitution concept map without deleting universal invariants;
-- retirement of `MAINLINE / NOT_MAINLINE` as an active adopter-facing maturity axis while historical records remain history.
+- preserve all v0.3.5 validated truth/authority/recovery semantics unless explicitly changed and revalidated;
+- do not add Constitution IDs merely because a new concept is interesting;
+- machine-enforce only properties whose enforcement earns its cost;
+- attack the new ecology semantics before freeze;
+- keep `releases/current/` unchanged during candidate work.
 
-## Navigation
-
-1. `CURRENT-BASELINE.yaml`
-2. `00-READ-ME-FIRST.md`
-3. `CONSTITUTION-CONCEPT-MAP.yaml`
-4. `01-CONSTITUTION.md`
-5. `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`
-6. `RUNTIME-ADOPTION-KERNEL.md`
-7. `09-EVOLUTION-METABOLISM.md`
-8. `10-LANGUAGE-PORTABILITY.md`
-
-For Simplified Chinese, begin with `language-projections/zh-CN/00-READ-ME-FIRST.md`.
-
-The Chinese projection is not a separate ENA. It preserves the same stable semantic IDs and must be judged by material decision meaning, not literal translation.
-
-## Validation posture
-
-Current status means **adopt this baseline now**, not "universally proven."
-
-Do not treat release-author intent, passing CI, one Host/model/language result, or machine-readable output as stronger evidence than it is.
-
-Retained N3–N6 observations remain visible research/field residuals. They do not currently justify another candidate revision; field evidence may reopen them if they become material.
-
-> **Variation first; selection by reality.**
+> **Variation does not owe reality an immediate verdict.**
 >
-> **Aggressive exploration does not create unowned external authority.**
+> **Stored possibility is not active authority.**
+>
+> **Govern the floor; let the ecology grow above it.**
