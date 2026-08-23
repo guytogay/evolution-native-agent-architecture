@@ -1,32 +1,24 @@
 #!/usr/bin/env python3
-"""V0.3.3 deterministic regression suite.
+"""Inherited deterministic composed-validator regression suite.
 
-Exercises the ENA v0.3.3 Current validator (tools/validate_contracts.py) against
-the committed regression corpora. Does NOT import any research prototype.
-
-Runs:
-  1. migrated v0.3.2 semantic selftests (contract-fixtures.v1.json, 10 cases);
-  2. inherited 164-case corpus (contract-fixtures.v2.json) — MUST remain
-     164/164 with zero flips;
-  3. closure corpus (contract-fixtures.v2.1.json): PR #38 fresh probes (43) +
-     D1/D2/D3 closure controls (18).
-
-Report: verdict correctness by provenance, unexpected verdicts, uncaught
-exceptions, determinism. Exit 0 iff zero unexpected AND zero exceptions AND
-zero failed migrated selftests AND zero inherited flips.
+This file intentionally exercises the byte-inherited v0.3.3/v0.3.4
+`validate_contracts.py` implementation surface. Passing this suite proves
+regression preservation only; it does NOT prove coverage of new v0.3.5
+semantics such as evolution metabolism, migration, emergence, continuity, or
+language portability.
 """
 import sys, json
 from pathlib import Path
 from collections import Counter
 
-HERE = Path(__file__).resolve().parent            # .../releases/current/tools
+HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 import validate_contracts as vc
 
 FIXTURES_V1 = HERE / "contract-fixtures.v1.json"
-FIXTURES_V2 = HERE / "contract-fixtures.v2.json"    # inherited (164)
-FIXTURES_V21 = HERE / "contract-fixtures.v2.1.json" # closure
+FIXTURES_V2 = HERE / "contract-fixtures.v2.json"
+FIXTURES_V21 = HERE / "contract-fixtures.v2.1.json"
 
 
 def run_fixture_file(path: Path, label: str):
@@ -58,14 +50,14 @@ def run_fixture_file(path: Path, label: str):
 
 def main() -> int:
     print("=" * 100)
-    print("V0.3.3-CANDIDATE.1 REGRESSION SUITE (implementation surface)")
+    print("V0.3.5-CANDIDATE.2 INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
     print("=" * 100)
 
     v1 = run_fixture_file(FIXTURES_V1, "migrated v0.3.2 selftests")
     v2 = run_fixture_file(FIXTURES_V2, "inherited 164-case corpus")
     v21 = run_fixture_file(FIXTURES_V21, "successor closure corpus (PR#38 + D controls)")
 
-    print("migrated v0.3.2 selftests : %d/%d passed (shipped surface unchanged)" % (v1["total"] - v1["failed"], v1["total"]))
+    print("migrated v0.3.2 selftests : %d/%d passed" % (v1["total"] - v1["failed"], v1["total"]))
     print("inherited 164-case corpus : %d/%d passed (ZERO flips required)" % (v2["total"] - v2["failed"], v2["total"]))
     print("successor closure corpus  : %d/%d passed" % (v21["total"] - v21["failed"], v21["total"]))
     print()
@@ -91,11 +83,12 @@ def main() -> int:
     print("uncaught exceptions       : %d" % len(all_exceptions))
     print()
     ok = (not all_unexpected) and (not all_exceptions)
-    print("RESULT: %s" % ("PASS - zero unexpected, zero exceptions, inherited 164 preserved"
+    print("RESULT: %s" % ("PASS - inherited implementation regression preserved"
                           if ok else "FAIL"))
 
     out = {
-        "candidate": "releases/current/tools/validate_contracts.py",
+        "implementation_surface": "releases/v0.3.5-candidate/tools/validate_contracts.py",
+        "coverage_boundary": "INHERITED_COMPOSED_VALIDATOR_ONLY_NOT_V035_NEW_SEMANTICS",
         "migrated_v032_selftest": {"total": v1["total"], "passed": v1["total"] - v1["failed"]},
         "inherited_v2": {"total": v2["total"], "passed": v2["total"] - v2["failed"]},
         "closure_v21": {"total": v21["total"], "passed": v21["total"] - v21["failed"]},

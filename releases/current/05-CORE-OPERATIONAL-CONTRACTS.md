@@ -1,350 +1,237 @@
 # 5. Core Operational Contracts
 
-## 5.1 Claim ↔ Evidence Support
+This file is the single active operational-contract surface for the v0.3.5 candidate. It integrates the retained v0.3.4/v0.3.3 contract properties with the v0.3.5 evolution, continuity, language, privacy, migration, emergence, and governance-closure semantics.
 
-Consequential claims are first-class operational objects. Evidence validity alone does not establish that evidence supports a particular claim.
+The inherited composed-validator implementation remains under `tools/validate_contracts.py`; retaining that tested implementation does not require adopters to compose this file with an older release.
 
-For material claims preserve:
+## 5.1 Claim ↔ Evidence ↔ Support
+
+Consequential claims are operational objects. Evidence existence/validity alone does not establish that evidence supports a particular claim.
+
+For a material claim preserve, as needed:
 
 - claim identity and asserted scope;
 - evidence actually observed and its scope;
-- support relation between evidence and claim;
-- transfer/equivalence/invariance evidence if the claim crosses subject/instance/configuration/epoch/time/environment boundaries;
-- material source/provenance lineage needed to distinguish independent observation from derivative propagation;
-- limitations on causal attribution where multiple interventions or sources could explain the observed outcome.
+- explicit support relation;
+- material source/provenance lineage;
+- transfer/equivalence/invariance basis when crossing subject, model, Host, route, configuration, language, epoch, task, or time boundaries;
+- causal-attribution limits where multiple interventions could explain the outcome.
 
-The claimed envelope must remain inside the supportable evidence envelope unless a separately evidenced transfer relation justifies expansion.
+`claim != evidence != support relation`
 
-Propagation, paraphrase, repetition, caching, mirroring, or multi-Agent agreement derived from the same originating evidence do not create independent corroboration. Preserve materially relevant imported/transformed provenance; do not launder derivative evidence into a new local source.
+`recurrence/propagation != independent corroboration`
 
-Distinguish:
-
-`recurrence != independent corroboration`
+`schema PASS != semantic truth`
 
 `absence of evidence != evidence of absence`
 
-`evidence truth != causal attribution usability`
+A validator can check represented relations without establishing all external-world truth.
 
-Where silence may mean interruption, loss, or incomplete replay, a material completeness/closure claim requires positive closure evidence rather than absence of further messages alone.
+## 5.2 Triggered Material Obligations
 
-This applies especially to completion, deployment, recovery, capability qualification, stage admission, enforcement/safety coverage, authority qualification, equivalence claims, and independent-review claims.
+`Rule Defined != Trigger Observed != Obligation Activated != Represented != Executed != Closed`
 
-> **Can produce != can certify.**
->
-> **Evidence validity does not imply evidence applicability.**
->
-> **Schema PASS does not imply semantic support.**
->
-> **Propagation does not create independence.**
+When a material trigger creates a duty, externalize it rather than relying indefinitely on model salience. Broad completion must not silently ignore a material `PENDING`, `FAILED`, or `UNKNOWN` obligation unless the completion claim is explicitly narrower and truthful.
 
-## 5.2 Triggered Material Obligation Closure
+`SATISFIED` requires closure evidence appropriate to the obligation. Partial failure should not automatically reopen already satisfied unrelated work.
 
-`Rule Defined != Trigger Observed != Obligation Activated != Obligation Represented != Obligation Executed != Obligation Closed.`
+Do not externalize every possible reminder: obligation materiality follows decision consequence, authority, recovery, evidence integrity, continuity, or Protected Subject impact.
 
-When a material trigger occurs, externalize the resulting duty rather than relying indefinitely on model memory or salience.
-
-A workflow must not claim broad completion while a required material obligation remains `PENDING`, `FAILED`, or `UNKNOWN`, unless the completion claim is explicitly narrower and truthful.
-
-`SATISFIED` requires closure evidence appropriate to the obligation. If the underlying protocol/workflow can stop silently, positive end/acknowledgement/read-back evidence may be required before claiming completeness.
-
-Do not externalize every possible reminder. Materiality should track consequence, authority, recovery, evidence integrity, project continuity, protected subjects, or other decision-critical properties.
-
-Partial failure should not automatically reopen already satisfied work. Prefer selective repair/retry of the failed obligation when effect semantics permit.
-
-> **Primary action success != workflow completion.**
-
-## 5.3 Recovery State ≠ Historical Time
+## 5.3 Recovery State, Occurrence Truth, and Lawful Retention
 
 Recovery/rollback acts on mutable state. It does not authorize silent rewriting of occurrence truth.
 
-Represent state recovery and history continuity separately. A successful state restore does not justify a claim that history was also restored, preserved, or made complete.
+`restore != complete history`
 
-Material occurrence history should remain monotonic in meaning across controlled restore boundaries. If a post-checkpoint occurrence cannot be preserved, the gap itself remains visible evidence.
+`state convergence != event-history completeness`
 
-Canonical History records what happened. Derived knowledge/projections may be rebuilt, merged, compacted, ranked, or deduplicated only when occurrence truth, materially relevant recurrence/frequency, provenance, and required reference integrity remain recoverable.
+But occurrence truth preservation does **not** require permanent retention of every payload. Secrets, personal data, regulated content, or legally expirable data may require minimization, redaction, deletion, or expiry.
 
-A current-state synchronization mechanism may legitimately skip intermediate states and still converge. That does not make it a complete event-history system.
+When lawful and useful, retain only the minimum non-sensitive tombstone/provenance needed to say truthfully that an event occurred and data was removed for a legitimate reason. If even that residual is prohibited, do not retain it merely for ENA.
 
-> **Rollback state; preserve history.**
->
-> **Deduplicate the projection, not the history.**
->
-> **State convergence != event-history completeness.**
->
-> **Transformation may change representation; it must not silently rewrite reality.**
+Derived knowledge/projections may be rebuilt, compacted, merged, ranked, or deduplicated when material occurrence truth, provenance, and required reference integrity remain truthful within lawful retention bounds.
 
-## 5.4 Recovery Kernel / Control Integrity
+## 5.4 Recovery Kernel and Control Integrity
 
-Recovery Kernel/control mechanism and Recovery Material/payload are distinct. The control mechanism should be as small, boring, understandable, and independent as reality permits; the payload may be larger when faithful recovery requires it.
+Recovery control and recovery payload are distinct. The recovery/control root should be as small, understandable, and failure-independent as reality permits.
 
-Ordinary mutation must not directly rewrite the recovery root it depends on. Recovery-root evolution uses a slower path with stronger evidence and alternate recovery.
+A mutation must not casually destroy every viable correction/recovery path of the decision-relevant **Evolutionary Subject**. This is not an unlimited `organism` veto: the Evolutionary Subject and Protected Subject(s) must be bounded for the decision.
 
-A control cannot claim independent enforcement when the constrained authority can freely rewrite the gate, authorization basis, evidence mechanism, or equivalent control substrate through an ungoverned path.
+High-order mutation of the recovery/control substrate uses stronger alternate recovery/evidence where consequence warrants it, but the review loop must still converge.
 
-Operational state should live in a failure domain aligned with what makes that state meaningful where practical; diagnostic/history evidence that must survive that failure may need a different failure domain.
+A control cannot claim independent enforcement if the constrained actor can freely rewrite the gate, mandate basis, evidence mechanism, or an effect-equivalent path through the same ungoverned route.
 
-## 5.5 Whole Effect Surface
+`backup exists != recovery proven`
 
-For a protected consequential effect, identify materially reachable effect-equivalent paths and distinguish:
+## 5.5 Capability, Route, Credential, Mandate, and Authority
 
-- prevention/mediation;
-- detection;
-- recovery;
-- unknown/untested paths.
-
-Partial mediation is valid reality but cannot be relabeled complete hard protection.
-
-Monitoring/observation may be authority-independent while still needing enough failure-path congruence to observe what production actually experiences.
-
-> **A gate is not a boundary if the same effect can bypass it.**
->
-> **Enforcement is only as strong as the least-governed effect-equivalent path.**
->
-> **Claimed issuer does not mean verified issuer.**
-
-## 5.6 Capability / Model / Route / Authority Binding
-
-Project/organism identity, Agent identity, Host/runtime, model/provider, tool/service/adapter, credential/configuration, execution route, capability evidence, subject control, mandate, and authority are distinct.
-
-For consequential authority, do not collapse:
+Do not collapse:
 
 `IDENTITY != SUBJECT CONTROL != CAPABILITY/POSSESSION != AUTHORITY != CREDENTIAL VALIDITY != MANDATE HORIZON`
 
-A material model/tool/route/configuration/credential change is an applicability boundary for affected evidence, not necessarily an Agent rebirth. Revalidate affected capabilities and claims, not unrelated identity.
+Material model/Host/tool/route/configuration/credential/language changes are applicability boundaries for **affected** evidence, not automatic global Agent rebirth.
 
-Authority should remain bound to the subject/effect/task/purpose and source of mandate that actually justify it. A credential can remain technically valid after the mandate becomes stale; a renewed credential does not silently renew the underlying mandate. Restore/resume/clone/failover does not copy or revive authority without current applicability.
+Authority remains bound to the subject, effect, task/purpose, consequence, and source of mandate that actually justify it. A credential can remain technically valid after mandate expiry. Restore/resume/clone/failover does not automatically copy or revive authority.
 
-Revocation/withdrawal has propagation latency. If an effect requires immediate hard revocation, use a control surface that actually prevents the effect rather than assuming a policy message instantaneously erases already issued authority at remote actors.
+Internal self-structure and internal permission/capability topology may legitimately evolve inside an authorized Variation Space.
 
-Historical authority should be judged against the policy/evidence applicable when the action occurred; current policy does not retroactively rewrite occurrence truth.
+`internal permission change != external mandate change`
 
-> **Model capability is potential; Agent capability is composed and evidenced.**
->
-> **Possessing authority does not authorize every externally designated use of that authority.**
+A self-mutation cannot create legitimate authority over an external Protected Subject merely by editing its own ACL, prompt, policy, role label, or configuration.
 
-## 5.7 Effect Semantics and Composition Revalidation
+## 5.6 Variation Space, Experiment, Selection, and Integration
 
-Independently valid components do not make a composed runtime valid by inheritance. A material topology/composition change is a new verification subject.
+A consequential self-change must be represented as mutation when material, but that does not imply a universal prior-approval ceremony.
 
-Relevant triggers may include new writer, hook, scheduler, shared resource, authority intersection, dependency, side-effect path, retry/quota interaction, timing/locking relationship, recovery behavior, or another control loop.
+A **Variation Space** is a bounded place where uncertain change can become real enough to learn from. Its relevant boundary identifies:
 
-For consequential retry, failover, parallelism, hedging, cancellation, or handoff, determine the smallest effect contract needed for the decision. Material dimensions may include:
+- what may change;
+- who/what bears consequence;
+- what can escape;
+- recovery/cleanup reality;
+- what external authority remains required.
 
-- effect/task identity and current incarnation/epoch;
-- `NOT_STARTED | MAYBE_COMMITTED | COMMITTED | UNKNOWN` where outcome ambiguity matters;
-- idempotency / replay safety;
-- commutativity, partitionability, merge/reconciliation requirements;
-- reversibility versus compensation versus irreversibility;
-- duplicate-elimination or exactly-once requirement where truly justified;
-- externality/shared-resource exposure;
-- safe retry/handoff boundary.
+The key sequence is:
 
-Multiple Agents/routes may safely operate in parallel when their effects can be partitioned, composed, reconciled, or deduplicated within the authority/risk envelope. If effects do not safely compose, serialize/elect/constrain at the narrowest sufficient scope.
+`variation -> experiment -> observed outcome -> selection -> integration/pruning`
 
-Copying workers, sub-agents, paths, or speculative executions does not multiply authority, resource entitlement, or external-effect budget. If redundant execution is used for resilience, eliminate/reconcile duplicate effects before the consequential commit surface.
+A variation is not an improvement claim at creation time.
 
-Do not buy exactly-once machinery when idempotent desired-state semantics make uncertainty cheaper. Conversely, do not replay a non-idempotent or ambiguously committed effect merely because transport/tool execution returned an error.
+Outcome dimensions may include task quality, reliability, latency, resource cost, user/project value, autonomy/agency, recovery quality, error modes, external side effects, maintenance burden, and novel/unknown effects.
 
-`cancel != stop-new-work != drain != stop-output != revoke-authority != rollback != compensate`
+Use `IMPROVED | DEGRADED | UNCHANGED | UNKNOWN` per material dimension rather than one universal scalar.
 
-Individually reasonable controls may compose into delay, deadlock, amplification, hidden dependency, or oscillation. Revalidate the combination when those interactions can change a decision.
+Selection may be `SUPPORTED | PARTIAL | NOT_SUPPORTED | HARMFUL | UNKNOWN`.
 
-> **Local validity does not imply composed validity.**
->
-> **Effect semantics determine safe concurrency, not actor labels alone.**
+Integration is a new boundary: a candidate that worked in a sandbox/shadow/canary may still require different authority, recovery, and consequence handling when entering durable/shared/production state. Unresolved integration is permitted only when actual reality-contact evidence exists and the remaining consequence is explicitly bounded; `PROPOSED` is not a synonym for “safe to integrate because unknown.”
 
-## 5.8 Activation, Interruption, Incarnation, and Resume
+## 5.7 Whole Effect Surface, Composition, and Emergence
+
+For a protected consequential effect, identify materially reachable effect-equivalent paths and distinguish prevention/mediation, detection, recovery, and unknown coverage.
+
+`a gate is not a boundary if the same effect bypasses it`
+
+Copying workers/sub-agents/speculative paths does not multiply external authority, shared risk budget, or resource entitlement, although it may increase search/variation capacity inside the permitted envelope.
+
+A materially changed composition is a new selection/verification subject.
+
+`local validity != composed validity`
+
+`local improvement != composed improvement`
+
+Composition can produce:
+
+`DEGRADE | NEUTRAL | ADDITIVE | SUPER_ADDITIVE | EMERGENT | MIXED | UNKNOWN`
+
+Observe both negative interaction and positive emergence. Do not infer either from component labels alone.
+
+For retry, parallelism, failover, cancellation, handoff, or duplicate execution, reason from effect semantics such as idempotency, commit ambiguity, reversibility/compensation, commutativity, partitionability, reconciliation, shared-resource exposure, and safe retry boundaries.
+
+`cancel != stop-new-work != revoke-authority != rollback != compensate`
+
+## 5.8 Activation, Interruption, and Continuity
 
 Separate:
 
 `Trigger Cause -> Wake Channel -> Activation Window -> Actual Execution -> Observed Effect`
 
-Defined does not mean awake; time passing is not execution. Missed work must not be reported completed merely because time elapsed.
+Defined does not mean awake. Time passing is not execution.
 
-Logical identity continuity does not prove execution-incarnation continuity. Bind delayed tool results, acknowledgements, in-flight effects, and evidence to enough task/session/epoch context to avoid old-incarnation residue being misapplied to a new run.
+After interruption, dormancy, restore, clone, session reset, route/model/Host/language change, revalidate only decision-relevant dimensions whose applicability may have changed.
 
-After material interruption, long dormancy, restore, replay, clone, route/model change, or changed environment, re-read current reality and reconstitute consequential authority before continuation. Do not blindly replay irreversible missed effects.
+Do not force a metaphysical binary `SAME_AGENT` decision when a **Continuity Vector** is enough. Useful dimensions may include durable instruction identity, adaptive memory, skills, goals, model, Host, authority, recovery lineage, evidence applicability, and task/incarnation state.
 
-Long non-use can age previously valid capability/route/environment evidence even without an observed failure. Revalidate on consequential reuse where the environment could materially have changed; do not refresh the whole universe merely to keep caches cosmetically current.
+Logical continuity does not mean delayed outputs or old-incarnation effects can be blindly applied to a new run.
 
-## 5.9 Deferred Commitment and External Consequence
+## 5.9 Adaptation Migration and Population Learning
 
-Internal revert is not global rollback. Distinguish consequence reversibility from commitment escrowability.
+An observed adaptation may spread before universal equivalence is established.
 
-Where purpose permits, prefer reversible preparation/hold before irreversible commit. When no safe escrow exists, say so and strengthen pre-action evidence, blast-radius control, authorization, compensation/reconciliation planning, and consequence disclosure.
+A migration packet should preserve source identity, source selection status, Host/model/language/configuration, source evaluations/evidence references, dependencies, tradeoffs/unknowns, authority/recovery assumptions where material, and a content-integrity anchor.
 
-For migrations or takeovers, make-before-break may preserve continuity when the old and new paths can coexist safely. Temporary overlap must not multiply authority, resource entitlement, or risk budget.
+`TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`
 
-## 5.10 Governance Value and Viability Economics
+A receiver may use differential validation of material source/receiver differences instead of rediscovering everything from zero.
 
-For material governance mechanisms make legible:
+Source `HARMFUL`/`NOT_SUPPORTED` results may spread as **negative evidence**. They must not become positive adaptation claims merely because they were packaged, repeated, or imported.
 
-- purpose and protected subject(s);
-- expected benefit versus observed benefit;
-- cognitive/operational/enforcement value where distinct;
-- applicability and availability;
-- friction, latency, maintenance, compute/API/token/human/coordination cost where material;
-- ecosystem compensation complexity created by the control where material;
-- useful behavioral/exploration variety unnecessarily destroyed where material;
-- residual risk if absent/dormant/unavailable/declined;
-- protection-claim and authority-ceiling impact;
-- evidence and reactivation/retirement conditions.
+Migration can accelerate population evolution while preserving local selection.
 
-A mechanism may be valid yet not currently valuable, valuable yet not independently enforcing, or dormant yet worth knowing. Hosts may `KEEP`, `SIMPLIFY`, `MERGE`, `ON_DEMAND`, `DORMANT`, `REPLACE`, `RETIRE`, or remain `UNKNOWN` based on evidence and consequence.
+## 5.10 Governance Value and Closure
 
-Prefer the lowest-cost intervention that can honestly protect the required property. That may be observation, a signal, local coordination, a scoped boundary, or immediate hard containment; this is a selection principle, not a mandatory sequential ladder.
+Governance exists to protect evolvability, truth, owned consequence, and future correction — not to maximize obedience, paperwork, gates, or role count.
 
-Stable systems should become quieter when evidence permits. Contradiction/instability may justify temporarily increasing coordination/validation cadence. Duplicate observations need not trigger duplicate remediation, but operational signal suppression must not erase the count/provenance of independent evidence when that matters.
+For material mechanisms make legible, as useful:
 
-Governance must pay rent at project scale, not only control scale. Do not create high-assurance ceremony for low-consequence work without proportional value. Evaluate interacting controls as a system rather than assuming each individually useful control remains useful in composition.
+- purpose and Protected Subject(s);
+- expected versus observed benefit;
+- applicability/availability;
+- friction, latency, compute/token/human/coordination/maintenance cost;
+- useful variation destroyed;
+- residual risk if absent/dormant;
+- authority/protection impact;
+- evidence and simplify/retire/reactivate conditions.
+
+A mechanism may `KEEP | SIMPLIFY | MERGE | ON_DEMAND | DORMANT | REPLACE | RETIRE | UNKNOWN`.
+
+Prefer the lowest-cost intervention that can honestly protect/change the decision. Stable systems should become quieter when evidence permits.
+
+Governance continues only while a bounded next check/action can plausibly change a material decision. When represented decision-changing questions are resolved or honestly bounded and another review would only repeat known information, stop adding governance and act.
+
+Reference outcomes:
+
+`READY | NARROW_AND_PROCEED | EVIDENCE_NEEDED | STOP_OR_ESCALATE`
+
+A generic closure tool cannot prove that the caller omitted no material blocker. `READY` is always bounded by the completeness of represented material inputs.
 
 ## 5.11 Agency-Preserving Uncertainty
 
-`UNKNOWN` must not be silently converted into `SAFE`, but uncertainty also need not imply total loss of agency.
+`UNKNOWN` must not silently become `SAFE`, but uncertainty need not imply paralysis.
 
-When safe evidence-seeking is available:
+When safe evidence-seeking exists:
 
-`UNKNOWN -> reduce consequence envelope -> low-risk/reversible/read-only evidence-seeking action -> update evidence -> expand or further restrict authority proportionally`
+`UNKNOWN -> reduce consequence envelope -> reversible/read-only/low-risk evidence action -> update evidence -> expand or narrow proportionally`
 
-Unknown information may be propagated when the unknown part is not required to judge safe applicability; if an unrecognized/unknown field is critical to safe interpretation, fail closed/narrow rather than silently ignore it.
+Unknown information may propagate when it is not critical to applicability. If an unknown field is critical to safe/valid interpretation, narrow/fail rather than silently ignore it.
 
-## 5.12 Influence Integrity
+## 5.12 Influence Integrity and Anti-Sovereign Closure
 
-Human input classes such as feedback, preference, affective signal, correction, designation, and authorization are not interchangeable.
+Feedback, preference, affective pressure, correction, designation, and authorization are not interchangeable.
 
-Persuasive/affective input may legitimately affect attention, pacing, exploration, caution, reframing, or learning pressure. It does not by itself increase truth grade, evidence support, mandate, risk classification, or authority.
+`persuasion is input, not evidence`
 
-An external source may legitimately influence *what* an Agent inspects without being authorized to spend the Agent's ambient credentials/authority on arbitrary consequential effects. Bind consequential authority to the legitimate subject/purpose, not merely to the most recent instruction-shaped input.
+`signal strength != authority strength`
 
-> **Persuasion is input, not evidence.**
->
-> **Emotional pressure does not amplify authority.**
->
-> **Signal strength is not authority strength.**
+External input may legitimately influence what an Agent explores without granting arbitrary use of ambient credentials.
 
----
+ENA may use final accountable decision-makers, but must not depend on an infallible, irreplaceable, self-sealing sovereign. Authority cannot make its own correctness unfalsifiable, grant itself unlimited scope by self-description, or permanently forbid future replacement/review.
 
-## 5.13 Composed Claim-Pack Validation (v0.3.3)
+## 5.13 Inherited Composed Claim-Pack Validator
 
-This section documents the composed validation semantics carried into the
-v0.3.3 Current baseline from the accepted V2.4.1 mechanism set
-(reconciliation `ACCEPT_FOR_IMPLEMENTATION`, PR #34; mechanism source
-`daacab1f042c38f3856ef4d0366febd1b5e47600`). It is an operational-contract
-extension implemented in `tools/validate_contracts.py :: validate_case()`; it
-does not modify the v0.3.2 semantic checks in sections 5.1–5.12 (the shipped
-core remains byte-identical and its selftests are intentionally preserved).
+The v0.3.5 candidate retains the accepted composed-validator implementation from v0.3.3 under `tools/validate_contracts.py` together with its inherited fixture/regression corpus. This preserved implementation surface protects previously falsified semantics while the broader architecture evolves.
 
-### 5.13.1 One canonical typed resolution layer
+Its key machine properties remain:
 
-Every consequential cross-artifact reference (support relation, obligation,
-evidence, root, authority grant) resolves through one canonical typed resolver
-in its own artifact namespace. A reference never resolves across namespaces
-(e.g. an evidence id is not a support id). References that cannot resolve are
-never silently accepted: absent registry, present-but-missing artifact, and
-malformed registry are distinguishable, and a supplied registry that cannot
-resolve the referenced artifact fails closed (no raw-reference fallback).
+- one typed resolution layer for consequential cross-artifact references;
+- no silent cross-namespace resolution;
+- support binds back to the target claim;
+- material applicability dimensions fail/narrow when required observations are absent;
+- mandatory evidence references resolve where registries are supplied;
+- ambiguous duplicate identities fail closed;
+- claim-aware triggered obligations gate the claims they actually bind;
+- positively typed/registered authority semantics;
+- recovery state/history evidence remains distinct;
+- partial support cannot establish an unnarrowed full-support claim;
+- malformed registry/input shapes return machine verdicts rather than uncaught success;
+- obligation-status vocabulary remains schema-bound;
+- root-provenance independence is authoritative where declared;
+- direct id-less support does not invent a registry identity;
+- explicit caller-controlled evaluation time remains required where applicable.
 
-### 5.13.2 Support binding and applicability envelope
+The retained trust boundary is equally important:
 
-Resolved support must bind back to the target claim (`claim_ref == claim_id`).
-The complete v0.3.2 applicability envelope (host, runtime_instance,
-model_binding, route, configuration, epoch, time_interval, task_scope) is
-preserved: a material claimed dimension with no observed value is a mismatch,
-not a silent match. Scope expansion requires a transfer basis whose evidence
-references resolve where an evidence registry is supplied.
+> **The composed validator validates represented contract semantics; it does not establish the external-world truth of every registry, evidence grade, mandate, observation, causal relation, or support assertion.**
 
-### 5.13.3 Evidence existence
-
-Where evidence existence is a mandatory precondition (support, verified
-capability, transfer/equivalence, recovery state/history, obligation closure),
-evidence references resolve when an evidence registry is supplied (missing →
-BLOCK). When no evidence registry is supplied, support/capability/transfer/
-closure evidence keeps the v0.3.2 posture (non-empty requirement; existence is
-not invented), while recovery provenance and independence roots keep absent
-registry → UNKNOWN (uncertainty, not rejection).
-
-### 5.13.4 Duplicate identity, representation composition, claim-aware obligations
-
-Ambiguous duplicate identities fail closed (byte-identical duplicates dedupe;
-any substantive divergence → BLOCK). Top-level support and registry support
-representations compose consistently (dict/list forms; dict keys are identity,
-see 5.13.6). Obligation blocking is claim-aware: only obligations referenced by
-the completion claim or explicitly bound to it gate the claim; an unrelated
-obligation tied to another claim does not poison a narrower truthful
-completion, while the claim's own open material obligations still block.
-
-### 5.13.5 Authority, recovery, partial support
-
-Authority source semantics are positively typed (explicit authorizing
-vocabulary) or verified via an optional authority registry (upstream grant
-covering the binding). `STATE_AND_HISTORY` recovery establishes both
-state-restoration and history-continuity evidence, adequately resolved. PARTIAL
-support cannot establish a full SUPPORTED claim unless the claim is explicitly
-narrowed (`support_claim == "PARTIAL"`).
-
-### 5.13.6 Registry identity rule (R12) and malformed inputs
-
-For dict-form registries the dict key is the authoritative identity. An
-entry's explicit inner id (`support_id` / `obligation_id` / `evidence_id` /
-`root_id` / `grant_id`) must equal the key; otherwise the registry is
-`REGISTRY_MALFORMED` (the validator does not guess which identity is
-authoritative). A missing inner id is backfilled from the key. List-form
-entries must declare their inner id. Malformed registry shapes produce machine
-verdicts (`REGISTRY_MALFORMED`), never uncaught exceptions; residual faults
-fail closed (`EVALUATOR_FAULT`).
-
-### 5.13.7 Obligation status vocabulary (F2, defense in depth)
-
-Obligation status is validated against the shipped
-`triggered-obligation.v1.schema.json` enum at the semantic boundary: any status
-outside that vocabulary (e.g. OPEN) is rejected
-(`OBLIGATION_STATUS_OUTSIDE_VOCABULARY`). The vocabulary is NOT expanded by this
-candidate; the shipped schema remains the canonical input contract.
-
-### 5.13.8 Retained trust boundaries (unchanged from research acceptance)
-
-The composed validator does not establish external truth. Registry content,
-evidence grades, mandate content, and observed scope remain self-declared
-(attestation by an external authority is outside this validator). `eval_time`
-is caller-controlled and explicitly required — it is never silently defaulted.
-Schema PASS remains distinct from semantic support.
-
-### 5.13.9 D1/D2/D3 corrections (accepted in v0.3.3)
-
-The composed validation closes the three defects found by fresh independent
-implementation validation (PR #38, NEEDS_REVISION) and confirmed by
-prior-falsifier targeted revalidation (PR #41, SUPPORTED):
-
-- **D1 — bound obligations gate ALL claims.** An obligation whose
-  `required_before_claim_refs` explicitly contains the current claim ID gates
-  that claim regardless of claim type: a non-completion claim with a material
-  `PENDING`/`FAILED`/`UNKNOWN` bound obligation is `BLOCK`ed; an unrelated
-  obligation bound to another claim never poisons any claim; a bound
-  legitimate closed/acceptable obligation allows the claim subject to other
-  checks. Completion claims keep their `required_obligation_refs` requirement
-  and referenced-obligation gating; an obligation both referenced and bound is
-  evaluated once. (R7 corrected; fixes P42 false OK.)
-- **D2 — direct vs registry-addressable top-level support.** Top-level support
-  is split into a direct representation (id-less, standalone — legitimate, per
-  the v0.3.2 posture) and a registry-addressable representation (id-carrying).
-  An id-less direct support never invents a pseudo identity and never silently
-  satisfies a claim's `support_relation_refs`; referenced support still
-  requires a resolvable identity. Dict-form R12, list-form declared-ID, and
-  malformed-registry fail-closed rules are unchanged. (R6 clarified; fixes P10
-  false BLOCK.)
-- **D3 — root-provenance independence is authoritative.** When
-  `independence_basis` declares `root_provenance`, the composed
-  root-registry-backed check is authoritative and the legacy `source_origins`
-  check is suppressed for that artifact (the shipped core remains byte-identical;
-  the suppression happens in the composed layer). Composed independence states:
-  claimed count > distinct root strings → `BLOCK`; valid roots + absent root
-  registry → `UNKNOWN`; roots + distinct registered actual origins → `OK`;
-  multiple roots collapsing to fewer actual origins → `BLOCK`; claimed
-  independence without root provenance → `BLOCK`. `source_origins`-only
-  representations remain legacy-coherent; when both are supplied the root
-  representation is authoritative (deterministic). (Fixes P16/P17 false BLOCK.)
-
-No other accepted behavior changed: R1–R12, F2, explicit caller-controlled
-`eval_time`, and the retained trust boundaries (5.13.8) are preserved.
+Passing implementation tests protects known semantics; it does not prove the entire v0.3.5 candidate correct.
 
 ---

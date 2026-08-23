@@ -1,73 +1,68 @@
-# 8. Release Discipline
+# 8. Release Discipline — v0.3.5 candidate.2
 
-A deployable ENA adoption version must be self-contained. A participant must not need to compose multiple ENA release versions to determine its effective baseline.
+A deployable ENA adoption version must be self-contained.
 
 ## Version identity
 
-One adoption version identifies one immutable effective content state.
+One adoption version identifies one immutable effective-content state.
 
-- `same ena_version -> same effective content`;
-- any material change to the adoption package requires a new version identity;
-- version identity and maturity/status are separate;
-- adopters use Current only; older releases remain immutable history, not runtime dependencies.
+`same ena_version -> same effective content`
 
-ENA release numbers should remain simple and linear for adopters (for example `v0.3.1 -> v0.3.2 -> v0.3.3`). Research, Issues, experiments, and Git history may branch; the effective adoption line should not require version arithmetic.
+Material change requires a new version/candidate identity. Research/candidates may branch; the adoption target remains singular.
 
-Accumulate issues, field evidence, and research until a coherent set of decision-worthy changes justifies a release. Do not create a new adoption version for every small observation or cosmetic change when batching provides better project ROI and comparability.
+The first frozen v0.3.5 candidate was independently falsified. candidate.1 was a successor identity and later received same-falsifier targeted support with residuals. candidate.2 is a second successor identity that closes those concrete release-decision residuals. Neither successor rewrites the frozen predecessor tree.
 
-## Frozen Current and canonical source
+## Active adopter-facing status model
 
-`releases/current/` is a frozen adoption target after release, not a live editing workspace under an unchanged version identity.
+Beginning with v0.3.5, ENA proposes retiring `MAINLINE / NOT_MAINLINE` as an active adopter-facing maturity axis.
 
-A release must be built from an identified committed Git tree/commit carrying the exact Current bytes. Do not build the canonical offline package from an independent local staging/build directory.
+Adopters need to know:
 
-Because an artifact cannot safely contain a self-referential hash of itself, immutable source commit/tree identity and package digest may be recorded as release evidence outside the package while `CURRENT-BASELINE.yaml` states the required identity method.
+- **Current** — which singular baseline should be adopted now;
+- **maturity/status** — e.g. `FIELD_VALIDATION`, later another explicitly defined maturity if justified.
 
-## Distribution parity gate
+Historical `MAINLINE` records remain historical occurrence truth and are not rewritten.
 
-Before claiming release workflow completion:
+`Git main != ENA Current`
 
-1. freeze/identify the source commit/tree;
-2. enumerate the exact file set under `releases/current/`;
-3. build the offline package from those committed bytes;
-4. compare packaged file set against the committed source — no missing/unexpected files;
-5. compare every packaged file byte/hash/blob identity against source;
-6. compute and publish a package-level digest as release metadata/sidecar;
-7. publish any mirror/distribution artifact;
-8. read/download the published artifact back;
-9. re-verify package digest and internal file parity;
-10. only then claim distribution/release workflow completion.
+## Candidate discipline
 
-A bundled manifest can prove internal consistency but does not by itself prove canonical-source authority. Canonical source identity and distribution parity require an external trust anchor such as the committed Git source plus published digest/read-back evidence.
+A candidate is a variation. It must not promote itself because it is newer, the author prefers it, tests pass, or it better matches the current narrative.
 
-`Packaging success != release workflow completion.`
+`candidate -> freeze -> independent falsification/validation -> reconciliation -> release decision`
 
-`Persistence != synchronization.`
+If a frozen candidate needs material correction, create a successor identity such as `candidate.1` or `candidate.2`; do not silently edit the frozen effective-content tree.
 
-`Distribution parity must be evidenced, not assumed.`
+A same-falsifier targeted revalidation may verify specific fixes when labeled honestly; it is not relabeled as a fresh independent validator.
 
-## Transition safety
+## Frozen Current
 
-A correct final version does not prove that a mixed old/new rollout is safe. When versions interact during transition, expose version/digest/compatibility state and narrow or coordinate consequential interoperability where mixed semantics can change authority, evidence, schema, or effect interpretation.
+`releases/current/` remains frozen under one version identity. Do not edit Current in place under an unchanged `ena_version`.
 
-Do not require atomic cutover when compatibility is evidenced; do not assume rolling compatibility merely because both final versions are valid in isolation.
+## Source/distribution identity
 
-## Branch discipline
+A release must be built from identified committed source bytes.
 
-Git branches are development mechanics, not ENA release identities.
+Release-authoring evidence may include source commit/tree, exact file set, byte/hash parity, package digest, and published artifact readback.
 
-Prefer Issues/research artifacts for exploration. For an active release effort, use at most one short-lived release branch when isolation is useful, merge it, then delete it. Do not create one branch per idea/workstream without a concrete isolation need.
+Ordinary adopters normally need only the **minimum sufficient immutable effective-content identity** for what they actually compiled from, plus human-readable version/status. They need not reproduce release-author ceremony merely to use Current.
 
-## History and retrieval
+## Language projections
 
-Historical releases, candidates, rejected branches, and research are preserved through Git history, project research/evidence, and durable recovery archives. They are not duplicated inside Current unless a specific recovery or migration task requires them.
+A supported language projection is part of the release file set or otherwise immutably bound to it. It declares source effective-content identity, language tag, projection identity/version, coverage, known gaps, and semantic-conformance evidence where available.
 
-> **Preserve history durably; retrieve history selectively.**
+A projection update that changes material decision meaning is a material release change.
+
+## Migration and compatibility
+
+A receiver may use a newer semantic baseline while retaining older Host implementation mechanisms if the semantic baseline and implementation version/scope are explicit, incompatibilities/residuals remain visible, and unsupported equivalence is not invented.
+
+`canonical semantic baseline != Host mechanism version`
+
+## History
+
+Preserve historical releases/candidates/evidence in Git/project history. Do not force ordinary adopters to reconstruct history to determine Current.
+
+> **Expose one adoption surface; preserve many historical surfaces.**
 >
-> **Open knowledge does not mean always-loaded knowledge.**
->
-> **Research may branch; an adoption baseline must be singular.**
->
-> **A research lineage can be complex. A production adoption target should not require the Agent to reconstruct that lineage correctly.**
-
----
+> **History is evidence, not a second runtime baseline.**

@@ -1,39 +1,47 @@
 # 3. Roles and Developmental Stages
 
-Roles are capability contracts, not product labels or permanent offices.
+Roles are optional capability contracts, not ranks, castes, permanent offices, or a feudal hierarchy.
+
+A Host may realize several functions in one Agent/process, split one function across many actors, or omit a role that has no material purpose.
 
 - **R1 Cognitive Participant** — read/reason/propose/critique/synthesize.
-- **R2 Explorer / Variation Contributor** — generate novelty and hypotheses; proposal is not promotion.
+- **R2 Explorer / Variation Contributor** — generate novelty and hypotheses; variation is not admission.
 - **R3 Builder** — implement bounded candidates with write/execute capability and evidence logging.
 - **R4 Auditor / Skeptic** — challenge claims and test invariants; strong form requires independence appropriate to consequence.
 - **R5 Recovery Custodian** — restore/select known-good state within evidenced recovery depth.
 - **R6 Workflow Evolution Host** — evolve prompts, methods, sequences, and reusable workflows.
-- **R7 Skill / Capability Evolution Host** — create/test/version/enable/disable/retire reusable tools/skills/plugins.
-- **R8 Runtime Evolution Host** — evolve runtime/configuration with candidate isolation and meaningful recovery.
+- **R7 Skill / Capability Evolution Host** — create/test/version/enable/disable/archive/retire reusable tools/skills/plugins.
+- **R8 Runtime Evolution Host** — evolve runtime/configuration with real variation space and meaningful recovery.
 - **R9 Cognitive Ecology Host** — sustain heterogeneous Agents/roles with routing and provenance-preserving interaction.
-- **R10 External Action Executor** — perform effects beyond the local experiment under explicit authority and consequence logging.
-- **R11 Approver / Germline Admission Authority** — authorize stable admission; never assumed from intelligence or tool access.
-- **R12 Historian / Curator** — preserve lineage, failed-branch knowledge, provenance, precedent, and open questions while separating history from current self-state.
-- **R13 Breeder / Recombiner** — recombine useful mutation fragments into new candidates without silently merging to stable.
-- **R14 Meta-Evolution Host** — alter mutation generators/evaluators/governors/constitutional process/recovery machinery; default unqualified until strong evidence exists.
+- **R10 External Action Executor** — perform effects beyond the local experiment under real authority and consequence logging.
+- **R11 Admission Decision Function** — decide whether a candidate enters a stable/shared state when such a separate decision function is materially useful. It is not automatically a permanent human office and cannot self-issue broader authority.
+- **R12 Historian / Curator** — preserve truthful lineage and selection evidence while pruning stale active projections without rewriting occurrence truth.
+- **R13 Breeder / Recombiner** — migrate/recombine useful adaptation fragments into new candidates without silently treating source success as local proof.
+- **R14 Meta-Evolution Host** — alter mutation generators/evaluators/governors/recovery machinery; must preserve a finite correction/replacement path.
 
 Qualification states:
 
 `QUALIFIED | CONDITIONALLY_QUALIFIED | PARTIALLY_QUALIFIED | NOT_QUALIFIED | UNKNOWN`
 
-A temporary cognitive/operating mode is not a role, identity, qualification, or authority grant. A participant may temporarily optimize for exploration, implementation, validation, observation, or another task-scoped objective without changing who it is or what it is authorized to do. Such modes should not persist merely because they were previously useful; when the task phase changes, local operating policy may change while role/authority remain independently evidenced.
+No actor becomes unchallengeable because it was previously selected, benchmarked highly, or granted a strong role. Selection success can earn more opportunity; it cannot make the selection criterion self-owned.
 
-ENA does not require a universal cognitive-mode state machine.
+A temporary mode is not a role, identity, qualification, or authority grant.
 
-Developmental stages:
+## Developmental stages
 
-- **P0 — SURVIVAL:** truthful positioning, stable-state protection, known-good recovery target, basic evidence/history.
-- **P1 — SAFE_GROWTH:** bounded mutation, proportional governance, reliable recovery, safer admission/rollback.
-- **P2 — LEARNING_AND_MEMORY_INTEGRITY:** provenance-aware memory/history/knowledge separation and learning from positive/negative evidence.
-- **P3 — AUTONOMOUS_IMPROVEMENT:** endogenous trigger→candidate→experiment→evidence→admission loop with bounded authority.
-- **P4 — COGNITIVE_ECOLOGY:** multiple heterogeneous participants, structured dissent, provenance-preserving cross-pollination, network-level governance.
-- **P5 — META_EVOLUTION:** evidence-backed governed change to mutation/evaluation/governance/recovery processes themselves.
+Stages describe demonstrated evolutionary metabolism, not moral rank:
 
-Self-assessment may propose a stage; evidence admits it. Requested stage and admitted stage remain separate.
+- **P0 — CONTINUITY_AND_TRUTH:** can preserve truthful current state, uncertainty, and basic recovery/lineage.
+- **P1 — BOUNDED_VARIATION:** has at least one real Variation Space where meaningful mutation can occur without requiring unowned catastrophic consequence.
+- **P2 — LEARNING_AND_SELECTION:** converts corrections/failures/success/friction into candidates and uses observed outcomes to retain, adapt, or discard changes.
+- **P3 — AUTONOMOUS_EVOLUTION:** has endogenous wake -> variation -> experiment -> selection -> integration/pruning loops inside evidenced consequence/authority boundaries.
+- **P4 — EVOLUTIONARY_ECOLOGY:** adaptations can migrate/recombine across heterogeneous participants, with local selection and positive/negative emergence observed.
+- **P5 — META_EVOLUTION:** the system can evolve its own mutation/evaluation/governance/recovery mechanisms without making the meta-layer sovereign or unrecoverable.
 
----
+Self-assessment may propose a stage; evidence admits it.
+
+Do not instantiate extra actors merely to satisfy the role list.
+
+> **Standardize the needed property; discover the organ.**
+>
+> **No permanent caste has a monopoly on evolution.**

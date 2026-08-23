@@ -1,58 +1,76 @@
-# CHANGELOG — v0.3.4
+# Changelog — v0.3.5 candidate.2
 
-Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`.
+candidate.2 is a narrow successor to frozen candidate.1 after the same DSH falsifier returned `TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS`.
 
-v0.3.4 is a focused successor to v0.3.3. It adds a persistent runtime-adoption model without reopening the accepted v0.3.3 Constitution, composed claim-pack validator semantics, schemas, or 235-case regression corpus.
+## candidate.2 — release-decision residual closure
 
-## Runtime internalization
+No Constitution rule changed.
 
-- Added `RUNTIME-ADOPTION-KERNEL.md` as the compact hot-path semantics for an adopted Agent.
-- First adoption is separated from steady-state operation.
-- Added explicit Compiled Local Projection semantics for repeatedly decision-relevant Host/persistence/authority/recovery/shared-effect facts.
-- Reframed `LITE | STANDARD | HIGH_ASSURANCE | CUSTOM` as runtime governance intensity over one internalized ENA baseline.
-- Canonical repository retrieval is the cold path for version/source change, novelty, ambiguity, stale local reality, or exact decision-critical semantics.
-- Re-reading ENA before every familiar task is not a compliance requirement and may count as friction.
-- Persistent self-mutation is an explicit recovery-governance trigger when future operation materially depends on the changed surface.
-- `backup exists != recovery proven`; restore still does not erase occurrence history.
+- CLI now rejects invalid `source_lifecycle_state` values in migration packets rather than relying on JSON Schema alone;
+- CLI fixes `source_authentication` to `NOT_AUTHENTICATED_BY_THIS_PACKET` and rejects stronger self-edited authentication claims;
+- CLI validates the fixed `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF` transfer-status claim;
+- adds `tools/candidate2_adversarial.py` for those residual packet-consistency/trust probes;
+- committed inherited-regression result now matches the current suite output;
+- CI regenerates the inherited result and fails if that committed generated evidence becomes dirty again;
+- active English and zh-CN adoption/projection identities advance to candidate.2.
 
-## Source identity and persistence claim hardening
+## candidate.1 — material falsification-driven corrections retained
 
-Fresh independent validation of the original frozen candidate found two decision-worthy residuals:
+candidate.1 previously:
 
-### D14 — persisted source identity / drift
+- separated lifecycle state from evidence-backed selection state;
+- required represented experiment/reality contact before formal selection;
+- preserved negative/unknown selection across integration, archival, and migration;
+- preserved source experiments/evaluations/integration/archive/migration lineage;
+- allowed receiver-side reselection only after local experiment/evaluation while retaining source lineage;
+- made migration packet purpose derive from source selection rather than lifecycle;
+- made closure read represented evolution state;
+- connected actual tool records to JSON-schema validation;
+- made independently reproduced failures executable in `tools/candidate1_adversarial.py`;
+- explicitly bounded inherited composed-validator PASS as regression preservation only;
+- restored the Runtime Kernel and zh-CN adoption truth/identity boundaries.
 
-The original candidate could persist a human-readable version/candidate label without requiring an immutable commit/tree/package digest. v0.3.4 now requires the immutable canonical source identity actually compiled from; a mutable label/branch alone is insufficient as an integrity anchor. Source-identity change/conflict/unconfirmability becomes a cold-path revalidation trigger when decision-relevant.
+The same DSH falsifier mechanically re-ran those paths and found the material defects closed without evolution starvation.
 
-### D2 — persistence-boundary claim strength
+## Retained research/field residuals
 
-A current-session persistence write must not be relabeled as cross-session adoption. Before claiming fresh-session/equivalent decision-critical persistence, evidence the actual boundary claimed. Narrower truthful claims remain allowed.
+candidate.2 does not pretend every observation must become a release blocker. The following remain visible for future research/field evidence:
 
-The corrected candidate.1 was targeted-revalidated by the prior falsifier with D14/D2 CLOSED and no fix-induced regressions observed.
+- repeated reinterpretation/evaluation of the same experiment may be legitimate or may need stronger provenance semantics;
+- locally successful reselection after source failure preserves source negative lineage, but that lineage becomes nested rather than top-level;
+- archived/retired candidates have no in-place restore/reopen path in the reference tool; a new variation/export path remains available;
+- nested migration lineage can grow in depth across generations.
 
-## Real Hermes field evidence
+These are not hidden and were not judged material blockers by the candidate.1 targeted revalidation.
 
-Before release authoring, candidate.1 was installed into real Hermes `memory` / `user` persistence surfaces and a genuinely fresh Hermes session was opened without any ENA reminder.
+## v0.3.5 semantic direction retained
 
-Observed:
+- sustained self-evolution is the explicit ENA telos;
+- governance is enabling infrastructure, not the purpose;
+- exploration-forward posture: variation may precede certainty, selection follows observed outcome;
+- event + periodic/idle evolution wake;
+- Variation Space;
+- adaptation/negative-evidence migration and Evolution Commons;
+- recombination and positive emergence;
+- pruning/archive/retirement;
+- internal permission/capability topology may evolve without self-minting external mandate;
+- Evolutionary Subject, Protected Subject, Continuity Vector;
+- governance closure and removal of unbounded `organism` veto semantics;
+- all 38 Constitution IDs retained with concept-map compression;
+- English + Simplified Chinese semantic-projection model;
+- lawful redaction/minimization/deletion while preserving occurrence truth where lawful;
+- effective loaded surface and instruction-budget concerns;
+- proposed retirement of future active adopter-facing `MAINLINE / NOT_MAINLINE` status while historical records remain history.
 
-- candidate.1 source identity was already present before the first user message;
-- Runtime Kernel / Local Projection semantics were already present before the first user message;
-- a blind low-consequence local Markdown write used a quiet hot path without canonical ENA reread or universal HIGH_ASSURANCE escalation;
-- the fresh session still distinguished a persistence write from proof of cross-session persistence;
-- a later persistent user-preference write exposed a real salience near-miss: recovery/rollback reasoning did not become explicit before the mutation even though the rule was available in persistent memory.
+## Important compatibility boundary
 
-The near-miss is retained as field evidence. It is not papered over as a new constitutional or validator rule because the existing semantics already cover the property and the mutation itself was low consequence/reversible. Continued field work should study salience/application triggers and memory pressure before adding more governance machinery.
+The inherited `validate_contracts.py` implementation and historical fixture corpora remain an implementation regression surface. Their passing tests do **not** validate new v0.3.5 evolution/migration/emergence/language semantics.
 
-## Adoption economics residual
+## Stable foundations retained
 
-Hermes persistent memory was already near its configured budget after installing the compact kernel plus existing operational notes. This raises a field question about consolidation, truncation, drift, and competition between governance semantics and other durable Agent knowledge. No new mechanism is promoted solely from this first observation.
-
-## Deliberately unchanged
-
-- Constitution IDs/content: unchanged from v0.3.3.
-- Core composed claim-pack validator semantics: unchanged.
-- Schemas: unchanged.
-- 235-case regression corpus and runner: unchanged.
-- Open research #11/#15 and tooling drift #45 remain separate.
-
----
+- claim/evidence/support distinction;
+- UNKNOWN discipline;
+- recovery/history distinction;
+- scoped authority;
+- one singular Current adoption pointer;
+- same version identity implies same effective content.

@@ -1,0 +1,119 @@
+schema_version: "2.0"
+ena_version: "v0.3.5-candidate.2"
+candidate_for: "v0.3.5"
+candidate_revision: 2
+adoption_status: CANDIDATE
+maturity: FIELD_VALIDATION
+current: false
+complete_adoption_baseline_candidate: true
+requires_older_release_composition: false
+active_mainline_axis: false
+package_scope: "ALL_FILES_UNDER_RELEASES_V0_3_5_CANDIDATE"
+
+lineage:
+  frozen_first_candidate_source_commit: "eb6d7ba00894ed446903aebe61cd59f0bdb59af7"
+  frozen_first_candidate_effective_tree: "f373e7695348c157dcd48d3ed243ea3079215b8f"
+  first_candidate_verdict: NEEDS_REVISION
+  frozen_candidate1_source_commit: "e6ff1e76afb8ad8919186786100ec153a5f0d07a"
+  frozen_candidate1_effective_tree: "ff2cb44c7a5d1b472800180578b5df7baa123aec"
+  candidate1_targeted_verdict: TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS
+  revision_trigger: "close DSH candidate.1 residuals N1/N2/N7 before release decision"
+
+base:
+  ena_version: "v0.3.4"
+  effective_current_tree: "b237802c08d608bb9be650fe213b7846d3be4bf6"
+  repository_base_commit: "9d84e179aae9f5f5d8dbabc7be56dee4ae2f8724"
+
+telos:
+  statement: "ENA exists to make sustained self-evolution viable."
+  governance_role: "protect evolvability, truthful selection, owned consequence, and future correction"
+  posture: "exploration-forward"
+  forced_mutation_on_timer: false
+
+runtime_adoption:
+  kernel_entrypoint: "RUNTIME-ADOPTION-KERNEL.md"
+  constitution_concept_map: "CONSTITUTION-CONCEPT-MAP.yaml"
+  first_adoption_compilation_required: true
+  compiled_local_projection_required_when_material: true
+  effective_loaded_surface_required_for_loading_claims: true
+  immutable_compiled_source_identity_required: true
+  per_task_canonical_reread_required: false
+  full_release_persistence_required: false
+  profiles_are_runtime_governance_intensity: true
+
+evolution:
+  metabolism_entrypoint: "09-EVOLUTION-METABOLISM.md"
+  reference_tool: "tools/ena_evolve.py"
+  evolution_record_schema: "schemas/evolution-record.v1.schema.json"
+  adaptation_packet_schema: "schemas/adaptation-packet.v1.schema.json"
+  event_wake_supported: true
+  periodic_idle_wake_supported: true
+  universal_wake_cadence_required: false
+  variation_space_required_for_consequential_experiment_when_material: true
+  mutation_is_improvement_by_default: false
+  outcome_based_selection: true
+  lifecycle_state_separate_from_selection_state: true
+  non_unknown_selection_requires_represented_experiment: true
+  adaptation_migration_supported: true
+  source_negative_evidence_must_not_be_relabelled_positive_on_transfer: true
+  receiver_may_locally_reselect_after_real_local_experiment: true
+  migration_packet_preserves_source_experiments_and_evaluations: true
+  migration_packet_digest_authenticates_source: false
+  migration_packet_cli_validates_lifecycle_enum: true
+  migration_packet_cli_rejects_forged_authentication_claim: true
+  migration_packet_cli_validates_transfer_status: true
+  positive_emergence_observation_supported: true
+  pruning_archive_retirement_supported: true
+  external_authority_may_be_self_minted_by_permission_mutation: false
+  tool_state_and_schemas_are_ci_connected: true
+
+governance:
+  closure_supported: true
+  closure_reads_represented_evolution_state: true
+  closure_tool_proves_absence_of_unrepresented_blockers: false
+  universal_numeric_risk_score_required: false
+  permanent_infallible_sovereign_allowed: false
+
+continuity:
+  binary_same_agent_claim_required: false
+  continuity_vector_supported: true
+  evolutionary_subject_supported: true
+  protected_subject_supported: true
+
+history:
+  occurrence_truth_protected: true
+  prohibited_sensitive_payload_must_be_retained_for_history: false
+  governed_redaction_minimization_deletion_supported: true
+
+language:
+  portability_entrypoint: "10-LANGUAGE-PORTABILITY.md"
+  stable_semantic_ids_across_languages: true
+  authoring_language: "en"
+  supported_candidate_projections:
+    - "en"
+    - "zh-CN"
+  decision_semantic_conformance_required: true
+  structural_parity_is_behavioral_conformance: false
+
+profiles:
+  - LITE
+  - STANDARD
+  - HIGH_ASSURANCE
+  - CUSTOM
+
+core_files:
+  - README.md
+  - 00-READ-ME-FIRST.md
+  - CONSTITUTION-CONCEPT-MAP.yaml
+  - 01-CONSTITUTION.md
+  - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
+  - RUNTIME-ADOPTION-KERNEL.md
+  - 03-ROLES-AND-DEVELOPMENTAL-STAGES.md
+  - 04-CAPABILITY-MAP.md
+  - 05-CORE-OPERATIONAL-CONTRACTS.md
+  - 06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md
+  - 07-ADOPTION-AND-FIELD-VALIDATION.md
+  - 08-RELEASE-DISCIPLINE.md
+  - 09-EVOLUTION-METABOLISM.md
+  - 10-LANGUAGE-PORTABILITY.md
+  - SEMANTIC-GLOSSARY.yaml
