@@ -37,7 +37,7 @@
     "hypothesis": {"type": "string", "minLength": 1},
     "change": {"type": "string", "minLength": 1},
     "expected_outcomes": {"type": "array", "items": {"type": "string"}},
-    "variation_space": {"type": "string", "minLength": 1},
+    "variation_space": {"type": ["string", "null"], "minLength": 1},
     "evolutionary_subject": {"type": "string"},
     "protected_subjects": {"type": "array", "items": {"type": "string"}},
     "environment": {"type": "object", "additionalProperties": {"type": ["string", "number", "boolean", "null"]}},
@@ -123,6 +123,10 @@
     "migration": {"anyOf": [{"type": "null"}, {"type": "object"}]}
   },
   "allOf": [
+    {
+      "if": {"properties": {"expression_state": {"const": "EXPRESSED"}}, "required": ["expression_state"]},
+      "then": {"properties": {"expression_history": {"minItems": 1}}}
+    },
     {
       "if": {"properties": {"selection_state": {"enum": ["SUPPORTED", "PARTIAL", "NOT_SUPPORTED", "HARMFUL", "UNKNOWN"]}}, "required": ["selection_state"]},
       "then": {"properties": {"evaluations": {"minItems": 1}}}

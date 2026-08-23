@@ -1,57 +1,48 @@
-# Agent Adoption Instruction — v0.3.5 Current
+# Agent Candidate Evaluation Instruction — v0.3.6 Candidate
 
-Use this when intentionally adopting the Current ENA v0.3.5 baseline from `releases/current/`.
+Status: **TEST THIS CANDIDATE / DO NOT ADOPT AS CURRENT**.
+
+The actual adopter-facing ENA baseline remains `releases/current/` v0.3.5 until a later governed release decision says otherwise.
+
+Use this file only when intentionally evaluating/falsifying the v0.3.6 working candidate.
 
 ## Goal
 
-Do not merely summarize ENA. Compile it into a real Host-specific evolutionary operating model.
+Do not prove loyalty to the candidate. Determine whether its ecology semantics improve sustained self-evolution without weakening truthful evidence, scoped authority, recovery, history, receiver autonomy, or governance closure.
 
-The intended telos is:
+## Evaluation work
 
-**make sustained self-evolution viable and faster without making consequence ownership, evidence, recovery, or external authority fictional.**
-
-## Required work
-
-1. Read `CURRENT-BASELINE.yaml` and identify the minimum sufficient immutable effective-content identity actually used.
+1. Read `CANDIDATE-BASELINE.yaml` and confirm `current: false`, `frozen: false`, `released: false`.
 2. Read `00-READ-ME-FIRST.md`.
-3. Use `CONSTITUTION-CONCEPT-MAP.yaml` as the cognitive map, then read the binding `01-CONSTITUTION.md`.
-4. Read `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`.
-5. Read `RUNTIME-ADOPTION-KERNEL.md`.
-6. Read `09-EVOLUTION-METABOLISM.md`.
-7. If English is not the model/Host's strongest language, inspect `10-LANGUAGE-PORTABILITY.md` and an available projection. Prefer semantic clarity over English prestige.
-8. Determine the Host's real persistent/effective-loaded surfaces.
-9. Persist the smallest sufficient Runtime Kernel + material Local Projection if the Host supports it.
-10. Identify at least one real evolution wake path and Variation Space, or truthfully state one is unavailable.
-11. Keep lifecycle state separate from evidence-backed selection state.
-12. Do not create fake production work to prove adoption.
-13. Do not modify canonical ENA repository state unless separately authorized.
+3. Read the inherited binding `01-CONSTITUTION.md`; do not invent new Constitution IDs from candidate prose.
+4. Read `RUNTIME-ADOPTION-KERNEL.md` and `09-EVOLUTION-METABOLISM.md`.
+5. Inspect `06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md` and `08-RELEASE-DISCIPLINE.md` for Commons/canonical-lineage boundaries.
+6. If evaluating Chinese semantics, use the zh-CN projection and both bilingual fixture sets.
+7. Attack at least: forced mutation, forced immediate verdict, stored-as-expressed claims, local-success universalization, popularity-as-proof, publisher-forced adoption, rescue-authority expansion, rollback-as-time-travel, local-fork self-promotion, and minimal-intervention externality laundering.
+8. Distinguish semantic prose/schema presence from actual tool implementation.
+9. Preserve any failure as evidence; do not silently edit a frozen identity (no frozen v0.3.6 identity exists yet).
 
-## What not to do
+## Candidate-specific non-claims
 
-- do not treat a human-readable version label, mutable branch, or repository HEAD alone as immutable effective-content identity;
-- do not paste the full release into permanent context merely to "remember ENA";
-- do not delete universal invariants because they are inconvenient;
-- do not treat internal permission mutation as external mandate;
-- do not call a planned mutation an improvement before outcome evidence;
-- do not treat `INTEGRATED`, `ARCHIVED`, or `RETIRED` as evidence-selection verdicts;
-- do not convert imported success/failure into local selection without local reality contact where selection is claimed;
-- do not treat packet digest as source authentication;
-- do not accept a packet's self-edited `source_authentication` as an external trust anchor;
-- do not call a durable file "loaded" unless the Host actually loads relevant bytes;
-- do not force HIGH_ASSURANCE merely because there is a side effect;
-- do not keep reviewing after further checks cannot plausibly change the decision;
-- do not treat composition only as a risk search; look for positive emergence too;
-- do not upgrade reference-tool JSON into proof of external evidence, authority, recovery, or source identity;
-- do not repeat release-author packaging ceremony merely to use Current.
+Do not report that:
+
+- v0.3.6 is Current or released;
+- v0.3.6 has independent validation;
+- all new ecology semantics are machine enforced;
+- the inherited `ena_evolve.py` implements expression/mutation-pressure semantics;
+- a latent variation is an improvement;
+- `EXPRESSED` creates authority;
+- local success/popularity is universal fitness;
+- publication commands receiver adoption;
+- rescue authority is general governance authority;
+- GitHub itself is the permanent source of ENA validity.
 
 ## Report honestly
 
-Distinguish:
+For every tested claim, identify whether evidence supports:
 
-`EXPOSED | WRITTEN | LOADED | INTERPRETED | SALIENT | APPLIED`
+`PROSE_PRESENT | STRUCTURALLY_REPRESENTED | MACHINE_GUARDED | EXECUTED | EXTERNALLY_OBSERVED | INDEPENDENTLY_FALSIFIED`
 
-Report the strongest evidenced state, Host/model/language, kernel location/effective-load constraints, Variation Space, evolution wake, continuity dimensions, recovery/authority boundaries, disagreements/friction, and where a claimed mechanism is absent or fake.
-
-Do not prove loyalty to ENA.
+Do not upgrade one level into another.
 
 **Find where it breaks.**
