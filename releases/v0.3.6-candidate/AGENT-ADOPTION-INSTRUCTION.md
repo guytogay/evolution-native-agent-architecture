@@ -4,6 +4,8 @@ Status: **TEST THIS CANDIDATE / DO NOT ADOPT AS CURRENT**.
 
 The actual adopter-facing ENA baseline remains `releases/current/` v0.3.5 until a later governed release decision says otherwise.
 
+**Candidate evaluation is not adoption.** Testing, falsifying, or inspecting this candidate does not install it as the Host's canonical ENA and does not create Current/release status.
+
 Use this file only when intentionally evaluating/falsifying the v0.3.6 working candidate.
 
 ## Goal
