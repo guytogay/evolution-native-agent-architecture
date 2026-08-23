@@ -1,8 +1,8 @@
-# Evolution-Native Agent Architecture — v0.3.5 candidate.1
+# Evolution-Native Agent Architecture — v0.3.5 candidate.2
 
 Status: **CANDIDATE / FIELD_VALIDATION / NOT_CURRENT**
 
-This is the first revision of the v0.3.5 candidate after independent falsification of its predecessor. It is not Current and is not yet frozen for revalidation.
+This is the second successor revision of the v0.3.5 candidate. The first frozen candidate was independently rejected; frozen candidate.1 then passed same-falsifier targeted revalidation with residuals. candidate.2 closes the release-decision residuals without changing the Constitution or the broader v0.3.5 evolutionary direction.
 
 ## 1. Start with the purpose
 
@@ -16,19 +16,27 @@ Governance protects this metabolism from self-deception, unrecoverable dead ends
 
 A change is initially a **variation**, not an improvement. Call it an adaptation only after observed outcomes support retaining it within a declared environment/consequence envelope.
 
-## 2. What candidate.1 repairs
+## 2. What candidate.1 repaired, and candidate.2 closes
 
-The frozen predecessor was independently judged `NEEDS_REVISION`. candidate.1 repairs its reproduced tooling/semantic gaps without adding new Constitution rules:
+candidate.1 closed the predecessor's material failures:
 
 - lifecycle state and evidence-backed selection state are separate axes;
 - `INTEGRATED != SUPPORTED` and archival does not erase selection history;
-- formal positive/negative selection requires at least one represented experiment;
+- formal selection follows represented experiment/reality contact;
 - migration preserves source experiments/evaluations/selection lineage;
 - imported source failure may be re-tested locally but cannot become local success without local experiment/evaluation;
-- migration packet purpose is derived from the selection axis and semantic contradictions are rejected;
-- closure reads represented evolution state instead of inferring readiness from omitted inputs;
+- closure reads represented evolution state;
 - actual tool output is connected to JSON-schema validation;
 - inherited composed-validator regression is explicitly regression preservation, not proof of new v0.3.5 semantic coverage.
+
+The same DSH falsifier then returned `TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS`. candidate.2 closes the concrete release residuals:
+
+- reject invalid migration `source_lifecycle_state` directly in the CLI;
+- reject forged `source_authentication` claims directly in the CLI;
+- validate the fixed transfer-status claim directly in the CLI;
+- keep the committed inherited-regression result byte-consistent with the suite that generates it.
+
+No new Constitution rule is added for these implementation defects.
 
 ## 3. First adoption
 
@@ -82,6 +90,8 @@ Transfer source experiments/evaluations/environment/selection lineage. Receiving
 `TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`
 
 A receiver may re-test even a source failure because environments differ, but local positive reselection follows local reality contact and does not rewrite source negative evidence.
+
+Packet-local digest checks consistency only. `source_authentication` remains explicitly `NOT_AUTHENTICATED_BY_THIS_PACKET`; neither a digest nor a migration packet can mint trust in its own claimed origin.
 
 ## 8. Steady-state operation and governance closure
 
