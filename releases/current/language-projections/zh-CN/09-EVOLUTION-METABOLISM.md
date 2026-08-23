@@ -1,4 +1,4 @@
-# 9. 进化代谢 — v0.3.5 candidate.2 简体中文语义投影
+# 9. 进化代谢 — v0.3.5 简体中文语义投影
 
 本文件把“促进持续自我进化”变成可以运行的参考循环。它是参考机制，不要求所有 Host 照抄同一种器官。
 
@@ -96,7 +96,7 @@ ENA 不规定统一的“每 7 天”或“每 10 次对话”。
 
 包内 digest（摘要）只检查内部一致性，**不是来源认证**。能改整个包的人也能重新计算 digest。
 
-candidate.2 进一步把三个包内语义做成 CLI 自身的机械守卫，而不只依赖外部 schema：
+v0.3.5 把三个包内语义做成 CLI 自身的机械守卫，而不只依赖外部 schema：
 
 - `source_lifecycle_state` 必须是合法生命周期枚举；
 - `transfer_status` 必须保持 `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF`；
@@ -138,11 +138,22 @@ candidate.2 进一步把三个包内语义做成 CLI 自身的机械守卫，而
 
 `init / observe / review / propose / experiment / evaluate / integrate / archive / export / import / closure / status / selftest`
 
-`tools/candidate1_adversarial.py` 保留第一版冻结候选经独立反证机械复现的问题作为回归测试；candidate.2 新增 `tools/candidate2_adversarial.py`，专门锁住 candidate.1 复验后发现的迁移包残余漏洞。
+`tools/candidate1_adversarial.py` 与 `tools/candidate2_adversarial.py` 保留为验证实现谱系的历史回归测试。文件名保留候选来源，不代表 Current 仍是候选版。
 
 参考工具不会自动修改任意 Host，不会证明外部证据真假，不会证明授权真实，不会证明恢复一定有效，也不会认证迁移包真正来自其声称的来源。
 
 **机器写出的 JSON 不会因为“机器可读”就自动变成更强的现实真相。**
+
+## 9.12 诚实保留的研究项
+
+v0.3.5 没有为了“看起来没有 residual”而强行修掉所有观察项。当前继续保留：
+
+- 同一个实验被多次重新评价/解释；
+- 接收方本地成功以后，来源负面谱系仍位于嵌套 lineage；
+- 参考工具对 `ARCHIVED/RETIRED` 没有原对象原位 restore/reopen；
+- 多代迁移可能导致 lineage 深度增长。
+
+只有当真实 field evidence（现场证据）表明它们形成材料级失败模式时，才升级处理。
 
 > **先允许变异，让现实选择。**
 >
