@@ -1,11 +1,12 @@
 schema_version: "1.2"
 language: "zh-CN"
-projection_version: "v0.3.5-candidate.2.zh-CN.1"
-source_semantic_version: "v0.3.5-candidate.2"
+projection_version: "v0.3.5.zh-CN.1"
+source_semantic_version: "v0.3.5"
 source_identity_binding: >
-  Bound to the exact candidate.2 effective-content identity when candidate.2 is
-  frozen. A self-referential tree hash is intentionally not embedded here.
-status: CANDIDATE_SEMANTIC_PROJECTION
+  Bound to the v0.3.5 Current release identity. The final released Current tree
+  and package digest are external release evidence rather than self-referential
+  fields embedded in this manifest.
+status: CURRENT_SEMANTIC_PROJECTION
 coverage:
   - 00-READ-ME-FIRST.md
   - 01-CONSTITUTION.md
@@ -18,12 +19,12 @@ semantic_fixture_set: "../semantic-fixtures.v1.yaml"
 validation:
   structural_parity: CI_CHECKABLE
   constitution_id_parity: CI_CHECKABLE
-  predecessor_single_model_behavioral_result: "8/8 aligned on DeepSeek v4-flash; candidate.1 targeted revalidation retained same result"
-  behavioral_semantic_conformance: UNPROVEN_PENDING_MODEL_EXPERIMENT
+  predecessor_single_model_behavioral_result: "8/8 aligned on DeepSeek v4-flash; later candidate targeted revalidation did not invalidate that observation"
+  behavioral_semantic_conformance: UNPROVEN_UNIVERSALLY_FIELD_EVIDENCE_REQUIRED
 known_gaps:
-  - "Long-tail operational contracts and schemas remain in the canonical authoring language for this candidate."
+  - "Long-tail operational contracts and schemas remain in the canonical authoring language for this release."
   - "Structural parity does not prove equivalent model decisions across English and zh-CN."
-  - "The same-model 8/8 bilingual result is evidence, not universal cross-model proof."
+  - "The same-model 8/8 bilingual result is evidence for that tested condition, not universal cross-model proof."
 conflict_policy: >
   A material discrepancy is a projection defect, not permission to silently
   choose whichever wording is convenient. Resolve by stable semantic ID,
