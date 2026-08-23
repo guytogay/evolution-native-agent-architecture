@@ -1,79 +1,57 @@
-# Changelog — v0.3.5 candidate
+# Changelog — v0.3.5 candidate.1
 
-This candidate is a material semantic and operational successor to v0.3.4 Current.
+This is the first revision of the v0.3.5 candidate after the frozen predecessor was independently judged `NEEDS_REVISION`.
 
-## Direction
+## candidate.1 — falsification-driven corrections
 
-- makes sustained self-evolution the explicit ENA telos;
-- moves governance from purpose to enabling infrastructure;
-- adopts an exploration-forward posture: variation may precede certainty, selection follows observed outcome.
+No new Constitution rule was added for these implementation defects.
 
-## Evolution metabolism
+- separates lifecycle state from evidence-backed selection state;
+- formal positive/negative selection requires represented experiment/reality contact;
+- `INTEGRATED` does not imply `SUPPORTED`;
+- archival/retirement does not erase selection history;
+- migration packet purpose derives from source selection, not lifecycle;
+- packets preserve source experiments/evaluations/integration/archive/migration lineage;
+- negative/unresolved source evidence cannot become local positive selection without receiver-side experiment/evaluation;
+- semantically contradictory packet purpose/selection combinations are rejected;
+- packet-local digest is explicitly not source authentication;
+- closure reads represented evolution state and cannot manufacture bare readiness from omitted caller fields;
+- evolution-record schema/template now match actual tool candidate records;
+- adaptation-packet schema now matches actual tool output and encodes purpose/selection consistency;
+- CI validates actual generated tool state/packet against schemas;
+- independent-failure adversarial regressions are executable in `tools/candidate1_adversarial.py`;
+- inherited composed-validator suite is labeled as regression preservation, not new v0.3.5 semantic coverage;
+- Runtime Kernel carries the reference-tool truth boundary;
+- Simplified Chinese first-adoption path restores immutable effective-content identity guidance.
 
+## v0.3.5 semantic direction retained
+
+- sustained self-evolution is the explicit ENA telos;
+- governance is enabling infrastructure, not the purpose;
+- exploration-forward posture: variation may precede certainty, selection follows observed outcome;
 - event + periodic/idle evolution wake;
 - Variation Space;
-- candidate -> experiment -> evaluate -> select -> integrate/prune;
-- outcome-based adaptation terminology;
-- adaptation migration / Evolution Commons;
+- adaptation/negative-evidence migration and Evolution Commons;
 - recombination and positive emergence;
-- pruning/archive/retirement lifecycle;
-- reference `tools/ena_evolve.py`.
+- pruning/archive/retirement;
+- internal permission/capability topology may evolve without self-minting external mandate;
+- Evolutionary Subject, Protected Subject, Continuity Vector;
+- governance closure and removal of unbounded `organism` veto semantics;
+- all 38 Constitution IDs retained with concept-map compression;
+- English + Simplified Chinese semantic-projection model;
+- lawful redaction/minimization/deletion while preserving occurrence truth where lawful;
+- effective loaded surface and instruction-budget concerns;
+- proposed retirement of future active adopter-facing `MAINLINE / NOT_MAINLINE` status while historical records remain history.
 
-## Authority and mutation
+## Important compatibility boundary
 
-- internal permission/capability topology may itself evolve inside a legitimate Variation Space;
-- self-mutation does not self-mint external mandate;
-- no permanent infallible/irreplaceable/self-sealing sovereign.
+The inherited `validate_contracts.py` implementation and historical fixture corpora remain an implementation regression surface. Their passing tests do **not** validate new v0.3.5 evolution/migration/emergence/language semantics.
 
-## Continuity
-
-- introduces Evolutionary Subject, Protected Subject, and Continuity Vector;
-- fresh session/model/Host/restore boundaries revalidate affected dimensions instead of forcing a binary same-Agent philosophy.
-
-## Governance
-
-- adds explicit governance closure;
-- removes `organism` as an unbounded veto concept;
-- keeps profiles without a universal numeric risk score.
-
-## Constitution cognition
-
-- preserves all 38 stable Constitution IDs;
-- adds `CONSTITUTION-CONCEPT-MAP.yaml`;
-- short hot-path distinctions remain retrieval triggers, not replacements for binding semantics.
-
-## Language portability
-
-- formal semantic-projection model;
-- stable IDs across languages;
-- Simplified Chinese hot-path projection;
-- semantic glossary;
-- cross-language conformance is decision-based, not literal/back-translation-only.
-
-## History/privacy
-
-- occurrence truth remains protected;
-- sensitive/secret/privacy/legal payload may be lawfully minimized/redacted/deleted;
-- ENA does not require prohibited retention.
-
-## Persistence
-
-- clarifies effective loaded surface;
-- adds capacity/order/truncation/selective-loading concerns;
-- global governance should not starve local project instructions.
-
-## Release/status
-
-- proposes schema version 2.0;
-- retires `MAINLINE / NOT_MAINLINE` as future active adopter-facing status;
-- historical Mainline records remain history;
-- distinguishes release-author evidence obligations from ordinary adopter identity needs.
-
-## Unchanged foundations
+## Stable foundations retained
 
 - claim/evidence/support distinction;
-- composed validator v0.3.3 accepted semantics;
 - UNKNOWN discipline;
 - recovery/history distinction;
 - scoped authority;
-- one singular Current adoption pointer.
+- one singular Current adoption pointer;
+- same version identity implies same effective content.
