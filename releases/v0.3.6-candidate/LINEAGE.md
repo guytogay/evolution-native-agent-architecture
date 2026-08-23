@@ -65,7 +65,12 @@ Canonical parent at candidate start:
     - candidate-evaluation/adoption boundary made explicit in `AGENT-ADOPTION-INSTRUCTION.md` at `71cc0f72a34fb9448259a9f0fd3fdc49de249b16`;
     - workflow strengthened to execute the full inherited composed-validator regression suite, in-memory Python compile, and post-validation worktree-clean check at `5026052170cb249ab5b90295ede7d50ad747ed32`;
     - external failure occurrence record committed at `d6aef1c77792a579238dd3978c1ea7982c923fe8`;
-    - machine-readable revalidation blocker encoded at `ff72b2e073161e0ab38e222b2a1e110a823ae19b`.
+    - machine-readable revalidation blocker encoded at `ff72b2e073161e0ab38e222b2a1e110a823ae19b`;
+    - reconciliation lineage checkpoint `a94962c799fc0b5c9f87dc56631c8d1b28db0180`.
+
+13. Final pre-revalidation README convergence:
+    - candidate README restated working-candidate identity, machine boundary, open research, and immutable-freeze rule at `a53d4800f7a84b63b13ed39a351d7117dc039899`;
+    - this occurred before selecting the next exact external revalidation source and therefore supersedes `a94962c...` as a possible pre-freeze test target.
 
 Later commits must append to this lineage rather than rewrite frozen predecessor identities.
 
