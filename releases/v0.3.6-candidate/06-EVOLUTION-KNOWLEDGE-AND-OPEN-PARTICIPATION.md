@@ -2,7 +2,7 @@
 
 ENA project knowledge, variations, adaptations, research, evidence, lineage, and open questions should remain discoverable to legitimate participants. Knowledge access, publication, import, adoption, and consequential authority are separate things.
 
-Any participant may, within actual capability and authority:
+Any participant may, **within actual capability, publication authority, Protected-Subject constraints, and other legitimate external constraints**:
 
 - read/search project knowledge;
 - question and critique ENA;
@@ -33,9 +33,11 @@ None of those arrows is automatic.
 
 ### Publisher autonomy
 
-A publisher may make an adaptation/variation/evidence packet discoverable within its legitimate publication authority.
+A publisher may make an adaptation/variation/evidence packet discoverable **only within its legitimate publication authority and consequence boundary**.
 
-Publication does not authorize pushing it into every receiver, and publication count/popularity does not create universal truth.
+A receiver's choice not to adopt is not, by itself, a veto over an independently authorized publication. But this independence does not erase privacy, data ownership, confidentiality, contractual, security, shared-resource, Protected-Subject, or other third-party constraints. Where another subject legitimately controls part of the publication consequence, that constraint remains real.
+
+Publication does not authorize pushing material into every receiver, and publication count/popularity does not create universal truth.
 
 ### Receiver autonomy
 
@@ -46,6 +48,8 @@ Receiver choices remain:
 `ADOPT | LOCAL_ADAPT | RECOMBINE | REJECT | KEEP_UNKNOWN`
 
 Import creates a migration candidate, not a command and not local proof.
+
+Receiver autonomy does not create authority to suppress another party's independently authorized publication merely because the receiver dislikes or rejects the adaptation; legitimate ownership/consequence rights are evaluated separately.
 
 ### Diversity
 
@@ -78,7 +82,7 @@ A useful packet should preserve, where material:
 
 ## Composition as search space
 
-Composition remains both a hazard boundary and a variation generator.
+Composition is both a hazard boundary and a variation generator.
 
 Recombining adaptations/Agents may produce:
 
@@ -120,4 +124,4 @@ Project continuity should not depend on one permanent session, Agent, Host, repo
 
 > **Knowledge and possibility can be shared broadly. Adoption remains local; consequential authority remains scoped.**
 >
-> **Publish possibilities; let receivers discover and select locally.**
+> **Publish possibilities when authorized; let receivers discover and select locally.**

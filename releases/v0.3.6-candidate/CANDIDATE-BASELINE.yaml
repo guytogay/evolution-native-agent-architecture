@@ -42,6 +42,7 @@ evolution:
   metabolism_entrypoint: "09-EVOLUTION-METABOLISM.md"
   inherited_reference_tool: "tools/ena_evolve.py"
   evolution_record_schema: "schemas/evolution-record.v2.schema.json"
+  evolution_record_consistency_validator: "tools/validate_evolution_record_v2.py"
   inherited_evolution_record_schema: "schemas/evolution-record.v1.schema.json"
   adaptation_packet_schema: "schemas/adaptation-packet.v1.schema.json"
   event_wake_supported: true
@@ -55,6 +56,7 @@ evolution:
   latent_variation_supported: true
   immediate_experiment_required_for_every_variation: false
   immediate_selection_required_for_every_variation: false
+  latent_untested_selection_state: UNASSESSED
   stored_is_expressed: false
   expressed_is_applied: false
   applied_is_selected: false
@@ -63,8 +65,10 @@ evolution:
     - LATENT
     - EXPRESSED
   expression_may_be_context_triggered: true
+  variation_space_required_at_latent_storage_time: false
   variation_space_required_for_consequential_experiment_when_material: true
   outcome_based_selection: true
+  non_unassessed_selection_requires_represented_experiment: true
   selection_scope_is_environment_local_by_default: true
   local_selection_is_universal_fitness: false
   popularity_is_selection_proof: false
@@ -82,7 +86,9 @@ commons:
   adoption_supported: true
   publisher_can_force_receiver_import: false
   publisher_can_force_receiver_adoption: false
-  receiver_can_block_source_publication_by_default: false
+  receiver_non_adoption_is_not_publication_veto: true
+  publication_requires_actual_authority: true
+  publication_must_respect_protected_subjects_and_external_constraints: true
   publication_is_adoption: false
   propagation_count_is_universal_proof: false
   central_top_ranking_required: false
@@ -114,6 +120,7 @@ constitution:
 
 machine_boundary:
   expression_schema_present: true
+  expression_consistency_validator_present: true
   expression_tool_implementation_present: false
   mutation_pressure_tool_implementation_present: false
   inherited_tool_must_not_be_claimed_to_implement_v2_semantics: true

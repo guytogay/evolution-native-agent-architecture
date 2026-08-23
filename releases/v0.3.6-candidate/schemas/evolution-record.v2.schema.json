@@ -4,23 +4,10 @@
   "title": "ENA Evolution Candidate Record v2 (v0.3.6 candidate)",
   "type": "object",
   "required": [
-    "candidate_id",
-    "created_at",
-    "origin",
-    "lifecycle_state",
-    "expression_state",
-    "selection_state",
-    "signal_refs",
-    "hypothesis",
-    "change",
-    "variation_space",
-    "environment",
-    "experiments",
-    "evaluations",
-    "expression_history",
-    "integration_history",
-    "archive",
-    "migration"
+    "candidate_id", "created_at", "origin", "lifecycle_state", "expression_state",
+    "selection_state", "signal_refs", "hypothesis", "change", "variation_space",
+    "environment", "experiments", "evaluations", "expression_history",
+    "integration_history", "archive", "migration"
   ],
   "properties": {
     "candidate_id": {"type": "string", "minLength": 1},
@@ -99,26 +86,7 @@
         "additionalProperties": true
       }
     },
-    "integration_history": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["integration_id", "time", "target", "result", "selection_state_at_commit"],
-        "properties": {
-          "integration_id": {"type": "string", "minLength": 1},
-          "time": {"type": "string", "minLength": 1},
-          "target": {"type": "string", "minLength": 1},
-          "authority_basis": {"type": "string"},
-          "recovery_boundary": {"type": "string"},
-          "scope": {"type": "string"},
-          "result": {"enum": ["COMMITTED", "DEFERRED", "REJECTED", "UNKNOWN"]},
-          "residuals": {"type": "array", "items": {"type": "string"}},
-          "selection_state_at_commit": {"enum": ["SUPPORTED", "PARTIAL", "UNKNOWN"]},
-          "authority_boundary": {"type": "string"}
-        },
-        "additionalProperties": true
-      }
-    },
+    "integration_history": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
     "archive": {"anyOf": [{"type": "null"}, {"type": "object"}]},
     "migration": {"anyOf": [{"type": "null"}, {"type": "object"}]}
   },
@@ -129,11 +97,12 @@
     },
     {
       "if": {"properties": {"selection_state": {"enum": ["SUPPORTED", "PARTIAL", "NOT_SUPPORTED", "HARMFUL", "UNKNOWN"]}}, "required": ["selection_state"]},
-      "then": {"properties": {"evaluations": {"minItems": 1}}}
-    },
-    {
-      "if": {"properties": {"selection_state": {"enum": ["SUPPORTED", "PARTIAL", "NOT_SUPPORTED", "HARMFUL"]}}, "required": ["selection_state"]},
-      "then": {"properties": {"experiments": {"minItems": 1}}}
+      "then": {
+        "properties": {
+          "evaluations": {"minItems": 1},
+          "experiments": {"minItems": 1}
+        }
+      }
     }
   ],
   "additionalProperties": false
