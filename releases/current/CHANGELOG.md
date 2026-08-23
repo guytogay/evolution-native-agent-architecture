@@ -1,18 +1,26 @@
-# Changelog — v0.3.5 candidate.2
+# Changelog — v0.3.5
 
-candidate.2 is a narrow successor to frozen candidate.1 after the same DSH falsifier returned `TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS`.
+v0.3.5 makes sustained self-evolution the explicit ENA telos and adds an executable reference evolution metabolism while preserving truthful claims, scoped authority, recovery, and future correction capacity.
 
-## candidate.2 — release-decision residual closure
+## candidate.2 — final release-decision residual closure
 
 No Constitution rule changed.
 
-- CLI now rejects invalid `source_lifecycle_state` values in migration packets rather than relying on JSON Schema alone;
-- CLI fixes `source_authentication` to `NOT_AUTHENTICATED_BY_THIS_PACKET` and rejects stronger self-edited authentication claims;
-- CLI validates the fixed `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF` transfer-status claim;
-- adds `tools/candidate2_adversarial.py` for those residual packet-consistency/trust probes;
-- committed inherited-regression result now matches the current suite output;
-- CI regenerates the inherited result and fails if that committed generated evidence becomes dirty again;
-- active English and zh-CN adoption/projection identities advance to candidate.2.
+candidate.2:
+
+- made the CLI reject invalid `source_lifecycle_state` values in migration packets rather than relying on JSON Schema alone;
+- fixed `source_authentication` to `NOT_AUTHENTICATED_BY_THIS_PACKET` and rejected stronger self-edited authentication claims;
+- validated the fixed `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF` transfer-status claim;
+- added `tools/candidate2_adversarial.py` for those residual packet-consistency/trust probes;
+- synchronized committed inherited-regression output with the current suite output;
+- added CI regeneration parity so a stale committed result becomes a failure;
+- synchronized English and zh-CN candidate/projection identities.
+
+The same DSH falsifier then performed `SAME_FALSIFIER / NARROW_RESIDUAL_REVALIDATION / NOT_FRESH` and returned:
+
+`NARROW_REVALIDATION_SUPPORTED`
+
+It mechanically reported N1/N2/N7 and the adjacent transfer-status attack CLOSED, candidate.1 regressions preserved, and no new MATERIAL/BLOCKING finding or observed evolution-starvation/over-governance regression.
 
 ## candidate.1 — material falsification-driven corrections retained
 
@@ -34,16 +42,16 @@ The same DSH falsifier mechanically re-ran those paths and found the material de
 
 ## Retained research/field residuals
 
-candidate.2 does not pretend every observation must become a release blocker. The following remain visible for future research/field evidence:
+v0.3.5 does not pretend every observation must become a release blocker. These remain visible for future research/field evidence:
 
-- repeated reinterpretation/evaluation of the same experiment may be legitimate or may need stronger provenance semantics;
-- locally successful reselection after source failure preserves source negative lineage, but that lineage becomes nested rather than top-level;
-- archived/retired candidates have no in-place restore/reopen path in the reference tool; a new variation/export path remains available;
-- nested migration lineage can grow in depth across generations.
+- N3 — repeated reinterpretation/evaluation of the same experiment may be legitimate or may need stronger provenance semantics;
+- N4 — locally successful reselection after source failure preserves source negative lineage, but that lineage becomes nested rather than top-level;
+- N5 — archived/retired candidates have no in-place restore/reopen path in the reference tool; a new variation/export path remains available;
+- N6 — nested migration lineage can grow in depth across generations.
 
-These are not hidden and were not judged material blockers by the candidate.1 targeted revalidation.
+They were not judged MATERIAL/BLOCKING by the final narrow revalidation. Field evidence may reopen them.
 
-## v0.3.5 semantic direction retained
+## v0.3.5 semantic direction
 
 - sustained self-evolution is the explicit ENA telos;
 - governance is enabling infrastructure, not the purpose;
@@ -60,11 +68,13 @@ These are not hidden and were not judged material blockers by the candidate.1 ta
 - English + Simplified Chinese semantic-projection model;
 - lawful redaction/minimization/deletion while preserving occurrence truth where lawful;
 - effective loaded surface and instruction-budget concerns;
-- proposed retirement of future active adopter-facing `MAINLINE / NOT_MAINLINE` status while historical records remain history.
+- `MAINLINE / NOT_MAINLINE` retired as an active adopter-facing maturity axis while historical records remain history.
 
 ## Important compatibility boundary
 
-The inherited `validate_contracts.py` implementation and historical fixture corpora remain an implementation regression surface. Their passing tests do **not** validate new v0.3.5 evolution/migration/emergence/language semantics.
+The inherited `validate_contracts.py` implementation and historical fixture corpora remain an implementation regression surface. Their passing tests do **not** validate every new v0.3.5 evolution/migration/emergence/language semantic claim.
+
+The reference evolution tool preserves its validated candidate.2 implementation provenance even after release; implementation provenance is not the same as Current semantic identity.
 
 ## Stable foundations retained
 
