@@ -1,6 +1,7 @@
 schema_version: "2.0"
-ena_version: "v0.3.5-candidate"
+ena_version: "v0.3.5-candidate.1"
 candidate_for: "v0.3.5"
+candidate_revision: 1
 adoption_status: CANDIDATE
 maturity: FIELD_VALIDATION
 current: false
@@ -8,6 +9,12 @@ complete_adoption_baseline_candidate: true
 requires_older_release_composition: false
 active_mainline_axis: false
 package_scope: "ALL_FILES_UNDER_RELEASES_V0_3_5_CANDIDATE"
+
+lineage:
+  frozen_predecessor_source_commit: "eb6d7ba00894ed446903aebe61cd59f0bdb59af7"
+  frozen_predecessor_effective_tree: "f373e7695348c157dcd48d3ed243ea3079215b8f"
+  predecessor_verdict: NEEDS_REVISION
+  revision_trigger: "independent DSH falsification"
 
 base:
   ena_version: "v0.3.4"
@@ -42,11 +49,17 @@ evolution:
   variation_space_required_for_consequential_experiment_when_material: true
   mutation_is_improvement_by_default: false
   outcome_based_selection: true
+  lifecycle_state_separate_from_selection_state: true
+  non_unknown_selection_requires_represented_experiment: true
   adaptation_migration_supported: true
   source_negative_evidence_must_not_be_relabelled_positive_on_transfer: true
+  receiver_may_locally_reselect_after_real_local_experiment: true
+  migration_packet_preserves_source_experiments_and_evaluations: true
+  migration_packet_digest_authenticates_source: false
   positive_emergence_observation_supported: true
   pruning_archive_retirement_supported: true
   external_authority_may_be_self_minted_by_permission_mutation: false
+  tool_state_and_schemas_are_ci_connected: true
 
 continuity:
   binary_same_agent_claim_required: false
@@ -56,6 +69,7 @@ continuity:
 
 governance:
   closure_supported: true
+  closure_reads_represented_evolution_state: true
   closure_tool_proves_absence_of_unrepresented_blockers: false
   universal_numeric_risk_score_required: false
   permanent_infallible_sovereign_allowed: false
