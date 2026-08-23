@@ -1,6 +1,6 @@
-# Agent Adoption Instruction — v0.3.5 candidate.1
+# Agent Adoption Instruction — v0.3.5 candidate.2
 
-Use this only when intentionally validating/adopting v0.3.5 candidate.1. Do not infer that it is Current.
+Use this only when intentionally validating/adopting v0.3.5 candidate.2. Do not infer that it is Current.
 
 ## Goal
 
@@ -12,7 +12,7 @@ The intended telos is:
 
 ## Required work
 
-1. Identify candidate.1's minimum sufficient immutable effective-content identity.
+1. Identify candidate.2's minimum sufficient immutable effective-content identity.
 2. Read `00-READ-ME-FIRST.md`.
 3. Use `CONSTITUTION-CONCEPT-MAP.yaml` as the cognitive map, then read the binding `01-CONSTITUTION.md`.
 4. Read `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`.
@@ -36,6 +36,7 @@ The intended telos is:
 - do not treat `INTEGRATED`, `ARCHIVED`, or `RETIRED` as evidence-selection verdicts;
 - do not convert imported success/failure into local selection without local reality contact where selection is claimed;
 - do not treat packet digest as source authentication;
+- do not accept a packet's self-edited `source_authentication` as an external trust anchor;
 - do not call a durable file "loaded" unless the Host actually loads relevant bytes;
 - do not force HIGH_ASSURANCE merely because there is a side effect;
 - do not keep reviewing after further checks cannot plausibly change the decision;
