@@ -50,7 +50,7 @@ def run_fixture_file(path: Path, label: str):
 
 def main() -> int:
     print("=" * 100)
-    print("V0.3.5-CANDIDATE.2 INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
+    print("V0.3.5 CURRENT INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
     print("=" * 100)
 
     v1 = run_fixture_file(FIXTURES_V1, "migrated v0.3.2 selftests")
@@ -87,7 +87,8 @@ def main() -> int:
                           if ok else "FAIL"))
 
     out = {
-        "implementation_surface": "releases/v0.3.5-candidate/tools/validate_contracts.py",
+        "implementation_surface": "releases/current/tools/validate_contracts.py",
+        "implementation_lineage": "inherited validator surface released through v0.3.5 candidate.2 lineage",
         "coverage_boundary": "INHERITED_COMPOSED_VALIDATOR_ONLY_NOT_V035_NEW_SEMANTICS",
         "migrated_v032_selftest": {"total": v1["total"], "passed": v1["total"] - v1["failed"]},
         "inherited_v2": {"total": v2["total"], "passed": v2["total"] - v2["failed"]},
