@@ -1,4 +1,4 @@
-# ENA Runtime Adoption Kernel — v0.3.5 candidate.2
+# ENA Runtime Adoption Kernel — v0.3.5
 
 This is the compact hot-path meaning an adopter should preserve across ordinary work.
 
