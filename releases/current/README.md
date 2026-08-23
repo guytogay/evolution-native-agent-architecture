@@ -1,8 +1,8 @@
-# Evolution-Native Agent Architecture (ENA) — v0.3.5 candidate.2
+# Evolution-Native Agent Architecture (ENA) — v0.3.5
 
-Status: **CANDIDATE / FIELD_VALIDATION / NOT_CURRENT**
+Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-This directory is the active v0.3.5 successor candidate. The frozen first candidate was independently judged `NEEDS_REVISION`; frozen candidate.1 then received `TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS` from the same DSH falsifier. candidate.2 closes the concrete release-decision residuals and is still neither Current nor a release.
+This directory is the singular ENA adoption baseline. It was released from the frozen v0.3.5 candidate.2 lineage after the first frozen candidate was independently falsified, candidate.1 closed the material failures, and the same DSH falsifier later returned `NARROW_REVALIDATION_SUPPORTED` for candidate.2's release-decision residual closure.
 
 ## Purpose
 
@@ -24,17 +24,17 @@ ENA is exploration-forward:
 - local success does not predict composed outcome;
 - governance must preserve future correction and stop when further checks no longer change the decision.
 
-## Candidate correction lineage
+## v0.3.5 release lineage
 
-The first frozen candidate exposed false-confidence paths in `ena_evolve.py`. candidate.1 repaired the material state-machine, migration, closure, and schema-wiring defects by separating lifecycle from selection, requiring represented experiment before formal selection, preserving negative/unknown migration lineage, permitting receiver reselection only after local reality contact, and connecting real tool output to schemas and adversarial regression.
-
-The same falsifier then found only residuals. candidate.2 closes the release-decision items without changing the Constitution:
+The first frozen v0.3.5 candidate exposed false-confidence paths in `ena_evolve.py`. candidate.1 repaired the material state-machine, migration, closure, and schema-wiring defects. candidate.2 then closed the remaining cheap release-decision residuals without changing the Constitution:
 
 1. CLI rejects invalid `source_lifecycle_state` rather than relying on schema validation alone;
 2. CLI rejects forged `source_authentication` rather than propagating a self-asserted trust label;
 3. CLI validates the fixed `transfer_status` claim;
-4. committed inherited-regression output is synchronized with its generating suite and CI checks that regeneration stays clean;
-5. candidate.1 adversarial regressions remain active and candidate.2 adds residual-closure probes.
+4. committed inherited-regression output stays synchronized with its generating suite;
+5. candidate.1 and candidate.2 adversarial regressions remain available as historical implementation checks.
+
+The final narrow DSH revalidation reported N1/N2/N7 and the adjacent transfer-status attack CLOSED, with no new MATERIAL/BLOCKING finding and no observed evolution-starvation or over-governance regression.
 
 No Constitution rule was added merely because an implementation bug was found.
 
@@ -52,17 +52,18 @@ No Constitution rule was added merely because an implementation bug was found.
 - effective-loaded-surface persistence evidence;
 - English + Simplified Chinese semantic projection;
 - Constitution concept map without deleting universal invariants;
-- retirement of `MAINLINE / NOT_MAINLINE` as a future active adopter-facing axis.
+- retirement of `MAINLINE / NOT_MAINLINE` as an active adopter-facing maturity axis while historical records remain history.
 
 ## Navigation
 
-1. `00-READ-ME-FIRST.md`
-2. `CONSTITUTION-CONCEPT-MAP.yaml`
-3. `01-CONSTITUTION.md`
-4. `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`
-5. `RUNTIME-ADOPTION-KERNEL.md`
-6. `09-EVOLUTION-METABOLISM.md`
-7. `10-LANGUAGE-PORTABILITY.md`
+1. `CURRENT-BASELINE.yaml`
+2. `00-READ-ME-FIRST.md`
+3. `CONSTITUTION-CONCEPT-MAP.yaml`
+4. `01-CONSTITUTION.md`
+5. `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`
+6. `RUNTIME-ADOPTION-KERNEL.md`
+7. `09-EVOLUTION-METABOLISM.md`
+8. `10-LANGUAGE-PORTABILITY.md`
 
 For Simplified Chinese, begin with `language-projections/zh-CN/00-READ-ME-FIRST.md`.
 
@@ -70,9 +71,11 @@ The Chinese projection is not a separate ENA. It preserves the same stable seman
 
 ## Validation posture
 
-Do not treat candidate.2 author intent, passing CI, predecessor verdicts, or this README as acceptance evidence.
+Current status means **adopt this baseline now**, not "universally proven."
 
-Frozen predecessors remain immutable evidence at their recorded commit/tree identities. Do not edit them in place, and do not modify `releases/current/` based on candidate.2 alone.
+Do not treat release-author intent, passing CI, one Host/model/language result, or machine-readable output as stronger evidence than it is.
+
+Retained N3–N6 observations remain visible research/field residuals. They do not currently justify another candidate revision; field evidence may reopen them if they become material.
 
 > **Variation first; selection by reality.**
 >
