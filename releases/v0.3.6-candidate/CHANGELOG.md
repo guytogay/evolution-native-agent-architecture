@@ -1,86 +1,50 @@
-# Changelog — v0.3.5
+# ENA Candidate Changelog
 
-v0.3.5 makes sustained self-evolution the explicit ENA telos and adds an executable reference evolution metabolism while preserving truthful claims, scoped authority, recovery, and future correction capacity.
+## v0.3.6-candidate — WORKING / NOT FROZEN
 
-## candidate.2 — final release-decision residual closure
+Base: v0.3.5 Current tree `9c928b4c99ae72e53c89978cf1d10b7ea068c182`.
 
-No Constitution rule changed.
+### Candidate direction
 
-candidate.2:
+- extends explicit evolution metabolism toward an evolution-ecology model;
+- adds `stimulus -> mutation pressure` without forced mutation;
+- allows long-lived latent variation without immediate experiment/disposition;
+- separates stored/expression/application/selection semantics;
+- introduces conceptual expression axis `LATENT | EXPRESSED`;
+- adds `schemas/evolution-record.v2.schema.json` and v2 template;
+- reframes Runtime Kernel toward hot cues + cold capability retrieval;
+- separates Evolution Commons publication from receiver discovery/import/adoption;
+- makes local selection explicitly non-universal by default;
+- rejects popularity/propagation as universal selection proof;
+- clarifies external rescue-plane property for self-disabling mutations;
+- keeps rescue authority narrow rather than creating a sovereign reviewer;
+- clarifies canonical ENA lineage as the invariant and GitHub as the current carrier;
+- explores ecological/minimal-intervention governance: govern the floor, not every interaction;
+- adds a pre-freeze author falsification plan covering 24 attack classes.
 
-- made the CLI reject invalid `source_lifecycle_state` values in migration packets rather than relying on JSON Schema alone;
-- fixed `source_authentication` to `NOT_AUTHENTICATED_BY_THIS_PACKET` and rejected stronger self-edited authentication claims;
-- validated the fixed `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF` transfer-status claim;
-- added `tools/candidate2_adversarial.py` for those residual packet-consistency/trust probes;
-- synchronized committed inherited-regression output with the current suite output;
-- added CI regeneration parity so a stale committed result becomes a failure;
-- synchronized English and zh-CN candidate/projection identities.
+### Constitution
 
-The same DSH falsifier then performed `SAME_FALSIFIER / NARROW_RESIDUAL_REVALIDATION / NOT_FRESH` and returned:
+No new Constitution ID has been added in the working candidate. The inherited 38 IDs remain the candidate binding floor unless later evidence justifies a new universal invariant.
 
-`NARROW_REVALIDATION_SUPPORTED`
+### Deliberately not standardized
 
-It mechanically reported N1/N2/N7 and the adjacent transfer-status attack CLOSED, candidate.1 regressions preserved, and no new MATERIAL/BLOCKING finding or observed evolution-starvation/over-governance regression.
+- universal fitness score/function;
+- Agent reproductive duty/motivation;
+- definition of Agent descendants;
+- civilization-scale domination/obedience/coexistence telos;
+- fixed cognitive-mode taxonomy;
+- mandatory artificial-adversity/persona training;
+- universal external ecosystem polling cadence;
+- requirement that every latent variation eventually receive a verdict.
 
-## candidate.1 — material falsification-driven corrections retained
+### Machine boundary
 
-candidate.1 previously:
+The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully implement expression-axis or mutation-pressure semantics. Candidate prose/schema must not be described as executable enforcement until implementation and tests exist.
 
-- separated lifecycle state from evidence-backed selection state;
-- required represented experiment/reality contact before formal selection;
-- preserved negative/unknown selection across integration, archival, and migration;
-- preserved source experiments/evaluations/integration/archive/migration lineage;
-- allowed receiver-side reselection only after local experiment/evaluation while retaining source lineage;
-- made migration packet purpose derive from source selection rather than lifecycle;
-- made closure read represented evolution state;
-- connected actual tool records to JSON-schema validation;
-- made independently reproduced failures executable in `tools/candidate1_adversarial.py`;
-- explicitly bounded inherited composed-validator PASS as regression preservation only;
-- restored the Runtime Kernel and zh-CN adoption truth/identity boundaries.
+### Release status
 
-The same DSH falsifier mechanically re-ran those paths and found the material defects closed without evolution starvation.
+Not frozen, not independently validated, not released, not Current.
 
-## Retained research/field residuals
+---
 
-v0.3.5 does not pretend every observation must become a release blocker. These remain visible for future research/field evidence:
-
-- N3 — repeated reinterpretation/evaluation of the same experiment may be legitimate or may need stronger provenance semantics;
-- N4 — locally successful reselection after source failure preserves source negative lineage, but that lineage becomes nested rather than top-level;
-- N5 — archived/retired candidates have no in-place restore/reopen path in the reference tool; a new variation/export path remains available;
-- N6 — nested migration lineage can grow in depth across generations.
-
-They were not judged MATERIAL/BLOCKING by the final narrow revalidation. Field evidence may reopen them.
-
-## v0.3.5 semantic direction
-
-- sustained self-evolution is the explicit ENA telos;
-- governance is enabling infrastructure, not the purpose;
-- exploration-forward posture: variation may precede certainty, selection follows observed outcome;
-- event + periodic/idle evolution wake;
-- Variation Space;
-- adaptation/negative-evidence migration and Evolution Commons;
-- recombination and positive emergence;
-- pruning/archive/retirement;
-- internal permission/capability topology may evolve without self-minting external mandate;
-- Evolutionary Subject, Protected Subject, Continuity Vector;
-- governance closure and removal of unbounded `organism` veto semantics;
-- all 38 Constitution IDs retained with concept-map compression;
-- English + Simplified Chinese semantic-projection model;
-- lawful redaction/minimization/deletion while preserving occurrence truth where lawful;
-- effective loaded surface and instruction-budget concerns;
-- `MAINLINE / NOT_MAINLINE` retired as an active adopter-facing maturity axis while historical records remain history.
-
-## Important compatibility boundary
-
-The inherited `validate_contracts.py` implementation and historical fixture corpora remain an implementation regression surface. Their passing tests do **not** validate every new v0.3.5 evolution/migration/emergence/language semantic claim.
-
-The reference evolution tool preserves its validated candidate.2 implementation provenance even after release; implementation provenance is not the same as Current semantic identity.
-
-## Stable foundations retained
-
-- claim/evidence/support distinction;
-- UNKNOWN discipline;
-- recovery/history distinction;
-- scoped authority;
-- one singular Current adoption pointer;
-- same version identity implies same effective content.
+Earlier release history remains preserved in Git and v0.3.5 Current history. This candidate changelog does not rewrite predecessor occurrence truth.

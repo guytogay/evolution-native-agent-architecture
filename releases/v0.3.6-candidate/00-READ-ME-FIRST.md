@@ -1,124 +1,70 @@
-# Evolution-Native Agent Architecture — v0.3.5
+# ENA v0.3.6 Candidate — Read Me First
 
-Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
+Status: **WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED / DO NOT ADOPT**
 
-This is the singular ENA adoption baseline. v0.3.5 was released from frozen candidate.2 after its narrow residual revalidation returned `NARROW_REVALIDATION_SUPPORTED`.
+The actual Current remains `releases/current/` (v0.3.5 / FIELD_VALIDATION).
 
-## 1. Start with the purpose
+This directory is a complete inherited v0.3.5 baseline under active v0.3.6 candidate mutation. Some cold files may still carry inherited v0.3.5 wording until candidate authoring reaches semantic parity. Treat candidate identity files and changed files as work in progress; do not infer release status from directory completeness.
+
+## Candidate purpose
 
 **ENA exists to make sustained self-evolution viable.**
 
-The desired Agent is not merely compliant, safe, or stable. It can repeatedly:
+v0.3.6 candidate explores the next step from explicit evolution metabolism toward evolution ecology:
 
-`observe -> vary -> experiment -> learn -> select -> integrate -> prune -> migrate/recombine -> evolve again`
+`environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> migration/recombination -> renewed variation`
 
-Governance protects this metabolism from self-deception, unrecoverable dead ends, unowned consequences, stale authority, and loss of future correction capacity. Governance is infrastructure, not the purpose, and must not become an excuse for stagnation.
+It preserves v0.3.5 truth, authority, recovery, history, migration, composition, and governance-closure semantics unless explicitly changed and revalidated.
 
-A change is initially a **variation**, not an improvement. Call it an adaptation only after observed outcomes support retaining it within a declared environment/consequence envelope.
+## First files to inspect for this candidate
 
-## 2. What v0.3.5 adds
+1. `CANDIDATE-BASELINE.yaml` — candidate identity and semantic flags;
+2. `README.md` — scope and open research;
+3. `09-EVOLUTION-METABOLISM.md` — evolution-ecology semantics;
+4. `RUNTIME-ADOPTION-KERNEL.md` — candidate hot-path cues;
+5. `06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md` — Commons publisher/receiver separation;
+6. `08-RELEASE-DISCIPLINE.md` — canonical lineage vs carrier;
+7. `schemas/evolution-record.v2.schema.json` — candidate expression-axis record;
+8. `../../collaboration/inbox/2026-08-23-v036-author-falsification-plan.md` — pre-freeze attack plan.
 
-v0.3.5 makes the positive evolution loop explicit while preserving the established truth/authority/recovery disciplines:
+## Major candidate distinctions
 
-- lifecycle state and evidence-backed selection state are separate axes;
-- `INTEGRATED != SUPPORTED` and archival does not erase selection history;
-- formal selection follows represented experiment/reality contact;
-- migration preserves source experiments/evaluations/selection lineage;
-- imported source failure may be re-tested locally but cannot become local success without local experiment/evaluation;
-- migration packets cannot self-mint authentication or local-proof status;
-- closure reads represented evolution state;
-- actual tool output is connected to JSON-schema validation;
-- inherited composed-validator regression remains regression preservation, not proof of all new v0.3.5 semantics;
-- English and Simplified Chinese are treated as semantic projections of one ENA identity.
+- `stimulus != mutation != improvement`;
+- variation may remain latent without immediate experiment/verdict;
+- `stored != expressed != applied != selected`;
+- lifecycle, expression, and selection are separate questions;
+- local selection remains local unless transfer evidence justifies more;
+- `PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`;
+- popularity/propagation does not create proof;
+- rescue may need to remain reachable outside a self-disabled candidate;
+- rescue authority is not general approval authority;
+- canonical ENA evolution requires governed reproducible lineage;
+- GitHub is the current carrier, not the permanent sovereign;
+- govern the semantic/consequence floor and avoid unnecessary ecological administration.
 
-No new Constitution rule was added merely to patch an implementation defect.
+## Constitution status
 
-## 3. First adoption
+All 38 inherited Constitution IDs remain present. **No new Constitution ID has been added yet.**
 
-Use this order:
+This is deliberate. Candidate ecology semantics must first survive falsification and demonstrate that a new universal invariant is actually necessary before the Constitution grows.
 
-1. read `CURRENT-BASELINE.yaml`;
-2. read this file;
-3. read `CONSTITUTION-CONCEPT-MAP.yaml`;
-4. read `01-CONSTITUTION.md` once as the binding universal baseline;
-5. read `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`;
-6. read `RUNTIME-ADOPTION-KERNEL.md`;
-7. read `09-EVOLUTION-METABOLISM.md`;
-8. if operating in a non-English language, read `10-LANGUAGE-PORTABILITY.md` and the matching projection;
-9. compile the smallest sufficient Runtime Kernel + material Local Projection into the Host's real persistent surface, if one exists;
-10. preserve the minimum sufficient immutable effective-content identity actually compiled from;
-11. evidence only the persistence boundary actually observed.
+## Machine-layer status
 
-Do not persist the whole release merely to claim adoption.
+`schemas/evolution-record.v2.schema.json` introduces `expression_state` and `expression_history` as candidate machine semantics.
 
-## 4. Constitution compression
+The inherited `tools/ena_evolve.py` is still the v0.3.5 reference implementation and does **not** yet fully implement the v2 expression/mutation-pressure model. Do not claim tool support that is not present.
 
-All 38 Constitution IDs remain binding. The concept map groups them for cognition and retrieval; it does not remove, merge, renumber, or weaken them.
+## Freeze boundary
 
-`compress loaded text != compress applicability`
+Do not freeze until at least:
 
-Short Runtime-Kernel distinctions are attention/retrieval triggers, not replacements for exact semantics.
+- identity-bearing English and zh-CN hot paths are coherent;
+- the machine-layer scope is explicit and tested;
+- inherited v0.3.5 regressions remain preserved;
+- author self-attacks have been executed rather than merely listed;
+- no material false claim arises from latent/expression/Commons/rescue semantics;
+- `releases/current/` remains untouched.
 
-## 5. Evolution wake and variation
-
-Use event wake for corrections, repeated failure/friction, contradiction, capability/environment change, repeated success worth generalizing, opportunity, and stale adaptation. A Host-chosen periodic/idle wake may catch slow drift.
-
-**A timer triggers review, not mandatory mutation.**
-
-Give uncertain changes a real **Variation Space** where they can contact reality with bounded, owned consequence. Internal permission/capability topology may itself vary there, but internal mutation cannot self-mint external mandate.
-
-## 6. Two state axes
-
-Lifecycle:
-
-`PROPOSED | EXPERIMENTED | INTEGRATED | ARCHIVED | RETIRED`
-
-Selection:
-
-`UNASSESSED | SUPPORTED | PARTIAL | NOT_SUPPORTED | HARMFUL | UNKNOWN`
-
-Keep them independent. A lifecycle transition never upgrades or erases an evidence verdict.
-
-## 7. Migration and population learning
-
-Transfer source experiments/evaluations/environment/selection lineage. Receiving a packet creates a local migration candidate, not local proof.
-
-`TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`
-
-A receiver may re-test even a source failure because environments differ, but local positive reselection follows local reality contact and does not rewrite source negative evidence.
-
-Packet-local digest checks consistency only. `source_authentication` is explicitly `NOT_AUTHENTICATED_BY_THIS_PACKET`; neither a digest nor a migration packet can mint trust in its own claimed origin.
-
-## 8. Steady-state operation and governance closure
-
-For familiar work, use the hot kernel and still-valid Local Projection; do not reread ENA for ceremony.
-
-Profiles remain:
-
-`LITE | STANDARD | HIGH_ASSURANCE | CUSTOM`
-
-They describe governance intensity, not different Constitutions.
-
-Continue governance only while a bounded next check can plausibly change a material decision. The reference closure tool reads represented local evolution state, but no generic tool proves that unrepresented real-world blockers do not exist.
-
-When current material questions are sufficiently protected/bounded and another check cannot plausibly change the decision, stop adding governance and act/observe.
-
-## 9. Persistence and effective loading
-
-`WRITTEN != RELEVANT_BYTES_LOADED != INTERPRETED != SALIENT != APPLIED`
-
-Account for Host capacity, precedence, truncation, selective loading, and routing. Do not let global ENA bootstrap text starve task/project-specific agency.
-
-## 10. No-real-task path
-
-Do real installation/self-positioning work. Do not invent a fake production task to manufacture a positive report. A natural future session/task can evidence whether persisted semantics really load and apply.
-
-## 11. Current and history
-
-Use only `releases/current/` as the adoption baseline. Historical candidates and earlier releases remain cold-path evidence in Git/project history.
-
-Beginning with v0.3.5, `MAINLINE / NOT_MAINLINE` is no longer an active adopter-facing maturity axis. Historical records using those labels remain historical occurrence truth.
-
-> **Variation may be aggressive. Claims must remain truthful.**
+> **Variation does not owe reality an immediate verdict.**
 >
-> **Current success is not the right to forbid future variation.**
+> **Stored possibility is not active authority.**

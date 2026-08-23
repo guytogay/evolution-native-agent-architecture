@@ -18,6 +18,7 @@ lineage:
   base_repository_commit: "f14855fdfd57b975195f0b1c261b754bd3058749"
   complete_base_copy_commit: "668a1be941045cb25c86008eaee620340a21b9a6"
   design_seed: "collaboration/inbox/2026-08-23-v036-evolution-ecology-design-seed.md"
+  author_falsification_plan: "collaboration/inbox/2026-08-23-v036-author-falsification-plan.md"
   draft_pr: 68
 
 telos:
@@ -39,9 +40,13 @@ runtime_adoption:
 
 evolution:
   metabolism_entrypoint: "09-EVOLUTION-METABOLISM.md"
-  reference_tool: "tools/ena_evolve.py"
-  evolution_record_schema: "schemas/evolution-record.v1.schema.json"
+  inherited_reference_tool: "tools/ena_evolve.py"
+  evolution_record_schema: "schemas/evolution-record.v2.schema.json"
+  inherited_evolution_record_schema: "schemas/evolution-record.v1.schema.json"
   adaptation_packet_schema: "schemas/adaptation-packet.v1.schema.json"
+  event_wake_supported: true
+  periodic_idle_wake_supported: true
+  universal_wake_cadence_required: false
   stimulus_supported: true
   mutation_pressure_supported: true
   stimulus_is_mutation: false
@@ -50,11 +55,13 @@ evolution:
   latent_variation_supported: true
   immediate_experiment_required_for_every_variation: false
   immediate_selection_required_for_every_variation: false
-  long_lived_unknown_allowed: true
   stored_is_expressed: false
   expressed_is_applied: false
   applied_is_selected: false
   expression_is_separate_from_lifecycle_and_selection: true
+  expression_states:
+    - LATENT
+    - EXPRESSED
   expression_may_be_context_triggered: true
   variation_space_required_for_consequential_experiment_when_material: true
   outcome_based_selection: true
@@ -104,6 +111,12 @@ constitution:
   inherited_stable_ids: 38
   new_ids_added_in_current_working_candidate: 0
   promotion_of_new_invariants_requires_falsification_evidence: true
+
+machine_boundary:
+  expression_schema_present: true
+  expression_tool_implementation_present: false
+  mutation_pressure_tool_implementation_present: false
+  inherited_tool_must_not_be_claimed_to_implement_v2_semantics: true
 
 open_research:
   - "Agent reproductive motivation and continuation incentives"
