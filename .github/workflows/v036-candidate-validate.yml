@@ -8,6 +8,7 @@ on:
       - 'releases/v0.3.6-candidate/**'
       - 'collaboration/inbox/2026-08-23-v036-**'
       - 'collaboration/reconciliation/2026-08-23-v036-**'
+      - 'collaboration/reconciliation/2026-08-24-v036-**'
       - '.github/workflows/v036-candidate-validate.yml'
   pull_request:
     branches: [main]
@@ -15,6 +16,7 @@ on:
       - 'releases/v0.3.6-candidate/**'
       - 'collaboration/inbox/2026-08-23-v036-**'
       - 'collaboration/reconciliation/2026-08-23-v036-**'
+      - 'collaboration/reconciliation/2026-08-24-v036-**'
       - '.github/workflows/v036-candidate-validate.yml'
   workflow_dispatch:
 
@@ -29,6 +31,8 @@ jobs:
   candidate-validate:
     name: v036-candidate-pre-freeze
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
 
     steps:
       - name: Checkout
@@ -73,6 +77,14 @@ jobs:
               raise SystemExit(1)
           PY
 
+      - name: Verify no Python bytecode artifacts were produced
+        run: |
+          found="$(find releases/v0.3.6-candidate -type d -name '__pycache__' -o -type f -name '*.pyc')"
+          if [ -n "$found" ]; then
+            echo "$found"
+            exit 1
+          fi
+
       - name: Verify validation did not dirty repository
         run: |
           git status --porcelain
@@ -80,5 +92,5 @@ jobs:
 
       - name: Explain evidence boundary
         run: |
-          echo 'PASS means represented candidate structure/identity, v2 consistency, inherited composed-validator regression, tool syntax, and Current isolation are consistent within this workflow.'
+          echo 'PASS means represented candidate structure/identity, v2 consistency, inherited composed-validator regression, tool syntax, no Python bytecode artifacts, and Current isolation are consistent within this workflow.'
           echo 'PASS does not prove external evidence truth, future salience, ecological fitness, moral convergence, authority/recovery reality, or independent semantic acceptance.'
