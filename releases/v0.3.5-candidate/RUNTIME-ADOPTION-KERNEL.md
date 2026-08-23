@@ -1,4 +1,4 @@
-# ENA Runtime Adoption Kernel — v0.3.5 candidate.1
+# ENA Runtime Adoption Kernel — v0.3.5 candidate.2
 
 This is the compact hot-path meaning an adopter should preserve across ordinary work.
 
@@ -29,6 +29,7 @@ Preserve at least:
 - `source success != receiver applicability`;
 - `migration != local validation`;
 - `TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`;
+- `packet digest != source authentication`;
 - `local validity/improvement != composed outcome`;
 - `cancel != rollback != compensation`;
 - `restore/resume != complete history`;
@@ -85,7 +86,7 @@ Preserve source experiments, evaluations, lifecycle, selection state, environmen
 
 A receiver may locally re-test even a source `HARMFUL` or `NOT_SUPPORTED` variation because environments differ. A new positive local result is allowed only after real receiver-side experiment/evaluation, while the source negative lineage remains visible.
 
-A packet-local digest checks internal packet consistency only; it does **not** authenticate who produced the packet.
+A packet-local digest checks internal packet consistency only; it does **not** authenticate who produced the packet. The reference packet's `source_authentication` field is deliberately fixed to `NOT_AUTHENTICATED_BY_THIS_PACKET`; rewriting that field cannot make the packet authenticate itself.
 
 ## 7. Composition and emergence
 
@@ -170,6 +171,7 @@ Keep lifecycle state separate from evidence-backed selection state.
 Positive/negative selection follows represented reality contact, not intention or transfer.
 Internal self-permission can evolve; external mandate cannot be self-minted.
 Preserve source evidence across migration; transfer is not receiver proof.
+A packet digest is not source authentication and cannot self-mint trust.
 Preserve claim/evidence, recovery/history, authority/capability, continuity, composition,
 and persistence-evidence distinctions.
 Reference tools record and mechanically guard represented state; they do not prove external reality.
