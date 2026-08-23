@@ -1,4 +1,4 @@
-schema_version: "2.1-candidate"
+schema_version: "2.2-candidate"
 ena_version: "v0.3.6-candidate"
 adoption_status: WORKING_CANDIDATE
 maturity: UNVALIDATED_AUTHORING
@@ -19,6 +19,11 @@ lineage:
   complete_base_copy_commit: "668a1be941045cb25c86008eaee620340a21b9a6"
   design_seed: "collaboration/inbox/2026-08-23-v036-evolution-ecology-design-seed.md"
   author_falsification_plan: "collaboration/inbox/2026-08-23-v036-author-falsification-plan.md"
+  author_self_falsification_passes:
+    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-1.md"
+    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-2.md"
+    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-3.md"
+    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-4.md"
   draft_pr: 68
 
 telos:
@@ -124,6 +129,31 @@ machine_boundary:
   expression_tool_implementation_present: false
   mutation_pressure_tool_implementation_present: false
   inherited_tool_must_not_be_claimed_to_implement_v2_semantics: true
+
+author_validation:
+  self_falsification_pass_count: 4
+  planned_attack_class_count: 24
+  attack_dispositions_complete: true
+  v2_consistency_selftest:
+    status: PASS
+    cases: 10
+    evidence_scope: "exact candidate validator/schema/template contents replayed together in an isolated local environment"
+    does_not_prove: "external truth, actual salience/expression, authority, recovery, universal fitness, or independent acceptance"
+  full_repository_prefreeze_validator:
+    status: UNOBSERVED
+    reason: "available GitHub connector exposed no workflow run/status for candidate head or PR merge SHA; isolated shell could not clone GitHub because DNS/network access was unavailable"
+  inherited_v035_contract_regression:
+    status: NOT_REEXECUTED_WITH_OBSERVABLE_FULL_REPOSITORY_EVIDENCE_IN_THIS_PASS
+  current_isolation:
+    status: OBSERVED_AT_PR_PATH_LEVEL
+    evidence: "PR changed-file surface contains no releases/current/** path; immutable v0.3.5 Current tree remains the declared comparison target"
+  freeze_eligible: false
+  freeze_blocker: "FULL_REPOSITORY_AUTOMATED_CHECK_EVIDENCE_NOT_YET_OBTAINED"
+
+accepted_working_residuals:
+  - "expression/mutation-pressure semantics are not yet integrated into inherited tools/ena_evolve.py"
+  - "GitHub Actions full pre-freeze run is not observable through the currently available connector path"
+  - "fresh-session cue salience/application remains field evidence, not author proof"
 
 open_research:
   - "Agent reproductive motivation and continuation incentives"
