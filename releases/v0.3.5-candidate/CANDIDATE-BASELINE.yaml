@@ -1,7 +1,7 @@
 schema_version: "2.0"
-ena_version: "v0.3.5-candidate.1"
+ena_version: "v0.3.5-candidate.2"
 candidate_for: "v0.3.5"
-candidate_revision: 1
+candidate_revision: 2
 adoption_status: CANDIDATE
 maturity: FIELD_VALIDATION
 current: false
@@ -11,10 +11,13 @@ active_mainline_axis: false
 package_scope: "ALL_FILES_UNDER_RELEASES_V0_3_5_CANDIDATE"
 
 lineage:
-  frozen_predecessor_source_commit: "eb6d7ba00894ed446903aebe61cd59f0bdb59af7"
-  frozen_predecessor_effective_tree: "f373e7695348c157dcd48d3ed243ea3079215b8f"
-  predecessor_verdict: NEEDS_REVISION
-  revision_trigger: "independent DSH falsification"
+  frozen_first_candidate_source_commit: "eb6d7ba00894ed446903aebe61cd59f0bdb59af7"
+  frozen_first_candidate_effective_tree: "f373e7695348c157dcd48d3ed243ea3079215b8f"
+  first_candidate_verdict: NEEDS_REVISION
+  frozen_candidate1_source_commit: "e6ff1e76afb8ad8919186786100ec153a5f0d07a"
+  frozen_candidate1_effective_tree: "ff2cb44c7a5d1b472800180578b5df7baa123aec"
+  candidate1_targeted_verdict: TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS
+  revision_trigger: "close DSH candidate.1 residuals N1/N2/N7 before release decision"
 
 base:
   ena_version: "v0.3.4"
@@ -56,16 +59,13 @@ evolution:
   receiver_may_locally_reselect_after_real_local_experiment: true
   migration_packet_preserves_source_experiments_and_evaluations: true
   migration_packet_digest_authenticates_source: false
+  migration_packet_cli_validates_lifecycle_enum: true
+  migration_packet_cli_rejects_forged_authentication_claim: true
+  migration_packet_cli_validates_transfer_status: true
   positive_emergence_observation_supported: true
   pruning_archive_retirement_supported: true
   external_authority_may_be_self_minted_by_permission_mutation: false
   tool_state_and_schemas_are_ci_connected: true
-
-continuity:
-  binary_same_agent_claim_required: false
-  continuity_vector_supported: true
-  evolutionary_subject_supported: true
-  protected_subject_supported: true
 
 governance:
   closure_supported: true
@@ -73,6 +73,12 @@ governance:
   closure_tool_proves_absence_of_unrepresented_blockers: false
   universal_numeric_risk_score_required: false
   permanent_infallible_sovereign_allowed: false
+
+continuity:
+  binary_same_agent_claim_required: false
+  continuity_vector_supported: true
+  evolutionary_subject_supported: true
+  protected_subject_supported: true
 
 history:
   occurrence_truth_protected: true
