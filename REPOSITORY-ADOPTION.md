@@ -1,5 +1,9 @@
 # GitHub Repository Adoption
 
+Status: **HISTORICAL REPOSITORY-ORIGIN RECORD / NOT A CURRENT ADOPTION INSTRUCTION**
+
+For current ENA adoption, start at [`PROJECT-HUB.md`](PROJECT-HUB.md) and use only [`releases/current/`](releases/current/) as the effective baseline. The v0.2.11 `MAINLINE` terminology below records the repository's historical origin and is not an active maturity/adoption axis for v0.3.5 or later.
+
 Date: 2026-08-20
 Repository: `guytogay/evolution-native-agent-architecture`
 Initial visibility at repository adoption: `PRIVATE`
@@ -22,6 +26,8 @@ Historical releases before repository adoption must not be backfilled as fabrica
 - promotion verdict: `PROMOTE_WITH_KNOWN_HOST_DEFECT`
 - normative semantic delta from Candidate Revision 2: `NONE`
 - DSH transition: `ADOPTED_FROM_CANDIDATE_REVISION_2 / PROMOTION_TRANSITION_COMPLETE`
+
+This section is historical. Do not infer today's Current, maturity, or adoption target from it.
 
 ## Preservation rule
 
