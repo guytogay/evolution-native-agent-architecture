@@ -2,6 +2,8 @@
 
 Status: `CANDIDATE TESTING ONLY / NOT CURRENT`.
 
+This is **not an adoption baseline**. It is a bounded candidate simulation surface only; the Host's actual adopter-facing baseline remains `releases/current/` v0.3.5 unless a governed release decision changes that.
+
 LITE still means low ceremony for a bounded consequence envelope. It is not a reduced Constitution and not "no evolution."
 
 When simulating the v0.3.6 candidate on a familiar low-consequence task:
