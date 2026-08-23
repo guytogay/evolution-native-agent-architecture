@@ -1,8 +1,8 @@
-# Evolution-Native Agent Architecture (ENA) — v0.3.5 candidate.1
+# Evolution-Native Agent Architecture (ENA) — v0.3.5 candidate.2
 
 Status: **CANDIDATE / FIELD_VALIDATION / NOT_CURRENT**
 
-This directory is the active v0.3.5 successor candidate after the frozen first candidate was independently falsified and judged `NEEDS_REVISION`. candidate.1 is not Current and is not a release.
+This directory is the active v0.3.5 successor candidate. The frozen first candidate was independently judged `NEEDS_REVISION`; frozen candidate.1 then received `TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS` from the same DSH falsifier. candidate.2 closes the concrete release-decision residuals and is still neither Current nor a release.
 
 ## Purpose
 
@@ -24,22 +24,19 @@ ENA is exploration-forward:
 - local success does not predict composed outcome;
 - governance must preserve future correction and stop when further checks no longer change the decision.
 
-## candidate.1 correction focus
+## Candidate correction lineage
 
-Independent falsification of the frozen predecessor mechanically reproduced false-confidence paths in `ena_evolve.py`. candidate.1 therefore:
+The first frozen candidate exposed false-confidence paths in `ena_evolve.py`. candidate.1 repaired the material state-machine, migration, closure, and schema-wiring defects by separating lifecycle from selection, requiring represented experiment before formal selection, preserving negative/unknown migration lineage, permitting receiver reselection only after local reality contact, and connecting real tool output to schemas and adversarial regression.
 
-1. separates `lifecycle_state` from `selection_state`;
-2. requires represented experimentation before formal positive/negative selection;
-3. preserves negative/unknown selection across integration, archival, and migration;
-4. allows receiver-side reselection only after real local experiment/evaluation while retaining source lineage;
-5. rejects semantically contradictory migration packets;
-6. makes closure read represented evolution state;
-7. connects actual tool output to JSON-schema validation;
-8. strengthens adversarial regression tests;
-9. keeps the reference-tool boundary in the hot Runtime Kernel;
-10. fixes zh-CN immutable-source-identity adoption guidance.
+The same falsifier then found only residuals. candidate.2 closes the release-decision items without changing the Constitution:
 
-These are implementation/schema/document corrections. They do **not** add a new Constitution rule merely because bugs were found.
+1. CLI rejects invalid `source_lifecycle_state` rather than relying on schema validation alone;
+2. CLI rejects forged `source_authentication` rather than propagating a self-asserted trust label;
+3. CLI validates the fixed `transfer_status` claim;
+4. committed inherited-regression output is synchronized with its generating suite and CI checks that regeneration stays clean;
+5. candidate.1 adversarial regressions remain active and candidate.2 adds residual-closure probes.
+
+No Constitution rule was added merely because an implementation bug was found.
 
 ## Broader v0.3.5 themes
 
@@ -73,9 +70,9 @@ The Chinese projection is not a separate ENA. It preserves the same stable seman
 
 ## Validation posture
 
-Do not treat candidate.1 author intent, passing CI, predecessor expected behavior, or this README as acceptance evidence.
+Do not treat candidate.2 author intent, passing CI, predecessor verdicts, or this README as acceptance evidence.
 
-The frozen predecessor remains immutable evidence at its recorded commit/tree. Do not edit it in place, and do not modify `releases/current/` based on candidate.1 alone.
+Frozen predecessors remain immutable evidence at their recorded commit/tree identities. Do not edit them in place, and do not modify `releases/current/` based on candidate.2 alone.
 
 > **Variation first; selection by reality.**
 >
