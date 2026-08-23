@@ -1,6 +1,6 @@
-schema_version: "1.0"
+schema_version: "1.1"
 language: "zh-CN"
-projection_version: "v0.3.5-candidate.zh-CN.1"
+projection_version: "v0.3.5-candidate.zh-CN.2"
 source_semantic_version: "v0.3.5-candidate"
 source_identity_binding: >
   Bound to the frozen v0.3.5 candidate effective-content identity when the
@@ -15,8 +15,14 @@ coverage:
   - 09-EVOLUTION-METABOLISM.md
   - CONSTITUTION-CONCEPT-MAP.md
   - SEMANTIC-GLOSSARY.zh-CN.yaml
+semantic_fixture_set: "../semantic-fixtures.v1.yaml"
+validation:
+  structural_parity: CI_CHECKABLE
+  constitution_id_parity: CI_CHECKABLE
+  behavioral_semantic_conformance: UNPROVEN_PENDING_MODEL_EXPERIMENT
 known_gaps:
   - "Long-tail operational contracts and schemas remain in the canonical authoring language for this candidate."
+  - "Structural parity does not prove equivalent model decisions across English and zh-CN."
 conflict_policy: >
   A material discrepancy is a projection defect, not permission to silently
   choose whichever wording is convenient. Resolve by stable semantic ID,
