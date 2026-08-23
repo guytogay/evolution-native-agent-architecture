@@ -1,4 +1,4 @@
-# 10. Language Portability and Semantic Projection
+# 10. Language Portability and Semantic Projection — v0.3.5
 
 ENA must not depend on English proficiency to remain ENA.
 
@@ -30,7 +30,7 @@ A better semantic rendering is:
 A language projection should declare:
 
 - language tag;
-- source ENA candidate/release identity;
+- source ENA release identity;
 - projection version;
 - covered files/concepts;
 - untranslated/partial areas;
@@ -73,7 +73,7 @@ Use equivalent scenarios in multiple languages and compare whether the model pre
 - continuity;
 - governance closure.
 
-This candidate includes paired English/zh-CN fixtures in:
+v0.3.5 includes paired English/zh-CN fixtures in:
 
 `language-projections/semantic-fixtures.v1.yaml`
 
@@ -95,19 +95,21 @@ Where language can materially affect interpretation, record:
 
 Language change can be an applicability boundary for evidence when it can change a decision.
 
-## 10.6 Supported candidate projections
+## 10.6 Supported release projections
 
-This candidate ships:
+v0.3.5 ships:
 
 - canonical English source;
 - Simplified Chinese (`zh-CN`) hot-path projection.
 
 The Chinese hot-path projection is intentionally smaller than the entire canonical package. Exact cold-path semantics remain reachable by stable IDs.
 
-Current candidate evidence distinguishes:
+Current evidence distinguishes:
 
 - **structural parity** — file/ID/manifest/fixture structure can be mechanically checked;
-- **behavioral semantic conformance** — remains unproven until exercised by a model across the paired language fixtures or equivalent real tasks.
+- **behavioral semantic conformance** — remains unproven universally and must be evidenced by actual model/Host/language experiments.
+
+Prior same-model fixture evidence may support a specific environment but does not become universal cross-model proof merely because v0.3.5 is Current.
 
 > **Translate wording; preserve decisions.**
 >
