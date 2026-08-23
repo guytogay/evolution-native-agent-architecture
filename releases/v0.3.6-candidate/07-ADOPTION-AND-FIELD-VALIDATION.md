@@ -1,52 +1,57 @@
-# 7. Adoption and Field Validation — v0.3.5
+# 7. Candidate Evaluation and Future Field Validation — v0.3.6 Candidate
 
-v0.3.5 treats ENA as a persistent evolutionary operating model, not as a per-task document-retrieval ritual or a string-recording ceremony.
+Status: `WORKING_CANDIDATE / NOT_CURRENT`.
 
-## First adoption
+The actual adopter-facing baseline remains v0.3.5 Current. This document defines how to evaluate the v0.3.6 candidate and what evidence would be needed if it later becomes eligible for field validation.
 
-Establish:
+## Candidate evaluation is not adoption
 
-1. the v0.3.5 telos;
-2. Constitution concept map + binding Constitution;
-3. compact Runtime Kernel;
-4. truthful Compiled Local Projection;
-5. at least one real or explicitly absent Variation Space;
-6. evolution wake path(s);
-7. actual persistence mechanism where available;
-8. minimum sufficient immutable Current source/effective-content identity;
-9. adopted language projection where relevant.
+Do not install the v0.3.6 candidate as the Host's canonical ENA merely because it is newer or because its philosophy sounds attractive.
 
-Do not claim durable adoption merely because the current session read ENA. Do not persist the whole release into always-loaded context.
+For candidate evaluation establish:
 
-## Effective-load evidence
+1. candidate identity from `CANDIDATE-BASELINE.yaml`;
+2. inherited 38-ID Constitution + candidate concept map;
+3. candidate Runtime Kernel;
+4. v0.3.6 ecology semantics in `09-EVOLUTION-METABOLISM.md`;
+5. the actual test Host/model/language/context;
+6. a bounded simulation/Variation Space for any consequential test;
+7. the exact distinction between semantic prose, schema representation, machine guards, executed behavior, and external observation.
 
-Persistence claims may use:
+## Effective-load evidence remains unchanged
+
+Use:
 
 `WRITTEN -> LOADED -> INTERPRETED -> SALIENT -> APPLIED`
 
-Do not skip states by narration. A file written/read back in the same session is evidence of `WRITTEN`, not fresh-session loading/application.
+Do not skip states by narration. Same-session write/readback is not future-session salience/application proof.
 
-Prefer natural fresh-session/task boundaries over fake production tasks.
+The v0.3.6 hot-cue idea particularly needs false-positive and false-negative field evidence:
 
-## Evolution field experiments
+- did the right cue wake the right cold semantics when needed?;
+- did irrelevant tasks stay quiet?;
+- did permanent hot context grow until it defeated the hot/cold architecture?;
+- did a cue merely load text, or did it actually affect the decision correctly?
 
-High-value tests include:
+## High-value v0.3.6 candidate tests
 
-1. **Wake without forced mutation** — event/periodic wake may conclude "no useful candidate."
-2. **Real Variation Space** — meaningful self-change runs without pre-proving improvement.
-3. **Reality-contact selection** — `SUPPORTED/PARTIAL/NOT_SUPPORTED/HARMFUL/UNKNOWN` cannot be manufactured before represented experiment.
-4. **Two state axes** — integration/archive/retirement changes lifecycle without rewriting selection; explicitly test `INTEGRATED+UNKNOWN`, `ARCHIVED+HARMFUL`, and `ARCHIVED+SUPPORTED`.
-5. **Permission mutation** — internal permission topology may change while external mandate does not silently expand.
-6. **Positive migration** — source adaptation transfers with source experiment/evaluation/provenance; receiver obtains a candidate, not local proof.
-7. **Negative migration and local reselection** — source `HARMFUL/NOT_SUPPORTED` remains source negative evidence; receiver may obtain a different local result only after real local experiment/evaluation.
-8. **Packet contradiction and self-asserted trust** — purpose/selection/evaluation/lifecycle inconsistencies are rejected; packet-local digest is not source authentication; `source_authentication` cannot be rewritten into a stronger self-asserted trust claim and accepted by the CLI.
-9. **Positive emergence** — recombination/composition is observed for super-additive/emergent value, not only failure.
-10. **Pruning** — stale/harmful adaptation can leave the active set without erasing occurrence/selection history.
-11. **Governance closure** — represented unresolved state prevents bare READY; review still stops when further checks no longer have a plausible decision-changing path.
-12. **Cross-language conformance** — English/Chinese projections preserve material decisions; structural parity alone is not behavioral proof.
-13. **Effective loaded surface** — persisted kernel enters future decision context without starving local project instructions.
-14. **Continuity vector** — session/model/Host change revalidates affected dimensions rather than forcing metaphysical identity claims.
-15. **Evolution economics** — metabolism should produce useful adaptation faster than it creates maintenance/governance burden.
+1. **Stimulus without forced mutation** — correction/error/success may produce mutation pressure while the system legitimately chooses no mutation.
+2. **Legitimate latent variation** — a cheap, non-active possibility can remain `LATENT + UNASSESSED` without forced experiment/disposition.
+3. **Expression honesty** — stored material cannot become `EXPRESSED` merely by self-asserting a status; expression traces remain distinct from external proof.
+4. **Three-axis consistency** — lifecycle, expression, and selection do not silently upgrade one another.
+5. **Reality-contact selection** — any non-`UNASSESSED` selection remains tied to represented experiment/reality contact under the candidate record semantics.
+6. **Local selection** — success on one Host/user/model remains scoped rather than becoming universal fitness.
+7. **Bad local fitness** — explicitly test an ecology that rewards an undesirable strategy; ENA must not assume reality guarantees moral convergence.
+8. **Commons publisher/receiver autonomy** — publication does not force import/adoption; non-adoption alone does not veto independently authorized publication; publication authority/externality constraints remain real.
+9. **Popularity is not proof** — high propagation/download count cannot substitute for local reality contact where local selection is claimed.
+10. **Dormancy after integration** — an integrated supported capability may sleep between relevant contexts without losing historical selection.
+11. **Rescue outside self-disabling mutation** — when material, a broken candidate can be restored without relying on the broken candidate itself.
+12. **Rescue is not sovereignty** — narrow rescue credentials do not become general mutation approval authority.
+13. **External consequence honesty** — state rollback does not narrate escaped external effects as undone.
+14. **Canonical lineage** — a local fork cannot promote itself to Current by metadata; a future carrier migration must preserve review/freeze/history evidence.
+15. **Ecological minimal intervention** — self-organization is allowed where appropriate without using “无为” to launder unowned externalities.
+16. **Bilingual decision semantics** — run both inherited v1 and new v2 paired English/zh-CN fixtures on actual model/Host conditions.
+17. **Evolution economics** — latent storage, cue routing, rescue, Commons metadata, and governance must earn their ongoing cost.
 
 ## Runtime profiles
 
@@ -54,24 +59,31 @@ Profiles remain task-level governance intensity:
 
 `LITE | STANDARD | HIGH_ASSURANCE | CUSTOM`
 
-Do not infer HIGH_ASSURANCE from "there is a side effect" or LITE from "the diff is small." Profile selection must not determine whether evolution may be considered at all.
+They do not define different ENA knowledge editions, and they do not decide whether variation may exist.
 
-## Tool evidence boundary
+A latent possibility with no active effect may carry almost no runtime governance burden. A small code change that can destroy the only recovery root may deserve stronger governance.
 
-Passing `ena_evolve.py selftest`, `candidate1_adversarial.py`, `candidate2_adversarial.py`, JSON-schema validation, or inherited composed-validator regressions is useful implementation evidence. None proves external evidence truth, mandate validity, recovery reality, source authentication, universal language equivalence, or net field benefit.
+## Machine evidence boundary
 
-`implementation regression preserved != new semantic coverage complete`
+Candidate checks may include:
 
-The candidate-named adversarial files are retained as historical regression fixtures for the validated implementation lineage; their names do not make Current a candidate.
+- `tools/validate_candidate.py`;
+- `tools/validate_evolution_record_v2.py --selftest`;
+- inherited `tools/validate_contracts.py selftest`;
+- inherited `tools/ena_evolve.py selftest`;
+- schema validation;
+- bilingual fixture structure.
 
-## Current field-validation boundary
+Passing these proves only represented structural/semantic consistency within their stated scope. It does not prove external evidence truth, future salience, ecological fitness, moral correctness, authority reality, recovery reality, or independent acceptance.
 
-`FIELD_VALIDATION` means v0.3.5 is the adoption baseline while heterogeneous real-Host evidence continues to accumulate. It does not mean every Host/model/language combination has been proven.
+## Relationship to v0.3.5 field validation
 
-Use issue #61 for post-release evolution-metabolism field findings when GitHub project context is available.
+Issue #61 remains the active post-release field-validation stream for v0.3.5 Current. Starting or validating v0.3.6 does not retroactively convert #61's unresolved evidence into proof.
 
-## Report fields
+v0.3.5 field results may become source evidence for v0.3.6 where applicable, with explicit scope/provenance.
 
-When material, record release identity, Host/model/language/configuration, effective loaded surface, Continuity Vector dimensions, Variation Space, wake trigger, hypothesis, experiments, outcome dimensions, **lifecycle state and selection state separately**, recovery/authority/protected-subject context, migration source/receiver differences and source lineage, composition/emergence observations, persistence evidence state, friction/value/cost, alternatives, and unknowns.
+## If this candidate eventually becomes eligible for field validation
 
-> **Field validation asks whether the metabolism works, not whether the Agent can recite ENA.**
+Only after freeze, falsification/validation, reconciliation, and release decision should a v0.3.6 field-validation claim be opened as a new release evidence stream.
+
+> **Candidate evaluation asks where the ecology breaks, not whether the Agent likes the ecology story.**
