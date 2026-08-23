@@ -1,4 +1,4 @@
-# 8. Release Discipline — v0.3.5 candidate.1
+# 8. Release Discipline — v0.3.5 candidate.2
 
 A deployable ENA adoption version must be self-contained.
 
@@ -10,7 +10,7 @@ One adoption version identifies one immutable effective-content state.
 
 Material change requires a new version/candidate identity. Research/candidates may branch; the adoption target remains singular.
 
-The first frozen v0.3.5 candidate was independently falsified. candidate.1 is therefore a **successor identity**, not an in-place correction to the frozen tree. The predecessor remains evidence.
+The first frozen v0.3.5 candidate was independently falsified. candidate.1 was a successor identity and later received same-falsifier targeted support with residuals. candidate.2 is a second successor identity that closes those concrete release-decision residuals. Neither successor rewrites the frozen predecessor tree.
 
 ## Active adopter-facing status model
 
@@ -31,7 +31,7 @@ A candidate is a variation. It must not promote itself because it is newer, the 
 
 `candidate -> freeze -> independent falsification/validation -> reconciliation -> release decision`
 
-If a frozen candidate needs material correction, create a successor identity such as `candidate.1`; do not silently edit the frozen effective-content tree.
+If a frozen candidate needs material correction, create a successor identity such as `candidate.1` or `candidate.2`; do not silently edit the frozen effective-content tree.
 
 A same-falsifier targeted revalidation may verify specific fixes when labeled honestly; it is not relabeled as a fresh independent validator.
 
