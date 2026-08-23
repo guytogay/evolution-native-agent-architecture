@@ -81,6 +81,28 @@ jobs:
           print('constitution-id-parity-pass', len(en))
           PY
 
+      - name: Check bilingual semantic-fixture structure
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.5-candidate')
+          fixture_path = root/'language-projections/semantic-fixtures.v1.yaml'
+          doc = yaml.safe_load(fixture_path.read_text(encoding='utf-8'))
+          cases = doc.get('cases') or []
+          assert cases, 'no semantic fixtures'
+          ids = set()
+          for case in cases:
+              cid = case['id']
+              assert cid not in ids, f'duplicate fixture id: {cid}'
+              ids.add(cid)
+              assert case.get('en', '').strip(), f'missing English scenario: {cid}'
+              assert case.get('zh-CN', '').strip(), f'missing Chinese scenario: {cid}'
+              assert case.get('semantic_ids'), f'missing semantic IDs: {cid}'
+              assert case.get('expected_properties'), f'missing expected properties: {cid}'
+          print('language-fixture-structure-pass', len(cases))
+          PY
+
       - name: Check candidate baseline and projection pointers
         run: |
           python - <<'PY'
@@ -95,13 +117,18 @@ jobs:
           assert doc['current'] is False
           assert doc['active_mainline_axis'] is False
           assert doc['requires_older_release_composition'] is False
+          assert doc['evolution']['adaptation_packet_schema'] == 'schemas/adaptation-packet.v1.schema.json'
+          assert doc['language']['structural_parity_is_behavioral_conformance'] is False
           for rel in doc['core_files']:
               assert (root/rel).is_file(), f'missing core file: {rel}'
+          assert not (root/'05-V035-OPERATIONAL-EXTENSIONS.md').exists(), 'superseded extension layer returned'
           manifest = yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
           assert manifest['language'] == 'zh-CN'
           assert manifest['source_semantic_version'] == 'v0.3.5-candidate'
+          assert manifest['validation']['behavioral_semantic_conformance'] == 'UNPROVEN_PENDING_MODEL_EXPERIMENT'
           for rel in manifest['coverage']:
               assert (root/'language-projections/zh-CN'/rel).is_file(), f'missing zh-CN file: {rel}'
+          assert (root/'language-projections/semantic-fixtures.v1.yaml').is_file()
           print('candidate-pointer-pass')
           PY
 
