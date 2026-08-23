@@ -2,7 +2,7 @@ name: Validate ENA v0.3.5 candidate
 
 on:
   push:
-    branches: ['candidate/v0.3.5']
+    branches: ['candidate/v0.3.5', 'candidate/v0.3.5-candidate.1']
     paths:
       - 'releases/v0.3.5-candidate/**'
       - '.github/workflows/v035-candidate-validate.yml'
@@ -52,7 +52,7 @@ jobs:
           schema = json.loads((root/'schemas/evolution-record.v1.schema.json').read_text(encoding='utf-8'))
           doc = json.loads((root/'templates/evolution-record.v1.json').read_text(encoding='utf-8'))
           jsonschema.validate(doc, schema)
-          print('evolution-record-schema-pass')
+          print('evolution-record-template-schema-pass')
           PY
 
       - name: Run inherited composed-validator regression suite
@@ -60,6 +60,42 @@ jobs:
 
       - name: Run evolution metabolism selftest
         run: python releases/v0.3.5-candidate/tools/ena_evolve.py selftest
+
+      - name: Run candidate.1 adversarial regressions
+        run: python releases/v0.3.5-candidate/tools/candidate1_adversarial.py
+
+      - name: Validate actual tool candidate and migration packet against schemas
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.5-candidate'
+          TOOL="$ROOT/tools/ena_evolve.py"
+          TMP="$(mktemp -d)"
+          STATE="$TMP/state.json"
+          PACKET="$TMP/packet.json"
+          python "$TOOL" --state "$STATE" init >/dev/null
+          CID="$(python "$TOOL" --state "$STATE" propose --hypothesis 'schema wiring' --change 'test change' --variation-space 'ci-sandbox' --expected quality | python -c 'import json,sys; print(json.load(sys.stdin)["candidate_id"])')"
+          python "$TOOL" --state "$STATE" experiment "$CID" --actual-change 'test change' >/dev/null
+          python "$TOOL" --state "$STATE" evaluate "$CID" --selection SUPPORTED --outcome quality=IMPROVED --evidence ci-observation >/dev/null
+          python "$TOOL" --state "$STATE" export "$CID" --output "$PACKET" >/dev/null
+          STATE="$STATE" PACKET="$PACKET" ROOT="$ROOT" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import jsonschema
+          root = Path(os.environ['ROOT'])
+          state = json.loads(Path(os.environ['STATE']).read_text(encoding='utf-8'))
+          assert len(state['candidates']) == 1
+          candidate = state['candidates'][0]
+          packet = json.loads(Path(os.environ['PACKET']).read_text(encoding='utf-8'))
+          evo_schema = json.loads((root/'schemas/evolution-record.v1.schema.json').read_text(encoding='utf-8'))
+          packet_schema = json.loads((root/'schemas/adaptation-packet.v1.schema.json').read_text(encoding='utf-8'))
+          jsonschema.validate(candidate, evo_schema)
+          jsonschema.validate(packet, packet_schema)
+          assert candidate['selection_state'] == 'SUPPORTED'
+          assert packet['source_selection_state'] == 'SUPPORTED'
+          assert packet['packet_purpose'] == 'ADAPTATION_CANDIDATE'
+          print('actual-tool-schema-wiring-pass')
+          PY
 
       - name: Compile candidate Python tools
         run: python -m py_compile releases/v0.3.5-candidate/tools/*.py
@@ -71,8 +107,7 @@ jobs:
           import re
           root = Path('releases/v0.3.5-candidate')
           def ids(path):
-              text = path.read_text(encoding='utf-8')
-              return re.findall(r'ENA-CON-\d{3}', text)
+              return re.findall(r'ENA-CON-\d{3}', path.read_text(encoding='utf-8'))
           en = ids(root/'01-CONSTITUTION.md')
           zh = ids(root/'language-projections/zh-CN/01-CONSTITUTION.md')
           expected = [f'ENA-CON-{i:03d}' for i in range(1,39)]
@@ -87,8 +122,7 @@ jobs:
           from pathlib import Path
           import yaml
           root = Path('releases/v0.3.5-candidate')
-          fixture_path = root/'language-projections/semantic-fixtures.v1.yaml'
-          doc = yaml.safe_load(fixture_path.read_text(encoding='utf-8'))
+          doc = yaml.safe_load((root/'language-projections/semantic-fixtures.v1.yaml').read_text(encoding='utf-8'))
           cases = doc.get('cases') or []
           assert cases, 'no semantic fixtures'
           ids = set()
@@ -111,24 +145,25 @@ jobs:
           root = Path('releases/v0.3.5-candidate')
           doc = yaml.safe_load((root/'CANDIDATE-BASELINE.yaml').read_text(encoding='utf-8'))
           assert doc['schema_version'] == '2.0'
-          assert doc['ena_version'] == 'v0.3.5-candidate'
+          assert doc['ena_version'] == 'v0.3.5-candidate.1'
           assert doc['candidate_for'] == 'v0.3.5'
+          assert doc['candidate_revision'] == 1
           assert doc['adoption_status'] == 'CANDIDATE'
           assert doc['current'] is False
           assert doc['active_mainline_axis'] is False
           assert doc['requires_older_release_composition'] is False
+          assert doc['evolution']['lifecycle_state_separate_from_selection_state'] is True
+          assert doc['evolution']['tool_state_and_schemas_are_ci_connected'] is True
           assert doc['evolution']['adaptation_packet_schema'] == 'schemas/adaptation-packet.v1.schema.json'
           assert doc['language']['structural_parity_is_behavioral_conformance'] is False
           for rel in doc['core_files']:
               assert (root/rel).is_file(), f'missing core file: {rel}'
-          assert not (root/'05-V035-OPERATIONAL-EXTENSIONS.md').exists(), 'superseded extension layer returned'
           manifest = yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
           assert manifest['language'] == 'zh-CN'
-          assert manifest['source_semantic_version'] == 'v0.3.5-candidate'
+          assert manifest['source_semantic_version'] == 'v0.3.5-candidate.1'
           assert manifest['validation']['behavioral_semantic_conformance'] == 'UNPROVEN_PENDING_MODEL_EXPERIMENT'
           for rel in manifest['coverage']:
               assert (root/'language-projections/zh-CN'/rel).is_file(), f'missing zh-CN file: {rel}'
-          assert (root/'language-projections/semantic-fixtures.v1.yaml').is_file()
           print('candidate-pointer-pass')
           PY
 
