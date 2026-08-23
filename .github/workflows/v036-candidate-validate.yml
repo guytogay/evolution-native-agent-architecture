@@ -1,0 +1,54 @@
+name: ENA v0.3.6 Candidate Validate
+
+on:
+  push:
+    branches:
+      - candidate/v0.3.6-candidate
+    paths:
+      - 'releases/v0.3.6-candidate/**'
+      - 'collaboration/inbox/2026-08-23-v036-**'
+      - '.github/workflows/v036-candidate-validate.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'releases/v0.3.6-candidate/**'
+      - 'collaboration/inbox/2026-08-23-v036-**'
+      - '.github/workflows/v036-candidate-validate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v036-candidate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  candidate-validate:
+    name: v036-candidate-pre-freeze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Run v0.3.6 candidate pre-freeze validator
+        run: python releases/v0.3.6-candidate/tools/validate_candidate.py
+
+      - name: Preserve inherited v0.3.5 contract selftest
+        run: python releases/v0.3.6-candidate/tools/validate_contracts.py selftest
+
+      - name: Explain evidence boundary
+        run: |
+          echo 'PASS means represented candidate structure/identity and inherited selftests are consistent.'
+          echo 'PASS does not prove external evidence truth, future salience, ecological fitness, moral convergence, or independent acceptance.'
