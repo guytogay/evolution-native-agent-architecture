@@ -45,6 +45,8 @@ evolution:
   evolution_record_consistency_validator: "tools/validate_evolution_record_v2.py"
   inherited_evolution_record_schema: "schemas/evolution-record.v1.schema.json"
   adaptation_packet_schema: "schemas/adaptation-packet.v1.schema.json"
+  field_experience_template: "templates/field-experience.v2.yaml"
+  legacy_field_experience_template: "templates/field-experience.v1.yaml"
   event_wake_supported: true
   periodic_idle_wake_supported: true
   universal_wake_cadence_required: false
@@ -61,9 +63,7 @@ evolution:
   expressed_is_applied: false
   applied_is_selected: false
   expression_is_separate_from_lifecycle_and_selection: true
-  expression_states:
-    - LATENT
-    - EXPRESSED
+  expression_states: [LATENT, EXPRESSED]
   expression_may_be_context_triggered: true
   variation_space_required_at_latent_storage_time: false
   variation_space_required_for_consequential_experiment_when_material: true

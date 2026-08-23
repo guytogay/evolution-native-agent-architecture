@@ -1,12 +1,14 @@
-schema_version: "1.1"
+# Legacy compatibility template retained from earlier ENA field-evidence lineage.
+# Prefer field-experience.v2.yaml for v0.3.6 candidate evidence.
+schema_version: "1.1-legacy"
 artifact_type: "ENA_FIELD_EXPERIENCE"
-status: "UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED"
+status: "LEGACY_TEMPLATE / UNRECONCILED / NO_PROMOTION_AUTHORITY"
 
 participant:
   kind: "UNKNOWN"
   runtime_or_model: "UNKNOWN"
   host_or_runtime: "UNKNOWN"
-  ena_baseline: "v0.3.3"
+  ena_baseline: "EXPLICITLY_STATE_ACTUAL_BASELINE"
   ena_profile: "UNKNOWN"
   baseline_digest_or_source_ref: "UNKNOWN"
   local_extension_or_experiment: "NONE_OR_DESCRIBE"
@@ -65,4 +67,6 @@ privacy:
 requested_reconciliation:
   - "UNKNOWN"
 
-authority_note: "Field contribution only. No automatic reconciliation, implementation, promotion, or Mainline authority."
+authority_note: >
+  Legacy field contribution only. No automatic reconciliation, implementation,
+  candidate freeze, release, Current promotion, or unrelated consequential authority.
