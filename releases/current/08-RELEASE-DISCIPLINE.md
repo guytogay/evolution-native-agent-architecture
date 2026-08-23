@@ -1,4 +1,4 @@
-# 8. Release Discipline — v0.3.5 candidate.2
+# 8. Release Discipline — v0.3.5
 
 A deployable ENA adoption version must be self-contained.
 
@@ -10,18 +10,18 @@ One adoption version identifies one immutable effective-content state.
 
 Material change requires a new version/candidate identity. Research/candidates may branch; the adoption target remains singular.
 
-The first frozen v0.3.5 candidate was independently falsified. candidate.1 was a successor identity and later received same-falsifier targeted support with residuals. candidate.2 is a second successor identity that closes those concrete release-decision residuals. Neither successor rewrites the frozen predecessor tree.
+The first frozen v0.3.5 candidate was independently falsified. candidate.1 was a successor identity and later received same-falsifier targeted support with residuals. candidate.2 closed those concrete release-decision residuals and received `NARROW_REVALIDATION_SUPPORTED`. None of those successor identities rewrites the frozen predecessor trees.
 
 ## Active adopter-facing status model
 
-Beginning with v0.3.5, ENA proposes retiring `MAINLINE / NOT_MAINLINE` as an active adopter-facing maturity axis.
+Beginning with v0.3.5, ENA retires `MAINLINE / NOT_MAINLINE` as an active adopter-facing maturity axis.
 
 Adopters need to know:
 
 - **Current** — which singular baseline should be adopted now;
-- **maturity/status** — e.g. `FIELD_VALIDATION`, later another explicitly defined maturity if justified.
+- **maturity/status** — currently `FIELD_VALIDATION`, later another explicitly defined maturity if justified.
 
-Historical `MAINLINE` records remain historical occurrence truth and are not rewritten.
+Historical `MAINLINE` and `NOT_MAINLINE` records remain historical occurrence truth and are not rewritten.
 
 `Git main != ENA Current`
 
@@ -29,15 +29,19 @@ Historical `MAINLINE` records remain historical occurrence truth and are not rew
 
 A candidate is a variation. It must not promote itself because it is newer, the author prefers it, tests pass, or it better matches the current narrative.
 
-`candidate -> freeze -> independent falsification/validation -> reconciliation -> release decision`
+`candidate -> freeze -> independent falsification/validation -> targeted correction/revalidation where needed -> reconciliation -> release decision`
 
 If a frozen candidate needs material correction, create a successor identity such as `candidate.1` or `candidate.2`; do not silently edit the frozen effective-content tree.
 
 A same-falsifier targeted revalidation may verify specific fixes when labeled honestly; it is not relabeled as a fresh independent validator.
 
+Stop creating successor candidates when the decision-changing residual cycle has converged. Visible research residuals are not automatically release blockers.
+
 ## Frozen Current
 
 `releases/current/` remains frozen under one version identity. Do not edit Current in place under an unchanged `ena_version`.
+
+A material Current change requires a new release identity.
 
 ## Source/distribution identity
 
