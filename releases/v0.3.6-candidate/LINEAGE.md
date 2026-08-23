@@ -52,19 +52,42 @@ Canonical parent at candidate start:
 
 10. Twenty-four planned attack classes reconciled and pre-freeze evidence boundary encoded:
     - author self-falsification pass 4 `3dbf38383d75422c4cbfde8b1cd473dc76ecbc73`;
-    - machine-readable pre-freeze evidence/residual status in `CANDIDATE-BASELINE.yaml` at `b620857e9866cd74ee3b70855c3ee3698179b0f9`.
+    - machine-readable pre-freeze evidence/residual status in `CANDIDATE-BASELINE.yaml` at `b620857e9866cd74ee3b70855c3ee3698179b0f9`;
+    - lineage checkpoint `79d4562d7e28888617a4063840f2e68f7b570737`.
+
+11. External pre-freeze machine verification pass 1 tested exact source `79d4562d7e28888617a4063840f2e68f7b570737`:
+    - candidate subtree observed `85b6615bf7bb5f8f36da6b1baa3e3c374066f00b`;
+    - Current subtree observed/preserved `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
+    - final verdict `PREFREEZE_MACHINE_CHECK_FAIL`;
+    - failure preserved in `collaboration/reconciliation/2026-08-23-v036-external-prefreeze-machine-verification-1.md`.
+
+12. Corrections after external pass 1:
+    - candidate-evaluation/adoption boundary made explicit in `AGENT-ADOPTION-INSTRUCTION.md` at `71cc0f72a34fb9448259a9f0fd3fdc49de249b16`;
+    - workflow strengthened to execute the full inherited composed-validator regression suite, in-memory Python compile, and post-validation worktree-clean check at `5026052170cb249ab5b90295ede7d50ad747ed32`;
+    - external failure occurrence record committed at `d6aef1c77792a579238dd3978c1ea7982c923fe8`;
+    - machine-readable revalidation blocker encoded at `ff72b2e073161e0ab38e222b2a1e110a823ae19b`.
 
 Later commits must append to this lineage rather than rewrite frozen predecessor identities.
 
-## Author-side machine evidence currently obtained
+## Machine evidence currently obtained
 
-The exact candidate copies of the v2 consistency validator, v2 schema, and v2 template were replayed together in an isolated local environment:
+Author-side v2 represented-consistency replay:
 
 `EVOLUTION_RECORD_V2_SELFTEST_PASS 10`
 
-This is author-side represented-consistency evidence only, not independent validation.
+External machine pass 1 independently established that source `79d4562d...` had:
 
-Full repository pre-freeze workflow evidence remains unobserved through the currently available GitHub connector path; therefore no freeze has been declared.
+- Current isolation `PASS`;
+- v2 selftest `PASS`;
+- inherited `ena_evolve.py selftest` `PASS`;
+- inherited basic `validate_contracts.py selftest` `PASS`;
+- Python compile `PASS`;
+- post-test worktree `CLEAN`;
+- aggregate `validate_candidate.py` `FAIL` because of a brittle exact-string active-file identity assertion.
+
+The same verifier also identified that the basic contract selftest did not exercise the full retained v2/v2.1 composed regression corpora. The workflow has been strengthened accordingly.
+
+No passing freeze claim is inherited from the failed source. A new exact source must be revalidated.
 
 ## Relationship to v0.3.5 validation
 
@@ -76,7 +99,9 @@ Inherited v0.3.5 residuals N3–N6 remain research/field residuals unless new ev
 
 No frozen candidate identity exists yet.
 
-Freeze requires an explicit source commit and candidate effective-content tree after authoring/self-attack converges. The current machine-readable baseline additionally marks full-repository automated-check evidence as the remaining freeze blocker.
+Freeze requires an explicit source commit and candidate effective-content tree after authoring/self-attack converges. Current blocker:
+
+`EXTERNAL_PREFREEZE_MACHINE_REVALIDATION_PENDING_AFTER_GATE_AND_COVERAGE_CORRECTION`
 
 Once frozen, material correction must use a successor candidate identity rather than editing the frozen tree.
 
