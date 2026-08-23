@@ -1,4 +1,4 @@
-schema_version: "2.2-candidate"
+schema_version: "2.3-candidate"
 ena_version: "v0.3.6-candidate"
 adoption_status: WORKING_CANDIDATE
 maturity: UNVALIDATED_AUTHORING
@@ -24,6 +24,8 @@ lineage:
     - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-2.md"
     - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-3.md"
     - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-4.md"
+  external_prefreeze_machine_verification:
+    - "collaboration/reconciliation/2026-08-23-v036-external-prefreeze-machine-verification-1.md"
   draft_pr: 68
 
 telos:
@@ -137,22 +139,40 @@ author_validation:
   v2_consistency_selftest:
     status: PASS
     cases: 10
-    evidence_scope: "exact candidate validator/schema/template contents replayed together in an isolated local environment"
+    evidence_scope: "exact candidate validator/schema/template contents replayed together in an isolated local environment before external pass 1"
     does_not_prove: "external truth, actual salience/expression, authority, recovery, universal fitness, or independent acceptance"
+  external_prefreeze_machine_pass_1:
+    source_commit: "79d4562d7e28888617a4063840f2e68f7b570737"
+    candidate_tree: "85b6615bf7bb5f8f36da6b1baa3e3c374066f00b"
+    verdict: PREFREEZE_MACHINE_CHECK_FAIL
+    aggregate_validator_exit_code: 1
+    blocking_finding: "active adoption instruction gate required an accidental literal 'not adoption' substring despite truthful DO NOT ADOPT AS CURRENT semantics"
+    current_isolation: PASS
+    v2_selftest: PASS
+    inherited_ena_evolve_selftest: PASS
+    inherited_validate_contracts_basic_selftest: PASS
+    python_compile: PASS
+    post_test_worktree: CLEAN
+  corrections_after_external_pass_1:
+    candidate_evaluation_not_adoption_explicit: true
+    full_inherited_regression_suite_added_to_workflow: true
+    python_compile_added_to_workflow: true
+    post_validation_worktree_clean_check_added_to_workflow: true
   full_repository_prefreeze_validator:
-    status: UNOBSERVED
-    reason: "available GitHub connector exposed no workflow run/status for candidate head or PR merge SHA; isolated shell could not clone GitHub because DNS/network access was unavailable"
+    status: REVALIDATION_PENDING_AFTER_CORRECTION
+    prior_failure_preserved: true
   inherited_v035_contract_regression:
-    status: NOT_REEXECUTED_WITH_OBSERVABLE_FULL_REPOSITORY_EVIDENCE_IN_THIS_PASS
+    status: FULL_REGRESSION_REVALIDATION_PENDING
+    note: "external pass 1 proved only validate_contracts.py basic 10-case selftest; workflow now requires regression_suite.py over retained v1/v2/v2.1 corpora"
   current_isolation:
-    status: OBSERVED_AT_PR_PATH_LEVEL
-    evidence: "PR changed-file surface contains no releases/current/** path; immutable v0.3.5 Current tree remains the declared comparison target"
+    status: OBSERVED_AT_GIT_SUBTREE_LEVEL
+    evidence: "source 79d4562d had releases/current subtree exactly 9c928b4c99ae72e53c89978cf1d10b7ea068c182; corrections did not intentionally edit releases/current and must be rechecked at next exact source"
   freeze_eligible: false
-  freeze_blocker: "FULL_REPOSITORY_AUTOMATED_CHECK_EVIDENCE_NOT_YET_OBTAINED"
+  freeze_blocker: "EXTERNAL_PREFREEZE_MACHINE_REVALIDATION_PENDING_AFTER_GATE_AND_COVERAGE_CORRECTION"
 
 accepted_working_residuals:
   - "expression/mutation-pressure semantics are not yet integrated into inherited tools/ena_evolve.py"
-  - "GitHub Actions full pre-freeze run is not observable through the currently available connector path"
+  - "GitHub Actions run visibility through the connected API remains unreliable; exact checkout machine verification is accepted as the current pre-freeze execution path"
   - "fresh-session cue salience/application remains field evidence, not author proof"
 
 open_research:
