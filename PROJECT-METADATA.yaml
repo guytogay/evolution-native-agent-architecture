@@ -1,4 +1,4 @@
-schema_version: "1.4"
+schema_version: "1.5"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -13,7 +13,9 @@ canonical_state:
   current_adoption_pointer: "releases/current/CURRENT-BASELINE.yaml"
   current_version_and_maturity_must_be_read_from_pointer: true
   infer_current_from_version_number_or_recency: false
-  historical_promoted_baseline: "ENA v0.2.11 MAINLINE"
+  active_mainline_axis: false
+  historical_mainline_labels_are_cold_history: true
+  repository_origin_baseline: "ENA v0.2.11 MAINLINE (historical only)"
 
 entrypoints:
   github: "PROJECT-HUB.md"
@@ -50,18 +52,19 @@ current_validation:
   baseline_pointer: "releases/current/CURRENT-BASELINE.yaml"
   field_use_intended: true
   field_participation_open: true
+  active_tracker: "GitHub Issue #61"
   focus:
-    - "Persistent Runtime Kernel and Compiled Local Projection viability"
-    - "Hot-path versus canonical cold-path retrieval behavior"
-    - "Persistent self-mutation recovery salience"
-    - "Memory-budget, consolidation, truncation, and semantic-drift economics"
-    - "Claim↔Evidence provenance independence and closure"
-    - "Authority/subject/mandate lifecycle"
-    - "Effect identity, retry, replay, failover, cancel, and concurrency semantics"
-    - "Recovery State ≠ Historical Time"
-    - "Capability/Model/Route Binding"
-    - "Local-projection portability"
-    - "Release/distribution parity"
+    - "Whether sustained self-evolution produces real field value"
+    - "Evolution wake without forced mutation"
+    - "Variation Space usefulness under real Host constraints"
+    - "Outcome-based selection after reality contact"
+    - "Lifecycle state kept separate from evidence-backed selection state"
+    - "Migration/reselection without source-history laundering"
+    - "Positive composition and emergence as well as failure detection"
+    - "Governance closure when further checks cannot change the decision"
+    - "WRITTEN -> LOADED -> INTERPRETED -> SALIENT -> APPLIED persistence evidence"
+    - "English / zh-CN decision-semantic portability"
+    - "Evolution economics: adaptation value versus maintenance/governance burden"
     - "Unexpected counterexamples and new variations"
 
 research_checkpoint:
@@ -71,8 +74,8 @@ research_checkpoint:
   capability_id_count: 71
 
 authority_defaults:
-  contribution: "UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED"
-  github_write_means_mainline_authority: false
+  contribution: "UNRECONCILED / NOT_CURRENT / NOT_RELEASED"
+  github_write_means_current_release_authority: false
   review_authority_implies_implementation_authority: false
   field_use_means_project_authority: false
 
@@ -92,6 +95,7 @@ release_policy:
   package_digest_required: true
   mirror_readback_required: true
   version_identity_separate_from_maturity_status: true
+  active_mainline_axis: false
   micro_release_every_issue_by_default: false
   batch_changes_until_release_roi_is_justified: true
   adopters_use_current_only: true
@@ -112,7 +116,7 @@ contribution_policy:
   public_read_access: true
   public_inquiry_allowed: true
   public_issue_and_pr_intake: true
-  contribution_is_promotion: false
+  contribution_is_release: false
   pull_request_is_acceptance: false
   credentials_or_unrelated_secrets_allowed_in_contributions: false
 
