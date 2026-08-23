@@ -144,7 +144,9 @@ A transferable packet should preserve:
 - authority/recovery assumptions where material;
 - known failure modes;
 - transfer unknowns;
-- a content digest so accidental/tampered packet change is detectable.
+- a content digest for internal consistency / accidental-change detection.
+
+A packet-local digest is **not source authentication** and is not an external trust anchor: a party able to rewrite the packet can also recompute the digest. When source identity/authenticity changes a consequential decision, preserve or verify an external provenance/signature/channel/trust anchor appropriate to that decision.
 
 The receiver does **not** inherit local proof by receiving a file.
 
@@ -200,7 +202,7 @@ status
 selftest
 ```
 
-The tool records evolution state/evidence boundaries. It deliberately does not execute arbitrary Host self-mutations, verify external evidence truth, prove authority, prove recovery, or infer that unrepresented blockers do not exist.
+The tool records evolution state/evidence boundaries. It deliberately does not execute arbitrary Host self-mutations, verify external evidence truth, prove authority, prove recovery, authenticate migration source identity, or infer that unrepresented blockers do not exist.
 
 It is intended to be taken, modified, embedded, or replaced by Hosts that can implement the same properties better.
 
