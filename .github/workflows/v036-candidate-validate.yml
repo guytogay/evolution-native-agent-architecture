@@ -50,10 +50,35 @@ jobs:
       - name: Exercise v2 latent/expression consistency attacks
         run: python releases/v0.3.6-candidate/tools/validate_evolution_record_v2.py --selftest
 
-      - name: Preserve inherited v0.3.5 contract selftest
-        run: python releases/v0.3.6-candidate/tools/validate_contracts.py selftest
+      - name: Preserve inherited composed-validator regression corpus
+        run: python releases/v0.3.6-candidate/tools/regression_suite.py
+
+      - name: Compile candidate Python tools without writing pyc
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('releases/v0.3.6-candidate/tools')
+          files = sorted(root.glob('*.py'))
+          failed = []
+          for path in files:
+              try:
+                  compile(path.read_text(encoding='utf-8'), str(path), 'exec')
+              except Exception as exc:
+                  failed.append((str(path), repr(exc)))
+          print(f'PYTHON_COMPILE_TOTAL {len(files)}')
+          print(f'PYTHON_COMPILE_FAILED {len(failed)}')
+          for path, exc in failed:
+              print(path, exc)
+          if failed:
+              raise SystemExit(1)
+          PY
+
+      - name: Verify validation did not dirty repository
+        run: |
+          git status --porcelain
+          test -z "$(git status --porcelain)"
 
       - name: Explain evidence boundary
         run: |
-          echo 'PASS means represented candidate structure/identity and inherited selftests are consistent.'
-          echo 'PASS does not prove external evidence truth, future salience, ecological fitness, moral convergence, or independent acceptance.'
+          echo 'PASS means represented candidate structure/identity, v2 consistency, inherited composed-validator regression, tool syntax, and Current isolation are consistent within this workflow.'
+          echo 'PASS does not prove external evidence truth, future salience, ecological fitness, moral convergence, authority/recovery reality, or independent semantic acceptance.'
