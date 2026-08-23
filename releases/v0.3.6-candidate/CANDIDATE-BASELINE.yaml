@@ -1,4 +1,4 @@
-schema_version: "2.3-candidate"
+schema_version: "2.4-candidate"
 ena_version: "v0.3.6-candidate"
 adoption_status: WORKING_CANDIDATE
 maturity: UNVALIDATED_AUTHORING
@@ -26,6 +26,7 @@ lineage:
     - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-4.md"
   external_prefreeze_machine_verification:
     - "collaboration/reconciliation/2026-08-23-v036-external-prefreeze-machine-verification-1.md"
+    - "collaboration/reconciliation/2026-08-24-v036-external-prefreeze-machine-revalidation-2.md"
   draft_pr: 68
 
 telos:
@@ -153,26 +154,48 @@ author_validation:
     inherited_validate_contracts_basic_selftest: PASS
     python_compile: PASS
     post_test_worktree: CLEAN
-  corrections_after_external_pass_1:
-    candidate_evaluation_not_adoption_explicit: true
-    full_inherited_regression_suite_added_to_workflow: true
-    python_compile_added_to_workflow: true
-    post_validation_worktree_clean_check_added_to_workflow: true
+  external_prefreeze_machine_pass_2:
+    source_commit: "9e9589126d896cd580a2fc04090b9957208ce779"
+    candidate_tree: "169e33787df90f860e76bef3ad083b33b90b824d"
+    verdict: PREFREEZE_MACHINE_REVALIDATION_FAIL
+    aggregate_validator_exit_code: 1
+    blocking_finding: "next previously unreachable LITE identity sentinel required literal 'not an adoption baseline' despite truthful candidate-only / NOT CURRENT semantics"
+    current_isolation: PASS
+    first_pass_e1_correction: PASS
+    v2_selftest: PASS
+    inherited_ena_evolve_selftest: PASS
+    inherited_full_regression:
+      status: PASS
+      migrated_v032: "10/10"
+      inherited_v2: "164/164"
+      closure_v21: "61/61"
+      total: "235/235"
+      unexpected_verdicts: 0
+      uncaught_exceptions: 0
+    python_compile: PASS_7_OF_7
+    github_actions_exact_head: FAIL_AT_AGGREGATE_VALIDATOR
+    tracked_worktree_after_tests: CLEAN
+    ignored_bytecode_artifact_observed: true
+  corrections_after_external_pass_2:
+    lite_candidate_surface_explicitly_not_adoption_baseline: true
+    python_bytecode_disabled_in_workflow: true
+    workflow_explicitly_rejects_pycache_and_pyc: true
+    second_failure_occurrence_preserved: true
   full_repository_prefreeze_validator:
-    status: REVALIDATION_PENDING_AFTER_CORRECTION
-    prior_failure_preserved: true
+    status: THIRD_EXTERNAL_REVALIDATION_PENDING
+    prior_failures_preserved: true
   inherited_v035_contract_regression:
-    status: FULL_REGRESSION_REVALIDATION_PENDING
-    note: "external pass 1 proved only validate_contracts.py basic 10-case selftest; workflow now requires regression_suite.py over retained v1/v2/v2.1 corpora"
+    status: PASS_ON_EXTERNAL_SOURCE_9E958912
+    total: "235/235"
+    note: "complete retained v1/v2/v2.1 composed regression passed with zero unexpected verdicts and zero uncaught exceptions"
   current_isolation:
     status: OBSERVED_AT_GIT_SUBTREE_LEVEL
-    evidence: "source 79d4562d had releases/current subtree exactly 9c928b4c99ae72e53c89978cf1d10b7ea068c182; corrections did not intentionally edit releases/current and must be rechecked at next exact source"
+    evidence: "both external sources preserved releases/current exactly at 9c928b4c99ae72e53c89978cf1d10b7ea068c182; next exact source must be rechecked"
   freeze_eligible: false
-  freeze_blocker: "EXTERNAL_PREFREEZE_MACHINE_REVALIDATION_PENDING_AFTER_GATE_AND_COVERAGE_CORRECTION"
+  freeze_blocker: "EXTERNAL_PREFREEZE_MACHINE_REVALIDATION_PENDING_AFTER_SECOND_FALSE_BLOCK_AND_BYTECODE_CORRECTION"
 
 accepted_working_residuals:
   - "expression/mutation-pressure semantics are not yet integrated into inherited tools/ena_evolve.py"
-  - "GitHub Actions run visibility through the connected API remains unreliable; exact checkout machine verification is accepted as the current pre-freeze execution path"
   - "fresh-session cue salience/application remains field evidence, not author proof"
 
 open_research:
