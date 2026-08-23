@@ -1,6 +1,6 @@
-# Agent Adoption Instruction — v0.3.5 candidate.2
+# Agent Adoption Instruction — v0.3.5 Current
 
-Use this only when intentionally validating/adopting v0.3.5 candidate.2. Do not infer that it is Current.
+Use this when intentionally adopting the Current ENA v0.3.5 baseline from `releases/current/`.
 
 ## Goal
 
@@ -12,7 +12,7 @@ The intended telos is:
 
 ## Required work
 
-1. Identify candidate.2's minimum sufficient immutable effective-content identity.
+1. Read `CURRENT-BASELINE.yaml` and identify the minimum sufficient immutable effective-content identity actually used.
 2. Read `00-READ-ME-FIRST.md`.
 3. Use `CONSTITUTION-CONCEPT-MAP.yaml` as the cognitive map, then read the binding `01-CONSTITUTION.md`.
 4. Read `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`.
@@ -28,7 +28,7 @@ The intended telos is:
 
 ## What not to do
 
-- do not treat a version label or repository HEAD as immutable effective-content identity;
+- do not treat a human-readable version label, mutable branch, or repository HEAD alone as immutable effective-content identity;
 - do not paste the full release into permanent context merely to "remember ENA";
 - do not delete universal invariants because they are inconvenient;
 - do not treat internal permission mutation as external mandate;
@@ -41,7 +41,8 @@ The intended telos is:
 - do not force HIGH_ASSURANCE merely because there is a side effect;
 - do not keep reviewing after further checks cannot plausibly change the decision;
 - do not treat composition only as a risk search; look for positive emergence too;
-- do not upgrade reference-tool JSON into proof of external evidence, authority, recovery, or source identity.
+- do not upgrade reference-tool JSON into proof of external evidence, authority, recovery, or source identity;
+- do not repeat release-author packaging ceremony merely to use Current.
 
 ## Report honestly
 
