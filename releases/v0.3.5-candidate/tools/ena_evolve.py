@@ -136,12 +136,28 @@ def packet_consistency_error(packet: dict[str, Any]) -> str | None:
     expected = packet_purpose_for(source_selection)
     if purpose != expected:
         return f"packet_purpose/source_selection_state contradiction: {purpose} != {expected}"
+    experiments = packet.get("source_experiments") or []
     evaluations = packet.get("source_evaluations") or []
     if source_selection != "UNASSESSED":
+        if not experiments:
+            return f"source_selection_state {source_selection} requires source_experiments"
         if not evaluations:
             return f"source_selection_state {source_selection} requires source_evaluations"
-        if evaluations[-1].get("selection") != source_selection:
+        latest = evaluations[-1]
+        if latest.get("selection") != source_selection:
             return "latest source evaluation does not match source_selection_state"
+        outcomes = latest.get("outcomes") or {}
+        evidence = latest.get("evidence_refs") or []
+        if source_selection != "UNKNOWN":
+            if not outcomes:
+                return f"source_selection_state {source_selection} requires represented outcomes"
+            if not evidence:
+                return f"source_selection_state {source_selection} requires evidence references"
+        values = set(outcomes.values())
+        if source_selection in POSITIVE_SELECTION and "IMPROVED" not in values:
+            return f"source_selection_state {source_selection} requires an IMPROVED outcome"
+        if source_selection == "HARMFUL" and "DEGRADED" not in values:
+            return "source_selection_state HARMFUL requires a DEGRADED outcome"
     return None
 
 def cmd_init(args: argparse.Namespace) -> None:
@@ -446,11 +462,17 @@ def cmd_selftest(_args: argparse.Namespace) -> None:
             validate_packet(contradictory); raise AssertionError("contradictory packet accepted")
         except SystemExit:
             pass
+        no_source_exp = dict(packet); no_source_exp["source_experiments"] = []
+        no_source_exp.pop("content_sha256"); no_source_exp["content_sha256"] = canonical_digest(no_source_exp)
+        try:
+            validate_packet(no_source_exp); raise AssertionError("selected packet without source experiment accepted")
+        except SystemExit:
+            pass
         state_file = root / "state.json"; state = empty_state()
         state["candidates"] = [{**base, "candidate_id": "var-open", "selection_state": "UNASSESSED", "evaluations": []}]
         atomic_write(state_file, state)
         assert closure_state_obligations(load_state(state_file), None)
-        print_json({"selftest": "PASS", "schema_version": STATE_VERSION, "cases": 6})
+        print_json({"selftest": "PASS", "schema_version": STATE_VERSION, "cases": 7})
     finally:
         shutil.rmtree(root, ignore_errors=True)
 
