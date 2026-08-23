@@ -1,8 +1,8 @@
-# 进化原生智能体架构（ENA）— v0.3.5 candidate.2 候选版
+# 进化原生智能体架构（ENA）— v0.3.5 当前正式采用版本
 
-状态：**候选版 / 现场验证阶段 / 非 Current**
+状态：**CURRENT（当前正式采用） / FIELD_VALIDATION（现场验证阶段） / COMPLETE_ADOPTION_BASELINE（完整采用基线）**
 
-这不是当前正式采用版本（Current）。第一版 v0.3.5 冻结候选被独立反证要求修订；candidate.1 随后通过同一反证者的针对性复验，但仍留下少量 residual（剩余问题）。candidate.2 只关闭这些 release decision（发布决策）前不值得保留的小漏洞，不改变 38 条宪法和 v0.3.5 的总体进化方向。
+这是当前唯一应被采用的 ENA v0.3.5 基线。它来自被冻结并通过窄范围剩余问题复验的 candidate.2；历史 candidate.1 / candidate.2 只是发布谱系，不是并行可选版本。
 
 ## 1. 先理解 ENA 为什么存在
 
@@ -22,15 +22,16 @@
 
 建议顺序：
 
-1. 本文件；
-2. `CONSTITUTION-CONCEPT-MAP.md` —— 先看 38 条宪法的概念地图；
-3. `01-CONSTITUTION.md` —— 读取完整、具有约束力的 38 条规则；
-4. `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`；
-5. `RUNTIME-ADOPTION-KERNEL.md`；
-6. `09-EVOLUTION-METABOLISM.md`；
-7. 根据 Host 的真实持久化机制，保存最小充分的运行内核和本地投影；
-8. 记录你真正编译/采用所依据的**最小充分不可变有效内容身份**，不要用“仓库最新 HEAD”代替；
-9. 只声称你真正验证过的持久化边界。
+1. `CURRENT-BASELINE.yaml` —— 确认 v0.3.5 的 Current 身份；
+2. 本文件；
+3. `CONSTITUTION-CONCEPT-MAP.md` —— 先看 38 条宪法的概念地图；
+4. `01-CONSTITUTION.md` —— 读取完整、具有约束力的 38 条规则；
+5. `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`；
+6. `RUNTIME-ADOPTION-KERNEL.md`；
+7. `09-EVOLUTION-METABOLISM.md`；
+8. 根据 Host 的真实持久化机制，保存最小充分的运行内核和本地投影；
+9. 记录你真正编译/采用所依据的**最小充分不可变有效内容身份**，不要只用“仓库最新 HEAD”或一个可变分支名代替；
+10. 只声称你真正验证过的持久化边界。
 
 不要为了“记住 ENA”而把整个版本塞进永久上下文。
 
@@ -40,11 +41,7 @@
 
 38 个 `ENA-CON-*` 编号全部继续有效。
 
-概念地图负责告诉 Agent：
-
-> 这是什么类型的问题？应该去找哪几条？
-
-运行内核负责让 Agent 在日常工作里保留少量关键区分和触发条件。
+概念地图负责告诉 Agent“这是什么类型的问题，应该去找哪几条”；运行内核负责让 Agent 在日常工作里保留少量关键区分和触发条件。
 
 真正出现重要、陌生或有歧义的边界时，再按稳定编号读取准确条文。
 
@@ -98,7 +95,7 @@ Agent 的内部权限结构、提示词、记忆策略、技能、模型、路�
 
 来源的 HARMFUL / NOT_SUPPORTED 不能因为跨 Host 就被洗成正向适应；但接收方允许在自己的真实变异空间里重新实验。如果新的本地现实得到不同结果，可以形成新的本地选择，同时保留来源负面证据谱系。
 
-包内 digest（摘要）只能帮助检查包内一致性，不能认证来源。candidate.2 进一步把 `source_authentication` 固定为 `NOT_AUTHENTICATED_BY_THIS_PACKET`，CLI 会拒绝把这个字段自行改成 “TOTALLY_TRUSTED” 一类更强的自我认证说法。
+包内 digest（摘要）只能帮助检查包内一致性，不能认证来源。v0.3.5 参考工具把 `source_authentication` 固定为 `NOT_AUTHENTICATED_BY_THIS_PACKET`，CLI 会拒绝把这个字段自行改成 `TOTALLY_TRUSTED` 一类更强的自我认证说法。
 
 这样可以加速群体进化，而不是把迁移变成复制结论。
 
@@ -126,9 +123,17 @@ ENA 不要求先回答这个哲学问题。
 
 `ENA-CON-*` 等稳定语义编号与英文完全相同。
 
-中文翻译的目标不是逐字相同，而是让中文模型面对同一个问题时得到等价的关键判断。
+中文投影的目标不是逐字相同，而是让中文模型面对同一个问题时得到等价的关键判断。
 
 如果中文投影与源语义出现实质冲突，要把它当成翻译/投影缺陷，而不是挑一个自己喜欢的版本。
+
+结构一致、编号一致，不自动等于不同模型/Host 的行为语义已经得到普遍验证。
+
+## 11. Current 与历史
+
+普通采用只使用 `releases/current/`。candidate.1、candidate.2 和以前的 release 是冷路径历史证据。
+
+从 v0.3.5 开始，`MAINLINE / NOT_MAINLINE` 不再作为当前采用者需要判断的活跃成熟度轴；历史记录里的这些词仍然保留原样。
 
 > **先允许变化发生，再让现实选择。**
 >
