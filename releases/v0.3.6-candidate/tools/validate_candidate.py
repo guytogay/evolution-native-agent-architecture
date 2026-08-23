@@ -41,6 +41,7 @@ def check_candidate_identity() -> None:
     require(doc["evolution"]["evolution_record_schema"] == "schemas/evolution-record.v2.schema.json", "candidate must point to record v2")
     require(doc["evolution"]["field_experience_template"] == "templates/field-experience.v2.yaml", "candidate must point to field template v2")
     require(doc["machine_boundary"]["expression_schema_present"] is True, "expression schema missing")
+    require(doc["machine_boundary"]["expression_consistency_validator_present"] is True, "expression consistency validator missing")
     require(doc["machine_boundary"]["expression_tool_implementation_present"] is False, "false expression-tool claim")
     require(doc["machine_boundary"]["mutation_pressure_tool_implementation_present"] is False, "false mutation-pressure tool claim")
     print("candidate-identity-pass")
@@ -59,6 +60,27 @@ def check_constitution_ids() -> None:
     ids = sorted(set(re.findall(r"ENA-CON-\d{3}", text)))
     require(len(ids) == 38 and ids[0] == "ENA-CON-001" and ids[-1] == "ENA-CON-038", f"bad Constitution IDs: {len(ids)}")
     print("constitution-id-pass", len(ids))
+
+
+def check_active_file_identity() -> None:
+    files = {
+        "00": (ROOT / "00-READ-ME-FIRST.md").read_text(encoding="utf-8"),
+        "04": (ROOT / "04-CAPABILITY-MAP.md").read_text(encoding="utf-8"),
+        "05": (ROOT / "05-CORE-OPERATIONAL-CONTRACTS.md").read_text(encoding="utf-8"),
+        "07": (ROOT / "07-ADOPTION-AND-FIELD-VALIDATION.md").read_text(encoding="utf-8"),
+        "agent": (ROOT / "AGENT-ADOPTION-INSTRUCTION.md").read_text(encoding="utf-8"),
+        "lite": (ROOT / "LITE-ADOPTION-INSTRUCTION.md").read_text(encoding="utf-8"),
+        "zh-constitution": (ROOT / "language-projections/zh-CN/01-CONSTITUTION.md").read_text(encoding="utf-8"),
+    }
+    require("WORKING_CANDIDATE" in files["00"] and "NOT_CURRENT" in files["00"], "candidate entrypoint missing identity warning")
+    require("v0.3.5 candidate adds" not in files["04"] and "For v0.3.5 candidate additions" not in files["04"], "capability map leaks predecessor candidate identity")
+    require("single active operational-contract surface for the v0.3.5 candidate" not in files["05"], "operational contracts leak predecessor candidate identity")
+    require("does not prove the entire v0.3.5 candidate correct" not in files["05"], "operational validator boundary names wrong candidate")
+    require("WORKING_CANDIDATE" in files["07"] and "NOT_CURRENT" in files["07"], "candidate evaluation file missing candidate boundary")
+    require("Candidate Evaluation" in files["agent"] and "not adoption" in files["agent"].lower(), "agent instruction still behaves like Current adoption")
+    require("v0.3.6 Candidate" in files["lite"] and "not an adoption baseline" in files["lite"], "LITE file still behaves like released adoption instruction")
+    require("v0.3.6 候选版" in files["zh-constitution"] and "v0.3.5 Current" in files["zh-constitution"], "zh-CN Constitution projection identity is ambiguous")
+    print("active-file-identity-pass", len(files))
 
 
 def check_expression_schema() -> None:
@@ -124,6 +146,11 @@ def check_semantic_boundaries() -> None:
     print("semantic-boundary-presence-pass", len(checks))
 
 
+def check_v2_consistency_selftest() -> None:
+    subprocess.run([sys.executable, str(ROOT / "tools/validate_evolution_record_v2.py"), "--selftest"], cwd=REPO, check=True)
+    print("v2-consistency-selftest-pass")
+
+
 def check_inherited_tool_boundary_and_selftest() -> None:
     tool = (ROOT / "tools/ena_evolve.py").read_text(encoding="utf-8")
     require('STATE_VERSION = "1.2"' in tool, "inherited tool unexpectedly changed state version")
@@ -136,10 +163,12 @@ def main() -> None:
     check_candidate_identity()
     check_current_untouched()
     check_constitution_ids()
+    check_active_file_identity()
     check_expression_schema()
     check_bilingual_projection()
     check_field_templates()
     check_semantic_boundaries()
+    check_v2_consistency_selftest()
     check_inherited_tool_boundary_and_selftest()
     print("V036_WORKING_CANDIDATE_PREFREEZE_VALIDATION_PASS")
 
