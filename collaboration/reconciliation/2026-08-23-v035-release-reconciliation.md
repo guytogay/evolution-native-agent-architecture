@@ -64,13 +64,10 @@ Release merge commit:
 
 `a18ec89d0be3a9fbd872306aa2914a05adae5e62`
 
-The merge commit is GitHub-verified and has parents:
+The merge commit is GitHub-verified and its actual Git-object parents are:
 
-- previous main: `9d84e179aae9f5c96d97c526f250f3e5a2c91bfa3` is NOT asserted here; actual first parent is recorded below from Git object evidence;
-- actual first parent: `9d84e179aae9f5f5d8dbabc7be56dee4ae2f8724`
+- previous main: `9d84e179aae9f5f5d8dbabc7be56dee4ae2f8724`
 - release head: `502e4ee635d98c230c94e66112e215ef45d4579f`
-
-The accidental-looking non-assertion above is retained explicitly to make clear that release evidence uses the actual Git object, not recalled SHAs.
 
 ## Exact Current identity
 
