@@ -1,0 +1,117 @@
+name: Validate ENA v0.3.5 candidate
+
+on:
+  push:
+    branches: ['candidate/v0.3.5']
+    paths:
+      - 'releases/v0.3.5-candidate/**'
+      - '.github/workflows/v035-candidate-validate.yml'
+  pull_request:
+    paths:
+      - 'releases/v0.3.5-candidate/**'
+      - '.github/workflows/v035-candidate-validate.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Parse candidate YAML and JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.5-candidate')
+          for p in sorted(root.rglob('*.json')):
+              json.loads(p.read_text(encoding='utf-8'))
+              print('json-parse-pass', p)
+          for p in sorted(root.rglob('*.yaml')):
+              yaml.safe_load(p.read_text(encoding='utf-8'))
+              print('yaml-parse-pass', p)
+          PY
+
+      - name: Validate evolution-record template against schema
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import jsonschema
+          root = Path('releases/v0.3.5-candidate')
+          schema = json.loads((root/'schemas/evolution-record.v1.schema.json').read_text(encoding='utf-8'))
+          doc = json.loads((root/'templates/evolution-record.v1.json').read_text(encoding='utf-8'))
+          jsonschema.validate(doc, schema)
+          print('evolution-record-schema-pass')
+          PY
+
+      - name: Run inherited composed-validator regression suite
+        run: python releases/v0.3.5-candidate/tools/regression_suite.py
+
+      - name: Run evolution metabolism selftest
+        run: python releases/v0.3.5-candidate/tools/ena_evolve.py selftest
+
+      - name: Compile candidate Python tools
+        run: python -m py_compile releases/v0.3.5-candidate/tools/*.py
+
+      - name: Check Constitution identity parity across English and Chinese
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('releases/v0.3.5-candidate')
+          def ids(path):
+              text = path.read_text(encoding='utf-8')
+              return re.findall(r'ENA-CON-\d{3}', text)
+          en = ids(root/'01-CONSTITUTION.md')
+          zh = ids(root/'language-projections/zh-CN/01-CONSTITUTION.md')
+          expected = [f'ENA-CON-{i:03d}' for i in range(1,39)]
+          assert en == expected, ('English Constitution IDs differ', en)
+          assert zh == expected, ('Chinese Constitution IDs differ', zh)
+          print('constitution-id-parity-pass', len(en))
+          PY
+
+      - name: Check candidate baseline and projection pointers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.5-candidate')
+          doc = yaml.safe_load((root/'CANDIDATE-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['schema_version'] == '2.0'
+          assert doc['ena_version'] == 'v0.3.5-candidate'
+          assert doc['candidate_for'] == 'v0.3.5'
+          assert doc['adoption_status'] == 'CANDIDATE'
+          assert doc['current'] is False
+          assert doc['active_mainline_axis'] is False
+          assert doc['requires_older_release_composition'] is False
+          for rel in doc['core_files']:
+              assert (root/rel).is_file(), f'missing core file: {rel}'
+          manifest = yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert manifest['language'] == 'zh-CN'
+          assert manifest['source_semantic_version'] == 'v0.3.5-candidate'
+          for rel in manifest['coverage']:
+              assert (root/'language-projections/zh-CN'/rel).is_file(), f'missing zh-CN file: {rel}'
+          print('candidate-pointer-pass')
+          PY
+
+      - name: Check evolution telos is present but Current is untouched
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          text = (Path('releases/v0.3.5-candidate')/'README.md').read_text(encoding='utf-8')
+          assert 'ENA exists to make sustained self-evolution viable.' in text
+          cur = Path('releases/current/CURRENT-BASELINE.yaml').read_text(encoding='utf-8')
+          assert 'ena_version: v0.3.4' in cur or 'ena_version: "v0.3.4"' in cur
+          print('candidate-isolation-pass')
+          PY
