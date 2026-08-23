@@ -50,7 +50,7 @@ def run_fixture_file(path: Path, label: str):
 
 def main() -> int:
     print("=" * 100)
-    print("V0.3.5-CANDIDATE.1 INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
+    print("V0.3.5-CANDIDATE.2 INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
     print("=" * 100)
 
     v1 = run_fixture_file(FIXTURES_V1, "migrated v0.3.2 selftests")
