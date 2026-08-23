@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/adaptation-packet.v1.schema.json",
+  "title": "ENA Adaptation Migration Packet v1",
+  "type": "object",
+  "required": [
+    "packet_schema",
+    "exported_at",
+    "packet_purpose",
+    "source_candidate_id",
+    "source_status",
+    "source_environment",
+    "source_evaluations",
+    "unknowns",
+    "transfer_status",
+    "content_sha256"
+  ],
+  "properties": {
+    "packet_schema": {"const": "ena-adaptation-packet.v1"},
+    "exported_at": {"type": "string", "minLength": 1},
+    "packet_purpose": {
+      "enum": ["ADAPTATION_CANDIDATE", "NEGATIVE_EVIDENCE", "UNRESOLVED_VARIATION"]
+    },
+    "source_candidate_id": {"type": "string", "minLength": 1},
+    "source_origin": {"type": ["string", "null"]},
+    "source_status": {"type": "string", "minLength": 1},
+    "hypothesis": {"type": ["string", "null"]},
+    "change": {"type": ["string", "null"]},
+    "expected_outcomes": {"type": "array", "items": {"type": "string"}},
+    "source_variation_space": {"type": ["string", "null"]},
+    "evolutionary_subject": {"type": ["string", "null"]},
+    "protected_subjects": {"type": "array", "items": {"type": "string"}},
+    "source_environment": {"type": "object"},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "source_evaluations": {"type": "array", "items": {"type": "object"}},
+    "source_integration": {"type": ["object", "null"]},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "transfer_status": {"const": "TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF"},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": false
+}
