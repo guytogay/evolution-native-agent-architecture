@@ -1,4 +1,4 @@
-# LITE Adoption / Runtime Instruction — v0.3.5 candidate.2
+# LITE Adoption / Runtime Instruction — v0.3.5
 
 LITE means low ceremony for a bounded consequence envelope. It is not a reduced Constitution and not "no evolution."
 
