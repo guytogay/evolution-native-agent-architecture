@@ -1,8 +1,6 @@
-# 9. Evolution Metabolism
+# 9. Evolution Metabolism — v0.3.5 candidate.1
 
-This document turns ENA's evolutionary purpose into an actionable reference loop.
-
-It is a reference mechanism, not a mandatory universal implementation.
+This document turns ENA's evolutionary purpose into an actionable reference loop. It is a reference mechanism, not a mandatory universal implementation.
 
 ## 9.1 The metabolism
 
@@ -14,9 +12,9 @@ A viable evolutionary system needs these functions:
 4. **Experiment** — let candidates meet reality inside a suitable Variation Space.
 5. **Evaluate** — record observed outcomes, counterevidence, unknowns, and tradeoffs.
 6. **Select** — retain, adapt, retry, reject, or keep unknown.
-7. **Integrate** — move a selected adaptation into intended persistent/shared state when the actual authority/consequence boundary permits it.
-8. **Prune** — archive, dormant, retire, replace, or lawfully delete stale/harmful adaptive material.
-9. **Migrate/Recombine** — share evidence-bearing adaptations/negative evidence and combine them into new variation.
+7. **Integrate** — move a selected or explicitly unresolved variation into intended persistent/shared state when the actual authority/consequence boundary permits it.
+8. **Prune** — archive, retire, replace, or lawfully delete stale/harmful adaptive material without rewriting its selection history.
+9. **Migrate/Recombine** — share source experiments/evaluations/adaptations/negative evidence and combine them into new variation.
 10. **Repeat** — selected adaptations change the next search space.
 
 A Host lacking one function may still evolve, but should not narrate the missing function as present.
@@ -25,25 +23,19 @@ A Host lacking one function may still evolve, but should not narrate the missing
 
 `experiment != integration`
 
-`source adaptation != receiver proof`
+`lifecycle state != selection state`
+
+`source result != receiver proof`
 
 ## 9.2 Wake policy
 
-Use both kinds where useful.
+Use event wake and, where useful, a periodic/idle fallback.
 
-### Event wake
-
-Typical signals:
+Typical event signals:
 
 `USER_CORRECTION | REPEATED_FAILURE | FRICTION | CONTRADICTION | REPEATED_SUCCESS | CAPABILITY_CHANGE | ENVIRONMENT_CHANGE | OPPORTUNITY | STALE_ADAPTATION`
 
-Event wake should be cheap enough that useful learning signals are not lost.
-
-### Periodic/idle wake
-
-Periodic review is a fallback against slow drift and missed patterns.
-
-ENA does not mandate a universal number of turns, hours, or days. The Host should choose a cadence proportionate to task tempo, cost, memory pressure, environmental change, dormancy, and the value of missed adaptation opportunities.
+ENA does not mandate a universal number of turns, hours, or days. A Host chooses cadence proportionate to task tempo, cost, memory pressure, environmental change, dormancy, and the value of missed adaptation opportunities.
 
 **The timer triggers review, not mandatory mutation.**
 
@@ -55,136 +47,123 @@ A Variation Space answers:
 
 > Where can this uncertain change become real enough to learn from without requiring us to already know it is good?
 
-Examples include a branch/fork, sandbox, disposable VM/container, shadow execution, canary scope, test Agent, reversible local preference/configuration, isolated skill version, or simulation/replay environment.
+Examples include a branch/fork, sandbox, disposable VM/container, shadow execution, canary scope, test Agent, reversible local configuration, isolated skill version, or simulation/replay environment.
 
-The space may permit meaningful internal permission/capability changes. The boundary should identify:
+The space may permit meaningful internal permission/capability changes. Its boundary should expose what may change, who/what bears consequence, what escapes, recovery/cleanup reality, and what external authority remains required.
 
-- what may change;
-- who/what can bear consequence;
-- what escapes the experiment;
-- recovery/cleanup reality;
-- what external authority still remains required.
+A Variation Space is not automatically risk-free. It is a deliberately bounded place where uncertainty can contact reality.
 
-A Variation Space is not automatically a risk-free space. It is a deliberately bounded place where uncertainty can contact reality.
+## 9.4 Candidate record: two independent state axes
 
-## 9.4 Candidate record
+candidate.1 separates **lifecycle state** from **evidence-backed selection state**.
 
-A useful candidate states:
+Lifecycle:
 
-- signal(s) that motivated it;
-- hypothesis;
-- proposed change;
-- expected outcome dimensions;
-- Variation Space;
-- Evolutionary Subject where decision-relevant;
-- Protected Subjects;
-- source environment;
-- dependencies;
-- material unknowns;
-- how results will be observed.
+`PROPOSED | EXPERIMENTED | INTEGRATED | ARCHIVED | RETIRED`
 
-Do not require a prediction of universal goodness.
+Selection:
+
+`UNASSESSED | SUPPORTED | PARTIAL | NOT_SUPPORTED | HARMFUL | UNKNOWN`
+
+Examples:
+
+- `INTEGRATED + UNKNOWN` means a bounded unresolved variation was integrated; integration did not prove improvement.
+- `ARCHIVED + HARMFUL` means it left the active set but remains harmful evidence.
+- `ARCHIVED + SUPPORTED` means a previously supported adaptation is no longer active; archival does not negate its historical selection result.
+
+A useful record also preserves hypothesis, change, expected outcome dimensions, Variation Space, relevant Evolutionary/Protected Subjects, environment, dependencies, unknowns, experiments, evaluations, integration history, and migration provenance.
 
 ## 9.5 Evaluation and selection
 
-Evaluate the candidate against actual outcomes.
-
-Record material dimensions as:
+Record material outcomes as:
 
 `IMPROVED | DEGRADED | UNCHANGED | UNKNOWN`
 
 A result may be mixed.
 
-Candidate selection state:
+Any evidence-backed selection verdict other than `UNASSESSED` follows at least one represented experiment. A positive or negative selection claim cannot be manufactured from intention, imported text, or a successful state write alone.
 
-`SUPPORTED | PARTIAL | NOT_SUPPORTED | HARMFUL | UNKNOWN`
-
-A positive selection claim requires represented observed outcome(s) and evidence reference(s). The reference tool records those references but does not establish the external truth of the evidence itself.
+For `SUPPORTED` / `PARTIAL`, represent at least one improved dimension and evidence reference. For `HARMFUL`, represent at least one degraded dimension and evidence reference. The reference tool records these references but does not establish their external truth.
 
 Do not erase failed candidates merely because another candidate won. Do not let a current winner make itself immune to future variation.
 
 ## 9.6 Integration
 
-Integration is different from experimentation.
+Integration is different from experimentation and from selection.
 
 A candidate that worked in a Variation Space may face a new consequence/authority boundary when entering durable, shared, or production state.
 
-Internal self-structure may be autonomously integrated where the actual local mandate allows it. External authority cannot be created by editing the Agent's own permission map.
+The reference tool requires at least one represented experiment plus a current explicit evaluation before integration. `SUPPORTED` and `PARTIAL` may integrate within actual authority. `UNKNOWN` may integrate only with explicit `--allow-unknown`, preserving `selection_state=UNKNOWN`. Negative or unassessed candidates do not integrate as retained adaptations.
 
-The reference tool normally records integration only for `SUPPORTED` or `PARTIAL` candidates. A genuinely unresolved candidate may be integrated only after it has actually been experimented/evaluated and the unresolved state plus narrowed consequence is explicit. A merely `PROPOSED` candidate cannot use uncertainty as a shortcut around reality contact.
+For a committed integration, record the authority basis and recovery/irreversibility boundary. These are recorded claims, not proof that mandate or recovery is externally real.
 
-At integration time, represent the actual authority basis and recovery/irreversibility boundary. The tool records these claims; it does not verify that the claimed mandate or recovery mechanism is real.
+`INTEGRATED != SUPPORTED`
 
 ## 9.7 Pruning and curation
 
 Useful evolution requires forgetting from the active set.
 
-Possible lifecycle:
+Pruning changes lifecycle state; it does not overwrite selection history.
 
-`ACTIVE -> DORMANT -> ARCHIVED -> RESTORED/RETIRED`
-
-Inputs may include recency, actual use, observed value, conflicts, maintenance burden, replacement by a stronger adaptation, user/owner protection, and legal retention/deletion requirements.
-
-Do not treat age or low usage alone as sufficient evidence for destructive deletion.
-
-Pruning active behavior and deleting historical/regulated payload are separate decisions.
+Do not treat age or low usage alone as sufficient evidence for destructive deletion. Removing an adaptation from active behavior and deleting historical/regulated payload are separate decisions.
 
 ## 9.8 Migration packet and population learning
 
-A transferable packet should preserve:
+A migration packet preserves, where represented:
 
-- candidate/adaptation identity;
-- semantic intent/change;
-- source selection status;
-- whether the packet is a positive adaptation candidate, negative evidence, or unresolved variation;
-- source Host/model/language/configuration;
-- source evaluations/evidence references;
-- improved/degraded/unknown dimensions;
-- dependencies;
-- authority/recovery assumptions where material;
-- known failure modes;
-- transfer unknowns;
-- a content digest for internal consistency / accidental-change detection.
+- candidate identity and semantic change;
+- source lifecycle state;
+- source selection state;
+- packet purpose: positive adaptation candidate, negative evidence, or unresolved variation;
+- source environment and dependencies;
+- source experiments and evaluations;
+- source integration/archive/migration lineage;
+- unknowns;
+- content digest for internal consistency.
 
-A packet-local digest is **not source authentication** and is not an external trust anchor: a party able to rewrite the packet can also recompute the digest. When source identity/authenticity changes a consequential decision, preserve or verify an external provenance/signature/channel/trust anchor appropriate to that decision.
+Packet purpose derives from the **selection axis**, never from lifecycle alone:
 
-The receiver does **not** inherit local proof by receiving a file.
+`SUPPORTED/PARTIAL -> ADAPTATION_CANDIDATE`
+
+`NOT_SUPPORTED/HARMFUL -> NEGATIVE_EVIDENCE`
+
+`UNASSESSED/UNKNOWN -> UNRESOLVED_VARIATION`
+
+A packet-local digest is **not source authentication**. A party able to rewrite the packet can recompute the digest. Use an external provenance/signature/channel/trust anchor when source authenticity changes the decision.
+
+The receiver imports a packet with local `selection_state=UNASSESSED` while preserving source selection/evidence separately.
 
 `TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`
 
-For a supported source adaptation, the receiver imports it as a migration candidate and may use differential local testing: test material source/receiver differences rather than replaying the entire discovery history when not needed.
+A receiver may re-experiment even a source `HARMFUL` / `NOT_SUPPORTED` variation because environments differ. If local reality supports it, a new local positive selection may emerge **after local experiment/evaluation**, while the source negative lineage remains visible.
 
-A source `HARMFUL` or `NOT_SUPPORTED` result may still spread as valuable **negative evidence**, but must not be relabeled a positive adaptation merely because it crossed a Host boundary.
-
-Migration is how individual learning can accelerate population evolution without pretending that one environment proves all environments.
+This is population learning without turning migration into conclusion copying.
 
 ## 9.9 Recombination and emergence
 
 Recombination is a first-class variation generator.
 
-If A and B are locally useful, do not assume:
+If A and B are locally useful, do not assume `A + B = A benefit + B benefit`.
 
-`A + B = A benefit + B benefit`
-
-Observe conflict, cancellation, amplification, new resource interaction, emergent capability, and new authority/externality surfaces.
-
-Composition-level validation is also composition-level exploration. Positive emergence should be recorded as evidence, not dismissed as accidental noise; negative interaction remains equally real.
+Observe conflict, cancellation, amplification, new resource interaction, emergent capability, and new authority/externality surfaces. Positive emergence is evidence when actually observed; expectation of emergence is not evidence.
 
 ## 9.10 Governance closure during evolution
 
 Do not recursively review merely because review is possible.
 
-Continue governance when a bounded next check/action can plausibly change a material decision. Stop adding governance when represented decision-changing questions are resolved or honestly bounded and another review would only repeat known information.
+The candidate.1 reference closure tool reads represented evolution state plus explicit caller inputs. Unreviewed signals or an experimented candidate still `UNASSESSED/UNKNOWN` become visible evidence obligations rather than disappearing because the caller omitted them.
 
-Reference semantic outcomes:
+Reference outcomes:
 
 `READY | NARROW_AND_PROCEED | EVIDENCE_NEEDED | STOP_OR_ESCALATE`
 
-A generic tool cannot prove that a caller omitted no blocker. Therefore the reference tool reports the scope explicitly as `REPRESENTED_INPUTS_ONLY`; a `READY` output means ready **only if the represented inputs are materially complete**.
+Its evidence scope is `REPRESENTED_STATE_AND_INPUTS_ONLY`. Even `READY` does **not** prove that no unrepresented real-world blocker exists.
+
+Stop adding governance when the represented decision-changing questions are resolved or honestly bounded and another check would only repeat known information.
 
 ## 9.11 Reference tool
 
-`tools/ena_evolve.py` provides a small standard-library reference implementation:
+`tools/ena_evolve.py` provides:
 
 ```text
 init
@@ -202,9 +181,11 @@ status
 selftest
 ```
 
-The tool records evolution state/evidence boundaries. It deliberately does not execute arbitrary Host self-mutations, verify external evidence truth, prove authority, prove recovery, authenticate migration source identity, or infer that unrepresented blockers do not exist.
+candidate.1 also ships `tools/candidate1_adversarial.py`, which mechanizes regressions for independently reproduced predecessor failures.
 
-It is intended to be taken, modified, embedded, or replaced by Hosts that can implement the same properties better.
+The reference tool does not execute arbitrary Host self-mutations, prove external evidence truth, prove authority, prove recovery, or authenticate migration source identity. Machine-readable state is not stronger truth merely because a tool wrote it.
+
+Hosts may modify, embed, or replace the tool if they preserve the required semantic properties better.
 
 > **Variation first; selection by reality.**
 >
