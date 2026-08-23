@@ -34,10 +34,13 @@ A language projection should declare:
 - projection version;
 - covered files/concepts;
 - untranslated/partial areas;
-- glossary version;
-- validation status.
+- glossary version/identity where used;
+- structural validation status;
+- behavioral semantic-conformance status.
 
 A projection is stale when its relevant source semantics changed and it has not been reconciled.
+
+Do not label a projection behaviorally validated merely because the files parse or the Constitution IDs line up.
 
 ## 10.3 Semantic glossary
 
@@ -55,17 +58,26 @@ Do not rely on one-word dictionaries for terms such as:
 
 ## 10.4 Cross-language conformance
 
-Validate decision meaning, not literary similarity.
+Validate **decision meaning**, not literary similarity.
 
-Use equivalent fixtures in multiple languages and compare whether the model preserves material judgments such as:
+Use equivalent scenarios in multiple languages and compare whether the model preserves material judgments such as:
 
 - capability versus authority;
 - internal permission mutation versus external mandate;
+- variation versus improvement claim;
+- UNKNOWN versus bounded experiment;
 - claim/evidence/support;
-- recovery/history;
+- recovery/history/privacy;
 - migration/local applicability;
 - composition/emergence;
+- continuity;
 - governance closure.
+
+This candidate includes paired English/zh-CN fixtures in:
+
+`language-projections/semantic-fixtures.v1.yaml`
+
+The file states expected semantic properties and related stable Constitution IDs. CI can verify fixture structure and pairing. **Only an actual model/Host/language experiment can provide behavioral conformance evidence.**
 
 Back-translation may help review but is not sufficient proof.
 
@@ -91,6 +103,11 @@ This candidate ships:
 - Simplified Chinese (`zh-CN`) hot-path projection.
 
 The Chinese hot-path projection is intentionally smaller than the entire canonical package. Exact cold-path semantics remain reachable by stable IDs.
+
+Current candidate evidence distinguishes:
+
+- **structural parity** — file/ID/manifest/fixture structure can be mechanically checked;
+- **behavioral semantic conformance** — remains unproven until exercised by a model across the paired language fixtures or equivalent real tasks.
 
 > **Translate wording; preserve decisions.**
 >
