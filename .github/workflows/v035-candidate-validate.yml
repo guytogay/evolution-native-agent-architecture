@@ -2,7 +2,7 @@ name: Validate ENA v0.3.5 candidate
 
 on:
   push:
-    branches: ['candidate/v0.3.5', 'candidate/v0.3.5-candidate.1']
+    branches: ['candidate/v0.3.5', 'candidate/v0.3.5-candidate.1', 'candidate/v0.3.5-candidate.2']
     paths:
       - 'releases/v0.3.5-candidate/**'
       - '.github/workflows/v035-candidate-validate.yml'
@@ -58,11 +58,17 @@ jobs:
       - name: Run inherited composed-validator regression suite
         run: python releases/v0.3.5-candidate/tools/regression_suite.py
 
+      - name: Check committed inherited regression result matches generated output
+        run: git diff --exit-code -- releases/v0.3.5-candidate/tools/regression-results-v033.json
+
       - name: Run evolution metabolism selftest
         run: python releases/v0.3.5-candidate/tools/ena_evolve.py selftest
 
       - name: Run candidate.1 adversarial regressions
         run: python releases/v0.3.5-candidate/tools/candidate1_adversarial.py
+
+      - name: Run candidate.2 residual-closure adversarial regressions
+        run: python releases/v0.3.5-candidate/tools/candidate2_adversarial.py
 
       - name: Validate actual tool candidate and migration packet against schemas
         shell: bash
@@ -94,6 +100,8 @@ jobs:
           assert candidate['selection_state'] == 'SUPPORTED'
           assert packet['source_selection_state'] == 'SUPPORTED'
           assert packet['packet_purpose'] == 'ADAPTATION_CANDIDATE'
+          assert packet['source_authentication'] == 'NOT_AUTHENTICATED_BY_THIS_PACKET'
+          assert packet['transfer_status'] == 'TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF'
           print('actual-tool-schema-wiring-pass')
           PY
 
@@ -145,22 +153,25 @@ jobs:
           root = Path('releases/v0.3.5-candidate')
           doc = yaml.safe_load((root/'CANDIDATE-BASELINE.yaml').read_text(encoding='utf-8'))
           assert doc['schema_version'] == '2.0'
-          assert doc['ena_version'] == 'v0.3.5-candidate.1'
+          assert doc['ena_version'] == 'v0.3.5-candidate.2'
           assert doc['candidate_for'] == 'v0.3.5'
-          assert doc['candidate_revision'] == 1
+          assert doc['candidate_revision'] == 2
           assert doc['adoption_status'] == 'CANDIDATE'
           assert doc['current'] is False
           assert doc['active_mainline_axis'] is False
           assert doc['requires_older_release_composition'] is False
           assert doc['evolution']['lifecycle_state_separate_from_selection_state'] is True
           assert doc['evolution']['tool_state_and_schemas_are_ci_connected'] is True
+          assert doc['evolution']['migration_packet_cli_validates_lifecycle_enum'] is True
+          assert doc['evolution']['migration_packet_cli_rejects_forged_authentication_claim'] is True
+          assert doc['evolution']['migration_packet_cli_validates_transfer_status'] is True
           assert doc['evolution']['adaptation_packet_schema'] == 'schemas/adaptation-packet.v1.schema.json'
           assert doc['language']['structural_parity_is_behavioral_conformance'] is False
           for rel in doc['core_files']:
               assert (root/rel).is_file(), f'missing core file: {rel}'
           manifest = yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
           assert manifest['language'] == 'zh-CN'
-          assert manifest['source_semantic_version'] == 'v0.3.5-candidate.1'
+          assert manifest['source_semantic_version'] == 'v0.3.5-candidate.2'
           assert manifest['validation']['behavioral_semantic_conformance'] == 'UNPROVEN_PENDING_MODEL_EXPERIMENT'
           for rel in manifest['coverage']:
               assert (root/'language-projections/zh-CN'/rel).is_file(), f'missing zh-CN file: {rel}'
