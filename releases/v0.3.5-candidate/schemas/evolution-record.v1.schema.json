@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/evolution-record.v1.schema.json",
+  "title": "ENA Evolution Record v1",
+  "type": "object",
+  "required": [
+    "record_version",
+    "candidate_id",
+    "status",
+    "hypothesis",
+    "change",
+    "variation_space",
+    "environment",
+    "outcomes"
+  ],
+  "properties": {
+    "record_version": {"const": "1.0"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "origin": {"type": "string", "enum": ["LOCAL_VARIATION", "MIGRATION_CANDIDATE", "RECOMBINATION", "OTHER"]},
+    "status": {"type": "string"},
+    "signal_refs": {"type": "array", "items": {"type": "string"}},
+    "hypothesis": {"type": "string", "minLength": 1},
+    "change": {"type": "string", "minLength": 1},
+    "variation_space": {"type": "string", "minLength": 1},
+    "evolutionary_subject": {"type": "string"},
+    "protected_subjects": {"type": "array", "items": {"type": "string"}},
+    "environment": {
+      "type": "object",
+      "properties": {
+        "host": {"type": "string"},
+        "model": {"type": "string"},
+        "language": {"type": "string"},
+        "configuration": {"type": "string"},
+        "ena_identity": {"type": "string"}
+      },
+      "additionalProperties": {"type": ["string", "number", "boolean", "null"]}
+    },
+    "expected_outcomes": {"type": "array", "items": {"type": "string"}},
+    "outcomes": {
+      "type": "object",
+      "additionalProperties": {"enum": ["IMPROVED", "DEGRADED", "UNCHANGED", "UNKNOWN"]}
+    },
+    "selection": {"enum": ["SUPPORTED", "PARTIAL", "NOT_SUPPORTED", "HARMFUL", "UNKNOWN"]},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "negative_evidence": {"type": "array", "items": {"type": "string"}},
+    "tradeoffs": {"type": "array", "items": {"type": "string"}},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "authority_basis": {"type": "string"},
+    "recovery_boundary": {"type": "string"},
+    "migration": {
+      "type": "object",
+      "properties": {
+        "source_candidate_id": {"type": "string"},
+        "source_environment": {"type": "object"},
+        "material_differences": {"type": "array", "items": {"type": "string"}},
+        "transfer_status": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

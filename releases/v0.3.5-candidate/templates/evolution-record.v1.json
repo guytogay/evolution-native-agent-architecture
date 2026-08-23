@@ -1,0 +1,30 @@
+{
+  "record_version": "1.0",
+  "candidate_id": "var-example",
+  "origin": "LOCAL_VARIATION",
+  "status": "PROPOSED",
+  "signal_refs": ["sig-example"],
+  "hypothesis": "Describe why this variation may improve a material outcome.",
+  "change": "Describe the concrete mutation.",
+  "variation_space": "Describe the bounded real environment where it can meet reality.",
+  "evolutionary_subject": "Describe the continuity-bearing adaptive subject if decision-relevant.",
+  "protected_subjects": [],
+  "environment": {
+    "host": "UNKNOWN",
+    "model": "UNKNOWN",
+    "language": "zh-CN",
+    "configuration": "UNKNOWN",
+    "ena_identity": "v0.3.5-candidate"
+  },
+  "expected_outcomes": ["quality"],
+  "outcomes": {"quality": "UNKNOWN"},
+  "selection": "UNKNOWN",
+  "evidence_refs": [],
+  "negative_evidence": [],
+  "tradeoffs": [],
+  "unknowns": [],
+  "authority_basis": "",
+  "recovery_boundary": "",
+  "migration": {},
+  "notes": "A variation is not an improvement merely because it was intended to help."
+}

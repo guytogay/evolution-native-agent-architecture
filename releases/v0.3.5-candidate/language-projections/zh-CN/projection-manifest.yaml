@@ -1,0 +1,23 @@
+schema_version: "1.0"
+language: "zh-CN"
+projection_version: "v0.3.5-candidate.zh-CN.1"
+source_semantic_version: "v0.3.5-candidate"
+source_identity_binding: >
+  Bound to the frozen v0.3.5 candidate effective-content identity when the
+  candidate is frozen. A self-referential tree hash is intentionally not
+  embedded inside the projection.
+status: CANDIDATE_SEMANTIC_PROJECTION
+coverage:
+  - 00-READ-ME-FIRST.md
+  - 01-CONSTITUTION.md
+  - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
+  - RUNTIME-ADOPTION-KERNEL.md
+  - 09-EVOLUTION-METABOLISM.md
+  - CONSTITUTION-CONCEPT-MAP.md
+  - SEMANTIC-GLOSSARY.zh-CN.yaml
+known_gaps:
+  - "Long-tail operational contracts and schemas remain in the canonical authoring language for this candidate."
+conflict_policy: >
+  A material discrepancy is a projection defect, not permission to silently
+  choose whichever wording is convenient. Resolve by stable semantic ID,
+  canonical source comparison, and explicit reconciliation.
