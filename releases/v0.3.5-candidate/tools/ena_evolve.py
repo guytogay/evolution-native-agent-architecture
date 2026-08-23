@@ -263,11 +263,18 @@ def cmd_integrate(args: argparse.Namespace) -> None:
     state = load_state(path)
     c = find_candidate(state, args.candidate)
     current = c.get("status")
-    if current not in {"SUPPORTED", "PARTIAL"} and not args.allow_unknown:
+    if current in {"HARMFUL", "NOT_SUPPORTED"}:
         raise SystemExit(
-            f"Candidate status is {current}; integration recording normally requires SUPPORTED/PARTIAL. "
-            "Use --allow-unknown only to record a deliberately bounded exception, not to relabel evidence."
+            f"Candidate status is {current}; this reference tool will not record stable integration "
+            "of a negatively selected candidate. Create a new/revised variation instead."
         )
+    if current not in {"SUPPORTED", "PARTIAL"}:
+        if not args.allow_unknown or current not in {"UNKNOWN", "EXPERIMENTED", "PROPOSED"}:
+            raise SystemExit(
+                f"Candidate status is {current}; integration recording normally requires SUPPORTED/PARTIAL. "
+                "Use --allow-unknown only for an explicitly bounded unresolved candidate, not to override "
+                "HARMFUL/NOT_SUPPORTED selection."
+            )
     integ = {
         "time": now(),
         "target": args.target,
