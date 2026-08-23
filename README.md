@@ -2,7 +2,9 @@
 
 ENA is a mechanism-first architecture for Agents expected to change, learn, recover, and evolve without silently losing evidence, authority boundaries, recoverability, or the ability to continue improving.
 
-> Protect Agency; govern Authority.
+**ENA exists to make sustained self-evolution viable.**
+
+> Evolution is the purpose. Governance protects evolvability.
 >
 > Governance must pay rent.
 >
@@ -19,11 +21,13 @@ For adoption, use the repository's canonical default branch and follow one stabl
 
 Do **not** infer the current ENA from version numbers, candidate names, commit recency, branch names, research artifacts, or historical evidence.
 
-`Git main != ENA Current != ENA Mainline`
+`Git main != ENA Current`
 
 - **Git `main`** is the canonical project branch.
 - **ENA Current** is the singular adoption baseline under `releases/current/`.
-- **ENA Mainline** is a maturity/promotion status declared by the Current baseline; it is not a Git branch.
+- **Maturity/status** is declared by the Current baseline; v0.3.5 is `FIELD_VALIDATION`.
+
+Beginning with v0.3.5, historical `MAINLINE / NOT_MAINLINE` labels are no longer an active adopter-facing maturity axis. Historical records using them remain unchanged as occurrence truth.
 
 ## Repository shape
 
@@ -44,7 +48,7 @@ Historical versions and candidates are preserved through Git history, release ev
 
 ENA is intended to be questioned and tested, not merely followed. For contribution guidance see [`CONTRIBUTING.md`](CONTRIBUTING.md) and the Current contribution protocol.
 
-Reading, questioning, forking, experimenting, filing Issues, or submitting Pull Requests does not automatically grant release, promotion, Mainline, deployment, or unrelated consequential authority.
+Reading, questioning, forking, experimenting, filing Issues, or submitting Pull Requests does not automatically grant release, deployment, remediation, or unrelated consequential authority.
 
 ## License
 
