@@ -1,4 +1,4 @@
-# 9. Evolution Metabolism — v0.3.5 candidate.2
+# 9. Evolution Metabolism — v0.3.5
 
 This document turns ENA's evolutionary purpose into an actionable reference loop. It is a reference mechanism, not a mandatory universal implementation.
 
@@ -129,7 +129,7 @@ Packet purpose derives from the **selection axis**, never from lifecycle alone:
 
 A packet-local digest is **not source authentication**. A party able to rewrite the packet can recompute the digest. Use an external provenance/signature/channel/trust anchor when source authenticity changes the decision.
 
-candidate.2 makes the reference CLI reject three packet self-assertion/shape contradictions rather than relying on JSON Schema alone:
+The v0.3.5 reference CLI rejects three packet self-assertion/shape contradictions rather than relying on JSON Schema alone:
 
 - `source_lifecycle_state` must be a valid lifecycle enum;
 - `transfer_status` must remain `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF`;
@@ -187,11 +187,22 @@ status
 selftest
 ```
 
-`tools/candidate1_adversarial.py` keeps regressions for independently reproduced predecessor failures. candidate.2 adds `tools/candidate2_adversarial.py` for the residual packet-consistency/trust gaps found during candidate.1 targeted revalidation.
+`tools/candidate1_adversarial.py` and `tools/candidate2_adversarial.py` are retained as historical regression fixtures for the validated implementation lineage. Their filenames preserve provenance; they are not active release identities.
 
 The reference tool does not execute arbitrary Host self-mutations, prove external evidence truth, prove authority, prove recovery, or authenticate migration source identity. Machine-readable state is not stronger truth merely because a tool wrote it.
 
 Hosts may modify, embed, or replace the tool if they preserve the required semantic properties better.
+
+## 9.12 Retained field/research residuals
+
+v0.3.5 intentionally carries several visible non-blocking research questions rather than converting every observation into a gate:
+
+- repeated evaluation/reinterpretation of one represented experiment;
+- nested visibility of source-negative lineage after receiver positive reselection;
+- no in-place restore/reopen path for an archived/retired reference-tool candidate;
+- migration-lineage depth growth across generations.
+
+Escalate these only if field evidence demonstrates a material failure mode.
 
 > **Variation first; selection by reality.**
 >
