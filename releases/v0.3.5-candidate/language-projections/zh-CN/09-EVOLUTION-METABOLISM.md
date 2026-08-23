@@ -1,4 +1,4 @@
-# 9. 进化代谢 — v0.3.5 candidate.1 简体中文语义投影
+# 9. 进化代谢 — v0.3.5 candidate.2 简体中文语义投影
 
 本文件把“促进持续自我进化”变成可以运行的参考循环。它是参考机制，不要求所有 Host 照抄同一种器官。
 
@@ -37,8 +37,6 @@ ENA 不规定统一的“每 7 天”或“每 10 次对话”。
 内部权限/能力拓扑也可以成为变异对象，但变异空间必须说明什么能变、谁承担后果、哪些效果会逃出空间、恢复/清理现实，以及哪些对外行为仍需要真实授权。
 
 ## 9.4 两条独立状态轴
-
-candidate.1 不再用一个 `status` 同时表达“做到哪一步”和“证据怎么看它”。
 
 生命周期状态：
 
@@ -98,6 +96,14 @@ candidate.1 不再用一个 `status` 同时表达“做到哪一步”和“证�
 
 包内 digest（摘要）只检查内部一致性，**不是来源认证**。能改整个包的人也能重新计算 digest。
 
+candidate.2 进一步把三个包内语义做成 CLI 自身的机械守卫，而不只依赖外部 schema：
+
+- `source_lifecycle_state` 必须是合法生命周期枚举；
+- `transfer_status` 必须保持 `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF`；
+- `source_authentication` 必须保持 `NOT_AUTHENTICATED_BY_THIS_PACKET`。
+
+因此把 `source_authentication` 手工改成 `TOTALLY_TRUSTED` 再重算 digest，也不能让迁移包给自己制造“已认证来源”的地位。
+
 接收方导入后，本地选择状态重新从 `UNASSESSED` 开始，同时把来源选择和证据谱系单独保存。
 
 `TRANSFERRED（已传播） ≠ LOCALLY_APPLICABLE（本地适用） ≠ LOCALLY_SELECTED（本地已选择）`
@@ -114,7 +120,7 @@ candidate.1 不再用一个 `status` 同时表达“做到哪一步”和“证�
 
 ## 9.10 治理收敛
 
-candidate.1 的 `closure` 参考工具会读取已经表示出来的进化状态和调用者输入。未复查信号、已经实验但仍 `UNASSESSED / UNKNOWN` 的候选，会形成显式证据义务，不会因为调用者没写 blocker 就消失。
+`closure` 参考工具会读取已经表示出来的进化状态和调用者输入。未复查信号、已经实验但仍 `UNASSESSED / UNKNOWN` 的候选，会形成显式证据义务，不会因为调用者没写 blocker 就消失。
 
 参考结果：
 
@@ -132,7 +138,7 @@ candidate.1 的 `closure` 参考工具会读取已经表示出来的进化状态
 
 `init / observe / review / propose / experiment / evaluate / integrate / archive / export / import / closure / status / selftest`
 
-candidate.1 还提供 `tools/candidate1_adversarial.py`，把第一版冻结候选经独立反证机械复现的问题变成回归测试。
+`tools/candidate1_adversarial.py` 保留第一版冻结候选经独立反证机械复现的问题作为回归测试；candidate.2 新增 `tools/candidate2_adversarial.py`，专门锁住 candidate.1 复验后发现的迁移包残余漏洞。
 
 参考工具不会自动修改任意 Host，不会证明外部证据真假，不会证明授权真实，不会证明恢复一定有效，也不会认证迁移包真正来自其声称的来源。
 
