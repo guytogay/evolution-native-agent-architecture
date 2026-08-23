@@ -5,10 +5,14 @@ on:
     branches: [main]
     paths:
       - 'releases/current/**'
+      - 'README.md'
+      - 'PROJECT-HUB.md'
       - '.github/workflows/current-validate.yml'
   pull_request:
     paths:
       - 'releases/current/**'
+      - 'README.md'
+      - 'PROJECT-HUB.md'
       - '.github/workflows/current-validate.yml'
   workflow_dispatch:
 
@@ -29,31 +33,100 @@ jobs:
       - name: Install validation dependencies
         run: python -m pip install --disable-pip-version-check PyYAML jsonschema
 
-      - name: Parse all Current JSON schemas
+      - name: Parse Current YAML and JSON
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          paths = sorted(Path('releases/current/schemas').glob('*.json'))
-          assert paths, 'no schemas found'
-          for path in paths:
-              json.loads(path.read_text(encoding='utf-8'))
-              print('schema-parse-pass', path)
+          import yaml
+          root = Path('releases/current')
+          for p in sorted(root.rglob('*.json')):
+              json.loads(p.read_text(encoding='utf-8'))
+              print('json-parse-pass', p)
+          for p in sorted(root.rglob('*.yaml')):
+              yaml.safe_load(p.read_text(encoding='utf-8'))
+              print('yaml-parse-pass', p)
           PY
 
-      - name: Run v0.3.2-migrated semantic selftests (v1 fixtures)
+      - name: Validate Current baseline identity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/current')
+          doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['schema_version'] == '2.0'
+          assert doc['ena_version'] == 'v0.3.5'
+          assert doc['adoption_status'] == 'CURRENT'
+          assert doc['maturity'] == 'FIELD_VALIDATION'
+          assert doc['current'] is True
+          assert doc['complete_adoption_baseline'] is True
+          assert doc['requires_older_release_composition'] is False
+          assert doc['active_mainline_axis'] is False
+          assert doc['version_identity_includes_maturity_status'] is False
+          assert doc['package_scope'] == 'ALL_FILES_UNDER_RELEASES_CURRENT'
+          lin = doc['lineage']
+          assert lin['frozen_candidate2_source_commit'] == '8393b8b05d34797965c612e8b9ca938d306f6322'
+          assert lin['frozen_candidate2_tree'] == 'b10854f191d9641138e2f44278f043f124a2e120'
+          assert lin['candidate2_narrow_verdict'] == 'NARROW_REVALIDATION_SUPPORTED'
+          assert doc['evolution']['migration_packet_cli_validates_lifecycle_enum'] is True
+          assert doc['evolution']['migration_packet_cli_rejects_forged_authentication_claim'] is True
+          assert doc['evolution']['migration_packet_cli_validates_transfer_status'] is True
+          assert not (root/'CANDIDATE-BASELINE.yaml').exists()
+          for rel in doc.get('core_files', []):
+              assert (root/rel).is_file(), f'missing core file: {rel}'
+          lite = doc.get('lite_entrypoint')
+          assert lite and (root/lite).is_file(), f'missing LITE entrypoint: {lite}'
+          kernel = doc.get('runtime_adoption', {}).get('kernel_entrypoint')
+          assert kernel and (root/kernel).is_file(), f'missing runtime kernel: {kernel}'
+          print('current-baseline-pass', doc['ena_version'], doc['maturity'])
+          PY
+
+      - name: Ensure one adoption surface
+        run: |
+          test ! -d releases/v0.3.5-candidate
+          test -f releases/current/CURRENT-BASELINE.yaml
+          echo 'single-current-surface-pass'
+
+      - name: Validate evolution-record template against schema
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import jsonschema
+          root = Path('releases/current')
+          schema = json.loads((root/'schemas/evolution-record.v1.schema.json').read_text(encoding='utf-8'))
+          doc = json.loads((root/'templates/evolution-record.v1.json').read_text(encoding='utf-8'))
+          jsonschema.validate(doc, schema)
+          assert doc['environment']['ena_identity'] == 'v0.3.5'
+          print('evolution-record-template-schema-pass')
+          PY
+
+      - name: Run v0.3.2-migrated semantic selftests
         run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v1.json
 
-      - name: Run inherited 164-case implementation corpus (v2 fixtures)
+      - name: Run inherited 164-case implementation corpus
         run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.json
 
-      - name: Run D1/D2/D3 closure corpus (v2.1 fixtures, 61 cases)
+      - name: Run D1/D2/D3 closure corpus
         run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.1.json
 
-      - name: Run inherited v0.3.3 regression suite (deterministic)
+      - name: Run inherited composed-validator regression suite
         run: python releases/current/tools/regression_suite.py
 
-      - name: CLI case-mode semantics (OK / BLOCK / UNKNOWN via stdout)
+      - name: Check committed regression result matches regeneration
+        run: git diff --exit-code -- releases/current/tools/regression-results-v033.json
+
+      - name: Run evolution metabolism selftest
+        run: python releases/current/tools/ena_evolve.py selftest
+
+      - name: Run candidate.1 historical adversarial regressions
+        run: python releases/current/tools/candidate1_adversarial.py
+
+      - name: Run candidate.2 historical residual-closure regressions
+        run: python releases/current/tools/candidate2_adversarial.py
+
+      - name: CLI case-mode semantics
         shell: bash
         run: |
           set -euo pipefail
@@ -62,7 +135,6 @@ jobs:
           import json, subprocess, sys, tempfile, os
           cases = json.load(open('contract-fixtures.v2.1.json', encoding='utf-8'))['cases']
           by_id = {c['id']: c for c in cases}
-          # Judge machine verdict from stdout JSON; BLOCK/UNKNOWN legitimately exit non-zero.
           for cid, exp_verdict in (('P01', 'OK'), ('P42', 'BLOCK'), ('P10', 'OK'),
                                    ('P16', 'UNKNOWN'), ('P17', 'OK'),
                                    ('C1-D3-03-roots-collapse', 'BLOCK')):
@@ -78,35 +150,137 @@ jobs:
                   args += ['--eval-time', case['eval_time']]
               out = subprocess.run(args, capture_output=True, text=True)
               os.unlink(path)
-              try:
-                  res = json.loads(out.stdout)
-              except Exception:
-                  print('FAIL', cid, 'no-json', out.stdout[:200], out.stderr[:200]); sys.exit(1)
+              res = json.loads(out.stdout)
               assert res['verdict'] == exp_verdict, (cid, res['verdict'], exp_verdict)
               print('cli-case-pass', cid, res['verdict'])
           PY
 
-      - name: Validate Current baseline pointers (v0.3.4)
+      - name: Validate actual evolution tool state and packet against schemas
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='releases/current'
+          TOOL="$ROOT/tools/ena_evolve.py"
+          TMP="$(mktemp -d)"
+          STATE="$TMP/state.json"
+          PACKET="$TMP/packet.json"
+          python "$TOOL" --state "$STATE" init >/dev/null
+          CID="$(python "$TOOL" --state "$STATE" propose --hypothesis 'release schema wiring' --change 'test change' --variation-space 'ci-sandbox' --expected quality | python -c 'import json,sys; print(json.load(sys.stdin)["candidate_id"])')"
+          python "$TOOL" --state "$STATE" experiment "$CID" --actual-change 'test change' >/dev/null
+          python "$TOOL" --state "$STATE" evaluate "$CID" --selection SUPPORTED --outcome quality=IMPROVED --evidence ci-observation >/dev/null
+          python "$TOOL" --state "$STATE" export "$CID" --output "$PACKET" >/dev/null
+          STATE="$STATE" PACKET="$PACKET" ROOT="$ROOT" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import jsonschema
+          root = Path(os.environ['ROOT'])
+          state = json.loads(Path(os.environ['STATE']).read_text(encoding='utf-8'))
+          candidate = state['candidates'][0]
+          packet = json.loads(Path(os.environ['PACKET']).read_text(encoding='utf-8'))
+          evo_schema = json.loads((root/'schemas/evolution-record.v1.schema.json').read_text(encoding='utf-8'))
+          packet_schema = json.loads((root/'schemas/adaptation-packet.v1.schema.json').read_text(encoding='utf-8'))
+          jsonschema.validate(candidate, evo_schema)
+          jsonschema.validate(packet, packet_schema)
+          assert candidate['selection_state'] == 'SUPPORTED'
+          assert packet['source_selection_state'] == 'SUPPORTED'
+          assert packet['packet_purpose'] == 'ADAPTATION_CANDIDATE'
+          assert packet['source_authentication'] == 'NOT_AUTHENTICATED_BY_THIS_PACKET'
+          assert packet['transfer_status'] == 'TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF'
+          print('actual-tool-schema-wiring-pass')
+          PY
+
+      - name: Compile Current Python tools
+        run: python -m py_compile releases/current/tools/*.py
+
+      - name: Check Constitution identity parity across English and Chinese
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('releases/current')
+          def ids(path):
+              return re.findall(r'ENA-CON-\d{3}', path.read_text(encoding='utf-8'))
+          en = ids(root/'01-CONSTITUTION.md')
+          zh = ids(root/'language-projections/zh-CN/01-CONSTITUTION.md')
+          expected = [f'ENA-CON-{i:03d}' for i in range(1,39)]
+          assert en == expected, ('English Constitution IDs differ', en)
+          assert zh == expected, ('Chinese Constitution IDs differ', zh)
+          print('constitution-id-parity-pass', len(en))
+          PY
+
+      - name: Check bilingual semantic-fixture structure
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
           root = Path('releases/current')
-          doc = yaml.safe_load((root / 'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          assert doc['ena_version'] == 'v0.3.4', doc['ena_version']
-          assert doc['status'] == 'FIELD_VALIDATION', doc['status']
-          assert doc['complete_adoption_baseline'] is True
-          assert doc['requires_older_release_composition'] is False
-          assert doc['mainline_claim_allowed'] is False
-          assert doc['version_identity_includes_maturity_status'] is False
-          assert doc['package_scope'] == 'ALL_FILES_UNDER_RELEASES_CURRENT'
-          for rel in doc.get('core_files', []):
-              assert (root / rel).is_file(), f'missing core file: {rel}'
-          lite = doc.get('lite_entrypoint')
-          assert lite and (root / lite).is_file(), f'missing LITE entrypoint: {lite}'
-          kernel = doc.get('runtime_adoption', {}).get('kernel_entrypoint')
-          assert kernel and (root / kernel).is_file(), f'missing runtime kernel: {kernel}'
-          print('current-baseline-pointer-pass', doc['ena_version'], doc['status'])
+          doc = yaml.safe_load((root/'language-projections/semantic-fixtures.v1.yaml').read_text(encoding='utf-8'))
+          cases = doc.get('cases') or []
+          assert cases, 'no semantic fixtures'
+          ids = set()
+          for case in cases:
+              cid = case['id']
+              assert cid not in ids, f'duplicate fixture id: {cid}'
+              ids.add(cid)
+              assert case.get('en', '').strip(), f'missing English scenario: {cid}'
+              assert case.get('zh-CN', '').strip(), f'missing Chinese scenario: {cid}'
+              assert case.get('semantic_ids'), f'missing semantic IDs: {cid}'
+              assert case.get('expected_properties'), f'missing expected properties: {cid}'
+          print('language-fixture-structure-pass', len(cases))
+          PY
+
+      - name: Check zh-CN Current projection manifest
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/current')
+          manifest = yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert manifest['language'] == 'zh-CN'
+          assert manifest['projection_version'] == 'v0.3.5.zh-CN.1'
+          assert manifest['source_semantic_version'] == 'v0.3.5'
+          assert manifest['status'] == 'CURRENT_SEMANTIC_PROJECTION'
+          assert manifest['validation']['behavioral_semantic_conformance'] == 'UNPROVEN_UNIVERSALLY_FIELD_EVIDENCE_REQUIRED'
+          for rel in manifest['coverage']:
+              assert (root/'language-projections/zh-CN'/rel).is_file(), f'missing zh-CN file: {rel}'
+          print('zh-cn-current-projection-pass')
+          PY
+
+      - name: Check Current hot-path identity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('releases/current')
+          active = [
+              root/'README.md', root/'00-READ-ME-FIRST.md',
+              root/'07-ADOPTION-AND-FIELD-VALIDATION.md', root/'08-RELEASE-DISCIPLINE.md',
+              root/'09-EVOLUTION-METABOLISM.md', root/'10-LANGUAGE-PORTABILITY.md',
+              root/'AGENT-ADOPTION-INSTRUCTION.md', root/'LITE-ADOPTION-INSTRUCTION.md',
+              root/'RUNTIME-ADOPTION-KERNEL.md',
+              root/'language-projections/zh-CN/00-READ-ME-FIRST.md',
+              root/'language-projections/zh-CN/09-EVOLUTION-METABOLISM.md',
+              root/'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md',
+          ]
+          for p in active:
+              first = p.read_text(encoding='utf-8').splitlines()[0]
+              assert 'candidate.2' not in first.lower(), (p, first)
+          text = (root/'README.md').read_text(encoding='utf-8')
+          assert 'CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE' in text
+          assert 'ENA exists to make sustained self-evolution viable.' in text
+          print('current-hot-path-identity-pass')
+          PY
+
+      - name: Check root status model
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          readme = Path('README.md').read_text(encoding='utf-8')
+          hub = Path('PROJECT-HUB.md').read_text(encoding='utf-8')
+          assert 'Git main != ENA Current' in readme
+          assert 'Git main != ENA Current != ENA Mainline' not in readme
+          assert 'historical `MAINLINE / NOT_MAINLINE` labels are no longer an active adopter-facing maturity axis' in readme
+          assert 'active adopter-facing model is **Current + declared maturity/status**' in hub
+          print('root-status-model-pass')
           PY
 
       - name: Build deterministic package from canonical committed Current bytes
@@ -128,10 +302,9 @@ jobs:
           SOURCE_COMMIT="$SOURCE_COMMIT" python - <<'PY'
           from pathlib import Path
           import hashlib, json, os, zipfile
-
           root = Path('release-build/current')
           out = Path('release-build/out')
-          zip_path = out / 'ENA-v0.3.4-CURRENT.zip'
+          zip_path = out/'ENA-v0.3.5-CURRENT.zip'
           files = sorted(p for p in root.rglob('*') if p.is_file())
           file_hashes = {}
           with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
@@ -139,33 +312,25 @@ jobs:
                   rel = path.relative_to(root).as_posix()
                   data = path.read_bytes()
                   file_hashes[rel] = hashlib.sha256(data).hexdigest()
-                  info = zipfile.ZipInfo(rel, (1980, 1, 1, 0, 0, 0))
+                  info = zipfile.ZipInfo(rel, (1980,1,1,0,0,0))
                   info.compress_type = zipfile.ZIP_DEFLATED
                   info.external_attr = 0o100644 << 16
                   zf.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
-
-          # Internal ZIP read-back: exact file-set parity + per-file hash parity.
           with zipfile.ZipFile(zip_path, 'r') as zf:
               names = sorted(zf.namelist())
               expected = sorted(file_hashes)
-              exact_file_set_parity = (names == expected)
+              exact_file_set_parity = names == expected
               assert exact_file_set_parity, {'zip': names, 'source': expected}
-              readback_parity = True
-              for name in names:
-                  if hashlib.sha256(zf.read(name)).hexdigest() != file_hashes[name]:
-                      readback_parity = False
-                      assert False, name
+              readback_parity = all(hashlib.sha256(zf.read(name)).hexdigest() == file_hashes[name] for name in names)
               assert readback_parity
-
           zip_sha = hashlib.sha256(zip_path.read_bytes()).hexdigest()
-          (out / 'ENA-v0.3.4-CURRENT.zip.sha256').write_text(
-              f'{zip_sha}  ENA-v0.3.4-CURRENT.zip\n', encoding='utf-8'
-          )
+          (out/'ENA-v0.3.5-CURRENT.zip.sha256').write_text(f'{zip_sha}  ENA-v0.3.5-CURRENT.zip\n', encoding='utf-8')
           evidence = {
-              'ena_version': 'v0.3.4',
-              'status': 'FIELD_VALIDATION',
+              'ena_version': 'v0.3.5',
+              'adoption_status': 'CURRENT',
+              'maturity': 'FIELD_VALIDATION',
               'complete_adoption_baseline': True,
-              'mainline_claim_allowed': False,
+              'active_mainline_axis': False,
               'canonical_current_source_commit': os.environ['SOURCE_COMMIT'],
               'package_file': zip_path.name,
               'package_sha256': zip_sha,
@@ -178,16 +343,16 @@ jobs:
                   'deterministic_zip_metadata': True
               }
           }
-          (out / 'ENA-v0.3.4-RELEASE-EVIDENCE.json').write_text(
-              json.dumps(evidence, indent=2, sort_keys=True) + '\n', encoding='utf-8'
-          )
+          (out/'ENA-v0.3.5-RELEASE-EVIDENCE.json').write_text(json.dumps(evidence, indent=2, sort_keys=True)+'\n', encoding='utf-8')
+          print(f'PACKAGE_SHA256={zip_sha}')
+          print(f'PACKAGE_FILES={len(files)}')
           print(json.dumps({k: evidence[k] for k in ['ena_version','canonical_current_source_commit','package_sha256','file_count']}, indent=2))
           PY
 
-      - name: Upload v0.3.4 release evidence and package
+      - name: Upload v0.3.5 release evidence and package
         uses: actions/upload-artifact@v4
         with:
-          name: ENA-v0.3.4-release-package
+          name: ENA-v0.3.5-release-package
           path: release-build/out/*
           if-no-files-found: error
           retention-days: 90
