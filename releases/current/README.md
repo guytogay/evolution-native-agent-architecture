@@ -1,54 +1,82 @@
-# ENA v0.3.4 — Runtime Internalization Current
+# Evolution-Native Agent Architecture (ENA) — v0.3.5
 
-Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`.
+Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-`releases/current/` is the canonical adoption target for v0.3.4. This release is self-contained and succeeds v0.3.3 without requiring runtime composition with older releases or candidate directories.
+This directory is the singular ENA adoption baseline. It was released from the frozen v0.3.5 candidate.2 lineage after the first frozen candidate was independently falsified, candidate.1 closed the material failures, and the same DSH falsifier later returned `NARROW_REVALIDATION_SUPPORTED` for candidate.2's release-decision residual closure.
 
-## What changed
+## Purpose
 
-v0.3.4 turns ENA adoption from a primarily per-task retrieval pattern into a two-phase runtime model:
+**ENA exists to make sustained self-evolution viable.**
 
-1. **Persistent ENA Runtime Kernel** — compact invariants and consequence/authority/recovery/retrieval triggers that become normal operating behavior.
-2. **Compiled Local Projection** — repeatedly decision-relevant Host reality, persisted and selectively revalidated when material facts change.
-3. **Canonical ENA Source** — cold-path authority for version/source changes, novel/ambiguous boundaries, stale local reality, and exact contract/schema/tool semantics.
+**Evolution is the purpose. Governance protects evolvability.**
 
-Profiles are runtime governance intensity over this same internalized baseline. LITE is not a smaller ENA education.
+ENA should make it easier for an Agent or Agent system to generate variation, learn from reality, retain useful adaptations, discard or archive harmful/stale adaptations, share evidence-bearing adaptations across a population, discover composition effects and emergence, and continue evolving after mistakes.
 
-## Source integrity and persistence claims
+Safety, evidence, authority, recovery, history, and governance are enabling infrastructure. They must not become a general veto on novelty.
 
-The installed projection records both a human-readable ENA version label and the immutable canonical source identity actually compiled from (Git commit/tree or package digest). A mutable branch/version label alone is not an integrity anchor.
+ENA is exploration-forward:
 
-If the persisted kernel is transformed/paraphrased, preserve source/transformation lineage and do not infer semantic fidelity from a successful write alone.
+- variation may precede certainty;
+- a mutation is not an improvement merely because it was intended as one;
+- evidence-backed selection follows reality contact;
+- internal self-structure may evolve, but external mandate cannot be self-minted;
+- source adaptations/negative evidence may migrate and be locally re-tested;
+- local success does not predict composed outcome;
+- governance must preserve future correction and stop when further checks no longer change the decision.
 
-Before claiming cross-session or equivalent decision-critical persistent adoption, evidence the actual boundary being claimed. A current-session memory/configuration write is narrower evidence.
+## v0.3.5 release lineage
 
-## Validation lineage
+The first frozen v0.3.5 candidate exposed false-confidence paths in `ena_evolve.py`. candidate.1 repaired the material state-machine, migration, closure, and schema-wiring defects. candidate.2 then closed the remaining cheap release-decision residuals without changing the Constitution:
 
-The original frozen `v0.3.4-candidate` received:
+1. CLI rejects invalid `source_lifecycle_state` rather than relying on schema validation alone;
+2. CLI rejects forged `source_authentication` rather than propagating a self-asserted trust label;
+3. CLI validates the fixed `transfer_status` claim;
+4. committed inherited-regression output stays synchronized with its generating suite;
+5. candidate.1 and candidate.2 adversarial regressions remain available as historical implementation checks.
 
-`INDEPENDENT_RUNTIME_ADOPTION_VALIDATION_SUPPORTED_WITH_RESIDUALS`
+The final narrow DSH revalidation reported N1/N2/N7 and the adjacent transfer-status attack CLOSED, with no new MATERIAL/BLOCKING finding and no observed evolution-starvation or over-governance regression.
 
-Its two decision-worthy residuals were closed in `v0.3.4-candidate.1`:
+No Constitution rule was added merely because an implementation bug was found.
 
-- D14 immutable source identity / local-kernel drift;
-- D2 persistence-boundary claim strength.
+## Broader v0.3.5 themes
 
-The same prior falsifier then returned:
+- explicit self-evolution telos;
+- event + periodic/idle evolution wake;
+- Variation Space and outcome-based selection;
+- executable reference evolution metabolism;
+- adaptation/negative-evidence migration and Evolution Commons;
+- positive as well as negative composition emergence;
+- Evolutionary Subject / Protected Subject / Continuity Vector;
+- governance closure rather than infinite meta-review;
+- lawful redaction/deletion without rewriting occurrence truth;
+- effective-loaded-surface persistence evidence;
+- English + Simplified Chinese semantic projection;
+- Constitution concept map without deleting universal invariants;
+- retirement of `MAINLINE / NOT_MAINLINE` as an active adopter-facing maturity axis while historical records remain history.
 
-`REVALIDATION_BY_PRIOR_RUNTIME_ADOPTION_FALSIFIER_SUPPORTED_WITH_RESIDUALS`
+## Navigation
 
-with D14 and D2 CLOSED and no fix-induced regressions observed.
+1. `CURRENT-BASELINE.yaml`
+2. `00-READ-ME-FIRST.md`
+3. `CONSTITUTION-CONCEPT-MAP.yaml`
+4. `01-CONSTITUTION.md`
+5. `02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`
+6. `RUNTIME-ADOPTION-KERNEL.md`
+7. `09-EVOLUTION-METABOLISM.md`
+8. `10-LANGUAGE-PORTABILITY.md`
 
-## Real field evidence before Current
+For Simplified Chinese, begin with `language-projections/zh-CN/00-READ-ME-FIRST.md`.
 
-Hermes / MiniMax M3 was used as a real persistent field adopter. In a genuinely fresh Hermes session, before the first user message, candidate.1 source identity plus Runtime Kernel / Local Projection content were auto-injected from the Host persistence surface. A blind low-consequence local Markdown task then executed on the hot path without a canonical ENA reread or automatic HIGH_ASSURANCE escalation.
+The Chinese projection is not a separate ENA. It preserves the same stable semantic IDs and must be judged by material decision meaning, not literal translation.
 
-This is Host-specific evidence, not causal proof that all Agents/Hosts will behave the same.
+## Validation posture
 
-A later low-consequence persistent user-preference write exposed a genuine salience near-miss: the rule about persistent self-mutation/recovery was available in memory but did not become explicit before the mutation. The miss is preserved as field evidence rather than papered over by a new rule. It supports continued study of `KNOWN/AVAILABLE != INTERNALIZED != SALIENT != APPLIED` and memory/adoption economics.
+Current status means **adopt this baseline now**, not "universally proven."
 
-## Inherited surfaces
+Do not treat release-author intent, passing CI, one Host/model/language result, or machine-readable output as stronger evidence than it is.
 
-The Constitution, roles, capability map, core composed validator semantics, schemas, tools, and 235-case regression corpus are inherited unchanged from v0.3.3.
+Retained N3–N6 observations remain visible research/field residuals. They do not currently justify another candidate revision; field evidence may reopen them if they become material.
 
-> **Canonical source is the cold path; internalized semantics are the hot path.**
+> **Variation first; selection by reality.**
+>
+> **Aggressive exploration does not create unowned external authority.**

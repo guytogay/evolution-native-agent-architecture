@@ -2,7 +2,7 @@
 
 Every capability is scoped and evidenced. A capability title does not grant the capability, and a capability does not automatically grant authority.
 
-Core capability vocabulary retained in v0.3.2:
+Core capability vocabulary retained from v0.3.4:
 
 `ENA-CAP-001` Read Workspace / Project State  
 `ENA-CAP-002` Write Workspace / Project State  
@@ -74,9 +74,21 @@ Core capability vocabulary retained in v0.3.2:
 `ENA-CAP-068` Evidence-Backed Stage Admission Pack  
 `ENA-CAP-069` Agency-Preserving Uncertainty Resolution  
 `ENA-CAP-070` Viability Economics and Project-Scale Governance Fitness  
-`ENA-CAP-071` Persistent Evolution and Open Contribution Substrate
+`ENA-CAP-071` Persistent Evolution and Open Contribution Substrate  
 
-For `ENA-CAP-065..071` in v0.3.2:
+v0.3.5 candidate adds explicit evolutionary-metabolism capabilities:
+
+`ENA-CAP-072` Evolution Signal Capture and Review  
+`ENA-CAP-073` Variation Space Provisioning / Mutation Containment  
+`ENA-CAP-074` Outcome-Based Variation Evaluation and Selection  
+`ENA-CAP-075` Adaptation Migration / Import / Differential Validation  
+`ENA-CAP-076` Adaptive Pruning / Dormancy / Archive / Retirement  
+`ENA-CAP-077` Continuity Vector Introspection  
+`ENA-CAP-078` Language Semantic Projection / Cross-Language Conformance  
+`ENA-CAP-079` Governance Closure / Decision-Convergence Detection  
+`ENA-CAP-080` Composition Emergence Observation / Recombination Evaluation  
+
+For `ENA-CAP-065..071` retained from v0.3.4:
 
 - **CAP-065:** represent claim, observed evidence, claimed/evidence scope, explicit support relation, and material provenance/independence basis; cross-boundary transfer requires independently evidenced transfer/equivalence/invariance, and derivative repetition must not be counted as independent corroboration.
 - **CAP-066:** when a material trigger occurs, externalize the duty through explicit states such as `PENDING`, `SATISFIED`, `NOT_REQUIRED`, `DEFERRED_AUTHORIZED`, `FAILED`, `UNKNOWN`; broad completion cannot ignore unresolved material obligations, and `SATISFIED` requires appropriate closure evidence.
@@ -86,6 +98,20 @@ For `ENA-CAP-065..071` in v0.3.2:
 - **CAP-070:** observe governance cost, latency, human attention, coordination, rework, control-composition/compensation complexity, prevented failure, reusable evidence, useful variety, and project viability without forcing one universal scalar.
 - **CAP-071:** preserve project continuity across sessions/Agents/models/hosts through durable project state and open contribution while keeping contribution, reconciliation, promotion, and implementation authority distinct.
 
+For v0.3.5 candidate additions:
+
+- **CAP-072:** capture corrections/failures/friction/success/opportunity/environment changes as evolution signals and review them without requiring every wake to produce a mutation.
+- **CAP-073:** provide or identify a real bounded surface where uncertain variation can meet reality; the space may permit meaningful internal self-change without self-minting external mandate.
+- **CAP-074:** observe multiple outcome dimensions and select/retain/adapt/reject variations based on reality rather than intention.
+- **CAP-075:** import source adaptations with provenance/applicability as migration candidates, compare material source/receiver differences, and avoid treating transfer as local proof.
+- **CAP-076:** move stale/redundant/harmful adaptations out of the active set through reversible dormancy/archive where appropriate, without silently erasing selection history.
+- **CAP-077:** inspect decision-relevant continuity dimensions across session/model/Host/restore/clone changes instead of forcing a binary metaphysical identity claim.
+- **CAP-078:** bind language projections to stable semantic IDs/source identity and evaluate material decision equivalence rather than literal translation alone.
+- **CAP-079:** detect when further governance no longer has a plausible decision-changing path and stop adding ceremony while retaining honest residuals.
+- **CAP-080:** evaluate new compositions/recombinations for degradation, neutral/additive effects, super-additive benefit, and emergent capability as well as failure.
+
 Capability enumeration is a map, not a requirement to instantiate or validate all capabilities for every task. LITE adoption should externalize only material capabilities for the current consequence envelope.
 
----
+A Host may implement several capabilities through one organ or one capability through several mechanisms.
+
+> **Capability vocabulary describes what can be made real; it does not grant authority merely by being named.**

@@ -24,16 +24,19 @@ Never infer Current from:
 
 `releases/current/CURRENT-BASELINE.yaml` is the machine-readable adoption pointer.
 
-Version identity and maturity/status are separate. `MAINLINE` is an ENA maturity/promotion state, not the Git `main` branch.
+Version identity and maturity/status are separate. Beginning with v0.3.5, the active adopter-facing model is **Current + declared maturity/status**. Historical `MAINLINE / NOT_MAINLINE` records remain history rather than an additional live status axis.
 
 ## First adoption
 
-1. `releases/current/00-READ-ME-FIRST.md`
-2. `releases/current/01-CONSTITUTION.md`
-3. `releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`
-4. `releases/current/RUNTIME-ADOPTION-KERNEL.md`
-5. use `releases/current/LITE-ADOPTION-INSTRUCTION.md` when the real task is bounded and low-consequence;
-6. retrieve longer contracts, schemas, tools, or research only when consequence, ambiguity, novelty, evidence conflict, or exact semantics make them decision-relevant.
+1. `releases/current/CURRENT-BASELINE.yaml`
+2. `releases/current/00-READ-ME-FIRST.md`
+3. `releases/current/CONSTITUTION-CONCEPT-MAP.yaml`
+4. `releases/current/01-CONSTITUTION.md`
+5. `releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md`
+6. `releases/current/RUNTIME-ADOPTION-KERNEL.md`
+7. `releases/current/09-EVOLUTION-METABOLISM.md`
+8. use `releases/current/LITE-ADOPTION-INSTRUCTION.md` when the real task is bounded and low-consequence;
+9. retrieve longer contracts, schemas, tools, or research only when consequence, ambiguity, novelty, evidence conflict, or exact semantics make them decision-relevant.
 
 After successful persistent adoption, familiar tasks should normally use the internalized Runtime Kernel and still-valid Local Projection rather than re-reading ENA from zero.
 
@@ -69,9 +72,9 @@ Useful contribution classes include:
 
 For trackable bugs, enhancements, research questions, or release concerns, prefer a GitHub Issue when it is the smallest useful durable tracker.
 
-`Contribution != Reconciliation != Promotion != Mainline Authority.`
+`Contribution != Reconciliation != Release/Promotion Authority.`
 
-GitHub write capability does not grant promotion, Mainline, deployment, remediation, or scope-expansion authority.
+GitHub write capability does not grant release, deployment, remediation, or scope-expansion authority.
 
 ## Persistent collaboration rules
 

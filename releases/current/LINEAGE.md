@@ -1,66 +1,129 @@
-# LINEAGE — v0.3.4
+# v0.3.5 release lineage
 
-Current release: `v0.3.4`.
+## Base Current
 
-Immediate released predecessor: `v0.3.3` Current (`FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`).
+- ENA v0.3.4
+- effective Current tree at v0.3.5 work start: `b237802c08d608bb9be650fe213b7846d3be4bf6`
+- repository base commit for v0.3.5 work: `9d84e179aae9f5f5d8dbabc7be56dee4ae2f8724`
 
-Historical promoted Mainline: `v0.2.11 MAINLINE`.
+## Frozen first candidate
 
-This release is flattened and self-contained. It does not require candidate directories or older releases at runtime.
+First v0.3.5 frozen candidate:
 
-## Why v0.3.4 exists
+- source commit: `eb6d7ba00894ed446903aebe61cd59f0bdb59af7`
+- effective candidate tree: `f373e7695348c157dcd48d3ed243ea3079215b8f`
+- independent falsifier: DSH / DeepSeek v4-flash with prior ENA/V2/v0.3.3 lineage exposure, independent of v0.3.5 design
+- independent verdict: `NEEDS_REVISION`
 
-Field adoption exposed that:
+Mechanically reproduced material problems included zero-experiment selection, negative-evidence migration laundering, lifecycle/selection conflation, state-blind closure, and new-tool/schema disconnection.
 
-`ADOPTION != RETRIEVAL`
+The first candidate remains immutable evidence.
 
-and more generally:
+## Frozen candidate.1
 
-`AVAILABLE/KNOWN != INTERNALIZED != SALIENT != APPLIED`.
+candidate.1 was created as a successor identity and frozen at:
 
-v0.3.4 therefore introduces a persistent Runtime Kernel, Compiled Local Projection, canonical cold-path retrieval, and runtime governance-intensity profiles.
+- source commit: `e6ff1e76afb8ad8919186786100ec153a5f0d07a`
+- effective candidate tree: `ff2cb44c7a5d1b472800180578b5df7baa123aec`
+- freeze-record commit: `63ca8bdb14bfa4aca213d1dc88287f15572dd5c2`
 
-## Candidate lineage
+The same DSH falsifier re-ran the original attacks under:
 
-Original frozen candidate:
+`SAME_FALSIFIER / TARGETED_REVALIDATION / NOT_FRESH`
 
-- identity: `v0.3.4-candidate`
-- semantic commit: `ccc66233c1abe6778177a38950af1f7bb2356b93`
-- candidate-directory tree: `61cb33562626c3b8f590919c87f4637416f1ee8f`
-- freeze record commit: `d4ce9ebff0f83f47090ffea8e44be9bdd6eb7f68`
-- fresh independent verdict: `INDEPENDENT_RUNTIME_ADOPTION_VALIDATION_SUPPORTED_WITH_RESIDUALS`
+Targeted verdict:
 
-The independent validator supported the overall model but identified D14 source-identity drift and D2 persistence-boundary claim-strength residuals.
+`TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS`
 
-Corrected successor:
+The material predecessor failures were mechanically closed and the falsifier found no evolution-starvation/over-governance regression.
 
-- identity: `v0.3.4-candidate.1`
-- semantic commit: `4518eeee9405c0b784401b6960dd36fee500a84f`
-- candidate-directory tree: `4e6642b5c17342fe51d932d67764643c383aba82`
-- freeze record commit: `32a0729518b60fefa002eed62c34f866ee5856a1`
-- prior-falsifier verdict: `REVALIDATION_BY_PRIOR_RUNTIME_ADOPTION_FALSIFIER_SUPPORTED_WITH_RESIDUALS`
-- D14: CLOSED
-- D2: CLOSED
-- fix-induced regressions: NONE OBSERVED
+Residuals relevant to release decision included:
 
-The original candidate was not rewritten in place; its residual evidence remains preserved.
+- N1: CLI did not independently reject invalid migration lifecycle enum;
+- N2: CLI could propagate a forged stronger `source_authentication` string;
+- N7: committed inherited-regression result still carried the old wrong identity shape.
 
-## Real field evidence before Current
+Additional N3–N6 observations remained research/field residuals.
 
-Hermes / MiniMax M3 was used as a persistent field adopter after candidate.1 semantic support.
+candidate.1 remains immutable evidence.
 
-A real fresh-session experiment observed that candidate.1 immutable source identity plus Runtime Kernel / Local Projection content were auto-injected before the first user message. A blind low-consequence local write then proceeded without re-reading canonical ENA or escalating merely because a side effect existed.
+## Frozen candidate.2
 
-A later persistent user-preference write exposed a salience/application near-miss: recovery reasoning did not become explicit before the mutation even though the persistent kernel contained the relevant rule. This remains a field-validation target, not a rewritten candidate defect.
+candidate.2 was created specifically to close N1/N2/N7 before release decision plus the directly adjacent fixed `transfer_status` consistency guard.
 
-The same field run also exposed memory-budget pressure, motivating continued observation of consolidation/truncation/drift economics without inventing a new rule from one Host.
+Frozen identity:
 
-## Inherited semantic lineage
+- source commit: `8393b8b05d34797965c612e8b9ca938d306f6322`
+- effective candidate tree: `b10854f191d9641138e2f44278f043f124a2e120`
+- freeze-record commit: `34e12333bcbe6cf8a3a2a992040d93012ead868b`
 
-The v0.3.3 composed claim-pack validator lineage remains inherited unchanged. Constitution, roles, capability map, core contracts, schemas, tools, and the 235-case regression corpus are not reopened by this release.
+candidate.2 scope:
 
-Open research #11/#15 and tooling drift #45 remain separate unresolved lines, not hidden dependencies.
+- CLI validates source lifecycle enum;
+- CLI rejects self-edited source-authentication elevation;
+- CLI validates fixed transfer status;
+- candidate.2 adversarial regressions encode these closures;
+- committed regression output is synchronized with its generating suite and CI checks regeneration parity;
+- active candidate and zh-CN projection identities were synchronized to candidate.2.
 
-> Preserve history durably; retrieve history selectively.
->
-> A release may improve adoption semantics without rewriting predecessor evidence.
+## candidate.2 narrow revalidation
+
+The same DSH falsifier revalidated the residual closures under:
+
+`SAME_FALSIFIER / NARROW_RESIDUAL_REVALIDATION / NOT_FRESH`
+
+Verdict:
+
+`NARROW_REVALIDATION_SUPPORTED`
+
+Reported mechanical results:
+
+- N1 CLOSED;
+- N2 CLOSED;
+- adjacent transfer-status self-upgrade attack CLOSED;
+- N7 CLOSED with zero-diff regeneration;
+- candidate.1 regression preservation PASS;
+- no new MATERIAL/BLOCKING finding;
+- no observed evolution starvation / over-governance regression;
+- English/zh-CN Constitution unchanged;
+- Current remained v0.3.4 during validation.
+
+Durable summary:
+
+`collaboration/inbox/2026-08-23-v035-candidate2-dsh-narrow-revalidation-summary.md`
+
+## Final reconciliation
+
+Host-side final reconciliation:
+
+- commit: `bbdb0347ee83b1d76d21f54e1c16c6038442b26d`
+- decision: `RELEASE_PREPARATION_SUPPORTED`
+- candidate succession stop: `YES unless new material evidence appears`
+
+N3–N6 remain explicit research/field residuals rather than being hidden or converted into unsupported new rules.
+
+## Primary field/design inputs retained
+
+- Hermes longitudinal runtime adoption/persistence evidence;
+- OpenClaw longitudinal adoption/persistence evidence;
+- DSH mature-host migration evidence;
+- fresh Hermes/Ubuntu first-adoption failure + correction;
+- fresh Codex/Windows first-adoption evidence;
+- Issue #51 opportunity register;
+- maintainer decisions on evolutionary telos, variation, migration, emergence, continuity, multilingual semantics, anti-sovereignty, and retirement of active Mainline status.
+
+Key direction:
+
+`protect self-evolution -> actively enable and accelerate sustained self-evolution`
+
+`governance as center -> governance as evolvability infrastructure`
+
+## Release status
+
+v0.3.5 release target:
+
+`CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`
+
+Beginning with v0.3.5, `MAINLINE / NOT_MAINLINE` is no longer an active adopter-facing maturity axis. Historical records using those labels remain unchanged as history.
+
+The exact released Current tree/package digest/merge identity are release-author evidence and are recorded outside this self-referential file after publication.

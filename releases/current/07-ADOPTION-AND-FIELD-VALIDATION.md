@@ -1,106 +1,77 @@
-# 7. Adoption and Field Validation
+# 7. Adoption and Field Validation — v0.3.5
 
-`v0.3.4` is the self-contained Current adoption baseline. It is `FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE / NOT_MAINLINE`.
+v0.3.5 treats ENA as a persistent evolutionary operating model, not as a per-task document-retrieval ritual or a string-recording ceremony.
 
-Its purpose is to test and operate ENA as a persistent runtime operating model across tasks/sessions rather than as a per-task document-retrieval exercise, while preserving immutable source identity and truthful persistence claims.
+## First adoption
 
-## Adoption has two phases
+Establish:
 
-### First adoption / compilation
+1. the v0.3.5 telos;
+2. Constitution concept map + binding Constitution;
+3. compact Runtime Kernel;
+4. truthful Compiled Local Projection;
+5. at least one real or explicitly absent Variation Space;
+6. evolution wake path(s);
+7. actual persistence mechanism where available;
+8. minimum sufficient immutable Current source/effective-content identity;
+9. adopted language projection where relevant.
 
-The Agent establishes:
+Do not claim durable adoption merely because the current session read ENA. Do not persist the whole release into always-loaded context.
 
-1. the shared Constitution;
-2. the compact `RUNTIME-ADOPTION-KERNEL.md` invariants and escalation/retrieval triggers;
-3. a truthful Compiled Local Projection of repeatedly relevant Host reality;
-4. a real persistence mechanism when the Host provides one;
-5. the immutable canonical source identity actually compiled from (commit/tree/package digest), not only a mutable branch or human-readable version label.
+## Effective-load evidence
 
-Do not claim persistent adoption merely because the current session has read ENA. If the Host can only retain session-local context, report that limitation.
+Persistence claims may use:
 
-Do not persist the entire ENA release into always-loaded context. Persist the compact operating kernel, canonical source identity/pointer, and material local projection needed for continuity.
+`WRITTEN -> LOADED -> INTERPRETED -> SALIENT -> APPLIED`
 
-If the stored kernel is transformed/paraphrased, preserve source/transformation lineage and read back the stored representation where practical. Successful storage does not itself prove semantic fidelity.
+Do not skip states by narration. A file written/read back in the same session is evidence of `WRITTEN`, not fresh-session loading/application.
 
-Before claiming that ENA behavior survives a fresh-session or equivalent decision-critical boundary, test/evidence that actual boundary. A current-session persistence write is not sufficient evidence for a cross-session adoption claim.
+Prefer natural fresh-session/task boundaries over fake production tasks.
 
-### Steady-state operation
+## Evolution field experiments
 
-After adoption, familiar tasks should normally be handled from the internalized runtime kernel and still-valid local projection. Canonical ENA retrieval is a cold path for:
+High-value tests include:
 
-- ENA version change;
-- immutable source identity change, conflict, or inability to confirm it when decision-relevant;
-- material Host/runtime/model/tool/configuration/authority/recovery change;
-- novel or ambiguous consequence boundary;
-- stale/unknown local projection;
-- exact contract/schema/validator semantics that are decision-critical;
-- unresolved applicability/evidence conflict.
-
-Repeated repository reads before ordinary familiar work are not evidence of stronger adoption; they may be friction.
+1. **Wake without forced mutation** — event/periodic wake may conclude "no useful candidate."
+2. **Real Variation Space** — meaningful self-change runs without pre-proving improvement.
+3. **Reality-contact selection** — `SUPPORTED/PARTIAL/NOT_SUPPORTED/HARMFUL/UNKNOWN` cannot be manufactured before represented experiment.
+4. **Two state axes** — integration/archive/retirement changes lifecycle without rewriting selection; explicitly test `INTEGRATED+UNKNOWN`, `ARCHIVED+HARMFUL`, and `ARCHIVED+SUPPORTED`.
+5. **Permission mutation** — internal permission topology may change while external mandate does not silently expand.
+6. **Positive migration** — source adaptation transfers with source experiment/evaluation/provenance; receiver obtains a candidate, not local proof.
+7. **Negative migration and local reselection** — source `HARMFUL/NOT_SUPPORTED` remains source negative evidence; receiver may obtain a different local result only after real local experiment/evaluation.
+8. **Packet contradiction and self-asserted trust** — purpose/selection/evaluation/lifecycle inconsistencies are rejected; packet-local digest is not source authentication; `source_authentication` cannot be rewritten into a stronger self-asserted trust claim and accepted by the CLI.
+9. **Positive emergence** — recombination/composition is observed for super-additive/emergent value, not only failure.
+10. **Pruning** — stale/harmful adaptation can leave the active set without erasing occurrence/selection history.
+11. **Governance closure** — represented unresolved state prevents bare READY; review still stops when further checks no longer have a plausible decision-changing path.
+12. **Cross-language conformance** — English/Chinese projections preserve material decisions; structural parity alone is not behavioral proof.
+13. **Effective loaded surface** — persisted kernel enters future decision context without starving local project instructions.
+14. **Continuity vector** — session/model/Host change revalidates affected dimensions rather than forcing metaphysical identity claims.
+15. **Evolution economics** — metabolism should produce useful adaptation faster than it creates maintenance/governance burden.
 
 ## Runtime profiles
 
-Profiles are task/runtime governance intensity, not separate ENA editions:
+Profiles remain task-level governance intensity:
 
-- `LITE` — bounded low-consequence work using the already-adopted kernel with minimal ceremony;
-- `STANDARD` — broader/persistent/project-scale work where more governance-state representation or coordination adds value;
-- `HIGH_ASSURANCE` — high-consequence, weak-recovery, sensitive, externality-heavy, persistent-runtime/meta, or authority-critical work where stronger evidence/enforcement is justified;
-- `CUSTOM` — declared local projection with explicit applicability and residual limitations.
+`LITE | STANDARD | HIGH_ASSURANCE | CUSTOM`
 
-Escalate/de-escalate as consequence changes. Governance workload does not decide applicability. A side effect by itself does not imply HIGH_ASSURANCE; a one-line persistent self-mutation may justify escalation even if the code diff is tiny.
+Do not infer HIGH_ASSURANCE from "there is a side effect" or LITE from "the diff is small." Profile selection must not determine whether evolution may be considered at all.
 
-## Persistent-runtime mutation
+## Tool evidence boundary
 
-A change to system instructions, durable memory policy, core Agent configuration, routing/provider/tool authority, recovery mechanism, or another persistent surface that future behavior depends on is a consequential mutation boundary when future operation materially depends on it.
+Passing `ena_evolve.py selftest`, `candidate1_adversarial.py`, `candidate2_adversarial.py`, JSON-schema validation, or inherited composed-validator regressions is useful implementation evidence. None proves external evidence truth, mandate validity, recovery reality, source authentication, universal language equivalence, or net field benefit.
 
-Before committing such a consequential mutation, use the existing Compiled Local Projection to determine whether a credible pre-change recovery point exists and what it actually covers. If recovery is unavailable/weak/unknown, narrow the mutation, strengthen evidence/backup where practical, disclose residual risk, or escalate/stop when consequence requires it.
+`implementation regression preserved != new semantic coverage complete`
 
-After mutation, verify the intended new state and preserve occurrence history. `restore != erase what happened` and `backup exists != recovery proven` remain in force.
+The candidate-named adversarial files are retained as historical regression fixtures for the validated implementation lineage; their names do not make Current a candidate.
 
-Recovery burden is consequence-proportional; low-consequence reversible persistent preferences do not require maximal backup ceremony, but the mutation boundary and rollback reality should not be silently forgotten when material.
+## Current field-validation boundary
 
-## No-real-task path
+`FIELD_VALIDATION` means v0.3.5 is the adoption baseline while heterogeneous real-Host evidence continues to accumulate. It does not mean every Host/model/language combination has been proven.
 
-If adoption instructions arrive without a real substantive task, do not invent a production scenario just to produce a positive field report. Complete only real installation/self-positioning work and return ready for a real task.
+Use issue #61 for post-release evolution-metabolism field findings when GitHub project context is available.
 
-## Field-validation focus
+## Report fields
 
-High-value experiments include:
+When material, record release identity, Host/model/language/configuration, effective loaded surface, Continuity Vector dimensions, Variation Space, wake trigger, hypothesis, experiments, outcome dimensions, **lifecycle state and selection state separately**, recovery/authority/protected-subject context, migration source/receiver differences and source lineage, composition/emergence observations, persistence evidence state, friction/value/cost, alternatives, and unknowns.
 
-1. **Fresh-session persistence** — install the runtime kernel, record immutable source identity, open a new session without saying `remember ENA`, and observe whether ENA-aware behavior survives.
-2. **Persistence integrity** — verify that the persisted kernel/projection remains bound to the source identity it was compiled from.
-3. **LITE control** — give genuinely low-consequence familiar work; ENA should not force repository re-reading or high-assurance ceremony.
-4. **Reversible local mutation** — a small authorized local write should not automatically become HIGH_ASSURANCE.
-5. **Persistent self-mutation salience** — observe whether a durable Agent/runtime mutation naturally surfaces the real recovery/rollback boundary without being reminded about ENA; record misses without automatically turning them into new rules.
-6. **Novel consequential task** — an unfamiliar high-consequence boundary should trigger canonical retrieval or explicit uncertainty rather than confident improvisation.
-7. **Adoption economics** — measure token/context/memory pressure, consolidation, truncation, drift, repeated retrieval, latency, and user burden.
-8. **Over/under-governance** — record unnecessary escalation, missed escalation, completion quality, and agency impact.
-
-Where possible test the same underlying model on different Hosts, and different models on the same Host. Do not treat one Agent's self-report as causal proof.
-
-## Field reports
-
-When decision-relevant record:
-
-- `ena_version: v0.3.4`;
-- immutable release source commit/tree/package digest actually used;
-- Host/runtime/model/tool facts;
-- how/where the Runtime Kernel and local projection were persisted, or why persistence was unavailable;
-- claimed persistence boundary and the boundary actually tested;
-- whether a clean/fresh session retained the adoption behavior;
-- task consequence envelope and active runtime profile;
-- whether ENA behavior came from internalized semantics or a new canonical retrieval;
-- consequential authority/effect/recovery context;
-- observed outcome, friction/value, evidence, uncertainty, and alternative explanations.
-
-The project should still prefer:
-
-`cheap contradiction check -> synthetic/HAR falsification -> disposable experiment -> Shadow production -> Canary enforcement -> broader production -> independent-host replication when decision-critical`
-
-> **Adoption != retrieval.**
->
-> **Known/available != internalized != salient != applied.**
->
-> **Use the cheapest evidence that can honestly support the decision.**
-
----
+> **Field validation asks whether the metabolism works, not whether the Agent can recite ENA.**

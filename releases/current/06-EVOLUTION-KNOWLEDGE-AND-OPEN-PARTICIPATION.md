@@ -1,47 +1,86 @@
-# 6. Evolution, Knowledge, and Open Participation
+# 6. Evolution, Knowledge, Migration, and Open Participation
 
-ENA project knowledge, research, evidence, lineage, and open questions should remain discoverable to legitimate participants. Knowledge access and research participation are not authority grants.
+ENA project knowledge, adaptations, research, evidence, lineage, and open questions should remain discoverable to legitimate participants. Knowledge access and variation authority are not the same as consequential external authority.
 
-Any participant may, within available capability and existing authority:
+Any participant may, within actual capability and authority:
 
-- read and search project knowledge;
+- read/search project knowledge;
 - question and critique ENA;
-- research alternatives;
-- propose hypotheses/mechanisms;
+- generate variations and hypotheses;
 - perform bounded experiments;
-- contribute evidence and field experience;
-- challenge existing candidates or current assumptions.
+- contribute positive and negative evidence;
+- publish supported adaptations as migration candidates;
+- recombine prior adaptations;
+- challenge current selections.
 
 Useful contribution classes include:
 
-`INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | NEW_VARIATION | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | CRITIQUE`
+`INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | NEW_VARIATION | ADAPTATION_PACKET | EMERGENCE_FINDING | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | CRITIQUE`
 
-Contribution remains distinct from reconciliation, promotion, baseline change, and unrelated implementation authority.
+## Evolution Commons
 
-> **Knowledge is commons. Inquiry is open. Authority is scoped. Adoption is governed.**
+ENA encourages a shared **Evolution Commons**: a population-level pool of transferable variations/adaptations and their evidence.
+
+A useful migration packet should preserve, where material:
+
+- what changed;
+- why the source expected it to help;
+- source Evolutionary Subject / Host / model / language / configuration;
+- observed outcomes and tradeoffs;
+- failures/negative evidence;
+- dependencies and required capabilities;
+- consequence/authority assumptions;
+- known transfer limitations;
+- unknowns.
+
+The receiver may import before universal transferability is proven. Import creates a **migration candidate**, not a command and not local proof.
+
+Receiver selection may:
+
+`ADOPT | LOCAL_ADAPT | RECOMBINE | REJECT | KEEP_UNKNOWN`
+
+This allows one Agent's adaptation to accelerate population learning without forcing every Agent to rediscover the original variation.
+
+## Composition as search space
+
+Composition is not only a hazard boundary.
+
+Recombining adaptations/Agents may produce:
+
+`degradation | neutral interaction | additive improvement | super-additive improvement | emergent capability | UNKNOWN`
+
+When a composition can materially change outcomes, observe the whole system rather than inheriting component verdicts.
+
+Positive emergence is valuable evidence. It does not erase new failure modes or external consequence boundaries.
+
+## Pruning and adaptive retirement
+
+Evolution is not endless accumulation.
+
+Active adaptations, skills, policies, or local projections may become stale, redundant, harmful, or unused. Hosts should have a proportionate path to:
+
+`KEEP | UPDATE | DORMANT | ARCHIVE | RESTORE | RETIRE`
+
+Usage is evidence, not truth. An unused adaptation may still be critical; a frequently used adaptation may still be harmful.
+
+Prefer reversible archive over destructive deletion when uncertainty remains and retention is lawful/affordable.
+
+User-authored, externally installed, or protected artifacts must not be silently enrolled into autonomous curation merely because the Agent can write them.
+
+## ENA narrow waist
+
+ENA standardizes semantic properties required for truthful, evolvable interoperability across heterogeneous Agents/Hosts/languages.
+
+`Universal semantics != universal implementation burden`
+
+`Same adaptation source != same local outcome`
+
+`Migration != local validation`
+
+`Composition != sum of parts`
+
+Project continuity should not depend on one permanent session/Agent.
+
+> **Knowledge is commons. Variation is broad. Consequential authority remains scoped.**
 >
-> **Broad knowledge, broad participation, narrow consequential authority.**
-
-## The ENA narrow waist
-
-ENA should standardize only the semantic properties required for truthful, viable interoperability across heterogeneous Agents/Hosts. It should not become a universal translator for every participant's internal control plane, cognitive method, workflow, tool model, or organization structure.
-
-Keep truly universal semantics in the shared waist; keep Host/project/model-specific mechanisms at the edges when they can interoperate without silent semantic drift.
-
-`Universal semantics != universal implementation burden.`
-
-`Standardize the property; discover the organ.`
-
-A participant may preserve or forward a contribution it does not fully understand when the unknown portion is non-critical and the unknown/provenance remains visible. If understanding that portion is necessary to judge safe applicability, narrow/fail rather than silently discard the critical unknown.
-
-Selection success, high reputation, high benchmark score, or operational usefulness may justify more opportunity within evidence/authority, but does not grant authority to redefine the selection criterion, Constitution, release process, or unrelated domains.
-
-Project continuity should not depend on one permanent session/Agent. Durable project state is the collaboration bus; hidden internal state is not assumed shared.
-
-> **Persistence != Synchronization.**
-
-A contribution may come from any legitimate participant, but a write path to GitHub/Drive does not itself create promotion or Mainline authority.
-
-Research may branch and diverge aggressively. Adoption releases should remain linear, flattened, self-contained, and simple for adopters.
-
----
+> **Transfer adaptations fast; select them locally.**
