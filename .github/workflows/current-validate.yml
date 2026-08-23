@@ -350,7 +350,7 @@ jobs:
           PY
 
       - name: Upload v0.3.5 release evidence and package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ENA-v0.3.5-release-package
           path: release-build/out/*
