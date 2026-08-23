@@ -1,6 +1,6 @@
-# Evolution-Native Agent Architecture — v0.3.6 Candidate
+# ENA v0.3.6 Candidate — Working Evolution Ecology Baseline
 
-Status: **WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED / DO_NOT ADOPT**
+Status: **WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED / DO NOT ADOPT**
 
 Current remains: **v0.3.5 / CURRENT / FIELD_VALIDATION**.
 
@@ -10,50 +10,51 @@ This candidate inherits the complete v0.3.5 Current effective-content baseline a
 
 **ENA exists to make sustained self-evolution viable.**
 
-**Evolution is the purpose; governance protects evolvability.**
-
-v0.3.6 does not replace this telos. It asks what a more life-like evolutionary ecology requires after v0.3.5 made the evolution metabolism explicit.
+Governance protects evolvability, truthful selection, owned consequence, recovery/correction capacity, and future revision. It is not the telos.
 
 ## Candidate direction
 
-The working model becomes:
+The candidate extends the v0.3.5 evolution metabolism with:
 
-`environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> migration/recombination -> renewed variation`
+- stimulus and mutation pressure without forced mutation;
+- long-lived latent/cryptic variation;
+- explicit separation of storage, expression, application, and selection;
+- local/environment-scoped selection rather than universal scalar fitness;
+- publisher/receiver autonomy in Evolution Commons;
+- discovery/import/adoption separation;
+- cue-triggered salience as a runtime direction;
+- external rescue-path property where material and controllable;
+- governed canonical ENA lineage without treating the hosting service as a permanent sovereign;
+- ecological/minimal-intervention governance direction.
 
-Key candidate distinctions:
+## Machine boundary
 
-- `stimulus != mutation != improvement`;
-- variation does not require an immediate verdict;
-- `stored != expressed != applied != selected`;
-- dormant/latent variation may remain legitimately unresolved until a relevant context makes expression useful;
-- Runtime Kernel should favor compact salience cues over permanent full-policy loading;
-- Commons publication, receiver discovery/import, and local adoption are independent actions;
-- popularity, propagation, or source success does not create universal fitness or receiver proof;
-- local selection remains environment-scoped;
-- recovery for self-disabling mutation should remain reachable outside the damaged candidate when controllable;
-- canonical ENA evolution requires governed, reproducible lineage; GitHub is the current carrier, not an eternal metaphysical dependency;
-- governance should define the minimum semantic/consequence floor and avoid administrating ecology that can safely self-organize.
+Candidate machine semantics currently include:
 
-## Deliberately still open
+- `schemas/evolution-record.v2.schema.json`;
+- `tools/validate_evolution_record_v2.py`;
+- `tools/validate_candidate.py`;
+- inherited `tools/ena_evolve.py` and composed validator/regression surfaces.
 
-This candidate does **not** define:
+The inherited `ena_evolve.py` remains the v0.3.5 reference implementation and does **not** yet fully implement the candidate mutation-pressure/latent-reservoir/expression model.
 
+`CANDIDATE_PROSE_OR_SCHEMA != TOOL_IMPLEMENTATION_PROOF`
+
+## Open research kept outside mandatory semantics
+
+This working candidate deliberately does not standardize:
+
+- Agent reproductive motivation or a required definition of descendants;
 - a universal fitness function;
-- an Agent reproductive duty or motivation;
-- a formal definition of Agent descendants;
-- a civilization-scale domination, obedience, or coexistence telos;
-- a fixed cognitive-mode taxonomy;
-- mandatory artificial-adversity/persona training;
-- a universal external-ecosystem polling cadence;
-- a rule that every stored variation must eventually be judged or expressed.
+- a civilization-scale AI/human domination, obedience, or coexistence telos;
+- mandatory artificial-adversity/persona moral training;
+- a fixed universal cognitive-mode taxonomy;
+- a universal cadence for external ecosystem polling;
+- a rule that every latent variation must eventually receive a verdict.
 
-## Working discipline
+## Freeze boundary
 
-- preserve all v0.3.5 validated truth/authority/recovery semantics unless explicitly changed and revalidated;
-- do not add Constitution IDs merely because a new concept is interesting;
-- machine-enforce only properties whose enforcement earns its cost;
-- attack the new ecology semantics before freeze;
-- keep `releases/current/` unchanged during candidate work.
+Do not freeze or promote merely because the candidate is complete enough to inspect. Freeze requires explicit immutable source/tree identity after pre-freeze author and machine verification converges. Independent semantic falsification follows the frozen identity, not a moving branch.
 
 > **Variation does not owe reality an immediate verdict.**
 >
