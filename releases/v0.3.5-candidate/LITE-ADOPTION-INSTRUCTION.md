@@ -1,4 +1,4 @@
-# LITE Adoption / Runtime Instruction — v0.3.5 candidate.1
+# LITE Adoption / Runtime Instruction — v0.3.5 candidate.2
 
 LITE means low ceremony for a bounded consequence envelope. It is not a reduced Constitution and not "no evolution."
 
@@ -22,6 +22,6 @@ LITE may escalate when real consequence changes, including high irreversibility,
 
 Escalate because consequence changed, not because the word "mutation" sounds dangerous.
 
-If using the reference evolution tool, remember: machine-readable state is a record with consistency guards, not proof that external evidence/authority/recovery claims are true.
+If using the reference evolution tool, remember: machine-readable state is a record with consistency guards, not proof that external evidence/authority/recovery/source-identity claims are true. A packet cannot authenticate itself by editing its own authentication field.
 
 > **Do useful work. Capture learning. Keep evolution alive.**
