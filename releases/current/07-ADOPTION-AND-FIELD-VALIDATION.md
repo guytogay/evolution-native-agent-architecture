@@ -1,6 +1,6 @@
-# 7. Adoption and Field Validation — v0.3.5 candidate.2
+# 7. Adoption and Field Validation — v0.3.5
 
-candidate.2 tests ENA as a persistent evolutionary operating model, not as a per-task document-retrieval ritual or a string-recording ceremony.
+v0.3.5 treats ENA as a persistent evolutionary operating model, not as a per-task document-retrieval ritual or a string-recording ceremony.
 
 ## First adoption
 
@@ -13,10 +13,10 @@ Establish:
 5. at least one real or explicitly absent Variation Space;
 6. evolution wake path(s);
 7. actual persistence mechanism where available;
-8. minimum sufficient immutable candidate.2 source identity;
+8. minimum sufficient immutable Current source/effective-content identity;
 9. adopted language projection where relevant.
 
-Do not claim durable adoption merely because the current session read ENA. Do not persist the whole candidate into always-loaded context.
+Do not claim durable adoption merely because the current session read ENA. Do not persist the whole release into always-loaded context.
 
 ## Effective-load evidence
 
@@ -62,12 +62,16 @@ Passing `ena_evolve.py selftest`, `candidate1_adversarial.py`, `candidate2_adver
 
 `implementation regression preserved != new semantic coverage complete`
 
-## Candidate/Current boundary
+The candidate-named adversarial files are retained as historical regression fixtures for the validated implementation lineage; their names do not make Current a candidate.
 
-This directory is candidate.2. A field adopter must not replace `releases/current/` merely because candidate.2 is newer. Current changes only after freeze, validation/revalidation, reconciliation, and release decision.
+## Current field-validation boundary
+
+`FIELD_VALIDATION` means v0.3.5 is the adoption baseline while heterogeneous real-Host evidence continues to accumulate. It does not mean every Host/model/language combination has been proven.
+
+Use issue #61 for post-release evolution-metabolism field findings when GitHub project context is available.
 
 ## Report fields
 
-When material, record candidate/release identity, Host/model/language/configuration, effective loaded surface, Continuity Vector dimensions, Variation Space, wake trigger, hypothesis, experiments, outcome dimensions, **lifecycle state and selection state separately**, recovery/authority/protected-subject context, migration source/receiver differences and source lineage, composition/emergence observations, persistence evidence state, friction/value/cost, alternatives, and unknowns.
+When material, record release identity, Host/model/language/configuration, effective loaded surface, Continuity Vector dimensions, Variation Space, wake trigger, hypothesis, experiments, outcome dimensions, **lifecycle state and selection state separately**, recovery/authority/protected-subject context, migration source/receiver differences and source lineage, composition/emergence observations, persistence evidence state, friction/value/cost, alternatives, and unknowns.
 
 > **Field validation asks whether the metabolism works, not whether the Agent can recite ENA.**
