@@ -8,6 +8,19 @@ Historical releases and candidates remain recoverable through Git commits/trees,
 
 ## Formal released baselines
 
+### v0.3.5
+
+- release merge commit: `a18ec89d0be3a9fbd872306aa2914a05adae5e62`
+- immutable release/Current tree at release: `9c928b4c99ae72e53c89978cf1d10b7ea068c182`
+- canonical Current source commit used by deterministic packaging: `32c57da7caf8f8edfdd2e85f252c14fddebcca3c`
+- deterministic package SHA-256: `b4a0c1188729b10df9b4e68f67118e6679ffcc1c9007828e474522f6c5b4732d`
+- package file count: `49`
+- PR-head published workflow artifact: `9488870775` (`ENA-v0.3.5-release-package`)
+- release status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`
+- active `MAINLINE / NOT_MAINLINE` adopter-facing axis: retired beginning with this release; historical uses remain unchanged
+- release PR: `#64`
+- post-release heterogeneous field validation: `#61`
+
 ### v0.3.4
 
 - release merge commit: `26f171dbc1e6c09c3a504dd67480f04fcd08e4c7`
