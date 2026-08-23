@@ -1,4 +1,4 @@
-# 9. Evolution Metabolism — v0.3.5 candidate.1
+# 9. Evolution Metabolism — v0.3.5 candidate.2
 
 This document turns ENA's evolutionary purpose into an actionable reference loop. It is a reference mechanism, not a mandatory universal implementation.
 
@@ -54,8 +54,6 @@ The space may permit meaningful internal permission/capability changes. Its boun
 A Variation Space is not automatically risk-free. It is a deliberately bounded place where uncertainty can contact reality.
 
 ## 9.4 Candidate record: two independent state axes
-
-candidate.1 separates **lifecycle state** from **evidence-backed selection state**.
 
 Lifecycle:
 
@@ -131,6 +129,14 @@ Packet purpose derives from the **selection axis**, never from lifecycle alone:
 
 A packet-local digest is **not source authentication**. A party able to rewrite the packet can recompute the digest. Use an external provenance/signature/channel/trust anchor when source authenticity changes the decision.
 
+candidate.2 makes the reference CLI reject three packet self-assertion/shape contradictions rather than relying on JSON Schema alone:
+
+- `source_lifecycle_state` must be a valid lifecycle enum;
+- `transfer_status` must remain `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF`;
+- `source_authentication` must remain `NOT_AUTHENTICATED_BY_THIS_PACKET`.
+
+Changing `source_authentication` to a string such as `TOTALLY_TRUSTED` and recomputing the digest therefore cannot make the packet authenticate itself.
+
 The receiver imports a packet with local `selection_state=UNASSESSED` while preserving source selection/evidence separately.
 
 `TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`
@@ -151,7 +157,7 @@ Observe conflict, cancellation, amplification, new resource interaction, emergen
 
 Do not recursively review merely because review is possible.
 
-The candidate.1 reference closure tool reads represented evolution state plus explicit caller inputs. Unreviewed signals or an experimented candidate still `UNASSESSED/UNKNOWN` become visible evidence obligations rather than disappearing because the caller omitted them.
+The reference closure tool reads represented evolution state plus explicit caller inputs. Unreviewed signals or an experimented candidate still `UNASSESSED/UNKNOWN` become visible evidence obligations rather than disappearing because the caller omitted them.
 
 Reference outcomes:
 
@@ -181,7 +187,7 @@ status
 selftest
 ```
 
-candidate.1 also ships `tools/candidate1_adversarial.py`, which mechanizes regressions for independently reproduced predecessor failures.
+`tools/candidate1_adversarial.py` keeps regressions for independently reproduced predecessor failures. candidate.2 adds `tools/candidate2_adversarial.py` for the residual packet-consistency/trust gaps found during candidate.1 targeted revalidation.
 
 The reference tool does not execute arbitrary Host self-mutations, prove external evidence truth, prove authority, prove recovery, or authenticate migration source identity. Machine-readable state is not stronger truth merely because a tool wrote it.
 
