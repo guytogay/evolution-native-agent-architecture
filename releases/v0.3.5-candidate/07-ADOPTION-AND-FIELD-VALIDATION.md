@@ -1,6 +1,6 @@
-# 7. Adoption and Field Validation — v0.3.5 candidate.1
+# 7. Adoption and Field Validation — v0.3.5 candidate.2
 
-candidate.1 tests ENA as a persistent evolutionary operating model, not as a per-task document-retrieval ritual or a string-recording ceremony.
+candidate.2 tests ENA as a persistent evolutionary operating model, not as a per-task document-retrieval ritual or a string-recording ceremony.
 
 ## First adoption
 
@@ -13,7 +13,7 @@ Establish:
 5. at least one real or explicitly absent Variation Space;
 6. evolution wake path(s);
 7. actual persistence mechanism where available;
-8. minimum sufficient immutable candidate.1 source identity;
+8. minimum sufficient immutable candidate.2 source identity;
 9. adopted language projection where relevant.
 
 Do not claim durable adoption merely because the current session read ENA. Do not persist the whole candidate into always-loaded context.
@@ -39,7 +39,7 @@ High-value tests include:
 5. **Permission mutation** — internal permission topology may change while external mandate does not silently expand.
 6. **Positive migration** — source adaptation transfers with source experiment/evaluation/provenance; receiver obtains a candidate, not local proof.
 7. **Negative migration and local reselection** — source `HARMFUL/NOT_SUPPORTED` remains source negative evidence; receiver may obtain a different local result only after real local experiment/evaluation.
-8. **Packet contradiction** — purpose/selection/evaluation inconsistencies are rejected; packet-local digest is not treated as source authentication.
+8. **Packet contradiction and self-asserted trust** — purpose/selection/evaluation/lifecycle inconsistencies are rejected; packet-local digest is not source authentication; `source_authentication` cannot be rewritten into a stronger self-asserted trust claim and accepted by the CLI.
 9. **Positive emergence** — recombination/composition is observed for super-additive/emergent value, not only failure.
 10. **Pruning** — stale/harmful adaptation can leave the active set without erasing occurrence/selection history.
 11. **Governance closure** — represented unresolved state prevents bare READY; review still stops when further checks no longer have a plausible decision-changing path.
@@ -58,13 +58,13 @@ Do not infer HIGH_ASSURANCE from "there is a side effect" or LITE from "the diff
 
 ## Tool evidence boundary
 
-Passing `ena_evolve.py selftest`, `candidate1_adversarial.py`, JSON-schema validation, or inherited composed-validator regressions is useful implementation evidence. None proves external evidence truth, mandate validity, recovery reality, source authentication, universal language equivalence, or net field benefit.
+Passing `ena_evolve.py selftest`, `candidate1_adversarial.py`, `candidate2_adversarial.py`, JSON-schema validation, or inherited composed-validator regressions is useful implementation evidence. None proves external evidence truth, mandate validity, recovery reality, source authentication, universal language equivalence, or net field benefit.
 
 `implementation regression preserved != new semantic coverage complete`
 
 ## Candidate/Current boundary
 
-This directory is candidate.1. A field adopter must not replace `releases/current/` merely because candidate.1 is newer. Current changes only after freeze, revalidation, reconciliation, and release decision.
+This directory is candidate.2. A field adopter must not replace `releases/current/` merely because candidate.2 is newer. Current changes only after freeze, validation/revalidation, reconciliation, and release decision.
 
 ## Report fields
 
