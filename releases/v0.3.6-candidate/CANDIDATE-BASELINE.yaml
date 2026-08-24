@@ -170,7 +170,7 @@ candidate1_reconciliation:
   f05_expression_consequence_obligation_link: AUTHOR_REPAIRED_UNVALIDATED
   f06_mixed_result_overclaim: AUTHOR_REPAIRED_UNVALIDATED
   f07_freeze_identity_protocol: AUTHOR_REPAIRED_UNVALIDATED
-  f08_zh_archived_retired_selection_distinction: PENDING_TEXT_REPAIR
+  f08_zh_archived_retired_selection_distinction: AUTHOR_REPAIRED_UNVALIDATED
   f09_inherited_tool_false_block: RECORDED_AS_NON_NORMATIVE_V2_PATH_NOT_TOOL_FIXED
   f10_archive_consistency_asymmetry: AUTHOR_REPAIRED_UNVALIDATED
   same_falsifier_targeted_revalidation_required: true
