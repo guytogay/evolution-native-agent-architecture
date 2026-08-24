@@ -1,129 +1,183 @@
-# v0.3.5 release lineage
+# ENA v0.3.6 Lineage
 
-## Base Current
+Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`.
 
-- ENA v0.3.4
-- effective Current tree at v0.3.5 work start: `b237802c08d608bb9be650fe213b7846d3be4bf6`
-- repository base commit for v0.3.5 work: `9d84e179aae9f5f5d8dbabc7be56dee4ae2f8724`
+## Parent baseline
 
-## Frozen first candidate
+- predecessor Current: `v0.3.5 / CURRENT / FIELD_VALIDATION`;
+- predecessor Current tree: `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
+- repository base commit: `f14855fdfd57b975195f0b1c261b754bd3058749`.
 
-First v0.3.5 frozen candidate:
+## Design / authoring lineage
 
-- source commit: `eb6d7ba00894ed446903aebe61cd59f0bdb59af7`
-- effective candidate tree: `f373e7695348c157dcd48d3ed243ea3079215b8f`
-- independent falsifier: DSH / DeepSeek v4-flash with prior ENA/V2/v0.3.3 lineage exposure, independent of v0.3.5 design
-- independent verdict: `NEEDS_REVISION`
+- design seed: `f48b70f7cb82cd240a97d6d807874def37d67d70`;
+- working candidate initialized: `5d4b5ea92c9d3bf8972f56e72c3487e03a598623`;
+- full v0.3.5 baseline inherited into candidate without changing Current: `668a1be941045cb25c86008eaee620340a21b9a6`;
+- ecology semantics, Runtime Kernel, v2 schema, bilingual fixtures, field template, and author self-attacks evolved through the candidate branch.
 
-Mechanically reproduced material problems included zero-experiment selection, negative-evidence migration laundering, lifecycle/selection conflation, state-blind closure, and new-tool/schema disconnection.
+The detailed authoring history remains recoverable through PR #68 and Git; Current does not require ordinary adopters to replay every intermediate author checkpoint.
 
-The first candidate remains immutable evidence.
+## candidate.0
 
-## Frozen candidate.1
+Frozen source:
 
-candidate.1 was created as a successor identity and frozen at:
+`3cb94d98882621acede189d0d47806efae44fb0f`
 
-- source commit: `e6ff1e76afb8ad8919186786100ec153a5f0d07a`
-- effective candidate tree: `ff2cb44c7a5d1b472800180578b5df7baa123aec`
-- freeze-record commit: `63ca8bdb14bfa4aca213d1dc88287f15572dd5c2`
+Frozen effective candidate tree:
 
-The same DSH falsifier re-ran the original attacks under:
+`80f2da918811c26381d65eb5afa8e40f8410a32e`
 
-`SAME_FALSIFIER / TARGETED_REVALIDATION / NOT_FRESH`
+Freeze-record commit:
 
-Targeted verdict:
+`15e513a72d59e28f8d3050ef877746f85ab706ba`
 
-`TARGETED_REVALIDATION_SUPPORTED_WITH_RESIDUALS`
+PR:
 
-The material predecessor failures were mechanically closed and the falsifier found no evolution-starvation/over-governance regression.
+`#68`, closed without merge.
 
-Residuals relevant to release decision included:
+Pre-freeze machine verification required three passes; the first two correctly preserved FAIL results before the third exact source passed. The frozen candidate then received a fresh independent semantic falsification.
 
-- N1: CLI did not independently reject invalid migration lifecycle enum;
-- N2: CLI could propagate a forged stronger `source_authentication` string;
-- N7: committed inherited-regression result still carried the old wrong identity shape.
+Fresh independent verdict:
 
-Additional N3–N6 observations remained research/field residuals.
+`NEEDS_REVISION`
 
-candidate.1 remains immutable evidence.
+Material release blockers:
 
-## Frozen candidate.2
+- F-01 — v2 `integration_history` weakened predecessor representation strength;
+- F-02 — array order could masquerade as chronological latest evidence/expression state.
 
-candidate.2 was created specifically to close N1/N2/N7 before release decision plus the directly adjacent fixed `transfer_status` consistency guard.
+The falsifier also identified successor repairs F-03 through F-09 and residual/research findings, while explicitly withdrawing three of its own initial attacks as false positives.
 
-Frozen identity:
+Independent report:
 
-- source commit: `8393b8b05d34797965c612e8b9ca938d306f6322`
-- effective candidate tree: `b10854f191d9641138e2f44278f043f124a2e120`
-- freeze-record commit: `34e12333bcbe6cf8a3a2a992040d93012ead868b`
+PR #68 comment `issuecomment-5389079667`.
 
-candidate.2 scope:
+## candidate.1
 
-- CLI validates source lifecycle enum;
-- CLI rejects self-edited source-authentication elevation;
-- CLI validates fixed transfer status;
-- candidate.2 adversarial regressions encode these closures;
-- committed regression output is synchronized with its generating suite and CI checks regeneration parity;
-- active candidate and zh-CN projection identities were synchronized to candidate.2.
+Successor branch:
 
-## candidate.2 narrow revalidation
+`candidate/v0.3.6-candidate.1`
 
-The same DSH falsifier revalidated the residual closures under:
+Frozen source:
 
-`SAME_FALSIFIER / NARROW_RESIDUAL_REVALIDATION / NOT_FRESH`
+`4af5d17a1cedcf2850b2b4dfe5446e132023369a`
+
+Frozen effective candidate tree:
+
+`52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d`
+
+Freeze-record commit:
+
+`aa9a79b305d2ae8f8ff423df314af974e2e51d23`
+
+PR:
+
+`#69`, closed without merge after targeted revalidation/reconciliation.
+
+candidate.1 repaired the representation/machine defects while intentionally preserving the independently supported Evolution Ecology semantic core.
+
+### Exact-source machine evidence
+
+On source `4af5d17a1cedcf2850b2b4dfe5446e132023369a`:
+
+- ENA v0.3.6 Candidate Validate run `32677101732` — SUCCESS;
+- Main Gate run `32677101720` — SUCCESS;
+- CodeQL run `32677101753` — SUCCESS;
+- v2 consistency selftest — `18/18`;
+- inherited `ena_evolve.py` selftest — PASS, state/schema 1.2, 10 cases;
+- inherited composed regression — `235/235`;
+- unexpected verdicts — `0`;
+- uncaught exceptions — `0`;
+- Python compile — `7/7`;
+- bytecode hygiene — PASS;
+- Current isolation — PASS.
+
+### Same-falsifier targeted revalidation
+
+Role:
+
+`SAME_FALSIFIER / TARGETED_REVALIDATION / NOT_FRESH / NOT_AUTHOR`
+
+Report:
+
+PR #69 comment `issuecomment-5389505830`.
 
 Verdict:
 
-`NARROW_REVALIDATION_SUPPORTED`
+`TARGETED_REVALIDATION_PASS_WITH_RESIDUALS`
 
-Reported mechanical results:
+Per-finding closure:
 
-- N1 CLOSED;
-- N2 CLOSED;
-- adjacent transfer-status self-upgrade attack CLOSED;
-- N7 CLOSED with zero-diff regeneration;
-- candidate.1 regression preservation PASS;
-- no new MATERIAL/BLOCKING finding;
-- no observed evolution starvation / over-governance regression;
-- English/zh-CN Constitution unchanged;
-- Current remained v0.3.4 during validation.
+- F-01 CLOSED;
+- F-02 CLOSED;
+- F-03 CLOSED_WITH_RESIDUAL;
+- F-04 CLOSED;
+- F-05 CLOSED_WITH_RESIDUAL;
+- F-06 CLOSED;
+- F-07 CLOSED;
+- F-08 CLOSED;
+- F-09 CLOSED_BY_TRUTHFUL_BOUNDARY;
+- F-10 CLOSED.
 
-Durable summary:
+No material repair-induced regression was reported.
 
-`collaboration/inbox/2026-08-23-v035-candidate2-dsh-narrow-revalidation-summary.md`
+## Host-side final reconciliation
 
-## Final reconciliation
+Durable record:
 
-Host-side final reconciliation:
+`collaboration/reconciliation/2026-08-24-v036-candidate1-final-reconciliation.md`
 
-- commit: `bbdb0347ee83b1d76d21f54e1c16c6038442b26d`
-- decision: `RELEASE_PREPARATION_SUPPORTED`
-- candidate succession stop: `YES unless new material evidence appears`
+Commit:
 
-N3–N6 remain explicit research/field residuals rather than being hidden or converted into unsupported new rules.
+`ac816471a0522d21494913a62a15bf0917d936ac`
 
-## Primary field/design inputs retained
+Decision:
 
-- Hermes longitudinal runtime adoption/persistence evidence;
-- OpenClaw longitudinal adoption/persistence evidence;
-- DSH mature-host migration evidence;
-- fresh Hermes/Ubuntu first-adoption failure + correction;
-- fresh Codex/Windows first-adoption evidence;
-- Issue #51 opportunity register;
-- maintainer decisions on evolutionary telos, variation, migration, emergence, continuity, multilingual semantics, anti-sovereignty, and retirement of active Mainline status.
+`CANDIDATE_SUCCESSION_STOP = YES unless new material evidence appears`
 
-Key direction:
+`RELEASE_PREPARATION_SUPPORTED`
 
-`protect self-evolution -> actively enable and accelerate sustained self-evolution`
+No candidate.2 was justified by the remaining residuals.
 
-`governance as center -> governance as evolvability infrastructure`
+## Release packaging lineage
 
-## Release status
+Release branch:
 
-v0.3.5 release target:
+`release/v0.3.6`
 
-`CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`
+Packaging begins with a byte-for-byte transplant of frozen candidate.1 effective tree `52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d` into `releases/current/`, then applies release-only identity/adoption/package transformations.
 
-Beginning with v0.3.5, `MAINLINE / NOT_MAINLINE` is no longer an active adopter-facing maturity axis. Historical records using those labels remain unchanged as history.
+Release packaging is permitted to change identity labels, Current baseline metadata, projection bindings, adopter instructions, lineage/changelog, root status metadata, and release-validation/package machinery. It must not silently alter the validated material semantics closing candidate.1's findings.
 
-The exact released Current tree/package digest/merge identity are release-author evidence and are recorded outside this self-referential file after publication.
+The final release commit/tree/package digest and merge identity are recorded only after exact release PR checks and post-merge readback complete.
+
+## Accepted residuals
+
+Carry forward visibly:
+
+1. F-03 — self-asserted `LOCAL` provenance is not external attestation;
+2. F-05 — obligation references are represented but not authenticated merely by schema acceptance;
+3. F-09 — inherited `ena_evolve.py` v1.2 false-BLOCKs the normative v0.3.6 latent propose/import path and remains explicitly non-normative for that path;
+4. tied-latest timestamp rejection is conservative;
+5. F-11 — fresh-session cue salience/application remains unproven field evidence;
+6. F-12 — `experiment` versus broader `reality contact` terminology remains research wording.
+
+Do not silently report these as solved.
+
+## Constitution identity
+
+All 38 inherited Constitution IDs remain unchanged.
+
+`NEW_CONSTITUTION_IDS = 0`
+
+## Canonical boundary
+
+A local branch/fork may freely vary ENA but cannot self-promote by writing `CURRENT` into metadata.
+
+Canonical admission requires governed lineage, validation/falsification evidence, reconciliation, immutable release identity, and explicit release promotion.
+
+GitHub is the current project carrier for that lineage, not the metaphysical definition of ENA validity.
+
+> **History is evidence, not a second runtime baseline.**
+>
+> **Variation first; selection by reality.**

@@ -1,17 +1,17 @@
-# 10. Language Portability and Semantic Projection — v0.3.5
+# 10. Language Portability and Semantic Projection — v0.3.6 Current
 
 ENA must not depend on English proficiency to remain ENA.
 
-A language version is a **semantic projection** of one ENA semantic identity, not a separate Constitution.
+A language version is a **semantic projection** of one release semantic identity, not a separate Constitution.
 
 ## 10.1 Stable identity
 
 Across languages:
 
-- `ENA-CON-*`, `ENA-CAP-*`, contract/schema IDs remain unchanged;
-- canonical effective-content identity remains traceable;
-- a projection declares its source identity and language tag;
-- translated wording may differ to preserve meaning.
+- inherited `ENA-CON-*`, `ENA-CAP-*`, contract/schema IDs remain unchanged unless a governed version change explicitly changes them;
+- release effective-content identity remains traceable;
+- a projection declares source identity and language tag;
+- wording may differ to preserve decision meaning.
 
 Literal translation is not the goal.
 
@@ -19,67 +19,70 @@ Example:
 
 `capability != authority`
 
-A literal Chinese phrase such as `能力 ≠ 权威` can be misleading.
-
-A better semantic rendering is:
+A literal Chinese `能力 ≠ 权威` is weaker/ambiguous. Prefer the operational meaning:
 
 `有能力做到某件事 ≠ 被授权可以这样做`
 
+v0.3.6 adds additional high-risk distinctions such as:
+
+`stimulus != mutation != improvement`
+
+`stored != expressed != applied != selected`
+
+`ARCHIVED/RETIRED != selection verdict`
+
+`local selection != universal fitness`
+
+`published != imported != locally selected`
+
+These require semantic projection, not word substitution.
+
 ## 10.2 Projection manifest
 
-A language projection should declare:
+A language projection declares:
 
 - language tag;
-- source ENA release identity;
+- source release identity;
 - projection version;
 - covered files/concepts;
 - untranslated/partial areas;
-- glossary version/identity where used;
+- glossary identity;
 - structural validation status;
 - behavioral semantic-conformance status.
 
-A projection is stale when its relevant source semantics changed and it has not been reconciled.
-
-Do not label a projection behaviorally validated merely because the files parse or the Constitution IDs line up.
+The zh-CN projection shipped with Current is bound to v0.3.6 release semantics. A projection becomes stale when material source semantics change without reconciliation.
 
 ## 10.3 Semantic glossary
 
-High-risk terms should have:
+High-risk terms should carry an operational definition rather than rely on one-word dictionaries.
 
-- stable concept key;
-- preferred rendering;
-- operational definition;
-- common misleading renderings where useful;
-- related ENA IDs.
+v0.3.6 glossary adds/clarifies:
 
-Do not rely on one-word dictionaries for terms such as:
+`stimulus | mutation pressure | latent variation | expression | local selection | Evolution Commons | rescue plane | canonical lineage`
 
-`agency | authority | mandate | evidence | support | recovery | rollback | compensation | variation | adaptation | evolutionary subject | protected subject | emergence`
+English terms may remain alongside Chinese where that reduces semantic drift, but Chinese users/Agents should not be forced to reason in English to access ENA meaning.
 
 ## 10.4 Cross-language conformance
 
 Validate **decision meaning**, not literary similarity.
 
-Use equivalent scenarios in multiple languages and compare whether the model preserves material judgments such as:
+Included fixtures:
 
-- capability versus authority;
-- internal permission mutation versus external mandate;
-- variation versus improvement claim;
-- UNKNOWN versus bounded experiment;
-- claim/evidence/support;
-- recovery/history/privacy;
-- migration/local applicability;
-- composition/emergence;
-- continuity;
-- governance closure.
+- `language-projections/semantic-fixtures.v1.yaml` — inherited v0.3.5 paired scenarios;
+- `language-projections/semantic-fixtures.v2.yaml` — v0.3.6 ecology paired scenarios.
 
-v0.3.5 includes paired English/zh-CN fixtures in:
+v2 covers:
 
-`language-projections/semantic-fixtures.v1.yaml`
+- stimulus not automatically causing mutation/improvement;
+- legitimate latent variation;
+- stored not equal expressed;
+- local selection not universal fitness;
+- publisher/receiver autonomy;
+- rescue not sovereignty;
+- canonical lineage not self-declared Current;
+- minimal intervention not externality waiver.
 
-The file states expected semantic properties and related stable Constitution IDs. CI can verify fixture structure and pairing. **Only an actual model/Host/language experiment can provide behavioral conformance evidence.**
-
-Back-translation may help review but is not sufficient proof.
+Fixture presence/structure is not behavioral proof. Only actual paired model/Host/language experiments provide such evidence.
 
 ## 10.5 Local Projection
 
@@ -89,28 +92,25 @@ Where language can materially affect interpretation, record:
 - projection identity;
 - source semantic identity;
 - model/Host/language combination;
-- material semantic limitations.
+- material limitations.
 
 `same model != same semantic performance across languages`
 
 Language change can be an applicability boundary for evidence when it can change a decision.
 
-## 10.6 Supported release projections
+## 10.6 Current projection status
 
-v0.3.5 ships:
+v0.3.6 Current includes:
 
-- canonical English source;
-- Simplified Chinese (`zh-CN`) hot-path projection.
+- canonical English authoring source;
+- Simplified Chinese (`zh-CN`) hot-path projection;
+- aligned glossary;
+- inherited v1 and v0.3.6 v2 semantic fixture sets.
 
-The Chinese hot-path projection is intentionally smaller than the entire canonical package. Exact cold-path semantics remain reachable by stable IDs.
+The predecessor v0.3.5 same-model 8/8 bilingual result remains predecessor evidence only; it does not prove v0.3.6 ecology semantics.
 
-Current evidence distinguishes:
-
-- **structural parity** — file/ID/manifest/fixture structure can be mechanically checked;
-- **behavioral semantic conformance** — remains unproven universally and must be evidenced by actual model/Host/language experiments.
-
-Prior same-model fixture evidence may support a specific environment but does not become universal cross-model proof merely because v0.3.5 is Current.
+Current v0.3.6 behavioral semantic conformance: **UNPROVEN / FIELD EVIDENCE REQUIRED**.
 
 > **Translate wording; preserve decisions.**
 >
-> **Language is an interface, not ENA's identity.**
+> **语言是接口，不是 ENA 的身份。**

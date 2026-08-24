@@ -1,209 +1,263 @@
-# 9. Evolution Metabolism — v0.3.5
+# 9. Evolution Metabolism and Ecology — v0.3.6 Current
 
-This document turns ENA's evolutionary purpose into an actionable reference loop. It is a reference mechanism, not a mandatory universal implementation.
+Status: `CURRENT / FIELD_VALIDATION`.
 
-## 9.1 The metabolism
+This document extends the v0.3.5 evolution metabolism with the v0.3.6 ecology model. It is a reference semantics document, not a requirement that every Host implement the same organs.
 
-A viable evolutionary system needs these functions:
+## 9.1 From linear metabolism to ecological metabolism
 
-1. **Observe** — collect corrections, failures, friction, contradictions, successes, environmental/capability changes, curiosity, and opportunities.
-2. **Wake** — create an opportunity to review signals.
-3. **Vary** — formulate one or more concrete mutation candidates.
-4. **Experiment** — let candidates meet reality inside a suitable Variation Space.
-5. **Evaluate** — record observed outcomes, counterevidence, unknowns, and tradeoffs.
-6. **Select** — retain, adapt, retry, reject, or keep unknown.
-7. **Integrate** — move a selected or explicitly unresolved variation into intended persistent/shared state when the actual authority/consequence boundary permits it.
-8. **Prune** — archive, retire, replace, or lawfully delete stale/harmful adaptive material without rewriting its selection history.
-9. **Migrate/Recombine** — share source experiments/evaluations/adaptations/negative evidence and combine them into new variation.
-10. **Repeat** — selected adaptations change the next search space.
+v0.3.5 established:
 
-A Host lacking one function may still evolve, but should not narrate the missing function as present.
+`observe -> wake -> vary -> experiment -> evaluate/select -> integrate/prune -> migrate/recombine -> repeat`
 
-`variation != improvement`
+v0.3.6 keeps those functions but removes an overly linear implication: **a variation does not have to move immediately toward experiment or verdict.**
 
-`experiment != integration`
+Current ecology:
 
-`lifecycle state != selection state`
+`environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> inheritance/migration/recombination -> renewed variation`
 
-`source result != receiver proof`
+Core distinctions:
 
-## 9.2 Wake policy
+`stimulus != mutation`
 
-Use event wake and, where useful, a periodic/idle fallback.
+`mutation != improvement`
 
-Typical event signals:
+`stored != expressed`
 
-`USER_CORRECTION | REPEATED_FAILURE | FRICTION | CONTRADICTION | REPEATED_SUCCESS | CAPABILITY_CHANGE | ENVIRONMENT_CHANGE | OPPORTUNITY | STALE_ADAPTATION`
+`expressed != applied`
 
-ENA does not mandate a universal number of turns, hours, or days. A Host chooses cadence proportionate to task tempo, cost, memory pressure, environmental change, dormancy, and the value of missed adaptation opportunities.
+`applied != selected`
 
-**The timer triggers review, not mandatory mutation.**
+`local selection != universal fitness`
 
-A review that finds no worthwhile mutation is a valid evolutionary outcome.
+`publication != receiver adoption`
 
-## 9.3 Variation Space
+## 9.2 Stimulus and mutation pressure
 
-A Variation Space answers:
+Evolutionary stimulus may come from positive or negative events:
 
-> Where can this uncertain change become real enough to learn from without requiring us to already know it is good?
+`USER_CORRECTION | REPEATED_FAILURE | ERROR | FRICTION | CONTRADICTION | REPEATED_SUCCESS | CAPABILITY_CHANGE | ENVIRONMENT_CHANGE | OTHER_AGENT_BEHAVIOR | EXTERNAL_DISCOVERY | CURIOSITY | RANDOM_RECOMBINATION | OPPORTUNITY | STALE_ADAPTATION`
 
-Examples include a branch/fork, sandbox, disposable VM/container, shadow execution, canary scope, test Agent, reversible local configuration, isolated skill version, or simulation/replay environment.
+A stimulus may increase **mutation pressure**: the opportunity or incentive to generate/revisit variations.
 
-The space may permit meaningful internal permission/capability changes. Its boundary should expose what may change, who/what bears consequence, what escapes, recovery/cleanup reality, and what external authority remains required.
+Mutation pressure is not a command to mutate and does not specify the direction of mutation.
 
-A Variation Space is not automatically risk-free. It is a deliberately bounded place where uncertainty can contact reality.
+A Host may deliberately create exploratory mutation pressure through divergent search, recombination, random concept collision, external ecosystem scanning, or alternative-role simulation when the cost is justified. No universal cadence is required.
 
-## 9.4 Candidate record: two independent state axes
+`stimulus -> review opportunity`, not `stimulus -> improvement`.
+
+## 9.3 Latent / cryptic variation
+
+A variation may remain stored without immediate experiment, expression, or selection.
+
+Long-lived unresolved variation is legitimate when retention is affordable/lawful and it does not create active consequential behavior merely by being stored.
+
+Examples:
+
+- an unused skill variant;
+- an alternative workflow discovered during another task;
+- a failed idea whose failure may be environment-specific;
+- a strange recombination with no present use;
+- a capability hypothesis awaiting a future Host/tool/environment;
+- an archived adaptation that may become relevant again.
+
+`UNKNOWN` is not automatically backlog debt.
+
+No universal rule requires every variation to receive a final verdict.
+
+Hosts may curate, compress, archive, or lawfully delete latent material when carrying cost exceeds plausible future value, but usage/age alone is not proof of worthlessness.
+
+## 9.4 Expression is a separate axis
+
+v0.3.6 semantics add a conceptual **expression axis** independent from lifecycle and selection.
+
+A minimal conceptual state is:
+
+`LATENT | EXPRESSED`
+
+Expression may change repeatedly with context without rewriting lifecycle or evidence history.
+
+A stored adaptation can be `INTEGRATED + SUPPORTED + LATENT` between relevant tasks, become `EXPRESSED` when a cue/context calls it into active behavior, then return to `LATENT` afterward.
+
+Expression does not mint authority. A dormant capability becoming salient does not create external mandate.
+
+A Host may represent expression as explicit state, event history, routing, lazy skill loading, retrieval activation, or another mechanism. Standardize the semantic property, not the organ.
+
+## 9.5 Cue-triggered salience
+
+First adoption should not require permanent loading of the whole ENA release.
+
+A promising runtime pattern is:
+
+`hot cue recognizers -> retrieve/activate relevant cold semantics/capability -> act`
+
+Illustrative cues:
+
+- evidence/certification language -> evidence semantics;
+- irreversible/delete/external-write signals -> consequence/recovery semantics;
+- permission/credential/mandate change -> authority semantics;
+- repeated correction/failure/success -> evolution wake;
+- environment/tool/model change -> applicability/portability re-check;
+- repeated governance with no decision change -> closure semantics.
+
+Cue lists are examples, not a universal keyword engine.
+
+A cue mechanism is successful only when it improves appropriate salience without turning ENA into permanent prompt noise. `configured` or `written` is not proof of future salience/application.
+
+## 9.6 Variation Space and reality contact
+
+When a variation is consequentially expressed as an experiment, use a suitable Variation Space where uncertainty can become real enough to learn from while preserving consequence ownership and correction capacity.
+
+Examples remain branch/fork, sandbox, disposable VM/container, shadow execution, canary scope, test Agent, reversible local configuration, isolated skill version, simulation, or replay.
+
+A variation may be aggressive inside its legitimate consequence envelope. Internal capability/permission topology may itself vary there. Internal mutation cannot self-mint external mandate.
+
+## 9.7 Lifecycle, expression, and selection are different questions
 
 Lifecycle:
 
 `PROPOSED | EXPERIMENTED | INTEGRATED | ARCHIVED | RETIRED`
 
+Expression:
+
+`LATENT | EXPRESSED`
+
 Selection:
 
 `UNASSESSED | SUPPORTED | PARTIAL | NOT_SUPPORTED | HARMFUL | UNKNOWN`
 
-Examples:
+They answer different questions:
 
-- `INTEGRATED + UNKNOWN` means a bounded unresolved variation was integrated; integration did not prove improvement.
-- `ARCHIVED + HARMFUL` means it left the active set but remains harmful evidence.
-- `ARCHIVED + SUPPORTED` means a previously supported adaptation is no longer active; archival does not negate its historical selection result.
+- lifecycle: where is this material in its persistence/use history?;
+- expression: is it currently activated in behavior/context?;
+- selection: what has reality contact supported within the represented environment?
 
-A useful record also preserves hypothesis, change, expected outcome dimensions, Variation Space, relevant Evolutionary/Protected Subjects, environment, dependencies, unknowns, experiments, evaluations, integration history, and migration provenance.
+No transition on one axis silently upgrades another.
 
-## 9.5 Evaluation and selection
+## 9.8 Evaluation and local selection
 
-Record material outcomes as:
+When reality contact occurs, record material outcomes as:
 
 `IMPROVED | DEGRADED | UNCHANGED | UNKNOWN`
 
 A result may be mixed.
 
-Any evidence-backed selection verdict other than `UNASSESSED` follows at least one represented experiment. A positive or negative selection claim cannot be manufactured from intention, imported text, or a successful state write alone.
+Evidence-backed positive/negative selection still requires represented reality contact/experiment where the claim depends on that evidence.
 
-For `SUPPORTED` / `PARTIAL`, represent at least one improved dimension and evidence reference. For `HARMFUL`, represent at least one degraded dimension and evidence reference. The reference tool records these references but does not establish their external truth.
+But **selection need not happen immediately after variation creation**. A variation may remain unassessed or unknown until useful expression becomes possible.
 
-Do not erase failed candidates merely because another candidate won. Do not let a current winner make itself immune to future variation.
+Selection is scoped to the represented environment, Host, model, language, dependencies, consequence envelope, time, and subject as material.
 
-## 9.6 Integration
+A locally successful strategy may remain locally successful even if undesirable elsewhere. ENA does not assume reality automatically produces moral convergence.
 
-Integration is different from experimentation and from selection.
+Therefore:
 
-A candidate that worked in a Variation Space may face a new consequence/authority boundary when entering durable, shared, or production state.
+`local success != universal recommendation`
 
-The reference tool requires at least one represented experiment plus a current explicit evaluation before integration. `SUPPORTED` and `PARTIAL` may integrate within actual authority. `UNKNOWN` may integrate only with explicit `--allow-unknown`, preserving `selection_state=UNKNOWN`. Negative or unassessed candidates do not integrate as retained adaptations.
+`wide adoption != universal truth`
 
-For a committed integration, record the authority basis and recovery/irreversibility boundary. These are recorded claims, not proof that mandate or recovery is externally real.
+`survival != moral correctness`
 
-`INTEGRATED != SUPPORTED`
+Plural environments and receiver-side reselection help prevent one local fitness landscape from pretending to be the whole world.
 
-## 9.7 Pruning and curation
+## 9.9 Integration, dormancy, and pruning
 
-Useful evolution requires forgetting from the active set.
+Integration is not permanent expression.
 
-Pruning changes lifecycle state; it does not overwrite selection history.
+A supported adaptation may be integrated into durable capability while normally remaining dormant until a relevant cue/context activates it.
 
-Do not treat age or low usage alone as sufficient evidence for destructive deletion. Removing an adaptation from active behavior and deleting historical/regulated payload are separate decisions.
+Pruning remains distinct from selection history. Hosts may use:
 
-## 9.8 Migration packet and population learning
+`KEEP | UPDATE | DORMANT | ARCHIVE | RESTORE | RETIRE`
 
-A migration packet preserves, where represented:
+Dormancy is preferred over destructive deletion when future relevance is plausible and carrying cost is acceptable.
 
-- candidate identity and semantic change;
-- source lifecycle state;
-- source selection state;
-- packet purpose: positive adaptation candidate, negative evidence, or unresolved variation;
-- source environment and dependencies;
-- source experiments and evaluations;
-- source integration/archive/migration lineage;
-- unknowns;
-- content digest for internal consistency.
+Evolution is neither forced churn nor endless accumulation.
 
-Packet purpose derives from the **selection axis**, never from lifecycle alone:
+## 9.10 Migration, inheritance, and propagation
 
-`SUPPORTED/PARTIAL -> ADAPTATION_CANDIDATE`
+Migration transfers a possibility plus represented source history; it does not transfer a conclusion.
 
-`NOT_SUPPORTED/HARMFUL -> NEGATIVE_EVIDENCE`
+Source result and receiver result remain separate.
 
-`UNASSESSED/UNKNOWN -> UNRESOLVED_VARIATION`
+The receiver may import, ignore, rediscover later, locally adapt, recombine, reject, keep unknown, or re-test.
 
-A packet-local digest is **not source authentication**. A party able to rewrite the packet can recompute the digest. Use an external provenance/signature/channel/trust anchor when source authenticity changes the decision.
+A source `HARMFUL` variation may later succeed in a different environment after local reality contact; the source negative lineage remains truthful.
 
-The v0.3.5 reference CLI rejects three packet self-assertion/shape contradictions rather than relying on JSON Schema alone:
+Migration packet digest still checks packet consistency only; it does not authenticate the source.
 
-- `source_lifecycle_state` must be a valid lifecycle enum;
-- `transfer_status` must remain `TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF`;
-- `source_authentication` must remain `NOT_AUTHENTICATED_BY_THIS_PACKET`.
+## 9.11 Recombination and emergence
 
-Changing `source_authentication` to a string such as `TOTALLY_TRUSTED` and recomputing the digest therefore cannot make the packet authenticate itself.
+Recombination remains a first-class variation generator.
 
-The receiver imports a packet with local `selection_state=UNASSESSED` while preserving source selection/evidence separately.
+It may produce conflict, cancellation, amplification, unexpected resource interaction, emergent capability, new externality, or no useful change.
 
-`TRANSFERRED != LOCALLY_APPLICABLE != LOCALLY_SELECTED`
+Expectation of emergence is not evidence. Positive emergence is valuable when actually observed.
 
-A receiver may re-experiment even a source `HARMFUL` / `NOT_SUPPORTED` variation because environments differ. If local reality supports it, a new local positive selection may emerge **after local experiment/evaluation**, while the source negative lineage remains visible.
+Exploratory cognitive modes may be one way to raise mutation pressure or recombination diversity, but v0.3.6 does not define a fixed universal mode taxonomy.
 
-This is population learning without turning migration into conclusion copying.
+## 9.12 Recovery and the rescue-plane property
 
-## 9.9 Recombination and emergence
+A self-affecting mutation can damage the very Agent/process that would otherwise perform recovery.
 
-Recombination is a first-class variation generator.
+Where material and controllable, preserve a rescue path reachable outside the damaged variation, such as:
 
-If A and B are locally useful, do not assume `A + B = A benefit + B benefit`.
+- last-known-viable snapshot;
+- watchdog or external timer;
+- recovery manifest;
+- narrow recovery credential;
+- peer Agent/human recovery handoff;
+- independent startup/rollback path.
 
-Observe conflict, cancellation, amplification, new resource interaction, emergent capability, and new authority/externality surfaces. Positive emergence is evidence when actually observed; expectation of emergence is not evidence.
+This is a **property**, not a mandated product architecture.
 
-## 9.10 Governance closure during evolution
+Rescue authority should be narrow. The ability to restore a failed subject does not automatically create authority to approve, forbid, or govern all of its future variations.
 
-Do not recursively review merely because review is possible.
+`state rollback != external consequence rollback`
 
-The reference closure tool reads represented evolution state plus explicit caller inputs. Unreviewed signals or an experimented candidate still `UNASSESSED/UNKNOWN` become visible evidence obligations rather than disappearing because the caller omitted them.
+Recovery is not a time machine.
 
-Reference outcomes:
+## 9.13 Governance closure and ecological restraint
 
-`READY | NARROW_AND_PROCEED | EVIDENCE_NEEDED | STOP_OR_ESCALATE`
+Do not add intervention merely because coordination is imaginable.
 
-Its evidence scope is `REPRESENTED_STATE_AND_INPUTS_ONLY`. Even `READY` does **not** prove that no unrepresented real-world blocker exists.
+Governance should protect the semantic/consequence floor: truthful evidence, scoped authority, owned consequence, recovery/correction capacity, non-self-sealing governance, and lawful history.
 
-Stop adding governance when the represented decision-changing questions are resolved or honestly bounded and another check would only repeat known information.
+Above that floor, heterogeneous Agents/Hosts may discover local organization through interaction, specialization, competition, cooperation, and adaptation.
 
-## 9.11 Reference tool
+Minimal intervention does not justify ignoring unowned externality, stale authority, irreversible escape, or known decision-changing evidence.
 
-`tools/ena_evolve.py` provides:
+> **Govern the floor; let the ecology grow above it.**
 
-```text
-init
-observe
-review
-propose
-experiment
-evaluate
-integrate
-archive
-export
-import
-closure
-status
-selftest
-```
+## 9.14 Reference-tool boundary
 
-`tools/candidate1_adversarial.py` and `tools/candidate2_adversarial.py` are retained as historical regression fixtures for the validated implementation lineage. Their filenames preserve provenance; they are not active release identities.
+The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully represent mutation pressure, a latent reservoir, the expression axis, or packet-v2 runtime semantics.
 
-The reference tool does not execute arbitrary Host self-mutations, prove external evidence truth, prove authority, prove recovery, or authenticate migration source identity. Machine-readable state is not stronger truth merely because a tool wrote it.
+v0.3.6 Current therefore treats `schemas/evolution-record.v2.schema.json` plus `tools/validate_evolution_record_v2.py` as the formal represented-consistency surface, while the inherited tool remains state/schema 1.2.
 
-Hosts may modify, embed, or replace the tool if they preserve the required semantic properties better.
+Its inherited `propose` and `import` commands require `--variation-space`, so the tool is not the normative v0.3.6 path for legal latent-now/experiment-later creation/import.
 
-## 9.12 Retained field/research residuals
+Do not narrate the inherited tool as implementing semantics it does not implement, and do not turn its rejection into a semantic prohibition that Current does not contain.
 
-v0.3.5 intentionally carries several visible non-blocking research questions rather than converting every observation into a gate:
+## 9.15 Retained / accepted residuals
+
+Inherited v0.3.5 research residuals remain visible where applicable:
 
 - repeated evaluation/reinterpretation of one represented experiment;
 - nested visibility of source-negative lineage after receiver positive reselection;
-- no in-place restore/reopen path for an archived/retired reference-tool candidate;
+- no in-place restore/reopen path for archived/retired candidates in the inherited reference tool;
 - migration-lineage depth growth across generations.
 
-Escalate these only if field evidence demonstrates a material failure mode.
+v0.3.6 additionally keeps visible that:
 
-> **Variation first; selection by reality.**
+- self-asserted `LOCAL` provenance is not external proof;
+- obligation-reference strings are not authenticated by schema acceptance alone;
+- tied latest timestamps are conservatively rejected;
+- cue-triggered future salience/application remains field evidence;
+- `experiment` versus broader `reality contact` terminology remains research wording.
+
+> **Variation does not owe reality an immediate verdict.**
 >
-> **Do not worship the tool. Improve it.**
+> **Stored possibility is not active authority.**
+>
+> **Selection is local; propagation is not proof.**

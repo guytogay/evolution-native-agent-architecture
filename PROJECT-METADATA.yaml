@@ -1,4 +1,4 @@
-schema_version: "1.5"
+schema_version: "1.6"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -25,9 +25,10 @@ entrypoints:
   github_contributing: "CONTRIBUTING.md"
   lite_adoption: "releases/current/LITE-ADOPTION-INSTRUCTION.md"
   field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
-  field_experience_template: "releases/current/templates/field-experience.v1.yaml"
-  validator: "releases/current/tools/validate_contracts.py"
-  validator_fixtures: "releases/current/tools/contract-fixtures.v1.json"
+  field_experience_template: "releases/current/templates/field-experience.v2.yaml"
+  evolution_record_validator: "releases/current/tools/validate_evolution_record_v2.py"
+  inherited_contract_validator: "releases/current/tools/validate_contracts.py"
+  inherited_reference_tool: "releases/current/tools/ena_evolve.py"
 
 surfaces:
   github:
@@ -50,28 +51,32 @@ surfaces:
 
 current_validation:
   baseline_pointer: "releases/current/CURRENT-BASELINE.yaml"
+  current_version: "v0.3.6"
   field_use_intended: true
   field_participation_open: true
-  active_tracker: "GitHub Issue #61"
+  active_tracker: "GitHub Issue #70"
+  predecessor_tracker: "GitHub Issue #61 (v0.3.5 scope preserved)"
   focus:
-    - "Whether sustained self-evolution produces real field value"
-    - "Evolution wake without forced mutation"
-    - "Variation Space usefulness under real Host constraints"
-    - "Outcome-based selection after reality contact"
-    - "Lifecycle state kept separate from evidence-backed selection state"
-    - "Migration/reselection without source-history laundering"
-    - "Positive composition and emergence as well as failure detection"
-    - "Governance closure when further checks cannot change the decision"
-    - "WRITTEN -> LOADED -> INTERPRETED -> SALIENT -> APPLIED persistence evidence"
-    - "English / zh-CN decision-semantic portability"
-    - "Evolution economics: adaptation value versus maintenance/governance burden"
+    - "Cue-triggered salience without permanent prompt encyclopedias"
+    - "Long-lived latent variation: useful reservoir versus curation garbage"
+    - "Lifecycle / expression / selection three-axis usefulness in real behavior"
+    - "Represented EXPRESSED versus actual routing/loading/behavioral influence"
+    - "Evolution Commons import/reselection without source-proof laundering"
+    - "Environment-local selection including bad local fitness"
+    - "Rescue Plane recovery independence without sovereign authority creep"
+    - "English / zh-CN decision-semantic portability for v0.3.6 ecology semantics"
+    - "Evolution economics: adaptation value versus maintenance/governance/storage burden"
+    - "Inherited v1.2 reference-tool boundary and practical false-BLOCK confusion"
+    - "Accepted provenance/obligation-reference residuals"
     - "Unexpected counterexamples and new variations"
 
 research_checkpoint:
   historical_adversarial_replay_cases: 13
   network_protocol_divergent_passes_reconciled: 62
   constitution_id_count: 38
-  capability_id_count: 71
+  v036_new_constitution_ids: 0
+  v036_candidate1_v2_selftests: 18
+  inherited_composed_regression_cases: 235
 
 authority_defaults:
   contribution: "UNRECONCILED / NOT_CURRENT / NOT_RELEASED"
@@ -111,6 +116,8 @@ architecture_policy:
   universal_semantics_require_universal_implementation: false
   universal_control_plane_translation_target: false
   prefer_existing_contract_extension_over_parallel_ontology: true
+  staged_runtime_implementation_allowed_when_boundary_is_explicit: true
+  inherited_tool_rejection_must_not_be_silently_promoted_to_semantic_prohibition: true
 
 contribution_policy:
   public_read_access: true
