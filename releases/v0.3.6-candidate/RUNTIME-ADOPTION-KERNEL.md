@@ -97,6 +97,8 @@ Expression may change repeatedly with context without rewriting lifecycle or sel
 
 A dormant skill/adaptation becoming salient does not mint new authority.
 
+When expression history explicitly represents `effect_materiality = MATERIAL`, the record needs a real Variation Space or a referenced triggered obligation. Keep this guard narrow; it is not permission to require approval for every expression.
+
 ## 7. Variation Space and selection
 
 Consequential experiments still need a real Variation Space proportionate to consequence.
@@ -126,6 +128,8 @@ Each step is independently chosen/authorized.
 Publishers do not force receiver adoption. Receivers do not turn source popularity into local proof.
 
 Preserve source experiments/evaluations/environment/selection lineage and negative evidence during migration.
+
+Candidate.1 `adaptation-packet.v2` adds source expression/dormancy context and negative-lineage references. Those are source context, not receiver-local proof.
 
 A receiver may re-test even source failure because environments differ; a local positive result must arise from local reality contact and does not erase source negative lineage.
 
@@ -175,11 +179,17 @@ Canonical ENA evolution requires governed, reproducible, reviewable lineage. Git
 
 A local ENA fork may explore freely but cannot self-declare itself canonical Current.
 
+Freeze identity may be assigned by an external governed lineage record to an already-tested exact immutable tree; do not rewrite that tested tree merely to insert `frozen: true` afterward.
+
 ## 14. Tool boundary
 
 The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully implement mutation pressure, latent-reservoir, or expression semantics.
 
-Until machine support is implemented and validated, do not upgrade candidate prose into tool-enforced claims.
+More specifically, its inherited `propose` and `import` commands still require `--variation-space`. That means the inherited tool false-BLOCKs candidate.1's legal "store/import latent now, choose an experiment surface later" path. **The inherited tool is therefore not the normative v0.3.6 latent proposal/import path.**
+
+Candidate.1 `adaptation-packet.v2` is likewise a representation contract; the inherited tool still emits/accepts packet v1.
+
+Until machine support is implemented and validated, do not upgrade candidate prose into tool-enforced claims, and do not turn an inherited-tool rejection into a semantic prohibition that the candidate does not contain.
 
 Reference tools record/mechanically guard represented state; they do not prove external evidence truth, authority reality, recovery reality, or source authenticity.
 
@@ -191,10 +201,10 @@ Treat stimuli as opportunities for variation, not commands to mutate.
 A variation need not be immediately tested or judged; useful possibilities may remain latent.
 Stored, expressed, applied, and selected are different states/claims.
 Use compact cues to make relevant cold semantics/capability salient instead of loading everything permanently.
-Consequential expression/experiment belongs inside a real consequence-owned Variation Space.
+Consequential expression/experiment belongs inside a real consequence-owned Variation Space or an explicitly represented unresolved obligation when the consequence is material.
 Positive/negative selection follows represented reality contact and remains environment-scoped by default.
 Publication is not receiver adoption; propagation/popularity is not proof.
-Preserve source evidence and local reselection boundaries across migration/recombination.
+Preserve source evidence, expression context, negative lineage, and local reselection boundaries across migration/recombination.
 Internal self-permission may evolve; external mandate cannot be self-minted.
 Keep rescue reachable outside a self-disabling mutation when material and controllable; rescue authority stays narrow.
 Govern the floor and let safe ecology self-organize above it.
