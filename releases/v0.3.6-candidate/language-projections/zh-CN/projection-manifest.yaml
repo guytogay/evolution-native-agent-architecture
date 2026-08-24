@@ -1,11 +1,14 @@
-schema_version: "1.3-candidate"
+schema_version: "1.4-candidate"
 language: "zh-CN"
-projection_version: "v0.3.6-candidate.zh-CN.1"
+projection_version: "v0.3.6-candidate.zh-CN.2"
 source_semantic_version: "v0.3.6-candidate"
+source_candidate_revision: 1
 source_identity_binding: >
-  Bound to the mutable working v0.3.6 candidate branch identity only. No frozen
-  candidate tree exists yet. This projection must be rebound to an immutable
-  effective-content identity at freeze.
+  Bound to the v0.3.6 candidate.1 semantic package and its governed freeze
+  protocol. Before freeze, the exact immutable source/tree is not self-claimed.
+  At freeze, the external lineage record at
+  collaboration/reconciliation/2026-08-24-v036-candidate1-freeze.md binds this
+  already-tested projection/package tree without requiring a post-test rewrite.
 status: WORKING_CANDIDATE_SEMANTIC_PROJECTION
 not_current: true
 coverage:
@@ -27,10 +30,12 @@ validation:
   universal_behavioral_semantic_conformance: UNPROVEN
 known_gaps:
   - "Long-tail operational contracts and schemas remain primarily in the canonical authoring language."
-  - "v0.3.6 ecology semantics are still a working candidate and may change before freeze."
+  - "v0.3.6 ecology semantics remain an unreleased successor candidate and may still change before freeze."
   - "Structural or lexical parity does not prove equivalent model decisions across English and zh-CN."
   - "The inherited v0.3.5 8/8 bilingual result does not prove new v0.3.6 semantics."
-  - "The inherited reference tool does not yet implement the candidate expression/mutation-pressure semantics."
+  - "The inherited reference tool does not implement full candidate expression/mutation-pressure semantics."
+  - "The inherited reference tool requires Variation Space for propose/import and is therefore not the normative v0.3.6 latent proposal/import path."
+  - "adaptation-packet.v2 is a candidate representation contract; the inherited tool still emits/accepts packet v1."
 conflict_policy: >
   A material discrepancy is a projection defect, not permission to silently
   choose whichever wording is convenient. Resolve against candidate semantic
