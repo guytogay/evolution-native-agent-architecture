@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - candidate/v0.3.6-candidate
+      - candidate/v0.3.6-candidate.1
     paths:
       - 'releases/v0.3.6-candidate/**'
       - 'collaboration/inbox/2026-08-23-v036-**'
@@ -51,7 +52,7 @@ jobs:
       - name: Run v0.3.6 candidate pre-freeze validator
         run: python releases/v0.3.6-candidate/tools/validate_candidate.py
 
-      - name: Exercise v2 latent/expression consistency attacks
+      - name: Exercise v2 latent/expression/evidence consistency attacks
         run: python releases/v0.3.6-candidate/tools/validate_evolution_record_v2.py --selftest
 
       - name: Preserve inherited composed-validator regression corpus
@@ -92,5 +93,5 @@ jobs:
 
       - name: Explain evidence boundary
         run: |
-          echo 'PASS means represented candidate structure/identity, v2 consistency, inherited composed-validator regression, tool syntax, no Python bytecode artifacts, and Current isolation are consistent within this workflow.'
+          echo 'PASS means represented candidate.1 identity/structure, repaired v2 consistency, inherited composed-validator regression, tool syntax, no Python bytecode artifacts, and Current isolation are consistent within this workflow.'
           echo 'PASS does not prove external evidence truth, future salience, ecological fitness, moral convergence, authority/recovery reality, or independent semantic acceptance.'
