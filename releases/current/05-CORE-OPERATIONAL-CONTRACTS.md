@@ -1,8 +1,8 @@
 # 5. Core Operational Contracts
 
-This file is the single active operational-contract surface for the v0.3.6 candidate. It inherits the retained v0.3.4/v0.3.3 contract properties and the v0.3.5 released evolution, continuity, language, privacy, migration, emergence, and governance-closure semantics, then subjects any v0.3.6 delta to candidate falsification.
+This file is the single active operational-contract surface for ENA v0.3.6 Current. It inherits the retained v0.3.4/v0.3.3 contract properties and the v0.3.5 released evolution, continuity, language, privacy, migration, emergence, and governance-closure semantics, plus the independently falsified/reconciled v0.3.6 ecology delta.
 
-The inherited composed-validator implementation remains under `tools/validate_contracts.py`; retaining that tested implementation does not require candidate evaluators to compose this file with an older release.
+The inherited composed-validator implementation remains under `tools/validate_contracts.py`; retaining that tested implementation does not require adopters to compose this file with an older release.
 
 ## 5.1 Claim ↔ Evidence ↔ Support
 
@@ -208,7 +208,7 @@ ENA may use final accountable decision-makers, but must not depend on an infalli
 
 ## 5.13 Inherited Composed Claim-Pack Validator
 
-The v0.3.6 candidate retains the accepted composed-validator implementation released through v0.3.5 Current (originating in the v0.3.3 falsification/repair lineage) under `tools/validate_contracts.py`, together with its inherited fixture/regression corpus. This preserved implementation surface protects previously falsified semantics while the broader architecture evolves.
+v0.3.6 Current retains the accepted composed-validator implementation released through v0.3.5 Current (originating in the v0.3.3 falsification/repair lineage) under `tools/validate_contracts.py`, together with its inherited fixture/regression corpus. This preserved implementation surface protects previously falsified semantics while the broader architecture evolves.
 
 Its key machine properties remain:
 
@@ -232,6 +232,6 @@ The retained trust boundary is equally important:
 
 > **The composed validator validates represented contract semantics; it does not establish the external-world truth of every registry, evidence grade, mandate, observation, causal relation, or support assertion.**
 
-Passing implementation tests protects known semantics; it does not prove the entire v0.3.6 candidate correct.
+Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.6 Current.
 
 ---
