@@ -1,6 +1,6 @@
-schema_version: "1.1-candidate"
+schema_version: "1.2"
 language: "zh-CN"
-purpose: "ENA v0.3.6 候选版简体中文高歧义核心概念词典；用于语义投影，不追求逐字对应。"
+purpose: "ENA v0.3.6 Current 简体中文高歧义核心概念词典；用于语义投影，不追求逐字对应。"
 
 concepts:
   agency:
