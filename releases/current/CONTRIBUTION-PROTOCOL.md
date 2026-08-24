@@ -1,6 +1,6 @@
-# Contribution Protocol — v0.3.6 Candidate
+# Contribution Protocol — v0.3.6 Current
 
-Status: `WORKING_CANDIDATE / NOT_CURRENT`.
+Status: `CURRENT / FIELD_VALIDATION`.
 
 All legitimate ENA participants may, within actual authority and consequence boundaries, read project knowledge, critique, propose variations, preserve latent possibilities, experiment, contribute evidence, publish authorized adaptation candidates, and challenge current selections.
 
@@ -10,13 +10,13 @@ Recommended contribution classes:
 
 When useful include:
 
-- candidate/release identity;
+- release identity;
 - Host/runtime/model/language/configuration;
 - Evolutionary Subject / Protected Subject(s);
 - stimulus/mutation-pressure source;
 - whether material is `LATENT` or `EXPRESSED` where represented;
 - Variation Space when an actual experiment exists/needs one;
-- experiment/event/outcome;
+- experiment/reality-contact event and outcome;
 - improved/degraded/unchanged/unknown dimensions;
 - local selection scope;
 - migration source/receiver differences;
@@ -29,5 +29,7 @@ A contribution may be valuable even if it is not yet an adaptation. A stored unr
 Contribution does not grant reconciliation, freeze, release/Current promotion, deployment, receiver adoption, publication of unowned material, or unrelated consequential authority.
 
 A contributor may challenge a current selection without first proving a replacement is better. Variation generation, publication, receiver adoption, local selection, and canonical admission are different functions.
+
+A field finding that exposes a material defect in v0.3.6 may justify a future candidate/version; it does not silently rewrite this Current identity.
 
 > **Contribute possibilities and evidence; do not self-mint promotion.**
