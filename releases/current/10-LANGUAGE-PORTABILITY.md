@@ -1,15 +1,15 @@
-# 10. Language Portability and Semantic Projection — v0.3.6 Candidate
+# 10. Language Portability and Semantic Projection — v0.3.6 Current
 
 ENA must not depend on English proficiency to remain ENA.
 
-A language version is a **semantic projection** of one candidate/release semantic identity, not a separate Constitution.
+A language version is a **semantic projection** of one release semantic identity, not a separate Constitution.
 
 ## 10.1 Stable identity
 
 Across languages:
 
 - inherited `ENA-CON-*`, `ENA-CAP-*`, contract/schema IDs remain unchanged unless a governed version change explicitly changes them;
-- candidate/release effective-content identity remains traceable;
+- release effective-content identity remains traceable;
 - a projection declares source identity and language tag;
 - wording may differ to preserve decision meaning.
 
@@ -29,6 +29,8 @@ v0.3.6 adds additional high-risk distinctions such as:
 
 `stored != expressed != applied != selected`
 
+`ARCHIVED/RETIRED != selection verdict`
+
 `local selection != universal fitness`
 
 `published != imported != locally selected`
@@ -37,10 +39,10 @@ These require semantic projection, not word substitution.
 
 ## 10.2 Projection manifest
 
-A language projection should declare:
+A language projection declares:
 
 - language tag;
-- source candidate/release identity;
+- source release identity;
 - projection version;
 - covered files/concepts;
 - untranslated/partial areas;
@@ -48,15 +50,13 @@ A language projection should declare:
 - structural validation status;
 - behavioral semantic-conformance status.
 
-The working zh-CN candidate manifest is intentionally bound to a mutable candidate identity and must be rebound to the immutable candidate tree at freeze.
-
-A projection is stale when relevant source semantics changed and it has not been reconciled.
+The zh-CN projection shipped with Current is bound to v0.3.6 release semantics. A projection becomes stale when material source semantics change without reconciliation.
 
 ## 10.3 Semantic glossary
 
 High-risk terms should carry an operational definition rather than rely on one-word dictionaries.
 
-v0.3.6 candidate glossary adds/clarifies:
+v0.3.6 glossary adds/clarifies:
 
 `stimulus | mutation pressure | latent variation | expression | local selection | Evolution Commons | rescue plane | canonical lineage`
 
@@ -66,7 +66,7 @@ English terms may remain alongside Chinese where that reduces semantic drift, bu
 
 Validate **decision meaning**, not literary similarity.
 
-Candidate fixtures:
+Included fixtures:
 
 - `language-projections/semantic-fixtures.v1.yaml` — inherited v0.3.5 paired scenarios;
 - `language-projections/semantic-fixtures.v2.yaml` — v0.3.6 ecology paired scenarios.
@@ -88,7 +88,7 @@ Fixture presence/structure is not behavioral proof. Only actual paired model/Hos
 
 Where language can materially affect interpretation, record:
 
-- operating/evaluation/adoption language;
+- operating/adoption language;
 - projection identity;
 - source semantic identity;
 - model/Host/language combination;
@@ -98,18 +98,18 @@ Where language can materially affect interpretation, record:
 
 Language change can be an applicability boundary for evidence when it can change a decision.
 
-## 10.6 Candidate projection status
+## 10.6 Current projection status
 
-The v0.3.6 working candidate currently includes:
+v0.3.6 Current includes:
 
 - canonical English authoring source;
 - Simplified Chinese (`zh-CN`) hot-path projection;
-- aligned candidate glossary;
-- inherited v1 and new v2 semantic fixture sets.
+- aligned glossary;
+- inherited v1 and v0.3.6 v2 semantic fixture sets.
 
 The predecessor v0.3.5 same-model 8/8 bilingual result remains predecessor evidence only; it does not prove v0.3.6 ecology semantics.
 
-Current v0.3.6 behavioral semantic conformance: **NOT YET EXECUTED / UNPROVEN**.
+Current v0.3.6 behavioral semantic conformance: **UNPROVEN / FIELD EVIDENCE REQUIRED**.
 
 > **Translate wording; preserve decisions.**
 >
