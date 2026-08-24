@@ -1,63 +1,104 @@
-# ENA v0.3.6 Candidate — Working Evolution Ecology Baseline
+# ENA v0.3.6 — Evolution Ecology Current Baseline
 
-Status: **WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED / DO NOT ADOPT**
+Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-Current remains: **v0.3.5 / CURRENT / FIELD_VALIDATION**.
+This directory is the singular ENA adoption surface.
 
-This candidate inherits the complete v0.3.5 Current effective-content baseline and explores an evolution-ecology extension. It must not be treated as an adoption baseline until it is coherent, validated, frozen, independently falsified/reconciled, and explicitly released.
-
-## Purpose retained
+## Purpose
 
 **ENA exists to make sustained self-evolution viable.**
 
-Governance protects evolvability, truthful selection, owned consequence, recovery/correction capacity, and future revision. It is not the telos.
+Governance protects evolvability, truthful selection, consequence ownership, recovery/correction capacity, and future revision. Governance is not the telos.
 
-## Candidate direction
+## What v0.3.6 adds
 
-The candidate extends the v0.3.5 evolution metabolism with:
+v0.3.6 extends v0.3.5 evolution metabolism with an explicit evolution-ecology layer:
 
 - stimulus and mutation pressure without forced mutation;
 - long-lived latent/cryptic variation;
-- explicit separation of storage, expression, application, and selection;
-- local/environment-scoped selection rather than universal scalar fitness;
-- publisher/receiver autonomy in Evolution Commons;
-- discovery/import/adoption separation;
-- cue-triggered salience as a runtime direction;
-- external rescue-path property where material and controllable;
-- governed canonical ENA lineage without treating the hosting service as a permanent sovereign;
-- ecological/minimal-intervention governance direction.
+- explicit `stored != expressed != applied != selected` semantics;
+- a separate expression axis `LATENT | EXPRESSED` alongside lifecycle and selection;
+- chronological consistency guards for expression/evaluation/integration histories;
+- environment-local selection rather than universal scalar fitness;
+- Evolution Commons separation of publication, discovery, import, expression/experiment, and local selection;
+- additive `adaptation-packet.v2` source expression/dormancy and negative-lineage context;
+- cue-triggered hot salience / cold capability direction;
+- Rescue Plane semantics for self-disabling mutations without creating a sovereign approver;
+- governed canonical lineage as the property, with GitHub as the current carrier rather than a permanent sovereign;
+- ecological/minimal-intervention governance: govern the floor, not every interaction.
 
-## Machine boundary
+## Machine surface
 
-Candidate machine semantics currently include:
+Current includes:
 
 - `schemas/evolution-record.v2.schema.json`;
+- `templates/evolution-record.v2.json`;
 - `tools/validate_evolution_record_v2.py`;
-- `tools/validate_candidate.py`;
-- inherited `tools/ena_evolve.py` and composed validator/regression surfaces.
+- `schemas/adaptation-packet.v2.schema.json`;
+- retained v1 schemas and inherited validator/regression surfaces;
+- inherited `tools/ena_evolve.py` reference implementation.
 
-The inherited `ena_evolve.py` remains the v0.3.5 reference implementation and does **not** yet fully implement the candidate mutation-pressure/latent-reservoir/expression model.
+The v2 schema/validator is a formal represented-consistency surface. It does not prove external events happened.
 
-`CANDIDATE_PROSE_OR_SCHEMA != TOOL_IMPLEMENTATION_PROOF`
+The inherited `ena_evolve.py` remains state/schema 1.2 and does not fully implement mutation-pressure/latent-reservoir/expression/packet-v2 runtime semantics. Its inherited `propose` and `import` commands still require `--variation-space`; therefore it is not the normative v0.3.6 latent-now/experiment-later proposal/import path.
 
-## Open research kept outside mandatory semantics
+`SCHEMA_OR_PROSE_PRESENT != FULL_RUNTIME_IMPLEMENTATION`
 
-This working candidate deliberately does not standardize:
+## Selection / migration boundary
 
-- Agent reproductive motivation or a required definition of descendants;
-- a universal fitness function;
-- a civilization-scale AI/human domination, obedience, or coexistence telos;
-- mandatory artificial-adversity/persona moral training;
-- a fixed universal cognitive-mode taxonomy;
-- a universal cadence for external ecosystem polling;
-- a rule that every latent variation must eventually receive a verdict.
+Source evidence may travel. Source conclusions do not automatically become receiver-local conclusions.
 
-## Freeze boundary
+`PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`
 
-Do not freeze or promote merely because the candidate is complete enough to inspect. Freeze requires explicit immutable source/tree identity after pre-freeze author and machine verification converges. Independent semantic falsification follows the frozen identity, not a moving branch.
+`source success != receiver proof`
 
-> **Variation does not owe reality an immediate verdict.**
+Popularity, propagation, packet existence, and source selection are not substitutes for receiver-local reality contact where local selection is claimed.
+
+## Constitution discipline
+
+All 38 inherited Constitution IDs remain unchanged.
+
+`NEW_CONSTITUTION_IDS = 0`
+
+The Evolution Ecology layer survived independent falsification without evidence that it needed additional universal constitutional invariants.
+
+## Supported language surface
+
+Authoring language: English.
+
+Supported hot-path semantic projection: Simplified Chinese (`zh-CN`).
+
+The v0.3.6 paired semantic fixtures are included, but behavioral EN/zh-CN equivalence for the new ecology semantics remains field evidence rather than release-author proof.
+
+## Accepted residuals
+
+Visible nonblocking residuals include:
+
+- self-asserted `LOCAL` provenance is not external attestation;
+- `triggered_obligation_refs` are not authenticated by schema acceptance alone;
+- tied latest timestamps are conservatively rejected;
+- the inherited v1.2 reference tool false-BLOCK described above remains an explicit non-normative boundary;
+- future cue salience/application remains unproven field evidence;
+- `experiment` versus broader `reality contact` terminology remains research wording.
+
+Do not silently report these as solved.
+
+## Adoption
+
+Use `CURRENT-BASELINE.yaml` for identity and scope.
+
+Use `RUNTIME-ADOPTION-KERNEL.md` as the hot-path semantic surface, with cold documents retrieved when relevant.
+
+Use `LITE-ADOPTION-INSTRUCTION.md` for bounded low-ceremony work; profiles change governance intensity, not the Constitution.
+
+## Evidence lineage
+
+v0.3.6 candidate.0 received fresh independent semantic verdict `NEEDS_REVISION`. Candidate.1 repaired the material findings and then received `TARGETED_REVALIDATION_PASS_WITH_RESIDUALS` from the same falsifier. Host-side reconciliation stopped candidate succession and supported release preparation.
+
+See `LINEAGE.md` for exact source/tree identities and residuals.
+
+> **Variation first; selection by reality.**
 >
-> **Stored possibility is not active authority.**
+> **Governance must pay rent.**
 >
-> **Govern the floor; let the ecology grow above it.**
+> **Evolution is the purpose; governance protects evolvability.**
