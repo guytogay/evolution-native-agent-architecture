@@ -1,8 +1,8 @@
-# ENA Runtime Adoption Kernel — v0.3.6 Candidate
+# ENA Runtime Adoption Kernel — v0.3.6 Current
 
-Status: `WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT`.
+Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`.
 
-This is candidate hot-path meaning, not a replacement for v0.3.5 Current while this version remains unreleased.
+This is the hot-path semantic surface for the current ENA release.
 
 **ENA exists to make sustained self-evolution viable.**
 
@@ -79,7 +79,7 @@ A wake asks whether variation is worth generating/revisiting. A timer or stimulu
 
 A variation may remain latent for a long time when retention is affordable/lawful and storage itself does not create consequential behavior.
 
-Do not force every candidate into experiment merely to clear a queue.
+Do not force every variation into experiment merely to clear a queue.
 
 `UNASSESSED` can remain honest when no selection attempt has occurred. `UNKNOWN` remains appropriate when an actual assessment/reality contact cannot support a stronger verdict.
 
@@ -89,7 +89,7 @@ Dormancy is not deletion and not failure.
 
 Expression is conceptually separate from persistence and selection.
 
-Candidate conceptual states:
+Current represented states:
 
 `LATENT | EXPRESSED`
 
@@ -129,7 +129,7 @@ Publishers do not force receiver adoption. Receivers do not turn source populari
 
 Preserve source experiments/evaluations/environment/selection lineage and negative evidence during migration.
 
-Candidate.1 `adaptation-packet.v2` adds source expression/dormancy context and negative-lineage references. Those are source context, not receiver-local proof.
+v0.3.6 `adaptation-packet.v2` adds source expression/dormancy context and negative-lineage references. Those are source context, not receiver-local proof.
 
 A receiver may re-test even source failure because environments differ; a local positive result must arise from local reality contact and does not erase source negative lineage.
 
@@ -155,7 +155,7 @@ Recovery protects future evolvability; it is not maximal backup ceremony.
 
 `backup exists != recovery proven`
 
-Where a self-mutation can disable its own recovery path, prefer a rescue path reachable outside the damaged candidate when material and controllable: last-known-viable snapshot, watchdog/timer, recovery manifest, narrow recovery credential, peer/human handoff, or independent startup path.
+Where a self-mutation can disable its own recovery path, prefer a rescue path reachable outside the damaged variation when material and controllable: last-known-viable snapshot, watchdog/timer, recovery manifest, narrow recovery credential, peer/human handoff, or independent startup path.
 
 Rescue authority does not imply authority to approve/forbid all future variation.
 
@@ -183,17 +183,17 @@ Freeze identity may be assigned by an external governed lineage record to an alr
 
 ## 14. Tool boundary
 
-The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully implement mutation pressure, latent-reservoir, or expression semantics.
+The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully implement mutation pressure, latent-reservoir, expression, or packet-v2 semantics.
 
-More specifically, its inherited `propose` and `import` commands still require `--variation-space`. That means the inherited tool false-BLOCKs candidate.1's legal "store/import latent now, choose an experiment surface later" path. **The inherited tool is therefore not the normative v0.3.6 latent proposal/import path.**
+More specifically, its inherited `propose` and `import` commands still require `--variation-space`. That means the inherited tool false-BLOCKs v0.3.6's legal "store/import latent now, choose an experiment surface later" path. **The inherited tool is therefore not the normative v0.3.6 latent proposal/import path.**
 
-Candidate.1 `adaptation-packet.v2` is likewise a representation contract; the inherited tool still emits/accepts packet v1.
+v0.3.6 `adaptation-packet.v2` is likewise a representation contract; the inherited tool still emits/accepts packet v1.
 
-Until machine support is implemented and validated, do not upgrade candidate prose into tool-enforced claims, and do not turn an inherited-tool rejection into a semantic prohibition that the candidate does not contain.
+Until machine support is implemented and validated, do not upgrade release prose/schema into tool-enforced claims, and do not turn an inherited-tool rejection into a semantic prohibition that Current does not contain.
 
-Reference tools record/mechanically guard represented state; they do not prove external evidence truth, authority reality, recovery reality, or source authenticity.
+Reference tools record/mechanically guard represented state; they do not prove external evidence truth, authority reality, recovery reality, provenance truth, obligation-reference truth, or source authenticity.
 
-## 15. Minimal candidate bootstrap
+## 15. Minimal runtime bootstrap
 
 ```text
 ENA exists to make sustained self-evolution viable.
