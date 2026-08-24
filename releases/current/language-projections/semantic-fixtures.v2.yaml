@@ -1,6 +1,6 @@
-schema_version: "2.0-candidate"
+schema_version: "2.1"
 purpose: >
-  Paired English/zh-CN decision-semantic scenarios for v0.3.6 candidate ecology
+  Paired English/zh-CN decision-semantic scenarios for v0.3.6 Current ecology
   semantics. This file defines test expectations; it does not prove that any
   model/Host will satisfy them until the paired experiment is actually run.
 
