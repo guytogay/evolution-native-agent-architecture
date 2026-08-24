@@ -7,6 +7,7 @@
   "selection_state": "UNASSESSED",
   "signal_refs": [],
   "mutation_pressure_refs": [],
+  "triggered_obligation_refs": [],
   "hypothesis": "Unresolved possibility retained for future relevant context.",
   "change": "Candidate change not yet expressed or experimented.",
   "expected_outcomes": [],
