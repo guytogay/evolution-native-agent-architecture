@@ -1,139 +1,183 @@
-# ENA v0.3.6 Candidate Lineage
+# ENA v0.3.6 Lineage
 
-Status: `WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED`.
+Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`.
 
 ## Parent baseline
 
-Canonical parent at candidate start:
+- predecessor Current: `v0.3.5 / CURRENT / FIELD_VALIDATION`;
+- predecessor Current tree: `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
+- repository base commit: `f14855fdfd57b975195f0b1c261b754bd3058749`.
 
-- ENA Current: `v0.3.5 / CURRENT / FIELD_VALIDATION`;
-- Current effective-content tree: `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
-- repository base commit after post-release housekeeping: `f14855fdfd57b975195f0b1c261b754bd3058749`.
+## Design / authoring lineage
 
-## Working lineage
+- design seed: `f48b70f7cb82cd240a97d6d807874def37d67d70`;
+- working candidate initialized: `5d4b5ea92c9d3bf8972f56e72c3487e03a598623`;
+- full v0.3.5 baseline inherited into candidate without changing Current: `668a1be941045cb25c86008eaee620340a21b9a6`;
+- ecology semantics, Runtime Kernel, v2 schema, bilingual fixtures, field template, and author self-attacks evolved through the candidate branch.
 
-1. Design seed on `candidate/v0.3.6-work`:
-   - commit `f48b70f7cb82cd240a97d6d807874def37d67d70`;
-   - record `collaboration/inbox/2026-08-23-v036-evolution-ecology-design-seed.md`.
+The detailed authoring history remains recoverable through PR #68 and Git; Current does not require ordinary adopters to replay every intermediate author checkpoint.
 
-2. Working candidate initialized:
-   - commit `5d4b5ea92c9d3bf8972f56e72c3487e03a598623`;
-   - draft PR #68.
+## candidate.0
 
-3. Complete v0.3.5 Current effective-content tree inherited into candidate directory:
-   - commit `668a1be941045cb25c86008eaee620340a21b9a6`;
-   - no modification to `releases/current/`.
+Frozen source:
 
-4. Candidate identity + first ecology semantics:
-   - commit `4fb504d2b78c958b84eafb20336b579d89323b5f`;
-   - candidate baseline, metabolism/ecology, Commons semantics.
+`3cb94d98882621acede189d0d47806efae44fb0f`
 
-5. Candidate Runtime Kernel, canonical-lineage clarification, expression schema v2, and author attack plan:
-   - commit `ccdbe0e12d51a2fcdd4b6d3d4f356a7aa8ec015c`.
+Frozen effective candidate tree:
 
-6. Candidate identity, zh-CN hot path, and bilingual ecology fixtures aligned:
-   - identity/lineage/zh-CN alignment commit `aad6cc43e232e64fb3c852eb8da112fc149ac352`;
-   - bilingual ecology semantic fixtures commit `3533c630745c994352601b9a23b784312324e143`.
+`80f2da918811c26381d65eb5afa8e40f8410a32e`
 
-7. Candidate-specific pre-freeze validation surface added and first author falsification repairs applied:
-   - candidate validation workflow/validator checkpoint `921e23cbfb9d3c739a3c4cb74adc371e0efcd3ca`;
-   - latent/expression identity corrections through `dee537e891da329afe254539a24cceaeb9370d9f`.
+Freeze-record commit:
 
-8. Second/third author falsification passes tightened selection/Commons boundaries and evidence-template identity:
-   - selection/Commons correction checkpoint `dcdc4093bd2b88d3316fb3d4376c69b5e2efff97`;
-   - identity/concept-map checkpoint `730565e78c7c20e5f74cb0e43ccc5493194b154d`;
-   - field-template/evidence identity checkpoint `9d24e53066055628a022cc098b9517bd798cf7bd`;
-   - zh-CN Constitution identity correction `e89737e09237acdb6cfeed183d8c8f15cb1b7091`.
+`15e513a72d59e28f8d3050ef877746f85ab706ba`
 
-9. Full PR identity sweep and regression hardening:
-   - capability-map identity correction `3cf44b5f7298d64ac7e16ed83b12eb589d1b701a`;
-   - operational-contract identity correction `c6c583018e99b8f8e2d8ace17a03eb6f8bbd20aa`;
-   - pre-freeze validator upgraded to enforce active-file identity and v2 selftest `082782ce3aeca591152b5ba43a3b2bfeb628ab80`.
+PR:
 
-10. Twenty-four planned attack classes reconciled and pre-freeze evidence boundary encoded:
-    - author self-falsification pass 4 `3dbf38383d75422c4cbfde8b1cd473dc76ecbc73`;
-    - machine-readable pre-freeze evidence/residual status in `CANDIDATE-BASELINE.yaml` at `b620857e9866cd74ee3b70855c3ee3698179b0f9`;
-    - lineage checkpoint `79d4562d7e28888617a4063840f2e68f7b570737`.
+`#68`, closed without merge.
 
-11. External pre-freeze machine verification pass 1 tested exact source `79d4562d7e28888617a4063840f2e68f7b570737`:
-    - candidate subtree observed `85b6615bf7bb5f8f36da6b1baa3e3c374066f00b`;
-    - Current subtree observed/preserved `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
-    - final verdict `PREFREEZE_MACHINE_CHECK_FAIL`;
-    - failure preserved in `collaboration/reconciliation/2026-08-23-v036-external-prefreeze-machine-verification-1.md`.
+Pre-freeze machine verification required three passes; the first two correctly preserved FAIL results before the third exact source passed. The frozen candidate then received a fresh independent semantic falsification.
 
-12. Corrections after external pass 1:
-    - candidate-evaluation/adoption boundary made explicit in `AGENT-ADOPTION-INSTRUCTION.md` at `71cc0f72a34fb9448259a9f0fd3fdc49de249b16`;
-    - workflow strengthened to execute the full inherited composed-validator regression suite, in-memory Python compile, and post-validation worktree-clean check at `5026052170cb249ab5b90295ede7d50ad747ed32`;
-    - external failure occurrence record committed at `d6aef1c77792a579238dd3978c1ea7982c923fe8`;
-    - machine-readable revalidation blocker encoded at `ff72b2e073161e0ab38e222b2a1e110a823ae19b`;
-    - reconciliation lineage checkpoint `a94962c799fc0b5c9f87dc56631c8d1b28db0180`.
+Fresh independent verdict:
 
-13. Final pre-revalidation README convergence:
-    - candidate README restated working-candidate identity, machine boundary, open research, and immutable-freeze rule at `a53d4800f7a84b63b13ed39a351d7117dc039899`;
-    - no-content tree-stable checkpoint `9e9589126d896cd580a2fc04090b9957208ce779` became the second external revalidation source.
+`NEEDS_REVISION`
 
-14. External targeted pre-freeze machine revalidation pass 2 tested exact source `9e9589126d896cd580a2fc04090b9957208ce779`:
-    - candidate subtree observed `169e33787df90f860e76bef3ad083b33b90b824d`;
-    - Current subtree observed/preserved `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
-    - first-pass E1 Agent instruction correction: PASS;
-    - v2 selftest: PASS 10/10;
-    - inherited `ena_evolve.py` selftest: PASS 10/10;
-    - full inherited composed regression: PASS 235/235 (`10 + 164 + 61`), zero unexpected verdicts, zero uncaught exceptions;
-    - Python compile: PASS 7/7;
-    - aggregate `validate_candidate.py`: FAIL at the next previously unreachable LITE identity sentinel;
-    - GitHub Actions on the same exact head also failed at that validator step;
-    - final verdict `PREFREEZE_MACHINE_REVALIDATION_FAIL`;
-    - failure preserved in `collaboration/reconciliation/2026-08-24-v036-external-prefreeze-machine-revalidation-2.md`.
+Material release blockers:
 
-15. Corrections after external pass 2:
-    - LITE candidate simulation explicitly states it is not an adoption baseline while retaining NOT CURRENT and v0.3.5 Current boundaries at `2d67796e13b67215bd7bc4efde9345ec4f5e56ee`;
-    - workflow now sets `PYTHONDONTWRITEBYTECODE=1`, explicitly rejects `__pycache__`/`*.pyc`, and includes 2026-08-24 reconciliation paths at `cd1cf8b3ac35c1473eeae7819d4cff96a31636de`;
-    - pass-2 failure occurrence record committed at `ae8184e47d8c798a9bd2d8d50e52548e50751ee4`.
+- F-01 — v2 `integration_history` weakened predecessor representation strength;
+- F-02 — array order could masquerade as chronological latest evidence/expression state.
 
-Later commits must append to this lineage rather than rewrite frozen predecessor identities.
+The falsifier also identified successor repairs F-03 through F-09 and residual/research findings, while explicitly withdrawing three of its own initial attacks as false positives.
 
-## Machine evidence currently obtained
+Independent report:
 
-Author-side v2 represented-consistency replay:
+PR #68 comment `issuecomment-5389079667`.
 
-`EVOLUTION_RECORD_V2_SELFTEST_PASS 10`
+## candidate.1
 
-External machine pass 1 established Current isolation and several selftests but ended `PREFREEZE_MACHINE_CHECK_FAIL` because of the first brittle identity sentinel.
+Successor branch:
 
-External machine pass 2 established:
+`candidate/v0.3.6-candidate.1`
 
-- Current isolation `PASS`;
-- Agent instruction E1 correction `PASS`;
-- v2 selftest `PASS`;
-- inherited `ena_evolve.py selftest` `PASS`;
-- complete inherited composed regression `PASS 235/235`;
-- Python compile `PASS 7/7`;
-- failure-history preservation `PASS`;
-- aggregate `validate_candidate.py` `FAIL` at the next LITE identity sentinel;
-- observed GitHub Actions failure at the same validator step.
+Frozen source:
 
-Neither failed source contributes a passing freeze claim. A new exact source/tree after pass-2 corrections must be revalidated.
+`4af5d17a1cedcf2850b2b4dfe5446e132023369a`
 
-## Relationship to v0.3.5 validation
+Frozen effective candidate tree:
 
-v0.3.5 field validation issue #61 remains a separate evidence stream. Starting v0.3.6 work does not retroactively resolve v0.3.5 fresh-Host salience/application evidence, nor does it invalidate v0.3.5 Current.
+`52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d`
 
-Inherited v0.3.5 residuals N3–N6 remain research/field residuals unless new evidence changes their importance.
+Freeze-record commit:
 
-## Candidate freeze rule
+`aa9a79b305d2ae8f8ff423df314af974e2e51d23`
 
-No frozen candidate identity exists yet.
+PR:
 
-Freeze requires an explicit source commit and candidate effective-content tree after authoring/self-attack converges. Current blocker:
+`#69`, closed without merge after targeted revalidation/reconciliation.
 
-`EXTERNAL_PREFREEZE_MACHINE_REVALIDATION_PENDING_AFTER_SECOND_FALSE_BLOCK_AND_BYTECODE_CORRECTION`
+candidate.1 repaired the representation/machine defects while intentionally preserving the independently supported Evolution Ecology semantic core.
 
-Once frozen, material correction must use a successor candidate identity rather than editing the frozen tree.
+### Exact-source machine evidence
 
-## Canonical promotion boundary
+On source `4af5d17a1cedcf2850b2b4dfe5446e132023369a`:
 
-A local branch/fork may freely vary ENA but cannot self-promote by writing `CURRENT` into its own metadata.
+- ENA v0.3.6 Candidate Validate run `32677101732` — SUCCESS;
+- Main Gate run `32677101720` — SUCCESS;
+- CodeQL run `32677101753` — SUCCESS;
+- v2 consistency selftest — `18/18`;
+- inherited `ena_evolve.py` selftest — PASS, state/schema 1.2, 10 cases;
+- inherited composed regression — `235/235`;
+- unexpected verdicts — `0`;
+- uncaught exceptions — `0`;
+- Python compile — `7/7`;
+- bytecode hygiene — PASS;
+- Current isolation — PASS.
 
-Canonical promotion requires the governed lineage process defined in `08-RELEASE-DISCIPLINE.md`, including falsification/validation, reconciliation, immutable identity, and explicit admission/release decision.
+### Same-falsifier targeted revalidation
 
-GitHub is the current carrier for this lineage, not the metaphysical definition of ENA validity.
+Role:
+
+`SAME_FALSIFIER / TARGETED_REVALIDATION / NOT_FRESH / NOT_AUTHOR`
+
+Report:
+
+PR #69 comment `issuecomment-5389505830`.
+
+Verdict:
+
+`TARGETED_REVALIDATION_PASS_WITH_RESIDUALS`
+
+Per-finding closure:
+
+- F-01 CLOSED;
+- F-02 CLOSED;
+- F-03 CLOSED_WITH_RESIDUAL;
+- F-04 CLOSED;
+- F-05 CLOSED_WITH_RESIDUAL;
+- F-06 CLOSED;
+- F-07 CLOSED;
+- F-08 CLOSED;
+- F-09 CLOSED_BY_TRUTHFUL_BOUNDARY;
+- F-10 CLOSED.
+
+No material repair-induced regression was reported.
+
+## Host-side final reconciliation
+
+Durable record:
+
+`collaboration/reconciliation/2026-08-24-v036-candidate1-final-reconciliation.md`
+
+Commit:
+
+`ac816471a0522d21494913a62a15bf0917d936ac`
+
+Decision:
+
+`CANDIDATE_SUCCESSION_STOP = YES unless new material evidence appears`
+
+`RELEASE_PREPARATION_SUPPORTED`
+
+No candidate.2 was justified by the remaining residuals.
+
+## Release packaging lineage
+
+Release branch:
+
+`release/v0.3.6`
+
+Packaging begins with a byte-for-byte transplant of frozen candidate.1 effective tree `52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d` into `releases/current/`, then applies release-only identity/adoption/package transformations.
+
+Release packaging is permitted to change identity labels, Current baseline metadata, projection bindings, adopter instructions, lineage/changelog, root status metadata, and release-validation/package machinery. It must not silently alter the validated material semantics closing candidate.1's findings.
+
+The final release commit/tree/package digest and merge identity are recorded only after exact release PR checks and post-merge readback complete.
+
+## Accepted residuals
+
+Carry forward visibly:
+
+1. F-03 — self-asserted `LOCAL` provenance is not external attestation;
+2. F-05 — obligation references are represented but not authenticated merely by schema acceptance;
+3. F-09 — inherited `ena_evolve.py` v1.2 false-BLOCKs the normative v0.3.6 latent propose/import path and remains explicitly non-normative for that path;
+4. tied-latest timestamp rejection is conservative;
+5. F-11 — fresh-session cue salience/application remains unproven field evidence;
+6. F-12 — `experiment` versus broader `reality contact` terminology remains research wording.
+
+Do not silently report these as solved.
+
+## Constitution identity
+
+All 38 inherited Constitution IDs remain unchanged.
+
+`NEW_CONSTITUTION_IDS = 0`
+
+## Canonical boundary
+
+A local branch/fork may freely vary ENA but cannot self-promote by writing `CURRENT` into metadata.
+
+Canonical admission requires governed lineage, validation/falsification evidence, reconciliation, immutable release identity, and explicit release promotion.
+
+GitHub is the current project carrier for that lineage, not the metaphysical definition of ENA validity.
+
+> **History is evidence, not a second runtime baseline.**
+>
+> **Variation first; selection by reality.**
