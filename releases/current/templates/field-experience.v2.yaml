@@ -1,13 +1,13 @@
-schema_version: "2.0-candidate"
+schema_version: "2.1"
 artifact_type: "ENA_EVOLUTION_ECOLOGY_FIELD_EXPERIENCE"
-status: "UNRECONCILED_CANDIDATE_EVIDENCE / NOT_RELEASE_EVIDENCE_BY_ITSELF"
+status: "UNRECONCILED_FIELD_EVIDENCE / NOT_RELEASE_PROOF_BY_ITSELF"
 
 participant:
   kind: "UNKNOWN"
   runtime_or_model: "UNKNOWN"
   host_or_runtime: "UNKNOWN"
-  ena_semantic_identity: "v0.3.6-candidate"
-  candidate_source_ref_or_tree: "REQUIRED_WHEN_MATERIAL"
+  ena_semantic_identity: "v0.3.6"
+  current_source_ref_or_tree: "REQUIRED_WHEN_MATERIAL"
   language: "UNKNOWN"
   governance_profile: "UNKNOWN"
   local_projection_or_extension: "NONE_OR_DESCRIBE"
@@ -80,7 +80,7 @@ salience_and_expression:
 
 recovery_and_authority:
   recovery_needed: "UNKNOWN"
-  rescue_path_outside_candidate: "UNKNOWN_OR_NOT_APPLICABLE"
+  rescue_path_outside_variation: "UNKNOWN_OR_NOT_APPLICABLE"
   rescue_authority_scope: "UNKNOWN_OR_NOT_APPLICABLE"
   external_effect_reversible: "UNKNOWN"
   compensation_required: "UNKNOWN"
@@ -92,6 +92,8 @@ evidence:
   source_independence: "UNKNOWN"
   limitations: []
   external_truth_not_proven_by_template: true
+  self_asserted_local_provenance_is_external_proof: false
+  obligation_reference_presence_is_external_authentication: false
 
 economics:
   adaptation_or_learning_value: "UNKNOWN"
@@ -114,5 +116,7 @@ requested_reconciliation:
   - "UNKNOWN"
 
 authority_note: >
-  Candidate field contribution only. This record can inform falsification/reconciliation
-  but cannot by itself freeze, validate, release, promote, or create unrelated authority.
+  Field contribution under v0.3.6 Current. This record can inform future
+  falsification/reconciliation/version evolution but cannot by itself prove
+  universal fitness, authenticate external evidence, or self-mint unrelated
+  authority or future Current promotion.
