@@ -1,70 +1,97 @@
-# ENA v0.3.6 Candidate — Read Me First
+# ENA v0.3.6 — Read Me First
 
-Status: **WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT / NOT_RELEASED / DO NOT ADOPT**
+Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-The actual Current remains `releases/current/` (v0.3.5 / FIELD_VALIDATION).
-
-This directory is a complete inherited v0.3.5 baseline under active v0.3.6 candidate mutation. Some cold files may still carry inherited v0.3.5 wording until candidate authoring reaches semantic parity. Treat candidate identity files and changed files as work in progress; do not infer release status from directory completeness.
-
-## Candidate purpose
+This directory is the singular adopter-facing ENA baseline.
 
 **ENA exists to make sustained self-evolution viable.**
 
-v0.3.6 candidate explores the next step from explicit evolution metabolism toward evolution ecology:
+v0.3.6 extends v0.3.5's explicit evolution metabolism into an evolution-ecology model:
 
 `environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> migration/recombination -> renewed variation`
 
-It preserves v0.3.5 truth, authority, recovery, history, migration, composition, and governance-closure semantics unless explicitly changed and revalidated.
+Evolution is the purpose; governance protects evolvability.
 
-## First files to inspect for this candidate
+## Start here
 
-1. `CANDIDATE-BASELINE.yaml` — candidate identity and semantic flags;
-2. `README.md` — scope and open research;
-3. `09-EVOLUTION-METABOLISM.md` — evolution-ecology semantics;
-4. `RUNTIME-ADOPTION-KERNEL.md` — candidate hot-path cues;
-5. `06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md` — Commons publisher/receiver separation;
-6. `08-RELEASE-DISCIPLINE.md` — canonical lineage vs carrier;
-7. `schemas/evolution-record.v2.schema.json` — candidate expression-axis record;
-8. `../../collaboration/inbox/2026-08-23-v036-author-falsification-plan.md` — pre-freeze attack plan.
+1. `CURRENT-BASELINE.yaml` — release identity, scope, lineage, machine boundaries, accepted residuals;
+2. `RUNTIME-ADOPTION-KERNEL.md` — hot-path distinctions and cues;
+3. `01-CONSTITUTION.md` — the 38 stable universal invariants;
+4. `09-EVOLUTION-METABOLISM.md` — evolution ecology and candidate lifecycle/selection/expression semantics;
+5. `06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md` — Evolution Commons and receiver-local reselection;
+6. `08-RELEASE-DISCIPLINE.md` — candidate/release/canonical-lineage discipline;
+7. `schemas/evolution-record.v2.schema.json` + `tools/validate_evolution_record_v2.py` — v0.3.6 represented consistency contract;
+8. `language-projections/zh-CN/` — supported Simplified Chinese hot-path projection.
 
-## Major candidate distinctions
+## Durable v0.3.6 distinctions
+
+Preserve at least:
 
 - `stimulus != mutation != improvement`;
-- variation may remain latent without immediate experiment/verdict;
+- a variation may remain latent without immediate experiment or verdict;
 - `stored != expressed != applied != selected`;
-- lifecycle, expression, and selection are separate questions;
-- local selection remains local unless transfer evidence justifies more;
+- lifecycle, expression, and selection are separate axes;
+- `INTEGRATED != SUPPORTED`;
+- `ARCHIVED/RETIRED != selection verdict`;
+- local selection is not universal fitness;
 - `PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`;
-- popularity/propagation does not create proof;
-- rescue may need to remain reachable outside a self-disabled candidate;
+- popularity/propagation is not proof;
+- source context/evidence is not receiver-local proof;
 - rescue authority is not general approval authority;
-- canonical ENA evolution requires governed reproducible lineage;
-- GitHub is the current carrier, not the permanent sovereign;
-- govern the semantic/consequence floor and avoid unnecessary ecological administration.
+- state rollback is not reversal of escaped external consequence;
+- GitHub is the current carrier of canonical lineage, not a permanent sovereign;
+- minimal intervention does not waive consequence ownership or externality boundaries.
 
 ## Constitution status
 
-All 38 inherited Constitution IDs remain present. **No new Constitution ID has been added yet.**
+All 38 Constitution IDs are inherited unchanged.
 
-This is deliberate. Candidate ecology semantics must first survive falsification and demonstrate that a new universal invariant is actually necessary before the Constitution grows.
+`NEW_CONSTITUTION_IDS = 0`
 
-## Machine-layer status
+The ecology layer was not promoted into new universal Constitution IDs merely because it was new. Independent falsification supported the semantic core while material representation defects were corrected in candidate.1.
 
-`schemas/evolution-record.v2.schema.json` introduces `expression_state` and `expression_history` as candidate machine semantics.
+## Machine boundary
 
-The inherited `tools/ena_evolve.py` is still the v0.3.5 reference implementation and does **not** yet fully implement the v2 expression/mutation-pressure model. Do not claim tool support that is not present.
+v0.3.6 Current includes:
 
-## Freeze boundary
+- `schemas/evolution-record.v2.schema.json`;
+- `templates/evolution-record.v2.json`;
+- `tools/validate_evolution_record_v2.py`;
+- additive `schemas/adaptation-packet.v2.schema.json`;
+- inherited v1 schemas and the v0.3.5 `tools/ena_evolve.py` reference implementation.
 
-Do not freeze until at least:
+The inherited `ena_evolve.py` remains state/schema 1.2 and does **not** fully implement mutation-pressure, latent-reservoir, expression, or packet-v2 runtime semantics. Its `propose` and `import` commands still require `--variation-space`, so it is not the normative v0.3.6 path for legal latent-now/experiment-later creation or import.
 
-- identity-bearing English and zh-CN hot paths are coherent;
-- the machine-layer scope is explicit and tested;
-- inherited v0.3.5 regressions remain preserved;
-- author self-attacks have been executed rather than merely listed;
-- no material false claim arises from latent/expression/Commons/rescue semantics;
-- `releases/current/` remains untouched.
+`CURRENT_SEMANTIC_BASELINE != FULL_REFERENCE_TOOL_RUNTIME_PARITY`
+
+Do not convert that visible staged boundary into a false claim that v2 is fully executable through the inherited tool.
+
+## Field-evidence boundary
+
+Current status is `FIELD_VALIDATION`, not universal proof.
+
+Particularly unproven in fresh heterogeneous Hosts:
+
+- cue-triggered future salience/application;
+- long-term economics of large latent-variation reservoirs;
+- how often expression-state representation tracks actual behavioral influence;
+- Rescue Plane narrowness in real deployments;
+- behavioral EN/zh-CN equivalence for the new ecology semantics;
+- whether the inherited reference-tool boundary creates practical confusion.
+
+## Accepted visible residuals
+
+The release intentionally keeps visible that:
+
+- self-asserted `provenance: LOCAL` is not external attestation;
+- `triggered_obligation_refs` are represented references, not authenticated truth merely because schema validation passes;
+- tied latest timestamps are conservatively rejected;
+- the inherited tool false-BLOCK described above remains non-normative rather than silently becoming semantic law.
+
+These are field/research opportunities, not hidden release claims.
 
 > **Variation does not owe reality an immediate verdict.**
 >
 > **Stored possibility is not active authority.**
+>
+> **Govern the floor; let the ecology grow above it.**
