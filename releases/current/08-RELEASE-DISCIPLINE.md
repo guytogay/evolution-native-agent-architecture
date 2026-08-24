@@ -1,6 +1,6 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.6 Candidate
+# 8. Release and Canonical-Lineage Discipline — v0.3.6 Current
 
-Status: `WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT`.
+Status: `CURRENT / FIELD_VALIDATION`.
 
 A deployable ENA adoption version must be self-contained and immutably identifiable.
 
@@ -12,17 +12,7 @@ One adoption version identifies one immutable effective-content state.
 
 Material change requires a new version/candidate identity. Research/candidates may branch; the adopter-facing Current remains singular.
 
-## Current remains external to this candidate
-
-While this candidate is unreleased:
-
-- `releases/current/` remains the only adopter-facing baseline;
-- candidate success cannot promote itself;
-- candidate content must not be described as Current merely because it is newer or philosophically preferred.
-
 `Git main != ENA Current`
-
-`candidate branch != ENA Current`
 
 ## Candidate discipline
 
@@ -35,6 +25,13 @@ If a frozen candidate needs material correction, create a successor identity; do
 A same-falsifier targeted revalidation may verify specific fixes when labeled honestly; it is not fresh independent validation.
 
 Stop candidate succession when decision-changing residuals converge. Visible research questions are not automatic release blockers.
+
+v0.3.6 followed this discipline:
+
+- frozen candidate.0 received fresh independent semantic verdict `NEEDS_REVISION`;
+- frozen candidate.1 repaired material findings;
+- the same falsifier returned `TARGETED_REVALIDATION_PASS_WITH_RESIDUALS`;
+- host-side reconciliation concluded `CANDIDATE_SUCCESSION_STOP = YES` and `RELEASE_PREPARATION_SUPPORTED`.
 
 ## Canonical ENA evolution
 
@@ -60,6 +57,12 @@ Changing carriers must itself preserve enough lineage/evidence to avoid a silent
 
 A material Current change requires a new release identity and explicit release decision.
 
+## Freeze identity
+
+A freeze may be assigned by an external governed record to an exact already-tested immutable tree. The tested tree need not be rewritten merely to insert a post-hoc `frozen: true` marker.
+
+The authoritative property is the exact source/tree binding plus governed lineage, not a mutable label inside the bytes being frozen.
+
 ## Source/distribution identity
 
 A release must be built from identified committed source/effective-content bytes.
@@ -73,6 +76,18 @@ Ordinary adopters need the minimum sufficient immutable effective-content identi
 A supported language projection is part of the release file set or otherwise immutably bound to it. Material decision meaning must remain conformant across supported projections.
 
 A projection change that alters material decision meaning is a material version change.
+
+## Runtime/schema compatibility
+
+A newer semantic baseline may retain an older reference-tool mechanism when all of the following are explicit:
+
+- which semantic surface is normative;
+- which runtime/tool version is actually implemented;
+- which paths are unsupported or false-BLOCKed by the inherited tool;
+- the gap is not silently turned into semantic law;
+- no false claim of runtime parity is made.
+
+`canonical semantic baseline != Host mechanism version`
 
 ## History and carriers
 
