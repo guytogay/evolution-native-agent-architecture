@@ -27,10 +27,11 @@ jobs:
     env:
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
-      - name: Checkout full history
+      - name: Checkout exact source head
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -105,61 +106,42 @@ jobs:
           test ! -f releases/current/CANDIDATE-BASELINE.yaml
           echo 'single-current-surface-pass'
 
-      - name: Validate v2 evolution-record schema and template
+      - name: Validate v2 evolution schemas and template
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           import jsonschema
           root = Path('releases/current')
-          schema = json.loads((root/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
-          doc = json.loads((root/'templates/evolution-record.v2.json').read_text(encoding='utf-8'))
-          jsonschema.Draft202012Validator.check_schema(schema)
-          jsonschema.Draft202012Validator(schema, format_checker=jsonschema.FormatChecker()).validate(doc)
-          assert doc['expression_state'] == 'LATENT'
-          assert doc['selection_state'] == 'UNASSESSED'
-          assert doc['variation_space'] is None
-          print('evolution-record-v2-template-schema-pass')
-          PY
-
-      - name: Validate adaptation packet v2 schema structure
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          import jsonschema
-          root = Path('releases/current')
-          schema = json.loads((root/'schemas/adaptation-packet.v2.schema.json').read_text(encoding='utf-8'))
-          jsonschema.Draft202012Validator.check_schema(schema)
-          props = schema.get('properties', {})
+          evo_schema = json.loads((root/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
+          evo_doc = json.loads((root/'templates/evolution-record.v2.json').read_text(encoding='utf-8'))
+          packet_schema = json.loads((root/'schemas/adaptation-packet.v2.schema.json').read_text(encoding='utf-8'))
+          jsonschema.Draft202012Validator.check_schema(evo_schema)
+          jsonschema.Draft202012Validator(evo_schema, format_checker=jsonschema.FormatChecker()).validate(evo_doc)
+          jsonschema.Draft202012Validator.check_schema(packet_schema)
+          assert evo_doc['expression_state'] == 'LATENT'
+          assert evo_doc['selection_state'] == 'UNASSESSED'
+          assert evo_doc['variation_space'] is None
+          props = packet_schema.get('properties', {})
           for key in ('source_expression_state', 'source_expression_history', 'source_last_expressed_at', 'source_negative_lineage_refs'):
               assert key in props, key
-          print('adaptation-packet-v2-schema-pass')
+          print('v2-schema-template-pass')
           PY
 
       - name: Run v0.3.6 evolution-record v2 consistency selftest
         run: python releases/current/tools/validate_evolution_record_v2.py --selftest
 
-      - name: Run v0.3.2-migrated semantic selftests
-        run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v1.json
-
-      - name: Run inherited 164-case implementation corpus
-        run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.json
-
-      - name: Run inherited D1/D2/D3 closure corpus
-        run: python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.1.json
-
-      - name: Run inherited composed-validator regression suite
-        run: python releases/current/tools/regression_suite.py
-
-      - name: Check committed regression result matches regeneration
-        run: git diff --exit-code -- releases/current/tools/regression-results-v033.json
-
-      - name: Run inherited evolution tool selftest
-        run: python releases/current/tools/ena_evolve.py selftest
-
-      - name: Run historical adversarial regressions
+      - name: Run inherited semantic selftests and regression
         run: |
+          python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v1.json
+          python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.json
+          python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.1.json
+          python releases/current/tools/regression_suite.py
+          git diff --exit-code -- releases/current/tools/regression-results-v033.json
+
+      - name: Run inherited evolution tool and historical adversarial regressions
+        run: |
+          python releases/current/tools/ena_evolve.py selftest
           python releases/current/tools/candidate1_adversarial.py
           python releases/current/tools/candidate2_adversarial.py
 
@@ -205,8 +187,7 @@ jobs:
           import yaml
           root = Path('releases/current')
           baseline = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          tool_text = (root/'tools/ena_evolve.py').read_text(encoding='utf-8')
-          tree = ast.parse(tool_text)
+          tree = ast.parse((root/'tools/ena_evolve.py').read_text(encoding='utf-8'))
           required_variation_space_lines = []
           string_constants = set()
           state_version = None
@@ -220,10 +201,10 @@ jobs:
               if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr == 'add_argument':
                   if not node.args or not isinstance(node.args[0], ast.Constant) or node.args[0].value != '--variation-space':
                       continue
-                  required = False
-                  for kw in node.keywords:
-                      if kw.arg == 'required' and isinstance(kw.value, ast.Constant):
-                          required = kw.value.value is True
+                  required = any(
+                      kw.arg == 'required' and isinstance(kw.value, ast.Constant) and kw.value.value is True
+                      for kw in node.keywords
+                  )
                   if required:
                       required_variation_space_lines.append(node.lineno)
           has_expression_runtime_field = 'expression_state' in string_constants
@@ -241,7 +222,7 @@ jobs:
           })
           PY
 
-      - name: Compile Current Python tools without writing bytecode
+      - name: Compile Current Python tools and reject bytecode artifacts
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -259,9 +240,6 @@ jobs:
           if failures:
               raise SystemExit(1)
           PY
-
-      - name: Verify no Python bytecode artifacts
-        run: |
           found="$(find releases/current \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) -print)"
           if [ -n "$found" ]; then
             echo "$found"
@@ -290,8 +268,13 @@ jobs:
           from pathlib import Path
           import yaml
           root = Path('releases/current/language-projections')
-          for name in ('semantic-fixtures.v1.yaml', 'semantic-fixtures.v2.yaml'):
+          specs = {
+              'semantic-fixtures.v1.yaml': ('1.0', 'semantic_ids'),
+              'semantic-fixtures.v2.yaml': ('2.1', 'semantic_basis'),
+          }
+          for name, (schema_version, binding_key) in specs.items():
               doc = yaml.safe_load((root/name).read_text(encoding='utf-8'))
+              assert str(doc.get('schema_version')) == schema_version, (name, doc.get('schema_version'))
               cases = doc.get('cases') or []
               assert cases, f'no semantic fixtures: {name}'
               ids = set()
@@ -301,9 +284,9 @@ jobs:
                   ids.add(cid)
                   assert case.get('en', '').strip(), f'missing English scenario: {name}:{cid}'
                   assert case.get('zh-CN', '').strip(), f'missing Chinese scenario: {name}:{cid}'
-                  assert case.get('semantic_ids'), f'missing semantic IDs: {name}:{cid}'
+                  assert case.get(binding_key), f'missing {binding_key}: {name}:{cid}'
                   assert case.get('expected_properties'), f'missing expected properties: {name}:{cid}'
-              print('language-fixture-structure-pass', name, len(cases))
+              print('language-fixture-structure-pass', name, schema_version, binding_key, len(cases))
           PY
 
       - name: Check zh-CN v0.3.6 Current projection manifest
@@ -429,6 +412,7 @@ jobs:
           print('PACKAGE_FILE_COUNT', len(files))
           print('PACKAGE_SHA256', zip_sha)
           print('CURRENT_TREE', os.environ['CURRENT_TREE'])
+          print('SOURCE_COMMIT', os.environ['SOURCE_COMMIT'])
           PY
 
       - name: Verify package manifest/readback
