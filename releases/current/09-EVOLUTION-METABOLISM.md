@@ -1,8 +1,8 @@
-# 9. Evolution Metabolism and Ecology — v0.3.6 Candidate
+# 9. Evolution Metabolism and Ecology — v0.3.6 Current
 
-Status: `WORKING_CANDIDATE / NOT_FROZEN / NOT_CURRENT`.
+Status: `CURRENT / FIELD_VALIDATION`.
 
-This document extends the v0.3.5 evolution metabolism with a candidate ecology model. It is a reference semantics document, not a requirement that every Host implement the same organs.
+This document extends the v0.3.5 evolution metabolism with the v0.3.6 ecology model. It is a reference semantics document, not a requirement that every Host implement the same organs.
 
 ## 9.1 From linear metabolism to ecological metabolism
 
@@ -10,9 +10,9 @@ v0.3.5 established:
 
 `observe -> wake -> vary -> experiment -> evaluate/select -> integrate/prune -> migrate/recombine -> repeat`
 
-v0.3.6 candidate keeps those functions but removes an overly linear implication: **a variation does not have to move immediately toward experiment or verdict.**
+v0.3.6 keeps those functions but removes an overly linear implication: **a variation does not have to move immediately toward experiment or verdict.**
 
-Working ecology:
+Current ecology:
 
 `environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> inheritance/migration/recombination -> renewed variation`
 
@@ -69,7 +69,7 @@ Hosts may curate, compress, archive, or lawfully delete latent material when car
 
 ## 9.4 Expression is a separate axis
 
-Candidate semantics add a conceptual **expression axis** independent from lifecycle and selection.
+v0.3.6 semantics add a conceptual **expression axis** independent from lifecycle and selection.
 
 A minimal conceptual state is:
 
@@ -118,7 +118,7 @@ Lifecycle:
 
 `PROPOSED | EXPERIMENTED | INTEGRATED | ARCHIVED | RETIRED`
 
-Expression (candidate conceptual axis):
+Expression:
 
 `LATENT | EXPRESSED`
 
@@ -194,13 +194,13 @@ It may produce conflict, cancellation, amplification, unexpected resource intera
 
 Expectation of emergence is not evidence. Positive emergence is valuable when actually observed.
 
-Exploratory cognitive modes may be one way to raise mutation pressure or recombination diversity, but this candidate does not define a fixed universal mode taxonomy.
+Exploratory cognitive modes may be one way to raise mutation pressure or recombination diversity, but v0.3.6 does not define a fixed universal mode taxonomy.
 
 ## 9.12 Recovery and the rescue-plane property
 
 A self-affecting mutation can damage the very Agent/process that would otherwise perform recovery.
 
-Where material and controllable, preserve a rescue path reachable outside the damaged candidate, such as:
+Where material and controllable, preserve a rescue path reachable outside the damaged variation, such as:
 
 - last-known-viable snapshot;
 - watchdog or external timer;
@@ -231,20 +231,30 @@ Minimal intervention does not justify ignoring unowned externality, stale author
 
 ## 9.14 Reference-tool boundary
 
-The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully represent mutation pressure, a latent reservoir, or the expression axis.
+The inherited v0.3.5 `tools/ena_evolve.py` does not yet fully represent mutation pressure, a latent reservoir, the expression axis, or packet-v2 runtime semantics.
 
-Until the reference tool/schema are modified and validated, the presence of these concepts in this candidate document is **semantic authoring**, not machine-enforced proof.
+v0.3.6 Current therefore treats `schemas/evolution-record.v2.schema.json` plus `tools/validate_evolution_record_v2.py` as the formal represented-consistency surface, while the inherited tool remains state/schema 1.2.
 
-Do not narrate the tool as implementing semantics it does not yet implement.
+Its inherited `propose` and `import` commands require `--variation-space`, so the tool is not the normative v0.3.6 path for legal latent-now/experiment-later creation/import.
 
-## 9.15 Retained v0.3.5 residuals
+Do not narrate the inherited tool as implementing semantics it does not implement, and do not turn its rejection into a semantic prohibition that Current does not contain.
 
-The inherited research residuals remain visible unless new evidence changes their importance:
+## 9.15 Retained / accepted residuals
+
+Inherited v0.3.5 research residuals remain visible where applicable:
 
 - repeated evaluation/reinterpretation of one represented experiment;
 - nested visibility of source-negative lineage after receiver positive reselection;
 - no in-place restore/reopen path for archived/retired candidates in the inherited reference tool;
 - migration-lineage depth growth across generations.
+
+v0.3.6 additionally keeps visible that:
+
+- self-asserted `LOCAL` provenance is not external proof;
+- obligation-reference strings are not authenticated by schema acceptance alone;
+- tied latest timestamps are conservatively rejected;
+- cue-triggered future salience/application remains field evidence;
+- `experiment` versus broader `reality contact` terminology remains research wording.
 
 > **Variation does not owe reality an immediate verdict.**
 >
