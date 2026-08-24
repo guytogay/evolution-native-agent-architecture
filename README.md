@@ -25,9 +25,24 @@ Do **not** infer the current ENA from version numbers, candidate names, commit r
 
 - **Git `main`** is the canonical project branch.
 - **ENA Current** is the singular adoption baseline under `releases/current/`.
-- **Maturity/status** is declared by the Current baseline; v0.3.5 is `FIELD_VALIDATION`.
+- **Maturity/status** is declared by the Current baseline; v0.3.6 is `FIELD_VALIDATION`.
 
 Beginning with v0.3.5, historical `MAINLINE / NOT_MAINLINE` labels are no longer an active adopter-facing maturity axis. Historical records using them remain unchanged as occurrence truth.
+
+## Current direction
+
+v0.3.6 extends explicit evolution metabolism into **Evolution Ecology**:
+
+- mutation pressure without forced mutation;
+- long-lived latent variation;
+- lifecycle / expression / selection as separate axes;
+- Evolution Commons with receiver-local reselection;
+- environment-local rather than universal fitness;
+- Rescue Plane without sovereign approval authority;
+- hot cues + cold capability direction;
+- ecological/minimal-intervention governance that still preserves consequence ownership.
+
+The v2 representation/schema surface is newer than the inherited v1.2 `ena_evolve.py` reference runtime. Current makes that staged boundary explicit rather than pretending full runtime parity.
 
 ## Repository shape
 
