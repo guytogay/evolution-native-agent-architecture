@@ -1,7 +1,9 @@
-schema_version: "2.4-candidate"
-ena_version: "v0.3.6-candidate"
+schema_version: "2.5-candidate"
+ena_version: "v0.3.6-candidate.1"
+candidate_for: "v0.3.6"
+candidate_revision: 1
 adoption_status: WORKING_CANDIDATE
-maturity: UNVALIDATED_AUTHORING
+maturity: UNVALIDATED_SUCCESSOR_RECONCILIATION
 current: false
 frozen: false
 released: false
@@ -16,18 +18,22 @@ lineage:
   base_current_version: "v0.3.5"
   base_current_tree: "9c928b4c99ae72e53c89978cf1d10b7ea068c182"
   base_repository_commit: "f14855fdfd57b975195f0b1c261b754bd3058749"
-  complete_base_copy_commit: "668a1be941045cb25c86008eaee620340a21b9a6"
-  design_seed: "collaboration/inbox/2026-08-23-v036-evolution-ecology-design-seed.md"
-  author_falsification_plan: "collaboration/inbox/2026-08-23-v036-author-falsification-plan.md"
-  author_self_falsification_passes:
-    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-1.md"
-    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-2.md"
-    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-3.md"
-    - "collaboration/reconciliation/2026-08-23-v036-author-self-falsification-4.md"
-  external_prefreeze_machine_verification:
-    - "collaboration/reconciliation/2026-08-23-v036-external-prefreeze-machine-verification-1.md"
-    - "collaboration/reconciliation/2026-08-24-v036-external-prefreeze-machine-revalidation-2.md"
-  draft_pr: 68
+  frozen_predecessor_version: "v0.3.6-candidate.0"
+  frozen_predecessor_source_commit: "3cb94d98882621acede189d0d47806efae44fb0f"
+  frozen_predecessor_effective_tree: "80f2da918811c26381d65eb5afa8e40f8410a32e"
+  frozen_predecessor_freeze_record_commit: "15e513a72d59e28f8d3050ef877746f85ab706ba"
+  predecessor_verdict: NEEDS_REVISION
+  revision_trigger: "fresh independent semantic falsification"
+  independent_semantic_falsification_record: "collaboration/reconciliation/2026-08-24-v036-candidate0-independent-semantic-falsification.md"
+  independent_semantic_falsification_pr_comment: "issuecomment-5389079667"
+  successor_branch: "candidate/v0.3.6-candidate.1"
+
+freeze_protocol:
+  model: EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE
+  external_freeze_record_path: "collaboration/reconciliation/2026-08-24-v036-candidate1-freeze.md"
+  internal_frozen_flag_is_prefreeze_occurrence_state: true
+  external_record_may_assign_frozen_identity_without_rewriting_candidate_tree: true
+  post_freeze_material_change_requires_successor_identity: true
 
 telos:
   statement: "ENA exists to make sustained self-evolution viable."
@@ -48,11 +54,16 @@ runtime_adoption:
 
 evolution:
   metabolism_entrypoint: "09-EVOLUTION-METABOLISM.md"
-  inherited_reference_tool: "tools/ena_evolve.py"
   evolution_record_schema: "schemas/evolution-record.v2.schema.json"
   evolution_record_consistency_validator: "tools/validate_evolution_record_v2.py"
   inherited_evolution_record_schema: "schemas/evolution-record.v1.schema.json"
-  adaptation_packet_schema: "schemas/adaptation-packet.v1.schema.json"
+  adaptation_packet_schema: "schemas/adaptation-packet.v2.schema.json"
+  inherited_adaptation_packet_schema: "schemas/adaptation-packet.v1.schema.json"
+  inherited_reference_tool: "tools/ena_evolve.py"
+  inherited_reference_tool_state_version: "1.2"
+  inherited_reference_tool_is_normative_v2_record_or_packet_path: false
+  inherited_reference_tool_latent_propose_import_false_block_known: true
+  inherited_reference_tool_requires_variation_space_for_propose_import: true
   field_experience_template: "templates/field-experience.v2.yaml"
   legacy_field_experience_template: "templates/field-experience.v1.yaml"
   event_wake_supported: true
@@ -73,17 +84,29 @@ evolution:
   expression_is_separate_from_lifecycle_and_selection: true
   expression_states: [LATENT, EXPRESSED]
   expression_may_be_context_triggered: true
+  expression_history_requires_effect_materiality: true
+  materially_consequential_expression_requires_variation_space_or_triggered_obligation: true
+  harmful_or_closed_but_expressed_requires_triggered_obligation_reference: true
   variation_space_required_at_latent_storage_time: false
   variation_space_required_for_consequential_experiment_when_material: true
   outcome_based_selection: true
   non_unassessed_selection_requires_represented_experiment: true
+  latest_evaluation_and_expression_are_time_ordered_not_array_ordered: true
+  tied_latest_timestamps_are_rejected: true
+  clean_supported_with_degraded_outcome_requires_explicit_tradeoff_or_partial: true
   selection_scope_is_environment_local_by_default: true
   local_selection_is_universal_fitness: false
   popularity_is_selection_proof: false
   lifecycle_state_separate_from_selection_state: true
+  integrated_state_requires_structured_integration_history: true
+  archived_or_retired_requires_archive_metadata: true
+  migration_candidate_requires_structured_source_provenance: true
+  migrated_local_experiment_and_evaluation_provenance_is_explicit: true
   adaptation_migration_supported: true
   source_negative_evidence_must_not_be_relabelled_positive_on_transfer: true
   receiver_may_locally_reselect_after_real_local_experiment: true
+  adaptation_packet_v2_carries_expression_context: true
+  adaptation_packet_v2_carries_negative_lineage_refs: true
   positive_emergence_observation_supported: true
   pruning_archive_retirement_supported: true
 
@@ -100,6 +123,7 @@ commons:
   publication_is_adoption: false
   propagation_count_is_universal_proof: false
   central_top_ranking_required: false
+  packet_v2_expression_context_is_source_context_not_receiver_proof: true
 
 governance:
   universal_numeric_risk_score_required: false
@@ -120,6 +144,7 @@ canonical_standard_evolution:
   current_carrier: "GitHub"
   github_is_eternal_metaphysical_dependency: false
   local_fork_is_canonical_by_self_declaration: false
+  freeze_identity_can_be_assigned_by_external_lineage_record_to_exact_tree: true
 
 constitution:
   inherited_stable_ids: 38
@@ -131,71 +156,31 @@ machine_boundary:
   expression_consistency_validator_present: true
   expression_tool_implementation_present: false
   mutation_pressure_tool_implementation_present: false
+  adaptation_packet_v2_schema_present: true
+  adaptation_packet_v2_tool_implementation_present: false
   inherited_tool_must_not_be_claimed_to_implement_v2_semantics: true
+  inherited_tool_known_latent_propose_import_false_block_is_disclosed: true
 
-author_validation:
-  self_falsification_pass_count: 4
-  planned_attack_class_count: 24
-  attack_dispositions_complete: true
-  v2_consistency_selftest:
-    status: PASS
-    cases: 10
-    evidence_scope: "exact candidate validator/schema/template contents replayed together in an isolated local environment before external pass 1"
-    does_not_prove: "external truth, actual salience/expression, authority, recovery, universal fitness, or independent acceptance"
-  external_prefreeze_machine_pass_1:
-    source_commit: "79d4562d7e28888617a4063840f2e68f7b570737"
-    candidate_tree: "85b6615bf7bb5f8f36da6b1baa3e3c374066f00b"
-    verdict: PREFREEZE_MACHINE_CHECK_FAIL
-    aggregate_validator_exit_code: 1
-    blocking_finding: "active adoption instruction gate required an accidental literal 'not adoption' substring despite truthful DO NOT ADOPT AS CURRENT semantics"
-    current_isolation: PASS
-    v2_selftest: PASS
-    inherited_ena_evolve_selftest: PASS
-    inherited_validate_contracts_basic_selftest: PASS
-    python_compile: PASS
-    post_test_worktree: CLEAN
-  external_prefreeze_machine_pass_2:
-    source_commit: "9e9589126d896cd580a2fc04090b9957208ce779"
-    candidate_tree: "169e33787df90f860e76bef3ad083b33b90b824d"
-    verdict: PREFREEZE_MACHINE_REVALIDATION_FAIL
-    aggregate_validator_exit_code: 1
-    blocking_finding: "next previously unreachable LITE identity sentinel required literal 'not an adoption baseline' despite truthful candidate-only / NOT CURRENT semantics"
-    current_isolation: PASS
-    first_pass_e1_correction: PASS
-    v2_selftest: PASS
-    inherited_ena_evolve_selftest: PASS
-    inherited_full_regression:
-      status: PASS
-      migrated_v032: "10/10"
-      inherited_v2: "164/164"
-      closure_v21: "61/61"
-      total: "235/235"
-      unexpected_verdicts: 0
-      uncaught_exceptions: 0
-    python_compile: PASS_7_OF_7
-    github_actions_exact_head: FAIL_AT_AGGREGATE_VALIDATOR
-    tracked_worktree_after_tests: CLEAN
-    ignored_bytecode_artifact_observed: true
-  corrections_after_external_pass_2:
-    lite_candidate_surface_explicitly_not_adoption_baseline: true
-    python_bytecode_disabled_in_workflow: true
-    workflow_explicitly_rejects_pycache_and_pyc: true
-    second_failure_occurrence_preserved: true
-  full_repository_prefreeze_validator:
-    status: THIRD_EXTERNAL_REVALIDATION_PENDING
-    prior_failures_preserved: true
-  inherited_v035_contract_regression:
-    status: PASS_ON_EXTERNAL_SOURCE_9E958912
-    total: "235/235"
-    note: "complete retained v1/v2/v2.1 composed regression passed with zero unexpected verdicts and zero uncaught exceptions"
-  current_isolation:
-    status: OBSERVED_AT_GIT_SUBTREE_LEVEL
-    evidence: "both external sources preserved releases/current exactly at 9c928b4c99ae72e53c89978cf1d10b7ea068c182; next exact source must be rechecked"
-  freeze_eligible: false
-  freeze_blocker: "EXTERNAL_PREFREEZE_MACHINE_REVALIDATION_PENDING_AFTER_SECOND_FALSE_BLOCK_AND_BYTECODE_CORRECTION"
+candidate1_reconciliation:
+  predecessor_fresh_semantic_verdict: NEEDS_REVISION
+  f01_integration_history_regression: AUTHOR_REPAIRED_UNVALIDATED
+  f02_array_order_as_latest: AUTHOR_REPAIRED_UNVALIDATED
+  f03_migration_provenance_shape: AUTHOR_REPAIRED_UNVALIDATED
+  f04_expression_context_packet_surface: AUTHOR_REPAIRED_UNVALIDATED
+  f05_expression_consequence_obligation_link: AUTHOR_REPAIRED_UNVALIDATED
+  f06_mixed_result_overclaim: AUTHOR_REPAIRED_UNVALIDATED
+  f07_freeze_identity_protocol: AUTHOR_REPAIRED_UNVALIDATED
+  f08_zh_archived_retired_selection_distinction: PENDING_TEXT_REPAIR
+  f09_inherited_tool_false_block: RECORDED_AS_NON_NORMATIVE_V2_PATH_NOT_TOOL_FIXED
+  f10_archive_consistency_asymmetry: AUTHOR_REPAIRED_UNVALIDATED
+  same_falsifier_targeted_revalidation_required: true
+  fresh_independent_revalidation_not_required_for_targeted_defect_closure: true
+  candidate1_may_not_be_promoted_from_author_validation_alone: true
 
 accepted_working_residuals:
-  - "expression/mutation-pressure semantics are not yet integrated into inherited tools/ena_evolve.py"
+  - "the inherited v0.3.5 tools/ena_evolve.py remains state schema 1.2 and does not implement full v0.3.6 mutation-pressure/expression runtime semantics"
+  - "the inherited reference tool requires Variation Space for propose/import and therefore is not the normative v0.3.6 latent proposal/import path"
+  - "adaptation-packet.v2 is a candidate representation contract; the inherited tool still emits/accepts packet v1"
   - "fresh-session cue salience/application remains field evidence, not author proof"
 
 open_research:
