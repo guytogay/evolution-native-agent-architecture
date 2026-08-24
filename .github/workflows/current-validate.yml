@@ -200,18 +200,45 @@ jobs:
       - name: Check inherited tool boundary remains truthful
         run: |
           python - <<'PY'
+          import ast
           from pathlib import Path
           import yaml
           root = Path('releases/current')
           baseline = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          tool = (root/'tools/ena_evolve.py').read_text(encoding='utf-8')
-          has_expression = 'expression_state' in tool
-          requires_variation_space = tool.count("add_argument('--variation-space', required=True") >= 2
-          assert baseline['evolution']['inherited_reference_tool_state_version'] == '1.2'
-          assert baseline['evolution']['inherited_reference_tool_is_normative_v2_record_or_packet_path'] is False
-          assert baseline['evolution']['inherited_reference_tool_latent_propose_import_false_block_known'] == requires_variation_space
-          assert baseline['machine_boundary']['expression_tool_implementation_present'] == has_expression if 'machine_boundary' in baseline else not has_expression
-          print('inherited-tool-boundary-pass', {'expression_runtime': has_expression, 'variation_space_required': requires_variation_space})
+          tool_text = (root/'tools/ena_evolve.py').read_text(encoding='utf-8')
+          tree = ast.parse(tool_text)
+          required_variation_space_lines = []
+          string_constants = set()
+          state_version = None
+          for node in ast.walk(tree):
+              if isinstance(node, ast.Constant) and isinstance(node.value, str):
+                  string_constants.add(node.value)
+              if isinstance(node, ast.Assign):
+                  for target in node.targets:
+                      if isinstance(target, ast.Name) and target.id == 'STATE_VERSION' and isinstance(node.value, ast.Constant):
+                          state_version = node.value.value
+              if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr == 'add_argument':
+                  if not node.args or not isinstance(node.args[0], ast.Constant) or node.args[0].value != '--variation-space':
+                      continue
+                  required = False
+                  for kw in node.keywords:
+                      if kw.arg == 'required' and isinstance(kw.value, ast.Constant):
+                          required = kw.value.value is True
+                  if required:
+                      required_variation_space_lines.append(node.lineno)
+          has_expression_runtime_field = 'expression_state' in string_constants
+          requires_variation_space = len(required_variation_space_lines) >= 2
+          evo = baseline['evolution']
+          assert evo['inherited_reference_tool_state_version'] == str(state_version)
+          assert evo['inherited_reference_tool_is_normative_v2_record_or_packet_path'] is False
+          assert evo['inherited_reference_tool_latent_propose_import_false_block_known'] == requires_variation_space
+          assert has_expression_runtime_field is False
+          assert requires_variation_space is True
+          print('inherited-tool-boundary-pass', {
+              'state_version': state_version,
+              'expression_runtime_field': has_expression_runtime_field,
+              'variation_space_required_lines': required_variation_space_lines,
+          })
           PY
 
       - name: Compile Current Python tools without writing bytecode
