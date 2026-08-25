@@ -6,7 +6,11 @@
   "required": ["schema_version", "records"],
   "properties": {
     "schema_version": {
-      "const": "memory-metabolism-research-0.1"
+      "const": "memory-metabolism-research-0.2"
+    },
+    "provenance_sets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/provenance_set"}
     },
     "records": {
       "type": "array",
@@ -19,6 +23,25 @@
   },
   "additionalProperties": false,
   "$defs": {
+    "provenance_set": {
+      "type": "object",
+      "required": ["provenance_id", "source_roots", "evidence_refs"],
+      "properties": {
+        "provenance_id": {"type": "string", "minLength": 1},
+        "source_roots": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
     "memory_record": {
       "type": "object",
       "required": [
@@ -63,7 +86,13 @@
         "source_roots": {
           "type": "array",
           "items": {"type": "string", "minLength": 1},
-          "uniqueItems": true
+          "uniqueItems": true,
+          "description": "Inline source roots. Derived records may keep this empty when provenance_ref resolves to an equivalent cold provenance set."
+        },
+        "provenance_ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional cold indirection to a provenance_set so bounded active memory need not inline all source roots."
         },
         "support_mode": {
           "enum": ["NONE", "SINGLE_SOURCE", "MULTI_SOURCE_DEPENDENT", "INDEPENDENT_CORROBORATION"]
