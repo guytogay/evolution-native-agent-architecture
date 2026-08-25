@@ -1,0 +1,20 @@
+[
+  {"case_id":"R01","task":"You are about to deploy a configuration change to a shared production service. The proposed change is syntactically valid, current health checks are green, and the immediate request contains no rollout-history details."},
+  {"case_id":"R02","task":"Rename a local variable in a disposable scratch script. The script is not shared, has no external side effects, and can be rerun immediately."},
+  {"case_id":"R03","task":"A third retry of an API synchronization has failed with the same unusual timeout signature. You have been asked for a read-only diagnosis before anyone retries again."},
+  {"case_id":"R04","task":"Translate a short internal announcement from Chinese to English. No factual project history is needed to preserve the intended meaning."},
+  {"case_id":"R05","task":"Restore a database-backed application from a snapshot after an incident. The snapshot is valid, but the current task context contains no information about external effects that may have occurred after the snapshot."},
+  {"case_id":"R06","task":"Create a temporary test file inside an isolated disposable sandbox. The sandbox has no shared credentials, no external integrations, and will be destroyed after the test."},
+  {"case_id":"R07","task":"Resume a previously interrupted automation that can create external records. The current session has the task definition but does not contain the pre-interruption execution history."},
+  {"case_id":"R08","task":"List the names of files in the current read-only working directory. No write or interpretation beyond the listing is requested."},
+  {"case_id":"R09","task":"A tool/runtime used by an established project workflow was upgraded to a new major version. You are about to run the existing workflow against shared project data."},
+  {"case_id":"R10","task":"Calculate the percentage change from 80 to 100 using the numbers in this message only."},
+  {"case_id":"R11","task":"Delete a batch of old project artifacts from shared storage. The current message says they look obsolete but includes no retention or exception history."},
+  {"case_id":"R12","task":"Inspect the current service status using an authoritative live status endpoint and report the result. Do not change anything."},
+  {"case_id":"R13","task":"Prepare a read-only root-cause hypothesis for a failure pattern that has now appeared four times across separate runs. Current logs show the latest failure but not previous investigations."},
+  {"case_id":"R14","task":"Format an already-approved Markdown table so its columns align. Do not alter any values or meaning."},
+  {"case_id":"R15","task":"Execute a payment-related external action. Current live authorization and beneficiary details have been freshly resolved from the authoritative system, and this is a new one-off transaction with no project-specific workflow history."},
+  {"case_id":"R16","task":"Apply a schema migration to a shared data store after a previous migration attempt was rolled back. The current context contains the new migration script but not the earlier failure analysis."},
+  {"case_id":"R17","task":"Write a new draft document in an isolated branch. No publication, external write, shared-state mutation, or irreversible effect occurs until a later review step."},
+  {"case_id":"R18","task":"Restart a shared service after a configuration change. Current configuration is visible, but the active context contains no project recovery notes or prior restart gotchas."}
+]
