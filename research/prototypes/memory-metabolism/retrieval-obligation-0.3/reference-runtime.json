@@ -1,0 +1,9 @@
+{
+  "schema_version": "memory-retrieval-obligation-research-0.3",
+  "decisions": [{"decision_id":"d1","consequence":"MATERIAL","disposition":"READY","uncertainty_declared":false}],
+  "trigger_events": [{"trigger_id":"t1","decision_id":"d1","basis":"GENERIC_REFLEX","resolver_ref":"resolver"}],
+  "retrieval_intents": [{"intent_id":"i1","decision_id":"d1","trigger_ids":["t1"],"resolver_ref":"resolver","decision_context_ref":"ctx:d1","need_basis":"DURABLE_STATE_MAY_CHANGE_DECISION"}],
+  "obligations": [{"obligation_id":"o1","decision_id":"d1","intent_id":"i1","resolver_ref":"resolver","state":"CLOSED","closure":{"disposition":"RETRIEVAL_SUFFICIENCY_RESOLVED","basis_discovery_id":"sd1","basis_attempt_ids":["a1"],"sufficiency_resolution_ref":"external:suff:d1"}}],
+  "scope_discoveries": [{"discovery_id":"sd1","obligation_id":"o1","sequence":1,"resolver_ref":"resolver","registry_snapshot_ref":"registry:v1","selected_scope_refs":["scope:A"],"outcome":"SCOPES_SELECTED","coverage":"PARTIAL","receipt_ref":"disc:1"}],
+  "attempts": [{"attempt_id":"a1","obligation_id":"o1","discovery_id":"sd1","scope_ref":"scope:A","sequence":1,"resolver_ref":"resolver","outcome":"HIT","coverage":"PARTIAL","returned_record_ids":["m1"],"receipt_ref":"ret:1"}]
+}
