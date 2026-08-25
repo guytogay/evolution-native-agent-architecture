@@ -81,6 +81,16 @@
       },
       "additionalProperties": false
     },
+    "utility_observation": {
+      "type": "object",
+      "required": ["decision_effect", "basis_refs"],
+      "properties": {
+        "decision_effect": {"enum": ["CHANGED_MATERIAL_DECISION", "CHANGED_NONMATERIAL_DETAIL", "NO_OBSERVED_CHANGE", "UNKNOWN"]},
+        "basis_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
     "cost_observation": {
       "type": "object",
       "properties": {
