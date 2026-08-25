@@ -6,7 +6,7 @@
   "required": ["schema_version", "records"],
   "properties": {
     "schema_version": {
-      "const": "memory-metabolism-research-0.2"
+      "const": "memory-metabolism-research-0.3"
     },
     "provenance_sets": {
       "type": "array",
@@ -162,6 +162,7 @@
         "retrieved_record_ids",
         "used_record_ids",
         "revalidated_record_ids",
+        "historical_use_record_ids",
         "consequence",
         "authority_required"
       ],
@@ -186,6 +187,12 @@
           "type": "array",
           "items": {"type": "string", "minLength": 1},
           "uniqueItems": true
+        },
+        "historical_use_record_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true,
+          "description": "Records intentionally used as historical context rather than as current-state claims."
         },
         "consequence": {"enum": ["NON_MATERIAL", "MATERIAL"]},
         "authority_required": {"type": "boolean"},
