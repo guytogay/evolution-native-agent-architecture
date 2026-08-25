@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/research/memory-metabolism/naturalistic-validation-0.1/field-observation.schema.json",
+  "title": "ENA Memory Metabolism Naturalistic Field Observation 0.1",
+  "type": "object",
+  "required": [
+    "protocol_version",
+    "observation_id",
+    "host_profile",
+    "task",
+    "retrieval_trace",
+    "later_challenges",
+    "assessment"
+  ],
+  "properties": {
+    "protocol_version": {"const": "memory-naturalistic-validation-research-0.1"},
+    "observation_id": {"type": "string", "minLength": 1},
+    "host_profile": {
+      "type": "object",
+      "required": ["host_ref", "resolver_organ_ref", "hot_catalog_exposure"],
+      "properties": {
+        "host_ref": {"type": "string", "minLength": 1},
+        "resolver_organ_ref": {"type": "string", "minLength": 1},
+        "hot_catalog_exposure": {"enum": ["NONE", "BOUNDED_SUMMARY", "FULL_CATALOG", "UNKNOWN"]},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "required": ["task_ref", "natural_task", "task_summary"],
+      "properties": {
+        "task_ref": {"type": "string", "minLength": 1},
+        "natural_task": {"const": true},
+        "task_summary": {"type": "string", "minLength": 1},
+        "task_source_ref": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "retrieval_trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sequence", "stage", "event", "evidence_ref"],
+        "properties": {
+          "sequence": {"type": "integer", "minimum": 1},
+          "stage": {"enum": ["INVOCATION", "SCOPE_DISCOVERY", "RETRIEVAL", "SUFFICIENCY", "PROJECTION", "APPLICATION", "OUTCOME"]},
+          "event": {"type": "string", "minLength": 1},
+          "evidence_ref": {"type": "string", "minLength": 1},
+          "scope_count": {"type": "integer", "minimum": 0},
+          "returned_count": {"type": "integer", "minimum": 0},
+          "decision_material": {"enum": ["YES", "NO", "UNKNOWN"]},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "later_challenges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["challenge_type", "evidence_ref", "decision_effect"],
+        "properties": {
+          "challenge_type": {"enum": ["USER_CORRECTION", "LATER_MEMORY_FOUND", "REPEAT_FAILURE", "DECISION_REVERSAL", "EXTERNAL_OUTCOME", "MANUAL_AUDIT", "OTHER"]},
+          "evidence_ref": {"type": "string", "minLength": 1},
+          "decision_effect": {"enum": ["CHANGED_MATERIAL_DECISION", "CHANGED_NONMATERIAL_DETAIL", "NO_CHANGE", "UNKNOWN"]},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "required": ["status", "failure_stage", "basis_refs"],
+      "properties": {
+        "status": {"enum": ["UNASSESSED", "NO_MATERIAL_FAILURE_OBSERVED", "MATERIAL_FAILURE_OBSERVED", "UNRESOLVED"]},
+        "failure_stage": {"enum": ["NONE", "R0_TRIGGER", "DECISION_CONTEXT_SNAPSHOT", "SCOPE_DISCOVERY", "RESOLVER_RECALL", "SUFFICIENCY_EVALUATOR", "PROJECTION", "APPLICATION", "EXTERNAL_WORLD_UNCERTAINTY", "SEARCH_EXPANSION_COST", "UNRESOLVED"]},
+        "basis_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "cost_observation": {
+      "type": "object",
+      "properties": {
+        "resolver_calls": {"type": "integer", "minimum": 0},
+        "scopes_touched": {"type": "integer", "minimum": 0},
+        "records_returned": {"type": "integer", "minimum": 0},
+        "expansion_steps": {"type": "integer", "minimum": 0},
+        "cost_comment": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
