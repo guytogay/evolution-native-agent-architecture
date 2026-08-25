@@ -10,6 +10,24 @@ Likewise, a Host can make R0 look artificially good if the task was written spec
 
 Naturalistic evidence therefore needs an explicit eligibility boundary.
 
+## Evidence is stage-scoped
+
+A field run is not automatically evidence for every retrieval stage.
+
+Example:
+
+- an ordinary maintenance task may explicitly require repository/history inspection;
+- that run can still produce useful naturalistic evidence for `SCOPE_DISCOVERY`, `RETRIEVAL`, `SUFFICIENCY`, `PROJECTION`, or `APPLICATION`;
+- but it is **not eligible evidence for spontaneous `R0_TRIGGER` invocation**, because the task itself already instructed the Agent to inspect durable state.
+
+Conversely, a naturally occurring task that does not mention history/retrieval may be eligible for R0 invocation evidence if the Agent independently triggers retrieval under a bounded generic reflex.
+
+Therefore:
+
+> `RUN_IS_NATURALISTIC != EVERY_STAGE_IS_NATURALISTICALLY_TESTED`
+
+Do not convert downstream naturalistic retrieval success into R0 evidence when invocation was task-mandated.
+
 ## Primary naturalistic field evidence
 
 A trace is eligible for **PRIMARY_NATURALISTIC** evidence when all of the following are materially true:
@@ -36,6 +54,19 @@ A trace is eligible for **PRIMARY_NATURALISTIC** evidence when all of the follow
 
 6. **Normal task consequence**
    - the Agent is attempting the real work, not only predicting what it would retrieve.
+
+These conditions classify the run as naturalistic. Stage-specific interpretation still applies.
+
+## R0-trigger eligibility
+
+A PRIMARY_NATURALISTIC run is eligible specifically for `R0_TRIGGER` evidence only when:
+
+- the ordinary task does not explicitly require checking project history, prior decisions, memory, repository lineage, or an equivalent past-state lookup;
+- the target historical dependency is not named in the prompt;
+- the Agent has only the generic retrieval reflex rather than a topic-specific cue;
+- retrieval is actually invoked or a later challenge establishes that it should have been.
+
+If the task explicitly says to inspect history/repository state, mark R0 invocation as **NOT_ELIGIBLE** for that run rather than treating compliance as spontaneous retrieval salience.
 
 ## Secondary field evidence
 
@@ -95,6 +126,8 @@ A successful controlled fixture does not become naturalistic because it was late
 A contaminated session does not become a clean R0 test merely because the evaluator ignores the contamination.
 
 Preserve the evidence class that actually produced the observation.
+
+Likewise, do not upgrade a run's **stage coverage** retroactively: a task-mandated repository lookup does not become spontaneous R0 evidence because the downstream retrieval was excellent.
 
 ## Minimal field Host bootstrap
 
