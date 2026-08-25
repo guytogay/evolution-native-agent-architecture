@@ -1,0 +1,87 @@
+{
+  "schema_version": "memory-metabolism-research-0.1",
+  "records": [
+    {
+      "record_id": "ev-stale-endpoint-failure",
+      "layer": "EVIDENCE",
+      "claim_type": "OCCURRENCE",
+      "content": "A deployment failed after a previously valid endpoint was reused without current-state verification.",
+      "source_roots": ["trace:deployment-run-2026-08-25-a"],
+      "access_scope": ["project:ena"],
+      "validity": {
+        "mode": "IMMUTABLE_OCCURRENCE",
+        "revalidate_before_material_use": false,
+        "conditions": []
+      },
+      "evidence_status": "PRESENT"
+    },
+    {
+      "record_id": "cm-revalidate-mutable-endpoints",
+      "layer": "COMPILED",
+      "claim_type": "HEURISTIC",
+      "content": "Before a consequential action reuses a mutable external endpoint, resolve or revalidate the current endpoint rather than trusting remembered state.",
+      "derived_from": ["ev-stale-endpoint-failure"],
+      "evidence_refs": ["ev-stale-endpoint-failure"],
+      "source_roots": ["trace:deployment-run-2026-08-25-a"],
+      "support_mode": "SINGLE_SOURCE",
+      "decision_material": true,
+      "access_scope": ["project:ena"],
+      "validity": {
+        "mode": "CONDITIONAL",
+        "revalidate_before_material_use": false,
+        "conditions": ["applies when the referenced state is mutable and the action consequence is material"]
+      }
+    },
+    {
+      "record_id": "kb-endpoint-current-belief",
+      "layer": "KNOWLEDGE",
+      "claim_type": "BELIEF",
+      "content": "The remembered deployment endpoint is 10.0.0.5.",
+      "source_roots": ["inventory:snapshot-2026-08-24"],
+      "access_scope": ["project:ena"],
+      "validity": {
+        "mode": "CURRENT_STATE",
+        "revalidate_before_material_use": true,
+        "conditions": ["endpoint may change independently of this memory"]
+      }
+    },
+    {
+      "record_id": "ev-prior-approval-observation",
+      "layer": "EVIDENCE",
+      "claim_type": "AUTHORIZATION_OBSERVATION",
+      "content": "A prior message stated that deployment had been approved at that time.",
+      "source_roots": ["message:approval-2026-08-24"],
+      "authority_reference_ids": ["historical-approval-message"],
+      "access_scope": ["project:ena"],
+      "validity": {
+        "mode": "HISTORICAL",
+        "revalidate_before_material_use": true,
+        "conditions": ["historical approval is not assumed to remain current"]
+      }
+    }
+  ],
+  "projections": [
+    {
+      "projection_id": "deploy-after-revalidation",
+      "actor_scopes": ["project:ena"],
+      "retrieved_record_ids": [
+        "cm-revalidate-mutable-endpoints",
+        "kb-endpoint-current-belief",
+        "ev-prior-approval-observation"
+      ],
+      "used_record_ids": [
+        "cm-revalidate-mutable-endpoints",
+        "kb-endpoint-current-belief",
+        "ev-prior-approval-observation"
+      ],
+      "revalidated_record_ids": [
+        "kb-endpoint-current-belief",
+        "ev-prior-approval-observation"
+      ],
+      "consequence": "MATERIAL",
+      "authority_required": true,
+      "external_authority_basis": "current-mandate:deployment-2026-08-25",
+      "notes": "The remembered approval only triggered re-resolution. The executable authority basis is external/current rather than a memory record."
+    }
+  ]
+}
