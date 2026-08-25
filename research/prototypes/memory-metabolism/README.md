@@ -14,6 +14,30 @@ The prototype deliberately starts below LLM behavior. If a failure is structural
 
 ---
 
+## 0. First falsification already changed the prototype
+
+The initial 0.1 sketch required every derived/compiled record to inline all inherited `source_roots`.
+
+That looked safe for a two-record example but fails the original memory goal at scale:
+
+`100,000 experiences -> one compiled heuristic -> 100,000 inline source roots`
+
+The provenance rule would recreate unbounded historical baggage inside the very compiled memory that was supposed to remain compact.
+
+Therefore 0.2 changes the property from:
+
+> every compiled record must inline every source root
+
+into:
+
+> **provenance must remain traceable, but it may be preserved through cold indirection rather than repeated inline expansion.**
+
+`provenance_sets` are the current research organ for that property. A compiled record may keep only a `provenance_ref`, while the larger root/evidence bundle remains cold and retrievable when audit, challenge, independence analysis, or reconstruction requires it.
+
+This is intentionally a reference mechanism, not a universal ENA storage requirement.
+
+---
+
 ## 1. Core reframing
 
 Do not optimize for:
@@ -76,7 +100,7 @@ Archive is a retrieval-priority/lifecycle concept, not permission to rewrite occ
 
 ---
 
-## 3. Two different objects: Memory Set and Decision Projection
+## 3. Three different objects
 
 ### Memory Set
 
@@ -88,8 +112,17 @@ It answers:
 - what layer it belongs to;
 - what it was derived from;
 - what evidence supports/challenges it;
-- what independent source roots exist;
 - what access/validity constraints survive transformation.
+
+### Cold Provenance Set
+
+Represents potentially large source-root/evidence lineage that need not be repeated inside hot/compiled memory.
+
+It exists to preserve:
+
+`bounded active memory + reconstructable provenance`
+
+rather than forcing a false choice between the two.
 
 ### Decision Projection
 
@@ -118,11 +151,11 @@ A `COMPILED` record cannot itself be a raw `OCCURRENCE` or `TASK_STATE`.
 
 If the durable change is merely “the event happened,” that belongs in evidence/history, not compiled behavioral structure.
 
-### MM-P02 — Durable compilation retains lineage
+### MM-P02 — Durable compilation retains challengeable lineage
 
 A compiled record requires derivation/evidence lineage.
 
-For decision-material compiled memory, a challenge path must reach `EVIDENCE` or `ARCHIVE`.
+For decision-material compiled memory, a challenge path must reach `EVIDENCE` or `ARCHIVE`, directly or through cold provenance indirection.
 
 ### MM-P03 — Memory cannot carry executable authority
 
@@ -136,21 +169,25 @@ Short form:
 
 ### MM-P04 — Operational state does not compile itself
 
-Direct `OPERATIONAL -> COMPILED` transformation requires an evidence anchor.
+Direct `OPERATIONAL -> COMPILED` transformation requires evidence lineage.
 
 This prevents transient state such as `retry_count = 3` from becoming a durable heuristic merely because it was present when a curator ran.
 
-### MM-P05 — Transformation preserves source roots
+### MM-P05 — Transformation preserves provenance, not necessarily inline metadata
 
-Derived knowledge/compiled/identity records cannot silently drop known source roots.
+Derived knowledge/compiled/identity records cannot silently erase known source provenance.
 
-Representation may compress; provenance independence may not be manufactured by compression.
+However, they do **not** need to inline every source root. A cold `provenance_ref` may preserve the lineage.
 
-### MM-P06 — Independent corroboration requires independent roots
+This is the prototype's first concrete example of:
+
+> **Compression may reduce representation size without reducing epistemic traceability.**
+
+### MM-P06 — Independent corroboration requires independent represented roots
 
 Three summaries derived from one log are still one source family.
 
-`INDEPENDENT_CORROBORATION` therefore requires at least two distinct represented source roots in this prototype.
+`INDEPENDENT_CORROBORATION` therefore requires at least two distinct represented effective source roots, whether inline or reachable through cold provenance.
 
 This is intentionally structural: the prototype does not prove the roots are truly independent in the external world.
 
@@ -205,7 +242,8 @@ It does not yet define:
 - a universal ontology for identity/personhood;
 - how much active memory is optimal;
 - whether a particular LLM will naturally use the memory correctly;
-- whether an implementation improves real task performance.
+- whether an implementation improves real task performance;
+- how a huge cold provenance set should itself be compressed (e.g. graph index, Merkle structure, digest + retrievable expansion).
 
 Those require different evidence.
 
@@ -229,7 +267,7 @@ Only after the contract survives structural falsification should a real Host be 
 
 ## 7. Current selftest families
 
-`validate_memory_metabolism.py --selftest` currently covers:
+`validate_memory_metabolism.py --selftest` currently covers 19 deterministic cases:
 
 1. valid compiled memory with evidence lineage;
 2. raw occurrence mislabeled as compiled memory;
@@ -246,7 +284,10 @@ Only after the contract survives structural falsification should a real Host be 
 13. memory record used as executable authority basis;
 14. access-scope violation;
 15. identity mutation without governance/change reference;
-16. identity mutation with explicit governance/change reference.
+16. identity mutation with explicit governance/change reference;
+17. compact compiled memory using cold provenance indirection;
+18. incomplete cold provenance still detected as provenance loss;
+19. independent corroboration represented through cold provenance rather than inline root expansion.
 
 Passing these checks does **not** prove memory quality, external source authenticity, real independence, truthful semantics, or behavioral improvement. It only narrows a set of structural false-claim paths.
 
