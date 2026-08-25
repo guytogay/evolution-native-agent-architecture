@@ -1,11 +1,12 @@
 {
   "protocol_version": "memory-naturalistic-validation-research-0.1",
   "observation_id": "field-YYYYMMDD-NNN",
+  "evidence_class": "CONTEXT_CONTAMINATED_FIELD",
   "host_profile": {
     "host_ref": "host:replace-me",
     "resolver_organ_ref": "resolver:replace-me",
     "hot_catalog_exposure": "UNKNOWN",
-    "notes": "Describe only Host facts needed to interpret the trace."
+    "notes": "Choose PRIMARY/INDEPENDENT only when hot project context is genuinely bounded."
   },
   "task": {
     "task_ref": "task:replace-me",
