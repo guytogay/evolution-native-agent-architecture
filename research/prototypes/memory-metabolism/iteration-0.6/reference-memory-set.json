@@ -1,0 +1,44 @@
+{
+  "schema_version": "memory-metabolism-research-0.6",
+  "provenance_sets": [],
+  "records": [
+    {
+      "record_id": "ev-1",
+      "layer": "EVIDENCE",
+      "claim_type": "OCCURRENCE",
+      "content": "occurrence",
+      "source_roots": ["trace:1"],
+      "evidence_status": "PRESENT",
+      "validity": {"mode": "IMMUTABLE_OCCURRENCE", "revalidate_before_material_use": false}
+    },
+    {
+      "record_id": "cm-1",
+      "layer": "COMPILED",
+      "claim_type": "HEURISTIC",
+      "content": "heuristic",
+      "derived_from": ["ev-1"],
+      "evidence_refs": ["ev-1"],
+      "source_roots": ["trace:1"],
+      "support_mode": "SINGLE_SOURCE",
+      "decision_material": true,
+      "evidence_availability": "ALL_PRESENT",
+      "validity": {"mode": "CONDITIONAL", "revalidate_before_material_use": false}
+    }
+  ],
+  "projections": [
+    {
+      "projection_id": "p",
+      "security_mode": "SINGLE_BOUNDARY_REFERENCE",
+      "visible_record_ids": ["cm-1"],
+      "used_current_record_ids": ["cm-1"],
+      "used_historical_record_ids": [],
+      "revalidated_record_ids": [],
+      "inspected_provenance_ids": [],
+      "host_disclosure_resolutions": [],
+      "host_boundary_resolutions": [],
+      "host_provenance_resolutions": [],
+      "consequence": "NON_MATERIAL",
+      "authority_required": false
+    }
+  ]
+}
