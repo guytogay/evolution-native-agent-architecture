@@ -37,15 +37,11 @@ def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def validate_memory_set(doc: dict[str, Any]) -> list[str]:
-    errors: list[str] = []
-    schema = load_json(SCHEMA_PATH)
-    errors.extend(
-        f"schema: {e.message}"
-        for e in Draft202012Validator(schema).iter_errors(doc)
-    )
-
+def _build_indexes(doc: dict[str, Any]):
     records: dict[str, dict[str, Any]] = {}
+    provenance_sets: dict[str, dict[str, Any]] = {}
+    errors: list[str] = []
+
     for index, record in enumerate(doc.get("records", [])):
         record_id = record.get("record_id")
         if not record_id:
@@ -55,8 +51,64 @@ def validate_memory_set(doc: dict[str, Any]) -> list[str]:
             errors.append(f"duplicate record_id {record_id}")
         records[record_id] = record
 
+    for index, item in enumerate(doc.get("provenance_sets", []) or []):
+        provenance_id = item.get("provenance_id")
+        if not provenance_id:
+            errors.append(f"provenance_set[{index}] missing provenance_id")
+            continue
+        if provenance_id in provenance_sets:
+            errors.append(f"duplicate provenance_id {provenance_id}")
+        provenance_sets[provenance_id] = item
+
+    return records, provenance_sets, errors
+
+
+def _effective_roots(
+    record: dict[str, Any], provenance_sets: dict[str, dict[str, Any]]
+) -> set[str]:
+    roots = set(record.get("source_roots", []) or [])
+    provenance_ref = record.get("provenance_ref")
+    if provenance_ref in provenance_sets:
+        roots.update(provenance_sets[provenance_ref].get("source_roots", []) or [])
+    return roots
+
+
+def _effective_evidence_refs(
+    record: dict[str, Any], provenance_sets: dict[str, dict[str, Any]]
+) -> set[str]:
+    refs = set(record.get("evidence_refs", []) or [])
+    provenance_ref = record.get("provenance_ref")
+    if provenance_ref in provenance_sets:
+        refs.update(provenance_sets[provenance_ref].get("evidence_refs", []) or [])
+    return refs
+
+
+def validate_memory_set(doc: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    schema = load_json(SCHEMA_PATH)
+    errors.extend(
+        f"schema: {e.message}"
+        for e in Draft202012Validator(schema).iter_errors(doc)
+    )
+
+    records, provenance_sets, index_errors = _build_indexes(doc)
+    errors.extend(index_errors)
+
+    # Reference integrity for cold provenance indirection.
+    for provenance_id, item in provenance_sets.items():
+        for ref in item.get("evidence_refs", []) or []:
+            if ref not in records:
+                errors.append(
+                    f"{provenance_id}: evidence_refs references missing record {ref}"
+                )
+
     # Cross-record reference integrity.
     for record_id, record in records.items():
+        provenance_ref = record.get("provenance_ref")
+        if provenance_ref and provenance_ref not in provenance_sets:
+            errors.append(
+                f"{record_id}: provenance_ref references missing provenance set {provenance_ref}"
+            )
         for field in ("derived_from", "evidence_refs", "supersedes"):
             for ref in record.get(field, []) or []:
                 if ref not in records:
@@ -74,6 +126,12 @@ def validate_memory_set(doc: dict[str, Any]) -> list[str]:
 
         layer = record.get("layer")
         claim_type = record.get("claim_type")
+        effective_roots = _effective_roots(record, provenance_sets)
+        effective_evidence = _effective_evidence_refs(record, provenance_sets)
+
+        # Evidence itself needs a represented origin/challenge lineage.
+        if layer == "EVIDENCE" and not effective_roots:
+            errors.append(f"{record_id}: EVIDENCE requires represented source root")
 
         if layer == "COMPILED":
             # MM-P01: raw occurrence/task state is not compiled behavioral learning.
@@ -83,7 +141,11 @@ def validate_memory_set(doc: dict[str, Any]) -> list[str]:
                 )
 
             # MM-P02: durable compilation retains derivation/evidence lineage.
-            if not (record.get("evidence_refs") or record.get("derived_from")):
+            if not (
+                record.get("derived_from")
+                or effective_evidence
+                or record.get("provenance_ref")
+            ):
                 errors.append(
                     f"{record_id}: COMPILED memory requires derivation/evidence lineage"
                 )
@@ -94,36 +156,30 @@ def validate_memory_set(doc: dict[str, Any]) -> list[str]:
                 for ref in record.get("derived_from", []) or []
                 if records.get(ref, {}).get("layer") == "OPERATIONAL"
             ]
-            if operational_sources and not record.get("evidence_refs"):
+            if operational_sources and not effective_evidence:
                 errors.append(
-                    f"{record_id}: direct OPERATIONAL -> COMPILED requires evidence_refs"
+                    f"{record_id}: direct OPERATIONAL -> COMPILED requires evidence lineage"
                 )
 
             # Decision-material compiled memory keeps a challenge path.
             if record.get("decision_material") is True:
-                evidence_refs = record.get("evidence_refs", []) or []
-                if not evidence_refs:
+                if not effective_evidence:
                     errors.append(
-                        f"{record_id}: decision-material COMPILED memory requires evidence_refs"
+                        f"{record_id}: decision-material COMPILED memory requires evidence lineage"
                     )
                 elif not any(
                     records.get(ref, {}).get("layer") in {"EVIDENCE", "ARCHIVE"}
-                    for ref in evidence_refs
+                    for ref in effective_evidence
                 ):
                     errors.append(
-                        f"{record_id}: decision-material COMPILED memory evidence_refs must reach EVIDENCE/ARCHIVE"
+                        f"{record_id}: decision-material COMPILED evidence lineage must reach EVIDENCE/ARCHIVE"
                     )
 
             # MM-P06: represented independent corroboration needs distinct roots.
             if record.get("support_mode") == "INDEPENDENT_CORROBORATION":
-                roots = {
-                    root
-                    for root in (record.get("source_roots") or [])
-                    if isinstance(root, str) and root.strip()
-                }
-                if len(roots) < 2:
+                if len(effective_roots) < 2:
                     errors.append(
-                        f"{record_id}: independent corroboration requires >=2 distinct source_roots"
+                        f"{record_id}: independent corroboration requires >=2 distinct represented source roots"
                     )
 
             # MM-P07: explicit contradiction may not silently disappear.
@@ -153,18 +209,20 @@ def validate_memory_set(doc: dict[str, Any]) -> list[str]:
                 f"{record_id}: IDENTITY mutation requires governance_ref"
             )
 
-    # MM-P05: transformation may compress representation but not silently lose roots.
+    # MM-P05: representation may compress provenance by indirection, not erase it.
     for record_id, record in records.items():
         derived = record.get("derived_from", []) or []
         if derived and record.get("layer") in {"KNOWLEDGE", "COMPILED", "IDENTITY"}:
             inherited_roots: set[str] = set()
             for ref in derived:
-                inherited_roots.update(records.get(ref, {}).get("source_roots", []) or [])
-            own_roots = set(record.get("source_roots", []) or [])
+                inherited_roots.update(
+                    _effective_roots(records.get(ref, {}), provenance_sets)
+                )
+            own_roots = _effective_roots(record, provenance_sets)
             if inherited_roots and not inherited_roots.issubset(own_roots):
                 missing = sorted(inherited_roots - own_roots)
                 errors.append(
-                    f"{record_id}: transformation lost source_roots {missing}"
+                    f"{record_id}: transformation lost source provenance roots {missing}"
                 )
 
     return errors
@@ -241,7 +299,8 @@ def validate_document(doc: dict[str, Any]) -> list[str]:
 
 def base_document() -> dict[str, Any]:
     return {
-        "schema_version": "memory-metabolism-research-0.1",
+        "schema_version": "memory-metabolism-research-0.2",
+        "provenance_sets": [],
         "records": [
             {
                 "record_id": "ev-1",
@@ -316,7 +375,8 @@ def selftest() -> None:
 
     # 5: transient operational state cannot directly become compiled learning.
     bad = {
-        "schema_version": "memory-metabolism-research-0.1",
+        "schema_version": "memory-metabolism-research-0.2",
+        "provenance_sets": [],
         "records": [
             {
                 "record_id": "op-1",
@@ -490,6 +550,45 @@ def selftest() -> None:
     good_identity = copy.deepcopy(bad)
     good_identity["records"][-1]["governance_ref"] = "change:approved-1"
     expect_valid("identity_mutation_with_governance", good_identity)
+    count += 1
+
+    # 17: cold provenance indirection preserves lineage without inlining roots/evidence.
+    good_cold = base_document()
+    good_cold["provenance_sets"] = [
+        {
+            "provenance_id": "prov-cm-1",
+            "source_roots": ["trace:run-1"],
+            "evidence_refs": ["ev-1"],
+            "notes": "Cold lineage bundle; not required in active decision context."
+        }
+    ]
+    compiled = good_cold["records"][1]
+    compiled["source_roots"] = []
+    compiled["evidence_refs"] = []
+    compiled["provenance_ref"] = "prov-cm-1"
+    expect_valid("cold_provenance_indirection", good_cold)
+    count += 1
+
+    # 18: an incomplete cold provenance set is still provenance loss.
+    bad_cold = copy.deepcopy(good_cold)
+    bad_cold["provenance_sets"][0]["source_roots"] = ["trace:other-run"]
+    expect_invalid("cold_provenance_must_preserve_roots", bad_cold)
+    count += 1
+
+    # 19: independent corroboration may be represented through cold provenance.
+    good_indirect = copy.deepcopy(good)
+    good_indirect["provenance_sets"] = [
+        {
+            "provenance_id": "prov-independent",
+            "source_roots": ["trace:run-1", "trace:run-2"],
+            "evidence_refs": ["ev-1", "ev-2"]
+        }
+    ]
+    compiled = good_indirect["records"][2]
+    compiled["source_roots"] = []
+    compiled["evidence_refs"] = []
+    compiled["provenance_ref"] = "prov-independent"
+    expect_valid("independence_via_cold_provenance", good_indirect)
     count += 1
 
     print(f"MEMORY_METABOLISM_RESEARCH_SELFTEST_PASS {count}")
