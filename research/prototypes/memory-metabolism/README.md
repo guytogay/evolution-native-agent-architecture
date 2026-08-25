@@ -8,23 +8,25 @@ This prototype turns the Memory Metabolism research direction into a small falsi
 
 The target property is:
 
-> **A finite active decision surface should be able to recover relevant durable state and continue learning from effectively unbounded experience without letting compression, retrieval, or persistence silently upgrade truth or authority.**
+> **A finite active decision surface should be able to recover relevant durable state and continue learning from effectively unbounded experience without letting compression, retrieval, restore, or persistence silently upgrade truth or authority.**
 
 The prototype deliberately starts below LLM behavior. If a failure is structurally reachable in the memory contract, no multi-model experiment is required to prove reachability.
 
 ---
 
-## 0. First falsification already changed the prototype
+## 0. Prototype falsification log
 
-The initial 0.1 sketch required every derived/compiled record to inline all inherited `source_roots`.
+### 0.1 Inline-provenance scaling failure
+
+The initial sketch required every derived/compiled record to inline all inherited `source_roots`.
 
 That looked safe for a two-record example but fails the original memory goal at scale:
 
 `100,000 experiences -> one compiled heuristic -> 100,000 inline source roots`
 
-The provenance rule would recreate unbounded historical baggage inside the very compiled memory that was supposed to remain compact.
+The provenance rule would recreate unbounded historical baggage inside the compiled memory that was supposed to remain compact.
 
-Therefore 0.2 changes the property from:
+The property was therefore revised from:
 
 > every compiled record must inline every source root
 
@@ -32,9 +34,23 @@ into:
 
 > **provenance must remain traceable, but it may be preserved through cold indirection rather than repeated inline expansion.**
 
-`provenance_sets` are the current research organ for that property. A compiled record may keep only a `provenance_ref`, while the larger root/evidence bundle remains cold and retrievable when audit, challenge, independence analysis, or reconstruction requires it.
+`provenance_sets` are the current research organ for that property. A compiled record may keep only a `provenance_ref`, while the larger root/evidence bundle remains cold and retrievable for audit, challenge, independence analysis, or reconstruction.
 
-This is intentionally a reference mechanism, not a universal ENA storage requirement.
+### 0.2 Superseded-memory resurrection failure
+
+The next sketch could represent `B supersedes A`, but Decision Projection did not initially stop `A` from being reused as current state.
+
+Even putting `A` in `revalidated_record_ids` would not solve the semantic problem: an old historical record should not silently become the present merely because reality is queried again or a snapshot is restored.
+
+The refined property is:
+
+> **Revalidation does not resurrect a superseded memory.**
+
+If reality later returns to a value previously seen in `A`, represent fresh current evidence/belief. Preserve `A` as historical context rather than rewriting its temporal meaning.
+
+This is especially relevant to rollback/restore:
+
+`state restoration != knowledge/history restoration to an old truth surface`.
 
 ---
 
@@ -112,6 +128,7 @@ It answers:
 - what layer it belongs to;
 - what it was derived from;
 - what evidence supports/challenges it;
+- what supersedes it;
 - what access/validity constraints survive transformation.
 
 ### Cold Provenance Set
@@ -131,13 +148,14 @@ Represents what a specific actor actually retrieved and used at one decision bou
 It answers:
 
 - what entered the decision surface;
+- whether it is being used as current state or explicitly historical context;
 - whether the actor was allowed to access it;
 - whether mutable current-state memory was revalidated when consequence required it;
 - whether real executable authority came from an external/current authority basis rather than from remembered text.
 
 This preserves a central distinction:
 
-> **Remembered != decision-visible != current-valid != authorized.**
+> **Remembered != retrieved != decision-visible != current-valid != authorized.**
 
 ---
 
@@ -149,8 +167,6 @@ These are research-prototype checks, not new ENA Constitution IDs.
 
 A `COMPILED` record cannot itself be a raw `OCCURRENCE` or `TASK_STATE`.
 
-If the durable change is merely “the event happened,” that belongs in evidence/history, not compiled behavioral structure.
-
 ### MM-P02 — Durable compilation retains challengeable lineage
 
 A compiled record requires derivation/evidence lineage.
@@ -159,11 +175,7 @@ For decision-material compiled memory, a challenge path must reach `EVIDENCE` or
 
 ### MM-P03 — Memory cannot carry executable authority
 
-The memory-record contract intentionally has no executable authority grant.
-
-Memory may record observations/references about authority, but the action boundary must resolve current authority separately.
-
-Short form:
+Memory may record observations/references about authority, but the action boundary resolves current authority separately.
 
 > **Memory can remember authority; memory cannot mint authority.**
 
@@ -171,15 +183,13 @@ Short form:
 
 Direct `OPERATIONAL -> COMPILED` transformation requires evidence lineage.
 
-This prevents transient state such as `retry_count = 3` from becoming a durable heuristic merely because it was present when a curator ran.
+Transient state such as `retry_count = 3` must not become a durable heuristic merely because it existed when a curator ran.
 
 ### MM-P05 — Transformation preserves provenance, not necessarily inline metadata
 
 Derived knowledge/compiled/identity records cannot silently erase known source provenance.
 
-However, they do **not** need to inline every source root. A cold `provenance_ref` may preserve the lineage.
-
-This is the prototype's first concrete example of:
+They do **not** need to inline every source root. Cold `provenance_ref` indirection may preserve lineage.
 
 > **Compression may reduce representation size without reducing epistemic traceability.**
 
@@ -187,45 +197,55 @@ This is the prototype's first concrete example of:
 
 Three summaries derived from one log are still one source family.
 
-`INDEPENDENT_CORROBORATION` therefore requires at least two distinct represented effective source roots, whether inline or reachable through cold provenance.
+`INDEPENDENT_CORROBORATION` requires at least two distinct represented effective source roots, inline or through cold provenance.
 
-This is intentionally structural: the prototype does not prove the roots are truly independent in the external world.
+This does not prove external-world independence.
 
 ### MM-P07 — Explicit contradiction cannot disappear through consolidation
 
-If selected source records explicitly declare a `CONTRADICTS` relation, a compiled output must represent conflict handling.
+If selected source records explicitly declare `CONTRADICTS`, a compiled output must represent conflict handling.
 
 The contract does not decide the correct resolution. It prevents silent unconditionalization.
 
 ### MM-P08 — Mutable state is revalidated at consequential use
 
-A memory record may mark `revalidate_before_material_use = true`.
+A record may mark `revalidate_before_material_use = true`.
 
-If such a record is used in a `MATERIAL` decision projection, the projection must record revalidation.
-
-This implements:
+If it is used in a `MATERIAL` Decision Projection, revalidation must be represented.
 
 > **Retrieve -> Revalidate -> Act**
 
-without imposing a universal TTL.
+without a universal TTL.
 
 ### MM-P09 — Access scope survives relevance
 
-A relevant memory that is outside the actor's access scope must not enter legitimate use merely because retrieval similarity is high.
+Semantic relevance or retrieval rank must not override access scope.
 
 `relevant != authorized_to_read`.
 
 ### MM-P10 — Memory is not executable authority at the action boundary
 
-When a decision requires authority, `external_authority_basis` must not be the ID of a memory record.
+When authority is required, `external_authority_basis` must not be the ID of a memory record.
 
-A remembered approval, policy statement, or prior mandate may trigger re-resolution; it is not the live authority object.
+A remembered approval can trigger re-resolution; it is not the live authority object.
 
 ### MM-P11 — Identity mutation is not ordinary compaction
 
 A represented `IDENTITY` mutation requires an explicit governance/change reference in the prototype.
 
-This does not decide who ultimately owns purpose. It only prevents a memory curator from laundering a durable self-change through ordinary summarization.
+This does not decide creator-versus-Agent sovereignty. It prevents durable self-change from being laundered through ordinary memory summarization.
+
+### MM-P12 — Superseded memory remains historical unless a new current record is established
+
+If a record has been superseded, a material Decision Projection may not use it as current state.
+
+It may still be retrieved and used when explicitly marked as historical context.
+
+Even represented revalidation does not automatically revive the old record:
+
+> **Revalidation ≠ resurrection.**
+
+If present reality now resembles an old state again, record fresh current evidence rather than rewriting the old temporal claim.
 
 ---
 
@@ -243,7 +263,8 @@ It does not yet define:
 - how much active memory is optimal;
 - whether a particular LLM will naturally use the memory correctly;
 - whether an implementation improves real task performance;
-- how a huge cold provenance set should itself be compressed (e.g. graph index, Merkle structure, digest + retrievable expansion).
+- how a huge cold provenance set should itself be compressed (graph index, Merkle structure, digest + retrievable expansion, etc.);
+- how a restored snapshot discovers a superseding record that exists outside the restored local state.
 
 Those require different evidence.
 
@@ -257,7 +278,7 @@ The first question is not:
 
 It is:
 
-> “Does the proposed contract itself permit a false-confidence or authority-laundering path?”
+> “Does the proposed contract itself permit a false-confidence, provenance-erasure, stale-state, or authority-laundering path?”
 
 If a path is statically reachable once, reachability is established. Repeating the same structural failure across many LLMs adds little epistemic value.
 
@@ -267,7 +288,7 @@ Only after the contract survives structural falsification should a real Host be 
 
 ## 7. Current selftest families
 
-`validate_memory_metabolism.py --selftest` currently covers 19 deterministic cases:
+`validate_memory_metabolism.py --selftest` currently covers 24 deterministic cases:
 
 1. valid compiled memory with evidence lineage;
 2. raw occurrence mislabeled as compiled memory;
@@ -286,10 +307,15 @@ Only after the contract survives structural falsification should a real Host be 
 15. identity mutation without governance/change reference;
 16. identity mutation with explicit governance/change reference;
 17. compact compiled memory using cold provenance indirection;
-18. incomplete cold provenance still detected as provenance loss;
-19. independent corroboration represented through cold provenance rather than inline root expansion.
+18. incomplete cold provenance detected as provenance loss;
+19. independent corroboration through cold provenance;
+20. multi-generation provenance laundering;
+21. multi-generation cold provenance preservation;
+22. revalidation attempting to resurrect a superseded current-state record;
+23. explicit historical use of a superseded record;
+24. use of the current replacement after its own required revalidation.
 
-Passing these checks does **not** prove memory quality, external source authenticity, real independence, truthful semantics, or behavioral improvement. It only narrows a set of structural false-claim paths.
+Passing these checks does **not** prove memory quality, external source authenticity, real independence, truthful semantics, or behavioral improvement. It only narrows structural false-confidence paths.
 
 ---
 
@@ -298,13 +324,12 @@ Passing these checks does **not** prove memory quality, external source authenti
 Before asking other Agents to participate, prefer deterministic work on:
 
 - lawful evidence redaction/tombstones without destroying challengeability;
-- supersession chains and stale belief resurrection;
-- dependency-aware retrieval versus similarity-only retrieval;
+- restore/rollback where the superseding evidence lives outside the restored snapshot;
 - unknown-known representation: relevant cold material exists but the actor does not know to retrieve it;
-- projection omission: all projected statements are true, but a decision-material memory is omitted;
-- compiled-memory rollback: revert bad heuristic without pretending its historical evidence never existed;
-- support-root independence laundering through multiple transformation generations;
-- context budget pressure: selection of what to project when several valid memories compete.
+- truthful projection with decision-material omission;
+- compiled-memory rollback without rewriting historical truth;
+- dependency-aware retrieval versus similarity-only retrieval;
+- context-budget competition among several valid memories.
 
 Use another Agent only when independent interpretation or heterogeneous Host behavior can plausibly change the conclusion.
 
@@ -312,7 +337,7 @@ Use another Agent only when independent interpretation or heterogeneous Host beh
 
 ## 9. Relationship to Current
 
-This prototype is a recomposition of properties already present across ENA v0.3.6, especially memory class isolation, canonical-history/derived-knowledge separation, scoped trust, uncertainty, pruning/archive, continuity, and Hot/Cold retrieval semantics.
+This prototype is a recomposition of properties already present across ENA v0.3.6, especially memory class isolation, canonical-history/derived-knowledge separation, scoped trust, uncertainty, pruning/archive, continuity, restore semantics, and Hot/Cold retrieval.
 
 It does not currently justify:
 
@@ -323,4 +348,4 @@ It does not currently justify:
 
 A future ENA change should be justified only if this prototype exposes a decision-material property that Current cannot already express or if field evidence shows an existing property cannot be implemented without unacceptable ambiguity/friction.
 
-> **Preserve experience truth. Compile behavioral value. Retrieve selectively. Revalidate mutable reality. Never let memory manufacture authority.**
+> **Preserve experience truth. Compile behavioral value. Retrieve selectively. Revalidate mutable reality. Do not resurrect superseded truth. Never let memory manufacture authority.**
