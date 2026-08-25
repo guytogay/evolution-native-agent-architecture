@@ -1,5 +1,5 @@
 {
-  "schema_version": "memory-metabolism-research-0.2",
+  "schema_version": "memory-metabolism-research-0.3",
   "provenance_sets": [],
   "records": [
     {
@@ -79,6 +79,7 @@
         "kb-endpoint-current-belief",
         "ev-prior-approval-observation"
       ],
+      "historical_use_record_ids": ["ev-prior-approval-observation"],
       "consequence": "MATERIAL",
       "authority_required": true,
       "external_authority_basis": "current-mandate:deployment-2026-08-25",
