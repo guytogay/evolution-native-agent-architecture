@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/research/memory-metabolism/resolver-routing-0.1/routing-evaluation.schema.json",
+  "title": "ENA Resolver Routing Evaluation Trace 0.1",
+  "type": "object",
+  "required": ["schema_version", "case_id", "request_id", "oracle_required_scope_groups", "searched_scope_refs", "stage"],
+  "properties": {
+    "schema_version": {"const": "resolver-routing-evaluation-0.1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "request_id": {"type": "string", "minLength": 1},
+    "oracle_required_scope_groups": {"type": "array", "items": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true}},
+    "oracle_helpful_scope_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "searched_scope_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "stage": {"enum": ["ROUTING_NOT_ATTEMPTED", "QUERY_SCOPE_MISS", "QUERY_SCOPE_UNKNOWN", "ROUTING_SUCCESS"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
