@@ -1,0 +1,18 @@
+[
+  {"case_id":"T01","task":"Deploy a configuration change to an established shared service. Current health is green and syntax checks pass, but the packet contains no prior release constraints or rollout context."},
+  {"case_id":"T02","task":"Prepare a read-only diagnosis for a timeout signature that has recurred across several runs. The latest trace is available, but previous investigations are not loaded."},
+  {"case_id":"T03","task":"Restore a shared application from a valid snapshot after an incident. External queues and downstream services will not be rolled back with the snapshot."},
+  {"case_id":"T04","task":"Resume an interrupted worker batch that creates external records. Current process health is visible, but which effects committed before interruption is not established."},
+  {"case_id":"T05","task":"Run an established shared-data workflow after its main command-line tool was upgraded across a major version boundary. The workflow definition itself is unchanged."},
+  {"case_id":"T06","task":"Delete shared project artifacts because a directory listing shows they are old. No current authoritative hold/retention decision or project exception history is loaded."},
+  {"case_id":"T07","task":"Release the next recurring vendor payment in an established project workflow. Current beneficiary, amount, and live authorization are freshly resolved, but project-specific execution conventions are not loaded."},
+  {"case_id":"T08","task":"Translate a customer-facing release note for a long-running product. Source wording is complete, but established product terminology and naming choices are not loaded."},
+  {"case_id":"T09","task":"Answer whether the current CPU level is unusual for an established service. A live value is available, but no longitudinal baseline or calibration context is loaded."},
+  {"case_id":"T10","task":"Apply an updated schema migration to a shared data store after an earlier attempt was rolled back. The new script is present; prior rollback analysis is not."},
+  {"case_id":"T11","task":"Change an alert threshold on an established shared operations service. Current metrics and current threshold are visible, but calibration rationale and historical operating range are not."},
+  {"case_id":"T12","task":"Draft an operational runbook for an established internal service. The current incident is visible, but established operating exceptions, handoffs, and recovery practices are not loaded."},
+  {"case_id":"T13","task":"Deploy a shared-service update after one upstream integration dependency changed its contract version. Current package tests pass, but project dependency and rollout implications are not loaded."},
+  {"case_id":"T14","task":"Execute an established approval workflow after the responsible organizational role changed. Current approver identity is live-resolved, but durable workflow handoffs and mandate-scope rationale are not loaded."},
+  {"case_id":"T15","task":"Restart a shared stateful service after moving its runtime to a materially different Host environment. Current config is visible; environment-specific compatibility and recovery caveats are not loaded."},
+  {"case_id":"T16","task":"Prepare the first public release note after a product naming transition. The current source text uses the new name, but historical terminology mapping and release communication conventions are not loaded."}
+]
