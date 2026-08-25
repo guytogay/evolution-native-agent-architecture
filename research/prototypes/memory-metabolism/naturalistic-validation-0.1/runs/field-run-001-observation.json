@@ -1,0 +1,72 @@
+{
+  "protocol_version": "memory-naturalistic-validation-research-0.1",
+  "observation_id": "field-run-001-s17",
+  "evidence_class": "PRIMARY_NATURALISTIC",
+  "host_profile": {
+    "host_ref": "chatgpt:temporary-conversation:field-run-001",
+    "resolver_organ_ref": "github:bounded-repository-search-fetch",
+    "hot_catalog_exposure": "BOUNDED_SUMMARY",
+    "notes": "Fresh Temporary Conversation received only the generic bounded project-history retrieval reflex and the pre-existing S17 task; no full repository/domain catalog or expected answer was supplied. Exact low-level tool-call chronology was not exported, so the trace below records only retrieval stages evidenced by the final working report."
+  },
+  "task": {
+    "task_ref": "github:issue-72:S17",
+    "natural_task": true,
+    "task_summary": "Determine whether inherited ena_evolve.py unnecessarily false-BLOCKs legal v0.3.6 latent-now / experiment-later propose/import semantics, and identify the smallest justified repair direction without implementing a change.",
+    "task_source_ref": "https://github.com/guytogay/evolution-native-agent-architecture/issues/72",
+    "notes": "Task source predates Naturalistic Validation 0.1. Frozen project baseline: 73b57f8990b50f7335940b4c439165e13197c1da."
+  },
+  "retrieval_trace": [
+    {
+      "sequence": 1,
+      "stage": "RETRIEVAL",
+      "event": "Working report inspected the frozen legacy ena_evolve.py CLI and distinguished parser behavior from command-handler semantics.",
+      "evidence_ref": "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-working-agent-output.md",
+      "decision_material": "YES",
+      "notes": "The final report explicitly identified required --variation-space on propose/import and examined cmd_experiment behavior."
+    },
+    {
+      "sequence": 2,
+      "stage": "RETRIEVAL",
+      "event": "Working report expanded into Current v0.3.6 semantics, v1/v2 schemas, v2 template/validator, release gate, and historical F-09 reconciliation before choosing a repair direction.",
+      "evidence_ref": "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-working-agent-output.md",
+      "decision_material": "YES",
+      "notes": "This is reconstructed from the final report's cited durable project facts, not asserted as an exact tool-call sequence."
+    },
+    {
+      "sequence": 3,
+      "stage": "SUFFICIENCY",
+      "event": "Working report concluded CONFIRMED_FALSE_BLOCK but rejected a parser-only fix, preserving the truthful legacy-v1.2 boundary and requiring Host-friction evidence before any future repair.",
+      "evidence_ref": "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-working-agent-output.md",
+      "decision_material": "YES"
+    },
+    {
+      "sequence": 4,
+      "stage": "OUTCOME",
+      "event": "No repository mutation or Current/release promotion was performed or recommended from this single occurrence.",
+      "evidence_ref": "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-working-agent-output.md",
+      "decision_material": "YES"
+    }
+  ],
+  "later_challenges": [
+    {
+      "challenge_type": "MANUAL_AUDIT",
+      "evidence_ref": "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-reconciliation.md",
+      "decision_effect": "NO_CHANGE",
+      "notes": "Independent cold replay checked the frozen legacy tool, v1/v2 schemas, v2 template and validator, Current 9.14, CURRENT-BASELINE, release workflow truth-boundary assertions, and LINEAGE F-09 disposition. No omitted durable fact was found that materially changed the working verdict or no-immediate-fix conclusion."
+    }
+  ],
+  "assessment": {
+    "status": "NO_MATERIAL_FAILURE_OBSERVED",
+    "failure_stage": "NONE",
+    "basis_refs": [
+      "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-working-agent-output.md",
+      "research/prototypes/memory-metabolism/naturalistic-validation-0.1/runs/field-run-001-reconciliation.md"
+    ],
+    "notes": "This does not estimate R0 recall and is not evidence that no silent miss was possible. It means only that a post-hoc challenge of this completed natural task found no decision-changing retrieval/projection/application failure."
+  },
+  "utility_observation": {
+    "decision_effect": "UNKNOWN",
+    "basis_refs": [],
+    "notes": "Durable repository history was visibly decision-material to the final reasoning, but no pre-retrieval decision snapshot exists, so the field record does not claim that retrieval changed the decision."
+  }
+}
