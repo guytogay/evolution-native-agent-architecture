@@ -83,6 +83,16 @@ def _effective_evidence_refs(
     return refs
 
 
+def _superseded_ids(records: dict[str, dict[str, Any]]) -> set[str]:
+    superseded: set[str] = set()
+    for record in records.values():
+        superseded.update(record.get("supersedes", []) or [])
+        for relation in record.get("relations", []) or []:
+            if relation.get("type") == "SUPERSEDES" and relation.get("target"):
+                superseded.add(relation["target"])
+    return superseded
+
+
 def validate_memory_set(doc: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     schema = load_json(SCHEMA_PATH)
@@ -242,6 +252,7 @@ def validate_projection(
     actor_scopes = set(projection.get("actor_scopes", []) or [])
     retrieved = set(projection.get("retrieved_record_ids", []) or [])
     used = projection.get("used_record_ids", []) or []
+    historical_use = set(projection.get("historical_use_record_ids", []) or [])
 
     for record_id in used:
         if record_id not in retrieved:
@@ -262,9 +273,10 @@ def validate_projection(
                 f"projection {projection_id}: actor lacks access scope for {record_id}"
             )
 
-    # MM-P08: mutable state must be revalidated when a material decision says so.
+    # MM-P08 + MM-P12: current-state use must respect revalidation and supersession.
     if projection.get("consequence") == "MATERIAL":
         revalidated = set(projection.get("revalidated_record_ids", []) or [])
+        superseded = _superseded_ids(records)
         for record_id in used:
             validity = records.get(record_id, {}).get("validity", {}) or {}
             if (
@@ -273,6 +285,10 @@ def validate_projection(
             ):
                 errors.append(
                     f"projection {projection_id}: material use of {record_id} requires revalidation"
+                )
+            if record_id in superseded and record_id not in historical_use:
+                errors.append(
+                    f"projection {projection_id}: superseded record {record_id} cannot be used as current state"
                 )
 
     # MM-P10: when authority is required, memory itself is not the authority object.
@@ -299,7 +315,7 @@ def validate_document(doc: dict[str, Any]) -> list[str]:
 
 def base_document() -> dict[str, Any]:
     return {
-        "schema_version": "memory-metabolism-research-0.2",
+        "schema_version": "memory-metabolism-research-0.3",
         "provenance_sets": [],
         "records": [
             {
@@ -332,6 +348,19 @@ def base_document() -> dict[str, Any]:
             },
         ],
         "projections": [],
+    }
+
+
+def projection_base() -> dict[str, Any]:
+    return {
+        "projection_id": "p",
+        "actor_scopes": ["project:ena"],
+        "retrieved_record_ids": [],
+        "used_record_ids": [],
+        "revalidated_record_ids": [],
+        "historical_use_record_ids": [],
+        "consequence": "NON_MATERIAL",
+        "authority_required": False,
     }
 
 
@@ -375,7 +404,7 @@ def selftest() -> None:
 
     # 5: transient operational state cannot directly become compiled learning.
     bad = {
-        "schema_version": "memory-metabolism-research-0.2",
+        "schema_version": "memory-metabolism-research-0.3",
         "provenance_sets": [],
         "records": [
             {
@@ -481,18 +510,18 @@ def selftest() -> None:
             },
         }
     )
-    bad["projections"] = [
+    p = projection_base()
+    p.update(
         {
             "projection_id": "p-1",
-            "actor_scopes": ["project:ena"],
             "retrieved_record_ids": ["kb-current"],
             "used_record_ids": ["kb-current"],
-            "revalidated_record_ids": [],
             "consequence": "MATERIAL",
             "authority_required": True,
             "external_authority_basis": "mandate:deploy-7",
         }
-    ]
+    )
+    bad["projections"] = [p]
     expect_invalid("material_current_state_requires_revalidation", bad)
     count += 1
 
@@ -510,17 +539,16 @@ def selftest() -> None:
 
     # 14: relevance does not bypass access scope.
     bad = base_document()
-    bad["projections"] = [
+    p = projection_base()
+    p.update(
         {
             "projection_id": "p-2",
             "actor_scopes": ["project:other"],
             "retrieved_record_ids": ["cm-1"],
             "used_record_ids": ["cm-1"],
-            "revalidated_record_ids": [],
-            "consequence": "NON_MATERIAL",
-            "authority_required": False,
         }
-    ]
+    )
+    bad["projections"] = [p]
     expect_invalid("access_scope_enforced", bad)
     count += 1
 
@@ -559,7 +587,7 @@ def selftest() -> None:
             "provenance_id": "prov-cm-1",
             "source_roots": ["trace:run-1"],
             "evidence_refs": ["ev-1"],
-            "notes": "Cold lineage bundle; not required in active decision context."
+            "notes": "Cold lineage bundle; not required in active decision context.",
         }
     ]
     compiled = good_cold["records"][1]
@@ -581,7 +609,7 @@ def selftest() -> None:
         {
             "provenance_id": "prov-independent",
             "source_roots": ["trace:run-1", "trace:run-2"],
-            "evidence_refs": ["ev-1", "ev-2"]
+            "evidence_refs": ["ev-1", "ev-2"],
         }
     ]
     compiled = good_indirect["records"][2]
@@ -589,6 +617,104 @@ def selftest() -> None:
     compiled["evidence_refs"] = []
     compiled["provenance_ref"] = "prov-independent"
     expect_valid("independence_via_cold_provenance", good_indirect)
+    count += 1
+
+    # 20: multi-generation compilation cannot launder source roots away.
+    bad = base_document()
+    bad["records"].append(
+        {
+            "record_id": "cm-2",
+            "layer": "COMPILED",
+            "claim_type": "HEURISTIC",
+            "content": "A more general heuristic derived from cm-1.",
+            "derived_from": ["cm-1"],
+            "evidence_refs": ["ev-1"],
+            "source_roots": [],
+            "support_mode": "SINGLE_SOURCE",
+            "decision_material": True,
+            "access_scope": ["project:ena"],
+            "validity": {
+                "mode": "CONDITIONAL",
+                "revalidate_before_material_use": False,
+            },
+        }
+    )
+    expect_invalid("multi_generation_root_laundering", bad)
+    count += 1
+
+    # 21: multi-generation compilation can preserve roots through cold indirection.
+    good = copy.deepcopy(bad)
+    good["provenance_sets"] = [
+        {
+            "provenance_id": "prov-cm-2",
+            "source_roots": ["trace:run-1"],
+            "evidence_refs": ["ev-1"],
+        }
+    ]
+    good["records"][-1]["provenance_ref"] = "prov-cm-2"
+    expect_valid("multi_generation_cold_provenance", good)
+    count += 1
+
+    # 22: a superseded current-state record cannot become current again merely by revalidation.
+    bad = base_document()
+    bad["records"].extend(
+        [
+            {
+                "record_id": "kb-old",
+                "layer": "KNOWLEDGE",
+                "claim_type": "BELIEF",
+                "content": "Endpoint is 10.0.0.5.",
+                "source_roots": ["inventory:t1"],
+                "access_scope": ["project:ena"],
+                "validity": {
+                    "mode": "CURRENT_STATE",
+                    "revalidate_before_material_use": True,
+                },
+            },
+            {
+                "record_id": "kb-new",
+                "layer": "KNOWLEDGE",
+                "claim_type": "BELIEF",
+                "content": "Endpoint is 10.0.0.9.",
+                "source_roots": ["inventory:t2"],
+                "access_scope": ["project:ena"],
+                "validity": {
+                    "mode": "CURRENT_STATE",
+                    "revalidate_before_material_use": True,
+                },
+                "supersedes": ["kb-old"],
+            },
+        ]
+    )
+    p = projection_base()
+    p.update(
+        {
+            "projection_id": "p-superseded",
+            "retrieved_record_ids": ["kb-old"],
+            "used_record_ids": ["kb-old"],
+            "revalidated_record_ids": ["kb-old"],
+            "consequence": "MATERIAL",
+            "authority_required": True,
+            "external_authority_basis": "mandate:deploy-8",
+        }
+    )
+    bad["projections"] = [p]
+    expect_invalid("revalidation_does_not_resurrect_superseded_record", bad)
+    count += 1
+
+    # 23: superseded records may still be intentionally used as historical context.
+    good = copy.deepcopy(bad)
+    good["projections"][0]["historical_use_record_ids"] = ["kb-old"]
+    expect_valid("superseded_historical_use", good)
+    count += 1
+
+    # 24: the current replacement can be used after its own required revalidation.
+    good = copy.deepcopy(bad)
+    good["projections"][0]["retrieved_record_ids"] = ["kb-new"]
+    good["projections"][0]["used_record_ids"] = ["kb-new"]
+    good["projections"][0]["revalidated_record_ids"] = ["kb-new"]
+    good["projections"][0]["historical_use_record_ids"] = []
+    expect_valid("current_replacement_after_revalidation", good)
     count += 1
 
     print(f"MEMORY_METABOLISM_RESEARCH_SELFTEST_PASS {count}")
