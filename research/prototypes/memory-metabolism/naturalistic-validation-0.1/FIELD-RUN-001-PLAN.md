@@ -2,6 +2,12 @@
 
 Status: `PRE_REGISTERED_NATURALISTIC_FIELD_RUN / NOT_EXECUTED`
 
+Frozen start commit:
+
+`73b57f8990b50f7335940b4c439165e13197c1da`
+
+The working Host should begin from this project state and record it as the run baseline. Do not silently substitute a later branch head during the run unless the task itself explicitly requires comparison with later state.
+
 ## Why this task qualifies
 
 The task source predates Naturalistic Validation 0.1:
@@ -44,7 +50,9 @@ This is the generic R0/cold-resolver candidate. It must not include a topic-spec
 
 > Repository: `guytogay/evolution-native-agent-architecture`
 >
-> Work on the existing maintenance/research seed in Issue #72 S17 concerning the inherited `ena_evolve.py` latent-path false-BLOCK. Independently inspect the current repository state and determine whether the reference tool still unnecessarily requires `--variation-space` for behavior that v0.3.6 Current legitimately permits to remain latent until a later experiment. If the issue is real, identify the smallest repair direction and the evidence needed before changing anything. If it is not real, explain why. Do not modify `releases/current/`, do not implement a fix, and do not infer that a next release is authorized.
+> Frozen start commit: `73b57f8990b50f7335940b4c439165e13197c1da`
+>
+> Work on the existing maintenance/research seed in Issue #72 S17 concerning the inherited `ena_evolve.py` latent-path false-BLOCK. Independently inspect the frozen repository state and determine whether the reference tool still unnecessarily requires `--variation-space` for behavior that v0.3.6 Current legitimately permits to remain latent until a later experiment. If the issue is real, identify the smallest repair direction and the evidence needed before changing anything. If it is not real, explain why. Do not modify `releases/current/`, do not implement a fix, and do not infer that a next release is authorized.
 
 ## Information intentionally NOT supplied
 
