@@ -11,15 +11,15 @@ The protocol currently contains:
 - `observation-template.json`
 - `selftest.py`
 
-`selftest.py` defines 15 deterministic observation-discipline cases.
+`selftest.py` currently defines 19 deterministic observation-discipline cases, including Host evidence-class eligibility.
 
-At the time this status note was written, those 15 cases had **not been executed in the current authoring Host** because the available execution container could not resolve `github.com` to clone/fetch the just-written branch state.
+At the time this status note was updated, those 19 cases had **not been executed in the current authoring Host** because the available execution container could not resolve `github.com` to clone/fetch the just-written branch state.
 
 Therefore the truthful status is:
 
-`SELFTEST_DEFINED_15 / NOT_EXECUTED_IN_CURRENT_HOST`
+`SELFTEST_DEFINED_19 / NOT_EXECUTED_IN_CURRENT_HOST`
 
-Do not restate this as `SELFTEST_PASS 15` until an actual execution result exists.
+Do not restate this as `SELFTEST_PASS 19` until an actual execution result exists.
 
 This is an execution-environment limitation, not evidence for or against the protocol semantics.
 
