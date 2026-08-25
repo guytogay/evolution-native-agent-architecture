@@ -1,0 +1,15 @@
+{
+  "schema_version": "memory-retrieval-obligation-research-0.1",
+  "decisions": [
+    {"decision_id": "deploy-1", "consequence": "MATERIAL", "disposition": "READY", "uncertainty_declared": false}
+  ],
+  "trigger_events": [
+    {"trigger_id": "tr-1", "decision_id": "deploy-1", "basis": "GENERIC_REFLEX", "resolver_ref": "memory-resolver:default"}
+  ],
+  "obligations": [
+    {"obligation_id": "ob-1", "decision_id": "deploy-1", "trigger_ids": ["tr-1"], "resolver_ref": "memory-resolver:default", "query_scope_ref": "scope:project/deployment", "state": "CLOSED", "closure": {"disposition": "RETRIEVAL_USED", "basis_attempt_id": "at-1"}}
+  ],
+  "attempts": [
+    {"attempt_id": "at-1", "obligation_id": "ob-1", "sequence": 1, "resolver_ref": "memory-resolver:default", "query_scope_ref": "scope:project/deployment", "outcome": "HIT", "coverage": "PARTIAL", "returned_record_ids": ["compiled:maintenance-window-check"], "receipt_ref": "resolver-receipt:at-1"}
+  ]
+}
