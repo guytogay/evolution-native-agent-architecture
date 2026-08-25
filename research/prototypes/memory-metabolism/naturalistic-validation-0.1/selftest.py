@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import copy
 from validate_field_observation import validate_document
 
 
@@ -9,6 +8,7 @@ def base_doc():
     return {
         "protocol_version": "memory-naturalistic-validation-research-0.1",
         "observation_id": "field-1",
+        "evidence_class": "PRIMARY_NATURALISTIC",
         "host_profile": {
             "host_ref": "host:test",
             "resolver_organ_ref": "resolver:test",
@@ -45,6 +45,14 @@ def main():
 
     d = base_doc(); expect("unassessed_default_valid", d, True); n += 1
 
+    d = base_doc(); d["host_profile"]["hot_catalog_exposure"]="FULL_CATALOG"; expect("primary_rejects_full_hot_catalog", d, False); n += 1
+
+    d = base_doc(); d["host_profile"]["hot_catalog_exposure"]="UNKNOWN"; expect("primary_rejects_unknown_hot_exposure", d, False); n += 1
+
+    d = base_doc(); d["evidence_class"]="CONTEXT_CONTAMINATED_FIELD"; d["host_profile"]["hot_catalog_exposure"]="FULL_CATALOG"; expect("contaminated_field_can_record_full_hot_catalog", d, True); n += 1
+
+    d = base_doc(); d["evidence_class"]="INDEPENDENT_NATURALISTIC"; d["host_profile"]["hot_catalog_exposure"]="BOUNDED_SUMMARY"; expect("independent_naturalistic_bounded_summary_valid", d, True); n += 1
+
     d = base_doc(); d["assessment"]["basis_refs"] = ["e:1"]; expect("unassessed_cannot_assert_failure_basis", d, False); n += 1
 
     d = base_doc(); d["assessment"] = {"status":"NO_MATERIAL_FAILURE_OBSERVED","failure_stage":"NONE","basis_refs":[]}; expect("no_failure_observed_valid", d, True); n += 1
@@ -73,7 +81,7 @@ def main():
 
     d = base_doc(); d["assessment"]={"status":"UNRESOLVED","failure_stage":"UNRESOLVED","basis_refs":[]}; expect("unresolved_without_any_basis_invalid", d, False); n += 1
 
-    print(f"NATURALISTIC_VALIDATION_01_SELFTEST_PASS {n}")
+    print(f"NATURALISTIC_VALIDATION_01_SELFTEST_DEFINED {n}")
 
 
 if __name__ == "__main__":
