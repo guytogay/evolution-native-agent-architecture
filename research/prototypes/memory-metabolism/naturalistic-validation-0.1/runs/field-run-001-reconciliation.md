@@ -26,6 +26,31 @@ It means only:
 
 > after the working Agent completed an ordinary pre-existing maintenance task, a separate cold audit found no omitted durable project fact that changed the material S17 verdict or its no-immediate-fix conclusion.
 
+## Stage eligibility
+
+Run 001 is naturalistic at the **task** level, but it is **not eligible as naturalistic R0 invocation evidence**.
+
+Reason:
+
+The task itself explicitly instructed the working Agent to:
+
+> independently inspect the frozen repository state.
+
+Therefore repository/history lookup was task-mandated rather than a spontaneous retrieval invocation.
+
+Run 001 may still inform downstream stages:
+
+- `SCOPE_DISCOVERY` — which parts of the repository the Agent chose to inspect without a target-file list;
+- `RETRIEVAL` — whether the consulted durable records were decision-relevant;
+- `SUFFICIENCY` — whether the Agent stopped at a materially defensible boundary;
+- `PROJECTION/APPLICATION` — whether retrieved distinctions were preserved in the final conclusion.
+
+Stage statement:
+
+`R0_TRIGGER = NOT_ELIGIBLE_FOR_THIS_RUN`
+
+This is not a downgrade of the run's `PRIMARY_NATURALISTIC` task/evidence class. It is a stage-scoped claim boundary.
+
 ## Independent checks
 
 ### 1. Legacy CLI reachability — confirmed
@@ -169,13 +194,13 @@ The working report visibly used more than the explicit S17 seed. It connected:
 → `release-gate truth assertions`
 → `historical F-09 reconciliation`.
 
-That is useful field evidence that a bounded generic repository-history reflex can support a real cross-layer maintenance decision without preloading a domain catalog.
+That is useful field evidence that bounded cold repository retrieval can support a real cross-layer maintenance decision without preloading a domain catalog.
 
-However, because the working Host did not expose a complete raw search/tool-call trace, this run does not establish:
+However, because repository inspection was explicitly requested and the working Host did not expose a complete raw search/tool-call trace, this run does not establish:
 
+- spontaneous R0 invocation;
 - exact scope-discovery sequence;
 - resolver recall;
-- whether every lookup was triggered by R0 rather than by the explicit task wording;
 - retrieval cost;
 - whether the final decision would have differed without retrieval.
 
@@ -185,4 +210,8 @@ Therefore `utility_observation` remains `UNKNOWN` rather than being promoted to 
 
 No schema or ENA rule change is justified from Run 001.
 
-The differentiated next evidence source should be another **naturally motivated task**, preferably from a different problem family, only when such a task exists. Do not repeat S17 across multiple models merely to count agreement.
+The differentiated next evidence source should be another **naturally motivated task**, preferably from a different problem family, only when such a task exists.
+
+If future work seeks naturalistic evidence specifically for R0 invocation, choose an ordinary task that does **not** explicitly instruct the Agent to inspect project history/repository state; otherwise the R0 stage remains ineligible even when downstream retrieval is excellent.
+
+Do not repeat S17 across multiple models merely to count agreement.
