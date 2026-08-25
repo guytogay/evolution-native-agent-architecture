@@ -1,0 +1,57 @@
+{
+  "schema_version": "memory-metabolism-research-0.5",
+  "provenance_sets": [
+    {
+      "provenance_id": "prov-deploy",
+      "source_roots": ["trace:deploy-1"],
+      "evidence_refs": ["ev-deploy"],
+      "content_access_ref": "policy:security-audit"
+    }
+  ],
+  "records": [
+    {
+      "record_id": "ev-deploy",
+      "layer": "EVIDENCE",
+      "claim_type": "OCCURRENCE",
+      "content": "A stale endpoint caused deployment failure.",
+      "source_roots": ["trace:deploy-1"],
+      "content_access_ref": "policy:security-audit",
+      "evidence_status": "PRESENT",
+      "validity": {"mode": "IMMUTABLE_OCCURRENCE", "revalidate_before_material_use": false}
+    },
+    {
+      "record_id": "cm-deploy",
+      "layer": "COMPILED",
+      "claim_type": "HEURISTIC",
+      "content": "Revalidate mutable deployment endpoints before consequential reuse.",
+      "derived_from": ["ev-deploy"],
+      "evidence_refs": [],
+      "source_roots": [],
+      "provenance_ref": "prov-deploy",
+      "support_mode": "SINGLE_SOURCE",
+      "decision_material": true,
+      "evidence_availability": "FULL",
+      "content_access_ref": "policy:operations",
+      "boundary_transition_claim": {
+        "mode": "HOST_RESOLVED_CHANGE",
+        "resolution_ref": "security-release:deploy-lesson-v1"
+      },
+      "validity": {"mode": "CONDITIONAL", "revalidate_before_material_use": false}
+    }
+  ],
+  "projections": [
+    {
+      "projection_id": "p-ops",
+      "resolved_actor_access_refs": ["policy:operations"],
+      "candidate_record_ids": ["cm-deploy"],
+      "disclosed_record_ids": ["cm-deploy"],
+      "used_current_record_ids": ["cm-deploy"],
+      "used_historical_record_ids": [],
+      "revalidated_record_ids": [],
+      "inspected_provenance_ids": [],
+      "host_resolved_boundary_record_ids": ["cm-deploy"],
+      "consequence": "NON_MATERIAL",
+      "authority_required": false
+    }
+  ]
+}
