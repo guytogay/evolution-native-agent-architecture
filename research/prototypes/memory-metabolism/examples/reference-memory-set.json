@@ -1,5 +1,6 @@
 {
-  "schema_version": "memory-metabolism-research-0.1",
+  "schema_version": "memory-metabolism-research-0.2",
+  "provenance_sets": [],
   "records": [
     {
       "record_id": "ev-stale-endpoint-failure",
