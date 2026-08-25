@@ -25,6 +25,14 @@ def validate_document(doc):
     schema = load(SCHEMA)
     errors += [f"schema: {e.message}" for e in Draft202012Validator(schema).iter_errors(doc)]
 
+    evidence_class = doc.get("evidence_class")
+    hot_exposure = (doc.get("host_profile") or {}).get("hot_catalog_exposure")
+    if evidence_class in {"PRIMARY_NATURALISTIC", "INDEPENDENT_NATURALISTIC"}:
+        if hot_exposure not in {"NONE", "BOUNDED_SUMMARY"}:
+            errors.append(
+                f"evidence_class: {evidence_class} requires bounded hot catalog exposure, got {hot_exposure}"
+            )
+
     trace = doc.get("retrieval_trace", []) or []
     seqs = [x.get("sequence") for x in trace if isinstance(x, dict)]
     if len(seqs) != len(set(seqs)):
