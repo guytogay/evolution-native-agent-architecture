@@ -6,6 +6,7 @@
   "required": [
     "protocol_version",
     "observation_id",
+    "evidence_class",
     "host_profile",
     "task",
     "retrieval_trace",
@@ -15,6 +16,7 @@
   "properties": {
     "protocol_version": {"const": "memory-naturalistic-validation-research-0.1"},
     "observation_id": {"type": "string", "minLength": 1},
+    "evidence_class": {"enum": ["PRIMARY_NATURALISTIC", "INDEPENDENT_NATURALISTIC", "CONTEXT_CONTAMINATED_FIELD"]},
     "host_profile": {
       "type": "object",
       "required": ["host_ref", "resolver_organ_ref", "hot_catalog_exposure"],
