@@ -1,0 +1,152 @@
+schema_version: "0.1"
+as_of: "2026-08-26"
+status: ACTIVE_RECONSTRUCTION_TO_RELEASE
+
+canonical_pointers:
+  project_hub: PROJECT-HUB.md
+  current_baseline: releases/current/CURRENT-BASELINE.yaml
+  research_bootstrap: research/RESEARCH-START-HERE.md
+  methodology_index: research/methodology/README.md
+  master_methodology: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
+  cardinality_guard: research/methodology/CARDINALITY-DISCOVERY-GUARD.md
+  session_continuity: research/methodology/SESSION-CONTINUITY-AND-COLLABORATION.md
+  method_changelog: research/methodology/METHOD-CHANGELOG.md
+  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  external_how_registry: research/external-how/SOURCE-REGISTRY.md
+  research_pr: "#82"
+  reconstruction_ledger: "#89"
+
+current_adoption_observed_at_plan_creation:
+  version: v0.3.6
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  source_of_truth: releases/current/CURRENT-BASELINE.yaml
+  note: ALWAYS_REVERIFY_FROM_DEFAULT_BRANCH
+
+research_workspace:
+  branch: research/memory-metabolism-prototype
+  pull_request: 82
+  pull_request_state: DRAFT
+  current_mutation_authorized_by_research: false
+
+release_goal:
+  state: PLANNED
+  target: NEXT_CURRENT_RELEASE
+  version: UNASSIGNED_UNTIL_RELEASE_SCOPE_STABILIZES
+  forced_version_increment: false
+  promotion_authorized_now: false
+
+phases:
+  repo_information_architecture:
+    state: ACTIVE_NEAR_CLOSURE
+    evidence:
+      - research/RESEARCH-START-HERE.md established
+      - research/methodology/ canonical surface established
+      - master plan and progress state established
+      - legacy method paths retained as compatibility pointers
+    remaining:
+      - add research/README.md
+      - establish external-how directory and registry
+      - update PROJECT-HUB.md and PROJECT-STRUCTURE.md
+      - verify canonical paths by readback
+
+  anti_ablation_archaeology:
+    state: ACTIVE
+    anchors:
+      - "#88"
+      - "#89"
+      - research/reconstruction/MECHANISM-RETENTION-LEDGER.md
+      - research/reconstruction/DEGRADATION-AUDIT-2026-08-26.md
+    closure_rule: >-
+      Continue while additional archaeology can reveal a material missing lineage
+      likely to change the engineering map; do not use a fixed topic count.
+
+  how_branch_expansion:
+    state: ACTIVE
+    method: research/methodology/HOW-GROWTH-DISCIPLINE.md
+    represented_families_include:
+      - Memory Metabolism
+      - Retrieval Obligation
+      - Tiny Hot Kernel / Semantic Router
+      - Effect Lifecycle
+      - Authority Grant / Lease
+      - Recovery Adapter
+      - Commitment / Settlement research
+      - Contested Authorship
+      - Distributed History Merge
+      - Evidence Dependency Map
+      - Generic Evidence Envelope
+    inventory_is_exhaustive: false
+
+  external_how_harvest:
+    state: ACTIVE_INITIALIZATION
+    rule: >-
+      Search current AI frameworks, memory systems, durable workflow systems,
+      agent protocols, research organizations, AI communities, and adjacent
+      engineering domains; map mechanisms to ENA failure models before selection.
+
+  host_binding:
+    state: PARTIAL
+    known_host_evidence:
+      - Hermes
+      - OpenClaw
+      - WorkBuddy
+    candidate_external_host_patterns:
+      - LangGraph
+      - Temporal
+      - OpenAI Agents SDK
+      - Letta
+      - Microsoft Agent Framework
+      - A2A-compatible agents
+    note: HOST_LIST_IS_OPEN_CARDINALITY
+
+  cross_organ_composition:
+    state: PARTIAL
+    known_examples:
+      - Memory Metabolism x Retrieval x Decision Projection
+      - Recovery x Authority x Effect Lifecycle
+    next_high_value_seams:
+      - Commitment/Settlement x Effect Lifecycle x Authority Lease
+      - Tiny Hot Kernel x exact cold retrieval x language projection
+      - Identity/lineage x commitment x reputation
+
+  operational_architecture_assembly:
+    state: NOT_READY
+    blocker: >-
+      Reconstruction and HOW ecology are not yet sufficiently recovered and
+      reconciled to define the adopter-facing operational architecture without
+      premature compression.
+
+  release_scope_reconciliation:
+    state: NOT_STARTED
+    prerequisite: OPERATIONAL_ARCHITECTURE_ASSEMBLY_READY
+
+  candidate_build_and_validation:
+    state: NOT_STARTED
+    prerequisite: RELEASE_SCOPE_STABLE
+
+  promotion:
+    state: NOT_STARTED
+    prerequisite: CANDIDATE_VALIDATED_AND_RELEASE_READY
+
+methodology_incidents:
+  - path: research/incidents/SESSION-INHERITANCE-GAP-2026-08-26.md
+    lesson: DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
+
+next_actions:
+  - establish research/external-how/ registry and first verified harvest
+  - finish project/research directory navigation updates
+  - continue anti-ablation archaeology before selecting a single dominant organ line
+  - expand concrete HOW branches using internal lineage plus external mechanisms
+  - update this file after material state changes
+
+invariants:
+  - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
+  - RESEARCH_PROGRESS_DOES_NOT_FORCE_RELEASE_DELTA
+  - WHAT_WHY_COVERAGE_DOES_NOT_CLOSE_HOW
+  - HOW_CARDINALITY_IS_DISCOVERED
+  - WORKING_TAXONOMY_IS_NOT_ONTOLOGY
+  - EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
+  - EXTERNAL_POPULARITY_IS_NOT_SELECTION_PROOF
+  - HANDOFF_SUMMARY_IS_NOT_PROJECT_STATE
