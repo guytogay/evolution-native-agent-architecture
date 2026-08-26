@@ -1,0 +1,46 @@
+name: ENA v2 Minimal Evolution Helper Research
+
+on:
+  push:
+    branches: [research/ena-reconstruction]
+    paths:
+      - 'research/prototypes/ena-evolve-v2-minimal/**'
+      - 'releases/current/templates/evolution-record.v2.json'
+      - 'releases/current/schemas/adaptation-packet.v2.schema.json'
+      - 'releases/current/schemas/evolution-record.v2.schema.json'
+      - 'releases/current/tools/validate_evolution_record_v2.py'
+      - '.github/workflows/ena-evolve-v2-minimal-research.yml'
+  pull_request:
+    paths:
+      - 'research/prototypes/ena-evolve-v2-minimal/**'
+      - 'releases/current/templates/evolution-record.v2.json'
+      - 'releases/current/schemas/adaptation-packet.v2.schema.json'
+      - 'releases/current/schemas/evolution-record.v2.schema.json'
+      - 'releases/current/tools/validate_evolution_record_v2.py'
+      - '.github/workflows/ena-evolve-v2-minimal-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check jsonschema
+      - name: Run minimal v2 helper deterministic corpus
+        run: python research/prototypes/ena-evolve-v2-minimal/selftest_ena_evolve_v2_minimal.py
+      - name: Compile prototype without leaving bytecode
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for path in Path('research/prototypes/ena-evolve-v2-minimal').glob('*.py'):
+              compile(path.read_text(encoding='utf-8'), str(path), 'exec')
+          print('compile-pass')
+          PY
