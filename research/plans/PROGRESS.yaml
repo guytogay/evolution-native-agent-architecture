@@ -1,4 +1,4 @@
-schema_version: "0.1"
+schema_version: "0.2"
 as_of: "2026-08-26"
 status: ACTIVE_RECONSTRUCTION_TO_RELEASE
 
@@ -19,7 +19,9 @@ canonical_pointers:
   initial_external_harvest: research/external-how/harvests/2026-08-26-INITIAL-HOW-LANDSCAPE.md
   latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
   latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
-  research_pr: "#82"
+  research_generation_record: research/reconstruction/RESEARCH-GENERATION-2026-08-26.md
+  research_pr: "#101"
+  predecessor_checkpoint_pr: "#82"
   reconstruction_ledger: "#89"
 
 current_adoption_observed_at_plan_creation:
@@ -30,9 +32,13 @@ current_adoption_observed_at_plan_creation:
   note: ALWAYS_REVERIFY_FROM_DEFAULT_BRANCH
 
 research_workspace:
-  branch: research/memory-metabolism-prototype
-  pull_request: 82
+  branch: research/ena-reconstruction
+  pull_request: 101
   pull_request_state: DRAFT
+  generation_base_main_commit: be776b9f8e7d280e39a5389148722229569a2c49
+  predecessor_branch: research/memory-metabolism-prototype
+  predecessor_checkpoint_pr: 82
+  predecessor_state: CHECKPOINTED_TO_MAIN / RETIRED
   current_mutation_authorized_by_research: false
 
 release_goal:
@@ -54,8 +60,9 @@ phases:
       - research/methodology/ is the canonical method surface
       - research/plans/ carries master plan and machine-readable progress
       - research/external-how/ carries external candidate mechanism research
+      - PR #82 checkpointed the predecessor research generation into main
+      - PR #101 is the successor active research integration surface
       - legacy method paths are compatibility pointers rather than duplicate canonical copies
-      - PR #82 and #89 record the continuation structure
     residual: >-
       Continue opportunistic cleanup only when it improves navigation without
       breaking lineage; do not turn directory neatness into a release blocker.
