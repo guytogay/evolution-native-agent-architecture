@@ -14,21 +14,46 @@ Participant B ─┘
 
 The goal is **protocol-level unity with cognitive diversity**.
 
-Participants are independent research nodes. They do not share reliable live context and must not assume another node already knows recent conclusions or methodology.
+Participants are independent research nodes. They do not share reliable live context and must not assume another node already knows recent conclusions, topology, progress, or methodology.
 
 ## Required bootstrap
 
 Before substantive continuation:
 
-1. read `research/RESEARCH-START-HERE.md`;
-2. verify actual Current from `releases/current/CURRENT-BASELINE.yaml` on the default branch;
-3. read `research/methodology/ENA-RESEARCH-DISCIPLINE.md`;
-4. read `research/methodology/HOW-GROWTH-DISCIPLINE.md` and other method files relevant to the task;
-5. read `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` and `research/plans/PROGRESS.yaml`;
-6. read PR #82 and #89, then only relevant workstreams/prototypes/evidence;
-7. if a previous conversation export contains recent methodology-bearing decisions, inspect its tail instead of trusting only a compressed handoff.
+1. start from the repository default branch `main` and read `PROJECT-HUB.md`;
+2. verify actual Current from `releases/current/CURRENT-BASELINE.yaml`;
+3. read `research/ACTIVE-RESEARCH.yaml` on `main` to discover the one active research integration **branch**;
+4. read `research/methodology/README.md`, `research/methodology/ENA-RESEARCH-DISCIPLINE.md`, and relevant focused method files on `main`;
+5. determine whether a material project transition occurred since the last aligned checkpoint; if so, run `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` before substantive work;
+6. follow the active branch pointer and read that branch's `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml`;
+7. read `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` for the stable long-horizon route;
+8. read #89 and only the relevant #90–#94 workstreams/prototypes/evidence for the task at hand;
+9. retrieve PR #82, PR #101, deleted predecessor branch names, or other historical artifacts only when lineage/provenance makes them decision-relevant;
+10. if a previous conversation export contains recent material work not yet mapped into GitHub, inspect only the decision/method-bearing parts needed to repair the durable state.
 
-Only then select substantive work.
+An open PR is **not required** for the active research branch to remain authoritative. Discover a current PR by active head branch only when review/integration context is needed.
+
+Only after this routing should a new research node select substantive work.
+
+## Alignment before resume
+
+At every session inheritance or major resume, verify whether the control plane reports a material transition that could have made current-state files disagree.
+
+Run the full Project State Alignment Gate after changes such as:
+
+- branch handoff/cleanup;
+- directory or canonical-path changes;
+- material methodology changes;
+- master-plan phase or closure-rule changes;
+- Current/candidate/release state changes;
+- major research checkpoint merges.
+
+Do not turn this into ceremony after every ordinary content commit.
+
+```text
+INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
+MATERIAL_TRANSITION -> ALIGN -> RESUME
+```
 
 ## Method inheritance is behavioral
 
@@ -48,6 +73,8 @@ SALIENT != APPLIED
 ```
 
 If a successor reads anti-dissolution rules and then immediately compresses plural HOWs into one abstract principle, methodology inheritance failed at the salience/application layer.
+
+If it reads the latest control plane but continues from a deleted branch, stale PR identity, superseded plan, or contradictory progress state, inheritance failed at the project-state alignment layer.
 
 ## Contribution discipline
 
@@ -143,12 +170,13 @@ Reconciliation must preserve why a conclusion changed.
 
 ## Handoff discipline
 
-Before ending a session after material project or methodology change:
+Before ending a session after material project, control-plane, methodology, plan, or architecture change:
 
 - persist the change in GitHub;
-- update `research/plans/PROGRESS.yaml` when project execution state changed materially;
+- update `research/plans/PROGRESS.yaml` when execution state changed materially;
 - update `METHOD-CHANGELOG.md` when research methodology changed materially;
-- update the hot entrypoint only when routing changed;
+- update stable routing only when routing actually changed;
+- run or explicitly defer the Project State Alignment Gate when the change is capable of making routing/method/plan/progress disagree;
 - do not rely on chat summary as the only carrier;
 - distinguish current action state from historical discussion;
 - leave exact routing to the cold sources needed by the next node.
