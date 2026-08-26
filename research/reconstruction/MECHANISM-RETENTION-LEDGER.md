@@ -222,7 +222,7 @@ Bounded self-surface; before/diff; proposer/provenance; counterpart readback whe
 
 **Current status**
 
-`KEEP_AS_REFERENCE_ORGAN / HOST_MAPPING_AND_FIXTURES_OPEN`
+`KEEP_AS_REFERENCE_ORGAN / MACHINE_GUARDED / HOST_MAPPING_OPEN`
 
 **Do not downgrade to**
 
@@ -242,7 +242,7 @@ Represent evidence dependency/common-cause structure rather than counting agreei
 
 **Current status**
 
-`KEEP_AS_REFERENCE_ORGAN / FIXTURE_AND_HOST_MAPPING_OPEN`
+`KEEP_AS_REFERENCE_ORGAN / MACHINE_GUARDED / HOST_MAPPING_OPEN`
 
 **Do not downgrade to**
 
@@ -262,19 +262,61 @@ Applicability, projection, provenance, witness survivability, activation evidenc
 
 **Retained HOW**
 
-A reusable evidence envelope capable of carrying subject/applicability/provenance/witness/dependency/observation scope without turning representation into authentication.
+A reusable evidence envelope capable of carrying subject/applicability/provenance/witness/dependency/observation scope without turning representation into authentication. Applicability, projection, activation, witness survivability, and dependency remain separately testable behaviors.
 
 **Current status**
 
-`KEEP_AS_REFERENCE_ORGAN / COMPOSITION_AND_MINIMALITY_TESTING_OPEN`
+`KEEP_AS_REFERENCE_ORGAN / MACHINE_GUARDED / COMPOSITION_AND_MINIMALITY_TESTING_OPEN`
 
 **Do not downgrade to**
 
-`each Host can invent metadata locally.`
+`each Host can invent metadata locally` or `one generic evidence field covers all evidence behavior`.
 
 **Retention reason**
 
-A common envelope may reduce duplicate machinery across memory, effects, adoption, field validation, authorship, and recovery. Its value must be tested against schema burden.
+A common envelope may reduce duplicate carrier machinery across memory, effects, adoption, field validation, authorship, and recovery, but the distinct mechanisms it carries must not disappear into the carrier.
+
+---
+
+## MRL-010 — Distributed History Merge plural HOW family
+
+**Problem**
+
+Distributed/offline/forked Agent state can be flattened by arrival order or wall-clock `latest`, causing stale restore overwrite, concurrent branch loss, fake reconciliation, or CRDT-style auto-merge of semantically incompatible state.
+
+**Retained HOWs**
+
+Four concrete, intentionally coexisting lineages:
+
+- `HOW-A-GIT-DAG` — content/version DAG, common ancestor, fast-forward, three-way merge, multiple-parent lineage;
+- `HOW-B-CAUSAL-SIBLINGS` — causal context/vector-style ancestry, concurrent sibling preservation, reconciled descendant;
+- `HOW-C-EVENT-SOURCING` — append-only occurrence stream, expected-version concurrency, projection rebuild, reconciliation/compensation as new events;
+- `HOW-D-CRDT` — automatic convergence only for explicitly declared commutative state classes.
+
+Each lineage has a concrete reference implementation, distinct failure modes, and a Host-fit corpus that permits multiple acceptable HOWs for some scenarios while allowing local single winners for others.
+
+**Current status**
+
+`COEXIST / REFERENCE_HOW_FAMILY / MACHINE_GATE_PENDING`
+
+**Do not downgrade to**
+
+`provenance/history preservation is already covered, therefore one history_ref or generic merge interface is enough.`
+
+**Do not collapse to one HOW because**
+
+- Git-style branch review is well fitted to file/self-definition Hosts;
+- causal sibling tracking fits replicated/offline object state;
+- event sourcing fits workflow/occurrence systems;
+- CRDTs fit genuinely commutative replicated state and should be rejected for arbitrary purpose/refusal semantics.
+
+**Retention reason**
+
+The operational differences are adaptation value. A shared interface may later connect these organs, but it must not erase the fact that different Hosts need different merge machinery.
+
+**Removal condition**
+
+An individual HOW may retire only after usefulness failure or demonstrated parity/better for the same Host/problem class. A local winner does not retire valid alternatives for other environments.
 
 ---
 
@@ -298,6 +340,7 @@ VERDICT = SAFE_COMPRESSION | JUSTIFIED_SPECIALIZATION | REPLACEMENT | DEGRADATIO
 A mechanism becoming optional is not automatically degradation.
 A mechanism becoming non-mandatory but better documented as a reference organ can be an improvement.
 A mechanism disappearing because the abstract property exists elsewhere is presumptively a degradation until function parity is shown.
+A local HOW winner does not justify deleting alternative HOWs that remain fitter for other Host classes.
 
 ## Current reconstruction guard
 
@@ -308,5 +351,7 @@ A mechanism disappearing because the abstract property exists elsewhere is presu
 `MECHANISM_RETENTION_ACCOUNTING = REQUIRED`
 
 `SEMANTIC_COMPRESSION_WITHOUT_HOW_PARITY = NOT_ACCEPTED`
+
+`HOW_PLURALITY = PRESERVE_WHEN_HOST_VARIATION_IS_MATERIAL`
 
 `CURRENT_MUTATION = NO`
