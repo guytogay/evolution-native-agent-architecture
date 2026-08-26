@@ -1,14 +1,16 @@
-schema_version: "0.3"
+schema_version: "0.4"
 as_of: "2026-08-26"
 status: ACTIVE_RECONSTRUCTION_TO_RELEASE
 
 canonical_pointers:
   project_hub: PROJECT-HUB.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
+  active_research_pointer: research/ACTIVE-RESEARCH.yaml
   research_bootstrap: research/RESEARCH-START-HERE.md
   research_directory_map: research/README.md
   methodology_index: research/methodology/README.md
   master_methodology: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
   cardinality_guard: research/methodology/CARDINALITY-DISCOVERY-GUARD.md
   session_continuity: research/methodology/SESSION-CONTINUITY-AND-COLLABORATION.md
@@ -16,15 +18,14 @@ canonical_pointers:
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
   external_how_index: research/external-how/README.md
   external_how_registry: research/external-how/SOURCE-REGISTRY.md
-  initial_external_harvest: research/external-how/harvests/2026-08-26-INITIAL-HOW-LANDSCAPE.md
   latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
   latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
   research_generation_record: research/reconstruction/RESEARCH-GENERATION-2026-08-26.md
-  successor_bootstrap_pr: "#101"
   predecessor_checkpoint_pr: "#82"
+  successor_bootstrap_pr: "#101"
   reconstruction_ledger: "#89"
 
-current_adoption_observed_at_plan_creation:
+current_adoption_observed_at_alignment:
   version: v0.3.6
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
@@ -33,17 +34,41 @@ current_adoption_observed_at_plan_creation:
 
 research_workspace:
   branch: research/ena-reconstruction
-  continuation_authority: MAIN_VISIBLE_ACTIVE_BRANCH_POINTER
-  open_pull_request_required_for_activity: false
+  continuation_authority: MAIN_VISIBLE_BRANCH_POINTER
+  open_pull_request_required: false
   pull_request_discovery: SEARCH_OPEN_PR_BY_HEAD_BRANCH_AND_BASE_MAIN
-  bootstrap_pull_request: 101
-  generation_base_main_commit: be776b9f8e7d280e39a5389148722229569a2c49
+  head_identity_policy: LIVE_REVERIFY_BEFORE_WRITE
   predecessor_branch: research/memory-metabolism-prototype
   predecessor_checkpoint_pr: 82
   predecessor_state: CHECKPOINTED_TO_MAIN / RETIRED_REF_DELETED
   predecessor_ref_present: false
-  predecessor_ref_deletion_observed_at: "2026-08-26"
+  successor_bootstrap_pr: 101
+  successor_bootstrap_state: MERGED_TO_MAIN
   current_mutation_authorized_by_research: false
+
+alignment_gate:
+  state: COMPLETE_FOR_CURRENT_CONTROL_PLANE
+  last_alignment_reason: >-
+    Final branch cleanup and successor-control-plane reconciliation changed topology,
+    continuation semantics, directory routing, and project planning surfaces. A full
+    alignment pass was required before returning to substantive ENA reconstruction.
+  required_checks_completed:
+    - Current reverified as v0.3.6 / CURRENT / FIELD_VALIDATION
+    - live long-lived branch topology reverified as main + research/ena-reconstruction
+    - deleted predecessor branch retained only as historical lineage
+    - active research authority aligned to main-visible branch pointer rather than PR/SHA identity
+    - PROJECT-HUB / research README / active bootstrap routing aligned
+    - canonical methodology aligned and Project State Alignment Gate added
+    - master plan aligned to current phase state
+    - fast-moving Progress aligned to actual next work
+  trigger_rule: >-
+    Run before substantive research resumes after a material handoff, branch/control-plane
+    change, methodology change, master-plan change, release-state change, directory routing
+    change, or other transition capable of making project-state surfaces disagree.
+  not_required_for_every_minor_commit: true
+  closure_rule: >-
+    Current, live repository state, routing, methodology, master plan, progress, and
+    next actions tell one mutually consistent story without requiring branch/PR guessing.
 
 release_goal:
   state: PLANNED
@@ -54,24 +79,21 @@ release_goal:
 
 phases:
   repo_information_architecture:
-    state: BASELINE_ESTABLISHED_AND_READBACK_VERIFIED
+    state: BASELINE_ESTABLISHED_ALIGNED_AND_READBACK_VERIFIED
     evidence:
-      - PROJECT-HUB.md routes research continuation
-      - PROJECT-STRUCTURE.md defines canonical semantic areas
-      - PROJECT-METADATA.yaml contains machine-readable research pointers
-      - research/README.md defines research information architecture
-      - research/RESEARCH-START-HERE.md is the hot research router
-      - research/methodology/ is the canonical method surface
-      - research/plans/ carries master plan and machine-readable progress
-      - research/external-how/ carries external candidate mechanism research
-      - PR #82 checkpointed the predecessor research generation into main
-      - research/memory-metabolism-prototype ref was deleted after checkpoint and handoff
-      - research/ena-reconstruction is the sole active research integration branch
-      - PR identity is transient and discoverable from the active branch rather than continuation authority
-      - legacy method paths are compatibility pointers rather than duplicate canonical copies
+      - main exposes one Current adoption pointer and one active research branch pointer
+      - live long-lived branches are main and research/ena-reconstruction
+      - research/memory-metabolism-prototype is deleted after checkpoint and preserved only as lineage
+      - PROJECT-HUB.md and research/README.md route continuation through main control plane
+      - research/methodology/ is the canonical cross-session research-method surface
+      - research/plans/ carries stable master plan and fast-moving progress state
+      - PR #82 checkpointed the predecessor reconstruction generation into main
+      - PR #101 checkpointed successor branch/control-plane bootstrap into main
+      - PR identity is transient and open PR is not required for active branch authority
+      - active branch head is live-reverified before writes rather than embedded as identity
     residual: >-
-      Continue opportunistic cleanup only when it improves navigation without
-      breaking lineage; do not turn directory neatness into a release blocker.
+      Continue opportunistic cleanup only when it prevents real routing or interpretation
+      drift. Do not turn directory neatness into a release blocker.
 
   anti_ablation_archaeology:
     state: ACTIVE
@@ -81,8 +103,8 @@ phases:
       - research/reconstruction/MECHANISM-RETENTION-LEDGER.md
       - research/reconstruction/DEGRADATION-AUDIT-2026-08-26.md
     closure_rule: >-
-      Continue while additional archaeology can reveal a material missing lineage
-      likely to change the engineering map; do not use a fixed topic count.
+      Continue while another bounded archaeology pass can reveal a material missing
+      lineage likely to change the engineering map. Do not use a fixed topic count.
 
   how_branch_expansion:
     state: ACTIVE
@@ -123,9 +145,9 @@ phases:
       - "#91 authority/effects/recovery/settlement"
       - "#93 ecology/coordination"
     rule: >-
-      Search current AI frameworks, memory systems, durable workflow systems,
-      agent protocols, research organizations, AI communities, and adjacent
-      engineering domains; map mechanisms to ENA failure models before selection.
+      Search current AI frameworks, memory systems, durable workflow systems, agent
+      protocols, research organizations, AI communities, and adjacent engineering
+      domains; map mechanisms to ENA failure models before selection.
     inventory_is_exhaustive: false
 
   host_binding:
@@ -176,9 +198,8 @@ phases:
   operational_architecture_assembly:
     state: NOT_READY
     blocker: >-
-      Reconstruction and HOW ecology are not yet sufficiently recovered and
-      reconciled to define the adopter-facing operational architecture without
-      premature compression.
+      Reconstruction and HOW ecology are not yet sufficiently recovered and reconciled
+      to define the adopter-facing operational architecture without premature compression.
 
   release_scope_reconciliation:
     state: NOT_STARTED
@@ -195,16 +216,26 @@ phases:
 methodology_incidents:
   - path: research/incidents/SESSION-INHERITANCE-GAP-2026-08-26.md
     lesson: DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
+  - lesson: CONTROL_PLANE_FIELDS_MUST_NOT_CREATE_SELF_REFERENTIAL_STALENESS
+    evidence: >-
+      PR-number-bound continuation authority and embedded active-branch head SHAs created
+      avoidable synchronization recursion during the branch-generation transition.
+  - lesson: ALIGN_BEFORE_RESUME_AFTER_MATERIAL_PROJECT_TRANSITION
+    evidence: >-
+      Branch cleanup and control-plane changes showed that individually correct files can
+      become mutually inconsistent unless method, routing, plan, and progress are checked
+      together before substantive work resumes.
 
 next_actions:
-  - continue anti-ablation archaeology and update the mechanism retention map when material missing lineages are found
+  - resume anti-ablation archaeology from the recovered variation map; do not select only the most visible prototype
   - repair/finish Commitment/Settlement prototype without conflating assignment truth with physical fencing
-  - add deterministic cross-organ stale-executor false-OK and positive HOW controls
+  - add deterministic cross-organ stale-executor false-OK fixtures and positive fencing/idempotency controls
   - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
   - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
+  - continue fresh external HOW search when an engineering gap lacks adequate concrete branches
   - run stochastic/field experiments only where reality can reveal structure not already derivable
   - start operational architecture assembly only when archaeology/branch recovery is sufficient for that decision
-  - update this file after material state changes
+  - update this file after material state changes and run the alignment gate before resuming after material project transitions
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
@@ -215,5 +246,7 @@ invariants:
   - EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
   - EXTERNAL_POPULARITY_IS_NOT_SELECTION_PROOF
   - HANDOFF_SUMMARY_IS_NOT_PROJECT_STATE
-  - ACTIVE_BRANCH_AUTHORITY_DOES_NOT_REQUIRE_STABLE_PR_NUMBER
+  - ACTIVE_RESEARCH_AUTHORITY_IS_BRANCH_POINTER
+  - OPEN_PR_IS_TRANSIENT_INTEGRATION_ARTIFACT
   - ACTIVE_HEAD_SHA_MUST_BE_LIVE_REVERIFIED
+  - ALIGN_BEFORE_RESUME_AFTER_MATERIAL_TRANSITION

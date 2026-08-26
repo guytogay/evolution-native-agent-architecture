@@ -1,4 +1,4 @@
-schema_version: "1.8"
+schema_version: "1.9"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -27,9 +27,11 @@ entrypoints:
   active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
   research_methodology: "research/methodology/README.md"
   research_method_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  research_alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   research_branch_governance: "research/BRANCH-GOVERNANCE.md"
   research_branch_inventory: "research/BRANCH-INVENTORY.yaml"
   research_master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
+  research_progress: "research/plans/PROGRESS.yaml"
   lite_adoption: "releases/current/LITE-ADOPTION-INSTRUCTION.md"
   field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
   field_experience_template: "releases/current/templates/field-experience.v2.yaml"
@@ -46,6 +48,7 @@ surfaces:
     current_adoption_baseline: "releases/current/"
     research_control_plane: "main"
     active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
+    active_research_branch: "research/ena-reconstruction"
     evolution_inbox: "research/evolution-inbox/README.md"
     contributions: "collaboration/inbox/"
     reconciliation: "collaboration/reconciliation/"
@@ -146,6 +149,7 @@ architecture_policy:
 
 research_method_policy:
   canonical_path: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   method_count_is_open_cardinality: true
   explanatory_coverage_is_operational_solution: false
   how_cardinality_is_preallocated: false
@@ -154,6 +158,9 @@ research_method_policy:
   arbitrary_numeric_scientific_appearance_rejected: true
   handoff_summary_is_project_state: false
   methodology_inheritance_requires_behavioral_application: true
+  material_transition_requires_alignment_before_resume: true
+  minor_commit_requires_full_alignment_gate: false
+  individually_correct_files_imply_project_state_coherence: false
 
 contribution_policy:
   public_read_access: true

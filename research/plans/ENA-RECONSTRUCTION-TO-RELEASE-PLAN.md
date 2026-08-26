@@ -40,14 +40,49 @@ The final test is whether an Agent can actually live by the architecture.
 
 Start from `main`:
 
-1. `PROJECT-HUB.md`
-2. `research/ACTIVE-RESEARCH.yaml`
-3. `research/methodology/README.md`
-4. this plan
-5. follow the active research branch pointer
-6. read the active branch's `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml`
+1. `PROJECT-HUB.md`;
+2. verify `releases/current/CURRENT-BASELINE.yaml`;
+3. `research/ACTIVE-RESEARCH.yaml` for the one active research integration **branch**;
+4. `research/methodology/README.md` and canonical methodology;
+5. if a material project transition occurred, complete `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` before substantive work resumes;
+6. read this plan;
+7. follow the active branch pointer;
+8. read the active branch's `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml`;
+9. discover an open PR by active head branch only when review/integration context is needed.
 
-Do not infer active work from branch names or recency.
+Do not infer active work from branch names, recency, or historical PR numbers.
+
+## Current aligned execution posture — 2026-08-26
+
+The repository/control-plane cleanup is now an established baseline rather than an unresolved prerequisite.
+
+Observed long-lived topology:
+
+```text
+main
+research/ena-reconstruction
+```
+
+Current adoption remains:
+
+```text
+v0.3.6 / CURRENT / FIELD_VALIDATION
+```
+
+Research-state summary:
+
+- repository information architecture / branch control: aligned baseline established;
+- anti-ablation archaeology: active;
+- HOW branch expansion: active;
+- external HOW harvesting: active;
+- Host binding: partial;
+- cross-organ composition: active, with stale-executor/fencing gap established;
+- Operational Architecture assembly: not ready;
+- release-scope reconciliation: not started;
+- candidate build/validation: not started;
+- promotion: not started.
+
+Historical PR #82 and PR #101 are checkpoint/handoff lineage, not current continuation authority.
 
 ## Phase — Research continuity and repository control plane
 
@@ -57,16 +92,50 @@ Make ENA research inheritable without reconstructing state from chat history or 
 
 Required capabilities:
 
-- main-visible active research pointer;
+- main-visible active research branch pointer;
 - branch governance/lifecycle rules;
 - canonical research methodology;
+- project-state alignment method;
 - durable long-horizon plan;
 - active-branch progress carrier;
 - clear separation between Current adoption and research work.
 
-Closure condition:
+Current state:
+
+`BASELINE_ESTABLISHED / MAINTAIN_AS_INVARIANT`
+
+Closure condition for the current topology:
 
 A fresh session can start from `main` and identify Current, active research branch, methodology, plan, progress, and next permitted work without a branch census or old chat reconstruction.
+
+This phase is not “finished forever.” A material control-plane transition reopens an alignment obligation even when the baseline architecture remains valid.
+
+## Project State Alignment Gate
+
+Purpose:
+
+Prevent routing, methodology, plan, progress, and live Git state from describing different generations of the project after a material transition.
+
+Canonical method:
+
+`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+
+Trigger examples:
+
+- branch handoff/cleanup;
+- main control-plane checkpoint merge;
+- directory/canonical-path change;
+- material methodology change;
+- master-plan phase/closure-rule change;
+- Current/candidate/release-state change;
+- major session handoff after such changes.
+
+```text
+INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
+MATERIAL_TRANSITION -> ALIGN -> RESUME
+```
+
+The gate is transition-triggered, not required after every ordinary commit.
 
 ## Phase — Anti-ablation archaeology / variation recovery
 
@@ -238,7 +307,8 @@ Only after candidate/reconciliation evidence supports release:
 - publish/read back release artifact where applicable;
 - merge through release discipline;
 - verify post-merge `releases/current/` identity and package/readback;
-- update project/history/control pointers.
+- update project/history/control pointers;
+- complete a project-state alignment pass before declaring the post-release project state stable.
 
 Do not claim release complete on narrative confidence alone.
 
@@ -255,6 +325,8 @@ NO_CHANGE = VALID_OUTCOME
 REMOVE_FROM_ACTIVE_ARCHITECTURE != ERASE_FROM_LINEAGE
 HANDOFF_SUMMARY != PROJECT_STATE
 BRANCH_EXISTS != ACTIVE_RESEARCH_AUTHORITY
+OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
+MATERIAL_TRANSITION -> ALIGN -> RESUME
 ```
 
 ## Progress carrier

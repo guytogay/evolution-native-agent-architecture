@@ -418,6 +418,24 @@ Temporary branches are isolation tools, not parallel ENA research worlds.
 
 A new research idea does not imply a new branch.
 
+## Align project state before resuming after material transitions
+
+Durable project state can drift even when individual files are locally correct.
+
+```text
+INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
+MATERIAL_TRANSITION -> ALIGN -> RESUME
+HISTORY_PRESERVED != HISTORY_USED_AS_CURRENT_POINTER
+```
+
+After a material branch/control-plane handoff, directory move, methodology change, master-plan change, release-state change, or major research checkpoint, verify that live repository state, routing guides, canonical method, long-horizon plan, fast-moving progress, and next actions tell one coherent current story before substantive work resumes.
+
+The canonical focused procedure is:
+
+`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+
+Do not turn the gate into ceremony after every ordinary content commit. Its trigger is a transition capable of making project-state surfaces disagree.
+
 ## Operational use
 
 Before a substantial ENA research action, ask at least:
@@ -433,6 +451,7 @@ Can the proposed experiment reveal something not already derivable?
 What exact decision could the next evidence change?
 Could NO_CHANGE, dormancy, simplification, retirement, or multiple coexisting HOWs be correct?
 Am I continuing from the canonical active research pointer rather than a guessed branch?
+Has a material project transition occurred that requires alignment before I resume?
 ```
 
 The questions are open-cardinality. Add/revise methodology when new failures demonstrate a better discipline.
