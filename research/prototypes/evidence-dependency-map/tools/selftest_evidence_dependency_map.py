@@ -44,12 +44,15 @@ def main() -> int:
 
     run([sys.executable, str(validator)], expect=0)
     rows = load_jsonl(fixtures_path)
-    assert len(rows) == 16, f"expected 16 fixtures, got {len(rows)}"
+    assert rows, "dependency-map fixture corpus must not be empty"
+    ids = [row.get("case_id") for row in rows]
+    assert len(ids) == len(set(ids)), "duplicate case_id"
+    required_ids = {"EDM-001", "EDM-005", "EDM-007", "EDM-011"}
+    assert required_ids <= set(ids), f"missing targeted regression fixtures: {sorted(required_ids - set(ids))}"
 
     with tempfile.TemporaryDirectory(prefix="ena-edm-") as tmp:
         tmpdir = Path(tmp)
 
-        # Mutation 1: hide a known shared source dependency.
         row = by_id(rows, "EDM-001")
         row["map"]["edges"] = [
             e for e in row["map"]["edges"]
@@ -59,34 +62,31 @@ def main() -> int:
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 2: turn a dependency graph into a fake scalar score.
         row = by_id(rows, "EDM-005")
         row["map"]["independence_score"] = 0.5
         path = tmpdir / "scalar-independence.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 3: a copied/derived observation loses lineage edge.
         row = by_id(rows, "EDM-007")
         row["map"]["edges"] = []
         path = tmpdir / "lost-lineage.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 4: a same-model but externally distinct pair remains valid when
-        # the shared model dependency is honestly represented. This is a false-BLOCK control.
         row = by_id(rows, "EDM-005")
         path = tmpdir / "same-model-distinct-world.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=0)
 
-        # Mutation 5: recurrence-only use may remain valid without exhaustive shared-cause edges.
         row = by_id(rows, "EDM-011")
         path = tmpdir / "recurrence-lightweight.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=0)
 
     print("PASS: evidence-dependency-map portable adversarial selftest")
+    print(f"observed_fixture_count={len(rows)}")
+    print("fixture_cardinality=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES")
     print("verification_scope=KNOWN_DEPENDENCY_VISIBILITY_MUTATION_TESTS_ONLY")
     print("independence_score=NOT_COMPUTED")
     print("false_block_controls=SAME_MODEL_DISTINCT_WORLD,RECURRENCE_ONLY")
