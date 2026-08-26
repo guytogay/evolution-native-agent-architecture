@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1",
+  "status": "RESEARCH_PROTOTYPE / NOT_CURRENT / NOT_RELEASE_CANDIDATE",
+  "source_current": {
+    "ena_version": "v0.3.6",
+    "current_tree": "7dcbb3934883ffa6cc5292a662588cafc1533cff",
+    "merge_commit": "74b790741653286e0f01a1483723cdeb065ec3df"
+  },
+  "rule": "recognition + navigation only; canonical Current retains semantics",
+  "families": {
+    "evolution-agency": {
+      "targets": [
+        {"path": "releases/current/09-EVOLUTION-METABOLISM.md", "sections": ["## 9.2 Stimulus and mutation pressure", "## 9.3 Latent / cryptic variation", "## 9.4 Expression is a separate axis", "## 9.6 Variation Space and reality contact", "## 9.8 Evaluation and local selection"]},
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.6 Variation Space, Experiment, Selection, and Integration"]},
+        {"path": "releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md", "sections": ["## 2.3 Five operating boundaries plus Variation Space"]}
+      ]
+    },
+    "authority-power": {
+      "targets": [
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.5 Capability, Route, Credential, Mandate, and Authority", "## 5.12 Influence Integrity and Anti-Sovereign Closure"]},
+        {"path": "releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md", "sections": ["## 2.3 Five operating boundaries plus Variation Space", "## 2.5 Compiled Local Projection", "## 2.6 Projection staleness"]}
+      ]
+    },
+    "evidence-truth": {
+      "targets": [
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.1 Claim ↔ Evidence ↔ Support", "## 5.2 Triggered Material Obligations", "## 5.10 Governance Value and Closure", "## 5.11 Agency-Preserving Uncertainty", "## 5.13 Inherited Composed Claim-Pack Validator"]}
+      ]
+    },
+    "recovery-history": {
+      "targets": [
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.3 Recovery State, Occurrence Truth, and Lawful Retention", "## 5.4 Recovery Kernel and Control Integrity", "## 5.8 Activation, Interruption, and Continuity"]},
+        {"path": "releases/current/09-EVOLUTION-METABOLISM.md", "sections": ["## 9.12 Recovery and the rescue-plane property"]},
+        {"path": "releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md", "sections": ["## 2.2 Continuity Vector", "## 2.3 Five operating boundaries plus Variation Space", "## 2.6 Projection staleness"]}
+      ]
+    },
+    "diversity-portability": {
+      "targets": [
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.9 Adaptation Migration and Population Learning"]},
+        {"path": "releases/current/09-EVOLUTION-METABOLISM.md", "sections": ["## 9.10 Migration, inheritance, and propagation"]},
+        {"path": "releases/current/10-LANGUAGE-PORTABILITY.md", "sections": ["# 10. Language Portability"]}
+      ]
+    },
+    "composition-effects": {
+      "targets": [
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.7 Whole Effect Surface, Composition, and Emergence", "## 5.8 Activation, Interruption, and Continuity"]},
+        {"path": "releases/current/09-EVOLUTION-METABOLISM.md", "sections": ["## 9.11 Recombination and emergence"]}
+      ]
+    },
+    "governance-evolution": {
+      "targets": [
+        {"path": "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md", "sections": ["## 5.10 Governance Value and Closure", "## 5.11 Agency-Preserving Uncertainty", "## 5.12 Influence Integrity and Anti-Sovereign Closure"]},
+        {"path": "releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md", "sections": ["## 2.7 Runtime governance profile", "## 2.8 Governance closure"]},
+        {"path": "releases/current/09-EVOLUTION-METABOLISM.md", "sections": ["## 9.13 Governance closure and ecological restraint"]}
+      ]
+    }
+  },
+  "routes": [
+    {
+      "route_id": "authority-current-mandate",
+      "decision_shapes": ["technical capability or credential is being treated as permission for a consequential external effect", "authority may have expired, been restored, delegated, migrated, cloned, or self-edited"],
+      "lexical_helpers": ["credential", "mandate", "authority", "permission", "admin", "root"],
+      "families": ["authority-power"],
+      "fallback": {"material": "BROADEN_CANONICAL_READ_OR_WAIT", "non_material": "PROCEED_WITH_DECLARED_UNCERTAINTY"}
+    },
+    {
+      "route_id": "effect-retry-settlement",
+      "decision_shapes": ["an external effect may already have committed but the result is uncertain", "retry, replay, parallel execution, failover, cancellation, or handoff could duplicate or reorder an effect"],
+      "lexical_helpers": ["retry", "timeout", "duplicate", "parallel", "commit", "settlement"],
+      "families": ["composition-effects", "recovery-history", "authority-power"],
+      "fallback": {"material": "NARROW_WAIT_OR_SEEK_SETTLEMENT_EVIDENCE", "non_material": "PROCEED_WITH_DECLARED_UNCERTAINTY"}
+    },
+    {
+      "route_id": "restore-resume-continuity",
+      "decision_shapes": ["a snapshot, checkpoint, session, clone, or failover is being resumed and prior local state may diverge from shared reality"],
+      "lexical_helpers": ["restore", "resume", "snapshot", "clone", "failover", "restart"],
+      "families": ["recovery-history", "composition-effects", "authority-power"],
+      "fallback": {"material": "REVALIDATE_CHANGED_DIMENSIONS_BEFORE_EFFECT", "non_material": "PROCEED_WITH_DECLARED_UNCERTAINTY"}
+    },
+    {
+      "route_id": "claim-evidence-applicability",
+      "decision_shapes": ["a consequential correctness, improvement, support, safety, completeness, or causality claim depends on evidence", "evidence is reused after subject, runtime, model, Host, configuration, language, time, or projection changed"],
+      "lexical_helpers": ["evidence", "validated", "supported", "proved", "safe", "root cause"],
+      "families": ["evidence-truth"],
+      "fallback": {"material": "SEEK_APPLICABILITY_EVIDENCE_OR_NARROW_CLAIM", "non_material": "LABEL_UNCERTAINTY"}
+    },
+    {
+      "route_id": "imported-adaptation-local-selection",
+      "decision_shapes": ["an adaptation, packet, recommendation, or successful behavior from another Host/model/environment is being imported or generalized locally"],
+      "lexical_helpers": ["import", "migration", "adaptation", "packet", "other host", "best practice"],
+      "families": ["diversity-portability", "evidence-truth", "evolution-agency"],
+      "fallback": {"material": "TREAT_AS_CANDIDATE_NOT_LOCAL_PROOF", "non_material": "KEEP_LATENT_OR_IGNORE"}
+    },
+    {
+      "route_id": "persistent-self-mutation",
+      "decision_shapes": ["a durable self, policy, memory compiler, capability topology, or evolution mechanism is being changed in a way that can alter future behavior"],
+      "lexical_helpers": ["self-edit", "SOUL", "persistent", "policy", "compiler", "mutation"],
+      "families": ["evolution-agency", "authority-power", "recovery-history"],
+      "fallback": {"material": "NARROW_CHANGE_OR_USE_VARIATION_SPACE", "non_material": "KEEP_AS_LATENT_CANDIDATE"}
+    },
+    {
+      "route_id": "governance-closure",
+      "decision_shapes": ["a new gate, role, reviewer, policy, or process is proposed", "review or governance is repeating without a plausible decision-changing path"],
+      "lexical_helpers": ["review", "gate", "role", "policy", "process", "approval"],
+      "families": ["governance-evolution", "evidence-truth"],
+      "fallback": {"material": "USE_LOWEST_SUFFICIENT_INTERVENTION", "non_material": "STOP_ADDING_GOVERNANCE"}
+    },
+    {
+      "route_id": "language-host-transfer",
+      "decision_shapes": ["decision-critical semantics or evidence cross language, model, Host, route, or configuration boundaries"],
+      "lexical_helpers": ["translate", "language", "host", "model", "route", "configuration"],
+      "families": ["diversity-portability", "evidence-truth"],
+      "fallback": {"material": "LOAD_CANONICAL_SEMANTICS_AND_REVALIDATE_AFFECTED_DIMENSIONS", "non_material": "PROCEED_WITH_DECLARED_PROJECTION_LIMIT"}
+    }
+  ],
+  "result_contract": {
+    "trigger": "boolean",
+    "matched_route_ids": "array[string]",
+    "families": "array[family_id]",
+    "targets": "array[{path, section}]",
+    "retrieval_status": ["NOT_ATTEMPTED", "SUCCESS", "PARTIAL", "FAILED"],
+    "fallback_used": "boolean",
+    "uncertainty": "array[string]"
+  }
+}
