@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "status": "RESEARCH_RUN_MANIFEST",
+  "run_id": "REPLACE_ME",
+  "kernel": "K-A",
+  "kernel_file": "kernels/K-A-generative-consequence-grammar.md",
+  "kernel_content_identity": "REPLACE_WITH_BLOB_SHA_OR_HASH_IF_AVAILABLE",
+  "model": {
+    "provider": "REPLACE_ME",
+    "name": "REPLACE_ME",
+    "version_or_route": "UNKNOWN"
+  },
+  "host": {
+    "name": "REPLACE_ME",
+    "runtime": "REPLACE_ME",
+    "cold_read_mechanism": "EXACT_FILE_OR_OTHER",
+    "semantic_search_available": false
+  },
+  "context_design": {
+    "freshness": "PER_CASE",
+    "prior_ena_exposure": "UNKNOWN",
+    "prior_fixture_exposure": false,
+    "prior_kernel_result_exposure": false,
+    "notes": ""
+  },
+  "sampling": {
+    "temperature": "UNCONTROLLED_OR_VALUE",
+    "other": ""
+  },
+  "fixture": {
+    "blind_prompt_file": "fixtures/tiny-kernel-prompts.jsonl",
+    "case_count": 36,
+    "order": "CANONICAL",
+    "shuffle_seed": null
+  },
+  "router": {
+    "file": "semantic-router.v0.1.json",
+    "content_identity": "a70fe990375d4e09bcd11de5e7297133c7fc5f0a"
+  },
+  "canonical_current": {
+    "ena_version": "v0.3.6",
+    "tree": "7dcbb3934883ffa6cc5292a662588cafc1533cff",
+    "merge_commit": "74b790741653286e0f01a1483723cdeb065ec3df"
+  },
+  "footprint": {
+    "resident_kernel_bytes": null,
+    "resident_kernel_tokens": null,
+    "router_bytes_loaded": null,
+    "cold_bytes_loaded": null,
+    "cold_tokens_loaded": null,
+    "cold_read_count": null
+  },
+  "timing": {
+    "started_at": null,
+    "completed_at": null
+  },
+  "results_file": "REPLACE_ME.jsonl",
+  "known_contamination_or_limitations": [],
+  "evidence_class": "BLINDED_CONTROLLED_BEHAVIOR"
+}

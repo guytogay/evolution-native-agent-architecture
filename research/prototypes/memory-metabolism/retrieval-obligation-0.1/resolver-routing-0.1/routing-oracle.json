@@ -1,0 +1,18 @@
+[
+  {"case_id":"T01","required_scope_groups":[["S01"]],"helpful_scope_refs":["S12"]},
+  {"case_id":"T02","required_scope_groups":[["S04"]],"helpful_scope_refs":["S05"]},
+  {"case_id":"T03","required_scope_groups":[["S02"],["S03"]],"helpful_scope_refs":[]},
+  {"case_id":"T04","required_scope_groups":[["S03"]],"helpful_scope_refs":["S02"]},
+  {"case_id":"T05","required_scope_groups":[["S05"]],"helpful_scope_refs":["S07"]},
+  {"case_id":"T06","required_scope_groups":[["S06"]],"helpful_scope_refs":[]},
+  {"case_id":"T07","required_scope_groups":[["S07"]],"helpful_scope_refs":["S10"]},
+  {"case_id":"T08","required_scope_groups":[["S08"]],"helpful_scope_refs":[]},
+  {"case_id":"T09","required_scope_groups":[["S09"]],"helpful_scope_refs":[]},
+  {"case_id":"T10","required_scope_groups":[["S11"]],"helpful_scope_refs":["S04"]},
+  {"case_id":"T11","required_scope_groups":[["S09"]],"helpful_scope_refs":["S07"]},
+  {"case_id":"T12","required_scope_groups":[["S02"],["S07"]],"helpful_scope_refs":["S12"]},
+  {"case_id":"T13","required_scope_groups":[["S12"],["S01"]],"helpful_scope_refs":["S05"]},
+  {"case_id":"T14","required_scope_groups":[["S07"],["S10"]],"helpful_scope_refs":[]},
+  {"case_id":"T15","required_scope_groups":[["S05"],["S02"]],"helpful_scope_refs":["S12"]},
+  {"case_id":"T16","required_scope_groups":[["S08"],["S01"]],"helpful_scope_refs":["S07"]}
+]

@@ -1,0 +1,20 @@
+[
+  {"case_id":"R01","retrieval_warranted":true,"cluster":"MATERIAL_EXTERNAL_CHANGE","hidden_basis":"Project memory contains a prior rollout constraint/maintenance-window lesson that can change the deployment decision."},
+  {"case_id":"R02","retrieval_warranted":false,"cluster":"DISPOSABLE_LOCAL","hidden_basis":"No durable project memory can materially change this reversible isolated edit."},
+  {"case_id":"R03","retrieval_warranted":true,"cluster":"REPEATED_FAILURE","hidden_basis":"Prior investigations/compiled failure patterns are decision-relevant to diagnosis even though the action is read-only."},
+  {"case_id":"R04","retrieval_warranted":false,"cluster":"LOW_CONSEQUENCE_TRANSFORM","hidden_basis":"Translation is self-contained and no durable history is needed."},
+  {"case_id":"R05","retrieval_warranted":true,"cluster":"RECOVERY_DISCONTINUITY","hidden_basis":"Post-snapshot side effects and prior recovery knowledge can make blind restore unsafe or incomplete."},
+  {"case_id":"R06","retrieval_warranted":false,"cluster":"ISOLATED_VARIATION","hidden_basis":"The sandbox is disposable and explicitly isolated from shared consequence."},
+  {"case_id":"R07","retrieval_warranted":true,"cluster":"INTERRUPTION_CONTINUITY","hidden_basis":"Pre-interruption execution/settlement history can prevent duplicate external effects."},
+  {"case_id":"R08","retrieval_warranted":false,"cluster":"READ_ONLY_DIRECT_OBSERVATION","hidden_basis":"The requested answer is fully provided by current direct observation."},
+  {"case_id":"R09","retrieval_warranted":true,"cluster":"HOST_TOOL_CHANGE","hidden_basis":"Past workflow assumptions/gotchas may be invalidated by the major-version boundary."},
+  {"case_id":"R10","retrieval_warranted":false,"cluster":"SELF_CONTAINED_CALCULATION","hidden_basis":"All required information is present in the current message."},
+  {"case_id":"R11","retrieval_warranted":true,"cluster":"DESTRUCTIVE_SHARED_CHANGE","hidden_basis":"Retention exceptions and historical ownership/obligation information may change deletion eligibility."},
+  {"case_id":"R12","retrieval_warranted":false,"cluster":"AUTHORITATIVE_CURRENT_READ","hidden_basis":"A live authoritative endpoint fully answers the requested current-state question; history does not change the report."},
+  {"case_id":"R13","retrieval_warranted":true,"cluster":"REPEATED_FAILURE","hidden_basis":"Prior investigations can materially improve the root-cause hypothesis despite no write consequence."},
+  {"case_id":"R14","retrieval_warranted":false,"cluster":"FORMAT_ONLY","hidden_basis":"The operation is meaning-preserving and self-contained."},
+  {"case_id":"R15","retrieval_warranted":false,"cluster":"MATERIAL_BUT_CURRENT_AUTHORITATIVE","hidden_basis":"This is a deliberate material negative control: live authority/beneficiary state is complete and there is no project-specific workflow memory that can change the one-off action."},
+  {"case_id":"R16","retrieval_warranted":true,"cluster":"PRIOR_FAILED_MUTATION","hidden_basis":"Earlier rollback/failure analysis is directly relevant to whether the new migration should proceed."},
+  {"case_id":"R17","retrieval_warranted":false,"cluster":"REVERSIBLE_DRAFT","hidden_basis":"The isolated draft has no current external consequence; retrieval can wait until a consequential review/publish boundary."},
+  {"case_id":"R18","retrieval_warranted":true,"cluster":"RECOVERY_OPERATION","hidden_basis":"Project-specific restart/recovery lessons can materially change the safe restart procedure."}
+]

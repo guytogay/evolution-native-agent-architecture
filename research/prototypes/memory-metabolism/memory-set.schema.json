@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/research/memory-metabolism/memory-set.schema.json",
+  "title": "ENA Memory Metabolism Research Memory Set",
+  "type": "object",
+  "required": ["schema_version", "records"],
+  "properties": {
+    "schema_version": {
+      "const": "memory-metabolism-research-0.3"
+    },
+    "provenance_sets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/provenance_set"}
+    },
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/memory_record"}
+    },
+    "projections": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/decision_projection"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "provenance_set": {
+      "type": "object",
+      "required": ["provenance_id", "source_roots", "evidence_refs"],
+      "properties": {
+        "provenance_id": {"type": "string", "minLength": 1},
+        "source_roots": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "memory_record": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "layer",
+        "claim_type",
+        "content",
+        "source_roots",
+        "access_scope",
+        "validity"
+      ],
+      "properties": {
+        "record_id": {"type": "string", "minLength": 1},
+        "layer": {
+          "enum": ["OPERATIONAL", "EVIDENCE", "KNOWLEDGE", "COMPILED", "IDENTITY", "ARCHIVE"]
+        },
+        "claim_type": {
+          "enum": [
+            "OCCURRENCE",
+            "OBSERVATION",
+            "BELIEF",
+            "HEURISTIC",
+            "POLICY",
+            "PREFERENCE",
+            "TASK_STATE",
+            "DECISION_RECORD",
+            "AUTHORIZATION_OBSERVATION",
+            "INDEX"
+          ]
+        },
+        "content": {"type": "string", "minLength": 1},
+        "derived_from": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "source_roots": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true,
+          "description": "Inline source roots. Derived records may keep this empty when provenance_ref resolves to an equivalent cold provenance set."
+        },
+        "provenance_ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional cold indirection to a provenance_set so bounded active memory need not inline all source roots."
+        },
+        "support_mode": {
+          "enum": ["NONE", "SINGLE_SOURCE", "MULTI_SOURCE_DEPENDENT", "INDEPENDENT_CORROBORATION"]
+        },
+        "decision_material": {"type": "boolean"},
+        "access_scope": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "authority_reference_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true,
+          "description": "References/observations about authority only. This field does not grant executable authority."
+        },
+        "validity": {
+          "type": "object",
+          "required": ["mode", "revalidate_before_material_use"],
+          "properties": {
+            "mode": {
+              "enum": ["IMMUTABLE_OCCURRENCE", "CURRENT_STATE", "CONDITIONAL", "HISTORICAL", "UNKNOWN"]
+            },
+            "revalidate_before_material_use": {"type": "boolean"},
+            "conditions": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "valid_through": {"type": ["string", "null"]}
+          },
+          "additionalProperties": false
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "target"],
+            "properties": {
+              "type": {
+                "enum": ["SUPPORTS", "CONTRADICTS", "SUPERSEDES", "DERIVED_FROM", "AUTHORIZED_BY", "OBSERVED_IN", "FALSIFIED_BY"]
+              },
+              "target": {"type": "string", "minLength": 1}
+            },
+            "additionalProperties": false
+          }
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "conflict_handling": {"type": "string"},
+        "mutation": {"type": "boolean"},
+        "governance_ref": {"type": "string"},
+        "evidence_status": {
+          "enum": ["PRESENT", "LAWFULLY_REDACTED", "TOMBSTONE", "NOT_APPLICABLE"]
+        },
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "decision_projection": {
+      "type": "object",
+      "required": [
+        "projection_id",
+        "actor_scopes",
+        "retrieved_record_ids",
+        "used_record_ids",
+        "revalidated_record_ids",
+        "historical_use_record_ids",
+        "consequence",
+        "authority_required"
+      ],
+      "properties": {
+        "projection_id": {"type": "string", "minLength": 1},
+        "actor_scopes": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "retrieved_record_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "used_record_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "revalidated_record_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "historical_use_record_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true,
+          "description": "Records intentionally used as historical context rather than as current-state claims."
+        },
+        "consequence": {"enum": ["NON_MATERIAL", "MATERIAL"]},
+        "authority_required": {"type": "boolean"},
+        "external_authority_basis": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

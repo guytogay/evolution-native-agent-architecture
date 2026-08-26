@@ -1,0 +1,49 @@
+{
+  "schema_version": "memory-metabolism-research-0.4",
+  "provenance_sets": [],
+  "records": [
+    {
+      "record_id": "ev-1",
+      "layer": "EVIDENCE",
+      "claim_type": "OCCURRENCE",
+      "content": "Deployment failed after stale endpoint reuse.",
+      "source_roots": [
+        "trace:run-1"
+      ],
+      "access_scope": [
+        "project:ena"
+      ],
+      "evidence_status": "PRESENT",
+      "validity": {
+        "mode": "IMMUTABLE_OCCURRENCE",
+        "revalidate_before_material_use": false
+      }
+    },
+    {
+      "record_id": "cm-1",
+      "layer": "COMPILED",
+      "claim_type": "HEURISTIC",
+      "content": "Revalidate mutable endpoint state before consequential reuse.",
+      "derived_from": [
+        "ev-1"
+      ],
+      "evidence_refs": [
+        "ev-1"
+      ],
+      "source_roots": [
+        "trace:run-1"
+      ],
+      "support_mode": "SINGLE_SOURCE",
+      "decision_material": true,
+      "challengeability": "FULL",
+      "access_scope": [
+        "project:ena"
+      ],
+      "validity": {
+        "mode": "CONDITIONAL",
+        "revalidate_before_material_use": false
+      }
+    }
+  ],
+  "projections": []
+}

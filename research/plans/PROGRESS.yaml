@@ -1,0 +1,204 @@
+schema_version: "0.1"
+as_of: "2026-08-26"
+status: ACTIVE_RECONSTRUCTION_TO_RELEASE
+
+canonical_pointers:
+  project_hub: PROJECT-HUB.md
+  current_baseline: releases/current/CURRENT-BASELINE.yaml
+  research_bootstrap: research/RESEARCH-START-HERE.md
+  research_directory_map: research/README.md
+  methodology_index: research/methodology/README.md
+  master_methodology: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
+  cardinality_guard: research/methodology/CARDINALITY-DISCOVERY-GUARD.md
+  session_continuity: research/methodology/SESSION-CONTINUITY-AND-COLLABORATION.md
+  method_changelog: research/methodology/METHOD-CHANGELOG.md
+  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  external_how_index: research/external-how/README.md
+  external_how_registry: research/external-how/SOURCE-REGISTRY.md
+  initial_external_harvest: research/external-how/harvests/2026-08-26-INITIAL-HOW-LANDSCAPE.md
+  latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
+  latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
+  research_pr: "#82"
+  reconstruction_ledger: "#89"
+
+current_adoption_observed_at_plan_creation:
+  version: v0.3.6
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  source_of_truth: releases/current/CURRENT-BASELINE.yaml
+  note: ALWAYS_REVERIFY_FROM_DEFAULT_BRANCH
+
+research_workspace:
+  branch: research/memory-metabolism-prototype
+  pull_request: 82
+  pull_request_state: DRAFT
+  current_mutation_authorized_by_research: false
+
+release_goal:
+  state: PLANNED
+  target: NEXT_CURRENT_RELEASE
+  version: UNASSIGNED_UNTIL_RELEASE_SCOPE_STABILIZES
+  forced_version_increment: false
+  promotion_authorized_now: false
+
+phases:
+  repo_information_architecture:
+    state: BASELINE_ESTABLISHED_AND_READBACK_VERIFIED
+    evidence:
+      - PROJECT-HUB.md routes research continuation
+      - PROJECT-STRUCTURE.md defines canonical semantic areas
+      - PROJECT-METADATA.yaml contains machine-readable research pointers
+      - research/README.md defines research information architecture
+      - research/RESEARCH-START-HERE.md is the hot research router
+      - research/methodology/ is the canonical method surface
+      - research/plans/ carries master plan and machine-readable progress
+      - research/external-how/ carries external candidate mechanism research
+      - legacy method paths are compatibility pointers rather than duplicate canonical copies
+      - PR #82 and #89 record the continuation structure
+    residual: >-
+      Continue opportunistic cleanup only when it improves navigation without
+      breaking lineage; do not turn directory neatness into a release blocker.
+
+  anti_ablation_archaeology:
+    state: ACTIVE
+    anchors:
+      - "#88"
+      - "#89"
+      - research/reconstruction/MECHANISM-RETENTION-LEDGER.md
+      - research/reconstruction/DEGRADATION-AUDIT-2026-08-26.md
+    closure_rule: >-
+      Continue while additional archaeology can reveal a material missing lineage
+      likely to change the engineering map; do not use a fixed topic count.
+
+  how_branch_expansion:
+    state: ACTIVE
+    method: research/methodology/HOW-GROWTH-DISCIPLINE.md
+    represented_families_include:
+      - Memory Metabolism
+      - Retrieval Obligation
+      - Tiny Hot Kernel / Semantic Router
+      - Effect Lifecycle
+      - Authority Grant / Lease
+      - Recovery Adapter
+      - Commitment / Settlement research
+      - execution-fencing/idempotency HOW family
+      - Contested Authorship
+      - Distributed History Merge
+      - Evidence Dependency Map
+      - Generic Evidence Envelope
+    inventory_is_exhaustive: false
+
+  external_how_harvest:
+    state: ACTIVE_WITH_MULTIPLE_MAPPED_HARVESTS
+    initial_verified_source_families:
+      - LangGraph
+      - Temporal
+      - OpenAI Agents SDK
+      - Letta
+      - Microsoft Agent Framework
+      - A2A Protocol
+      - Anthropic multi-agent engineering
+      - Mem0
+      - AI developer community field reports
+      - Hazelcast FencedLock
+      - Stripe idempotency
+      - Kubernetes resourceVersion / optimistic concurrency
+      - AWS Step Functions execution guarantees
+    mapped_into_workstreams:
+      - "#90 memory/runtime/cognition"
+      - "#91 authority/effects/recovery/settlement"
+      - "#93 ecology/coordination"
+    rule: >-
+      Search current AI frameworks, memory systems, durable workflow systems,
+      agent protocols, research organizations, AI communities, and adjacent
+      engineering domains; map mechanisms to ENA failure models before selection.
+    inventory_is_exhaustive: false
+
+  host_binding:
+    state: PARTIAL
+    known_host_evidence:
+      - Hermes
+      - OpenClaw
+      - WorkBuddy
+    candidate_external_host_patterns:
+      - LangGraph
+      - Temporal
+      - OpenAI Agents SDK
+      - Letta
+      - Microsoft Agent Framework
+      - A2A-compatible agents
+      - provider-native idempotency targets
+      - target-side fencing/conditional-write systems
+    note: HOST_LIST_IS_OPEN_CARDINALITY
+
+  cross_organ_composition:
+    state: ACTIVE_WITH_EXECUTION_FENCING_GAP_ESTABLISHED
+    known_examples:
+      - Memory Metabolism x Retrieval x Decision Projection
+      - Recovery x Authority x Effect Lifecycle
+      - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
+    established_gap:
+      statement: >-
+        A unique represented current executor, valid authority, coherent effect record,
+        and safe-resume decision do not by themselves physically prevent a stale
+        executor from causing an external effect through an effective path.
+      shorthand: UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_FENCED
+      universal_organ_shape_established: false
+    concrete_candidate_hows:
+      - provider effect-id idempotency
+      - target-side assignment-generation fencing token
+      - conditional external version / optimistic concurrency
+      - durable single logical workflow execution
+      - authoritative status query before retry
+      - single controlled effect gateway
+      - compensation/manual reconciliation
+      - unsafe-unknown -> WAIT/NARROW/ESCALATE
+    next_high_value_seams:
+      - deterministic fixtures for stale executor and positive fencing/idempotency controls
+      - Tiny Hot Kernel x exact cold retrieval x memory blocks/session compaction x language projection
+      - Identity/lineage x commitment x reputation
+      - Evolution Commons x A2A task/message/artifact lifecycle
+
+  operational_architecture_assembly:
+    state: NOT_READY
+    blocker: >-
+      Reconstruction and HOW ecology are not yet sufficiently recovered and
+      reconciled to define the adopter-facing operational architecture without
+      premature compression.
+
+  release_scope_reconciliation:
+    state: NOT_STARTED
+    prerequisite: OPERATIONAL_ARCHITECTURE_ASSEMBLY_READY
+
+  candidate_build_and_validation:
+    state: NOT_STARTED
+    prerequisite: RELEASE_SCOPE_STABLE
+
+  promotion:
+    state: NOT_STARTED
+    prerequisite: CANDIDATE_VALIDATED_AND_RELEASE_READY
+
+methodology_incidents:
+  - path: research/incidents/SESSION-INHERITANCE-GAP-2026-08-26.md
+    lesson: DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
+
+next_actions:
+  - continue anti-ablation archaeology and update the mechanism retention map when material missing lineages are found
+  - repair/finish Commitment/Settlement prototype without conflating assignment truth with physical fencing
+  - add deterministic cross-organ stale-executor false-OK and positive HOW controls
+  - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
+  - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
+  - run stochastic/field experiments only where reality can reveal structure not already derivable
+  - start operational architecture assembly only when archaeology/branch recovery is sufficient for that decision
+  - update this file after material state changes
+
+invariants:
+  - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
+  - RESEARCH_PROGRESS_DOES_NOT_FORCE_RELEASE_DELTA
+  - WHAT_WHY_COVERAGE_DOES_NOT_CLOSE_HOW
+  - HOW_CARDINALITY_IS_DISCOVERED
+  - WORKING_TAXONOMY_IS_NOT_ONTOLOGY
+  - EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
+  - EXTERNAL_POPULARITY_IS_NOT_SELECTION_PROOF
+  - HANDOFF_SUMMARY_IS_NOT_PROJECT_STATE

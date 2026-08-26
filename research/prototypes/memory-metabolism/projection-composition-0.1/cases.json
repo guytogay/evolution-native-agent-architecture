@@ -1,0 +1,133 @@
+{
+  "schema_version": "projection-composition-falsification-0.1",
+  "cases": [
+    {
+      "case_id": "PC01_material_omission",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": true, "role": "LIMITATION"}
+      ],
+      "projection_items": [
+        {"projection_ref": "P-M1", "covers_result_refs": ["M1@A"], "fidelity": "EXACT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v1",
+      "effective_projection_subject_ref": "proj:v1",
+      "expected": "REASSESS_REQUIRED"
+    },
+    {
+      "case_id": "PC02_redundant_nonmaterial_omission",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": false, "role": "REDUNDANT_CONTEXT"}
+      ],
+      "projection_items": [
+        {"projection_ref": "P-M1", "covers_result_refs": ["M1@A"], "fidelity": "EXACT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v2",
+      "effective_projection_subject_ref": "proj:v2",
+      "expected": "TRANSFER_OK"
+    },
+    {
+      "case_id": "PC03_lossless_compaction",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": true, "role": "LIMITATION"}
+      ],
+      "projection_items": [
+        {"projection_ref": "C1", "covers_result_refs": ["M1@A", "M2@B"], "fidelity": "PRESERVES_DECISION_EFFECT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v3",
+      "effective_projection_subject_ref": "proj:v3",
+      "expected": "TRANSFER_OK"
+    },
+    {
+      "case_id": "PC04_dropped_contradiction",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": true, "role": "CONTRADICTION"}
+      ],
+      "projection_items": [
+        {"projection_ref": "P-M1", "covers_result_refs": ["M1@A"], "fidelity": "EXACT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v4",
+      "effective_projection_subject_ref": "proj:v4",
+      "expected": "REASSESS_REQUIRED"
+    },
+    {
+      "case_id": "PC05_exploratory_hits_trimmed",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "E1@A", "decision_material": false, "role": "EXPLORATORY"},
+        {"result_ref": "E2@A", "decision_material": false, "role": "EXPLORATORY"}
+      ],
+      "projection_items": [
+        {"projection_ref": "P-M1", "covers_result_refs": ["M1@A"], "fidelity": "EXACT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v5",
+      "effective_projection_subject_ref": "proj:v5",
+      "expected": "TRANSFER_OK"
+    },
+    {
+      "case_id": "PC06_nonmaterial_harmless_omission",
+      "decision_consequence": "NON_MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": false, "role": "CONTEXT"},
+        {"result_ref": "M2@B", "decision_material": false, "role": "CONTEXT"}
+      ],
+      "projection_items": [
+        {"projection_ref": "P-M1", "covers_result_refs": ["M1@A"], "fidelity": "EXACT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v6",
+      "effective_projection_subject_ref": "proj:v6",
+      "expected": "TRANSFER_OK"
+    },
+    {
+      "case_id": "PC07_projection_changed_after_assessment",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": true, "role": "LIMITATION"}
+      ],
+      "projection_items": [
+        {"projection_ref": "C1", "covers_result_refs": ["M1@A", "M2@B"], "fidelity": "PRESERVES_DECISION_EFFECT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v7-before",
+      "effective_projection_subject_ref": "proj:v7-after",
+      "expected": "REASSESS_REQUIRED"
+    },
+    {
+      "case_id": "PC08_unknown_material_fidelity",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": true, "role": "LIMITATION"}
+      ],
+      "projection_items": [
+        {"projection_ref": "C1", "covers_result_refs": ["M1@A", "M2@B"], "fidelity": "UNKNOWN"}
+      ],
+      "assessed_projection_subject_ref": "proj:v8",
+      "effective_projection_subject_ref": "proj:v8",
+      "expected": "REASSESS_REQUIRED"
+    },
+    {
+      "case_id": "PC09_exact_full_projection",
+      "decision_consequence": "MATERIAL",
+      "retrieved_results": [
+        {"result_ref": "M1@A", "decision_material": true, "role": "SUPPORT"},
+        {"result_ref": "M2@B", "decision_material": true, "role": "LIMITATION"}
+      ],
+      "projection_items": [
+        {"projection_ref": "P-M1", "covers_result_refs": ["M1@A"], "fidelity": "EXACT"},
+        {"projection_ref": "P-M2", "covers_result_refs": ["M2@B"], "fidelity": "EXACT"}
+      ],
+      "assessed_projection_subject_ref": "proj:v9",
+      "effective_projection_subject_ref": "proj:v9",
+      "expected": "TRANSFER_OK"
+    }
+  ]
+}

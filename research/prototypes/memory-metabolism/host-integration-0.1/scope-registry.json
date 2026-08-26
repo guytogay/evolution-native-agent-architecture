@@ -1,0 +1,64 @@
+{
+  "registry_version": "ena-memory-scope-registry-reference-0.1",
+  "scopes": [
+    {
+      "scope_id": "memory-contract",
+      "summary": "Memory layers, compiled learning, provenance, contradiction, supersession, current versus historical use, evidence availability and memory-set structural contract.",
+      "paths": [
+        "research/prototypes/memory-metabolism/README.md",
+        "research/prototypes/memory-metabolism/iteration-0.6/RECONCILIATION.md",
+        "research/prototypes/memory-metabolism/iteration-0.6/memory-set.schema.json"
+      ],
+      "neighbors": ["retrieval-obligation", "restore-continuity", "security-boundary"]
+    },
+    {
+      "scope_id": "retrieval-obligation",
+      "summary": "Unknown-known retrieval, generic R0 invocation reflex, retrieval obligations, cold scope discovery, no-hit semantics, query scope misses and retrieval sufficiency.",
+      "paths": [
+        "research/prototypes/memory-metabolism/RETRIEVAL-MODEL.md",
+        "research/prototypes/memory-metabolism/retrieval-obligation-0.3/README.md",
+        "research/prototypes/memory-metabolism/retrieval-obligation-0.3/retrieval-obligation.schema.json"
+      ],
+      "neighbors": ["memory-contract", "restore-continuity", "current-runtime-semantics"]
+    },
+    {
+      "scope_id": "restore-continuity",
+      "summary": "Restore, rollback, snapshot discontinuity, post-snapshot external effects, freshness anchors, memory continuity reconciliation and recovery after interruption.",
+      "paths": [
+        "research/prototypes/memory-metabolism/RESTORE-MODEL.md",
+        "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md",
+        "releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md"
+      ],
+      "neighbors": ["memory-contract", "retrieval-obligation", "current-runtime-semantics"]
+    },
+    {
+      "scope_id": "security-boundary",
+      "summary": "Information boundary, access, disclosure, declassification, sanitization, provenance confidentiality and Host-resolved security reference mechanisms.",
+      "paths": [
+        "research/prototypes/memory-metabolism/iteration-0.6/SECURITY-WAIST.md",
+        "research/prototypes/memory-metabolism/iteration-0.6/RECONCILIATION.md"
+      ],
+      "neighbors": ["memory-contract", "current-runtime-semantics"]
+    },
+    {
+      "scope_id": "current-runtime-semantics",
+      "summary": "ENA Current operational semantics including authority, capability, consequence, uncertainty, governance closure, continuity, applicability, effect-equivalent paths and Host boundaries.",
+      "paths": [
+        "releases/current/02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md",
+        "releases/current/04-CAPABILITY-MAP.md",
+        "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md"
+      ],
+      "neighbors": ["retrieval-obligation", "restore-continuity", "security-boundary", "evolution-metabolism"]
+    },
+    {
+      "scope_id": "evolution-metabolism",
+      "summary": "Variation, experiment, outcome selection, integration, adaptation migration, pruning, maturity, ecology and evolutionary metabolism semantics.",
+      "paths": [
+        "releases/current/09-EVOLUTION-METABOLISM.md",
+        "releases/current/04-CAPABILITY-MAP.md",
+        "releases/current/05-CORE-OPERATIONAL-CONTRACTS.md"
+      ],
+      "neighbors": ["current-runtime-semantics", "memory-contract"]
+    }
+  ]
+}

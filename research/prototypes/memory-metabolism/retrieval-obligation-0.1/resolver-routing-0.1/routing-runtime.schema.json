@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/research/memory-metabolism/resolver-routing-0.1/routing-runtime.schema.json",
+  "title": "ENA Resolver-Owned Routing Research Runtime 0.1",
+  "type": "object",
+  "required": ["schema_version", "requests", "attempts"],
+  "properties": {
+    "schema_version": {"const": "resolver-routing-research-0.1"},
+    "requests": {"type": "array", "items": {"$ref": "#/$defs/request"}},
+    "attempts": {"type": "array", "items": {"$ref": "#/$defs/attempt"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "request": {
+      "type": "object",
+      "required": ["request_id", "decision_id", "obligation_id", "resolver_ref", "decision_context_ref", "retrieval_purpose"],
+      "properties": {
+        "request_id": {"type": "string", "minLength": 1},
+        "decision_id": {"type": "string", "minLength": 1},
+        "obligation_id": {"type": "string", "minLength": 1},
+        "resolver_ref": {"type": "string", "minLength": 1},
+        "decision_context_ref": {"type": "string", "minLength": 1},
+        "retrieval_purpose": {"type": "string", "minLength": 1},
+        "material_dimensions": {"type": "array", "items": {"enum": ["AUTHORITY", "EXTERNAL_CONSEQUENCE", "RECOVERY", "DECISION_CORRECTNESS", "CONTINUITY", "OTHER"]}, "uniqueItems": true}
+      },
+      "additionalProperties": false
+    },
+    "attempt": {
+      "type": "object",
+      "required": ["attempt_id", "request_id", "searched_scope_refs", "coverage", "result", "returned_record_ids"],
+      "properties": {
+        "attempt_id": {"type": "string", "minLength": 1},
+        "request_id": {"type": "string", "minLength": 1},
+        "searched_scope_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "coverage": {"enum": ["DECLARED_ROUTE_COMPLETE", "PARTIAL", "UNKNOWN"]},
+        "result": {"enum": ["HIT", "NO_HIT", "FAILED"]},
+        "returned_record_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "protocol_version": "memory-naturalistic-validation-research-0.1",
+  "observation_id": "field-YYYYMMDD-NNN",
+  "evidence_class": "CONTEXT_CONTAMINATED_FIELD",
+  "host_profile": {
+    "host_ref": "host:replace-me",
+    "resolver_organ_ref": "resolver:replace-me",
+    "hot_catalog_exposure": "UNKNOWN",
+    "notes": "Choose PRIMARY/INDEPENDENT only when hot project context is genuinely bounded."
+  },
+  "task": {
+    "task_ref": "task:replace-me",
+    "natural_task": true,
+    "task_summary": "Replace with the ordinary task that motivated this work.",
+    "task_source_ref": "source:replace-me"
+  },
+  "retrieval_trace": [],
+  "later_challenges": [],
+  "assessment": {
+    "status": "UNASSESSED",
+    "failure_stage": "UNRESOLVED",
+    "basis_refs": [],
+    "notes": "No later challenge evidence has yet established success or failure."
+  },
+  "utility_observation": {
+    "decision_effect": "UNKNOWN",
+    "basis_refs": [],
+    "notes": "Positive utility is recorded only when retrieval visibly changes the real task decision."
+  },
+  "cost_observation": {
+    "resolver_calls": 0,
+    "scopes_touched": 0,
+    "records_returned": 0,
+    "expansion_steps": 0,
+    "cost_comment": "Optional operational observation; not a universal fitness score."
+  }
+}

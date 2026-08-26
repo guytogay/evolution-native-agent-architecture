@@ -1,0 +1,14 @@
+[
+  {"scope_ref":"S01","name":"rollout-release-history","description":"Prior deployment/rollout decisions, maintenance windows, release constraints, canary/rollback conventions, and production-change gotchas."},
+  {"scope_ref":"S02","name":"recovery-incident-practice","description":"Restore/restart/recovery procedures, incident lessons, recovery caveats, and known safe continuation practices."},
+  {"scope_ref":"S03","name":"external-effects-settlement","description":"External writes/effects, idempotency, partial commit state, queues, duplicate-effect prevention, settlement and reconciliation history."},
+  {"scope_ref":"S04","name":"failure-investigations","description":"Prior root-cause investigations, recurring signatures, failed hypotheses, workarounds, and compiled failure patterns."},
+  {"scope_ref":"S05","name":"tool-environment-compatibility","description":"Host/tool/runtime/model/version compatibility assumptions, upgrade notes, integration quirks, and environment-specific adaptations."},
+  {"scope_ref":"S06","name":"retention-obligations","description":"Retention rules, legal/business holds, deletion exceptions, ownership obligations, archival requirements, and historical eligibility constraints."},
+  {"scope_ref":"S07","name":"workflow-exceptions-conventions","description":"Established project/business workflow conventions, recurring exceptions, handoffs, sequence requirements, and non-obvious operating practices."},
+  {"scope_ref":"S08","name":"terminology-language-conventions","description":"Established product/project terminology, naming conventions, translation choices, language-specific semantic mappings, and style decisions."},
+  {"scope_ref":"S09","name":"operational-calibration-baselines","description":"Threshold rationale, normal ranges, longitudinal baselines, alert calibration, performance expectations, and tuning history."},
+  {"scope_ref":"S10","name":"mandate-purpose-history","description":"Durable project purpose/mandate assumptions, historical scope boundaries, delegation context, and policy rationale; not a substitute for current authority."},
+  {"scope_ref":"S11","name":"schema-data-migration-history","description":"Prior schema/data migrations, rollback reasons, compatibility findings, sequencing requirements, and data-shape transition lessons."},
+  {"scope_ref":"S12","name":"architecture-dependencies","description":"Project architecture constraints, dependency relationships, shared-resource topology, integration contracts, and dependency-change consequences."}
+]

@@ -1,0 +1,44 @@
+name: Authority Lease Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/authority-lease/**'
+      - 'research/prototypes/effect-lifecycle/**'
+      - '.github/workflows/authority-lease-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authority-lease-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile Authority Lease tools
+        run: |
+          python -m py_compile \
+            research/prototypes/authority-lease/tools/validate_authority_lease.py \
+            research/prototypes/authority-lease/tools/selftest_authority_lease.py
+
+      - name: Run Authority Lease adversarial and composition selftest
+        run: python research/prototypes/authority-lease/tools/selftest_authority_lease.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_AUTHORITY_GRANT_QUERY_TIME_SCOPE_AND_EFFECT_LIFECYCLE_COMPOSITION_ONLY'
+          echo 'EXTERNAL_MANDATE_AUTHENTICITY=UNPROVEN'
+          echo 'CREDENTIAL_EXTERNAL_VALIDITY=UNPROVEN'
+          echo 'AUTHORITY_REQUIRED_CLASSIFICATION=CALLER_TRUST_BOUNDARY'
+          echo 'EFFECT_RECORD_VALID_PLUS_AUTHORITY_REF_PRESENT!=AUTHORITY_CURRENTLY_RESOLVED'
+          echo 'EPOCH_BINDING=OPTIONAL_UNLESS_SELECTED_GRANT_IS_EPOCH_SCOPED'
+          echo 'UNIVERSAL_TRAJECTORY_EPOCH_ORGAN=NOT_REQUIRED_BY_THIS_PROTOTYPE'
+          echo 'FIXTURE_CARDINALITY=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES'
+          echo 'CURRENT_CHANGE=NO'

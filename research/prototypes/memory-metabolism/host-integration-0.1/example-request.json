@@ -1,0 +1,4 @@
+{
+  "query": "restoring an old snapshot when external effects may have continued after the snapshot",
+  "max_initial_scopes": 2
+}

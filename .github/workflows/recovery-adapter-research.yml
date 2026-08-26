@@ -1,0 +1,46 @@
+name: Recovery Adapter Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/recovery-adapter/**'
+      - 'research/prototypes/effect-lifecycle/**'
+      - 'research/prototypes/authority-lease/**'
+      - '.github/workflows/recovery-adapter-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recovery-adapter-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile Recovery Adapter tools
+        run: |
+          python -m py_compile \
+            research/prototypes/recovery-adapter/tools/validate_recovery_adapter.py \
+            research/prototypes/recovery-adapter/tools/selftest_recovery_adapter.py
+
+      - name: Run Recovery Adapter adversarial and composition selftest
+        run: python research/prototypes/recovery-adapter/tools/selftest_recovery_adapter.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_RESCUE_RESTORE_PLUS_EFFECT_LIFECYCLE_AND_AUTHORITY_LEASE_COMPOSITION_ONLY'
+          echo 'CHECKPOINT_EXISTS!=RECOVERY_PROVEN'
+          echo 'RESTORE_SUCCESS!=SAFE_RESUME'
+          echo 'EXTERNAL_RECOVERY_TRUTH=UNPROVEN'
+          echo 'EXTERNAL_EFFECT_TRUTH=INHERITS_EFFECT_LIFECYCLE_BOUNDARY'
+          echo 'EXTERNAL_AUTHORITY_TRUTH=INHERITS_AUTHORITY_LEASE_BOUNDARY'
+          echo 'INDEPENDENT_RESCUE_REQUIRED=CALLER_TRUST_BOUNDARY'
+          echo 'RESTORE_DRILL_REQUIRED=CALLER_TRUST_BOUNDARY'
+          echo 'FIXTURE_CARDINALITY=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES'
+          echo 'CURRENT_CHANGE=NO'

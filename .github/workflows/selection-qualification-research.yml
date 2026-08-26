@@ -1,0 +1,50 @@
+name: Selection Qualification Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/selection-qualification/**'
+      - 'releases/current/schemas/evolution-record.v2.schema.json'
+      - 'releases/current/templates/evolution-record.v2.json'
+      - 'releases/current/tools/validate_evolution_record_v2.py'
+      - '.github/workflows/selection-qualification-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selection-qualification-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Current validator dependency
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Compile Selection Qualification tools
+        run: |
+          python -m py_compile \
+            research/prototypes/selection-qualification/tools/validate_selection_qualification.py \
+            research/prototypes/selection-qualification/tools/selftest_selection_qualification.py
+
+      - name: Run Selection Qualification adversarial and Current-composition selftest
+        run: python research/prototypes/selection-qualification/tools/selftest_selection_qualification.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_SELECTION_QUALIFICATION_PLUS_CURRENT_V2_COMPOSITION_ONLY'
+          echo 'CURRENT_V2_EMPTY_ENVIRONMENT_SUPPORTED_REACHABILITY=EXPECTED_AND_REPRODUCED'
+          echo 'UNQUALIFIED_SELECTION!=SELECTION_FALSE'
+          echo 'QUALIFICATION_UNKNOWN!=BLOCK_ALL_USE'
+          echo 'EXTERNAL_SCOPE_COMPLETENESS=UNPROVEN'
+          echo 'SELECTION_TRUTH=UNPROVEN'
+          echo 'SCOPE_BASIS_REFERENCE_AUTHENTICITY=UNPROVEN'
+          echo 'SOURCE_SELECTION_IS_RECEIVER_LOCAL_PROOF=FALSE'
+          echo 'FIXTURE_CARDINALITY=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES'
+          echo 'CURRENT_CHANGE=NO'

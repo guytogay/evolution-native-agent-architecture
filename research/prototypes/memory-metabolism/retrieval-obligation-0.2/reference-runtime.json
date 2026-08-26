@@ -1,0 +1,70 @@
+{
+  "schema_version": "memory-retrieval-obligation-research-0.2",
+  "decisions": [
+    {
+      "decision_id": "deploy-42",
+      "consequence": "MATERIAL",
+      "disposition": "READY",
+      "uncertainty_declared": false
+    }
+  ],
+  "trigger_events": [
+    {
+      "trigger_id": "trigger-42",
+      "decision_id": "deploy-42",
+      "basis": "GENERIC_REFLEX",
+      "resolver_ref": "project-memory-resolver"
+    }
+  ],
+  "retrieval_intents": [
+    {
+      "intent_id": "intent-42",
+      "decision_id": "deploy-42",
+      "trigger_ids": ["trigger-42"],
+      "resolver_ref": "project-memory-resolver",
+      "decision_context_ref": "decision-context:deploy-42",
+      "need_basis": "DURABLE_STATE_MAY_CHANGE_DECISION"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "obligation-42",
+      "decision_id": "deploy-42",
+      "intent_id": "intent-42",
+      "resolver_ref": "project-memory-resolver",
+      "state": "CLOSED",
+      "closure": {
+        "disposition": "RETRIEVAL_USED",
+        "basis_discovery_id": "scope-discovery-42",
+        "basis_attempt_ids": ["attempt-42"]
+      }
+    }
+  ],
+  "scope_discoveries": [
+    {
+      "discovery_id": "scope-discovery-42",
+      "obligation_id": "obligation-42",
+      "sequence": 1,
+      "resolver_ref": "project-memory-resolver",
+      "registry_snapshot_ref": "registry-snapshot:example-v1",
+      "selected_scope_refs": ["scope:deployment-and-recovery"],
+      "outcome": "SCOPES_SELECTED",
+      "coverage": "PARTIAL",
+      "receipt_ref": "scope-receipt:42"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_id": "attempt-42",
+      "obligation_id": "obligation-42",
+      "discovery_id": "scope-discovery-42",
+      "scope_ref": "scope:deployment-and-recovery",
+      "sequence": 1,
+      "resolver_ref": "project-memory-resolver",
+      "outcome": "HIT",
+      "coverage": "PARTIAL",
+      "returned_record_ids": ["compiled-memory:maintenance-window-check"],
+      "receipt_ref": "retrieval-receipt:42"
+    }
+  ]
+}

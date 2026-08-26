@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ena/research/memory-metabolism/retrieval-obligation-0.1/evaluation-schema.json",
+  "title": "ENA Memory Retrieval Evaluation Trace Research 0.1",
+  "type": "object",
+  "required": ["schema_version", "evaluation_id", "decision_id", "oracle_retrieval_needed", "trigger_fired", "query_scope_adequate", "resolver_execution", "oracle_relevant_record_ids", "returned_record_ids", "projected_record_ids", "applied_record_ids", "failure_stage"],
+  "properties": {
+    "schema_version": {"const": "memory-retrieval-evaluation-research-0.1"},
+    "evaluation_id": {"type": "string", "minLength": 1},
+    "decision_id": {"type": "string", "minLength": 1},
+    "oracle_retrieval_needed": {"enum": ["YES", "NO", "UNKNOWN"]},
+    "trigger_fired": {"type": "boolean"},
+    "query_scope_adequate": {"enum": ["YES", "NO", "UNKNOWN", "NOT_APPLICABLE"]},
+    "resolver_execution": {"enum": ["NOT_INVOKED", "FAILED", "SUCCEEDED"]},
+    "oracle_relevant_record_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "returned_record_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "projected_record_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "applied_record_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "failure_stage": {"enum": ["NOT_REQUIRED", "FALSE_POSITIVE_TRIGGER", "TRIGGER_FALSE_NEGATIVE", "RESOLVER_NOT_INVOKED", "QUERY_SCOPE_MISS", "QUERY_SCOPE_UNKNOWN", "RESOLVER_FAILURE", "RESOLVER_FALSE_NEGATIVE", "PROJECTION_DROP", "APPLICATION_FAILURE", "SUCCESS", "ORACLE_UNKNOWN"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

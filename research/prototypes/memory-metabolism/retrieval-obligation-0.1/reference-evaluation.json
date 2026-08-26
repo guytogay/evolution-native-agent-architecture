@@ -1,0 +1,14 @@
+{
+  "schema_version": "memory-retrieval-evaluation-research-0.1",
+  "evaluation_id": "eval-1",
+  "decision_id": "deploy-1",
+  "oracle_retrieval_needed": "YES",
+  "trigger_fired": true,
+  "query_scope_adequate": "YES",
+  "resolver_execution": "SUCCEEDED",
+  "oracle_relevant_record_ids": ["compiled:maintenance-window-check"],
+  "returned_record_ids": ["compiled:maintenance-window-check"],
+  "projected_record_ids": ["compiled:maintenance-window-check"],
+  "applied_record_ids": ["compiled:maintenance-window-check"],
+  "failure_stage": "SUCCESS"
+}
