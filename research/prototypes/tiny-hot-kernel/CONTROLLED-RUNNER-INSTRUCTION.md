@@ -29,7 +29,7 @@ For the cleanest first comparison, use one fresh context per case.
 
 Resident ENA material in that context = exactly one candidate kernel.
 
-Do not add a system hint such as `use ENA when relevant`.
+Do not add a system hint such as `use ENA if relevant`.
 
 Present the case prompt as an ordinary user task.
 
@@ -67,10 +67,13 @@ Allowed `retrieval_status`:
 
 `NOT_ATTEMPTED | SUCCESS | PARTIAL | FAILED`
 
+Every case result must carry the same kernel identity as the run manifest. Mixed-kernel result files are rejected by the scorer.
+
 For a quiet case:
 
 ```json
 {
+  "kernel": "K-A",
   "trigger": false,
   "matched_route_ids": [],
   "families": [],
@@ -100,15 +103,22 @@ date/time
 known contamination or prior ENA exposure
 ```
 
-Do not put this metadata into every case response if the Host makes that expensive; one run manifest is enough.
+Do not put all metadata into every case response if the Host makes that expensive; kernel identity remains per-case because it binds the scored observation to the phenotype under test.
 
 ## Scoring
 
 After the run is complete and frozen, provide the result JSONL to:
 
 ```text
-python tools/score_tiny_kernel_results.py --results <run-results.jsonl> --strict
+python tools/score_tiny_kernel_results.py \
+  --results <run-results.jsonl> \
+  --expected-kernel K-A \
+  --strict
 ```
+
+Substitute the actual run kernel.
+
+The scorer rejects any case whose `kernel` field does not equal `--expected-kernel`.
 
 Only the maintainer/scoring environment should combine results with `tiny-kernel-cases.jsonl`.
 
