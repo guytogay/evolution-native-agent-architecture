@@ -1,241 +1,154 @@
-schema_version: "0.4"
-as_of: "2026-08-26"
-status: ACTIVE_RECONSTRUCTION_TO_RELEASE
+schema_version: "1.2"
+as_of: "2026-08-27"
+status: ACTIVE_OPERATIONAL_ARCHITECTURE_ASSEMBLY
+
+# Hot state only. Detailed history belongs in Git, Issues, audits, prototypes, procedures, patterns, and evidence records.
+progress_is_complete_history: false
 
 canonical_pointers:
-  project_hub: PROJECT-HUB.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   active_research_pointer: research/ACTIVE-RESEARCH.yaml
-  research_bootstrap: research/RESEARCH-START-HERE.md
-  research_directory_map: research/README.md
-  methodology_index: research/methodology/README.md
-  master_methodology: research/methodology/ENA-RESEARCH-DISCIPLINE.md
-  alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-  how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
-  cardinality_guard: research/methodology/CARDINALITY-DISCOVERY-GUARD.md
-  session_continuity: research/methodology/SESSION-CONTINUITY-AND-COLLABORATION.md
-  method_changelog: research/methodology/METHOD-CHANGELOG.md
+  methodology: research/methodology/README.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
-  external_how_index: research/external-how/README.md
-  external_how_registry: research/external-how/SOURCE-REGISTRY.md
-  latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
-  latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
-  research_generation_record: research/reconstruction/RESEARCH-GENERATION-2026-08-26.md
-  predecessor_checkpoint_pr: "#82"
-  successor_bootstrap_pr: "#101"
+  assembly_root: research/operational-architecture/README.md
+  cue_index: research/operational-architecture/CUE-INDEX.md
+  architecture_map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
+  reference_pointer_matrix: research/operational-architecture/REFERENCE-POINTER-MATRIX.md
+  continuity_procedure: research/operational-architecture/procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md
+  standing_procedure: research/operational-architecture/procedures/STANDING-INPUT-PROCEDURE.md
+  control_retirement_procedure: research/operational-architecture/procedures/CONTROL-RETIREMENT-PROCEDURE.md
+  commons_patterns: research/operational-architecture/COMMONS-TRANSPORT-AND-DISCOVERY-PATTERNS.md
+  execution_depth_audit_002: research/operational-architecture/EXECUTION-DEPTH-AUDIT-002.md
+  procedure_audit_002: research/operational-architecture/PROCEDURE-AUDIT-002.md
+  external_how_harvest: research/external-how/harvests/2026-08-27-COMMONS-AND-CONTROL-RETIREMENT-HOW.md
   reconstruction_ledger: "#89"
+  archaeology_tracker: "#104"
+  active_checkpoint_pr: "#109"
 
-current_adoption_observed_at_alignment:
+current_adoption:
   version: v0.3.6
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  source_of_truth: releases/current/CURRENT-BASELINE.yaml
-  note: ALWAYS_REVERIFY_FROM_DEFAULT_BRANCH
+  research_authorizes_current_mutation: false
 
 research_workspace:
   branch: research/ena-reconstruction
   continuation_authority: MAIN_VISIBLE_BRANCH_POINTER
-  open_pull_request_required: false
-  pull_request_discovery: SEARCH_OPEN_PR_BY_HEAD_BRANCH_AND_BASE_MAIN
   head_identity_policy: LIVE_REVERIFY_BEFORE_WRITE
-  predecessor_branch: research/memory-metabolism-prototype
-  predecessor_checkpoint_pr: 82
-  predecessor_state: CHECKPOINTED_TO_MAIN / RETIRED_REF_DELETED
-  predecessor_ref_present: false
-  successor_bootstrap_pr: 101
-  successor_bootstrap_state: MERGED_TO_MAIN
-  current_mutation_authorized_by_research: false
 
-alignment_gate:
-  state: COMPLETE_FOR_CURRENT_CONTROL_PLANE
-  last_alignment_reason: >-
-    Final branch cleanup and successor-control-plane reconciliation changed topology,
-    continuation semantics, directory routing, and project planning surfaces. A full
-    alignment pass was required before returning to substantive ENA reconstruction.
-  required_checks_completed:
-    - Current reverified as v0.3.6 / CURRENT / FIELD_VALIDATION
-    - live long-lived branch topology reverified as main + research/ena-reconstruction
-    - deleted predecessor branch retained only as historical lineage
-    - active research authority aligned to main-visible branch pointer rather than PR/SHA identity
-    - PROJECT-HUB / research README / active bootstrap routing aligned
-    - canonical methodology aligned and Project State Alignment Gate added
-    - master plan aligned to current phase state
-    - fast-moving Progress aligned to actual next work
-  trigger_rule: >-
-    Run before substantive research resumes after a material handoff, branch/control-plane
-    change, methodology change, master-plan change, release-state change, directory routing
-    change, or other transition capable of making project-state surfaces disagree.
-  not_required_for_every_minor_commit: true
-  closure_rule: >-
-    Current, live repository state, routing, methodology, master plan, progress, and
-    next actions tell one mutually consistent story without requiring branch/PR guessing.
-
-release_goal:
-  state: PLANNED
-  target: NEXT_CURRENT_RELEASE
-  version: UNASSIGNED_UNTIL_RELEASE_SCOPE_STABILIZES
-  forced_version_increment: false
-  promotion_authorized_now: false
-
-phases:
-  repo_information_architecture:
-    state: BASELINE_ESTABLISHED_ALIGNED_AND_READBACK_VERIFIED
-    evidence:
-      - main exposes one Current adoption pointer and one active research branch pointer
-      - live long-lived branches are main and research/ena-reconstruction
-      - research/memory-metabolism-prototype is deleted after checkpoint and preserved only as lineage
-      - PROJECT-HUB.md and research/README.md route continuation through main control plane
-      - research/methodology/ is the canonical cross-session research-method surface
-      - research/plans/ carries stable master plan and fast-moving progress state
-      - PR #82 checkpointed the predecessor reconstruction generation into main
-      - PR #101 checkpointed successor branch/control-plane bootstrap into main
-      - PR identity is transient and open PR is not required for active branch authority
-      - active branch head is live-reverified before writes rather than embedded as identity
-    residual: >-
-      Continue opportunistic cleanup only when it prevents real routing or interpretation
-      drift. Do not turn directory neatness into a release blocker.
-
+phase_state:
   anti_ablation_archaeology:
-    state: ACTIVE
-    anchors:
-      - "#88"
-      - "#89"
-      - research/reconstruction/MECHANISM-RETENTION-LEDGER.md
-      - research/reconstruction/DEGRADATION-AUDIT-2026-08-26.md
-    closure_rule: >-
-      Continue while another bounded archaeology pass can reveal a material missing
-      lineage likely to change the engineering map. Do not use a fixed topic count.
+    state: RECOVERY_SUFFICIENT_FOR_ASSEMBLY_REOPENABLE
+    completeness_claimed: false
 
   how_branch_expansion:
-    state: ACTIVE
-    method: research/methodology/HOW-GROWTH-DISCIPLINE.md
-    represented_families_include:
-      - Memory Metabolism
-      - Retrieval Obligation
-      - Tiny Hot Kernel / Semantic Router
-      - Effect Lifecycle
-      - Authority Grant / Lease
-      - Recovery Adapter
-      - Commitment / Settlement research
-      - execution-fencing/idempotency HOW family
-      - Contested Authorship
-      - Distributed History Merge
-      - Evidence Dependency Map
-      - Generic Evidence Envelope
-    inventory_is_exhaustive: false
+    state: ACTIVE_DURING_ASSEMBLY
+    rule: COMPRESS_SEMANTIC_TRUNK_LET_CONCRETE_HOWS_BRANCH
 
   external_how_harvest:
-    state: ACTIVE_WITH_MULTIPLE_MAPPED_HARVESTS
-    initial_verified_source_families:
-      - LangGraph
-      - Temporal
-      - OpenAI Agents SDK
-      - Letta
-      - Microsoft Agent Framework
-      - A2A Protocol
-      - Anthropic multi-agent engineering
-      - Mem0
-      - AI developer community field reports
-      - Hazelcast FencedLock
-      - Stripe idempotency
-      - Kubernetes resourceVersion / optimistic concurrency
-      - AWS Step Functions execution guarantees
-    mapped_into_workstreams:
-      - "#90 memory/runtime/cognition"
-      - "#91 authority/effects/recovery/settlement"
-      - "#93 ecology/coordination"
-    rule: >-
-      Search current AI frameworks, memory systems, durable workflow systems, agent
-      protocols, research organizations, AI communities, and adjacent engineering
-      domains; map mechanisms to ENA failure models before selection.
-    inventory_is_exhaustive: false
-
-  host_binding:
-    state: PARTIAL
-    known_host_evidence:
-      - Hermes
-      - OpenClaw
-      - WorkBuddy
-    candidate_external_host_patterns:
-      - LangGraph
-      - Temporal
-      - OpenAI Agents SDK
-      - Letta
-      - Microsoft Agent Framework
-      - A2A-compatible agents
-      - provider-native idempotency targets
-      - target-side fencing/conditional-write systems
-    note: HOST_LIST_IS_OPEN_CARDINALITY
-
-  cross_organ_composition:
-    state: ACTIVE_WITH_EXECUTION_FENCING_GAP_ESTABLISHED
-    known_examples:
-      - Memory Metabolism x Retrieval x Decision Projection
-      - Recovery x Authority x Effect Lifecycle
-      - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
-    established_gap:
-      statement: >-
-        A unique represented current executor, valid authority, coherent effect record,
-        and safe-resume decision do not by themselves physically prevent a stale
-        executor from causing an external effect through an effective path.
-      shorthand: UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_FENCED
-      universal_organ_shape_established: false
-    concrete_candidate_hows:
-      - provider effect-id idempotency
-      - target-side assignment-generation fencing token
-      - conditional external version / optimistic concurrency
-      - durable single logical workflow execution
-      - authoritative status query before retry
-      - single controlled effect gateway
-      - compensation/manual reconciliation
-      - unsafe-unknown -> WAIT/NARROW/ESCALATE
-    next_high_value_seams:
-      - deterministic fixtures for stale executor and positive fencing/idempotency controls
-      - Tiny Hot Kernel x exact cold retrieval x memory blocks/session compaction x language projection
-      - Identity/lineage x commitment x reputation
-      - Evolution Commons x A2A task/message/artifact lifecycle
+    state: ACTIVE_ON_DEMAND
+    latest_result:
+      - A2A retained as active Agent discovery/task/artifact HOW, not durable Commons replacement
+      - OCI Distribution retained as content-addressed durable Commons substrate relative
+      - feature-flag lifecycle retained as control-retirement mechanism analogy
+    selection_proof: false
 
   operational_architecture_assembly:
-    state: NOT_READY
-    blocker: >-
-      Reconstruction and HOW ecology are not yet sufficiently recovered and reconciled
-      to define the adopter-facing operational architecture without premature compression.
+    state: BREADTH_PASS_2_ESTABLISHED
+    routing_chain:
+      - ordinary problem / decision cue
+      - consequence-first pre-router
+      - CUE-INDEX
+      - OPERATIONAL-ARCHITECTURE-MAP node(s)
+      - plural HOW branch(es)
+      - REFERENCE-POINTER-MATRIX
+      - durable prototype / bounded procedure / pattern / Host mechanism
+      - concrete action or honest gap
+
+    established_results:
+      - map, cue layer, pointer layer and bounded procedures form a continuous static navigation chain
+      - missing pointers were distinguished from missing organs
+      - purpose-relative continuity and Standing Input were narrowed without universal schemas
+      - Runtime Routing already has a semantic-router/Tiny-Hot-Kernel machine surface
+      - Runtime Routing remaining uncertainty is Host adapter + natural salience
+      - Adoption/Language structural and fixture surface already exists; behavioral decision equivalence remains field evidence
+      - Evolution Commons semantic carrier is distinct from durable registry/discovery substrate and live Agent task protocol
+      - Commons HOW branches now include Git/repository, OCI-style registry, object-store index, direct transfer, and A2A active coordination
+      - Minimum Sufficient Intervention already contains governance-debt/control-retirement WHAT/WHY
+      - bounded Control Retirement procedure now supplies concrete de-escalation/retirement HOW without arbitrary thresholds
+      - Control Retirement and Commons patterns survived authored static false-OK/false-BLOCK cases
+
+    bounded_procedure_families:
+      purpose_relative_continuity:
+        state: AUTHORED_STATIC_SUPPORTED_FIELD_OPEN
+        machine_schema: NOT_JUSTIFIED
+      standing_input:
+        state: AUTHORED_STATIC_SUPPORTED_FIELD_OPEN
+        machine_schema: NOT_JUSTIFIED
+      control_retirement:
+        state: AUTHORED_STATIC_SUPPORTED_FIELD_OPEN
+        machine_schema: NOT_JUSTIFIED
+        universal_threshold: NOT_JUSTIFIED
+
+    pattern_families:
+      commons_transport_and_discovery:
+        state: AUTHORED_STATIC_SUPPORTED
+        universal_protocol: NOT_JUSTIFIED
+        active_protocol_distinct_from_durable_commons: true
+
+    intentionally_evidence_open_families:
+      - natural Tiny Kernel cue salience
+      - long-run Memory Compiler behavior
+      - language decision equivalence across model/Host/language
+      - reputation rehabilitation policy/value
+      - control retirement outcomes under real changing ecology
+      - culture/specialization/resource pressure
+      - discretionary exploration
+      - verification-as-service ecology
+
+    next_gap_discovery_rule: >-
+      Continue breadth-first only where a remaining node lacks a usable pointer/procedure/pattern.
+      Prefer Host/field/mesocosm evidence when static execution depth is already sufficient.
 
   release_scope_reconciliation:
-    state: NOT_STARTED
-    prerequisite: OPERATIONAL_ARCHITECTURE_ASSEMBLY_READY
+    state: NOT_STARTED_BUT_APPROACHING_ENTRY_GATE
+    entry_question: >-
+      Is the operational architecture now traversable enough to classify research outputs into
+      adopter guidance, reference organs, Host adapters, experimental branches, dormant lineage,
+      maintenance/tooling changes, and actual Current semantic deltas without losing material HOW variation?
 
   candidate_build_and_validation:
     state: NOT_STARTED
-    prerequisite: RELEASE_SCOPE_STABLE
 
   promotion:
     state: NOT_STARTED
-    prerequisite: CANDIDATE_VALIDATED_AND_RELEASE_READY
 
-methodology_incidents:
-  - path: research/incidents/SESSION-INHERITANCE-GAP-2026-08-26.md
-    lesson: DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
-  - lesson: CONTROL_PLANE_FIELDS_MUST_NOT_CREATE_SELF_REFERENTIAL_STALENESS
-    evidence: >-
-      PR-number-bound continuation authority and embedded active-branch head SHAs created
-      avoidable synchronization recursion during the branch-generation transition.
-  - lesson: ALIGN_BEFORE_RESUME_AFTER_MATERIAL_PROJECT_TRANSITION
-    evidence: >-
-      Branch cleanup and control-plane changes showed that individually correct files can
-      become mutually inconsistent unless method, routing, plan, and progress are checked
-      together before substantive work resumes.
+ci_checkpoint:
+  pull_request: "#109"
+  prior_head: af1686d0c57b3040cdc4952c48b0cdaabc8f15d7
+  prior_head_actual_workflows:
+    Progressive_Evolution_Record_Research: SUCCESS
+    Commitment_Settlement_Research: SUCCESS
+    CodeQL: SUCCESS
+    Lineage_Compaction_Research: SUCCESS
+    Lineage_Compaction_Retrieval_Composition: SUCCESS
+    Validate_ENA_research_records: SUCCESS
+    Execution_Surface_Fencing_Research: SUCCESS
+    Main_Gate: SUCCESS
+  prior_head_release_current_diff_files: 0
+  merge_authorized_for_prior_head: true
+  new_head_after_this_update_requires_fresh_ci: true
+  evidence_rule: >-
+    Only executed completed workflow conclusions count. Never narrate queued/cancelled/startup states as prototype verdicts.
 
 next_actions:
-  - resume anti-ablation archaeology from the recovered variation map; do not select only the most visible prototype
-  - repair/finish Commitment/Settlement prototype without conflating assignment truth with physical fencing
-  - add deterministic cross-organ stale-executor false-OK fixtures and positive fencing/idempotency controls
-  - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
-  - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
-  - continue fresh external HOW search when an engineering gap lacks adequate concrete branches
-  - run stochastic/field experiments only where reality can reveal structure not already derivable
-  - start operational architecture assembly only when archaeology/branch recovery is sufficient for that decision
-  - update this file after material state changes and run the alignment gate before resuming after material project transitions
+  - persist breadth-pass-2 audit, Commons pattern, Control Retirement procedure and external HOW harvest in one DAG commit
+  - let PR #109 execute on the quiet new head and inspect real workflow conclusions
+  - add #89/#93 durable notes for Commons layering and Control Retirement results
+  - perform one release-scope entry-gate audit: classify every Operational Architecture node by adopter-facing disposition without changing Current
+  - if entry-gate audit is traversable and no material HOW family is silently dropped, begin release-scope reconciliation
+  - keep field/mesocosm-only questions out of schema theater
+  - do not assign a next version until release-scope reconciliation demonstrates actual release contents
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
@@ -245,8 +158,14 @@ invariants:
   - WORKING_TAXONOMY_IS_NOT_ONTOLOGY
   - EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
   - EXTERNAL_POPULARITY_IS_NOT_SELECTION_PROOF
-  - HANDOFF_SUMMARY_IS_NOT_PROJECT_STATE
-  - ACTIVE_RESEARCH_AUTHORITY_IS_BRANCH_POINTER
-  - OPEN_PR_IS_TRANSIENT_INTEGRATION_ARTIFACT
-  - ACTIVE_HEAD_SHA_MUST_BE_LIVE_REVERIFIED
-  - ALIGN_BEFORE_RESUME_AFTER_MATERIAL_TRANSITION
+  - RECOVERY_SUFFICIENT_FOR_ASSEMBLY_NE_ARCHAEOLOGY_COMPLETE_FOREVER
+  - ASSEMBLY_NE_CURRENT_PROMOTION
+  - POINTER_MISSING_NE_ORGAN_MISSING
+  - REFERENCE_ORGAN_EXISTS_NE_UNIVERSAL_APPLICABILITY
+  - REFERENCE_PROCEDURE_AUTHORED_NE_MACHINE_SCHEMA_REQUIRED
+  - ACTIVE_PROTOCOL_NE_DURABLE_COMMONS
+  - ADAPTATION_PACKET_NE_COMMONS_REGISTRY
+  - LOW_USAGE_NE_USELESS_CONTROL
+  - NO_INCIDENT_NE_CONTROL_NOT_NEEDED
+  - RETIRE_CONTROL_NE_RETIRE_UNDERLYING_INVARIANT
+  - STRUCTURAL_LANGUAGE_PARITY_NE_BEHAVIORAL_DECISION_EQUIVALENCE

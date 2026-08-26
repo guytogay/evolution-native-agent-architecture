@@ -1,0 +1,31 @@
+{
+  "schema_version": "commitment-settlement-recovered-0.2",
+  "status": "RESEARCH_PROTOTYPE / RECOVERED_RECONSTRUCTION / NOT_CURRENT / NOT_RELEASE_CANDIDATE",
+  "recovery_boundary": "Reconstructed from durable README and Issue #91 semantics after the earlier local prototype was found not to be durably present in GitHub. Not byte-identical recovery.",
+  "core_separations": [
+    "obligation_subject_ref != executor_ref",
+    "executor reassignment != obligation transfer",
+    "lease expiry/revocation/supersession != settlement/cancellation",
+    "represented active assignment != stale executor physically fenced",
+    "represented settlement evidence != authenticated external settlement"
+  ],
+  "commitment_status": ["OPEN", "WAITING", "PARTIAL", "UNKNOWN", "SETTLED", "CANCELLED", "TRANSFERRED"],
+  "assignment_status": ["ACTIVE", "SUPERSEDED", "REVOKED", "EXPIRED", "SETTLED"],
+  "partition_mode": ["INDIVISIBLE", "PARTITIONED"],
+  "obligation_transfer_status": ["PROPOSED", "ACCEPTED", "REJECTED"],
+  "reference_next_actions": [
+    "CONTINUE_WITH_CURRENT_ASSIGNMENT",
+    "ASSIGN_OR_WAIT",
+    "RECONCILE_SETTLEMENT",
+    "VERIFY_TRANSFER_AND_LOCAL_BINDING",
+    "NO_OBLIGATION_ACTION",
+    "REJECT_INCONSISTENT_RECORD"
+  ],
+  "verification_boundary": [
+    "represented assignment/settlement consistency only",
+    "external authority truth unproven",
+    "target-side fencing unproven",
+    "counterparty acceptance authenticity unproven",
+    "real-world partition disjointness unproven"
+  ]
+}
