@@ -1,0 +1,310 @@
+name: ENA v0.3.7 Candidate Exact Pre-Freeze Gate
+
+on:
+  push:
+    branches: [candidate/v0.3.7-candidate.0]
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/scripts/v037_candidate_author_attacks.py'
+      - '.github/workflows/v037-candidate-prefreeze.yml'
+  pull_request:
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/scripts/v037_candidate_author_attacks.py'
+      - '.github/workflows/v037-candidate-prefreeze.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prefreeze:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Bind exact candidate identity and pre-freeze state
+        run: |
+          set -euo pipefail
+          echo "PREFREEZE_SOURCE_COMMIT=$(git rev-parse HEAD)"
+          echo "PREFREEZE_CANDIDATE_TREE=$(git rev-parse HEAD:releases/v0.3.7-candidate)"
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.7-candidate')
+          b = yaml.safe_load((root/'CANDIDATE-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert b['ena_version'] == 'v0.3.7-candidate.0'
+          assert b['maturity'] == 'PREFREEZE_VALIDATION'
+          assert b['current'] is False
+          assert b['frozen'] is False
+          assert b['released'] is False
+          assert b['must_not_be_adopted_as_current'] is True
+          assert b['author_falsification']['conclusion'] == 'SUCCESS'
+          assert b['author_falsification']['attack_cardinality'] == 'OPEN'
+          assert b['author_falsification']['observed_pass_conditions_are_threshold'] is False
+          assert b['assembly']['state'] == 'AUTHOR_FALSIFICATION_CLOSED_AWAITING_EXACT_PREFREEZE_VALIDATION'
+          assert b['freeze_protocol']['model'] == 'EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE'
+          assert b['freeze_protocol']['freeze_not_allowed_before_exact_prefreeze_validation'] is True
+          print('prefreeze-baseline-state-pass')
+          PY
+
+      - name: Verify Current isolation and candidate namespace
+        run: |
+          set -euo pipefail
+          git diff --exit-code 0ad263178ab8b7c21c150012b3c06a5c41a4f41c -- releases/current
+          test -f releases/v0.3.7-candidate/CANDIDATE-BASELINE.yaml
+          test ! -e releases/v0.3.7-candidate/CURRENT-BASELINE.yaml
+          echo 'prefreeze-current-isolation-pass'
+
+      - name: Verify semantic-trunk preservation and identity-only Core projection
+        run: |
+          set -euo pipefail
+          C='releases/v0.3.7-candidate'
+          R='releases/current'
+          for p in \
+            01-CONSTITUTION.md \
+            02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md \
+            03-ROLES-AND-DEVELOPMENTAL-STAGES.md \
+            04-CAPABILITY-MAP.md \
+            schemas/evolution-record.v2.schema.json \
+            schemas/adaptation-packet.v2.schema.json; do
+            test "$(git hash-object "$C/$p")" = "$(git hash-object "$R/$p")" || {
+              echo "unexpected semantic-trunk byte drift: $p"
+              exit 1
+            }
+          done
+          python - <<'PY'
+          from pathlib import Path
+          current = Path('releases/current/05-CORE-OPERATIONAL-CONTRACTS.md').read_text(encoding='utf-8')
+          candidate = Path('releases/v0.3.7-candidate/05-CORE-OPERATIONAL-CONTRACTS.md').read_text(encoding='utf-8')
+          substitutions = [
+              ('This file is the single active operational-contract surface for ENA v0.3.6 Current.',
+               'This file is the single candidate-local operational-contract surface for ENA v0.3.7 candidate.0.'),
+              ('v0.3.6 Current retains the accepted composed-validator implementation released through v0.3.5 Current',
+               'v0.3.7 candidate.0 retains the accepted composed-validator implementation released through v0.3.6 Current'),
+              ('Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.6 Current.',
+               'Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.7 candidate.0.'),
+          ]
+          expected = current
+          for old, new in substitutions:
+              assert old in expected, old
+              expected = expected.replace(old, new, 1)
+          assert candidate == expected, 'Core contract drift exceeds allowed identity projection'
+          print('prefreeze-semantic-trunk-parity-pass')
+          PY
+
+      - name: Verify operational routing graph and optional reference policy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, yaml
+          root = Path('releases/v0.3.7-candidate')
+          op = root/'operational'
+          index = yaml.safe_load((op/'REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
+          manifest = yaml.safe_load((root/'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          routes = set(index['routes'])
+          en = set(re.findall(r'^## (OA-[A-Z]+-\d+)\b', (op/'HOW-MAP.md').read_text(encoding='utf-8'), flags=re.MULTILINE))
+          zh = set(re.findall(r'^## (OA-[A-Z]+-\d+)\b', (root/'language-projections/zh-CN/operational/HOW-MAP.md').read_text(encoding='utf-8'), flags=re.MULTILINE))
+          assert routes == en == zh
+          assert index['rules']['reference_exists_implies_applicable'] is False
+          assert index['rules']['reference_exists_implies_required'] is False
+          assert index['rules']['host_native_equivalent_allowed'] is True
+          assert index['rules']['missing_reference_may_route_to_host_pattern_or_honest_residual'] is True
+          assert index['routes']['OA-EVO-01']['tool_state'] == 'ASSEMBLED_MACHINE_CHECKED_STAGE_3'
+          assert manifest['policy']['required_for_complete_adoption_default'] is False
+          assert manifest['policy']['default_activation_default'] is False
+          assert manifest['policy']['package_inclusion_implies_applicability'] is False
+          assert manifest['policy']['package_inclusion_implies_activation'] is False
+          assert manifest['policy']['host_native_equivalent_allowed'] is True
+          for ref in manifest['references']:
+              assert ref['required_for_complete_adoption'] is False, ref['id']
+              assert ref['default_activation'] is False, ref['id']
+              p = root/ref['path']
+              assert p.is_dir(), p
+              assert (p/'README.md').is_file(), ref['id']
+          bundled = {r['id'] for r in manifest['references']}
+          deferred = {r['id'] for r in manifest['deferred_not_bundled_first_candidate']}
+          assert 'commitment-settlement-recovered' not in bundled
+          assert 'commitment-settlement-recovered' in deferred
+          print('prefreeze-operational-optionality-pass', len(routes), len(bundled))
+          PY
+
+      - name: Run inherited composed-validator machine regression
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.7-candidate'
+          python "$ROOT/tools/validate_contracts.py" selftest
+          python "$ROOT/tools/regression_suite.py"
+          git diff --exit-code -- "$ROOT/tools/regression-results-v033.json"
+
+      - name: Run v2 evolution record and candidate helper regression
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.7-candidate'
+          python "$ROOT/tools/validate_evolution_record_v2.py" --selftest
+          python "$ROOT/tools/selftest_ena_evolve_v2.py"
+          TMP="$(mktemp -d)"
+          REC="$TMP/latent.json"
+          PKT="$TMP/packet.json"
+          IMP="$TMP/imported.json"
+          python "$ROOT/tools/ena_evolve_v2.py" new-latent --candidate-id prefreeze-latent --hypothesis 'prefreeze latent path' --change 'retain before experiment' --output "$REC"
+          python "$ROOT/tools/ena_evolve_v2.py" validate-record "$REC"
+          python "$ROOT/tools/ena_evolve_v2.py" export-packet "$REC" --output "$PKT"
+          python "$ROOT/tools/ena_evolve_v2.py" validate-packet "$PKT"
+          python "$ROOT/tools/ena_evolve_v2.py" import-packet "$PKT" --candidate-id prefreeze-import --output "$IMP"
+          python "$ROOT/tools/ena_evolve_v2.py" validate-record "$IMP"
+          REC="$REC" IMP="$IMP" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          src = json.loads(Path(os.environ['REC']).read_text(encoding='utf-8'))
+          dst = json.loads(Path(os.environ['IMP']).read_text(encoding='utf-8'))
+          assert src['variation_space'] is None
+          assert src['selection_state'] == 'UNASSESSED'
+          assert dst['variation_space'] is None
+          assert dst['selection_state'] == 'UNASSESSED'
+          assert dst['expression_state'] == 'LATENT'
+          assert dst['migration']['source_selection_state'] == 'UNASSESSED'
+          assert dst['migration']['transfer_status'] == 'TRANSFERRED_NOT_LOCALLY_VALIDATED'
+          print('prefreeze-v2-cli-roundtrip-pass')
+          PY
+
+      - name: Run all bundled reference selftests
+        run: |
+          set -euo pipefail
+          R='releases/v0.3.7-candidate/references'
+          python "$R/general/retrieval-obligation/selftest.py"
+          python "$R/general/wait-state/tools/selftest_wait_state.py"
+          python "$R/general/authority-lease/tools/selftest_authority_lease.py"
+          python "$R/general/effect-lifecycle/tools/selftest_effect_lifecycle.py"
+          python "$R/general/recovery-adapter/tools/selftest_recovery_adapter.py"
+          python "$R/advanced/evidence-envelope/tools/selftest_evidence_envelope.py"
+          python "$R/advanced/evidence-dependency-map/tools/selftest_evidence_dependency_map.py"
+          python "$R/advanced/contested-authorship/tools/selftest_contested_authorship.py"
+
+      - name: Run relocated legacy v1.2 compatibility regressions
+        run: |
+          set -euo pipefail
+          L='releases/v0.3.7-candidate/tools/legacy'
+          test -f "$L/ena_evolve_v1_2.py"
+          test -f "$L/candidate1_adversarial_v1_2.py"
+          test -f "$L/candidate2_adversarial_v1_2.py"
+          test ! -e releases/v0.3.7-candidate/tools/ena_evolve.py
+          test ! -e releases/v0.3.7-candidate/tools/candidate1_adversarial.py
+          test ! -e releases/v0.3.7-candidate/tools/candidate2_adversarial.py
+          python "$L/ena_evolve_v1_2.py" selftest
+          python "$L/candidate1_adversarial_v1_2.py"
+          python "$L/candidate2_adversarial_v1_2.py"
+          echo 'prefreeze-legacy-regression-pass'
+
+      - name: Run author adversarial suite again on exact pre-freeze bytes
+        run: python .github/scripts/v037_candidate_author_attacks.py
+
+      - name: Verify zh-CN operational projection and paired fixtures
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.7-candidate')
+          zh = root/'language-projections/zh-CN'
+          manifest = yaml.safe_load((zh/'projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert manifest['not_current'] is True
+          assert manifest['source_semantic_version'] == 'v0.3.7-candidate.0'
+          assert manifest['machine_artifact_policy']['translate_machine_reference_files_one_by_one'] is False
+          fixtures = yaml.safe_load((root/'language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
+          cases = fixtures['cases']
+          assert cases
+          routes = {case['expected_route'] for case in cases}
+          assert routes == set(fixtures['coverage']['routes_expected'])
+          for case in cases:
+              assert case['en'].strip()
+              assert case['zh-CN'].strip()
+              assert case['expected_properties']
+          assert 'cardinality is open' in fixtures['evidence_boundary'][-1].lower()
+          print('prefreeze-zh-cn-fixture-pass', len(cases), sorted(routes))
+          PY
+
+      - name: Verify primary runtime/tool self-containment
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.7-candidate'
+          if grep -nE 'releases/current|research/' "$ROOT/tools/ena_evolve_v2.py"; then
+            echo 'primary v2 helper must not depend on Current or research paths'
+            exit 1
+          fi
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('releases/v0.3.7-candidate').resolve()
+          required = [
+              '00-READ-ME-FIRST.md',
+              'RUNTIME-ADOPTION-KERNEL.md',
+              'operational/README.md',
+              'operational/CUE-INDEX.md',
+              'operational/HOW-MAP.md',
+              'operational/REFERENCE-INDEX.yaml',
+              'references/REFERENCE-MANIFEST.yaml',
+              'tools/ena_evolve_v2.py',
+              'schemas/evolution-record.v2.schema.json',
+              'schemas/adaptation-packet.v2.schema.json',
+              'language-projections/zh-CN/operational/CUE-INDEX.md',
+              'language-projections/zh-CN/operational/HOW-MAP.md',
+          ]
+          for rel in required:
+              assert (root/rel).exists(), rel
+          assert not any(root.rglob('CURRENT-BASELINE.yaml'))
+          print('prefreeze-self-contained-entry-surface-pass')
+          PY
+
+      - name: Compile all candidate Python and reject bytecode or symlink cargo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          failures=[]
+          root=Path('releases/v0.3.7-candidate')
+          files=sorted(root.rglob('*.py'))
+          for p in files:
+              try:
+                  compile(p.read_text(encoding='utf-8'), str(p), 'exec')
+              except Exception as exc:
+                  failures.append((str(p), repr(exc)))
+          print('prefreeze-candidate-python-total', len(files))
+          print('prefreeze-candidate-python-failed', len(failures))
+          for item in failures:
+              print(*item)
+          if failures:
+              raise SystemExit(1)
+          PY
+          found="$(find releases/v0.3.7-candidate \( -type d -name '__pycache__' -o -type f -name '*.pyc' -o -type l \) -print)"
+          test -z "$found" || { echo "$found"; exit 1; }
+
+      - name: Verify candidate tree stayed clean during validation
+        run: |
+          set -euo pipefail
+          git diff --exit-code -- releases/v0.3.7-candidate
+          untracked="$(git status --porcelain --untracked-files=all -- releases/v0.3.7-candidate)"
+          test -z "$untracked" || { echo "$untracked"; exit 1; }
+          echo 'prefreeze-candidate-tree-clean-pass'
+
+      - name: Emit exact pre-freeze binding
+        run: |
+          set -euo pipefail
+          echo "PREFREEZE_VERDICT=PASS"
+          echo "PREFREEZE_SOURCE_COMMIT=$(git rev-parse HEAD)"
+          echo "PREFREEZE_CANDIDATE_TREE=$(git rev-parse HEAD:releases/v0.3.7-candidate)"
+          echo "PREFREEZE_CANDIDATE_FILE_COUNT=$(git ls-tree -r --name-only HEAD:releases/v0.3.7-candidate | wc -l | tr -d ' ')"
+          echo "validation_scope=EXACT_REPRESENTED_CANDIDATE_MACHINE_PACKAGING_AND_AUTHOR_ATTACK_RECOMPOSITION"
+          echo "independent_semantic_support=NOT_ESTABLISHED"
+          echo "external_truth=NOT_ESTABLISHED"
+          echo "freeze_authority=NOT_ASSIGNED_BY_THIS_WORKFLOW"
