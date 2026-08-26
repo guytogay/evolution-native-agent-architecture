@@ -1,4 +1,4 @@
-schema_version: "1.4"
+schema_version: "1.5"
 as_of: "2026-08-27"
 status: ACTIVE_RELEASE_SCOPE_RECONCILIATION
 
@@ -13,6 +13,9 @@ canonical_pointers:
   release_scope_root: research/release-scope/README.md
   release_scope_entry_gate: research/release-scope/RELEASE-SCOPE-ENTRY-GATE-001.md
   release_scope_reconciliation_001: research/release-scope/RELEASE-SCOPE-RECONCILIATION-001.md
+  release_tooling_reconciliation_001: research/release-scope/RELEASE-TOOLING-RECONCILIATION-001.md
+  reference_library_selection_001: research/release-scope/REFERENCE-LIBRARY-SELECTION-001.md
+  minimal_v2_tool_prototype: research/prototypes/ena-evolve-v2-minimal/README.md
 
 current_adoption:
   version: v0.3.6
@@ -47,14 +50,14 @@ phase_state:
     semantic_delta_count_at_entry: 0_DEMONSTRATED
 
   release_scope_reconciliation:
-    state: FIRST_CARGO_PASS_ACTIVE
+    state: CARGO_SELECTION_NARROWED / REMAINING_PACKAGING_LANGUAGE_ANTI_ABLATION_WORK
     current_result:
       new_constitution_rule_required: 0_DEMONSTRATED
       new_core_semantic_delta_required: 0_DEMONSTRATED
       practical_adopter_delta: MATERIAL
-      reference_library_delta: MATERIAL_IF_SELECTED
-      tooling_delta: MATERIAL_CANDIDATE
-      language_adoption_delta: MATERIAL_CANDIDATE
+      reference_library_delta: MATERIAL_SELECTED
+      tooling_delta: MATERIAL_SELECTED_FOR_CANDIDATE
+      language_adoption_delta: MATERIAL_SCOPE_OPEN
       next_version: UNASSIGNED
 
     in_scope_adopter_guidance:
@@ -68,18 +71,20 @@ phase_state:
       - Evolution Commons substrate/protocol pattern
       - curated Memory Metabolism guidance
 
-    strong_reference_candidates:
+    selected_general_optional_references:
       - Retrieval Obligation 0.5
       - WAIT State
       - Authority Lease
       - Effect Lifecycle
       - Recovery Adapter
 
-    conditional_reference_candidates:
+    selected_advanced_specialized_references:
       - Evidence Envelope
       - Evidence Dependency Map
-      - Commitment/Settlement recovered reconstruction
       - Contested Authorship
+
+    deferred_reference_candidates:
+      - Commitment/Settlement recovered reconstruction pending fresh independent review or renewed candidate-critical need
 
     host_pattern_not_universal_organ:
       - Tiny Hot Kernel / semantic router phenotype
@@ -104,14 +109,18 @@ phase_state:
 
     tooling_decision:
       inherited_ena_evolve:
-        state: OPEN_SELECTION
+        state: LEGACY_NONDEFAULT_FOR_NEXT_CANDIDATE
         known_false_block: VARIATION_SPACE_REQUIRED_FOR_LATENT_PROPOSE_AND_IMPORT
         full_v2_runtime: false
-        options:
-          - NARROW_LEGACY_REPAIR
-          - EXPLICIT_DEPRECATION
-          - MINIMAL_V2_COMPATIBLE_HELPER
-        provisional_preference: EVALUATE_MINIMAL_V2_HELPER_FIRST
+        narrow_legacy_repair_selected_as_primary: false
+      minimal_v2_helper:
+        state: SELECT_FOR_CANDIDATE_DEFAULT_PATH
+        research_path: research/prototypes/ena-evolve-v2-minimal/
+        reuses_current_record_validator: true
+        reuses_current_packet_schema: true
+        duplicates_record_semantic_engine: false
+        deterministic_selftest: PASS_ON_GITHUB_ACTIONS
+        cli_roundtrip: PASS_ON_GITHUB_ACTIONS
         current_patch_authorized: false
 
     language_release_requirement:
@@ -128,12 +137,13 @@ phase_state:
     state: NOT_STARTED
 
 next_actions:
-  - compare reference-organ candidates qualitatively by adopter value, breadth, dependency burden, false-BLOCK risk, evidence maturity, and maintenance cost
-  - make a bounded tooling decision/prototype for inherited ena_evolve rather than applying a cosmetic Current patch
-  - define the minimum release-local Operational Architecture entry surface and optional-reference packaging semantics
-  - decide zh-CN coverage for new operational entry/hot surfaces
-  - run anti-ablation selection audit before declaring scope stable
-  - assign no version until scope stabilizes
+  - define the minimum release-local Operational Architecture entry surface and package layout
+  - define machine-readable optional-reference semantics so bundled references cannot be inferred mandatory
+  - decide zh-CN coverage and semantic fixtures for new operational entry/hot surfaces
+  - identify which existing Current top-level prose must change versus only point to the operational library
+  - run anti-ablation selection audit to confirm deferred/unselected HOWs remain discoverable and were not silently retired
+  - decide whether remaining scope questions can still materially alter candidate cargo
+  - assign no version until release scope stabilizes
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
@@ -144,3 +154,6 @@ invariants:
   - HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
   - STRUCTURAL_LANGUAGE_PARITY_NE_BEHAVIORAL_DECISION_EQUIVALENCE
   - RELEASE_SCOPE_SELECTION_NE_VERSION_ASSIGNMENT
+  - HELPER_ORCHESTRATES_CURRENT_SEMANTICS_NE_HELPER_REIMPLEMENTS_CURRENT_SEMANTICS
+  - SOURCE_SELECTION_TRANSFERRED_NE_RECEIVER_LOCAL_SELECTION
+  - DEFERRED_FROM_FIRST_CANDIDATE_NE_RETIRED_FROM_LINEAGE

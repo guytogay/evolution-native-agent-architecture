@@ -2,26 +2,32 @@
 
 Status: `ACTIVE_RELEASE_SCOPE_RECONCILIATION / RESEARCH_ONLY / CURRENT_UNCHANGED / VERSION_UNASSIGNED`
 
-This directory is the transition surface between Operational Architecture assembly and a future release candidate. It does **not** authorize changes to `releases/current/`.
+This directory is the transition surface between Operational Architecture assembly and a future release candidate.
+
+It does **not** authorize changes to `releases/current/`.
 
 ## Start here
 
-1. `RELEASE-SCOPE-ENTRY-GATE-001.md` — why release-scope selection is allowed to begin.
-2. `RELEASE-SCOPE-RECONCILIATION-001.md` — first practical cargo pass: adopter guidance, optional references, Host patterns, research-only branches, tooling and language work.
-3. `../operational-architecture/README.md` — source HOW tree.
-4. `../plans/PROGRESS.yaml` — current fast-moving state.
-5. `../plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — long-horizon discipline.
+1. `RELEASE-SCOPE-ENTRY-GATE-001.md` — confirms the Operational Architecture is traversable enough to begin release selection.
+2. `RELEASE-SCOPE-RECONCILIATION-001.md` — first practical cargo pass and working package hypothesis.
+3. `RELEASE-TOOLING-RECONCILIATION-001.md` — selects the minimal v2-compatible helper for the next candidate default tooling path; legacy v1.2 remains explicit legacy/compatibility only.
+4. `REFERENCE-LIBRARY-SELECTION-001.md` — selects the general and advanced/specialized optional reference set and records deferred branches.
+5. `../plans/PROGRESS.yaml` — current fast-moving phase state.
+6. `../operational-architecture/` — source assembly and concrete HOW branches.
+7. `../plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — long-horizon phase discipline.
 
-## Selection is not semantic compression
+## Selection is not compression back to one HOW
 
-Release reconciliation asks what should be distributed to adopters, not which single HOW is universally correct.
+Release reconciliation asks what should be distributed to adopters, not which single HOW is metaphysically correct.
 
-Working dispositions include:
+One operational node may produce multiple release dispositions:
 
 ```text
 CURRENT_SEMANTIC_ANCHOR
 ADOPTER_GUIDANCE_CANDIDATE
-REFERENCE_ORGAN_CANDIDATE
+GENERAL_OPTIONAL_REFERENCE
+ADVANCED_OPTIONAL_REFERENCE
+SPECIALIZED_OPTIONAL_REFERENCE
 HOST_ADAPTER_PATTERN
 FIELD_OR_MESOCOSM_ONLY
 MAINTENANCE_TOOLING_CANDIDATE
@@ -30,84 +36,82 @@ DORMANT_LINEAGE
 SEMANTIC_DELTA_CANDIDATE
 ```
 
-These are routing classes, not ontology.
+These labels are working routing/packaging classes, not ontology.
 
-## First cargo thesis
-
-```text
-NO_NEW_CORE_RULES != NO_RELEASE_VALUE
-```
-
-The likely practical release shape now separates:
+## Critical release question
 
 ```text
-semantic/adoption trunk
-+
-optional Operational Architecture guidance
-+
-selective machine reference library
-+
-Host adapter patterns
-+
-maintenance tooling
-+
-explicit research/field residuals that do NOT ship
+NO_NEW_CORE_RULES
+!=
+NO_RELEASE_VALUE
 ```
 
-The research tree must not be copied verbatim into a release.
+A release may improve practical inhabitability through concrete HOW navigation, optional reference organs, Host patterns, tooling repair, and adopter guidance without expanding the Constitution.
 
-## Current first-pass direction
+Conversely, a large research tree does not itself justify shipping everything.
 
-Strong candidate reference families:
+## Current selected shape
 
-- Retrieval Obligation 0.5;
-- WAIT State;
-- Authority Lease;
-- Effect Lifecycle;
-- Recovery Adapter.
+Adopter-facing candidate cargo currently includes:
 
-Conditional/advanced candidates requiring more selection or validation:
+- Operational Architecture entrypoint;
+- cue index;
+- cold HOW map;
+- release-local reference pointer/index;
+- bounded procedures and Commons patterns;
+- curated Memory Metabolism guidance.
 
-- Evidence Envelope;
-- Evidence Dependency Map;
-- recovered Commitment/Settlement;
-- Contested Authorship.
-
-Guidance/pattern rather than universal machine-organ candidates:
-
-- Memory Metabolism;
-- Tiny Hot Kernel/semantic routing phenotype;
-- Commons substrate/A2A layering;
-- purpose-relative continuity;
-- Standing Input;
-- Control Retirement.
-
-Research-only by default for the first candidate includes progressive event-record experiments, compaction/composition harnesses, fencing simulator, mesocosm infrastructure, verification-market/reputation/culture ecology and raw natural-salience experiments.
-
-## Tooling decision still open
-
-The inherited `tools/ena_evolve.py` is not a complete v0.3.6 v2 runtime path and has a known latent-variation false-BLOCK.
-
-Reconciliation must compare:
+Selected general optional machine references:
 
 ```text
-narrow legacy repair
-vs
-explicit legacy deprecation
-vs
-minimal v2-compatible helper
+Retrieval Obligation 0.5
+WAIT
+Authority Lease
+Effect Lifecycle
+Recovery Adapter
 ```
 
-Do not patch Current in place before this selection is resolved.
+Selected advanced/specialized optional references:
 
-## Language/adoption boundary
+```text
+Evidence Envelope
+Evidence Dependency Map
+Contested Authorship
+```
 
-New hot/entry Operational Architecture surfaces need honest language projection decisions. Structural parity is not behavioral equivalence, and the full cold reference library need not become a literal file-for-file translation burden when coverage is declared honestly.
+Deferred from first candidate machine-reference library:
+
+```text
+Commitment/Settlement recovered reconstruction
+```
+
+The deferred branch remains live research lineage and may still inform HOW guidance.
+
+Selected tooling direction:
+
+```text
+minimal v2-compatible evolution helper = candidate default practical path
+legacy ena_evolve.py v1.2 = explicit legacy/compatibility only
+narrow legacy repair = not selected as primary answer
+```
+
+## Remaining scope work before version assignment
+
+- define the exact release-local operational/package surface;
+- make reference optionality sufficiently explicit/machine-readable;
+- decide zh-CN coverage and semantic fixtures for new hot/entry surfaces;
+- decide which existing Current top-level files require material change vs a pointer to the new operational library;
+- run anti-ablation selection audit across selected/deferred/research HOWs;
+- confirm no remaining scope question can materially change candidate cargo.
+
+Only after those decisions stabilize should a version number be assigned.
 
 ## Current boundary
 
+Current remains:
+
 ```text
-CURRENT = v0.3.6 / CURRENT / FIELD_VALIDATION
-NEXT_VERSION = UNASSIGNED
-CURRENT_CHANGE = NO
+v0.3.6 / CURRENT / FIELD_VALIDATION
 ```
+
+`CURRENT_CHANGE = NO`
