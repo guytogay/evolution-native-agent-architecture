@@ -36,8 +36,11 @@ def main() -> int:
     require(proc.returncode == 0, "authored fixture corpus does not match validator")
 
     rows = load_jsonl(cases_path)
+    require(bool(rows), "effect fixture corpus must not be empty")
     by_id = {row["case_id"]: row for row in rows}
-    require(len(rows) == 18 and len(by_id) == 18, "expected 18 unique fixture cases")
+    require(len(rows) == len(by_id), "fixture case_id values must be unique")
+    required_ids = {"EL-001", "EL-003", "EL-008", "EL-009"}
+    require(required_ids <= set(by_id), f"missing targeted regression fixtures: {sorted(required_ids - set(by_id))}")
 
     # Mutation 1: same effect identity, different material parameters.
     mutated = deepcopy(by_id["EL-001"]["record"])
@@ -94,7 +97,6 @@ def main() -> int:
     )
     print("PASS: catches REALIZE after known committed receipt")
 
-    # False-BLOCK control: read-only operation requires no provider idempotency organ.
     control = deepcopy(by_id["EL-009"]["record"])
     errors = validate_record(control)
     require(not errors, f"read-only false-BLOCK: {errors}")
@@ -105,6 +107,8 @@ def main() -> int:
     print("PASS: read-only/no-idempotency false-BLOCK control")
 
     print("PASS: effect-lifecycle portable adversarial selftest")
+    print(f"observed_fixture_count={len(rows)}")
+    print("fixture_cardinality=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES")
     print("verification_scope=REPRESENTED_LIFECYCLE_RULES_AND_SELFTEST_MUTATIONS_ONLY")
     print("external_receipt_authenticity=UNPROVEN")
     print("exactly_once=NOT_CLAIMED")
