@@ -1,4 +1,4 @@
-schema_version: "0.2"
+schema_version: "0.3"
 as_of: "2026-08-26"
 status: ACTIVE_RECONSTRUCTION_TO_RELEASE
 
@@ -20,7 +20,7 @@ canonical_pointers:
   latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
   latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
   research_generation_record: research/reconstruction/RESEARCH-GENERATION-2026-08-26.md
-  research_pr: "#101"
+  successor_bootstrap_pr: "#101"
   predecessor_checkpoint_pr: "#82"
   reconstruction_ledger: "#89"
 
@@ -33,12 +33,16 @@ current_adoption_observed_at_plan_creation:
 
 research_workspace:
   branch: research/ena-reconstruction
-  pull_request: 101
-  pull_request_state: DRAFT
+  continuation_authority: MAIN_VISIBLE_ACTIVE_BRANCH_POINTER
+  open_pull_request_required_for_activity: false
+  pull_request_discovery: SEARCH_OPEN_PR_BY_HEAD_BRANCH_AND_BASE_MAIN
+  bootstrap_pull_request: 101
   generation_base_main_commit: be776b9f8e7d280e39a5389148722229569a2c49
   predecessor_branch: research/memory-metabolism-prototype
   predecessor_checkpoint_pr: 82
-  predecessor_state: CHECKPOINTED_TO_MAIN / RETIRED
+  predecessor_state: CHECKPOINTED_TO_MAIN / RETIRED_REF_DELETED
+  predecessor_ref_present: false
+  predecessor_ref_deletion_observed_at: "2026-08-26"
   current_mutation_authorized_by_research: false
 
 release_goal:
@@ -61,7 +65,9 @@ phases:
       - research/plans/ carries master plan and machine-readable progress
       - research/external-how/ carries external candidate mechanism research
       - PR #82 checkpointed the predecessor research generation into main
-      - PR #101 is the successor active research integration surface
+      - research/memory-metabolism-prototype ref was deleted after checkpoint and handoff
+      - research/ena-reconstruction is the sole active research integration branch
+      - PR identity is transient and discoverable from the active branch rather than continuation authority
       - legacy method paths are compatibility pointers rather than duplicate canonical copies
     residual: >-
       Continue opportunistic cleanup only when it improves navigation without
@@ -209,3 +215,5 @@ invariants:
   - EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
   - EXTERNAL_POPULARITY_IS_NOT_SELECTION_PROOF
   - HANDOFF_SUMMARY_IS_NOT_PROJECT_STATE
+  - ACTIVE_BRANCH_AUTHORITY_DOES_NOT_REQUIRE_STABLE_PR_NUMBER
+  - ACTIVE_HEAD_SHA_MUST_BE_LIVE_REVERIFIED
