@@ -3,7 +3,7 @@ ena_version: "v0.3.7-candidate.0"
 candidate_for: "v0.3.7"
 candidate_revision: 0
 adoption_status: WORKING_CANDIDATE
-maturity: PREFREEZE_AUTHOR_FALSIFICATION
+maturity: PREFREEZE_VALIDATION
 current: false
 frozen: false
 released: false
@@ -15,7 +15,8 @@ version_identity_includes_maturity_status: false
 package_scope: "ALL_FILES_UNDER_RELEASES_V0_3_7_CANDIDATE_WHEN_FROZEN"
 
 # ENA v0.3.7 candidate.0 working baseline.
-# Assembly and identity reconciliation are machine-checked; this is still not a freeze claim.
+# Assembly, identity reconciliation, and author-side adversarial attacks are complete.
+# This file is still not a freeze or release claim.
 
 lineage:
   base_current_version: "v0.3.6"
@@ -26,6 +27,7 @@ lineage:
   version_selection_record: "research/release-scope/VERSION-SELECTION-001.md"
   candidate_branch: "candidate/v0.3.7-candidate.0"
   candidate_birth_base_commit: "0ad263178ab8b7c21c150012b3c06a5c41a4f41c"
+  author_attack_record: "collaboration/reconciliation/2026-08-27-v037-candidate0-author-attacks.md"
 
 release_thesis:
   new_constitution_rule_required: "0_DEMONSTRATED"
@@ -184,16 +186,41 @@ identity_reconciliation:
     - "Identity/navigation consistency is packaging evidence, not independent semantic support."
     - "Semantic-body parity prevents accidental Core drift but does not prove the inherited semantics universally correct."
 
+author_falsification:
+  state: PASS_WITH_REPAIRS_NOT_INDEPENDENT
+  record: "collaboration/reconciliation/2026-08-27-v037-candidate0-author-attacks.md"
+  final_attack_harness_commit: "95e246e459c873ff00083f71785f671afb11c0a2"
+  final_attack_workflow_commit: "038fbfe62432bd78ccc4ea856ae5020e554114f8"
+  exact_tested_repository_head: "038fbfe62432bd78ccc4ea856ae5020e554114f8"
+  workflow: "ENA v0.3.7 Candidate Author Adversarial Gate"
+  workflow_run_id: 33010925130
+  conclusion: SUCCESS
+  observed_pass_conditions: 1080
+  observed_pass_conditions_are_threshold: false
+  attack_cardinality: OPEN
+  repairs_before_final_pass:
+    - "A-01 top-level README lacked explicit operational/CUE-INDEX.md hop; repaired at 152d35fe4a7c13706e2f90eac530a7864031719e"
+    - "A-02 05 Core Operational Contracts retained stale v0.3.6 Current identity; repaired at 24c60c161ce787c681b7aafcde56bb2b33ac4fc7"
+    - "A-03 OA-EVO-01 tool_state remained ASSEMBLY_PENDING_STAGE_3 after v2 helper completion; repaired at 6548c82275bf66041e141b83b7d0965ec458cd2c"
+  oracle_repairs_preserved_as_occurrence_truth:
+    - "O-01 predecessor Current description was falsely treated as candidate identity"
+    - "O-02 exact freeze slogan was mistakenly required despite equivalent freeze semantics"
+  evidence_boundary:
+    - "Author attacks exercise selected deterministic and represented semantic failure shapes only."
+    - "1080 is a script expansion fact, not evidence independence, coverage completeness, or a release threshold."
+    - "Author PASS does not substitute for fresh independent semantic falsification."
+    - "External truth and natural Host/runtime salience remain unproven."
+
 freeze_protocol:
   model: EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE
   internal_frozen_flag_is_prefreeze_occurrence_state: true
   external_record_may_assign_frozen_identity_without_rewriting_candidate_tree: true
   post_freeze_material_change_requires_successor_identity: true
-  freeze_not_allowed_before_author_attacks_and_prefreeze_validation: true
+  freeze_not_allowed_before_exact_prefreeze_validation: true
 
 assembly:
-  stage: 5
-  state: IDENTITY_RECONCILED_MACHINE_CHECKED_AWAITING_AUTHOR_FALSIFICATION
+  stage: 6
+  state: AUTHOR_FALSIFICATION_CLOSED_AWAITING_EXACT_PREFREEZE_VALIDATION
   completed:
     - candidate branch aligned to exact release-scope checkpoint
     - candidate baseline and candidate identity entry files created
@@ -212,10 +239,12 @@ assembly:
     - top-level HOW traversal repaired to expose exact Cue/HOW entry paths
     - Core Operational Contracts identity reconciled without semantic-body drift
     - Candidate Identity Gate passed with semantic-trunk parity
+    - OA-EVO-01 tool-state metadata reconciled to actual machine-checked state
+    - candidate-specific author adversarial suite passed after decision-relevant repairs
+    - author-side attack lineage recorded outside candidate cargo
   pending:
-    - candidate-specific author adversarial suite
     - exact-head pre-freeze machine validation
-    - freeze record
+    - external freeze record binding exact source commit and candidate subtree
     - fresh independent semantic falsification
     - post-falsification reconciliation and release decision
 
@@ -236,6 +265,7 @@ invariants:
   - HOT_KERNEL_NE_FULL_HOW_LIBRARY
   - SEMANTIC_TRUNK_STABILITY_NE_NO_RELEASE_VALUE
   - IDENTITY_PROJECTION_NE_SEMANTIC_DRIFT
+  - AUTHOR_PASS_NE_INDEPENDENT_SUPPORT
   - MACHINE_PASS_NE_EXTERNAL_TRUTH
   - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
   - SILENT_DISSOLUTION_NE_EVIDENCE_BACKED_RETIREMENT
