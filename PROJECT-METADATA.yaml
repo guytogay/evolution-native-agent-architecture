@@ -1,4 +1,4 @@
-schema_version: "1.7"
+schema_version: "1.8"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -121,6 +121,12 @@ branch_policy:
   active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
   active_research_integration_branch_count: 1
   active_research_count_authority: "PROJECT_COORDINATION_AND_UNAMBIGUOUS_SESSION_INHERITANCE"
+  active_research_branch_is_continuation_authority: true
+  active_research_pr_is_continuation_authority: false
+  active_research_pr_is_transient_integration_artifact: true
+  active_research_pr_discovery_by_head_branch: true
+  embedded_active_head_sha_is_identity_lock: false
+  live_head_must_be_reverified_before_writes: true
   branch_per_research_idea_by_default: false
   prefer_issue_or_research_artifact_for_exploration: true
   temporary_branch_requires_material_isolation_benefit: true

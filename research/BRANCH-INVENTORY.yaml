@@ -1,8 +1,9 @@
-schema_version: "1.2"
+schema_version: "1.3"
 observed_at: "2026-08-26"
 status: CURRENT_BRANCH_INVENTORY
 
 canonical_active_pointer: "research/ACTIVE-RESEARCH.yaml"
+inventory_scope: "LIVE_PROJECT_REFS_PLUS_DURABLE_REMOVAL_LINEAGE"
 
 branches:
   - name: "main"
@@ -16,23 +17,11 @@ branches:
     role: ACTIVE_RESEARCH_INTEGRATION
     lifecycle: ACTIVE_INTEGRATION
     active_for_research_continuation: true
-    pull_request: 101
-    observed_head_sha: "0b6c464b58f59bc49cf749e67a11c304c4adbec9"
+    head_observation: LIVE_REVERIFY_BEFORE_WRITE
     notes:
       - "Successor research generation created from checkpointed main commit be776b9f8e7d280e39a5389148722229569a2c49."
-      - "Canonical activity is established by ACTIVE-RESEARCH.yaml, not by branch recency or name alone."
+      - "Canonical activity is established by ACTIVE-RESEARCH.yaml, not by branch recency, PR number, or an embedded head SHA."
       - "Scope is broad ENA reconstruction under WHAT -> WHY -> HOW -> EVIDENCE discipline."
-
-  - name: "research/memory-metabolism-prototype"
-    role: RETIRING_RESEARCH_INTEGRATION
-    lifecycle: RETIRED_PENDING_REF_DELETE
-    active_for_research_continuation: false
-    pull_request: 82
-    checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
-    notes:
-      - "Legacy scope-specific branch completed its research checkpoint into main."
-      - "It is retained only long enough to deliver the active-pointer transition and should be deleted after that transition PR merges."
-      - "Deleting the ref will not delete the checkpointed Git/PR lineage."
 
 recent_cleanup:
   completed_at: "2026-08-26"
@@ -47,19 +36,30 @@ recent_cleanup:
     - "candidate/v0.3.6-candidate"
     - "candidate/v0.3.6-candidate.1"
     - "release/v0.3.6"
+    - "research/memory-metabolism-prototype"
+  predecessor_research_lineage:
+    branch: "research/memory-metabolism-prototype"
+    ref_state: DELETED_AFTER_CHECKPOINT
+    checkpoint_pr: 82
+    checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
+    reconciliation_commit: "3a465479a7bc7205bf595b3078a359dfb0710485"
+    successor_branch: "research/ena-reconstruction"
+    successor_bootstrap_pr: 101
   lineage_preservation: >-
     Decision-relevant history remains available through merged/closed PRs, immutable
     commit/tree references, freeze/reconciliation records, Current release lineage,
-    and Git history. Branch-name deletion did not erase those histories.
+    issues, and Git history. Branch-name deletion did not erase those histories.
 
 invariants:
   - "Only the branch named by research/ACTIVE-RESEARCH.yaml is the active research continuation surface."
-  - "Temporary or retiring branch existence does not create parallel research authority."
+  - "An open PR on the active branch is a transient integration artifact, not branch authority."
+  - "The active branch head must be reverified live before writes; embedded self-referential head SHAs are not identity locks."
+  - "Temporary branch existence does not create parallel research authority."
   - "Historical branch deletion does not mean historical lineage deletion."
   - "New idea does not imply new branch."
-  - "Live-ref inventory and cleanup lineage must be reconciled after a retiring ref is actually deleted."
+  - "The live branch list contains only refs observed to exist; deleted refs belong only in cleanup/history lineage."
 
-transition_note: >-
-  The predecessor research branch is explicitly RETIRED_PENDING_REF_DELETE rather than
-  silently disappearing. Once its ref is deleted, move its name into cleanup/history
-  on the next control-plane reconciliation; do not treat the deleted ref as lost research.
+cleanup_note: >-
+  Live project refs observed after predecessor cleanup are main and
+  research/ena-reconstruction. The deleted predecessor remains represented only as
+  durable lineage, not as a live or retiring ref.

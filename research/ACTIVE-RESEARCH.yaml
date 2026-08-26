@@ -1,18 +1,20 @@
-schema_version: "1.2"
+schema_version: "1.4"
 status: ACTIVE_RESEARCH_POINTER
 
 # Canonical main-visible pointer for continuing ENA research.
 # A new session must not infer the active branch from branch recency, names,
-# commit timestamps, or the number of open research artifacts.
+# commit timestamps, PR numbers, or cached head SHAs.
 
 active_research:
   branch: "research/ena-reconstruction"
-  pull_request: 101
-  state: "ACTIVE_RECONSTRUCTION / DRAFT / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
-  observed_head_sha: "d708abb05fa7aad11b1afad72cc08c58e2e5a123"
-  head_sha_is_identity_lock: false
-  reverify_head_before_writes: true
+  state: "ACTIVE_RECONSTRUCTION / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
   branch_name_status: "CURRENT_SCOPE_NAME / SUCCESSOR_TO_PR_82_CHECKPOINT"
+  continuation_authority: BRANCH_POINTER
+  open_pull_request_required_for_activity: false
+  pull_request_discovery: "SEARCH_OPEN_PR_BY_HEAD_BRANCH_AND_BASE_MAIN"
+  successor_bootstrap_pr: 101
+  head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
+  embedded_head_sha_is_identity_lock: false
 
   bootstrap_path: "research/RESEARCH-START-HERE.md"
   progress_path: "research/plans/PROGRESS.yaml"
@@ -35,23 +37,27 @@ continuation_protocol:
   - "Read this file to discover the one active research integration branch."
   - "Read the main-visible methodology before selecting substantive work."
   - "Switch/read the active research branch and its progress state."
-  - "Reverify the branch head and PR state before writing."
-  - "Do not treat temporary or historical branches as parallel research authority."
+  - "Reverify the active branch head live before writing."
+  - "Discover an open PR by active head branch when PR context is needed; PR absence does not deactivate the branch."
+  - "Do not treat historical branch names, deleted refs, old PR numbers, or cached SHAs as parallel research authority."
 
 branch_transition:
-  current_decision: "CHECKPOINT_COMPLETED / SUCCESSOR_ACTIVATED"
+  current_decision: "CHECKPOINT_COMPLETED / SUCCESSOR_ACTIVATED / PREDECESSOR_REF_DELETED"
   predecessor_branch: "research/memory-metabolism-prototype"
   predecessor_pull_request: 82
   predecessor_checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
   reconciliation_commit: "3a465479a7bc7205bf595b3078a359dfb0710485"
+  predecessor_ref_state: DELETED_AFTER_CHECKPOINT
+  predecessor_ref_deletion_observed_at: "2026-08-26"
   successor_branch: "research/ena-reconstruction"
-  successor_pull_request: 101
+  successor_bootstrap_pr: 101
   why: >-
     The predecessor branch began as a Memory Metabolism prototype and grew into a
     broad ENA reconstruction workspace. Its accumulated research was checkpointed to
     main without changing releases/current. A new branch was then created from the
-    exact checkpointed main commit so branch identity once again matches research scope
-    and the research branch does not become a permanent second main.
+    exact checkpointed main commit so branch identity once again matches research scope.
+    After continuation authority transferred to the successor, the predecessor ref was
+    deleted while its Git/PR/checkpoint lineage remained durable.
   direct_rename_used: false
   current_changed_by_transition: false
 
@@ -59,8 +65,8 @@ branch_cardinality:
   active_research_integration_branches_allowed: 1
   authority_basis: >-
     This is a project-coordination invariant, not an ontology claim. A single active
-    integration pointer prevents ambiguous session continuation while temporary or
-    retiring branches may still exist when technically necessary.
+    integration branch prevents ambiguous session continuation while temporary
+    isolation branches may still exist when technically necessary.
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
