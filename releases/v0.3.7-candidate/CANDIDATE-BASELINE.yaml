@@ -1,0 +1,165 @@
+schema_version: "3.0-candidate"
+ena_version: "v0.3.7-candidate.0"
+candidate_for: "v0.3.7"
+candidate_revision: 0
+adoption_status: WORKING_CANDIDATE
+maturity: ASSEMBLY_IN_PROGRESS
+current: false
+frozen: false
+released: false
+complete_adoption_baseline: false
+must_not_be_adopted_as_current: true
+requires_older_release_composition: false
+active_mainline_axis: false
+version_identity_includes_maturity_status: false
+package_scope: "ALL_FILES_UNDER_RELEASES_V0_3_7_CANDIDATE_WHEN_FROZEN"
+
+# ENA v0.3.7 candidate.0 working baseline.
+# This file is truthful assembly state, not a freeze claim.
+
+lineage:
+  base_current_version: "v0.3.6"
+  base_current_tree: "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+  release_scope_checkpoint_merge: "0ad263178ab8b7c21c150012b3c06a5c41a4f41c"
+  release_scope_branch: "research/ena-reconstruction"
+  release_scope_stability_gate: "research/release-scope/RELEASE-SCOPE-STABILITY-GATE-001.md"
+  version_selection_record: "research/release-scope/VERSION-SELECTION-001.md"
+  candidate_branch: "candidate/v0.3.7-candidate.0"
+  candidate_birth_base_commit: "0ad263178ab8b7c21c150012b3c06a5c41a4f41c"
+
+release_thesis:
+  new_constitution_rule_required: "0_DEMONSTRATED"
+  new_core_semantic_delta_required: "0_DEMONSTRATED"
+  practical_operational_release_value: MATERIAL
+  reference_library_delta: MATERIAL_SELECTED_OPTIONAL
+  tooling_delta: MATERIAL_SELECTED
+  language_adoption_delta: MATERIAL_SELECTED
+  summary: >-
+    Preserve the v0.3.6 semantic trunk while making concrete HOWs discoverable,
+    selectable, Host-mappable, and executable without requiring adopters to read research history.
+
+constitution:
+  inherited_stable_ids: 38
+  new_ids_added_in_candidate: 0
+  constitution_change_planned: false
+
+semantic_trunk:
+  base: "v0.3.6 Current"
+  material_semantic_rewrite_planned: false
+  inherited_files_may_still_contain_v036_current_identity_during_assembly: true
+  freeze_requires_candidate_identity_reconciliation: true
+  unchanged_unless_material_contradiction_found:
+    - "01-CONSTITUTION.md"
+    - "02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md"
+    - "03-ROLES-AND-DEVELOPMENTAL-STAGES.md"
+    - "04-CAPABILITY-MAP.md"
+    - "05-CORE-OPERATIONAL-CONTRACTS.md"
+    - "schemas/evolution-record.v2.schema.json"
+    - "schemas/adaptation-packet.v2.schema.json"
+
+operational_architecture:
+  state: ASSEMBLY_IN_PROGRESS
+  entrypoint: "operational/README.md"
+  cue_index: "operational/CUE-INDEX.md"
+  how_map: "operational/HOW-MAP.md"
+  reference_index: "operational/REFERENCE-INDEX.yaml"
+  hot_kernel_should_load_full_how_library: false
+  concrete_how_is_universal_mandate: false
+  host_local_realization_allowed: true
+  selected_procedures:
+    - PURPOSE_RELATIVE_CONTINUITY
+    - STANDING_INPUT
+    - CONTROL_RETIREMENT
+  selected_patterns:
+    - EVOLUTION_COMMONS
+    - HOST_MAPPINGS
+  stage1_missing_paths_are_expected: true
+
+references:
+  state: MANIFEST_SELECTED_CONTENT_ASSEMBLY_PENDING
+  manifest: "references/REFERENCE-MANIFEST.yaml"
+  required_for_complete_adoption_default: false
+  default_activation_default: false
+  package_inclusion_implies_applicability: false
+  package_inclusion_implies_activation: false
+  normative_semantic_authority: false
+  selected_general:
+    - retrieval-obligation-0.5
+    - wait-state
+    - authority-lease
+    - effect-lifecycle
+    - recovery-adapter
+  selected_advanced_or_specialized:
+    - evidence-envelope
+    - evidence-dependency-map
+    - contested-authorship
+  deferred_not_retired:
+    - commitment-settlement-recovered
+
+tooling:
+  state: CANDIDATE_PRIMARY_TOOL_ASSEMBLY_PENDING
+  primary_v2_tool: "tools/ena_evolve_v2.py"
+  primary_v2_tool_role: "thin orchestration over candidate-local v2 record validator/schema plus packet-v2 digest and narrow consistency"
+  legacy_tool_target: "tools/legacy/ena_evolve_v1_2.py"
+  legacy_tool_default_path: false
+  narrow_legacy_variation_space_repair_selected_as_primary: false
+  v2_tool_must_not_delegate_to_releases_current: true
+  v2_tool_must_not_reimplement_second_evolution_semantic_engine: true
+
+language:
+  state: OPERATIONAL_PROJECTION_ASSEMBLY_PENDING
+  authoring_language: "en"
+  supported_projection_target: "zh-CN"
+  operational_entry_projection_required: true
+  cue_index_projection_required: true
+  how_map_projection_required: true
+  bounded_procedure_projection_required: true
+  commons_pattern_projection_required: true
+  machine_reference_file_by_file_translation_required: false
+  machine_reference_zh_cn_guide_required: true
+  structural_parity_is_behavioral_equivalence: false
+
+freeze_protocol:
+  model: EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE
+  internal_frozen_flag_is_prefreeze_occurrence_state: true
+  external_record_may_assign_frozen_identity_without_rewriting_candidate_tree: true
+  post_freeze_material_change_requires_successor_identity: true
+  freeze_not_allowed_while_maturity_is_assembly_in_progress: true
+
+assembly:
+  stage: 1
+  state: TRUTHFUL_CANDIDATE_SHELL
+  completed:
+    - candidate branch aligned to exact release-scope checkpoint
+    - candidate baseline created
+    - candidate identity entry files created
+    - operational entry directory created
+    - optional reference manifest created
+  pending:
+    - operational cue/how/reference-index cargo
+    - bounded procedures and patterns
+    - selected optional machine references
+    - candidate-local v2 evolution helper and explicit legacy relocation
+    - zh-CN operational projection and fixtures
+    - candidate-specific validator and author adversarial suite
+    - identity reconciliation across inherited candidate files
+    - pre-freeze machine validation
+    - freeze record and independent falsification
+
+accepted_working_residuals:
+  - "Current v0.3.6 remains the only adopter-facing baseline while candidate.0 is assembled."
+  - "Stage-1 inherited semantic files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
+  - "Bundled reference paths declared in the manifest are selected cargo but may not exist until later assembly stages."
+  - "The v2 primary tool direction is selected, but the candidate-local tool path is not yet assembled in Stage 1."
+  - "Fresh-session cue salience and behavioral language equivalence remain field evidence, not candidate-author proof."
+
+invariants:
+  - CURRENT_V036_REMAINS_UNCHANGED
+  - CANDIDATE_IS_NOT_CURRENT
+  - CANDIDATE_BRANCH_IS_NOT_FREEZE_IDENTITY
+  - BUNDLED_REFERENCE_NE_REQUIRED_RUNTIME_ORGAN
+  - REFERENCE_SCHEMA_NE_NORMATIVE_ENA_ONTOLOGY
+  - HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
+  - HOT_KERNEL_NE_FULL_HOW_LIBRARY
+  - SEMANTIC_TRUNK_STABILITY_NE_NO_RELEASE_VALUE
+  - SILENT_DISSOLUTION_NE_EVIDENCE_BACKED_RETIREMENT

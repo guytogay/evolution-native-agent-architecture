@@ -1,0 +1,40 @@
+schema_version: "1.5"
+language: "zh-CN"
+projection_version: "v0.3.6.zh-CN.1"
+source_semantic_version: "v0.3.6"
+source_identity_binding: >
+  Bound to the v0.3.6 Current release semantic package under releases/current/.
+  The release workflow must bind the published projection to the same immutable
+  Current effective-content identity and package evidence as the English source.
+status: CURRENT_SEMANTIC_PROJECTION
+not_current: false
+coverage:
+  - 00-READ-ME-FIRST.md
+  - 01-CONSTITUTION.md
+  - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
+  - RUNTIME-ADOPTION-KERNEL.md
+  - 09-EVOLUTION-METABOLISM.md
+  - CONSTITUTION-CONCEPT-MAP.md
+  - SEMANTIC-GLOSSARY.zh-CN.yaml
+semantic_fixture_sets:
+  - "../semantic-fixtures.v1.yaml"
+  - "../semantic-fixtures.v2.yaml"
+validation:
+  structural_parity: PARTIAL_CURRENT
+  constitution_id_parity: INHERITED_38_IDS_CI_CHECKABLE
+  predecessor_v035_single_model_behavioral_result: "8/8 aligned on DeepSeek v4-flash; predecessor evidence only"
+  v036_behavioral_semantic_conformance: UNPROVEN_FIELD_EVIDENCE_REQUIRED
+  universal_behavioral_semantic_conformance: UNPROVEN
+known_gaps:
+  - "Long-tail operational contracts and schemas remain primarily in the canonical authoring language."
+  - "Structural or lexical parity does not prove equivalent model decisions across English and zh-CN."
+  - "The inherited v0.3.5 8/8 bilingual result does not prove new v0.3.6 semantics."
+  - "The inherited reference tool does not implement full v0.3.6 expression/mutation-pressure semantics."
+  - "The inherited reference tool requires Variation Space for propose/import and is therefore not the normative v0.3.6 latent proposal/import path."
+  - "adaptation-packet.v2 is a representation contract; the inherited tool still emits/accepts packet v1."
+  - "Self-asserted LOCAL provenance and obligation-reference strings are not authenticated merely by schema validation."
+conflict_policy: >
+  A material discrepancy is a projection defect, not permission to silently
+  choose whichever wording is convenient. Resolve against v0.3.6 Current
+  semantic intent and stable inherited Constitution IDs, then record explicit
+  reconciliation.
