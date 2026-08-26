@@ -1,149 +1,119 @@
 # ENA Research
 
-Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE`
+Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / RELEASE_SCOPE_READY`
 
-This directory is the stable starting point for anyone asked to **continue, inherit, review, or improve ENA research**.
+This directory is the stable starting point for anyone asked to continue, inherit, review, or improve ENA research.
 
-Do not discover the active research workspace by browsing branch names or old pull requests.
+Do not discover active work by browsing branch names or old pull requests.
 
 ## Start here
 
-1. `ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration **branch**.
-2. `methodology/README.md` — how ENA research must be conducted before selecting work.
-3. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — how to realign project state after material transitions before substantive work resumes.
-4. `BRANCH-GOVERNANCE.md` — branch naming/lifecycle/closure rules.
-5. `BRANCH-INVENTORY.yaml` — current live branch classification plus durable cleanup lineage.
-6. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable long-horizon project plan.
-7. Follow `ACTIVE-RESEARCH.yaml` to the active branch, then read its `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml` for fast-moving execution state.
-8. During the current assembly phase, use `operational-architecture/README.md` and `operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md` to traverse from semantic problems to concrete HOW branches.
-9. Discover an open PR by active head branch only when review/integration context is needed.
+1. `ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch.
+2. `methodology/README.md` — current research method.
+3. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — required after material transitions.
+4. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable long-horizon plan.
+5. Follow the active branch and read `RESEARCH-START-HERE.md` + `plans/PROGRESS.yaml`.
+6. For practical architecture, read `operational-architecture/README.md`.
+7. For current release selection, read `release-scope/README.md`.
+8. `BRANCH-GOVERNANCE.md` and `BRANCH-INVENTORY.yaml` are for topology/cleanup, not ordinary continuation.
 
 ```text
-MAIN PROJECT CONTROL PLANE
-        |
-        +--> Current adoption -> releases/current/
-        |
-        +--> Research control -> research/ACTIVE-RESEARCH.yaml
-                                  |
-                                  v
-                        research/ena-reconstruction
-                                  |
-                  +---------------+----------------+
-                  |               |                |
-          reconstruction      prototypes     operational-architecture
-                  |               |                |
-             recovered HOWs   falsification    traversable assembly map
+main
+|
++--> Current adoption
+|     -> releases/current/
+|
++--> research control
+      -> research/ACTIVE-RESEARCH.yaml
+           |
+           v
+      research/ena-reconstruction
+           |
+           +--> methodology / reconstruction lineage
+           +--> operational-architecture/
+           +--> release-scope/
+           +--> prototypes / evidence / experiments / external HOWs
 ```
 
-Observed live long-lived topology after the 2026-08-26 cleanup:
+Observed intended long-lived topology:
 
 ```text
 main
 research/ena-reconstruction
 ```
 
-Historical branch names remain lineage only when their refs have been deleted.
+`research/ena-reconstruction` is a stable integration name, not a promise that the project will remain forever in archaeology/reconstruction phase.
 
-## Separation of concerns
+## Current phase
 
-`main` carries the stable project control plane and Current adoption baseline.
+PR #109 integrated the anti-ablation recovery and first Operational Architecture assembly into `main` without changing `releases/current/`.
 
-The active research integration branch carries fast-moving reconstruction, prototypes, external-HOW harvesting, experiments, evidence, Operational Architecture assembly, and execution progress.
+Operational Architecture has passed the first release-scope entry gate with open field residuals.
 
-Temporary work branches may exist when isolation is genuinely useful, but they do not become continuation authority.
+Current research phase:
 
-```text
-BRANCH_EXISTS != BRANCH_ACTIVE
-OPEN_PR != ACTIVE_BRANCH_AUTHORITY
-RESEARCH_ARTIFACT_EXISTS != CURRENT
-ASSEMBLY_ARTIFACT_EXISTS != RELEASE_DELTA
-MAIN_FILE_EXISTS != ENA_CONSTITUTION
-```
+`ACTIVE_RELEASE_SCOPE_RECONCILIATION`
+
+Current adoption remains whatever `releases/current/CURRENT-BASELINE.yaml` says; at this transition it remains `v0.3.6 / CURRENT / FIELD_VALIDATION`.
+
+The next version is not assigned until release scope stabilizes.
 
 ## Research methodology
 
-ENA research has its own evolving methodology and must not rely on one Agent/session remembering it correctly.
-
-The methodology is maintained under:
-
-`research/methodology/`
+Canonical methodology lives under `research/methodology/`.
 
 Important current disciplines include:
 
 - explanatory coverage is not operational solution;
-- concrete organs must not be dissolved by parent abstractions;
-- WHAT/WHY may form a compressed semantic trunk;
-- HOW should concretize, branch, and remain plural where reality supports it;
-- HOW cardinality and taxonomy are discovered rather than preallocated;
+- WHAT/WHY may be compressed into a semantic trunk;
+- concrete HOW branches must remain plural when reality supports different mechanisms;
+- recover variation before selecting among it;
+- working taxonomies/counts are not ontology;
 - experiments must pay epistemic rent;
-- arbitrary numbers do not become evidence by being numeric;
-- evidence is applicability/branch/Host scoped;
-- research can legitimately yield NO_CHANGE, dormancy, simplification, plurality, or retirement with lineage;
-- methodology inheritance is successful only when it changes actual research behavior;
-- after material project transitions, method/routing/plan/progress must be aligned before substantive research resumes.
+- evidence is branch/Host/applicability scoped;
+- NO_CHANGE, dormancy, simplification and evidence-backed retirement are valid outcomes;
+- a concrete HOW should say both how to use it and when it does not apply;
+- missing pointer != missing organ;
+- after a material transition, align routing/plan/progress/live Git state before continuing.
 
-## Operational Architecture assembly
+## Operational Architecture
 
-Anti-ablation archaeology has reached `RECOVERY_SUFFICIENT_FOR_ASSEMBLY / REOPENABLE` for the current decision. The current work therefore assembles the recovered research tree into a cold, traversable operational library rather than immediately rewriting Current.
-
-Start from:
-
-`research/operational-architecture/README.md`
-
-then:
-
-`research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md`
-
-The intended relation is:
+`research/operational-architecture/` provides the current research navigation chain:
 
 ```text
-semantic WHAT / WHY
-        |
-        +--> plural concrete HOW branches
-        |       |
-        |       +--> Host binding
-        |       +--> failure/fallback
-        |       +--> evidence/residuals
-        |
-        +--> composition links
+problem/cue
+-> CUE-INDEX
+-> WHAT/WHY node
+-> plural HOW branches
+-> REFERENCE-POINTER-MATRIX
+-> prototype / bounded procedure / Host pattern
+-> action or honest residual
 ```
 
-The map is a routing surface, not a new ontology and not a mandatory always-hot context payload.
+This library may be much larger than an Agent's active context. Tiny Hot Kernel/Host-native routing should retrieve relevant branches rather than load everything.
+
+## Release scope
+
+`research/release-scope/` now asks what should actually be delivered to adopters.
+
+Key distinction:
 
 ```text
-OPERATIONAL_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE
-NAVIGATION_CLUSTER != NATURAL_ORGAN_BOUNDARY
+NO_NEW_CORE_RULES != NO_RELEASE_VALUE
+LARGE_RESEARCH_TREE != SHIP_EVERYTHING
 ```
 
-## Project State Alignment Gate
+Release reconciliation may select adopter guidance, optional reference organs, Host patterns, maintenance tooling, or practical navigation without expanding Core semantics.
 
-A branch handoff, cleanup, checkpoint merge, directory move, material method change, plan change, or release-state change can leave individually reasonable files describing different generations of the project.
-
-Use:
-
-`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+## Branch/PR semantics
 
 ```text
-INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
-MATERIAL_TRANSITION -> ALIGN -> RESUME
+BRANCH_EXISTS != BRANCH_ACTIVE
+OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
+RESEARCH_ARTIFACT_EXISTS != CURRENT
+MAIN_FILE_EXISTS != ENA_CONSTITUTION
 ```
 
-The gate is transition-triggered, not a ritual after every minor commit.
-
-## Active-work discoverability
-
-The active branch can change over time. The path to discover it does not:
-
-`research/ACTIVE-RESEARCH.yaml`
-
-A successor session should therefore **not need a branch census** for ordinary continuation.
-
-An open PR may or may not exist. PR identity is not continuation authority.
-
-## Historical branches and PRs
-
-Historical, frozen, superseded, merged, or deleted branches and prior PR generations are lineage, not navigation.
-
-Use `BRANCH-INVENTORY.yaml` only when cleaning topology or investigating provenance. Retrieve PR #82/#101 when their checkpoint/handoff history is relevant, not as mandatory startup context.
+Historical PRs #82, #101 and #109 are durable lineage/checkpoints. The main-visible branch pointer remains continuation authority.
 
 > **One active research integration surface; many concrete HOW branches may grow inside the research tree.**
