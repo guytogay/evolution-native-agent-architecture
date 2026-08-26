@@ -127,6 +127,50 @@ Practical effect:
 
 A successor begins at `main`, reads one stable pointer, then follows the active workspace. It should not need to infer project state from the branch list.
 
+## 2026-08-26 — Branch-centric continuation identity
+
+Trigger:
+
+During the successor-branch transition, the control plane bound continuation state to a specific PR number and cached active-branch head SHA. Both proved unstable: PR generations can change while the active branch remains the same, and recording a branch's own head SHA inside a commit on that branch makes the recorded SHA stale immediately.
+
+Correction:
+
+```text
+ACTIVE_RESEARCH_AUTHORITY = MAIN_VISIBLE_BRANCH_POINTER
+OPEN_PR = TRANSIENT_DISCOVERABLE_INTEGRATION_ARTIFACT
+HEAD_SHA = LIVE_REVERIFY_BEFORE_WRITE
+```
+
+Practical effect:
+
+- `research/ena-reconstruction` can remain the active integration branch across multiple PR generations;
+- opening/merging/closing a PR on the same active branch no longer requires another branch handoff;
+- exact active head is observed from GitHub before writes instead of embedded as a self-referential identity lock.
+
+## 2026-08-26 — Project State Alignment Gate
+
+Trigger:
+
+After branch cleanup, PR #82 checkpointing, successor activation, PR #101 bootstrap reconciliation, and deletion of the predecessor ref, several individually reasonable documents still described different generations of the project. The repo was durable, but routing, method, plan, progress, and historical references could drift apart after a material transition.
+
+Correction:
+
+```text
+INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
+MATERIAL_TRANSITION -> ALIGN -> RESUME
+HISTORY_PRESERVED != HISTORY_USED_AS_CURRENT_POINTER
+```
+
+Canonical focused procedure:
+
+`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+
+Practical effect:
+
+- after material branch/control-plane, directory, methodology, plan, release-state, or checkpoint transitions, ENA research aligns live repository state, routing guides, methodology, master plan, Progress, and next actions before substantive work resumes;
+- old branches/PRs remain available as lineage without masquerading as current pointers;
+- the gate is not required after every ordinary commit, only transitions capable of creating current-state disagreement.
+
 ## Future changes
 
 Add a new entry when a research-process failure, field observation, or stronger method changes how future ENA research should actually be conducted.
