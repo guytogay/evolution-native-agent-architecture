@@ -1,0 +1,162 @@
+name: ENA v0.3.7 Candidate Assembly Gate
+
+on:
+  push:
+    branches: [candidate/v0.3.7-candidate.0]
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/workflows/v037-candidate-assembly.yml'
+  pull_request:
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/workflows/v037-candidate-assembly.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assembly:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Verify Current isolation and candidate identity surface
+        run: |
+          set -euo pipefail
+          git diff --exit-code 0ad263178ab8b7c21c150012b3c06a5c41a4f41c -- releases/current
+          test -f releases/v0.3.7-candidate/CANDIDATE-BASELINE.yaml
+          test ! -e releases/v0.3.7-candidate/CURRENT-BASELINE.yaml
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.7-candidate')
+          b = yaml.safe_load((root/'CANDIDATE-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert b['ena_version'] == 'v0.3.7-candidate.0'
+          assert b['candidate_for'] == 'v0.3.7'
+          assert b['current'] is False
+          assert b['frozen'] is False
+          assert b['must_not_be_adopted_as_current'] is True
+          assert b['lineage']['candidate_birth_base_commit'] == '0ad263178ab8b7c21c150012b3c06a5c41a4f41c'
+          print('candidate-identity-pass', b['assembly'])
+          PY
+
+      - name: Verify optional reference manifest and paths
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/v0.3.7-candidate')
+          m = yaml.safe_load((root/'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          assert m['policy']['required_for_complete_adoption_default'] is False
+          assert m['policy']['default_activation_default'] is False
+          assert m['policy']['package_inclusion_implies_applicability'] is False
+          assert m['policy']['package_inclusion_implies_activation'] is False
+          refs = m['references']
+          assert len(refs) == 8
+          for ref in refs:
+              assert ref['required_for_complete_adoption'] is False, ref['id']
+              assert ref['default_activation'] is False, ref['id']
+              p = root / ref['path']
+              assert p.is_dir(), (ref['id'], p)
+              assert (p/'README.md').is_file(), ref['id']
+          print('optional-reference-manifest-pass', [r['id'] for r in refs])
+          PY
+
+      - name: Run bundled reference selftests
+        run: |
+          set -euo pipefail
+          R='releases/v0.3.7-candidate/references'
+          python "$R/general/retrieval-obligation/selftest.py"
+          python "$R/general/wait-state/tools/selftest_wait_state.py"
+          python "$R/general/authority-lease/tools/selftest_authority_lease.py"
+          python "$R/general/effect-lifecycle/tools/selftest_effect_lifecycle.py"
+          python "$R/general/recovery-adapter/tools/selftest_recovery_adapter.py"
+          python "$R/advanced/evidence-envelope/tools/selftest_evidence_envelope.py"
+          python "$R/advanced/evidence-dependency-map/tools/selftest_evidence_dependency_map.py"
+          python "$R/advanced/contested-authorship/tools/selftest_contested_authorship.py"
+
+      - name: Run candidate-local v2 helper deterministic corpus
+        run: python releases/v0.3.7-candidate/tools/selftest_ena_evolve_v2.py
+
+      - name: Run candidate-local v2 CLI round trip
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.7-candidate'
+          TOOL="$ROOT/tools/ena_evolve_v2.py"
+          TMP="$(mktemp -d)"
+          REC="$TMP/latent.json"
+          PKT="$TMP/packet.json"
+          IMP="$TMP/imported.json"
+          python "$TOOL" new-latent --candidate-id var-cli --hypothesis 'candidate cli latent' --change 'store without early Variation Space' --output "$REC"
+          python "$TOOL" validate-record "$REC"
+          python "$TOOL" export-packet "$REC" --output "$PKT"
+          python "$TOOL" validate-packet "$PKT"
+          python "$TOOL" import-packet "$PKT" --candidate-id mig-cli --output "$IMP"
+          python "$TOOL" validate-record "$IMP"
+          REC="$REC" IMP="$IMP" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          a = json.loads(Path(os.environ['REC']).read_text(encoding='utf-8'))
+          b = json.loads(Path(os.environ['IMP']).read_text(encoding='utf-8'))
+          assert a['variation_space'] is None
+          assert a['selection_state'] == 'UNASSESSED'
+          assert b['variation_space'] is None
+          assert b['selection_state'] == 'UNASSESSED'
+          assert b['migration']['source_selection_state'] == 'UNASSESSED'
+          print('candidate-v2-cli-roundtrip-pass')
+          PY
+
+      - name: Verify v2 helper is candidate-local and legacy is demoted
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.7-candidate'
+          test -f "$ROOT/tools/ena_evolve_v2.py"
+          test -f "$ROOT/tools/legacy/ena_evolve_v1_2.py"
+          test ! -e "$ROOT/tools/ena_evolve.py"
+          if grep -n 'releases/current' "$ROOT/tools/ena_evolve_v2.py"; then
+            echo 'candidate v2 helper must not delegate to Current'
+            exit 1
+          fi
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          p = Path('releases/v0.3.7-candidate/tools/ena_evolve_v2.py')
+          tree = ast.parse(p.read_text(encoding='utf-8'))
+          strings = {n.value for n in ast.walk(tree) if isinstance(n, ast.Constant) and isinstance(n.value, str)}
+          assert 'expression_state' in strings
+          assert 'ena-adaptation-packet.v2' in strings
+          print('candidate-v2-tool-boundary-pass')
+          PY
+
+      - name: Compile candidate Python surfaces without bytecode
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          failures=[]
+          files=sorted(Path('releases/v0.3.7-candidate').rglob('*.py'))
+          for p in files:
+              try:
+                  compile(p.read_text(encoding='utf-8'), str(p), 'exec')
+              except Exception as exc:
+                  failures.append((str(p), repr(exc)))
+          print('candidate-python-total', len(files))
+          print('candidate-python-failed', len(failures))
+          for f in failures: print(*f)
+          if failures: raise SystemExit(1)
+          PY
+          found="$(find releases/v0.3.7-candidate \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) -print)"
+          test -z "$found" || { echo "$found"; exit 1; }
