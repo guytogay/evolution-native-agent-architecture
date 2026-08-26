@@ -1,0 +1,42 @@
+name: Finite Context Adoption Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/finite-context-adoption/**'
+      - '.github/workflows/finite-context-adoption-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-context-adoption-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile plural adoption HOW tools
+        run: |
+          python -m py_compile \
+            research/prototypes/finite-context-adoption/tools/file_git_adoption.py \
+            research/prototypes/finite-context-adoption/tools/tool_native_adoption.py \
+            research/prototypes/finite-context-adoption/tools/monolithic_hot_adoption.py \
+            research/prototypes/finite-context-adoption/tools/compiled_projection_adoption.py \
+            research/prototypes/finite-context-adoption/tools/selftest_finite_context_adoption.py
+
+      - name: Run plural adoption HOW selftest
+        run: python research/prototypes/finite-context-adoption/tools/selftest_finite_context_adoption.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'HOWS=FILE_GIT_TINY_COLD,TOOL_NATIVE_RETRIEVAL,MONOLITHIC_HOT,HYBRID_COMPILED_PROJECTION'
+          echo 'UNIVERSAL_WINNER=NOT_SELECTED'
+          echo 'MONOLITHIC_HOT=VALID_LOCAL_PHENOTYPE'
+          echo 'NATURALISTIC_APPLICATION=UNPROVEN'
+          echo 'CURRENT_CHANGE=NO'
