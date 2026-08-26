@@ -1,7 +1,7 @@
 schema_version: "1.0-candidate"
 status: WORKING_CANDIDATE_REFERENCE_MANIFEST
 candidate: "v0.3.7-candidate.0"
-assembly_state: PATHS_SELECTED_CONTENT_PENDING
+assembly_state: MACHINE_CHECKED_ASSEMBLED
 
 policy:
   required_for_complete_adoption_default: false
@@ -20,7 +20,7 @@ references:
   - id: retrieval-obligation-0.5
     role: GENERAL_OPTIONAL_REFERENCE
     path: references/general/retrieval-obligation/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Decision-material knowledge depends on retrieval scope, effective content identity, freshness, or sufficiency closure."
@@ -29,7 +29,7 @@ references:
   - id: wait-state
     role: GENERAL_OPTIONAL_REFERENCE
     path: references/general/wait-state/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Action should pause for a represented wake condition rather than re-execute from silence or uncertainty."
@@ -38,7 +38,7 @@ references:
   - id: authority-lease
     role: GENERAL_OPTIONAL_REFERENCE
     path: references/general/authority-lease/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "A consequential action depends on represented external authority scope or validity."
@@ -47,7 +47,7 @@ references:
   - id: effect-lifecycle
     role: GENERAL_OPTIONAL_REFERENCE
     path: references/general/effect-lifecycle/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Retry, settlement, restart, compensation, or effect identity can change a consequential external-effect decision."
@@ -56,7 +56,7 @@ references:
   - id: recovery-adapter
     role: GENERAL_OPTIONAL_REFERENCE
     path: references/general/recovery-adapter/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Recovery reachability or post-restore world/authority reconciliation can change safe resumption."
@@ -65,7 +65,7 @@ references:
   - id: evidence-envelope
     role: ADVANCED_OPTIONAL_REFERENCE
     path: references/advanced/evidence-envelope/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Material claims need explicit evidence/support/applicability/provenance/witness/activation/projection boundaries."
@@ -74,7 +74,7 @@ references:
   - id: evidence-dependency-map
     role: ADVANCED_OPTIONAL_REFERENCE
     path: references/advanced/evidence-dependency-map/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Material corroboration can be distorted by common causes among agreeing observations."
@@ -83,7 +83,7 @@ references:
   - id: contested-authorship
     role: SPECIALIZED_OPTIONAL_REFERENCE
     path: references/advanced/contested-authorship/
-    assembly_state: PENDING
+    assembly_state: MACHINE_CHECKED_ASSEMBLED
     required_for_complete_adoption: false
     default_activation: false
     applicability_summary: "Material durable self-surface change makes origin, endorsement, conflict, revision, or authority laundering decision-relevant."
@@ -93,6 +93,19 @@ deferred_not_bundled_first_candidate:
   - id: commitment-settlement-recovered
     disposition: RETAIN_IN_RESEARCH_PENDING_FRESH_INDEPENDENT_REVIEW_OR_RENEWED_CANDIDATE_CRITICAL_NEED
     retired: false
+
+machine_evidence:
+  exact_head: "8ba109528ecb14f9a22a372c897ac8d9ea1759f3"
+  workflow: "ENA v0.3.7 Candidate Assembly Gate"
+  workflow_run_id: 33004330491
+  conclusion: SUCCESS
+  verified:
+    - "all 8 selected paths exist and have candidate-local README wrappers"
+    - "all references remain required_for_complete_adoption=false"
+    - "all references remain default_activation=false"
+    - "all bundled reference selftests passed in candidate-local paths"
+  boundary: "Machine PASS establishes represented consistency on the exercised corpus; it does not establish external truth or universal applicability."
+  corpus_cardinality_rule: "Observed fixture counts are evidence facts, not minimum architectural thresholds."
 
 freeze_requirements:
   - "Every selected reference path exists before freeze."
