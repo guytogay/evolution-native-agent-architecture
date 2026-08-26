@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Portable deployment selftest for the four finite-context adoption HOWs.
+"""Portable deployment selftest for currently implemented adoption HOWs.
 
 Each deployment recipe is exercised through its own CLI surface. The test does
-not normalize them into one adapter interface and does not select a universal
-winner.
+not normalize them into one adapter interface, select a universal winner, or
+treat the current HOW count as an architectural constant.
 """
 
 from __future__ import annotations
@@ -204,6 +204,100 @@ def test_compiled_projection(tmp: Path, current: Path) -> None:
     print("PASS deployment HOW-D: real section compilation + missing-section refusal")
 
 
+def test_native_rebind(tmp: Path) -> None:
+    good = tmp / "native-rebind-good.json"
+    write_result(good, {
+        "source_current_tree": CURRENT_TREE,
+        "bindings": [
+            {
+                "property_id": "mutation_pressure",
+                "status": "NATIVE_REALIZATION",
+                "native_organ": "wake/metabolism scan",
+                "behavior_ref": "host://wake-scan-v3",
+            },
+            {
+                "property_id": "rescue_plane",
+                "status": "PARTIAL_NATIVE_REALIZATION",
+                "native_organ": "recovery-root/controller",
+                "behavior_ref": "host://recovery-root-v2",
+            },
+            {
+                "property_id": "expression_axis",
+                "status": "DORMANT_NOT_DECISION_CHANGING",
+                "material": False,
+            },
+        ],
+    })
+    out = run([
+        PY,
+        str(ROOT / "validate_native_host_rebind.py"),
+        "--mapping", str(good),
+        "--runtime-current-tree", CURRENT_TREE,
+    ])
+    assert "how=HOW-E-NATIVE-HOST-REBIND" in out
+    assert "mapping_posture=NATIVE_REBIND_ACCEPTABLE" in out
+    assert "behavioral_application=UNPROVEN" in out
+
+    stale = tmp / "native-rebind-stale.json"
+    write_result(stale, {
+        "source_current_tree": "old-tree",
+        "bindings": [
+            {
+                "property_id": "mutation_pressure",
+                "status": "NATIVE_REALIZATION",
+                "native_organ": "wake/metabolism scan",
+                "behavior_ref": "host://wake-scan-v3",
+            }
+        ],
+    })
+    out = run([
+        PY,
+        str(ROOT / "validate_native_host_rebind.py"),
+        "--mapping", str(stale),
+        "--runtime-current-tree", CURRENT_TREE,
+    ], expect=1)
+    assert "mapping_posture=STALE_REBIND_REQUIRED" in out
+
+    unsupported = tmp / "native-rebind-unsupported.json"
+    write_result(unsupported, {
+        "source_current_tree": CURRENT_TREE,
+        "bindings": [
+            {
+                "property_id": "local_selection",
+                "status": "NATIVE_REALIZATION",
+                "native_organ": "evidence ceiling",
+            }
+        ],
+    })
+    out = run([
+        PY,
+        str(ROOT / "validate_native_host_rebind.py"),
+        "--mapping", str(unsupported),
+        "--runtime-current-tree", CURRENT_TREE,
+    ], expect=1)
+    assert "mapping_posture=MAPPING_EVIDENCE_INSUFFICIENT" in out
+
+    gap = tmp / "native-rebind-gap.json"
+    write_result(gap, {
+        "source_current_tree": CURRENT_TREE,
+        "bindings": [
+            {
+                "property_id": "effect_commitment",
+                "status": "GAP",
+                "material": True,
+            }
+        ],
+    })
+    out = run([
+        PY,
+        str(ROOT / "validate_native_host_rebind.py"),
+        "--mapping", str(gap),
+        "--runtime-current-tree", CURRENT_TREE,
+    ], expect=1)
+    assert "mapping_posture=MATERIAL_GAP_REQUIRES_ORGAN_OR_ADAPTER" in out
+    print("PASS deployment HOW-E: native rebind mapping + stale/evidence/gap honesty")
+
+
 def main() -> int:
     with tempfile.TemporaryDirectory(prefix="ena-fca-deploy-") as raw:
         tmp = Path(raw)
@@ -213,9 +307,12 @@ def main() -> int:
         test_tool_native(tmp, current)
         test_monolithic_hot(tmp)
         test_compiled_projection(tmp, current)
+        test_native_rebind(tmp)
 
     print("PASS: plural finite-context deployment recipes")
     print("verification_scope=DEPLOYMENT_RECIPE_BEHAVIOR_ONLY")
+    print("currently_implemented_how_count_is_not_ontology=true")
+    print("how_cardinality=OPEN")
     print("shared_adapter_framework=NOT_CREATED")
     print("universal_winner=NOT_SELECTED")
     print("current_change=NO")
