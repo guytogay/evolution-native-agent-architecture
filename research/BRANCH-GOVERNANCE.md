@@ -2,11 +2,11 @@
 
 Status: `PROJECT_CONTROL_PLANE / MAIN_VISIBLE / NON_NORMATIVE_TO_ENA_CURRENT`
 
-Purpose: make branch topology legible to humans and future Agent sessions without turning Git branch names into ENA semantics.
+Purpose: make branch topology legible to humans and future Agent sessions without turning Git branch names, PR numbers, or cached head SHAs into ENA semantics.
 
 ## Core rule
 
-> **Discover active work from a canonical pointer, never from branch recency or naming intuition.**
+> **Discover active work from a canonical branch pointer, never from branch recency, naming intuition, an old PR number, or an embedded head SHA.**
 
 The canonical pointer is:
 
@@ -15,9 +15,26 @@ The canonical pointer is:
 ```text
 BRANCH_EXISTS != BRANCH_ACTIVE
 BRANCH_RECENT != BRANCH_AUTHORITATIVE
+OPEN_PR != ACTIVE_BRANCH_AUTHORITY
 OPEN_PR != CURRENT
+EMBEDDED_HEAD_SHA != LIVE_HEAD_PROOF
 FROZEN_COMMIT != ACTIVE_WORKSPACE
 ```
+
+## Why branch identity is stable but PR/head observations are not
+
+The active research integration **branch** is the stable continuation coordinate selected by the main-visible control plane.
+
+An integration PR is a transient transport/review artifact. The same active branch may have no open PR immediately after a checkpoint merge and later open a new PR without changing continuation authority.
+
+Likewise, an exact head SHA is a live Git fact that must be re-read before writes. Embedding the active branch's own head SHA inside a file committed on that same branch is inherently self-staling: the commit that records the SHA creates a new SHA.
+
+Therefore:
+
+- active branch identity comes from `main/research/ACTIVE-RESEARCH.yaml`;
+- open PRs are discovered from the active head branch when needed;
+- current head is reverified from GitHub before writes;
+- cached PR numbers or SHAs may be retained only as historical observations, not identity locks.
 
 ## Branch roles
 
@@ -41,17 +58,11 @@ Exactly one branch is designated by `research/ACTIVE-RESEARCH.yaml` as the curre
 
 The count of one has a project-coordination reason: a successor session needs one unambiguous place to continue integrated research. It is not a claim that research has one topic or one HOW.
 
-Current legacy-named active branch:
+Current active branch:
 
-`research/memory-metabolism-prototype`
+`research/ena-reconstruction`
 
-Its name no longer accurately describes its full scope; the canonical pointer, not the branch name, defines its role.
-
-After the current research cycle closes, prefer the stable name:
-
-`research/active`
-
-for the next integration workspace unless a concrete Git limitation makes a cycle-specific name more useful.
+It succeeded the checkpointed and retired `research/memory-metabolism-prototype` generation after PR #82. The predecessor ref has been deleted; its lineage remains durable through Git history, PR #82, checkpoint commits, issues, and merged research artifacts.
 
 ### Temporary research/work branch
 
@@ -112,8 +123,8 @@ They never become the active ENA research continuation surface unless `ACTIVE-RE
 Prefer role-first names whose first path component answers what the branch is for:
 
 ```text
-research/active
-research/work/<slug>          # temporary isolated research, if needed
+research/ena-reconstruction      # current integration branch
+research/work/<slug>             # temporary isolated research, if needed
 candidate/<version>-candidate.<generation>
 release/<version>
 evidence/<slug>
@@ -169,18 +180,21 @@ A fresh session asked to continue ENA should:
 3. read `research/ACTIVE-RESEARCH.yaml`;
 4. read `research/methodology/README.md` and the canonical methodology;
 5. follow the active branch pointer and read its progress/plan;
-6. ignore all other branches unless lineage/provenance makes them relevant.
+6. reverify the active Git head and discover any open PR for that branch before writing;
+7. ignore all other branches unless lineage/provenance makes them relevant.
 
-It should **not** run a branch census as a prerequisite to normal continuation.
+It should **not** run a full branch census as a prerequisite to normal continuation.
 
 ## Pointer transition
 
-Changing the active research integration branch is a project-state change and must update, in the same reconciled change where practical:
+Changing the active research integration **branch** is a project-state change and must update, in the same reconciled change where practical:
 
 - `research/ACTIVE-RESEARCH.yaml`;
 - `research/BRANCH-INVENTORY.yaml`;
 - project metadata/pointers if their paths change;
 - the old branch/PR with a visible handoff/closure note.
+
+Opening, merging, closing, or replacing an integration PR on the **same active branch** does not by itself change active-branch authority and therefore must not require another control-plane branch transition.
 
 The new branch must be discoverable from `main` before the old active branch is retired.
 
@@ -190,4 +204,4 @@ Branch topology itself must pay complexity rent.
 
 A new branch is justified only if isolation provides a material coordination, reproducibility, validation, or safety benefit that cannot be achieved economically with an Issue/artifact/commit on an existing appropriate branch.
 
-> **One active research integration surface; many research ideas and HOW branches may live inside it.**
+> **One active research integration branch; many PR generations, research ideas, and HOW branches may live through it.**
