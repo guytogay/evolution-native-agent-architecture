@@ -49,9 +49,11 @@ Host has strong native memory/tooling
 -> adoption cost rises without decision value
 ```
 
-## HOW — deliberately plural
+## HOW — deliberately plural and open-cardinality
 
-This family preserves four implementation lineages. None is the universal default.
+This family currently contains **five identified implementation lineages**. The count is descriptive, not normative or closed. None is the universal default, and a new materially distinct Host phenotype may justify another HOW without being forced into the nearest existing slot.
+
+`CURRENTLY_IDENTIFIED_HOW_COUNT != ARCHITECTURAL_SLOT_COUNT`
 
 ### HOW-A — File/Git tiny-resident + exact cold source
 
@@ -85,6 +87,16 @@ Fit: mature Agents with durable local projection/compiler machinery.
 
 See `HOW-D-HYBRID-COMPILED-PROJECTION.md`.
 
+### HOW-E — Native Host organ rebind / mapping-only adoption
+
+A mature Host keeps existing native organs that already realize relevant ENA properties and updates semantic bindings, source identity, gap mappings, and revalidation only where the new Current changes a material decision.
+
+Fit: mature long-lived Agents whose transaction/recovery/state/audit/wake/governance organs already carry much of the required behavior, so importing duplicate ENA-shaped machinery would add burden without decision value.
+
+See `HOW-E-NATIVE-HOST-REBIND.md`.
+
+This HOW was added after DSH field evidence did not fit HOW-D without distorting the reported Host phenotype. The model expanded rather than compressing the Host into the existing count.
+
 ## Common expectations — interface only
 
 The HOWs differ internally, but each should answer these practical questions:
@@ -93,8 +105,8 @@ The HOWs differ internally, but each should answer these practical questions:
 2. **Availability** — how can decision-relevant semantics actually reach the Agent?
 3. **Freshness** — what happens when canonical Current/source identity changes?
 4. **Failure** — what happens when the selected semantic access path is unavailable or partial?
-5. **Projection honesty** — does a local/hot projection distinguish itself from the complete canonical source?
-6. **Economics** — what resident/context/tool/maintenance cost does the Host pay?
+5. **Projection honesty** — does a local/hot/native projection distinguish itself from the complete canonical source and preserve its limitations?
+6. **Economics** — what resident/context/tool/migration/maintenance cost does the Host pay?
 
 These are not a mandate for one common packet schema.
 
@@ -116,6 +128,14 @@ monolithic hot load for a small dedicated governance Agent
 + no runtime cold resolver at all
 ```
 
+or:
+
+```text
+native Host transaction/recovery organs
++ mapping-only ENA rebind
++ one small adapter only for an actual semantic gap
+```
+
 Coexistence is allowed. A local winner is also allowed.
 
 ## Selection questions
@@ -128,20 +148,45 @@ Evaluate per Host/environment:
 - retrieval/fallback failure honesty;
 - resident token/byte cost;
 - tool latency/availability;
+- migration and duplicate-organ burden;
 - maintenance burden;
 - semantic projection drift;
 - naturalistic fresh-session behavior.
 
 Do not select one HOW from aggregate token count or architectural elegance alone.
 
-## Planned machine evidence
+## Machine evidence status
 
-This prototype family includes separate executable reference mechanisms and one Host-fit selftest. The selftest must preserve both:
+HOW-A through HOW-D currently have separate executable reference mechanisms and deployment/selftest coverage on the research branch.
+
+HOW-E is currently a concrete reference design added from field-fit pressure and is **not yet machine-guarded**. It must not inherit A-D's machine-evidence maturity merely by joining the same family.
+
+Future family-level selftests must preserve both:
 
 - scenarios where multiple HOWs remain acceptable;
-- scenarios where one local winner is reasonable.
+- scenarios where one local winner is reasonable;
+- the ability to add another materially distinct HOW without failing an accidental exact-count assertion;
+- the ability to retire/merge a HOW only when function parity or usefulness failure supports that change.
 
-A later field experiment should compare at least two materially different HOWs on real Hosts before any adopter-facing recommendation is generalized.
+A later field experiment should compare materially different HOWs on real Hosts before any adopter-facing recommendation is generalized.
+
+## Cardinality discovery guard
+
+This family follows `research/reconstruction/CARDINALITY-DISCOVERY-GUARD.md`.
+
+Do not transform:
+
+```text
+five HOWs currently identified
+```
+
+into:
+
+```text
+finite-context adoption has five HOW slots
+```
+
+The same rule prevents the opposite distortion: if only two materially distinct HOWs survive reality contact for some scoped problem family, do not preserve five merely for symmetry.
 
 ## Degradation alarms
 
@@ -151,8 +196,12 @@ Raise an explicit warning if future work does any of the following:
 - treats monolithic-hot as a failed architecture solely because it is large;
 - replaces tool-native retrieval with a mandated ENA-specific index without Host evidence;
 - turns compiled projection into a shadow canonical ENA;
+- forces a mature native-organ Host into HOW-D or another pre-existing bucket merely to preserve taxonomy symmetry;
 - drops source identity/freshness because the projection "usually works";
-- collapses all four HOWs into one schema whose fields assume one runtime architecture;
+- collapses currently identified HOWs into one schema whose fields assume one runtime architecture;
+- hard-codes the accidental current HOW count into validators or fixtures;
+- pads the family with weak distinctions to satisfy a requested count;
+- merges or omits material HOWs to satisfy a smaller requested count;
 - declares one local winner to be the universal adopter profile;
 - reduces a working HOW to `Host-specific detail` without preserving the actual recipe/tooling.
 
@@ -163,10 +212,13 @@ A valid adoption mechanism does not prove:
 - the model will naturally apply every retrieved semantic;
 - all decision-relevant ENA material was retrieved;
 - the canonical source is externally trustworthy merely because identity matches;
-- one HOW is globally superior.
+- one HOW is globally superior;
+- the currently observed number of HOWs is complete or final.
 
 `CURRENT_CHANGE = NO`
 
 `HOW_PLURALITY = ACTIVE`
+
+`HOW_CARDINALITY = DISCOVERED_NOT_PREALLOCATED`
 
 `ADOPTION != APPLICATION`
