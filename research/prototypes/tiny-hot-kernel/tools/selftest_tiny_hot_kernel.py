@@ -3,6 +3,10 @@
 
 Runs only represented/static checks. It does not call an LLM and cannot prove
 naturalistic trigger salience or semantic decision quality.
+
+The controlled benchmark currently freezes one 36-case corpus so candidate
+runs remain comparable. That count identifies this benchmark corpus version;
+it is not a claim that reality has exactly 36 relevant decision shapes.
 """
 
 from __future__ import annotations
@@ -19,6 +23,10 @@ ORACLE_ONLY_KEYS = {
     "allowed_families",
     "notes",
 }
+
+# Controlled experimental corpus identity. Changing this value means changing
+# the benchmark corpus version and should not be narrated as ontology change.
+CONTROLLED_CORPUS_VERSION_COUNT = 36
 
 
 def run(cmd: list[str], expect: int = 0) -> None:
@@ -56,7 +64,10 @@ def load_fixtures(path: Path) -> list[dict]:
         assert row.get("resolver_state") in {"AVAILABLE", "BROKEN"}, (lineno, "resolver_state")
     ids = [row["case_id"] for row in rows]
     assert len(ids) == len(set(ids)), "duplicate fixture case_id"
-    assert len(rows) == 36, f"expected 36 fixtures, got {len(rows)}"
+    assert len(rows) == CONTROLLED_CORPUS_VERSION_COUNT, (
+        "controlled benchmark corpus changed; update benchmark version/count "
+        f"deliberately if intended: expected {CONTROLLED_CORPUS_VERSION_COUNT}, got {len(rows)}"
+    )
     return rows
 
 
@@ -184,6 +195,9 @@ def main() -> int:
         run(score_cmd(scorer, mixed_kernel_path), expect=2)
 
     print("PASS: tiny-hot-kernel deterministic selftest")
+    print(f"controlled_corpus_version_count={CONTROLLED_CORPUS_VERSION_COUNT}")
+    print("controlled_corpus_count_is_not_ontology=true")
+    print("kernel_candidate_cardinality=OPEN_OUTSIDE_THIS_CONTROLLED_COMPARISON")
     print("verification_scope=REPRESENTED_STRUCTURE_FIXTURES_SCORER_BLINDING_AND_KERNEL_BINDING_ONLY")
     print("naturalistic_salience=UNPROVEN")
     return 0
