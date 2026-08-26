@@ -1,248 +1,135 @@
-schema_version: "0.9"
+schema_version: "1.0"
 as_of: "2026-08-27"
 status: ACTIVE_OPERATIONAL_ARCHITECTURE_ASSEMBLY
 
-# Hot current-state projection only. Detailed history remains in Git lineage,
-# Issues, reconstruction maps, prototypes, audits, and evidence records.
+# Hot state only. Detailed history belongs in Git, Issues, audits, prototypes, and evidence records.
 progress_is_complete_history: false
 
 canonical_pointers:
-  project_hub: PROJECT-HUB.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   active_research_pointer: research/ACTIVE-RESEARCH.yaml
-  research_bootstrap: research/RESEARCH-START-HERE.md
-  methodology_index: research/methodology/README.md
-  master_methodology: research/methodology/ENA-RESEARCH-DISCIPLINE.md
-  alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-  how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
+  methodology: research/methodology/README.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
-  operational_architecture_root: research/operational-architecture/README.md
-  operational_architecture_cue_index: research/operational-architecture/CUE-INDEX.md
-  operational_architecture_map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
+  assembly_root: research/operational-architecture/README.md
+  cue_index: research/operational-architecture/CUE-INDEX.md
+  architecture_map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
+  reference_pointer_matrix: research/operational-architecture/REFERENCE-POINTER-MATRIX.md
   traversal_audit_001: research/operational-architecture/TRAVERSAL-AUDIT-001.md
   traversal_audit_002: research/operational-architecture/TRAVERSAL-AUDIT-002.md
+  execution_depth_audit_001: research/operational-architecture/EXECUTION-DEPTH-AUDIT-001.md
   reconstruction_ledger: "#89"
   archaeology_tracker: "#104"
-  recovered_variation_map: research/reconstruction/RECOVERED-VARIATION-MAP.md
-  verification_market_variation: research/reconstruction/RECOVERED-VARIATION-VERIFICATION-AS-SERVICE.md
-  lineage_survival_map: research/reconstruction/PORTABLE-SNAPSHOT-LINEAGE-SURVIVAL-MAP.md
-  external_how_registry: research/external-how/SOURCE-REGISTRY.md
   active_checkpoint_pr: "#109"
 
 current_adoption:
   version: v0.3.6
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  source_of_truth: releases/current/CURRENT-BASELINE.yaml
-  reverify_before_release_action: true
   research_authorizes_current_mutation: false
 
 research_workspace:
   branch: research/ena-reconstruction
   continuation_authority: MAIN_VISIBLE_BRANCH_POINTER
-  open_pull_request_required: false
-  pull_request_identity_is_transient: true
   head_identity_policy: LIVE_REVERIFY_BEFORE_WRITE
-  long_lived_branch_target:
-    - main
-    - research/ena-reconstruction
-
-alignment_gate:
-  state: COMPLETE_FOR_ARCHAEOLOGY_TO_ASSEMBLY_TRANSITION_WITH_CHECKPOINT_CI_PENDING
-  readback_completed:
-    - Current reverified as v0.3.6 / CURRENT / FIELD_VALIDATION
-    - live long-lived branches reverified as main + research/ena-reconstruction
-    - main active-research pointer still names research/ena-reconstruction
-    - active branch was ahead of main and not behind at transition readback
-    - transition diff contained no releases/current/ modification
-    - latest observed transition head had zero check-runs, so CI was not narrated as PASS or FAIL
-  remaining_checkpoint_condition: >-
-    PR #109 may not be merged merely because assembly work continues. Actual workflow
-    execution must be observed and interpreted before the research checkpoint is promoted.
-  reopen_alignment_when:
-    - branch/control-plane topology changes
-    - methodology or master-plan closure rules change again
-    - PR #109 checkpoint is merged to main
-    - Current/candidate/release state changes
 
 phase_state:
-  repository_control_plane:
-    state: BASELINE_ESTABLISHED
-
   anti_ablation_archaeology:
     state: RECOVERY_SUFFICIENT_FOR_ASSEMBLY_REOPENABLE
-    closure_is_completeness_proof: false
-    reopen_trigger: >-
-      New historical evidence, missing lineage, assembly contradiction, or field result
-      materially changes the engineering map.
+    completeness_claimed: false
 
   how_branch_expansion:
     state: ACTIVE_DURING_ASSEMBLY
     rule: COMPRESS_SEMANTIC_TRUNK_LET_CONCRETE_HOWS_BRANCH
-    inventory_is_exhaustive: false
 
   external_how_harvest:
     state: ACTIVE_ON_DEMAND
-    rule: SEARCH_WHEN_A_CONCRETE_GAP_LACKS_ADEQUATE_HOW_BRANCHES
-    popularity_is_selection_proof: false
+    rule: SEARCH_ONLY_WHEN_EXECUTION_DEPTH_EXPOSES_A_CONCRETE_GAP
 
   host_binding:
     state: PARTIAL_CONTINUES_DURING_ASSEMBLY
-    known_host_evidence:
-      - Hermes
-      - OpenClaw
-      - WorkBuddy
-    host_list_is_closed: false
-
-  cross_organ_composition:
-    state: ACTIVE
-    durable_examples:
-      - Memory Metabolism x Retrieval x Decision Projection
-      - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable execution
-      - migration projection x decision-material lineage x Commitment/Settlement
-      - lineage compaction x Evidence Dependency Map x cold retrieval
-      - execution assignment x effect surface x idempotency/fencing/version/status/gateway/WAIT
-    established_boundaries:
-      - CURRENT_STATE_EQUIVALENCE_NE_HISTORY_EQUIVALENCE
-      - IMPORT_VALIDATOR_NE_OMISSION_DETECTOR_WITHOUT_SOURCE_WITNESS
-      - EVOLUTION_HISTORY_TRANSFERRED_NE_OBLIGATION_SETTLEMENT_SURVIVED
-      - SUMMARY_VALID_NE_MATERIAL_USE_READY
-      - COLD_REF_PRESENT_NE_COLD_LINEAGE_RETRIEVABLE
-      - UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_PHYSICALLY_FENCED
-      - SINGLE_VERSIONED_WRITE_NE_CURRENT_EXECUTOR_WON
-      - STATUS_QUERY_NOT_COMMITTED_NE_FUTURE_STALE_REQUEST_FENCED
+    known_host_evidence: [Hermes, OpenClaw, WorkBuddy]
 
   operational_architecture_assembly:
-    state: CUE_INDEX_AUTHORED_STATIC_REROUTE_SUPPORTED_EXECUTION_DEPTH_AUDIT_NEXT
-    root: research/operational-architecture/README.md
-    cue_index: research/operational-architecture/CUE-INDEX.md
-    map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
-    audits:
-      - research/operational-architecture/TRAVERSAL-AUDIT-001.md
-      - research/operational-architecture/TRAVERSAL-AUDIT-002.md
-    first_map_result:
-      - natural-language cases can reach composition-aware HOWs once relevant node is found
-      - cue-to-node discoverability was the first repeated weakness
-      - harmless local actions lacked a strong consequence-first pre-router and could be over-routed into authority ceremony
-    cue_index_result:
-      - compact problem/failure-oriented routing layer is justified by static audit
+    state: EXECUTION_POINTER_LAYER_ACTIVE_REAL_PROCEDURE_GAPS_IDENTIFIED
+    routing_chain:
+      - ordinary problem / decision cue
+      - consequence-first pre-router
+      - CUE-INDEX
+      - OPERATIONAL-ARCHITECTURE-MAP node(s)
+      - plural HOW branch(es)
+      - REFERENCE-POINTER-MATRIX
+      - durable prototype/reference/Host mechanism
+      - concrete action or honest gap
+
+    established_results:
+      - first map is statically traversable on current authored natural-language cases
+      - compact cue index repairs the first static cue-to-node discoverability gap
       - many-to-many routing is preserved
-      - consequence-first lightweight/local route is explicit without declaring unknown consequence safe
-      - current authored audit cases reroute through the cue index without prior node vocabulary
-      - universal machine-router schema remains unjustified
-      - fresh-session natural cue salience remains unproven
-    next_bottleneck: >-
-      Audit execution depth from cue -> node -> HOW -> exact durable artifact/reference
-      procedure -> Host binding -> concrete action -> failure/fallback. Do not count a
-      HOW as operational merely because it has a good name.
-    gap_classes_to_observe:
-      - POINTER_MISSING
-      - REFERENCE_PROCEDURE_MISSING
-      - HOST_ADAPTER_MISSING
-      - FIELD_EVIDENCE_REQUIRED
-      - MESOCOSM_REQUIRED
-      - INTENTIONALLY_HOST_NATIVE
-      - DORMANT_RESEARCH
-    assembly_invariants:
-      - plural HOWs remain visible where applicability differs
-      - dormant/failed/historical HOW lineage is not erased
-      - Host applicability and evidence maturity remain scoped
-      - unresolved branches remain explicit
-      - repository richness does not imply active-context loading
-      - Tiny Hot Kernel/routing should locate branches rather than contain the whole architecture
-      - navigation clusters and cue families are not ontology
-      - many-to-many routing is allowed
-      - consequence-first routing must not become a universal numeric risk score
-      - assembly does not mutate Current
+      - consequence-first routing reduces authority/governance over-application without declaring unknown consequence safe
+      - execution-depth audit shows many mature research organs were hidden by missing navigation pointers rather than absent
+      - concrete HOW applicability/non-applicability guards recur across mature prototypes
+
+    pointer_ready_families:
+      - Memory Metabolism
+      - Retrieval Obligation
+      - WAIT State
+      - Authority Lease
+      - Effect Lifecycle
+      - Commitment/Settlement
+      - Recovery Adapter
+      - Contested Authorship
+      - Evidence Envelope
+      - Evidence Dependency Map
+      - Current evolution/migration/release machinery
+
+    real_reference_depth_gaps:
+      identity_trajectory:
+        state: REFERENCE_PROCEDURE_MISSING
+        constraint: DO_NOT_JUMP_TO_UNIVERSAL_TRAJECTORY_SCHEMA
+      standing_input:
+        state: REFERENCE_PROCEDURE_MISSING
+        constraint: KEEP_SEPARATE_FROM_PERSONHOOD_AND_FINAL_AUTHORITY
+
+    intentionally_evidence_open_families:
+      - natural Tiny Kernel cue salience
+      - long-run Memory Compiler behavior
+      - reputation rehabilitation policy/value
+      - control retirement thresholds
+      - culture/specialization/resource pressure
+      - discretionary exploration
+      - verification-as-service ecology
+
+    key_cross_cutting_rule: >-
+      A concrete HOW should expose both how to use it and when it does not apply.
+      Missing pointer must be distinguished from missing organ before new subsystem creation.
 
   release_scope_reconciliation:
     state: NOT_STARTED
-    prerequisite: OPERATIONAL_ARCHITECTURE_ASSEMBLED_ENOUGH_TO_CLASSIFY_ADOPTER_FACING_DELTA
+    prerequisite: OPERATIONAL_ARCHITECTURE_SUFFICIENTLY_TRAVERSABLE_AND_REFERENCE_GAPS_CLASSIFIED
 
   candidate_build_and_validation:
     state: NOT_STARTED
-    prerequisite: RELEASE_SCOPE_STABLE
 
   promotion:
     state: NOT_STARTED
-    prerequisite: CANDIDATE_VALIDATED_AND_RELEASE_READY
-
-recent_research_surfaces:
-  operational_architecture_first_pass:
-    map_status: FIRST_ASSEMBLY_PASS_PERSISTED
-    cue_index_status: AUTHORED_PENDING_DURABLE_COMMIT_AT_THIS_PROGRESS_STATE
-    static_map_traversal_status: SUPPORTED_ON_AUTHORED_CASES
-    static_cue_reroute_status: SUPPORTED_ON_AUTHORED_CASES
-    evidence_boundary: AUTHORED_STATIC_AUDIT_NOT_FRESH_AGENT_FIELD_EVIDENCE
-    current_change: false
-
-  progressive_evolution_record:
-    path: research/prototypes/evolution-record-progressive-envelope/
-    local_deterministic_status: PASS
-    result: CURRENT_STATE_EQUIVALENCE_NE_HISTORY_EQUIVALENCE
-
-  recovered_commitment_settlement:
-    path: research/prototypes/commitment-settlement-recovered/
-    status: RECOVERED_RECONSTRUCTION_NOT_BYTE_IDENTICAL_HISTORY
-    local_deterministic_status: PASS
-
-  migration_settlement_composition:
-    path: research/prototypes/migration-settlement-composition/
-    local_deterministic_status: PASS
-    result: IMPORT_VALIDATOR_NE_OMISSION_DETECTOR_WITHOUT_SOURCE_WITNESS
-
-  lineage_compaction:
-    path: research/prototypes/lineage-compaction-contract/
-    local_deterministic_status: PASS
-    result:
-      - COMPACTED_NE_DISPOSABLE
-      - SUMMARY_VALID_NE_MATERIAL_USE_READY
-      - COLD_REF_PRESENT_NE_COLD_LINEAGE_RETRIEVABLE
-
-  compaction_retrieval_composition:
-    path: research/prototypes/lineage-compaction-retrieval-composition/
-    design_status: AUTHORED_REUSES_RETRIEVAL_OBLIGATION_0_5
-    ci_status: NOT_YET_OBSERVED_SUCCESS
-    do_not_claim_machine_pass_until_ci: true
-
-  execution_surface_fencing:
-    path: research/prototypes/execution-surface-fencing/
-    local_deterministic_status: PASS
-    key_distinctions:
-      - provider_idempotency: EFFECT_IDENTITY_DUPLICATE_SUPPRESSION
-      - target_fencing: STALE_ASSIGNMENT_REJECTION_AT_TARGET
-      - optimistic_concurrency: SINGLE_VERSIONED_WRITE_NOT_ASSIGNMENT_WINNER
-      - status_query: SETTLEMENT_AMBIGUITY_CONTROL_NOT_FUTURE_FENCE
-      - gateway: ONLY_AS_STRONG_AS_EFFECT_SURFACE_COVERAGE
-      - wait: SAFE_NON_RETRY_NOT_PHYSICAL_FENCE
 
 ci_checkpoint:
   pull_request: "#109"
-  latest_observed_interpretation: ZERO_CHECK_RUNS_ON_PRIOR_TRANSITION_HEAD
-  evidence_rule: >-
-    startup_failure/cancelled/queued/zero-check-run states are not prototype verdicts;
-    only actual job execution and completed conclusions may upgrade machine evidence.
-  gate_weakening_authorized: false
+  latest_observed_state: ZERO_CHECK_RUNS_ON_PRIOR_TRANSITION_HEAD
   merge_authorized_now: false
+  evidence_rule: >-
+    startup_failure/cancelled/queued/zero-check-run states are not prototype verdicts.
+    Do not merge the checkpoint until actual jobs execute and their conclusions are observed.
 
 next_actions:
-  - persist and read back the compact cue index plus second static reroute audit
-  - run execution-depth audit across representative HOW branches; distinguish missing pointer from missing mechanism from intentionally Host-native/dormant research
-  - add exact source/prototype/reference procedure pointers where they reduce execution ambiguity rather than turning the map into a bibliography
-  - identify branches whose HOW name still hides abstract advice and either concretize them or label the gap honestly
-  - test whether cross-node composition routes reach reusable existing organs before inventing new subsystems
-  - keep Tiny Hot Kernel/runtime routing separate from the full operational library
-  - continue external HOW search only where execution-depth audit reveals a concrete mechanism gap
-  - schedule field/mesocosm work only for uncertainties static analysis cannot resolve
-  - inspect PR #109 CI after a quiet-head interval; fix actual test failures but do not weaken gates for startup/queue noise
-  - merge #109 only after machine checkpoint evidence is actually observed and releases/current remains unchanged
-  - start release-scope reconciliation only after the operational architecture is sufficiently traversable to classify adopter-facing changes
-
-methodology_incidents:
-  - DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
-  - CONTROL_PLANE_FIELDS_MUST_NOT_CREATE_SELF_REFERENTIAL_STALENESS
-  - ALIGN_BEFORE_RESUME_AFTER_MATERIAL_PROJECT_TRANSITION
-  - LOCAL_ARTIFACT_IS_NOT_DURABLE_UNTIL_PERSISTED
+  - persist/read back execution-depth audit and reference pointer matrix
+  - design a bounded purpose-relative Identity/Trajectory decision procedure before considering any schema
+  - design a bounded Standing Input procedure that guarantees decision-relevant consideration without minting authority/personhood
+  - statically falsify those procedures for false-BLOCK, authority laundering, lineage/standing overreach, and unnecessary ceremony
+  - keep rehabilitation/ecology questions in field/mesocosm lanes rather than solving them with schema theater
+  - add exact pointers to routing surfaces only where they reduce execution ambiguity
+  - inspect PR #109 CI after a quiet-head interval; fix actual failures but never weaken gates for runner noise
+  - start release-scope reconciliation only when the operational architecture can distinguish adopter guidance, reference organs, Host adapters, research branches, dormant lineage, and actual Current delta
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
@@ -252,15 +139,12 @@ invariants:
   - WORKING_TAXONOMY_IS_NOT_ONTOLOGY
   - EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
   - EXTERNAL_POPULARITY_IS_NOT_SELECTION_PROOF
-  - HANDOFF_SUMMARY_IS_NOT_PROJECT_STATE
   - ACTIVE_RESEARCH_AUTHORITY_IS_BRANCH_POINTER
-  - OPEN_PR_IS_TRANSIENT_INTEGRATION_ARTIFACT
   - ALIGN_BEFORE_RESUME_AFTER_MATERIAL_TRANSITION
-  - LOCAL_ARTIFACT_IS_NOT_DURABLE_UNTIL_PERSISTED
-  - COMPACTION_MUST_NOT_LAUNDER_DEPENDENCE_OR_ERASE_DECISION_MATERIAL_LINEAGE
-  - COLD_REFERENCE_DOES_NOT_PROVE_RETRIEVABILITY
   - RECOVERY_SUFFICIENT_FOR_ASSEMBLY_NE_ARCHAEOLOGY_COMPLETE_FOREVER
   - ASSEMBLY_NE_CURRENT_PROMOTION
   - OPERATIONAL_LIBRARY_SIZE_NE_ACTIVE_CONTEXT_SIZE
   - CUE_INDEX_NE_FULL_OPERATIONAL_ARCHITECTURE
   - AUTHORED_STATIC_ROUTE_PASS_NE_NATURAL_SALIENCE_PROVEN
+  - POINTER_MISSING_NE_ORGAN_MISSING
+  - REFERENCE_ORGAN_EXISTS_NE_UNIVERSAL_APPLICABILITY

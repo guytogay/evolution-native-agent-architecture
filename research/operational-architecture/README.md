@@ -7,33 +7,23 @@ This directory is the assembly surface between ENA's stable semantic trunk and t
 It exists because:
 
 ```text
-WHAT / WHY coverage
-!=
-usable HOW
-```
-
-and because the opposite mistake is also possible:
-
-```text
-many prototypes
-!=
-traversable architecture
+WHAT / WHY coverage != usable HOW
+many prototypes != traversable architecture
 ```
 
 ## Start here
 
 If you arrive with an ordinary problem/failure and do not know the ENA node vocabulary:
 
-`CUE-INDEX.md`
-
-Then follow the routed node(s) into:
-
-`OPERATIONAL-ARCHITECTURE-MAP.md`
+1. `CUE-INDEX.md` — route ordinary problem language to one or more operational nodes.
+2. `OPERATIONAL-ARCHITECTURE-MAP.md` — understand the WHAT/WHY, plural HOW branches, evidence/residuals and composition links.
+3. `REFERENCE-POINTER-MATRIX.md` — continue from the HOW name to exact durable prototype/tool/reference/Host surfaces or an honest depth gap.
 
 Current static assembly audits:
 
 - `TRAVERSAL-AUDIT-001.md` — natural-language problem -> map traversal;
-- `TRAVERSAL-AUDIT-002.md` — cue-index reroute and consequence-first routing.
+- `TRAVERSAL-AUDIT-002.md` — cue-index reroute and consequence-first routing;
+- `EXECUTION-DEPTH-AUDIT-001.md` — HOW -> exact artifact/Host/procedure depth.
 
 The current assembly path is:
 
@@ -42,11 +32,42 @@ ordinary problem / decision cue
 -> compact cue index
 -> one or more WHAT/WHY nodes
 -> plural HOW branches
+-> reference pointer matrix
 -> durable artifact / Host binding
 -> concrete action or honest gap
 ```
 
-The next audit depth is the `HOW -> exact artifact / Host action` seam.
+## Current execution-depth finding
+
+Many first-pass nodes already have deeper reference machinery than the map initially exposed.
+
+Examples with machine-checkable research organs include:
+
+- Retrieval Obligation;
+- WAIT State;
+- Authority Lease;
+- Effect Lifecycle;
+- Commitment/Settlement;
+- Recovery Adapter;
+- Contested Authorship;
+- Evidence Envelope;
+- Evidence Dependency Map;
+- Current evolution/migration schemas and validators.
+
+Therefore:
+
+```text
+MAP_DID_NOT_EXPOSE_POINTER
+!=
+ORGAN_DID_NOT_EXIST
+```
+
+Current first-pass real reference-procedure gaps are narrower:
+
+- purpose-relative Identity/Trajectory operational procedure;
+- Standing Input reusable procedure.
+
+Ecology/reputation rehabilitation/natural cue salience include questions that require Host/field/mesocosm evidence rather than schema completion.
 
 ## This directory is not a new Constitution
 
@@ -62,7 +83,7 @@ HOST_PATTERN != PORTABLE_PROPERTY
 
 ## Navigation clusters are not ontology
 
-The first map groups operational questions so a user/Agent can navigate them. Those groups are shelves, not claims about natural organ boundaries.
+The map groups operational questions so a user/Agent can navigate them. Those groups are shelves, not claims about natural organ boundaries.
 
 ```text
 CURRENT_NAVIGATION_CLUSTER_SET != ONTOLOGY
@@ -71,7 +92,7 @@ CURRENT_NODE_COUNT != ARCHITECTURAL_CARDINALITY
 
 Split, merge, cross-link, or add nodes when engineering reality requires it.
 
-## Node shape
+## Node / HOW shape
 
 A useful assembly node should normally expose:
 
@@ -105,26 +126,29 @@ No fixed checklist is mandatory if a different shape is more useful. The test is
 8. **Do not solve runtime routing by loading everything.** Tiny Hot Kernel / semantic routing should locate relevant branches.
 9. **Do not rewrite Current during assembly.** Release-scope reconciliation is a later phase.
 10. **Route by consequence before ceremony.** Clearly non-material local work should not automatically trigger full authority/effect/settlement machinery; material or unknown consequences route upward.
+11. **Expose non-applicability.** A concrete HOW should say when it does not apply, not only how to activate it.
+12. **Distinguish missing link from missing organ.** Search durable project surfaces before inventing a new subsystem.
 
-## Cue-index boundary
-
-The cue index is a thin routing surface, not the architecture itself.
+## Routing-layer boundaries
 
 ```text
 CUE_INDEX = RECOGNITION / ROUTING
 OPERATIONAL_MAP = HOW BRANCH DISCOVERY
+REFERENCE_POINTER_MATRIX = EXECUTION DEPTH ROUTING
 REFERENCE_ARTIFACT / HOST = EXECUTION
 ```
 
 Do not load the entire map into the cue index.
 
-Do not assume the first cue set is complete.
+Do not duplicate every prototype README in the pointer matrix.
 
-Do not force one cue to one node; many-to-many routing is expected.
+Do not assume the first cue/node/pointer sets are complete.
 
-## Evidence labels in the map
+Many-to-many routing is expected.
 
-The map uses prose evidence descriptions instead of one universal maturity score. Typical evidence classes include:
+## Evidence labels
+
+The assembly uses prose evidence descriptions instead of one universal maturity score. Typical evidence classes include:
 
 - deterministic/static counterexample;
 - research prototype machine checks;
@@ -139,25 +163,11 @@ These labels are descriptive, not a mandatory ladder.
 
 ## Relationship to reconstruction workstreams
 
-Primary sources include:
-
-- #89 — WHAT → WHY → HOW → EVIDENCE master reconstruction ledger;
-- #90 — memory/runtime/cognition;
-- #91 — authority/effects/recovery/settlement;
-- #92 — identity/lineage/authorship/standing/reputation;
-- #93 — ecology/coordination/resource/evolution operations;
-- #94 — evidence/applicability/adoption/language/release/tooling;
-- #104 — final anti-ablation archaeology/recovered variation pass.
-
-Those Issue groupings are source shelves, not the structure this directory must reproduce.
+Primary sources include #89, #90–#94, #104 and linked prototypes/evidence. Those Issue groupings are source shelves, not the structure this directory must reproduce.
 
 ## Relationship to external HOW research
 
-When assembly exposes a node with an inadequate mechanism set, search:
-
-`research/external-how/`
-
-or conduct a fresh bounded external search.
+When assembly exposes a node with an inadequate mechanism set, search `research/external-how/` or conduct a fresh bounded external search.
 
 External mechanism existence enlarges the HOW space; it does not select the winner.
 
@@ -170,7 +180,7 @@ small hot routing surface
 -> recognize problem/decision shape
 -> locate WHAT/WHY
 -> retrieve applicable HOW family
--> map to Host
+-> map to reference artifact / Host
 -> act
 -> capture evidence/failure
 ```
@@ -178,14 +188,7 @@ small hot routing surface
 Therefore:
 
 ```text
-OPERATIONAL_LIBRARY_SIZE
-!=
-ACTIVE_CONTEXT_SIZE
-```
-
-`CUE-INDEX.md` is closer to the future hot-routing problem than the full map, but it is still not automatically a universal always-hot payload.
-
-```text
+OPERATIONAL_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE
 CUE_INDEX_EXISTS != CUE_FIRES_NATURALLY
 ROUTING_RULE_PRESENT != ROUTING_APPLIED
 ```
@@ -197,8 +200,10 @@ Fresh-session field evidence remains necessary before claiming spontaneous opera
 ```text
 FIRST_MAP = PERSISTED
 STATIC_NATURAL_LANGUAGE_TRAVERSAL = SUPPORTED
-COMPACT_CUE_INDEX = JUSTIFIED_AND_AUTHORED
+COMPACT_CUE_INDEX = PERSISTED
+EXECUTION_DEPTH_AUDIT = ESTABLISHED
+REFERENCE_POINTER_MATRIX = AUTHORED
+REAL_REFERENCE_PROCEDURE_GAPS = IDENTITY_TRAJECTORY + STANDING_INPUT
 MACHINE_ROUTER_SCHEMA = DEFERRED
-NEXT_BOTTLENECK = HOW_TO_EXACT_ARTIFACT/HOST_EXECUTION_DEPTH
 CURRENT_CHANGE = NO
 ```
