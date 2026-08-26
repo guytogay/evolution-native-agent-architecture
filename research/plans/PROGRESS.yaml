@@ -1,4 +1,4 @@
-schema_version: "0.4"
+schema_version: "0.5"
 as_of: "2026-08-26"
 status: ACTIVE_RECONSTRUCTION_TO_RELEASE
 
@@ -18,12 +18,16 @@ canonical_pointers:
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
   external_how_index: research/external-how/README.md
   external_how_registry: research/external-how/SOURCE-REGISTRY.md
-  latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
-  latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
+  latest_external_harvest: research/external-how/harvests/2026-08-26-PROJECTION-PROVENANCE-AND-LINKAGE.md
+  recovered_variation_map: research/reconstruction/RECOVERED-VARIATION-MAP.md
+  lineage_survival_map: research/reconstruction/PORTABLE-SNAPSHOT-LINEAGE-SURVIVAL-MAP.md
+  latest_composition_harness: research/prototypes/migration-settlement-composition/README.md
+  recovered_commitment_prototype: research/prototypes/commitment-settlement-recovered/README.md
   research_generation_record: research/reconstruction/RESEARCH-GENERATION-2026-08-26.md
   predecessor_checkpoint_pr: "#82"
   successor_bootstrap_pr: "#101"
   reconstruction_ledger: "#89"
+  active_archaeology_tracker: "#104"
 
 current_adoption_observed_at_alignment:
   version: v0.3.6
@@ -96,12 +100,20 @@ phases:
       drift. Do not turn directory neatness into a release blocker.
 
   anti_ablation_archaeology:
-    state: ACTIVE
+    state: ACTIVE_WITH_SECOND_PASS_RECOVERED_VARIATIONS
     anchors:
       - "#88"
       - "#89"
+      - "#104"
       - research/reconstruction/MECHANISM-RETENTION-LEDGER.md
       - research/reconstruction/DEGRADATION-AUDIT-2026-08-26.md
+      - research/reconstruction/RECOVERED-VARIATION-MAP.md
+      - research/reconstruction/PORTABLE-SNAPSHOT-LINEAGE-SURVIVAL-MAP.md
+    second_pass_findings:
+      - Issue-level census did not reveal a large missing Core/topic family
+      - predecessor/external critique revealed dormant concrete HOW and simplification variations not retained in the mechanism ledger
+      - progressive record archaeology showed current-state projection can hide materially different occurrence history
+      - local-only Commitment/Settlement machine artifacts were not durable and required semantic reconstruction from persisted README/Issue lineage
     closure_rule: >-
       Continue while another bounded archaeology pass can reveal a material missing
       lineage likely to change the engineering map. Do not use a fixed topic count.
@@ -116,8 +128,11 @@ phases:
       - Effect Lifecycle
       - Authority Grant / Lease
       - Recovery Adapter
-      - Commitment / Settlement research
+      - Commitment / Settlement recovered reconstruction
       - execution-fencing/idempotency HOW family
+      - progressive evolution-record / event-to-projection HOW family
+      - portable snapshot + decision-material lineage HOW family
+      - migration projection x Commitment/Settlement composition
       - Contested Authorship
       - Distributed History Merge
       - Evidence Dependency Map
@@ -140,10 +155,15 @@ phases:
       - Stripe idempotency
       - Kubernetes resourceVersion / optimistic concurrency
       - AWS Step Functions execution guarantees
+      - CloudEvents core + extension model
+      - OpenTelemetry event/span/link model
+      - in-toto attestation subject-digest + typed predicate/reference model
     mapped_into_workstreams:
       - "#90 memory/runtime/cognition"
       - "#91 authority/effects/recovery/settlement"
       - "#93 ecology/coordination"
+      - "#94 evidence/applicability/adoption"
+      - "#104 recovered variation / projection lineage"
     rule: >-
       Search current AI frameworks, memory systems, durable workflow systems, agent
       protocols, research organizations, AI communities, and adjacent engineering
@@ -165,21 +185,31 @@ phases:
       - A2A-compatible agents
       - provider-native idempotency targets
       - target-side fencing/conditional-write systems
+      - provenance/attestation carriers
     note: HOST_LIST_IS_OPEN_CARDINALITY
 
   cross_organ_composition:
-    state: ACTIVE_WITH_EXECUTION_FENCING_GAP_ESTABLISHED
+    state: ACTIVE_WITH_EXECUTION_FENCING_AND_PROJECTION_OMISSION_GAPS_ESTABLISHED
     known_examples:
       - Memory Metabolism x Retrieval x Decision Projection
       - Recovery x Authority x Effect Lifecycle
       - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
-    established_gap:
-      statement: >-
-        A unique represented current executor, valid authority, coherent effect record,
-        and safe-resume decision do not by themselves physically prevent a stale
-        executor from causing an external effect through an effective path.
-      shorthand: UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_FENCED
-      universal_organ_shape_established: false
+      - Evolution migration x projection lineage x Commitment/Settlement
+    established_gaps:
+      - statement: >-
+          A unique represented current executor, valid authority, coherent effect record,
+          and safe-resume decision do not by themselves physically prevent a stale
+          executor from causing an external effect through an effective path.
+        shorthand: UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_FENCED
+      - statement: >-
+          A receiver validating only an already-projected portable packet cannot detect
+          decision-material source lineage that the source projection omitted completely.
+        shorthand: IMPORT_VALIDATOR_NE_OMISSION_DETECTOR_WITHOUT_SOURCE_WITNESS
+      - statement: >-
+          Evolution migration can preserve experiments/evaluations/expression/integration
+          history while still losing first-class unresolved obligation/settlement lineage.
+        shorthand: EVOLUTION_HISTORY_TRANSFERRED_NE_OBLIGATION_SETTLEMENT_SURVIVED
+    universal_organ_shape_established: false
     concrete_candidate_hows:
       - provider effect-id idempotency
       - target-side assignment-generation fencing token
@@ -189,8 +219,19 @@ phases:
       - single controlled effect gateway
       - compensation/manual reconciliation
       - unsafe-unknown -> WAIT/NARROW/ESCALATE
+      - source-aware projection witness binding source + portable artifact identity
+      - raw source obligation ref with explicit unresolved status
+      - non-authoritative source obligation shadow
+      - typed Commitment/Settlement carrier composition
+      - digest-bound sidecar/reference to decision-material lineage
+      - non-tree causal/dependency links
+    deterministic_evidence:
+      - recovered Commitment/Settlement reconstructed corpus passes represented assignment/settlement cases
+      - migration-settlement composition corpus demonstrates packet-only omission false-OK and source-aware rejection/control branches
+      - progressive evolution-record corpus demonstrates equal Core projection with unequal represented history
     next_high_value_seams:
-      - deterministic fixtures for stale executor and positive fencing/idempotency controls
+      - physical stale-executor fencing/idempotency composition against real target semantics
+      - migration-lineage compaction without erasing negative evidence, obligation, settlement, authority, or dependence
       - Tiny Hot Kernel x exact cold retrieval x memory blocks/session compaction x language projection
       - Identity/lineage x commitment x reputation
       - Evolution Commons x A2A task/message/artifact lifecycle
@@ -225,11 +266,18 @@ methodology_incidents:
       Branch cleanup and control-plane changes showed that individually correct files can
       become mutually inconsistent unless method, routing, plan, and progress are checked
       together before substantive work resumes.
+  - lesson: LOCAL_ARTIFACT_IS_NOT_DURABLE_PROJECT_STATE
+    evidence: >-
+      The earlier Commitment/Settlement prototype was known in session summaries and had
+      been locally tested, but its full machine artifacts were not present in GitHub during
+      the next archaeology pass. It had to be reconstructed from durable README/Issue
+      semantics and must not be narrated as byte-identical recovery.
 
 next_actions:
-  - resume anti-ablation archaeology from the recovered variation map; do not select only the most visible prototype
-  - repair/finish Commitment/Settlement prototype without conflating assignment truth with physical fencing
-  - add deterministic cross-organ stale-executor false-OK fixtures and positive fencing/idempotency controls
+  - continue anti-ablation archaeology beyond the Issue layer; preserve dormant/superseded HOW variations rather than selecting from visibility alone
+  - compare projection-witness / source-shadow / typed-carrier HOWs without prematurely adding fields to Current adaptation packets
+  - design compaction fixtures proving decision-material lineage survives while migration history remains bounded
+  - continue stale-executor physical-fencing fixtures against materially different target/provider mechanisms
   - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
   - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
   - continue fresh external HOW search when an engineering gap lacks adequate concrete branches
@@ -250,3 +298,4 @@ invariants:
   - OPEN_PR_IS_TRANSIENT_INTEGRATION_ARTIFACT
   - ACTIVE_HEAD_SHA_MUST_BE_LIVE_REVERIFIED
   - ALIGN_BEFORE_RESUME_AFTER_MATERIAL_TRANSITION
+  - LOCAL_ARTIFACT_IS_NOT_DURABLE_UNTIL_PERSISTED
