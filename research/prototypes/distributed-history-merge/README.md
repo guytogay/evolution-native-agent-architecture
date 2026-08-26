@@ -2,7 +2,7 @@
 
 Status: `RESEARCH_PROTOTYPE_FAMILY / NOT_CURRENT / NOT_RELEASE_CANDIDATE`
 
-Related: #89 reconstruction, #94 history/provenance work, PR #82, `HOW-GROWTH-DISCIPLINE.md`.
+Related: #89 reconstruction, #94 history/provenance work, PR #82, `HOW-GROWTH-DISCIPLINE.md`, `CARDINALITY-DISCOVERY-GUARD.md`.
 
 ## WHAT
 
@@ -51,9 +51,11 @@ commutative data and semantically conflicting data use the same merge rule
 -> automatic merge silently invents agreement
 ```
 
-## HOW — deliberately plural
+## HOW — deliberately plural and open-cardinality
 
-This research family does **not** define one universal merge engine. It preserves multiple concrete HOW lineages because different Hosts need different organs.
+This research family does **not** define one universal merge engine. It currently implements four concrete HOW lineages because different Hosts need different organs. The count is descriptive, not normative or closed.
+
+`CURRENTLY_IMPLEMENTED_HOW_COUNT != ARCHITECTURAL_SLOT_COUNT`
 
 ### HOW-A — Git / Merkle-DAG branch + merge
 
@@ -99,6 +101,8 @@ Best fit:
 
 See `HOW-D-CRDT.md`.
 
+A future materially distinct merge phenotype may be added rather than squeezed into A-D. Conversely, if two current HOWs later prove functionally equivalent for a scoped Host/problem class, contraction is allowed with parity/usefulness evidence.
+
 ## These HOWs are not interchangeable
 
 Do not infer:
@@ -123,7 +127,7 @@ That is valid implementation diversity, not architectural inconsistency.
 
 ## Shared minimum expectations — interface only
 
-The four HOWs expose some common operational questions, but these do not replace the organs:
+The currently implemented HOWs expose some common operational questions, but these do not replace the organs or define their count:
 
 1. What is the history/version identity being compared?
 2. Can ancestry/causal relation be determined?
@@ -134,9 +138,9 @@ The four HOWs expose some common operational questions, but these do not replace
 
 These are composition questions, not a mandate for one shared storage schema.
 
-## Planned evidence
+## Evidence
 
-Each HOW should earn evidence separately:
+Each currently implemented HOW should earn evidence separately:
 
 ```text
 HOW-A -> branch/merge/restore fixtures
@@ -145,19 +149,42 @@ HOW-C -> append/concurrency/projection/compensation fixtures
 HOW-D -> commutative convergence + non-commutative rejection controls
 ```
 
-A later Host-fit corpus may allow more than one acceptable HOW per scenario. It must not encode a hidden assumption that one implementation is universally best.
+The Host-fit corpus allows more than one acceptable HOW per scenario and legitimate local winners. Its case count is not an ontology invariant.
+
+The adversarial corpus similarly has targeted regression dependencies, not a normative total number of fixtures.
+
+## Cardinality discipline
+
+This family follows `research/reconstruction/CARDINALITY-DISCOVERY-GUARD.md`.
+
+Do not transform:
+
+```text
+four HOWs currently implemented
+```
+
+into:
+
+```text
+distributed history merge has four HOW slots
+```
+
+Likewise, do not add a fifth HOW merely for symmetry. New HOWs must correspond to materially distinct behavior/applicability/failure shape.
 
 ## Degradation alarms
 
 Treat these as warning signs:
 
-- replacing all four HOWs with a single `history_ref` field;
+- replacing all currently implemented HOWs with a single `history_ref` field;
 - claiming provenance coverage means merge behavior is solved;
 - using wall-clock LWW as a universal fallback;
 - calling CRDT convergence semantic reconciliation;
 - dropping input heads after merge because the final projection is correct;
-- turning `multiple HOWs` into one canonical implementation plus three historical examples;
-- requiring every Host to implement all four organs.
+- turning `multiple HOWs` into one canonical implementation plus historical examples;
+- requiring every Host to implement every currently known organ;
+- hard-coding the accidental HOW/fixture count as an ontology or compatibility rule;
+- rejecting a new valid phenotype because it breaks the current count;
+- inventing extra merge variants merely to satisfy a requested count.
 
 ## Evidence boundary
 
@@ -167,10 +194,13 @@ A structurally correct merge organ does not prove:
 - which actor had authority;
 - whether an external side effect committed;
 - whether a conflict can safely be auto-merged;
-- whether one HOW is globally fitter than another.
+- whether one HOW is globally fitter than another;
+- whether the currently implemented number of HOWs is final.
 
 `CURRENT_CHANGE = NO`
 
 `HOW_PLURALITY = ACTIVE`
+
+`HOW_CARDINALITY = DISCOVERED_NOT_PREALLOCATED`
 
 `LOCAL_FIT_SELECTION = REQUIRED`
