@@ -20,16 +20,19 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Compile validator
-        run: python -m py_compile research/prototypes/effect-lifecycle/tools/validate_effect_lifecycle.py
+      - name: Compile research tools
+        run: |
+          python -m py_compile \
+            research/prototypes/effect-lifecycle/tools/validate_effect_lifecycle.py \
+            research/prototypes/effect-lifecycle/tools/selftest_effect_lifecycle.py
 
-      - name: Run deterministic lifecycle fixtures
-        run: python research/prototypes/effect-lifecycle/tools/validate_effect_lifecycle.py
+      - name: Run portable adversarial selftest
+        run: python research/prototypes/effect-lifecycle/tools/selftest_effect_lifecycle.py
 
       - name: Verification boundary
         run: |
           echo 'PROTOTYPE_GATE=PASS'
-          echo 'VERIFICATION_SCOPE=REPRESENTED_LIFECYCLE_CONSISTENCY_AND_REFERENCE_NEXT_ACTION_ONLY'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_LIFECYCLE_RULES_FIXTURES_AND_SELFTEST_MUTATIONS_ONLY'
           echo 'EXTERNAL_RECEIPT_AUTHENTICITY=UNPROVEN'
           echo 'EXACTLY_ONCE=NOT_CLAIMED'
           echo 'CURRENT_CHANGE=NO'
