@@ -42,18 +42,21 @@ release_goal:
 
 phases:
   repo_information_architecture:
-    state: BASELINE_ESTABLISHED
+    state: BASELINE_ESTABLISHED_AND_READBACK_VERIFIED
     evidence:
       - PROJECT-HUB.md routes research continuation
       - PROJECT-STRUCTURE.md defines canonical semantic areas
+      - PROJECT-METADATA.yaml contains machine-readable research pointers
       - research/README.md defines research information architecture
       - research/RESEARCH-START-HERE.md is the hot research router
       - research/methodology/ is the canonical method surface
       - research/plans/ carries master plan and machine-readable progress
       - research/external-how/ carries external candidate mechanism research
       - legacy method paths are compatibility pointers rather than duplicate canonical copies
-    residual:
-      - continue opportunistic cleanup only when it improves navigation without breaking lineage
+      - PR #82 and #89 record the new continuation structure
+    residual: >-
+      Continue opportunistic cleanup only when it improves navigation without
+      breaking lineage; do not turn directory neatness into a release blocker.
 
   anti_ablation_archaeology:
     state: ACTIVE
@@ -84,7 +87,7 @@ phases:
     inventory_is_exhaustive: false
 
   external_how_harvest:
-    state: ACTIVE
+    state: ACTIVE_WITH_INITIAL_VERIFIED_REGISTRY
     initial_verified_source_families:
       - LangGraph
       - Temporal
@@ -95,6 +98,10 @@ phases:
       - Anthropic multi-agent engineering
       - Mem0
       - AI developer community field reports
+    mapped_into_workstreams:
+      - "#90 memory/runtime/cognition"
+      - "#91 authority/effects/recovery/settlement"
+      - "#93 ecology/coordination"
     rule: >-
       Search current AI frameworks, memory systems, durable workflow systems,
       agent protocols, research organizations, AI communities, and adjacent
@@ -151,11 +158,13 @@ methodology_incidents:
     lesson: DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
 
 next_actions:
-  - update #89 and relevant workstreams with the external HOW candidate mappings
-  - continue anti-ablation archaeology before selecting a single dominant organ line
-  - expand concrete HOW branches using internal lineage plus external mechanisms
-  - run static cross-organ falsification before expensive stochastic experiments
-  - start operational architecture assembly only when reconstruction evidence says the branch space is sufficiently recovered
+  - continue anti-ablation archaeology and update the mechanism retention map when material missing lineages are found
+  - expand concrete HOW branches using internal lineage plus the external registry; do not pick one framework-shaped winner prematurely
+  - perform static composition analysis for Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
+  - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
+  - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
+  - run stochastic/field experiments only where reality can reveal structure not already derivable
+  - start operational architecture assembly only when archaeology/branch recovery is sufficient for that decision
   - update this file after material state changes
 
 invariants:
