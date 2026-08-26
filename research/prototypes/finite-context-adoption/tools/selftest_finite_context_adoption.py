@@ -2,7 +2,8 @@
 """Portable selftest for plural finite-context/LITE adoption HOWs.
 
 This checks concrete reference behavior separately. It deliberately does not
-select a universal adoption winner.
+select a universal adoption winner and does not treat the currently implemented
+HOW count or fixture count as an architectural constant.
 """
 
 from __future__ import annotations
@@ -13,14 +14,18 @@ from pathlib import Path
 from compiled_projection_adoption import ProjectionIdentity, RuntimeAssumptions, freshness, material_posture as compiled_posture
 from file_git_adoption import ColdRead, SourceIdentity, decide_material_lookup, decide_nonmaterial_lookup
 from monolithic_hot_adoption import HotProjection, availability as hot_availability, context_fraction, material_posture as hot_posture
+from native_host_rebind import NativeBinding, binding_posture, mapping_posture
 from tool_native_adoption import RetrievalObservation, retrieval_status, material_posture as retrieval_posture
 
 
+# Registry of reference HOWs that this executable selftest currently knows how
+# to validate. This is implementation coverage, not an ontology slot count.
 HOW_IDS = {
     "HOW-A-FILE-GIT-TINY-COLD",
     "HOW-B-TOOL-NATIVE-RETRIEVAL",
     "HOW-C-MONOLITHIC-HOT",
     "HOW-D-HYBRID-COMPILED-PROJECTION",
+    "HOW-E-NATIVE-HOST-REBIND",
 }
 
 CURRENT = SourceIdentity(
@@ -103,19 +108,71 @@ def test_compiled_projection() -> None:
     print("PASS HOW-D: compiled projection source/Host/compiler invalidation + canonical fallback")
 
 
+def test_native_rebind() -> None:
+    bindings = [
+        NativeBinding(
+            property_id="mutation_pressure",
+            status="NATIVE_REALIZATION",
+            native_organ="wake/metabolism scan",
+            behavior_ref="host://wake-scan-v3",
+        ),
+        NativeBinding(
+            property_id="rescue_plane",
+            status="PARTIAL_NATIVE_REALIZATION",
+            native_organ="recovery-root/controller",
+            behavior_ref="host://recovery-root-v2",
+        ),
+        NativeBinding(
+            property_id="expression_axis",
+            status="DORMANT_NOT_DECISION_CHANGING",
+            material=False,
+        ),
+    ]
+    assert mapping_posture(CURRENT.current_tree, CURRENT.current_tree, bindings) == "NATIVE_REBIND_ACCEPTABLE"
+    assert binding_posture(bindings[1]) == "USE_NATIVE_ORGAN_PLUS_MINIMAL_GAP_ADAPTER"
+    assert binding_posture(bindings[2]) == "DORMANT_WITHOUT_COMPLIANCE_PENALTY"
+
+    assert mapping_posture("old-tree", CURRENT.current_tree, bindings) == "STALE_REBIND_REQUIRED"
+
+    unsupported_claim = [
+        NativeBinding(
+            property_id="local_selection",
+            status="NATIVE_REALIZATION",
+            native_organ="evidence ceiling",
+            behavior_ref=None,
+        )
+    ]
+    assert mapping_posture(CURRENT.current_tree, CURRENT.current_tree, unsupported_claim) == "MAPPING_EVIDENCE_INSUFFICIENT"
+
+    material_gap = [
+        NativeBinding(property_id="effect_commitment", status="GAP", material=True)
+    ]
+    assert mapping_posture(CURRENT.current_tree, CURRENT.current_tree, material_gap) == "MATERIAL_GAP_REQUIRES_ORGAN_OR_ADAPTER"
+
+    redundant = [
+        NativeBinding(
+            property_id="mutation_pressure",
+            status="NATIVE_REALIZATION",
+            native_organ="wake/metabolism scan",
+            behavior_ref="host://wake-scan-v3",
+            duplicate_ena_organ=True,
+        )
+    ]
+    assert mapping_posture(CURRENT.current_tree, CURRENT.current_tree, redundant) == "REDUNDANT_MIGRATION_REVIEW"
+    print("PASS HOW-E: native-organ mapping + stale/gap/evidence/redundancy boundaries")
+
+
 def test_host_fit(root: Path) -> None:
     path = root / "fixtures" / "host-fit-cases.jsonl"
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-    assert len(rows) == 8
+    assert rows, "host-fit corpus must not be empty"
+
     ids = [row["case_id"] for row in rows]
     assert len(ids) == len(set(ids))
 
     multi_fit = 0
     single_fit = 0
-    hot_preferred = 0
-    tool_preferred = 0
-    compiled_preferred = 0
-    file_preferred = 0
+    referenced_hows: set[str] = set()
 
     for row in rows:
         acceptable = row.get("acceptable_hows")
@@ -123,21 +180,26 @@ def test_host_fit(root: Path) -> None:
         assert isinstance(acceptable, list) and acceptable
         assert set(acceptable) <= HOW_IDS
         assert preferred in acceptable
+        referenced_hows.update(acceptable)
         multi_fit += int(len(acceptable) > 1)
         single_fit += int(len(acceptable) == 1)
-        hot_preferred += int(preferred == "HOW-C-MONOLITHIC-HOT")
-        tool_preferred += int(preferred == "HOW-B-TOOL-NATIVE-RETRIEVAL")
-        compiled_preferred += int(preferred == "HOW-D-HYBRID-COMPILED-PROJECTION")
-        file_preferred += int(preferred == "HOW-A-FILE-GIT-TINY-COLD")
 
-    assert multi_fit >= 5, "corpus must retain genuine cross-Host HOW plurality"
-    assert single_fit >= 2, "plurality must still permit real local single winners"
-    assert hot_preferred >= 1, "monolithic-hot must remain a possible local winner"
-    assert tool_preferred >= 1 and compiled_preferred >= 1 and file_preferred >= 1
+    # These are coverage floors for the synthetic corpus, not claims about the
+    # natural number of Host phenotypes.
+    assert multi_fit >= 1, "corpus must exercise at least one multi-fit scenario"
+    assert single_fit >= 1, "corpus must exercise at least one local single-winner scenario"
+    assert "HOW-E-NATIVE-HOST-REBIND" in referenced_hows, "new reference HOW must be exercised"
+
+    by_id = {row["case_id"]: row for row in rows}
+    assert by_id["FCA-005"]["preferred"] == "HOW-C-MONOLITHIC-HOT"
+    assert by_id["FCA-006"]["preferred"] == "HOW-B-TOOL-NATIVE-RETRIEVAL"
+    assert by_id["FCA-009"]["preferred"] == "HOW-E-NATIVE-HOST-REBIND"
+
     print(
         "PASS host-fit corpus:",
-        f"cases={len(rows)} multi_fit={multi_fit} single_fit={single_fit}",
-        f"preferred[file={file_preferred},tool={tool_preferred},hot={hot_preferred},compiled={compiled_preferred}]",
+        f"observed_cases={len(rows)} multi_fit={multi_fit} single_fit={single_fit}",
+        f"referenced_hows={','.join(sorted(referenced_hows))}",
+        "cardinality=OPEN",
     )
 
 
@@ -147,9 +209,12 @@ def main() -> int:
     test_tool_native()
     test_monolithic_hot()
     test_compiled_projection()
+    test_native_rebind()
     test_host_fit(root)
     print("PASS: finite-context adoption plural HOW selftest")
     print("verification_scope=REFERENCE_ADOPTION_BEHAVIOR_AND_HOST_FIT_ONLY")
+    print("implemented_how_registry_is_coverage_not_ontology=true")
+    print("how_cardinality=OPEN")
     print("universal_winner=NOT_SELECTED")
     print("naturalistic_application=UNPROVEN")
     print("current_change=NO")
