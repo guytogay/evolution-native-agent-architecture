@@ -297,7 +297,11 @@ Each lineage has a concrete reference implementation, distinct failure modes, an
 
 **Current status**
 
-`COEXIST / REFERENCE_HOW_FAMILY / MACHINE_GATE_PENDING`
+`COEXIST / REFERENCE_HOW_FAMILY / MACHINE_GUARDED / HOST_FIELD_FIT_OPEN`
+
+**Machine evidence**
+
+Exact research head `023c0a0e1b59a5e454afb0feac5d05aae5d16e9b` passed `Distributed History Merge Research`: all four reference tools compiled and the plural-HOW selftest completed successfully. This proves only represented reference behavior and Host-fit corpus consistency, not semantic truth or universal fitness.
 
 **Do not downgrade to**
 
