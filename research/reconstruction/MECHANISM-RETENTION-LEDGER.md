@@ -324,6 +324,53 @@ An individual HOW may retire only after usefulness failure or demonstrated parit
 
 ---
 
+## MRL-011 — Finite-Context / LITE Adoption plural HOW family
+
+**Problem**
+
+ENA can exist in a repository, package, or instruction corpus while a finite-context Agent never has the relevant semantics available at the right decision boundary. Conversely, forcing one adoption architecture on all Hosts can add context/tool/maintenance cost while suppressing a locally better phenotype.
+
+**Retained HOWs**
+
+Four concrete, intentionally coexisting adoption lineages:
+
+- `HOW-A-FILE-GIT-TINY-COLD` — small resident kernel/pointer + exact canonical file/Git cold source + explicit source-identity/fallback behavior;
+- `HOW-B-TOOL-NATIVE-RETRIEVAL` — compact resident cues + Host-native semantic retrieval + canonical source binding + exact fallback;
+- `HOW-C-MONOLITHIC-HOT` — large/complete operational projection intentionally resident when context economics and injection reliability make it locally fitter;
+- `HOW-D-HYBRID-COMPILED-PROJECTION` — Host-specific compiled local projection with Current/compiler/Host identity, invalidation, and canonical fallback.
+
+Each lineage has a concrete executable reference and an 8-case Host-fit corpus preserving both multi-fit scenarios and legitimate local single winners.
+
+**Current status**
+
+`COEXIST / REFERENCE_HOW_FAMILY / MACHINE_GUARDED / HOST_NATURALISTIC_FIT_OPEN`
+
+**Machine evidence**
+
+Exact research head `26378d0e9bad011117f93d34a8075d8ac61bc5ba` passed `Finite Context Adoption Research`, run `32924791067`, job `98045398184`. The four reference tools compiled, the plural-HOW selftest passed, and the verification boundary completed successfully. This proves reference behavior and Host-fit corpus consistency only; naturalistic semantic application remains unproven.
+
+**Anti-ablation evidence**
+
+The monolithic-hot reference deliberately treats high resident context cost as an economics signal rather than automatic invalidity. A represented 70% context-footprint case remains structurally valid and returns `USE_HOT_BUT_MEASURE_CONTEXT_PRESSURE` rather than being rejected by construction.
+
+**Do not downgrade to**
+
+- `Hot Cues + Cold Capability already covers adoption, so no implementation guidance is needed`;
+- one mandatory `adoption_profile` requiring resident kernel + resolver + cold store;
+- `monolithic hot is bad because it is large`;
+- `all Hosts need a semantic resolver`;
+- `compiled Local Projection is canonical ENA`.
+
+**Retention reason**
+
+Availability, freshness, retrieval reliability, context economics, and projection machinery vary materially across Hosts. Those operational differences are adaptation value, not implementation noise.
+
+**Removal condition**
+
+An individual adoption HOW may retire only after usefulness failure or equal-or-better function is demonstrated for the same Host/problem class. A local winner cannot erase alternatives still fitter under different runtime constraints.
+
+---
+
 # Degradation watch events
 
 Record any future event where a mechanism moves downward in implementation maturity or disappears from an adopter/reference path.
