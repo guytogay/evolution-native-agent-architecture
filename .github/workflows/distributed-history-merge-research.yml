@@ -1,0 +1,43 @@
+name: Distributed History Merge Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/distributed-history-merge/**'
+      - '.github/workflows/distributed-history-merge-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  distributed-history-merge-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile plural HOW reference tools
+        run: |
+          python -m py_compile \
+            research/prototypes/distributed-history-merge/tools/git_dag_reference.py \
+            research/prototypes/distributed-history-merge/tools/causal_sibling_reference.py \
+            research/prototypes/distributed-history-merge/tools/event_stream_reference.py \
+            research/prototypes/distributed-history-merge/tools/crdt_reference.py \
+            research/prototypes/distributed-history-merge/tools/selftest_distributed_history_merge.py
+
+      - name: Run plural HOW selftest
+        run: python research/prototypes/distributed-history-merge/tools/selftest_distributed_history_merge.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'HOWS=GIT_DAG,CAUSAL_SIBLINGS,EVENT_SOURCING,CRDT_DECLARED_COMMUTATIVE'
+          echo 'UNIVERSAL_WINNER=NOT_SELECTED'
+          echo 'SEMANTIC_TRUTH=UNPROVEN'
+          echo 'AUTHORITY=OUT_OF_SCOPE'
+          echo 'EXTERNAL_EFFECT_SETTLEMENT=OUT_OF_SCOPE'
+          echo 'CURRENT_CHANGE=NO'
