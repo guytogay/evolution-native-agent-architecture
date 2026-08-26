@@ -24,7 +24,7 @@ Never infer Current from:
 
 `releases/current/CURRENT-BASELINE.yaml` is the machine-readable adoption pointer.
 
-Version identity and maturity/status are separate. Beginning with v0.3.5, the active adopter-facing model is **Current + declared maturity/status**. Historical `MAINLINE / NOT_MAINLINE` records remain history rather than an additional live status axis.
+Version identity and maturity/status are separate. Historical promotion records remain lineage rather than additional live baselines.
 
 ## First adoption
 
@@ -42,16 +42,65 @@ After successful persistent adoption, familiar tasks should normally use the int
 
 > **Canonical source is the cold path; internalized semantics are the hot path.**
 
+## Continue ENA research
+
+A session asked to continue, inherit, improve, or eventually release ENA should **not** start by browsing random Issues or choosing the most visible prototype.
+
+Use this route:
+
+1. `research/RESEARCH-START-HERE.md` — small hot research bootstrap;
+2. `research/methodology/README.md` and the method files it routes to;
+3. `research/plans/PROGRESS.yaml` — machine-readable current execution state;
+4. `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable end-to-end plan;
+5. PR #82 / #89 and only then the relevant workstream, prototype, external HOW source, or evidence.
+
+A handoff summary is a pointer, not canonical project state.
+
+```text
+DURABLE != DISCOVERABLE != RETRIEVED != SALIENT != APPLIED
+```
+
+Method inheritance is successful only when the next session actually behaves consistently with the persisted methodology.
+
+## Current research direction
+
+The working structure is deliberately asymmetric:
+
+```text
+WHAT / WHY
+  -> may converge into a stable, compressed semantic trunk
+
+HOW
+  -> should concretize and may branch into multiple tools/processes/organs/Host bindings
+
+EVIDENCE
+  -> attaches to the concrete claim/branch/Host it actually supports
+```
+
+```text
+ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
+```
+
+Do not treat current branch count, workstream count, directory count, or prototype count as ontology.
+
+> **Compress the semantic trunk; let concrete HOWs branch.**
+
 ## Project knowledge surfaces
 
 GitHub is the canonical engineering, research-lineage, and Current-adoption surface.
 
 - Current adoption baseline: `releases/current/`
 - Historical release index: `HISTORY.md`
+- Research map/bootstrap: `research/README.md`, `research/RESEARCH-START-HERE.md`
+- Research methodology: `research/methodology/`
+- Master plan/progress: `research/plans/`
+- Reconstruction archaeology: `research/reconstruction/`
+- External HOW harvesting: `research/external-how/`
 - Evolution Inbox: `research/evolution-inbox/`
 - Historical adversarial replay: `research/adversarial-replay/`
 - Experiments: `research/experiments/`
 - Prototypes: `research/prototypes/`
+- Research-process incidents: `research/incidents/`
 - Contributions/evidence intake: `collaboration/inbox/`
 - Reconciliation: `collaboration/reconciliation/`
 - Decisions: `decisions/`
@@ -60,7 +109,7 @@ Historical releases, candidates, rejected paths, and validation artifacts are **
 
 > **Preserve history durably; retrieve history selectively.**
 >
-> **Expose one adoption surface; preserve many historical surfaces.**
+> **Expose one adoption surface; preserve many research and historical surfaces.**
 
 ## Participation and authority
 
@@ -69,6 +118,8 @@ Any participant may, within actual capability and authority, read, question, cri
 Useful contribution classes include:
 
 `INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | NEW_VARIATION | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | CRITIQUE`
+
+This list is descriptive, not exhaustive.
 
 For trackable bugs, enhancements, research questions, or release concerns, prefer a GitHub Issue when it is the smallest useful durable tracker.
 
@@ -81,10 +132,12 @@ GitHub write capability does not grant release, deployment, remediation, or scop
 - project-first, not Agent-first;
 - persistent project state is the collaboration bus;
 - tool access is connectivity, not project authority;
-- one substantial contribution should normally be one independent artifact;
 - conflicts remain visible until evidence/authorized decision resolves them;
 - persistence is not synchronization;
-- project continuity does not depend on one permanent owning session/Agent.
+- project continuity does not depend on one permanent owning session/Agent;
+- research methodology changes belong in `research/methodology/` and its changelog;
+- material project progress belongs in `research/plans/PROGRESS.yaml`;
+- external candidate HOWs belong in `research/external-how/`.
 
 ## Operating posture
 
@@ -92,7 +145,11 @@ Falsify before formalize.
 
 Use the cheapest evidence that can honestly support the decision.
 
+Recover variation before selection when reconstruction completeness is still at issue.
+
 Batch variation; concentrate expensive selection.
+
+Experiments must pay epistemic rent.
 
 Production before perfection; not production without evidence.
 
