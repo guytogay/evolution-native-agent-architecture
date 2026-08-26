@@ -75,6 +75,69 @@ A HOW may be:
 
 A HOW is not complete merely because its interface can be described abstractly.
 
+## HOW plurality is a default, not an exception
+
+One WHAT/WHY does **not** imply one preferred HOW.
+
+When economically possible, implementation research should deliberately preserve multiple concrete HOW lineages because different Hosts can differ in:
+
+- storage substrate;
+- concurrency model;
+- authority topology;
+- failure domain;
+- latency and cost budget;
+- language/runtime;
+- persistence guarantees;
+- available external services;
+- single-Agent vs multi-Agent operation;
+- need for offline work, replication, or recovery.
+
+A healthy implementation ecology can therefore look like:
+
+```text
+one property
+  -> HOW-A: Git/file Host
+  -> HOW-B: workflow/event-store Host
+  -> HOW-C: database-backed Host
+  -> HOW-D: CRDT/replicated Host
+  -> HOW-E: native Host organ, mapping only
+```
+
+These HOWs are allowed to remain different. A later common interface may improve composition, but interface extraction must not collapse their operational differences or demote all but one into obsolete examples.
+
+### No premature single-winner rule
+
+Do not select one HOW merely because it is:
+
+- easiest to explain;
+- most abstract;
+- smallest in schema count;
+- already familiar to the maintainer;
+- easiest to validate centrally.
+
+A single winner is justified only when evidence shows that competing HOWs are dominated for the relevant Host/problem class, or when the decision is explicitly local to one Host.
+
+Otherwise valid dispositions include:
+
+`COEXIST / SPECIALIZE / LOCAL_WINNER / MULTIPLE_REFERENCE_ORGANS`
+
+### Adaptation value
+
+Multiple HOWs are useful not only as implementation choices but as evolutionary variation. Different organs expose different failure modes and create evidence about which mechanism fits which environment.
+
+Therefore:
+
+```text
+HOW_DIVERSITY
+!= UNCONTROLLED_COMPLEXITY
+
+ONE_PROPERTY
+!= ONE_IMPLEMENTATION
+
+LOCAL_WINNER
+!= UNIVERSAL_WINNER
+```
+
 ## Interface abstraction is allowed; organ abstraction is not a substitute
 
 Shared interfaces may be abstract when they improve composition.
@@ -133,12 +196,14 @@ Begin with:
 Then ask:
 
 1. Can we build or map one real organ?
-2. What decisions does it enable that prose alone cannot?
-3. What Host-specific alternatives exist?
-4. What external mature implementations can be reused?
-5. What fixtures expose its failure modes?
-6. What evidence would show it improves operation?
-7. What burden does it add?
+2. What second/third implementation is plausible for a materially different Host?
+3. What decisions does each organ enable that prose alone cannot?
+4. What Host-specific alternatives exist?
+5. What external mature implementations can be reused?
+6. What fixtures expose each organ's distinct failure modes?
+7. What evidence would show each implementation improves operation?
+8. What burden does each add?
+9. Which differences should remain differences rather than be abstracted away?
 
 Only after concrete realizations exist should abstraction/composition be considered.
 
@@ -159,18 +224,18 @@ NO HOW
 -> FIELD-SUPPORTED PATTERN
 ```
 
-A topic may have multiple parallel HOW lineages.
+A topic may have multiple parallel HOW lineages at different maturity levels.
 
 No stage requires promotion into Current.
 
 ## Retirement rule
 
-A concrete HOW should not be retired merely because its semantic property is represented elsewhere.
+A concrete HOW should not be retired merely because its semantic property is represented elsewhere, or because another HOW works for a different Host.
 
 Retirement requires one of:
 
 1. demonstrated usefulness failure;
-2. replacement with function parity or better;
+2. replacement with function parity or better for the same relevant Host/problem class;
 3. Host/problem specialization proving it is no longer relevant outside that niche;
 4. unacceptable burden relative to demonstrated value.
 
@@ -186,13 +251,13 @@ Falsification remains useful, but its target changes:
 - falsify evidence quality;
 - falsify unnecessary burden.
 
-Do **not** treat successful deletion as the default proof of architectural quality.
+Do **not** treat successful deletion or convergence to one HOW as the default proof of architectural quality.
 
 The goal of implementation research is not the smallest architecture that can explain everything.
 
 The goal is:
 
-> **a sufficiently small semantic core surrounded by a growing, evidence-selected ecology of concrete ways to live it.**
+> **a sufficiently small semantic core surrounded by a growing, plural, evidence-selected ecology of concrete ways to live it.**
 
 ## Working rules
 
@@ -202,9 +267,13 @@ The goal is:
 
 `HOW_DEFAULT_DIRECTION = CONCRETIZE_AND_GROW`
 
+`HOW_PLURALITY = DEFAULT_WHEN_HOST_VARIATION_IS_MATERIAL`
+
 `HOW_ABSTRACTION = INTERFACE_ONLY_UNLESS_FUNCTION_PARITY_IS_PROVEN`
 
-`REFERENCE_ORGAN_DIVERSITY = ALLOWED`
+`REFERENCE_ORGAN_DIVERSITY = ENCOURAGED`
+
+`LOCAL_HOW_WINNER != UNIVERSAL_HOW_WINNER`
 
 `SEMANTIC_COVERAGE != IMPLEMENTATION_COMPLETION`
 
