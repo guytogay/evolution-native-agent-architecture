@@ -1,6 +1,6 @@
-schema_version: "1.6"
+schema_version: "1.7"
 as_of: "2026-08-27"
-status: ACTIVE_RELEASE_SCOPE_RECONCILIATION
+status: V0_3_7_CANDIDATE_BUILD_PREPARATION
 
 progress_is_complete_history: false
 
@@ -11,15 +11,13 @@ canonical_pointers:
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
   operational_architecture: research/operational-architecture/README.md
   release_scope_root: research/release-scope/README.md
-  release_scope_entry_gate: research/release-scope/RELEASE-SCOPE-ENTRY-GATE-001.md
-  release_scope_reconciliation_001: research/release-scope/RELEASE-SCOPE-RECONCILIATION-001.md
-  release_tooling_reconciliation_001: research/release-scope/RELEASE-TOOLING-RECONCILIATION-001.md
-  reference_library_selection_001: research/release-scope/REFERENCE-LIBRARY-SELECTION-001.md
-  candidate_surface_design_001: research/release-scope/CANDIDATE-SURFACE-DESIGN-001.md
-  language_scope_001: research/release-scope/LANGUAGE-SCOPE-001.md
-  reference_manifest_draft: research/release-scope/CANDIDATE-REFERENCE-MANIFEST-DRAFT.yaml
-  anti_ablation_selection_audit_001: research/release-scope/ANTI-ABLATION-SELECTION-AUDIT-001.md
-  minimal_v2_tool_prototype: research/prototypes/ena-evolve-v2-minimal/README.md
+  scope_stability_gate: research/release-scope/RELEASE-SCOPE-STABILITY-GATE-001.md
+  version_selection: research/release-scope/VERSION-SELECTION-001.md
+  candidate_surface_design: research/release-scope/CANDIDATE-SURFACE-DESIGN-001.md
+  reference_library_selection: research/release-scope/REFERENCE-LIBRARY-SELECTION-001.md
+  tooling_selection: research/release-scope/RELEASE-TOOLING-RECONCILIATION-001.md
+  language_scope: research/release-scope/LANGUAGE-SCOPE-001.md
+  anti_ablation_selection_audit: research/release-scope/ANTI-ABLATION-SELECTION-AUDIT-001.md
 
 current_adoption:
   version: v0.3.6
@@ -27,49 +25,40 @@ current_adoption:
   maturity: FIELD_VALIDATION
   research_authorizes_current_mutation: false
 
+next_candidate_line:
+  version: v0.3.7
+  version_role: ASSIGNED_CANDIDATE_RELEASE_LINE_NOT_CURRENT
+  release_thesis: >-
+    Make ENA operationally inhabitable while keeping the semantic trunk stable:
+    expose concrete plural HOWs, bundle optional references without making them
+    mandatory, and provide a practical v2 evolution path.
+  candidate_identity: NOT_YET_CREATED
+  candidate_build_authorized: PREPARATION_ONLY_UNTIL_BRANCH_AND_RELEASE_DISCIPLINE_READBACK
+
 research_workspace:
   branch: research/ena-reconstruction
   branch_role: LONG_LIVED_RESEARCH_INTEGRATION_SURFACE
   continuation_authority: MAIN_VISIBLE_BRANCH_POINTER
   head_identity_policy: LIVE_REVERIFY_BEFORE_WRITE
 
-alignment:
-  control_plane_pr_109: MERGED
-  control_plane_pr_110: MERGED
-  latest_main_alignment_commit: e8257e61a01652d4db799edfdd51f4ce7ae7a2b4
-  main_and_active_branch_aligned_at_phase_start: true
-
 phase_state:
   anti_ablation_archaeology:
     state: RECOVERY_SUFFICIENT_REOPENABLE
 
-  how_branch_expansion:
-    state: ACTIVE_DURING_RELEASE_RECONCILIATION
-
   operational_architecture_assembly:
-    state: ASSEMBLY_SUFFICIENT_FOR_RELEASE_SCOPE_CONTINUES_IN_PARALLEL
-
-  release_scope_entry_gate:
-    state: PASS_WITH_OPEN_FIELD_RESIDUALS
-    semantic_delta_count_at_entry: 0_DEMONSTRATED
+    state: SUFFICIENT_FOR_V0_3_7_CANDIDATE_SCOPE / CONTINUES_IF_NEW_GAP_APPEARS
 
   release_scope_reconciliation:
-    state: CARGO_DECISIONS_MADE / SCOPE_STABILITY_GATE_NEXT
-    current_result:
-      new_constitution_rule_required: 0_DEMONSTRATED
-      new_core_semantic_delta_required: 0_DEMONSTRATED
-      practical_adopter_delta: MATERIAL_SELECTED
-      reference_library_delta: MATERIAL_SELECTED
-      tooling_delta: MATERIAL_SELECTED
-      language_adoption_delta: MATERIAL_SELECTED
-      next_version: UNASSIGNED_PENDING_SCOPE_STABILITY_GATE
+    state: STABLE_FOR_CANDIDATE_BUILD
+    scope_stability_gate: PASS
+    remaining_open_scope_question_that_must_change_cargo: NONE_FOUND
+    open_field_residuals: true
+    new_constitution_rule_required: 0_DEMONSTRATED
+    new_core_semantic_delta_required: 0_DEMONSTRATED
 
     selected_adopter_surface:
-      - release-local Operational Architecture entrypoint
-      - compact cue index
-      - cold HOW map
-      - release-local reference pointer/index
-      - purpose-relative continuity procedure
+      - operational entrypoint / cue index / cold HOW map / reference index
+      - Purpose-Relative Continuity procedure
       - Standing Input procedure
       - Control Retirement procedure
       - Evolution Commons pattern
@@ -88,82 +77,55 @@ phase_state:
       - Evidence Dependency Map
       - Contested Authorship
 
-    deferred_reference_candidates:
-      - Commitment/Settlement recovered reconstruction pending fresh independent review or renewed candidate-critical need
+    deferred_first_candidate:
+      - Commitment/Settlement recovered reconstruction
+      - progressive occurrence/enrichment runtime
+      - mesocosm/ecology/reputation/verification-market research
+      - exact Tiny Hot Kernel phenotype
 
     selected_tooling:
-      default_candidate_path: MINIMAL_V2_COMPATIBLE_HELPER
-      research_path: research/prototypes/ena-evolve-v2-minimal/
+      default_path: MINIMAL_V2_COMPATIBLE_HELPER
+      prototype: research/prototypes/ena-evolve-v2-minimal/
       deterministic_selftest: PASS_ON_GITHUB_ACTIONS
       cli_roundtrip: PASS_ON_GITHUB_ACTIONS
-      legacy_v1_2: EXPLICIT_LEGACY_COMPATIBILITY_ONLY
-      narrow_legacy_repair_selected_as_primary: false
-
-    candidate_surface:
-      state: WORKING_PACKAGE_SHAPE_SELECTED
-      operational_directory: true
-      optional_reference_manifest: true
-      references_always_hot: false
-      research_tree_copied_into_release: false
+      legacy_v1_2: RETAIN_AS_EXPLICIT_LEGACY_COMPATIBILITY_NOT_DEFAULT
 
     language_scope:
-      state: SELECTED
-      zh_cn_hot_entry_projection: REQUIRED_FOR_CANDIDATE
-      zh_cn_operational_how_projection: REQUIRED_FOR_CANDIDATE
-      zh_cn_reference_semantic_guide: REQUIRED_FOR_CANDIDATE
-      full_machine_artifact_literal_translation: NOT_REQUIRED
-      behavioral_equivalence: UNPROVEN_REQUIRES_EVIDENCE
+      zh_cn_operational_entry_and_how: SELECTED
+      zh_cn_reference_semantic_guide: SELECTED
+      literal_translation_of_all_machine_artifacts: NOT_REQUIRED
+      behavioral_equivalence: UNPROVEN_REQUIRES_CANDIDATE_OR_FIELD_EVIDENCE
 
     anti_ablation_selection:
-      state: PASS_ON_CURRENT_SCOPE_MAP
+      state: PASS
       silently_erased_material_how_found: false
-      deferred_means_retired: false
-
-    host_pattern_not_universal_organ:
-      - Tiny Hot Kernel / semantic router phenotype
-      - durable workflow adapters
-      - native memory/retrieval
-      - idempotency/fencing/conditional writes
-      - RBAC/capability/workload identity
-      - A2A active Agent interoperability
-      - OCI/Git/object Commons substrates
-      - provenance/attestation/tracing systems
-
-    first_candidate_research_hold:
-      - progressive evolution-record occurrence/enrichment runtime
-      - lineage compaction/composition harnesses
-      - migration-settlement harness
-      - execution-surface fencing simulator
-      - MSI/mesocosm infrastructure
-      - verification-as-service ecology
-      - reputation rehabilitation experiments
-      - culture/specialization/resource ecology experiments
-      - raw natural Tiny Kernel salience runs
 
   candidate_build_and_validation:
-    state: NOT_STARTED
-    prerequisite: SCOPE_STABILITY_GATE_PASS_AND_VERSION_ASSIGNMENT
+    state: READY_TO_PREPARE
+    next_candidate_version: v0.3.7
+    next_candidate_identity: candidate.0
+    next_gate: READ_BRANCH_GOVERNANCE_AND_RELEASE_DISCIPLINE_THEN_CREATE_EXACT_CANDIDATE_WORKSPACE
 
   promotion:
     state: NOT_STARTED
 
 next_actions:
-  - run release-scope stability gate: identify whether any open question can still materially change candidate cargo rather than implementation details
-  - inspect versioning/history and assign next version only if scope stability gate passes
-  - update main-visible master plan/control plane if release-scope closure materially changes project phase
-  - create candidate build branch/surface only after version assignment and release discipline permits it
-  - preserve Current v0.3.6 unchanged until candidate promotion completes
+  - read branch governance and Current release discipline before creating candidate work branch/surface
+  - inspect prior v0.3.6 candidate/freeze/reconciliation layout and reuse proven release mechanics where still applicable
+  - align main-visible control plane to v0.3.7 candidate-build preparation before long candidate work begins
+  - create v0.3.7 candidate.0 as a self-contained surface without modifying releases/current
+  - construct selected operational/reference/tool/language cargo from exact research decisions
+  - validate candidate deterministically, freeze exact identity, then obtain independent falsification
+  - keep v0.3.6 singular Current until promotion/readback completes
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
-  - NO_NEW_CORE_RULES_NE_NO_RELEASE_VALUE
-  - LARGE_RESEARCH_TREE_NE_SHIP_EVERYTHING
+  - SCOPE_STABLE_NE_CANDIDATE_VALIDATED
+  - VERSION_ASSIGNED_NE_CURRENT
+  - CANDIDATE_EXISTS_NE_FROZEN
+  - FROZEN_NE_VALIDATED
+  - VALIDATED_NE_RELEASED
   - BUNDLED_REFERENCE_NE_REQUIRED_RUNTIME_ORGAN
-  - REFERENCE_SCHEMA_NE_ENA_ONTOLOGY
-  - HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
-  - STRUCTURAL_LANGUAGE_PARITY_NE_BEHAVIORAL_DECISION_EQUIVALENCE
-  - RELEASE_SCOPE_SELECTION_NE_VERSION_ASSIGNMENT
-  - HELPER_ORCHESTRATES_CURRENT_SEMANTICS_NE_HELPER_REIMPLEMENTS_CURRENT_SEMANTICS
-  - SOURCE_SELECTION_TRANSFERRED_NE_RECEIVER_LOCAL_SELECTION
-  - DEFERRED_FROM_FIRST_CANDIDATE_NE_RETIRED_FROM_LINEAGE
+  - DEFERRED_NE_RETIRED
   - OPERATIONAL_LIBRARY_SIZE_NE_ACTIVE_CONTEXT_SIZE
+  - NEW_CORE_SEMANTIC_DELTA_ZERO_NE_RELEASE_VALUE_ZERO

@@ -1,60 +1,51 @@
 # ENA Release Scope Workspace
 
-Status: `ACTIVE_RELEASE_SCOPE_RECONCILIATION / CARGO_DECISIONS_MADE / SCOPE_STABILITY_GATE_NEXT / CURRENT_UNCHANGED / VERSION_UNASSIGNED`
+Status: `SCOPE_STABLE / V0.3.7_ASSIGNED / CANDIDATE_BUILD_PREPARATION / CURRENT_UNCHANGED`
 
-This directory is the transition surface between Operational Architecture assembly and a future release candidate.
+This directory records how Operational Architecture research was selected into the next candidate line without modifying `releases/current/`.
 
-It does **not** authorize changes to `releases/current/`.
+Current remains:
 
-## Start here
+`v0.3.6 / CURRENT / FIELD_VALIDATION`
 
-1. `RELEASE-SCOPE-ENTRY-GATE-001.md` — Operational Architecture is traversable enough to begin release selection.
+Next candidate line:
+
+`v0.3.7 / NOT_CURRENT / CANDIDATE_NOT_YET_CREATED`
+
+## Read in order
+
+1. `RELEASE-SCOPE-ENTRY-GATE-001.md` — Operational Architecture was deep/traversable enough to begin release selection.
 2. `RELEASE-SCOPE-RECONCILIATION-001.md` — first practical cargo pass.
-3. `RELEASE-TOOLING-RECONCILIATION-001.md` — minimal v2 helper selected for candidate default tooling; legacy v1.2 is explicit compatibility/lineage only.
-4. `REFERENCE-LIBRARY-SELECTION-001.md` — selected general and advanced/specialized optional reference set; Commitment/Settlement recovered reconstruction deferred.
-5. `CANDIDATE-SURFACE-DESIGN-001.md` — working minimal inhabitable candidate package and top-level delta matrix.
-6. `CANDIDATE-REFERENCE-MANIFEST-DRAFT.yaml` — machine-readable draft for reference optionality/applicability packaging roles.
-7. `LANGUAGE-SCOPE-001.md` — selected zh-CN projection scope for new operational HOW surfaces and reference semantic guide.
-8. `ANTI-ABLATION-SELECTION-AUDIT-001.md` — verifies current first-candidate selection does not silently dissolve unselected HOW branches.
-9. `../plans/PROGRESS.yaml` — current fast-moving state.
-10. `../operational-architecture/` — source assembly and concrete HOW branches.
+3. `RELEASE-TOOLING-RECONCILIATION-001.md` — minimal v2 helper selected; legacy v1.2 is compatibility/lineage only.
+4. `REFERENCE-LIBRARY-SELECTION-001.md` — selected optional reference library and deferred Commitment/Settlement reconstruction.
+5. `CANDIDATE-SURFACE-DESIGN-001.md` — minimal inhabitable candidate package.
+6. `CANDIDATE-REFERENCE-MANIFEST-DRAFT.yaml` — machine-readable optional-reference packaging draft.
+7. `LANGUAGE-SCOPE-001.md` — selected zh-CN operational/HOW coverage.
+8. `ANTI-ABLATION-SELECTION-AUDIT-001.md` — confirms unselected HOWs remain durably routed rather than silently erased.
+9. `RELEASE-SCOPE-STABILITY-GATE-001.md` — concludes remaining open items are candidate implementation/evidence issues, not cargo-selection blockers.
+10. `VERSION-SELECTION-001.md` — assigns `v0.3.7` using repository release-history precedent.
 
-## Current release thesis
+## Stable v0.3.7 release thesis
 
-The next release is being shaped as an **operational architecture release**, not a constitutional expansion.
+```text
+STABLE_v0.3.6_SEMANTIC_TRUNK
++
+ADOPTER_FACING_OPERATIONAL_ARCHITECTURE
++
+OPTIONAL_REFERENCE_LIBRARY
++
+MINIMAL_V2_PRACTICAL_TOOLING
++
+ZH_CN_OPERATIONAL_PROJECTION
+```
 
-At the current scope checkpoint:
+No new Constitution/Core rule has been demonstrated necessary.
 
 ```text
 NEW_CONSTITUTION_RULE_REQUIRED = 0_DEMONSTRATED
 NEW_CORE_SEMANTIC_DELTA_REQUIRED = 0_DEMONSTRATED
-PRACTICAL_ADOPTER_DELTA = MATERIAL_SELECTED
-REFERENCE_LIBRARY_DELTA = MATERIAL_SELECTED
-TOOLING_DELTA = MATERIAL_SELECTED
-LANGUAGE/ADOPTION_DELTA = MATERIAL_SELECTED
-NEXT_VERSION = UNASSIGNED_PENDING_SCOPE_STABILITY_GATE
-CURRENT_CHANGE = NO
+OPERATIONAL_ADOPTER_DELTA = MATERIAL_AND_SELECTED
 ```
-
-## Selection is not compression back to one HOW
-
-Release reconciliation asks what should be distributed to adopters, not which single HOW is metaphysically correct.
-
-Working packaging roles include:
-
-```text
-CURRENT_SEMANTIC_ANCHOR
-ADOPTER_GUIDANCE
-GENERAL_OPTIONAL_REFERENCE
-ADVANCED_OPTIONAL_REFERENCE
-SPECIALIZED_OPTIONAL_REFERENCE
-HOST_ADAPTER_PATTERN
-FIELD_OR_MESOCOSM_ONLY
-RESEARCH_EXPERIMENTAL
-DORMANT_LINEAGE
-```
-
-These are routing/packaging classes, not ontology.
 
 ## Selected reference set
 
@@ -76,7 +67,7 @@ Evidence Dependency Map
 Contested Authorship
 ```
 
-Deferred from first candidate machine-reference library:
+Deferred first candidate:
 
 ```text
 Commitment/Settlement recovered reconstruction
@@ -84,46 +75,26 @@ Commitment/Settlement recovered reconstruction
 
 Deferred does not mean retired or disproven.
 
-## Selected tooling direction
+## Selected tooling
 
 ```text
-minimal v2-compatible evolution helper = candidate default practical path
+candidate default practical path = minimal v2-compatible helper
 legacy ena_evolve.py v1.2 = explicit legacy/compatibility only
 narrow legacy repair = not selected as primary answer
 ```
 
-The research helper has passed deterministic and actual CLI round-trip GitHub Actions gates while reusing Current record/packet semantic surfaces rather than duplicating the record semantic engine.
+## Next phase
 
-## Candidate surface direction
+Release-scope ideation is no longer the default activity.
 
-A new adopter should be able to navigate:
+Before creating candidate.0:
 
-```text
-00-READ-ME-FIRST
--> RUNTIME-ADOPTION-KERNEL
--> operational/README
--> operational/CUE-INDEX
--> operational/HOW-MAP
--> procedure / optional reference / Host pattern
--> act / WAIT / UNKNOWN / not-applicable
-```
+1. read branch governance;
+2. read Current release discipline and prior v0.3.6 candidate/freeze mechanics;
+3. align the main-visible project control plane to the candidate-build phase;
+4. create a self-contained `v0.3.7 candidate.0` workspace without touching `releases/current/`;
+5. validate/freeze/falsify/reconcile under exact candidate identity.
 
-The operational HOW library remains cold by default.
-
-## Language direction
-
-New decision-bearing operational entry/HOW surfaces receive zh-CN semantic projection. Machine schemas/code may keep stable identifiers while a zh-CN reference guide exposes applicability, state meanings, composition and evidence boundaries.
-
-Structural parity remains distinct from behavioral decision equivalence.
-
-## Next gate
-
-Before assigning a version, run a scope-stability gate:
-
-> Is there any remaining open question that can still materially change candidate cargo, rather than only candidate implementation/layout details or validation evidence?
-
-If yes, keep reconciling.
-
-If no, record scope stable, inspect versioning/history, assign the next version, align the main-visible project phase, and begin candidate build under release discipline.
+Reopen release scope only for a scope-level contradiction or genuinely new candidate-critical evidence.
 
 `CURRENT_CHANGE = NO`
