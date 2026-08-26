@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 status: ACTIVE_RESEARCH_POINTER
 
 # Canonical main-visible pointer for continuing ENA research.
@@ -6,13 +6,13 @@ status: ACTIVE_RESEARCH_POINTER
 # commit timestamps, or the number of open research artifacts.
 
 active_research:
-  branch: "research/memory-metabolism-prototype"
-  pull_request: 82
+  branch: "research/ena-reconstruction"
+  pull_request: 101
   state: "ACTIVE_RECONSTRUCTION / DRAFT / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
-  observed_head_sha: "dd18c770d891a1a16d8384585ebc80b08b699182"
+  observed_head_sha: "d708abb05fa7aad11b1afad72cc08c58e2e5a123"
   head_sha_is_identity_lock: false
   reverify_head_before_writes: true
-  branch_name_status: "LEGACY_SCOPE_NAME / BROADER_THAN_MEMORY"
+  branch_name_status: "CURRENT_SCOPE_NAME / SUCCESSOR_TO_PR_82_CHECKPOINT"
 
   bootstrap_path: "research/RESEARCH-START-HERE.md"
   progress_path: "research/plans/PROGRESS.yaml"
@@ -39,26 +39,28 @@ continuation_protocol:
   - "Do not treat temporary or historical branches as parallel research authority."
 
 branch_transition:
-  current_decision: "CHECKPOINT_RECONCILIATION_PREFERRED_OVER_DIRECT_RENAME"
+  current_decision: "CHECKPOINT_COMPLETED / SUCCESSOR_ACTIVATED"
+  predecessor_branch: "research/memory-metabolism-prototype"
+  predecessor_pull_request: 82
+  predecessor_checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
+  reconciliation_commit: "3a465479a7bc7205bf595b3078a359dfb0710485"
+  successor_branch: "research/ena-reconstruction"
+  successor_pull_request: 101
   why: >-
-    The active branch has outgrown its Memory-specific name and PR #82 is a large
-    reconstruction workspace. A direct GitHub rename of a PR head branch would close
-    the open pull request. Preferred transition is to reconcile a research checkpoint
-    to main without changing releases/current, then create a fresh accurately named
-    active research integration branch from the reconciled main.
-  merge_now: false
-  merge_blocker: >-
-    PR #82 is currently reported by GitHub as mergeable=false / mergeable_state=dirty.
-    Main advanced with the research control-plane checkpoint and overlapping files now
-    require explicit reconciliation before a safe research-checkpoint merge.
-  preferred_successor_name: "research/ena-reconstruction"
+    The predecessor branch began as a Memory Metabolism prototype and grew into a
+    broad ENA reconstruction workspace. Its accumulated research was checkpointed to
+    main without changing releases/current. A new branch was then created from the
+    exact checkpointed main commit so branch identity once again matches research scope
+    and the research branch does not become a permanent second main.
+  direct_rename_used: false
+  current_changed_by_transition: false
 
 branch_cardinality:
   active_research_integration_branches_allowed: 1
   authority_basis: >-
     This is a project-coordination invariant, not an ontology claim. A single active
-    integration pointer prevents ambiguous session continuation while temporary
-    parallel work branches may still exist when technically necessary.
+    integration pointer prevents ambiguous session continuation while temporary or
+    retiring branches may still exist when technically necessary.
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
