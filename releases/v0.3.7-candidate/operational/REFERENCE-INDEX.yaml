@@ -158,7 +158,7 @@ routes:
     fallback:
       - direct schema/template plus validator
       - Host-native variation store
-    tool_state: ASSEMBLY_PENDING_STAGE_3
+    tool_state: ASSEMBLED_MACHINE_CHECKED_STAGE_3
 
   OA-MIG-01:
     what: migration and Commons
