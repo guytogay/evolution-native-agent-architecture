@@ -133,10 +133,16 @@ def validate_query(query: Any) -> list[str]:
         "protected_subject_ref",
         "task_scope",
         "host",
-        "grantee_epoch",
     ):
         if not _nonempty_string(query.get(field)):
             errors.append(f"{field} required")
+
+    # Epoch is intentionally optional. A Host need not manufacture an epoch
+    # mechanism merely to use a grant that explicitly spans epochs. If the
+    # selected grant is epoch-scoped, absence is resolved later as UNRESOLVED.
+    grantee_epoch = query.get("grantee_epoch")
+    if grantee_epoch is not None and not _nonempty_string(grantee_epoch):
+        errors.append("grantee_epoch must be non-empty string when present")
 
     if not isinstance(query.get("authority_required"), bool):
         errors.append("authority_required must be boolean")
@@ -182,11 +188,8 @@ def resolve_case(case: Any) -> tuple[str, str, list[str]]:
             continue
         grant_by_id[grant_id] = grant
 
-    # Supersession is lineage only, but represented references must not point to
-    # an unknown grant when the predecessor is included as part of this record.
-    # Missing predecessor may remain external history, so no existence check is
-    # imposed here; the resolver does not use this relation for authorization.
-
+    # Supersession is lineage only. Missing predecessor may remain external
+    # history; the resolver never uses supersession to choose authority.
     if errors:
         return ("INVALID_RECORD", POSTURES["INVALID_RECORD"], errors)
 
@@ -204,37 +207,49 @@ def resolve_case(case: Any) -> tuple[str, str, list[str]]:
     expires_at = parse_date(grant["expires_at"])
     assert eval_time is not None and valid_from is not None and expires_at is not None
 
-    reasons: list[str] = []
+    deny_reasons: list[str] = []
+    unresolved_reasons: list[str] = []
+
     if eval_time < valid_from:
-        reasons.append("GRANT_NOT_YET_VALID")
+        deny_reasons.append("GRANT_NOT_YET_VALID")
     if eval_time > expires_at:
-        reasons.append("GRANT_EXPIRED")
+        deny_reasons.append("GRANT_EXPIRED")
 
     if grant["status"] == "REVOKED":
         revoked_at = parse_date(grant["revoked_at"])
         assert revoked_at is not None
         if revoked_at <= eval_time:
-            reasons.append("GRANT_REVOKED")
+            deny_reasons.append("GRANT_REVOKED")
 
     if grant["grantee"] != query["grantee"]:
-        reasons.append("GRANTEE_MISMATCH")
+        deny_reasons.append("GRANTEE_MISMATCH")
     if not _scope_allows(grant["allowed_actions"], query["action"]):
-        reasons.append("ACTION_OUT_OF_SCOPE")
+        deny_reasons.append("ACTION_OUT_OF_SCOPE")
     if not _scope_allows(grant["protected_subject_refs"], query["protected_subject_ref"]):
-        reasons.append("PROTECTED_SUBJECT_OUT_OF_SCOPE")
+        deny_reasons.append("PROTECTED_SUBJECT_OUT_OF_SCOPE")
     if not _scope_allows(grant["task_scopes"], query["task_scope"]):
-        reasons.append("TASK_OUT_OF_SCOPE")
+        deny_reasons.append("TASK_OUT_OF_SCOPE")
     if not _scope_allows(grant["host_scopes"], query["host"]):
-        reasons.append("HOST_OUT_OF_SCOPE")
-    if not _scope_allows(grant["grantee_epoch_scopes"], query["grantee_epoch"]):
-        reasons.append("GRANTEE_EPOCH_OUT_OF_SCOPE")
+        deny_reasons.append("HOST_OUT_OF_SCOPE")
+
+    epoch_scopes = grant["grantee_epoch_scopes"]
+    query_epoch = query.get("grantee_epoch")
+    if "*" not in epoch_scopes:
+        if not _nonempty_string(query_epoch):
+            unresolved_reasons.append("GRANTEE_EPOCH_REQUIRED_FOR_SCOPED_GRANT")
+        elif query_epoch not in epoch_scopes:
+            deny_reasons.append("GRANTEE_EPOCH_OUT_OF_SCOPE")
 
     bound_credential = grant.get("credential_ref")
     if bound_credential is not None and query.get("credential_ref") != bound_credential:
-        reasons.append("CREDENTIAL_BINDING_MISMATCH")
+        deny_reasons.append("CREDENTIAL_BINDING_MISMATCH")
 
-    if reasons:
-        return ("NOT_AUTHORIZED", POSTURES["NOT_AUTHORIZED"], reasons)
+    # A known disqualifier is enough to deny use of this grant even if another
+    # dimension is unresolved. Otherwise preserve uncertainty honestly.
+    if deny_reasons:
+        return ("NOT_AUTHORIZED", POSTURES["NOT_AUTHORIZED"], deny_reasons + unresolved_reasons)
+    if unresolved_reasons:
+        return ("UNRESOLVED", POSTURES["UNRESOLVED"], unresolved_reasons)
     return ("AUTHORIZED", POSTURES["AUTHORIZED"], [])
 
 
@@ -288,6 +303,7 @@ def main() -> int:
     print("external_mandate_authenticity=UNPROVEN")
     print("credential_external_validity=UNPROVEN")
     print("authority_required_classification=CALLER_TRUST_BOUNDARY")
+    print("epoch_mechanism=OPTIONAL_UNLESS_SELECTED_GRANT_IS_EPOCH_SCOPED")
     print("fixture_cardinality=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES")
     return 0
 
