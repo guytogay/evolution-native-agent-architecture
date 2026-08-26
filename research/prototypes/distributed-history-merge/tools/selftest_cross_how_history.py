@@ -44,7 +44,15 @@ def main() -> int:
 
     run([sys.executable, str(validator)], expect=0)
     rows = load_jsonl(fixtures)
-    assert len(rows) == 16, f"expected 16 fixtures, got {len(rows)}"
+    assert rows, "adversarial fixture corpus must not be empty"
+    ids = [row.get("case_id") for row in rows]
+    assert len(ids) == len(set(ids)), "duplicate case_id"
+
+    # These IDs are targeted regression dependencies of the mutations below.
+    # Their presence is normative for this selftest version; the total fixture
+    # count is not.
+    required_ids = {"DHM-002", "DHM-008", "DHM-010", "DHM-011", "DHM-012"}
+    assert required_ids <= set(ids), f"missing targeted regression fixtures: {sorted(required_ids - set(ids))}"
 
     with tempfile.TemporaryDirectory(prefix="ena-dhm-") as tmp:
         tmpdir = Path(tmp)
@@ -95,9 +103,12 @@ def main() -> int:
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=0)
 
     print("PASS: distributed-history-merge portable adversarial selftest")
+    print(f"observed_fixture_count={len(rows)}")
+    print("fixture_cardinality=OPEN")
     print("verification_scope=CAUSAL_HEAD_CONFLICT_STALE_RECONCILIATION_MUTATIONS_ONLY")
     print("false_block_controls=CRDT_AUTO_NONMATERIAL,SINGLE_WRITER_LINEAR")
-    print("multiple_how_lineages=GIT_DAG,CAUSAL_SIBLING,CRDT,EVENT_SOURCING")
+    print("currently_implemented_hows=GIT_DAG,CAUSAL_SIBLING,CRDT,EVENT_SOURCING")
+    print("implemented_how_count_is_not_ontology=true")
     print("semantic_merge_correctness=UNPROVEN")
     return 0
 
