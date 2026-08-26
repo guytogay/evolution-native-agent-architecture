@@ -1,6 +1,6 @@
 # ENA Project Hub
 
-Status: `PROJECT_ENTRYPOINT / CURRENT_POINTER`
+Status: `PROJECT_ENTRYPOINT / CURRENT_POINTER / RESEARCH_CONTROL_POINTER`
 
 Project: **Evolution-Native Agent Architecture (ENA)**
 
@@ -24,7 +24,7 @@ Never infer Current from:
 
 `releases/current/CURRENT-BASELINE.yaml` is the machine-readable adoption pointer.
 
-Version identity and maturity/status are separate. Historical promotion records remain lineage rather than additional live baselines.
+Version identity and maturity/status are separate. Beginning with v0.3.5, the active adopter-facing model is **Current + declared maturity/status**. Historical promotion records remain lineage rather than additional live baselines.
 
 ## First adoption
 
@@ -42,33 +42,42 @@ After successful persistent adoption, familiar tasks should normally use the int
 
 > **Canonical source is the cold path; internalized semantics are the hot path.**
 
-## Continue ENA research
+## Continue or inherit ENA research
 
-A session asked to continue, inherit, improve, or eventually release ENA should **not** start by browsing random Issues or choosing the most visible prototype.
+Do **not** choose a research branch by name, recency, or number of commits.
 
-Use this route:
+Start from `main` and use this route:
 
-1. `research/RESEARCH-START-HERE.md` — small hot research bootstrap;
-2. `research/methodology/README.md` and the method files it routes to;
-3. `research/plans/PROGRESS.yaml` — machine-readable current execution state;
-4. `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable end-to-end plan;
-5. PR #82 / #89 and only then the relevant workstream, prototype, external HOW source, or evidence.
+1. `research/ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch and PR;
+2. `research/methodology/README.md` — research method and anti-drift discipline;
+3. `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — stable long-horizon plan;
+4. follow the active branch pointer;
+5. on that branch, read `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml` for fast-moving state;
+6. only then continue the relevant workstream/prototype/evidence.
 
-A handoff summary is a pointer, not canonical project state.
+A successor session should **not need a branch census** for normal continuation.
 
 ```text
-DURABLE != DISCOVERABLE != RETRIEVED != SALIENT != APPLIED
+BRANCH_EXISTS != BRANCH_ACTIVE
+BRANCH_RECENT != BRANCH_AUTHORITATIVE
+HANDOFF_SUMMARY != PROJECT_STATE
 ```
 
-Method inheritance is successful only when the next session actually behaves consistently with the persisted methodology.
+Branch naming/lifecycle policy:
 
-## Current research direction
+`research/BRANCH-GOVERNANCE.md`
 
-The working structure is deliberately asymmetric:
+Current branch inventory/cleanup state:
+
+`research/BRANCH-INVENTORY.yaml`
+
+## Research architecture direction
+
+ENA research currently distinguishes the semantic trunk from operational growth:
 
 ```text
 WHAT / WHY
-  -> may converge into a stable, compressed semantic trunk
+  -> may converge into stable, compressed semantics
 
 HOW
   -> should concretize and may branch into multiple tools/processes/organs/Host bindings
@@ -81,8 +90,6 @@ EVIDENCE
 ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
 ```
 
-Do not treat current branch count, workstream count, directory count, or prototype count as ontology.
-
 > **Compress the semantic trunk; let concrete HOWs branch.**
 
 ## Project knowledge surfaces
@@ -91,25 +98,23 @@ GitHub is the canonical engineering, research-lineage, and Current-adoption surf
 
 - Current adoption baseline: `releases/current/`
 - Historical release index: `HISTORY.md`
-- Research map/bootstrap: `research/README.md`, `research/RESEARCH-START-HERE.md`
+- Research control/entrypoint: `research/README.md`, `research/ACTIVE-RESEARCH.yaml`
 - Research methodology: `research/methodology/`
-- Master plan/progress: `research/plans/`
-- Reconstruction archaeology: `research/reconstruction/`
-- External HOW harvesting: `research/external-how/`
+- Long-horizon research/release plan: `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md`
+- Active fast-moving research: branch named by `research/ACTIVE-RESEARCH.yaml`
 - Evolution Inbox: `research/evolution-inbox/`
 - Historical adversarial replay: `research/adversarial-replay/`
 - Experiments: `research/experiments/`
 - Prototypes: `research/prototypes/`
-- Research-process incidents: `research/incidents/`
 - Contributions/evidence intake: `collaboration/inbox/`
 - Reconciliation: `collaboration/reconciliation/`
 - Decisions: `decisions/`
 
-Historical releases, candidates, rejected paths, and validation artifacts are **not** parallel runtime baselines. Retrieve them only when investigating lineage, falsification, regression, provenance, or a historical decision.
+Historical releases, candidates, rejected paths, temporary branches, and validation artifacts are **not** parallel runtime or research baselines. Retrieve them only when investigating lineage, falsification, regression, provenance, or a historical decision.
 
 > **Preserve history durably; retrieve history selectively.**
 >
-> **Expose one adoption surface; preserve many research and historical surfaces.**
+> **Expose one adoption surface and one active research pointer; preserve many historical surfaces.**
 
 ## Participation and authority
 
@@ -118,8 +123,6 @@ Any participant may, within actual capability and authority, read, question, cri
 Useful contribution classes include:
 
 `INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | NEW_VARIATION | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | CRITIQUE`
-
-This list is descriptive, not exhaustive.
 
 For trackable bugs, enhancements, research questions, or release concerns, prefer a GitHub Issue when it is the smallest useful durable tracker.
 
@@ -135,9 +138,8 @@ GitHub write capability does not grant release, deployment, remediation, or scop
 - conflicts remain visible until evidence/authorized decision resolves them;
 - persistence is not synchronization;
 - project continuity does not depend on one permanent owning session/Agent;
-- research methodology changes belong in `research/methodology/` and its changelog;
-- material project progress belongs in `research/plans/PROGRESS.yaml`;
-- external candidate HOWs belong in `research/external-how/`.
+- one active research integration branch is the coordination pointer, not a claim that research has one topic;
+- temporary branches must pay isolation/validation rent and should retire after use.
 
 ## Operating posture
 
@@ -145,11 +147,7 @@ Falsify before formalize.
 
 Use the cheapest evidence that can honestly support the decision.
 
-Recover variation before selection when reconstruction completeness is still at issue.
-
 Batch variation; concentrate expensive selection.
-
-Experiments must pay epistemic rent.
 
 Production before perfection; not production without evidence.
 

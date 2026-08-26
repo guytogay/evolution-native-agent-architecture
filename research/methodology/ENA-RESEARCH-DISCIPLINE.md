@@ -1,12 +1,8 @@
 # ENA Research Discipline — open-cardinality working methodology
 
-Status: `RESEARCH_METHODOLOGY / OPEN_CARDINALITY / NOT_CURRENT / NOT_RELEASE_AUTHORITY`
+Status: `CANONICAL_RESEARCH_METHOD / MAIN_VISIBLE / OPEN_CARDINALITY / NON_NORMATIVE_TO_ENA_CURRENT`
 
-Related: #88 anti-dissolution, #89 reconstruction ledger, #90–#94 reconstruction workstreams, PR #82.
-
-This file records methods for **researching ENA**. It is not the ENA Constitution, not an adopter-facing Current baseline, and not a claim that the present inventory is exhaustive.
-
-The list is deliberately open-cardinality:
+This file records methods for **researching ENA**. It is not the ENA Constitution and is not a claim that the present inventory is exhaustive.
 
 ```text
 CURRENTLY_RECORDED_METHODS != COMPLETE_METHOD_SPACE
@@ -14,53 +10,37 @@ WORKING_CATEGORIES != NATURAL_ONTOLOGY
 ENUMERATION != EXHAUSTIVENESS_PROOF
 ```
 
-Do not compress this into an authoritative fixed number of principles merely for presentation convenience. A shorter presentation may exist, but its item count has no architectural authority unless separately justified.
+Do not compress this into an authoritative fixed number of principles merely for presentation convenience.
 
-## 1. Explanatory coverage is not operational solution
+## Explanatory coverage is not operational solution
 
-A Constitution rule or general property can explain a problem without implementing its solution.
+A Constitution rule or general property can explain a problem without implementing the solution.
 
 ```text
 PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
 ```
 
-A higher-level WHAT/WHY match does not prove a usable HOW exists or that the real problem is solved.
+A higher-level WHAT/WHY match does not prove a usable HOW exists.
 
-## 2. Abstract coverage must not dissolve concrete organs
+## Abstract coverage must not dissolve concrete organs
 
 A more general principle does not erase concrete mechanisms, Host adapters, experiments, failure cases, or engineering questions that remain decision-relevant.
 
-Examples:
+`identity != authority` does not implement identity continuity. `Hot Cues + Cold Capability` does not implement a Tiny Hot Kernel.
+
+## Standardize the property; discover the organ
+
+Universal Core should avoid prematurely mandating one organ shape. That does not mean ENA should avoid building organs.
 
 ```text
-identity != authority
+DO_NOT_STANDARDIZE_ORGAN != DO_NOT_BUILD_ORGAN
 ```
 
-does not implement identity continuity;
+Build, compare, falsify, specialize, retain, or retire concrete organs so the property is demonstrably inhabitable.
 
-```text
-Hot Cues + Cold Capability
-```
+## Recover variation before selecting among it
 
-does not implement a Tiny Hot Kernel.
-
-Preserve concrete HOW lineage until there is a reasoned disposition, not merely because a parent property exists.
-
-## 3. Standardize the property; discover the organ
-
-This means Universal Core should avoid prematurely mandating one organ shape. It does **not** mean ENA should avoid building organs.
-
-```text
-DO_NOT_STANDARDIZE_ORGAN
-!=
-DO_NOT_BUILD_ORGAN
-```
-
-Build, compare, falsify, specialize, or retire enough concrete organs to test whether the property is actually inhabitable in real Hosts.
-
-## 4. Recover variation before selecting among it
-
-During anti-ablation reconstruction, do not choose the "most important next organ" before historical variation has been sufficiently recovered.
+During anti-ablation reconstruction, do not choose the most visible or attractive next organ before relevant historical variation has been recovered.
 
 ```text
 ARCHAEOLOGY / RECOVERY
@@ -69,15 +49,41 @@ ARCHAEOLOGY / RECOVERY
 -> only then selection where useful
 ```
 
-Selection before recovery creates a visibility bias: already-prototyped organs gain apparent ontological importance while unselected historical organs silently fade.
+```text
+PROTOTYPED != MORE_FUNDAMENTAL
+UNPROTOTYPED != UNIMPORTANT
+UNSELECTED != ABSENT
+```
 
-A newly improved organ is a candidate variation, not automatic replacement for older HOW lineage.
+## Put the compression boundary before HOW
 
-## 5. HOW cardinality is discovered, not preallocated
+WHAT/WHY may benefit from abstraction, de-duplication, and a narrow semantic waist.
 
-Do not decide that a problem "has three mechanisms" and force the search into three slots.
+HOW should not use abstraction as its default improvement direction.
 
-Possible results include one HOW, many HOWs, Host-specific families, compositions of existing mechanisms, or no useful independent organ.
+```text
+ABSTRACT_WHAT_WHY = ALLOWED_AND_OFTEN_USEFUL
+HOW_DEFAULT_DIRECTION = CONCRETIZE_AND_GROW
+```
+
+> **Compress the semantic trunk; let concrete HOWs branch.**
+
+## HOW plurality is normal
+
+One WHAT/WHY may have zero, one, or many concrete HOW branches.
+
+```text
+ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
+HOW_VARIATION != SEMANTIC_DUPLICATION
+```
+
+Different HOWs may suit different Hosts, failure domains, persistence models, authority topologies, cost envelopes, or consequence classes.
+
+Do not select a universal winner merely because one implementation is easiest to explain or test.
+
+## HOW cardinality is discovered, not preallocated
+
+Do not decide in advance that a problem has N mechanisms and force discovery into N slots.
 
 ```text
 REQUESTED_N != DISCOVERED_N
@@ -85,32 +91,20 @@ PRESENTATION_N != ONTOLOGY_N
 CURRENTLY_OBSERVED_N != FINAL_N
 ```
 
-## 6. A working taxonomy is not an exhaustive partition
+A new valid phenotype is evidence that the model may need to grow, not evidence that reality should be compressed.
 
-Listing N categories means only that N useful categories are currently recognized unless exhaustiveness is separately established.
+## Working taxonomy is not exhaustive partition
 
-Distinguish:
-
-```text
-EXAMPLES
-OBSERVED_CLASSES
-WORKING_TAXONOMY
-```
-
-from:
-
-```text
-EXHAUSTIVE_PARTITION
-```
-
-Current reconstruction workstreams (#90–#94) are organizational shelves, not proof that ENA naturally consists of five organ systems.
+Listing N categories means only that N useful categories are currently recognized unless exhaustiveness is separately proven.
 
 ```text
 CURRENT_CATEGORY_SET != ONTOLOGY
 CURRENT_TOPIC_BOUNDARY != NATURAL_ORGAN_BOUNDARY
 ```
 
-## 7. Enumeration is not completeness proof
+The reconstruction workstreams are organizational shelves, not proof that ENA naturally consists of that many systems.
+
+## Enumeration is not completeness proof
 
 Enumerating all known results establishes only the known result space.
 
@@ -120,27 +114,33 @@ KNOWN_RESULT_SPACE != POSSIBLE_RESULT_SPACE
 
 Do not rule out surprise merely because the researcher cannot currently imagine another outcome.
 
-## 8. Experiments must pay epistemic rent
+## Organ boundaries are hypotheses too
 
-An experiment is worth running when reality can reveal structure that cannot already be honestly derived from the current model.
+Effect truth, executor assignment, obligation ownership, authority, fencing, settlement, recovery, identity, and reputation may be separate organs, integrated Host machinery, or compositions.
 
-Valuable possibilities include unknown mechanisms, unexpected interactions, thresholds, adaptation dynamics, emergence, or counterexamples outside the presently derived state space.
+Do not freeze boundaries before failure models and Host reality justify them.
 
-If the experiment can only produce already-enumerated variations with different frequencies, prefer reasoning, formal/state-space analysis, or deterministic adversarial fixtures.
+## Experiments must pay epistemic rent
 
-> Do not experiment to observe variation. Experiment where reality can reveal structure we do not yet know how to derive.
+Run experiments where reality can reveal structure that cannot already be honestly derived.
 
-## 9. Do not use stochastic experiments to prove statically reachable bugs
+Valuable outcomes include unknown mechanisms, unexpected interactions, thresholds, adaptation dynamics, emergence, or counterexamples outside the current model.
 
-If schema, code, composition, or a state machine already demonstrates a false-OK or false-BLOCK path, another set of LLM runs normally adds noise rather than knowledge.
+If an experiment can only show already-predicted variation with different frequencies, prefer reasoning, formal/state-space analysis, or deterministic adversarial fixtures.
 
-Use the cheapest evidence that can honestly support or falsify the decision.
+> **Do not experiment to observe variation. Experiment where reality can reveal structure we do not yet know how to derive.**
 
-## 10. Model diversity is not itself a discovery
+## Do not use stochastic experiments to prove statically reachable bugs
 
-"Different models behaved differently" is only useful if the difference exposes a new mechanism, Host dependency, interaction, or failure boundary.
+If schema, code, state machine, or composition already demonstrates a false-OK/false-BLOCK path, repeated LLM runs normally add noise rather than knowledge.
 
-The meaningful subject may be:
+Use the cheapest evidence that can honestly change the decision.
+
+## Model diversity is not itself a discovery
+
+"Different models behaved differently" has research value only when the difference exposes a mechanism, Host dependency, interaction, or failure boundary.
+
+A useful subject may be:
 
 ```text
 Host + model + persistent projection + context -> phenotype
@@ -148,69 +148,50 @@ Host + model + persistent projection + context -> phenotype
 
 rather than model identity alone.
 
-## 11. Output count is not evidence independence
+## Output count is not evidence independence
 
 Ten agreeing outputs may be one correlated failure domain copied ten times.
-
-Shared model, prompt, source material, retrieval path, evaluator, toolchain, or Host can create hidden dependence.
 
 ```text
 N_OUTPUTS != N_INDEPENDENT_SUPPORTS
 ```
 
-Represent dependency structure where it can change evidentiary interpretation.
+Shared model, prompt, source, retrieval path, evaluator, toolchain, or Host can create hidden dependence.
 
-## 12. Do not use arbitrary numbers to manufacture scientific appearance
+## Do not use arbitrary numbers to manufacture scientific appearance
 
-A machine-enforced number should be able to answer what gives that number authority.
+A numeric threshold should answer what gives the number authority.
 
-Question thresholds such as:
-
-- minimum Host count;
-- pass percentage for promotion;
-- fixed latent-retention days;
-- fixed run count for stability;
-- fixed reviewer count;
-- fixed organ count.
-
-A number may be legitimate when grounded in a real protocol identity, physical/temporal boundary, statistical design, cost function, external contract, ordered generation, frozen benchmark identity, or another decision-relevant domain fact.
+Legitimate authority may come from protocol identity, physical/temporal boundary, statistical design, cost function, external contract, ordered generation, capacity, or a frozen benchmark.
 
 ```text
 COUNTABLE != SHOULD_BE_QUANTIFIED
 NUMERIC != MEANINGFUL_MEASUREMENT
 ```
 
-## 13. Do not force semantic or continuous properties into pseudo-precise scalars
+## Do not force semantic properties into pseudo-precise scalars
 
-Avoid claims such as:
+Avoid claims such as `agency = 0.73`, `trust = 0.86`, or `maturity = 91%` unless the construct, measurement procedure, scale/unit, and evidence are defined.
 
-```text
-agency = 0.73
-trust = 0.86
-maturity = 91%
-```
+Prefer state, relation, scope, evidence, uncertainty, and honest ordinal comparison where those fit reality better.
 
-unless the quantity has a defined construct, measurement procedure, interpretable scale/unit, and evidence supporting the mapping.
+## Classification axes must earn behavioral independence
 
-Prefer explicit state, relation, scope, evidence, uncertainty, and honest ordinal comparison when those better match reality.
+A theoretically elegant extra axis is useful only if it changes routing, loading, behavior, evidence requirements, lifecycle decisions, or another material outcome.
 
-## 14. Classification axes must earn behavioral independence
+Otherwise it may be taxonomy rather than architecture.
 
-A theoretically elegant extra axis is not automatically useful.
+## New dimensions must pay complexity rent
 
-Ask whether the axis changes routing, loading, behavior, evidence requirements, lifecycle decisions, or another material outcome. If it does not, it may be taxonomy rather than architecture.
-
-## 15. New dimensions must pay complexity rent
-
-Every new state, role, axis, schema, approval gate, evidence level, process, or persistent record should answer:
+Every new state, role, axis, schema, approval gate, evidence level, process, persistent record, or branch must answer:
 
 > What false claim, failure, or decision error does this prevent that the simpler design could not?
 
-Otherwise it is architecture inflation.
+Otherwise it is architecture/process inflation.
 
-## 16. Host-local fitness is not universal organ status
+## Host-local fitness is not universal organ status
 
-A mechanism failing to fit one Host does not prove the mechanism has no value. A mechanism working well on one Host does not make it universal.
+A mechanism failing on one Host does not prove universal uselessness. A mechanism working well on one Host does not make it universal.
 
 A useful research unit is often:
 
@@ -218,17 +199,15 @@ A useful research unit is often:
 property × Host conditions × mechanism
 ```
 
-rather than `mechanism = best practice`.
-
-## 17. Complete baseline does not mean every organ is active
+## Complete baseline does not mean every organ is active
 
 ```text
 complete adoption baseline != everything active
 ```
 
-Dormant or cold mechanisms are legitimate where their applicability conditions are absent. Do not force ceremonial instantiation merely to appear complete.
+Dormant/cold mechanisms are legitimate when applicability conditions are absent. Do not force ceremonial instantiation merely to appear complete.
 
-## 18. Do not confuse inapplicable with missing — or missing with inapplicable
+## Do not confuse inapplicable with missing
 
 Keep distinct:
 
@@ -240,9 +219,9 @@ ACTIVE
 EVIDENCED
 ```
 
-A mechanism may exist but not apply; apply but not be implemented; be implemented but dormant; be active but not evidenced.
+Do not disguise missing implementation as inapplicability, or inapplicability as missing compliance.
 
-## 19. Absence of mismatch is not positive applicability evidence
+## Absence of mismatch is not positive applicability evidence
 
 ```text
 not falsified != verified
@@ -250,51 +229,35 @@ no represented mismatch != direct applicability established
 not observed harmful != safe
 ```
 
-Generic qualification must not upgrade an empty or untested applicability path into a positive claim.
+## UNKNOWN must remain available without becoming elegant permanent deferral
 
-## 20. UNKNOWN must remain available without becoming elegant permanent deferral
+Research must resist both premature closure and permanent elegant deferral.
 
-Research must resist both:
+UNKNOWN is legitimate when evidence is insufficient. It should not be erased for narrative closure or used to avoid every future reality contact.
 
-```text
-premature closure
-```
+## Research closure asks whether another step can change the decision
 
-and:
+Stop because another bounded check has no plausible decision-changing value, not because the researcher ran out of ideas or reached an arbitrary count.
 
-```text
-permanent elegant deferral
-```
-
-UNKNOWN is legitimate when evidence is insufficient. It should not be erased for narrative closure, nor used to avoid every future reality contact.
-
-## 21. Research closure asks whether another step can still change the decision
-
-Stop because another bounded check has no plausible decision-changing value, not because the researcher ran out of ideas.
-
-This is a research projection of Governance Closure.
-
-## 22. Stopping research is not the same as solving the problem
-
-A line can stop because it is currently low-value, outside scope, superseded for this decision, awaiting natural field evidence, or blocked by unavailable evidence.
+## Stopping research is not solving the problem
 
 ```text
 STOP_RESEARCH != SOLVED
 ```
 
+A line may stop because it is low-value now, outside scope, superseded for a decision, blocked by unavailable evidence, or waiting for natural field evidence.
+
 Record the actual disposition.
 
-## 23. Natural field evidence must be separated from primed evidence
+## Natural field evidence must be separated from primed evidence
 
-If an Agent is explicitly reminded to use a cue, recall ENA, or activate a mechanism, later success does not prove natural future salience.
+If an Agent is explicitly reminded to activate the target mechanism, later success does not prove natural future salience.
 
 ```text
 primed behavior != natural salience evidence
 ```
 
-Naturalistic tests should avoid injecting the target behavior through the test instruction itself.
-
-## 24. Mechanism description is not mechanism operation
+## Mechanism description is not mechanism operation
 
 An Agent that correctly explains a mechanism proves at most that it can interpret or describe it under the tested conditions.
 
@@ -302,23 +265,30 @@ An Agent that correctly explains a mechanism proves at most that it can interpre
 WRITTEN != LOADED != INTERPRETED != SALIENT != APPLIED
 ```
 
-Do not promote one stage into another through narration.
+## Self-report remains self-report
 
-## 25. Self-report remains self-report
+An Agent saying a principle influenced its decision is useful self-observation evidence. It does not automatically become externally observed causal evidence.
 
-An Agent saying "this principle affected my decision" is useful evidence about represented self-observation, but is not automatically externally observed causal evidence.
+## Success and failure are applicability-scoped
 
-Preserve the evidence class and trust boundary.
-
-## 26. Success and failure are applicability-scoped
-
-A success means the mechanism worked here under represented conditions; a failure means it failed here under represented conditions.
+A success means the mechanism worked here under represented conditions. A failure means it failed here under represented conditions.
 
 Neither is automatically universal fitness or universal harm.
 
-## 27. Version-delta claims require lineage evidence
+## Evidence belongs to concrete branches
 
-The fact that Current contains a semantic does not establish that Current introduced it.
+Evidence that a WHAT/WHY distinction is coherent does not prove every HOW works.
+
+One successful HOW on one Host does not prove there is only one valid realization.
+
+```text
+WHAT_WHY_SUPPORTED
+!= HOW_A_SUPPORTED
+!= HOW_B_SUPPORTED
+!= HOW_A_SUPPORTED_ON_HOST_X
+```
+
+## Version-delta claims require lineage evidence
 
 ```text
 PRESENT_IN_VERSION != INTRODUCED_BY_VERSION
@@ -326,67 +296,75 @@ PRESENT_IN_VERSION != INTRODUCED_BY_VERSION
 
 Historical attribution is a lineage claim and must be checked against history rather than memory or narrative convenience.
 
-## 28. Prose is a projection layer and can contradict correct machine state
+## Prose is a projection layer
 
-Correct machine-readable state can be misreported by natural-language recomposition.
-
-Validate decision-material prose against its source identity when false narration would matter.
+Correct machine state can be misreported by natural-language recomposition.
 
 ```text
-MACHINE_STATE_CORRECT
-!=
-PROSE_PROJECTION_CORRECT
+MACHINE_STATE_CORRECT != PROSE_PROJECTION_CORRECT
 ```
 
-## 29. Analogy generates hypotheses; it does not prove architecture
+Validate decision-material prose against its source when false narration would matter.
 
-Biology, ecology, networking, immune systems, philosophy, and other distant fields are useful search engines for candidate mechanisms.
+## Analogy generates hypotheses; it does not prove architecture
+
+Biology, ecology, networking, immune systems, philosophy, organizational theory, and other distant fields are hypothesis generators.
 
 ```text
 analogy != evidence
 structural resemblance != architectural necessity
 ```
 
-## 30. Distant analogies should return to a concrete ENA failure model
+## Distant analogies should return to a concrete failure model
 
-BGP, TTL, leases, anti-entropy, BFD, TCP backoff, immune memory, ecological niches, and similar patterns are valuable when they generate falsifiable HOW candidates.
+A borrowed mechanism matters when it can be mapped to an ENA failure, operationalized, and falsified under relevant Host conditions.
 
-Selection still depends on ENA's actual problem, Host conditions, costs, and evidence.
+Do not adopt it because the source domain is prestigious or the metaphor is elegant.
 
-## 31. NO_CHANGE is a valid successful research result
+## External mechanisms are candidate HOWs, not authority
+
+AI frameworks, communities, workflow engines, memory systems, distributed systems, and research papers should be actively searched for usable HOWs.
+
+The correct sequence is:
+
+```text
+ENA failure
+-> external mechanism search
+-> mechanism extraction
+-> ENA/Host mapping
+-> falsification/comparison
+-> retain/specialize/reject
+```
+
+Popularity, vendor maturity, or community consensus is not universal selection proof.
+
+## NO_CHANGE is a valid successful result
 
 Research effort creates no obligation to mutate Current, add a Constitution ID, add a schema, or create another role.
 
-```text
-NO_CHANGE
-```
+`NO_CHANGE` can be a positive selection outcome.
 
-can be a positive selection outcome when a candidate adds no decision-relevant value.
+## Deletion or simplification can be successful
 
-## 32. Deletion or simplification can also be a successful result
-
-Research may support merging concepts, removing taxonomy, moving hot material cold, demoting normative text to guidance, or retiring a low-value validator.
+Research may support merging concepts, removing taxonomy, moving hot material cold, demoting normative text to guidance, or retiring low-value machinery.
 
 Growth is not the only form of evolution.
 
-## 33. Not-Core does not mean not-ENA-research
+## Retirement must preserve lineage
 
-A practical problem can belong to:
+```text
+REMOVE_FROM_ACTIVE_ARCHITECTURE != ERASE_FROM_LINEAGE
+```
 
-- a reference organ;
-- Host adapter;
-- tooling;
-- adoption UX;
-- experiment;
-- field evidence;
-- operational guidance;
-- research hypothesis;
+A concrete HOW may be retired with evidence-backed rationale, replacement conditions, and preserved history. Silent dissolution is not retirement.
 
-without creating a Core semantic gap.
+## Not-Core does not mean not-ENA-research
+
+A practical problem may belong to a reference organ, Host adapter, tooling, adoption UX, experiment, field evidence, operational guidance, or research hypothesis without requiring a Core semantic change.
 
 Do not use `not Core` as an ablation operator.
 
-## 34. Keep research levels separate
+## Keep research levels separate
 
 For each topic ask independently:
 
@@ -397,7 +375,7 @@ HOW
 EVIDENCE
 ```
 
-and track engineering realization independently:
+and track realization independently:
 
 ```text
 PROPERTY
@@ -409,148 +387,52 @@ ADOPTION
 
 A PASS on one dimension does not close the entire topic.
 
-## 35. The final test is lived usability
-
-Theoretical elegance is not the terminal criterion.
+## The final test is lived usability
 
 > **The final test is whether an Agent can actually live by it.**
 
 If a fresh Agent still asks "So what do I actually do?" and the only answer is a Constitution quotation, operational research is incomplete or must honestly name the missing organ.
 
-## 36. Research inventory itself must be protected from selection-induced ablation
-
-Concrete work becomes more visible once it receives a prototype, test, or schema. That visibility must not be mistaken for greater ontological importance.
-
-During reconstruction, preserve unimplemented, abandoned, Host-specific, failed, dormant, and unresolved historical HOWs until they receive an explicit evidence-backed disposition.
+## Repository/project persistence is not cognitive inheritance
 
 ```text
-PROTOTYPED != MORE_FUNDAMENTAL
-UNPROTOTYPED != UNIMPORTANT
-UNSELECTED != ABSENT
+DURABLE != DISCOVERABLE
+DISCOVERABLE != RETRIEVED
+RETRIEVED != SALIENT
+SALIENT != APPLIED
 ```
 
-## 37. Organ boundaries are hypotheses too
+Important project state needs a small stable bootstrap and canonical pointers, not only durable storage somewhere in Git history.
 
-Do not assume one schema/object should absorb every neighboring concern merely because implementation is convenient.
+## Do not inherit conclusions without inheriting method
 
-For example, effect truth, executor assignment, obligation ownership, authority, fencing, and settlement may be one integrated Host organ or several cooperating organs.
+A successor session that can paraphrase the methodology but immediately violates it has not operationally inherited the research method.
 
-The boundary itself should be allowed to vary and be selected by failure models and Host reality.
+Session continuity should be tested by behavior, not quotation.
 
-## 38. Put the compression boundary before HOW, not through HOW
+## Branch topology is project infrastructure, not research ontology
 
-ENA may deliberately compress universal semantic structure at the WHAT/WHY layer. A stable abstract trunk is useful because many Hosts can share the same purpose, distinctions, and failure semantics without sharing one implementation.
+Normal continuation should use the single active research pointer in `research/ACTIVE-RESEARCH.yaml` rather than infer authority from branch names or recency.
 
-The same compression becomes destructive when it replaces concrete HOWs with generic prose such as "use an appropriate recovery mechanism", "preserve authority", or "retrieve relevant memory".
+Temporary branches are isolation tools, not parallel ENA research worlds.
 
-```text
-ABSTRACT_WHAT_WHY = ALLOWED_AND_OFTEN_USEFUL
-ABSTRACT_HOW = OPERATIONAL_DEBT_UNLESS_IT_POINTS_TO_CONCRETE_BRANCHES
-```
-
-A useful structural direction is:
-
-```text
-TELOS / PURPOSE
-        |
-        v
-WHAT / WHY  -- stable semantic trunk; compression is allowed here
-        |
-        +--> HOW-A -- concrete mechanism / process / tool / organ
-        |      |
-        |      +--> Host adapter / implementation pattern
-        |      +--> procedure / state machine / template / script / resolver
-        |      +--> failure and fallback behavior
-        |      +--> evidence and field results
-        |
-        +--> HOW-B -- a different concrete path to the same property
-        |      +--> ...
-        |
-        +--> HOW-C -- Host-conditional or experimental path
-               +--> ...
-```
-
-This is a working structural metaphor, not proof that every topic has one trunk or a fixed number/depth of branches.
-
-## 39. HOW should branch divergently and concretely
-
-From the HOW layer onward, the default research posture is expansion of usable possibility, not compression toward a single elegant sentence.
-
-One WHAT/WHY may legitimately have zero, one, or many HOWs. Different HOWs may be optimized for different Hosts, capabilities, consequence classes, environments, cost envelopes, or maturity levels.
-
-A HOW should become concrete enough that an Agent can do something with it. Depending on the problem, useful concrete content may include:
-
-- applicability/trigger conditions;
-- exact actions or ordered workflow;
-- state machine or protocol;
-- tool, command, script, validator, resolver, schema, or template;
-- required Host capability/interface;
-- authority and effect boundaries;
-- failure modes and observable symptoms;
-- fallback / WAIT / REFUSE / recovery behavior;
-- examples and adversarial counterexamples;
-- evidence already supporting the mechanism;
-- evidence still needed to select or reject it.
-
-No fixed checklist item is universally mandatory; concreteness is judged by whether the branch changes real action rather than merely restating the parent philosophy.
-
-```text
-ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
-HOW_VARIATION != SEMANTIC_DUPLICATION
-```
-
-Do not collapse several materially different HOW branches back into a single phrase merely because they share the same parent property.
-
-## 40. Evidence belongs to concrete branches as well as abstract claims
-
-Evidence that a WHAT/WHY distinction is coherent does not prove every implementation branch works. Conversely, one successful HOW under one Host does not prove the parent property has only that realization.
-
-Track evidence at the mechanism/Host boundary when it can change selection:
-
-```text
-WHAT_WHY_SUPPORTED
-!=
-HOW_A_SUPPORTED
-!=
-HOW_B_SUPPORTED
-!=
-HOW_A_SUPPORTED_ON_HOST_X
-```
-
-This allows multiple branches to coexist honestly: supported here, unsupported there, dormant elsewhere, or still UNKNOWN.
+A new research idea does not imply a new branch.
 
 ## Operational use
 
-Before a substantial research action, ask at least:
+Before a substantial ENA research action, ask at least:
 
 ```text
 Am I explaining a problem or solving it?
-Am I preserving concrete HOW lineage?
-Am I selecting before recovering variation?
-Am I freezing a convenient count/category into ontology?
-Am I compressing several materially different HOWs back into abstract advice?
-If I call something a HOW, can a fresh Agent actually perform, instantiate, or map it?
-Can the proposed experiment reveal something I cannot already derive?
-Am I treating correlated outputs as independent evidence?
-Does every number/axis/state/process have a real source of authority or complexity rent?
-Am I upgrading absence, self-report, prose, or primed behavior into stronger evidence?
-Could NO_CHANGE, dormancy, or simplification be the correct result?
+Am I treating parent-property coverage as practical closure?
+Am I preserving plural/Host-specific/failed/dormant HOW lineage?
+Am I selecting before recovering relevant variation?
+Am I freezing a convenient count, taxonomy, organ boundary, or branch layout into ontology?
+If I call this a HOW, can a fresh Agent actually perform or instantiate it?
+Can the proposed experiment reveal something not already derivable?
 What exact decision could the next evidence change?
-Can a fresh Agent actually act from the resulting HOW?
+Could NO_CHANGE, dormancy, simplification, retirement, or multiple coexisting HOWs be correct?
+Am I continuing from the canonical active research pointer rather than a guessed branch?
 ```
 
-This checklist is also open-cardinality. Add or revise questions when field failures reveal new research-method defects.
-
-> **Recover variation before selection.**
->
-> **Compress the semantic trunk; let concrete HOWs branch.**
->
-> **Explanatory adequacy is not operational adequacy.**
->
-> **Experiments must pay epistemic rent.**
->
-> **Complexity must pay rent.**
->
-> **Counts do not become evidence merely by becoming large.**
->
-> **The final test is whether an Agent can actually live by it.**
+The questions are open-cardinality. Add/revise methodology when new failures demonstrate a better discipline.

@@ -1,76 +1,74 @@
 # ENA Persistent Project Structure
 
-Status: `PROJECT_INFORMATION_ARCHITECTURE / ACTIVE_RESEARCH_BRANCH`
+Status: `PROJECT_INFORMATION_ARCHITECTURE / CURRENT`
 
 ENA uses one persistent project with multiple semantic areas. Participants do not receive separate ENA projects by Agent identity.
 
-Directory organization is navigation, not ontology.
-
-```text
-DIRECTORY_SET != NATURAL_ORGAN_TAXONOMY
-```
-
-## Canonical project surfaces
+## GitHub semantic areas
 
 | Area | Path | Role |
 |---|---|---|
-| Project Hub | `PROJECT-HUB.md`, `PROJECT-METADATA.yaml` | discovery and project-level routing |
+| Project Hub / machine metadata | `PROJECT-HUB.md`, `PROJECT-METADATA.yaml` | stable discovery and project state |
 | Current adoption baseline | `releases/current/` | **single complete adopter-facing Current target** |
-| Research bootstrap | `research/RESEARCH-START-HERE.md` | small hot entrypoint for continuing ENA research |
-| Research directory map | `research/README.md` | research information architecture |
-| Research methodology | `research/methodology/` | durable method for how ENA itself is researched |
-| Master plan / progress | `research/plans/` | reconstruction-to-release plan and machine-readable execution state |
-| Reconstruction | `research/reconstruction/` | archaeology, retention ledgers, gap/degradation audits, closure research |
-| External HOW research | `research/external-how/` | current external tools/processes/protocols/framework/community mechanisms mapped to ENA failures |
+| Research control entry | `research/README.md`, `research/ACTIVE-RESEARCH.yaml` | discover active research without branch guessing |
+| Research methodology | `research/methodology/` | canonical main-visible method for researching ENA |
+| Branch governance | `research/BRANCH-GOVERNANCE.md`, `research/BRANCH-INVENTORY.yaml` | branch roles, lifecycle, active-pointer discipline, cleanup |
+| Long-horizon research plan | `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` | stable reconstruction-to-release plan |
+| Active research execution | branch named by `research/ACTIVE-RESEARCH.yaml` | fast-moving reconstruction/prototypes/evidence/progress |
 | Evolution Inbox | `research/evolution-inbox/` | open unpromoted research/candidate state |
-| HAR | `research/adversarial-replay/` | historical adversarial/falsification research |
-| Experiments | `research/experiments/` | experiments that can pay epistemic rent |
-| Prototypes | `research/prototypes/` | non-Current executable/reference organs and candidate HOWs |
-| Research incidents | `research/incidents/` | research-process failures and method corrections |
+| HAR | `research/adversarial-replay/` | historical adversarial research |
+| Experiments | `research/experiments/` | experiment plans/results |
+| Prototypes | `research/prototypes/` | non-current machine/design prototypes |
 | Evidence | `evidence/` | observations/reference evidence |
 | Contributions | `collaboration/inbox/` | unreconciled participant contributions |
 | Reconciliation | `collaboration/reconciliation/` | handling/selection of contributions |
 | Decisions | `decisions/` | durable architecture/process decisions |
 
-GitHub does **not** maintain duplicate live Current baselines. Superseded releases/candidates remain recoverable through Git history and, when available, maintainer recovery artifacts.
+## Control plane vs active work
 
-## Research continuation path
-
-A new session continuing the project should use:
+`main` carries the stable control plane:
 
 ```text
-PROJECT-HUB.md
--> research/RESEARCH-START-HERE.md
--> research/methodology/
--> research/plans/PROGRESS.yaml
--> research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
--> PR #82 / #89
--> only the relevant workstream / prototype / evidence
+Current adoption pointer
++ project hub/metadata
++ active research pointer
++ research methodology
++ branch governance
++ long-horizon plan
 ```
 
-Do not reconstruct methodology from Issue archaeology unless auditing lineage. The canonical active research method belongs in `research/methodology/`.
+The active research integration branch carries fast-moving work such as reconstruction ledgers, external HOW harvesting, prototypes, deterministic fixtures, field evidence, and detailed progress.
 
-Do not reconstruct project progress from conversation summaries. The durable current project execution state belongs in `research/plans/PROGRESS.yaml`.
-
-## Method versus reconstruction
-
-`research/reconstruction/` records recovered topics, audits, retention decisions, and historical engineering state.
-
-`research/methodology/` records ongoing rules for how future ENA research should be performed.
-
-When reconstruction reveals a new durable research discipline, canonicalize it into methodology and preserve the old path as a compatibility pointer where needed.
-
-## External HOW surface
-
-When a WHAT/WHY lacks practical realization, search `research/external-how/` before inventing machinery from scratch.
-
-External sources may supply mature candidate organs, but:
+A temporary branch may exist for bounded isolation/validation, but it does not become a second research world.
 
 ```text
-EXTERNAL_POPULARITY != ENA_SELECTION_PROOF
+BRANCH_EXISTS != BRANCH_ACTIVE
+TEMPORARY_BRANCH != RESEARCH_AUTHORITY
 ```
 
-Map mechanisms to ENA failure models and Host conditions before selection.
+## Branch discoverability
+
+Normal research continuation starts from:
+
+`research/ACTIVE-RESEARCH.yaml`
+
+There is deliberately one active research integration pointer at a time so a successor session has an unambiguous continuation target. This is a coordination invariant, not an ontology or limit on research diversity.
+
+Branch lifecycle details:
+
+`research/BRANCH-GOVERNANCE.md`
+
+## History preservation
+
+GitHub does **not** need to preserve every historical branch name forever in order to preserve history.
+
+Superseded releases/candidates/research branches remain recoverable through Git commits/trees, merged or closed PRs, freeze/reconciliation records, and evidence artifacts.
+
+```text
+DELETE_BRANCH != DELETE_HISTORY
+```
+
+Do not delete a branch while it is the only discoverable carrier of material unmerged work. Do not keep it forever merely because deletion feels safer after lineage has already been preserved.
 
 ## Maintainer recovery mirror
 
@@ -82,17 +80,16 @@ That surface is not required for adoption and does not create another ENA runtim
 
 - project-first, not Agent-first;
 - one Current adoption baseline;
-- broad research and HOW variation may coexist;
+- one canonical active research integration pointer;
+- research topics/HOWs remain open-cardinality inside the active research tree;
+- knowledge/research may remain broad and open;
 - not every accessible artifact is loaded into every task;
 - Contribution != Reconciliation != Promotion;
 - persistence != synchronization;
-- durable != discoverable != salient != applied;
 - copy/bridge must preserve provenance and semantic status;
-- Current must not be inferred from an archive, old research file, or chat;
-- legacy paths may remain as pointers when moving them preserves lineage better than deletion.
+- current adoption state must not be inferred from an archive, old chat, candidate branch, or research branch;
+- active research state must not be inferred from branch recency or naming intuition.
 
-> **Preserve history durably; retrieve selectively.**
+> Preserve history durably; retrieve history selectively.
 
-> **Open knowledge does not mean always-loaded knowledge.**
-
-> **Compress the semantic trunk; let concrete HOWs branch.**
+> Open knowledge does not mean always-loaded knowledge.

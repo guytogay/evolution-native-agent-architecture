@@ -1,0 +1,52 @@
+schema_version: "1.1"
+observed_at: "2026-08-26"
+status: CURRENT_BRANCH_INVENTORY
+
+canonical_active_pointer: "research/ACTIVE-RESEARCH.yaml"
+
+branches:
+  - name: "main"
+    role: PROJECT_CONTROL_PLANE
+    lifecycle: PERMANENT
+    active_for_research_continuation: false
+    notes:
+      - "Canonical default branch and Current/project-control entry surface."
+
+  - name: "research/memory-metabolism-prototype"
+    role: ACTIVE_RESEARCH_INTEGRATION
+    lifecycle: ACTIVE_INTEGRATION
+    active_for_research_continuation: true
+    pull_request: 82
+    observed_head_sha: "dd18c770d891a1a16d8384585ebc80b08b699182"
+    notes:
+      - "Legacy scope-specific name; now hosts broad ENA reconstruction."
+      - "Canonical activity is established by ACTIVE-RESEARCH.yaml, not by the branch name."
+      - "A checkpoint reconciliation / branch-name transition is under consideration; do not infer that this branch is a Memory-only project."
+
+recent_cleanup:
+  completed_at: "2026-08-26"
+  removed_branch_names:
+    - "housekeeping/research-control-plane"
+    - "research/dhm-cross-how-harness"
+    - "research/dhm-plural-harness"
+    - "research/distributed-history-merge-build"
+    - "research/distributed-history-merge-rebased"
+    - "candidate/v0.3.6-work"
+    - "candidate/v0.3.6-candidate"
+    - "candidate/v0.3.6-candidate.1"
+    - "release/v0.3.6"
+  lineage_preservation: >-
+    Decision-relevant history remains available through merged/closed PRs, immutable
+    commit/tree references, freeze/reconciliation records, Current release lineage,
+    and Git history. Branch-name deletion did not erase those histories.
+
+invariants:
+  - "Only the branch named by research/ACTIVE-RESEARCH.yaml is the active research continuation surface."
+  - "Temporary branch existence does not create parallel research authority."
+  - "Historical branch deletion does not mean historical lineage deletion."
+  - "New idea does not imply new branch."
+  - "Current branch inventory describes actual live refs; retired refs belong in cleanup/history records, not the live branch list."
+
+cleanup_note: >-
+  The live branch inventory now intentionally contains only actual branch refs.
+  Historical branch names are retained only as a cleanup occurrence record when useful.
