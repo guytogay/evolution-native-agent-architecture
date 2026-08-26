@@ -77,7 +77,11 @@ jobs:
               'AGENT-ADOPTION-INSTRUCTION.md': ['CANDIDATE REVIEW', 'Do not upgrade one level into another'],
               'LITE-ADOPTION-INSTRUCTION.md': ['optional/default-off', 'NOT_REQUIRED'],
               '07-ADOPTION-AND-FIELD-VALIDATION.md': ['PRE_FREEZE_VALIDATION', 'fresh independent semantic falsification'],
-              '08-RELEASE-DISCIPLINE.md': ['candidate branch != frozen identity', 'EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE'],
+              '08-RELEASE-DISCIPLINE.md': [
+                  'candidate branch != frozen identity',
+                  'external-record freeze model',
+                  'The authoritative freeze property is exact source/tree binding plus governed lineage.',
+              ],
               '09-EVOLUTION-METABOLISM.md': ['tools/ena_evolve_v2.py', 'operational/CUE-INDEX.md', 'local success != universal recommendation'],
               '10-LANGUAGE-PORTABILITY.md': ['semantic-fixtures.v3.yaml', 'TRANSLATED != BEHAVIORALLY_EQUIVALENT'],
               'LINEAGE.md': ['733d21686b6ad1cb4f655dd4565c3a1b25ba9fbb', '33004330491', '33007647412'],
