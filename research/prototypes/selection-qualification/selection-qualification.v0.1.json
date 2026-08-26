@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "status": "RESEARCH_PROTOTYPE / NEXT_RELEASE_INPUT / NOT_CURRENT / NOT_RELEASE_CANDIDATE",
+  "purpose": "Prevent durable evolution-selection verdicts from becoming scope-free while preserving explicit unknown/incomplete qualification and avoiding mandatory Host/model metadata.",
+  "resolution_states": [
+    "NOT_APPLICABLE",
+    "QUALIFIED_DIRECT",
+    "QUALIFIED_REFERENCED",
+    "QUALIFICATION_UNKNOWN",
+    "UNQUALIFIED_SELECTION",
+    "INVALID_RECORD"
+  ],
+  "qualification_status": ["SCOPED", "UNKNOWN", "INCOMPLETE"],
+  "objects": {
+    "SelectionQualification": {
+      "optional_fields": ["status", "scope_basis_refs", "note"],
+      "rule": "SCOPED may rely on direct non-empty environment or non-empty represented scope_basis_refs. UNKNOWN/INCOMPLETE preserve uncertainty instead of manufacturing scope."
+    },
+    "EvolutionSelectionSubject": {
+      "uses_existing_fields": ["selection_state", "environment", "migration.source_selection_state", "migration.source_environment"],
+      "overlay_fields": ["selection_qualification", "source_selection_qualification"]
+    }
+  },
+  "decision_rules": [
+    {
+      "id": "SQ-R01",
+      "property": "UNASSESSED selection needs no scope ceremony",
+      "decision": "selection_state=UNASSESSED -> NOT_APPLICABLE"
+    },
+    {
+      "id": "SQ-R02",
+      "property": "direct represented local scope qualifies a selection without a new mandatory overlay",
+      "decision": "non-UNASSESSED + non-empty environment + no UNKNOWN/INCOMPLETE overlay -> QUALIFIED_DIRECT"
+    },
+    {
+      "id": "SQ-R03",
+      "property": "scope may be represented elsewhere without duplicating it into environment",
+      "decision": "non-UNASSESSED + status=SCOPED + non-empty scope_basis_refs -> QUALIFIED_REFERENCED"
+    },
+    {
+      "id": "SQ-R04",
+      "property": "unknown/incomplete qualification is an honest valid state",
+      "decision": "non-UNASSESSED + status=UNKNOWN|INCOMPLETE -> QUALIFICATION_UNKNOWN"
+    },
+    {
+      "id": "SQ-R05",
+      "property": "a durable verdict with neither scope basis nor explicit uncertainty is unqualified",
+      "decision": "non-UNASSESSED + empty environment + no valid qualification basis -> UNQUALIFIED_SELECTION"
+    },
+    {
+      "id": "SQ-R06",
+      "property": "negative local selection is not universal prohibition",
+      "decision": "NOT_SUPPORTED/HARMFUL follows the same qualification rules as SUPPORTED/PARTIAL/UNKNOWN"
+    },
+    {
+      "id": "SQ-R07",
+      "property": "source selection and receiver/local selection remain separate",
+      "decision": "migration source selection is evaluated against source_environment/source_selection_qualification independently from local selection"
+    },
+    {
+      "id": "SQ-R08",
+      "property": "represented qualification is not external completeness proof",
+      "decision": "QUALIFIED_* establishes represented scope basis only; no external materiality/completeness/authenticity claim"
+    }
+  ],
+  "interpretation": {
+    "QUALIFIED_DIRECT": "Verdict has a represented direct scope basis in environment.",
+    "QUALIFIED_REFERENCED": "Verdict names represented references where its material scope basis is carried.",
+    "QUALIFICATION_UNKNOWN": "Verdict occurrence may be retained, but its material selection scope is explicitly unknown/incomplete; portability/applicability claims must remain narrowed.",
+    "UNQUALIFIED_SELECTION": "Verdict is represented without a reconstructable/direct scope basis and without explicit uncertainty; do not narrate it as scope-qualified.",
+    "NOT_APPLICABLE": "No selection verdict requiring qualification is asserted.",
+    "INVALID_RECORD": "Qualification overlay is internally contradictory/malformed."
+  },
+  "verification_boundary": "represented selection qualification only; no external scope completeness, selection truth, evidence authenticity, or receiver-local selection proof"
+}
