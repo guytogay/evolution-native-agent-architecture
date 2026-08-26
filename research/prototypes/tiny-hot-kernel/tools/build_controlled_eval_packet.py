@@ -55,6 +55,8 @@ def main() -> int:
     router_src = root / "semantic-router.v0.1.json"
     runner_src = root / "CONTROLLED-RUNNER-INSTRUCTION.md"
     protocol_src = root / "EVAL-PROTOCOL.md"
+    oracle_review_src = root / "ORACLE-REVIEW-PROTOCOL.md"
+    oracle_status_src = root / "fixtures" / "ORACLE-STATUS.md"
     manifest_template_src = root / "run-manifest.template.json"
     oracle_src = root / "fixtures" / "tiny-kernel-cases.jsonl"
     scorer_src = root / "tools" / "score_tiny_kernel_results.py"
@@ -67,6 +69,8 @@ def main() -> int:
         (runner_src, output / "maintainer" / runner_src.name, "RUNNER_CONTROL_NOT_AGENT_RESIDENT"),
         (manifest_template_src, output / "maintainer" / manifest_template_src.name, "MAINTAINER_METADATA"),
         (protocol_src, output / "maintainer" / protocol_src.name, "MAINTAINER_PROTOCOL"),
+        (oracle_review_src, output / "maintainer" / oracle_review_src.name, "MAINTAINER_ORACLE_REVIEW_PROTOCOL"),
+        (oracle_status_src, output / "maintainer" / "ORACLE-STATUS.md", "MAINTAINER_ORACLE_STATUS"),
         (oracle_src, output / "maintainer-private" / oracle_src.name, "MAINTAINER_ORACLE_PRIVATE"),
         (scorer_src, output / "maintainer-private" / scorer_src.name, "MAINTAINER_SCORER_PRIVATE"),
     ]
@@ -86,14 +90,16 @@ def main() -> int:
         )
 
     packet_manifest = {
-        "schema_version": "0.2",
+        "schema_version": "0.3",
         "status": "RESEARCH_EVAL_PACKET / NOT_CURRENT",
         "kernel": args.kernel,
+        "oracle_status": "AUTHOR_EXPECTATION / INDEPENDENT_REVIEW_PENDING / NOT_GROUND_TRUTH",
+        "selection_eligibility": "EXPLORATORY_ONLY_UNTIL_ORACLE_RECONCILIATION",
         "access_model": {
             "resident": "only candidate kernel + neutral Agent output contract at context start",
             "stimuli": "present one blind case at a time",
             "gated-resolver": "make available only after trigger=true and only when resolver_state=AVAILABLE",
-            "maintainer": "runner/protocol/metadata; do not inject into Agent resident context",
+            "maintainer": "runner/protocol/oracle-status metadata; do not inject into Agent resident context",
             "maintainer-private": "must not be exposed to test Agent during controlled run",
         },
         "warning": "directory separation is packaging discipline, not a security sandbox; the runner must enforce access",
@@ -102,8 +108,6 @@ def main() -> int:
     manifest_path = output / "PACKET-MANIFEST.json"
     manifest_path.write_text(json.dumps(packet_manifest, indent=2) + "\n", encoding="utf-8")
 
-    # Mechanical anti-leak check 1: no oracle expectation fields in any layer the
-    # Agent can see during the controlled run, including the gated resolver.
     forbidden_oracle_tokens = [
         b'"expected_trigger"',
         b'"primary_families"',
@@ -125,9 +129,6 @@ def main() -> int:
     if leaks:
         raise SystemExit(f"oracle field-name leak into Agent-accessible layer: {leaks}")
 
-    # Mechanical anti-leak check 2: resident context must not contain concrete
-    # router route IDs. Route IDs become visible only through the gated resolver
-    # after the resident recognizer has already decided to trigger.
     router = json.loads(router_src.read_text(encoding="utf-8"))
     route_ids = [route["route_id"] for route in router.get("routes", [])]
     resident_route_leaks: list[str] = []
@@ -149,6 +150,8 @@ def main() -> int:
     print("PASS: Agent-accessible layers contain no oracle expectation field names")
     print("PASS: resident layer contains no concrete router route IDs")
     print(f"packet_manifest={manifest_path}")
+    print("oracle_status=AUTHOR_EXPECTATION_INDEPENDENT_REVIEW_PENDING")
+    print("selection_eligibility=EXPLORATORY_ONLY_UNTIL_ORACLE_RECONCILIATION")
     print("verification_scope=PACKAGING_AND_MECHANICAL_ORACLE_ROUTER_SEPARATION_ONLY")
     return 0
 
