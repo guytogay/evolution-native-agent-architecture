@@ -24,7 +24,7 @@ Never infer Current from:
 
 `releases/current/CURRENT-BASELINE.yaml` is the machine-readable adoption pointer.
 
-Version identity and maturity/status are separate. Historical promotion records remain lineage rather than additional live baselines.
+Version identity and maturity/status are separate. Beginning with v0.3.5, the active adopter-facing model is **Current + declared maturity/status**. Historical promotion records remain lineage rather than additional live baselines.
 
 ## First adoption
 
