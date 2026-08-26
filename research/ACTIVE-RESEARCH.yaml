@@ -9,7 +9,7 @@ active_research:
   branch: "research/ena-reconstruction"
   pull_request: 101
   state: "ACTIVE_RECONSTRUCTION / DRAFT / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
-  observed_head_sha: "0b6c464b58f59bc49cf749e67a11c304c4adbec9"
+  observed_head_sha: "d708abb05fa7aad11b1afad72cc08c58e2e5a123"
   head_sha_is_identity_lock: false
   reverify_head_before_writes: true
   branch_name_status: "CURRENT_SCOPE_NAME / SUCCESSOR_TO_PR_82_CHECKPOINT"
