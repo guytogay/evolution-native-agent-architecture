@@ -1,36 +1,62 @@
 # ENA Research — Start Here
 
-Status: `RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / NON_NORMATIVE / NOT_RELEASE_AUTHORITY`
+Status: `ACTIVE_RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / NON_NORMATIVE / NOT_RELEASE_AUTHORITY`
 
-Purpose: give a fresh research session the **smallest sufficient entrypoint** for continuing ENA without reconstructing the research method and project state from hundreds of commits, Issues, comments, or prior chat exports.
+This file is the fast-moving bootstrap **inside the active research integration branch**.
 
-This file is a retrieval/bootstrap surface, not a compressed replacement for research history, methodology, or the master plan.
+The canonical project/research control plane now lives on `main`. A successor session should discover this branch from `main`; it should not discover `main` from this branch.
+
+```text
+MAIN CONTROL PLANE
+-> research/ACTIVE-RESEARCH.yaml
+-> ACTIVE RESEARCH BRANCH
+-> this file / PROGRESS.yaml
+```
 
 ```text
 BOOTSTRAP != COMPLETE_RESEARCH_STATE
 HOT_ENTRYPOINT != ONTOLOGY
-POINTER != SUBSTITUTE_FOR_COLD_SOURCE
+BRANCH_NAME != BRANCH_AUTHORITY
 ```
 
-## Required read order before substantive ENA continuation
+## Required continuation order
 
-1. Verify actual Current from `releases/current/CURRENT-BASELINE.yaml` on the default branch. Never trust a version hard-coded in old research material.
-2. Read `research/methodology/README.md`.
-3. Read `research/methodology/ENA-RESEARCH-DISCIPLINE.md`.
-4. Read `research/methodology/HOW-GROWTH-DISCIPLINE.md` and any other method file relevant to the planned action.
-5. Read `research/plans/PROGRESS.yaml` for current project execution state.
-6. Read `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` for the durable end-to-end plan.
-7. Read PR #82 and #89; then only the relevant #90–#94 workstream/prototype/evidence.
-8. When looking for a practical HOW, inspect `research/external-how/SOURCE-REGISTRY.md` and perform fresh external research if the current source map is insufficient or stale.
-9. If inheriting from a prior ChatGPT/session export and recent methodology changed near its end, read the methodology/decision-bearing tail rather than relying only on a compressed handoff summary.
+Before substantive ENA continuation:
 
-Only after these reads should a new research node select substantive work.
+1. Start from the repository default branch `main`.
+2. Read `research/ACTIVE-RESEARCH.yaml` on `main`; verify that it still designates this branch / PR #82 as the active research integration surface.
+3. Read `research/methodology/README.md` and `research/methodology/ENA-RESEARCH-DISCIPLINE.md` on `main`. Main is the canonical cross-session methodology/control surface.
+4. Read `research/BRANCH-GOVERNANCE.md` on `main` when branch creation, handoff, candidate work, validation isolation, or cleanup is relevant.
+5. Verify actual Current from `releases/current/CURRENT-BASELINE.yaml` on `main`.
+6. On the active research branch, read `research/plans/PROGRESS.yaml` for fast-moving execution state.
+7. Read the durable master plan from `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` on `main`; active-branch copies/history do not override it.
+8. Read PR #82 and #89, then only the relevant #90–#94 workstream/prototype/evidence.
+9. When looking for a practical HOW, inspect `research/external-how/SOURCE-REGISTRY.md` on this active branch and perform fresh external research when the map is insufficient or stale.
+10. If a prior session export contains material work not yet mapped into GitHub, retrieve only the decision/method-bearing parts needed to repair the durable project state.
+
+Only after this routing should a new research node select substantive work.
+
+## Authority of local methodology copies
+
+This branch contains methodology files produced during reconstruction. They remain useful lineage and may contain candidate refinements, but they are not allowed to become a silent parallel cross-session constitution for research method.
+
+```text
+MAIN_METHODOLOGY = CANONICAL_CROSS_SESSION_METHOD
+ACTIVE_BRANCH_METHOD_CHANGE = CANDIDATE_UNTIL_RECONCILED_TO_MAIN
+```
+
+When this branch discovers a material new research-method lesson:
+
+1. capture the triggering incident/evidence here;
+2. use it immediately where needed to avoid repeating a known error;
+3. reconcile the durable method change back to `main/research/methodology/`;
+4. record the reason in the main methodology changelog.
+
+This avoids methodology drift between long-running research branches and the default project entrypoint.
 
 ## Current research posture
 
 The reconstruction is not primarily a search for more abstract Constitution prose.
-
-The working structural direction is:
 
 ```text
 TELOS / PURPOSE
@@ -43,10 +69,8 @@ WHAT / WHY        <- semantic trunk; abstraction/compression may be useful
       |     +--> failure/fallback behavior
       |     +--> branch-scoped evidence
       |
-      +--> HOW-B  <- materially different concrete path
-      |
-      +--> HOW-C  <- Host-conditional / experimental path
-      |
+      +--> HOW-B
+      +--> HOW-C
       +--> ...
 ```
 
@@ -64,8 +88,6 @@ UNSELECTED != ABSENT
 
 > **Compress the semantic trunk; let concrete HOWs branch.**
 
-The number, depth, and boundary of HOW branches are research results, not directory slots.
-
 ## Reconstruction-phase discipline
 
 During anti-ablation reconstruction:
@@ -78,7 +100,7 @@ RECOVER VARIATION
 -> only then select, merge, retire, specialize, or promote where justified
 ```
 
-Do not choose the "most important next organ" merely because it is already visible, prototyped, or easy to engineer. That creates selection-induced ablation of less visible historical HOWs.
+Do not choose the "most important next organ" merely because it is visible, prototyped, or easy to engineer.
 
 A better new organ does not erase old HOW lineage. Evidence-backed retirement is allowed; silent dissolution is not.
 
@@ -87,8 +109,6 @@ A better new organ does not erase old HOW lineage. Evidence-backed retirement is
 ENA does not need to invent every practical organ.
 
 Search current AI frameworks, AI memory systems, durable workflow systems, agent protocols, research organizations, developer communities, and adjacent engineering domains for concrete mechanisms.
-
-Map them before selecting them:
 
 ```text
 EXTERNAL_MECHANISM
@@ -103,36 +123,33 @@ VENDOR_CLAIM != INDEPENDENT_EVIDENCE
 ANALOGY != ARCHITECTURAL_NECESSITY
 ```
 
-External harvesting is persisted under `research/external-how/`.
+External harvesting is persisted under `research/external-how/` on the active research branch until reconciled/assembled elsewhere.
 
 ## Research action gate
 
-Before a substantial action, verify at least:
+Before a substantial action, ask at least:
 
 ```text
+Am I continuing from the active branch named by main, or from a guessed branch?
 Am I explaining a problem or solving it?
 Am I treating a parent property as proof that a concrete problem is solved?
 Am I preserving plural/Host-specific/failed/dormant HOW lineage?
 Am I selecting before enough variation has been recovered for this decision?
-Am I freezing a convenient count, taxonomy, or organ boundary into ontology?
+Am I freezing a convenient count, taxonomy, organ boundary, or branch layout into ontology?
 If I call something a HOW, can a fresh Agent actually perform or instantiate it?
 Have I checked whether a mature external mechanism already solves part of this problem?
 Can the proposed experiment reveal structure that cannot already be derived statically?
 What exact decision could the next evidence change?
-Could NO_CHANGE, dormancy, simplification, or multiple coexisting HOWs be correct?
+Could NO_CHANGE, dormancy, simplification, retirement, or multiple coexisting HOWs be correct?
 ```
 
-The checklist is open-cardinality. The canonical working methodology is the methodology directory, not this abbreviated bootstrap.
+The checklist is open-cardinality. Canonical cross-session methodology is on `main`.
 
 ## Evidence activation check
-
-A research method being written somewhere is not enough:
 
 ```text
 WRITTEN -> RETRIEVED -> INTERPRETED -> SALIENT -> APPLIED
 ```
-
-For session inheritance, explicitly distinguish:
 
 ```text
 DURABLE != DISCOVERABLE
@@ -141,32 +158,31 @@ RETRIEVED != SALIENT
 SALIENT != APPLIED
 ```
 
-A new session that can quote methodology but immediately performs a forbidden compression/selection has **not inherited the methodology operationally**.
+A new session that can quote methodology but immediately performs forbidden compression/selection has not inherited it operationally.
 
 ## Record-first continuity
 
 After material progress:
 
-- update `research/plans/PROGRESS.yaml`;
-- update `research/methodology/METHOD-CHANGELOG.md` only if research method changed materially;
+- update `research/plans/PROGRESS.yaml` on this active branch;
 - update relevant reconstruction/prototype/Issue evidence;
-- add external mechanisms to `research/external-how/` when they change the candidate HOW space;
-- update this bootstrap only when routing changes.
+- add external mechanisms under `research/external-how/` when they change the HOW possibility space;
+- if the research method itself changes, capture the evidence here and reconcile the durable methodology update to `main`;
+- if active branch identity/routing changes, update `main/research/ACTIVE-RESEARCH.yaml` before retiring the old active surface.
 
-A handoff summary is a pointer, not the project state.
+A handoff summary is a pointer, not project state.
 
 ## Final inheritance test
 
-Before claiming a new session has successfully inherited ENA research, it should be able to state from persisted sources rather than memory alone:
+Before claiming successful inheritance, a successor should be able to state from persisted sources:
 
 - what Current actually is;
+- which branch/PR main currently designates as active research;
 - what phase the reconstruction-to-release plan is in;
 - why WHAT/WHY coverage does not imply practical closure;
 - why HOW is open-cardinality and may branch into multiple concrete mechanisms;
-- why #90–#94 and directory categories are organizational shelves rather than ontology;
-- where the full research methodology lives;
-- where current progress and the master plan live;
-- where external candidate HOWs are recorded;
-- what next action is permitted without silently dissolving historical variation.
+- where canonical methodology lives;
+- where active fast-moving progress and external HOW research live;
+- and what next action is permitted without silently dissolving historical variation.
 
 > **Do not merely inherit conclusions. Inherit the method that governs how new conclusions may be produced.**
