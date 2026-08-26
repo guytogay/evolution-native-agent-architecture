@@ -8,7 +8,10 @@ Parent map: `OPERATIONAL-ARCHITECTURE-MAP.md`
 
 Entry router: `CUE-INDEX.md`
 
-Evidence: `EXECUTION-DEPTH-AUDIT-001.md`
+Evidence:
+
+- `EXECUTION-DEPTH-AUDIT-001.md`
+- `PROCEDURE-AUDIT-001.md`
 
 ## Purpose
 
@@ -22,7 +25,7 @@ HOW_HAS_A_NAME
 AGENT_CAN_FIND_THE_IMPLEMENTATION
 ```
 
-Do not duplicate full WHAT/WHY/HOW prose here. Follow the linked README/schema/tool when execution depth is needed.
+Do not duplicate full WHAT/WHY/HOW prose here. Follow the linked README/schema/tool/procedure when execution depth is needed.
 
 Gap/depth labels are descriptive and open-cardinality.
 
@@ -37,9 +40,9 @@ Gap/depth labels are descriptive and open-cardinality.
 | `OA-EFF-01` Effect Lifecycle | `research/prototypes/effect-lifecycle/README.md`; contract/validator/selftest; `research/prototypes/execution-surface-fencing/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Select idempotency/fencing/version/status/gateway/compensation/WAIT according to target semantics; do not collapse them. |
 | `OA-COM-01` Commitment/Settlement | `research/prototypes/commitment-settlement-recovered/`; `research/prototypes/migration-settlement-composition/` | `POINTER_READY / COMPOSITION_REQUIRED` | Separate obligation subject, executor, effect and settlement; compose physical fencing through `OA-EFF-01`. |
 | `OA-REC-01` Recovery | `research/prototypes/recovery-adapter/README.md`; `recovery-adapter.v0.1.json`; validator/selftest | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Check recovery path/drill only where required; after restore consume world-settlement + authority outputs before resume. |
-| `OA-ID-01` Identity/Trajectory | #92; `research/prototypes/memory-metabolism/RESTORE-MODEL.md`; conditional epoch binding in Authority Lease; external identity HOW research | `REFERENCE_PROCEDURE_MISSING / HOST_ADAPTER_REQUIRED` | Use purpose-relative continuity reasoning now; do not invent mandatory trajectory/epoch schema until a concrete reference branch earns rent. |
+| `OA-ID-01` Identity/Trajectory | `research/operational-architecture/procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md`; #75/#92; `research/prototypes/memory-metabolism/RESTORE-MODEL.md`; conditional epoch binding in Authority Lease; external identity HOW research | `REFERENCE_PROCEDURE_AUTHORED / STATICALLY_FALSIFIED / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_OPEN` | Ask continuity **for which decision** and evaluate only required relations; do not produce universal `SAME_AGENT` or infer authority/commitment from continuity. |
 | `OA-AUTHOR-01` Contested Authorship | `research/prototypes/contested-authorship/README.md`; contract/validator/selftest | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Use for material durable self-change; ordinary memory/cache/task state may return out-of-scope/lightweight path. |
-| `OA-STAND-01` Standing/Rehabilitation | #92 reconstruction/closure lineage; external selective-disclosure/reputation mechanisms | `REFERENCE_PROCEDURE_MISSING / FIELD_EVIDENCE_REQUIRED` | Standing Input is a candidate small reference procedure; rehabilitation remains environment evidence/policy; no global trust score. |
+| `OA-STAND-01` Standing/Rehabilitation | `research/operational-architecture/procedures/STANDING-INPUT-PROCEDURE.md`; #79/#92; external selective-disclosure/reputation mechanisms | `STANDING_PROCEDURE_AUTHORED / STATICALLY_FALSIFIED / REHABILITATION_FIELD_EVIDENCE_REQUIRED` | Admit decision-material evidence-bearing objections for consideration without minting veto/authority/personhood; rehabilitation policy remains environment evidence/policy. |
 | `OA-EVID-01` Evidence/Provenance | `research/prototypes/evidence-envelope/README.md`; envelope contract/validator/selftest; `research/prototypes/evidence-dependency-map/README.md`; validator/selftest; Current contracts/fixtures | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Keep support/applicability/witness/activation/projection/dependency claims separate; machine PASS remains represented consistency. |
 | `OA-EVO-01` Evolution | `releases/current/09-EVOLUTION-METABOLISM.md`; `releases/current/schemas/evolution-record.v2.schema.json`; `releases/current/tools/validate_evolution_record_v2.py`; `research/prototypes/evolution-record-progressive-envelope/` | `POINTER_READY / RESEARCH_ALTERNATIVE_ACTIVE` | Current v2 remains adopter baseline; progressive event/enrichment is research branch. |
 | `OA-MIG-01` Migration/Commons | `releases/current/schemas/adaptation-packet.v2.schema.json`; `research/prototypes/migration-settlement-composition/`; lineage survival map; projection/compaction research | `POINTER_READY / HOST_ADAPTER_REQUIRED / COMPOSITION_REQUIRED` | Preserve source lineage and receiver-local selection; use A2A/Host protocol for active coordination rather than treating packet as protocol. |
@@ -67,6 +70,21 @@ Start with:
 
 These surfaces remain research/reference unless Current explicitly says otherwise.
 
+## I need a bounded reference procedure without a machine schema
+
+Start with:
+
+- `procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md` — continuity sufficient/broken/unresolved **for a particular decision**;
+- `procedures/STANDING-INPUT-PROCEDURE.md` — decision-material objection/input consideration without veto/authority/personhood promotion.
+
+Both survived the authored static counterexamples in `PROCEDURE-AUDIT-001.md`.
+
+```text
+REFERENCE_PROCEDURE_AUTHORED
+!=
+UNIVERSAL_MACHINE_SCHEMA_REQUIRED
+```
+
 ## I need a Host-native mechanism
 
 Common examples:
@@ -83,15 +101,6 @@ Common examples:
 - A2A/task orchestration.
 
 Use the Operational Map to preserve ENA boundaries while mapping to Host semantics.
-
-## I reached a real reference-procedure gap
-
-Current first-pass gaps:
-
-- purpose-relative Identity/Trajectory operational procedure;
-- Standing Input reusable reference procedure.
-
-Do not infer that each gap requires a universal schema.
 
 ## I reached a field/ecology question
 
@@ -111,15 +120,17 @@ Use field/mesocosm evidence only where interaction/reality can produce decision-
 
 # Applicability guard
 
-Reference organ existence does not make it mandatory.
+Reference organ/procedure existence does not make it mandatory.
 
-Several mature prototypes already encode out-of-scope/lightweight behavior:
+Several mature surfaces encode out-of-scope/lightweight behavior:
 
 ```text
 Authority Lease -> NOT_REQUIRED
 Contested Authorship -> OUT_OF_SCOPE_FOR_CONTESTED_AUTHORSHIP
 Recovery Adapter -> independent rescue/drill only when required
 Evidence Envelope -> optional sections / low-risk false-BLOCK controls
+Continuity Procedure -> CONTINUITY_DETERMINATION_NOT_REQUIRED_FOR_THIS_DECISION
+Standing Procedure -> STANDING_PROCESS_NOT_REQUIRED_FOR_THIS_DECISION
 ```
 
 Assembly should preserve this pattern:

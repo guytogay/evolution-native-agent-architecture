@@ -19,11 +19,17 @@ If you arrive with an ordinary problem/failure and do not know the ENA node voca
 2. `OPERATIONAL-ARCHITECTURE-MAP.md` — understand the WHAT/WHY, plural HOW branches, evidence/residuals and composition links.
 3. `REFERENCE-POINTER-MATRIX.md` — continue from the HOW name to exact durable prototype/tool/reference/Host surfaces or an honest depth gap.
 
-Current static assembly audits:
+Current assembly audits:
 
 - `TRAVERSAL-AUDIT-001.md` — natural-language problem -> map traversal;
 - `TRAVERSAL-AUDIT-002.md` — cue-index reroute and consequence-first routing;
-- `EXECUTION-DEPTH-AUDIT-001.md` — HOW -> exact artifact/Host/procedure depth.
+- `EXECUTION-DEPTH-AUDIT-001.md` — HOW -> exact artifact/Host/procedure depth;
+- `PROCEDURE-AUDIT-001.md` — static adversarial audit of the first two bounded reference procedures.
+
+Current bounded procedures:
+
+- `procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md`;
+- `procedures/STANDING-INPUT-PROCEDURE.md`.
 
 The current assembly path is:
 
@@ -33,7 +39,7 @@ ordinary problem / decision cue
 -> one or more WHAT/WHY nodes
 -> plural HOW branches
 -> reference pointer matrix
--> durable artifact / Host binding
+-> durable artifact / bounded procedure / Host binding
 -> concrete action or honest gap
 ```
 
@@ -62,12 +68,35 @@ MAP_DID_NOT_EXPOSE_POINTER
 ORGAN_DID_NOT_EXIST
 ```
 
-Current first-pass real reference-procedure gaps are narrower:
+The first two genuine reference-procedure gaps have now been narrowed without creating new universal schemas:
 
-- purpose-relative Identity/Trajectory operational procedure;
-- Standing Input reusable procedure.
+### Purpose-relative Identity/Trajectory
 
-Ecology/reputation rehabilitation/natural cue salience include questions that require Host/field/mesocosm evidence rather than schema completion.
+The procedure asks:
+
+> **What continuity relations does this particular decision actually require?**
+
+It deliberately does not answer universal `SAME_AGENT`.
+
+It keeps causal, commitment, value/orientation, social/accountability, authority, evidentiary, resource and operational continuity separable, requires only decision-material relations, and routes authority/commitment/effect/recovery back to their existing organs.
+
+### Standing Input
+
+The procedure asks:
+
+> **If this bounded evidence-bearing input were true, could it materially change the consequential decision?**
+
+If yes, it must enter actual consideration/disposition. That does not mint veto, authority, personhood, or claim truth.
+
+Both procedures contain low-consequence/out-of-scope paths and survived the authored static counterexamples in `PROCEDURE-AUDIT-001.md`.
+
+```text
+REFERENCE_PROCEDURE_AUTHORED
+!=
+MACHINE_SCHEMA_REQUIRED
+```
+
+Ecology/reputation rehabilitation/natural cue salience still include questions that require Host/field/mesocosm evidence rather than schema completion.
 
 ## This directory is not a new Constitution
 
@@ -128,6 +157,7 @@ No fixed checklist is mandatory if a different shape is more useful. The test is
 10. **Route by consequence before ceremony.** Clearly non-material local work should not automatically trigger full authority/effect/settlement machinery; material or unknown consequences route upward.
 11. **Expose non-applicability.** A concrete HOW should say when it does not apply, not only how to activate it.
 12. **Distinguish missing link from missing organ.** Search durable project surfaces before inventing a new subsystem.
+13. **Prefer a bounded procedure before a universal schema.** Formalize machine state only when real automation/coordination/storage needs show that prose procedure is insufficient.
 
 ## Routing-layer boundaries
 
@@ -135,14 +165,14 @@ No fixed checklist is mandatory if a different shape is more useful. The test is
 CUE_INDEX = RECOGNITION / ROUTING
 OPERATIONAL_MAP = HOW BRANCH DISCOVERY
 REFERENCE_POINTER_MATRIX = EXECUTION DEPTH ROUTING
-REFERENCE_ARTIFACT / HOST = EXECUTION
+REFERENCE_PROCEDURE / ARTIFACT / HOST = EXECUTION
 ```
 
 Do not load the entire map into the cue index.
 
 Do not duplicate every prototype README in the pointer matrix.
 
-Do not assume the first cue/node/pointer sets are complete.
+Do not assume the first cue/node/pointer/procedure sets are complete.
 
 Many-to-many routing is expected.
 
@@ -180,7 +210,7 @@ small hot routing surface
 -> recognize problem/decision shape
 -> locate WHAT/WHY
 -> retrieve applicable HOW family
--> map to reference artifact / Host
+-> map to reference procedure/artifact / Host
 -> act
 -> capture evidence/failure
 ```
@@ -202,8 +232,11 @@ FIRST_MAP = PERSISTED
 STATIC_NATURAL_LANGUAGE_TRAVERSAL = SUPPORTED
 COMPACT_CUE_INDEX = PERSISTED
 EXECUTION_DEPTH_AUDIT = ESTABLISHED
-REFERENCE_POINTER_MATRIX = AUTHORED
-REAL_REFERENCE_PROCEDURE_GAPS = IDENTITY_TRAJECTORY + STANDING_INPUT
+REFERENCE_POINTER_MATRIX = PERSISTED
+PURPOSE_RELATIVE_CONTINUITY_PROCEDURE = AUTHORED + STATICALLY_FALSIFIED
+STANDING_INPUT_PROCEDURE = AUTHORED + STATICALLY_FALSIFIED
+UNIVERSAL_IDENTITY_SCHEMA = NOT_JUSTIFIED
+UNIVERSAL_STANDING_SCHEMA = NOT_JUSTIFIED
 MACHINE_ROUTER_SCHEMA = DEFERRED
 CURRENT_CHANGE = NO
 ```

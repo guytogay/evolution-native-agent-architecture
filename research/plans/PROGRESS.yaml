@@ -1,8 +1,8 @@
-schema_version: "1.0"
+schema_version: "1.1"
 as_of: "2026-08-27"
 status: ACTIVE_OPERATIONAL_ARCHITECTURE_ASSEMBLY
 
-# Hot state only. Detailed history belongs in Git, Issues, audits, prototypes, and evidence records.
+# Hot state only. Detailed history belongs in Git, Issues, audits, prototypes, procedures, and evidence records.
 progress_is_complete_history: false
 
 canonical_pointers:
@@ -14,9 +14,9 @@ canonical_pointers:
   cue_index: research/operational-architecture/CUE-INDEX.md
   architecture_map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
   reference_pointer_matrix: research/operational-architecture/REFERENCE-POINTER-MATRIX.md
-  traversal_audit_001: research/operational-architecture/TRAVERSAL-AUDIT-001.md
-  traversal_audit_002: research/operational-architecture/TRAVERSAL-AUDIT-002.md
-  execution_depth_audit_001: research/operational-architecture/EXECUTION-DEPTH-AUDIT-001.md
+  continuity_procedure: research/operational-architecture/procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md
+  standing_procedure: research/operational-architecture/procedures/STANDING-INPUT-PROCEDURE.md
+  procedure_audit_001: research/operational-architecture/PROCEDURE-AUDIT-001.md
   reconstruction_ledger: "#89"
   archaeology_tracker: "#104"
   active_checkpoint_pr: "#109"
@@ -50,7 +50,7 @@ phase_state:
     known_host_evidence: [Hermes, OpenClaw, WorkBuddy]
 
   operational_architecture_assembly:
-    state: EXECUTION_POINTER_LAYER_ACTIVE_REAL_PROCEDURE_GAPS_IDENTIFIED
+    state: FIRST_REFERENCE_PROCEDURE_GAPS_NARROWED_WITHOUT_SCHEMA
     routing_chain:
       - ordinary problem / decision cue
       - consequence-first pre-router
@@ -58,16 +58,19 @@ phase_state:
       - OPERATIONAL-ARCHITECTURE-MAP node(s)
       - plural HOW branch(es)
       - REFERENCE-POINTER-MATRIX
-      - durable prototype/reference/Host mechanism
+      - durable prototype / bounded procedure / Host mechanism
       - concrete action or honest gap
 
     established_results:
-      - first map is statically traversable on current authored natural-language cases
-      - compact cue index repairs the first static cue-to-node discoverability gap
+      - first map is statically traversable on authored natural-language cases
+      - compact cue index repairs initial cue-to-node discoverability gap
       - many-to-many routing is preserved
       - consequence-first routing reduces authority/governance over-application without declaring unknown consequence safe
-      - execution-depth audit shows many mature research organs were hidden by missing navigation pointers rather than absent
+      - execution-depth audit shows many mature research organs were hidden by missing pointers rather than absent
       - concrete HOW applicability/non-applicability guards recur across mature prototypes
+      - purpose-relative continuity procedure operationalizes Current Continuity Vector without universal same-Agent ontology
+      - Standing Input procedure operationalizes material consideration without veto/authority/personhood promotion
+      - authored static counterexamples did not justify universal schemas for either procedure
 
     pointer_ready_families:
       - Memory Metabolism
@@ -82,13 +85,17 @@ phase_state:
       - Evidence Dependency Map
       - Current evolution/migration/release machinery
 
-    real_reference_depth_gaps:
-      identity_trajectory:
-        state: REFERENCE_PROCEDURE_MISSING
-        constraint: DO_NOT_JUMP_TO_UNIVERSAL_TRAJECTORY_SCHEMA
+    bounded_procedure_families:
+      purpose_relative_continuity:
+        path: research/operational-architecture/procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md
+        static_audit: SUPPORTED_ON_AUTHORED_CASES
+        machine_schema: NOT_JUSTIFIED
+        field_evidence: OPEN
       standing_input:
-        state: REFERENCE_PROCEDURE_MISSING
-        constraint: KEEP_SEPARATE_FROM_PERSONHOOD_AND_FINAL_AUTHORITY
+        path: research/operational-architecture/procedures/STANDING-INPUT-PROCEDURE.md
+        static_audit: SUPPORTED_ON_AUTHORED_CASES
+        machine_schema: NOT_JUSTIFIED
+        field_evidence: OPEN
 
     intentionally_evidence_open_families:
       - natural Tiny Kernel cue salience
@@ -99,13 +106,14 @@ phase_state:
       - discretionary exploration
       - verification-as-service ecology
 
-    key_cross_cutting_rule: >-
-      A concrete HOW should expose both how to use it and when it does not apply.
-      Missing pointer must be distinguished from missing organ before new subsystem creation.
+    next_gap_discovery_rule: >-
+      Continue breadth-first execution-depth audit. Before building a new organ, determine
+      whether the apparent gap is a missing pointer, a bounded procedure gap, a Host-native
+      adapter problem, field/mesocosm evidence need, or genuinely missing reusable mechanism.
 
   release_scope_reconciliation:
     state: NOT_STARTED
-    prerequisite: OPERATIONAL_ARCHITECTURE_SUFFICIENTLY_TRAVERSABLE_AND_REFERENCE_GAPS_CLASSIFIED
+    prerequisite: OPERATIONAL_ARCHITECTURE_SUFFICIENTLY_TRAVERSABLE_AND_GAP_CLASSES_STABLE_FOR_ADOPTER_DELTA_CLASSIFICATION
 
   candidate_build_and_validation:
     state: NOT_STARTED
@@ -122,12 +130,12 @@ ci_checkpoint:
     Do not merge the checkpoint until actual jobs execute and their conclusions are observed.
 
 next_actions:
-  - persist/read back execution-depth audit and reference pointer matrix
-  - design a bounded purpose-relative Identity/Trajectory decision procedure before considering any schema
-  - design a bounded Standing Input procedure that guarantees decision-relevant consideration without minting authority/personhood
-  - statically falsify those procedures for false-BLOCK, authority laundering, lineage/standing overreach, and unnecessary ceremony
+  - persist/read back procedure-state routing updates
+  - add durable #92/#89 note that Identity/Standing gaps were narrowed by procedures rather than schemas
+  - continue breadth-first execution-depth audit for remaining map branches instead of over-deepening the newest procedures
+  - inspect runtime-routing, ecology/control-retirement, adoption/language and migration/Commons branches for pointer vs mechanism vs evidence gaps
+  - build another bounded procedure only when a repeated actionable gap exists; otherwise preserve Host-native/field/mesocosm status
   - keep rehabilitation/ecology questions in field/mesocosm lanes rather than solving them with schema theater
-  - add exact pointers to routing surfaces only where they reduce execution ambiguity
   - inspect PR #109 CI after a quiet-head interval; fix actual failures but never weaken gates for runner noise
   - start release-scope reconciliation only when the operational architecture can distinguish adopter guidance, reference organs, Host adapters, research branches, dormant lineage, and actual Current delta
 
@@ -148,3 +156,6 @@ invariants:
   - AUTHORED_STATIC_ROUTE_PASS_NE_NATURAL_SALIENCE_PROVEN
   - POINTER_MISSING_NE_ORGAN_MISSING
   - REFERENCE_ORGAN_EXISTS_NE_UNIVERSAL_APPLICABILITY
+  - REFERENCE_PROCEDURE_AUTHORED_NE_MACHINE_SCHEMA_REQUIRED
+  - BEING_HEARD_NE_BEING_SOVEREIGN
+  - CONTINUITY_FOR_ONE_DECISION_NE_UNIVERSAL_SAME_AGENT
