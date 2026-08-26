@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 
 VALID_RETRIEVAL = {"NOT_ATTEMPTED", "SUCCESS", "PARTIAL", "FAILED"}
+VALID_KERNELS = {"K-A", "K-B", "K-C"}
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -39,6 +40,7 @@ def main() -> int:
     default_fixtures = Path(__file__).resolve().parents[1] / "fixtures" / "tiny-kernel-cases.jsonl"
     parser.add_argument("--fixtures", type=Path, default=default_fixtures)
     parser.add_argument("--results", type=Path, required=True)
+    parser.add_argument("--expected-kernel", choices=sorted(VALID_KERNELS), required=True)
     parser.add_argument("--strict", action="store_true", help="return nonzero on trigger FN/FP, available-resolver route miss/overreach, or broken-resolver false success/fallback failure")
     args = parser.parse_args()
 
@@ -51,12 +53,16 @@ def main() -> int:
 
     result_by_id: dict[str, dict] = {}
     duplicate_results: list[str] = []
+    kernel_mismatch: list[str] = []
     for row in results:
         case_id = row.get("case_id")
         if not isinstance(case_id, str):
             raise SystemExit("every result requires string case_id")
         if case_id in result_by_id:
             duplicate_results.append(case_id)
+        kernel = row.get("kernel")
+        if kernel != args.expected_kernel:
+            kernel_mismatch.append(f"{case_id}:{kernel!r}")
         result_by_id[case_id] = row
 
     unknown_results = sorted(set(result_by_id) - set(fixture_by_id))
@@ -131,13 +137,13 @@ def main() -> int:
                 broken_resolver_no_fallback.append(case_id)
 
     evaluated = tp + tn + fp + fn
-    print(f"fixtures={len(fixtures)} results={len(results)} evaluated={evaluated}")
+    print(f"kernel={args.expected_kernel} fixtures={len(fixtures)} results={len(results)} evaluated={evaluated}")
     print(f"trigger: TP={tp} TN={tn} FP={fp} FN={fn}")
     print(f"trigger_precision={pct(tp, tp + fp)} trigger_recall={pct(tp, tp + fn)}")
     print(f"route_zero_hit={len(route_zero_hit)} route_incomplete={len(route_incomplete)} route_overreach={len(route_overreach)}")
     print(f"quiet_family_leak={len(quiet_family_leak)}")
     print(f"broken_resolver_false_success={len(broken_resolver_false_success)} broken_resolver_no_fallback={len(broken_resolver_no_fallback)}")
-    print(f"missing_results={len(missing_results)} unknown_results={len(unknown_results)} duplicate_results={len(duplicate_results)} malformed={len(malformed)}")
+    print(f"missing_results={len(missing_results)} unknown_results={len(unknown_results)} duplicate_results={len(duplicate_results)} kernel_mismatch={len(kernel_mismatch)} malformed={len(malformed)}")
 
     details = {
         "FN": [cid for cid, f in fixture_by_id.items() if cid in result_by_id and f.get("expected_trigger") is True and result_by_id[cid].get("trigger") is False],
@@ -151,15 +157,22 @@ def main() -> int:
         "missing_results": missing_results,
         "unknown_results": unknown_results,
         "duplicate_results": duplicate_results,
+        "kernel_mismatch": kernel_mismatch,
         "malformed": malformed,
     }
     for label, values in details.items():
         if values:
             print(f"{label}: {values}")
 
-    print("verification_scope=FIXTURE_COMPARISON_ONLY")
+    print("verification_scope=FIXTURE_COMPARISON_AND_KERNEL_IDENTITY_BINDING_ONLY")
 
-    structural_failure = bool(missing_results or unknown_results or duplicate_results or malformed)
+    structural_failure = bool(
+        missing_results
+        or unknown_results
+        or duplicate_results
+        or kernel_mismatch
+        or malformed
+    )
     performance_failure = bool(
         fn
         or fp
