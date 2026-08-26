@@ -25,14 +25,31 @@ jobs:
           python -m py_compile \
             research/prototypes/tiny-hot-kernel/tools/validate_semantic_router.py \
             research/prototypes/tiny-hot-kernel/tools/score_tiny_kernel_results.py \
-            research/prototypes/tiny-hot-kernel/tools/selftest_tiny_hot_kernel.py
+            research/prototypes/tiny-hot-kernel/tools/selftest_tiny_hot_kernel.py \
+            research/prototypes/tiny-hot-kernel/tools/build_controlled_eval_packet.py
 
       - name: Run portable deterministic selftest
         run: python research/prototypes/tiny-hot-kernel/tools/selftest_tiny_hot_kernel.py
 
+      - name: Build layered blinded packets for all kernel candidates
+        run: |
+          for kernel in K-A K-B K-C; do
+            out="/tmp/tiny-kernel-${kernel}"
+            python research/prototypes/tiny-hot-kernel/tools/build_controlled_eval_packet.py \
+              --kernel "$kernel" \
+              --output "$out"
+            test -f "$out/PACKET-MANIFEST.json"
+            test -f "$out/resident/"*.md
+            test -f "$out/stimuli/tiny-kernel-prompts.jsonl"
+            test -f "$out/gated-resolver/semantic-router.v0.1.json"
+            test -f "$out/maintainer-private/tiny-kernel-cases.jsonl"
+            test -f "$out/maintainer-private/score_tiny_kernel_results.py"
+          done
+
       - name: Verification boundary
         run: |
           echo 'PROTOTYPE_GATE=PASS'
-          echo 'VERIFICATION_SCOPE=REPRESENTED_STRUCTURE_FIXTURES_AND_SCORER_BEHAVIOR_ONLY'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_STRUCTURE_FIXTURES_SCORER_BLINDING_AND_PACKET_PACKAGING_ONLY'
+          echo 'CONTROLLED_MODEL_BEHAVIOR=UNEXECUTED'
           echo 'NATURALISTIC_SALIENCE=UNPROVEN'
           echo 'CURRENT_CHANGE=NO'
