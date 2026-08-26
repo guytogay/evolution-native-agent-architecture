@@ -76,6 +76,11 @@ jobs:
               'RUNTIME-ADOPTION-KERNEL.md': ['operational/CUE-INDEX.md', 'operational/HOW-MAP.md', 'tools/ena_evolve_v2.py', 'tools/legacy/ena_evolve_v1_2.py'],
               'AGENT-ADOPTION-INSTRUCTION.md': ['CANDIDATE REVIEW', 'Do not upgrade one level into another'],
               'LITE-ADOPTION-INSTRUCTION.md': ['optional/default-off', 'NOT_REQUIRED'],
+              '05-CORE-OPERATIONAL-CONTRACTS.md': [
+                  'single candidate-local operational-contract surface for ENA v0.3.7 candidate.0',
+                  'v0.3.7 candidate.0 retains the accepted composed-validator implementation released through v0.3.6 Current',
+                  'does not prove universal correctness of v0.3.7 candidate.0',
+              ],
               '07-ADOPTION-AND-FIELD-VALIDATION.md': ['PRE_FREEZE_VALIDATION', 'fresh independent semantic falsification'],
               '08-RELEASE-DISCIPLINE.md': [
                   'candidate branch != frozen identity',
@@ -105,7 +110,7 @@ jobs:
           print('candidate-identity-bearing-surfaces-pass', len(expected_candidate))
           PY
 
-      - name: Verify preserved semantic trunk byte parity
+      - name: Verify preserved semantic trunk parity
         run: |
           set -euo pipefail
           C='releases/v0.3.7-candidate'
@@ -115,7 +120,6 @@ jobs:
             02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md \
             03-ROLES-AND-DEVELOPMENTAL-STAGES.md \
             04-CAPABILITY-MAP.md \
-            05-CORE-OPERATIONAL-CONTRACTS.md \
             schemas/evolution-record.v2.schema.json \
             schemas/adaptation-packet.v2.schema.json; do
             test "$(git hash-object "$C/$p")" = "$(git hash-object "$R/$p")" || {
@@ -123,7 +127,33 @@ jobs:
               exit 1
             }
           done
-          echo 'candidate-semantic-trunk-byte-parity-pass'
+          python - <<'PY'
+          from pathlib import Path
+
+          current = Path('releases/current/05-CORE-OPERATIONAL-CONTRACTS.md').read_text(encoding='utf-8')
+          candidate = Path('releases/v0.3.7-candidate/05-CORE-OPERATIONAL-CONTRACTS.md').read_text(encoding='utf-8')
+
+          substitutions = [
+              (
+                  'This file is the single active operational-contract surface for ENA v0.3.6 Current.',
+                  'This file is the single candidate-local operational-contract surface for ENA v0.3.7 candidate.0.',
+              ),
+              (
+                  'v0.3.6 Current retains the accepted composed-validator implementation released through v0.3.5 Current',
+                  'v0.3.7 candidate.0 retains the accepted composed-validator implementation released through v0.3.6 Current',
+              ),
+              (
+                  'Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.6 Current.',
+                  'Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.7 candidate.0.',
+              ),
+          ]
+          expected = current
+          for old, new in substitutions:
+              assert old in expected, old
+              expected = expected.replace(old, new, 1)
+          assert candidate == expected, '05-CORE-OPERATIONAL-CONTRACTS.md drift exceeds allowed identity substitutions'
+          print('candidate-core-contract-semantic-body-parity-pass')
+          PY
 
       - name: Verify candidate operational reality pointers
         run: |
