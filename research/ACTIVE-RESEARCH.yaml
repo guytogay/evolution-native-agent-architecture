@@ -1,13 +1,13 @@
-schema_version: "1.6"
+schema_version: "1.7"
 status: ACTIVE_RESEARCH_POINTER
 updated_at: "2026-08-27"
 
-# Canonical main-visible pointer for continuing ENA research.
-# Do not infer the active branch from recency, branch names, old PR numbers, or cached SHAs.
+# Canonical main-visible pointer for continuing ENA research/release preparation.
+# Do not infer active work from recency, branch names, old PR numbers, or cached SHAs.
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "ACTIVE_RELEASE_SCOPE_RECONCILIATION / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
+  state: "V0_3_7_CANDIDATE_BUILD_PREPARATION / NOT_CURRENT / CANDIDATE_NOT_YET_CREATED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   branch_name_status: "STABLE_INTEGRATION_NAME / NOT_PHASE_ONTOLOGY"
   continuation_authority: BRANCH_POINTER
@@ -22,6 +22,8 @@ active_research:
   alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   operational_architecture_path: "research/operational-architecture/README.md"
   release_scope_path: "research/release-scope/README.md"
+  scope_stability_gate_path: "research/release-scope/RELEASE-SCOPE-STABILITY-GATE-001.md"
+  version_selection_path: "research/release-scope/VERSION-SELECTION-001.md"
   external_how_registry_path: "research/external-how/SOURCE-REGISTRY.md"
   reconstruction_ledger_issue: 89
   workstream_issues: [90, 91, 92, 93, 94]
@@ -38,32 +40,53 @@ project_control_plane:
   master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
 
 continuation_protocol:
-  - "Start from main, not from a guessed research branch."
-  - "Verify Current from releases/current/CURRENT-BASELINE.yaml."
-  - "Read this file to discover the one active research integration branch."
+  - "Start from main, not from a guessed research or candidate branch."
+  - "Verify Current from releases/current/CURRENT-BASELINE.yaml; Current remains singular until explicit promotion."
+  - "Read this file to discover the active integration branch and current project phase."
   - "Read canonical methodology before selecting substantive work."
   - "If a material project transition occurred, complete the Project State Alignment Gate before resuming."
   - "Read the active branch bootstrap and PROGRESS.yaml."
-  - "Read the master plan and current release-scope entry/reconciliation artifacts."
-  - "Reverify the active branch head live before writing."
+  - "For candidate work, read release-scope stability/version records, branch governance, and Current release discipline before creating or continuing candidate branches."
+  - "Reverify live branch/candidate heads before writing."
   - "Open PR identity is integration context, not continuation authority."
 
 latest_transition:
-  event: "PR_109_RESEARCH_CHECKPOINT_MERGED_AND_RELEASE_SCOPE_ENTRY_OPENED"
-  checkpoint_pull_request: 109
-  checkpoint_merge: "3e5862998200770c37a6c67ed1789c12a852739c"
-  checkpoint_changed_current: false
-  active_branch_fast_forwarded_to_checkpoint_main: true
-  operational_architecture_entry_gate: PASS_WITH_OPEN_FIELD_RESIDUALS
-  release_scope_reconciliation: READY_TO_START
-  next_version: UNASSIGNED
+  event: "RELEASE_SCOPE_STABILIZED_AND_V0_3_7_CANDIDATE_LINE_ASSIGNED"
+  prior_control_plane_pull_request: 110
+  prior_control_plane_merge: "e8257e61a01652d4db799edfdd51f4ce7ae7a2b4"
+  release_scope_stability_gate: PASS
+  next_version: "v0.3.7"
+  next_candidate_generation: "candidate.0"
+  candidate_branch_expected_name: "candidate/v0.3.7-candidate.0"
+  candidate_branch_created: false
+  current_changed_by_transition: false
+
+candidate_build_transition:
+  current_state: PREPARE_EXACT_CANDIDATE_WORKSPACE
+  prerequisites_completed:
+    - anti-ablation archaeology sufficient/reopenable
+    - Operational Architecture traversable enough for selection
+    - release cargo classes selected
+    - optional reference library selected
+    - minimal v2 practical tooling selected and machine-tested
+    - zh-CN operational coverage selected
+    - anti-ablation selection audit passed
+    - release-scope stability gate passed
+    - next candidate version assigned
+  next_required_steps:
+    - checkpoint current release-scope decisions to main
+    - align main and active research branch
+    - create candidate/v0.3.7-candidate.0 from the exact checkpointed main commit
+    - build self-contained candidate outside releases/current
+    - validate, author-attack, freeze exact source/tree, then seek independent falsification
 
 historical_branch_lineage:
   predecessor_branch: "research/memory-metabolism-prototype"
   predecessor_pull_request: 82
   predecessor_ref_state: DELETED_AFTER_CHECKPOINT
   successor_bootstrap_pull_request: 101
-  successor_bootstrap_state: MERGED_TO_MAIN
+  research_checkpoint_pull_request: 109
+  release_scope_control_plane_pull_request: 110
   note: "Historical branch/PR identity is lineage only and does not compete with this pointer."
 
 alignment:
@@ -74,11 +97,14 @@ alignment:
 
 branch_cardinality:
   active_research_integration_branches_allowed: 1
+  candidate_branches_allowed_when_release_candidate_lifecycle_active: true
   note: >-
-    This is a project-coordination invariant, not ontology. Temporary isolation branches
-    may exist only when technically useful and do not become continuation authority.
+    Candidate branches are release-lifecycle surfaces and do not replace the active research
+    integration branch as general research continuation authority. Their exact frozen commit/tree,
+    not branch recency, becomes candidate identity after freeze.
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
   expected_at_this_transition: "v0.3.6 / CURRENT / FIELD_VALIDATION"
-  note: "Research state never overrides Current adoption identity."
+  next_version_assignment_does_not_change_current: true
+  note: "v0.3.7 is only the assigned next candidate/release line until explicit promotion succeeds."

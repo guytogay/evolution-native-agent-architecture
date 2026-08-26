@@ -1,0 +1,92 @@
+schema_version: "0.1-research"
+status: CANDIDATE_REFERENCE_MANIFEST_DRAFT
+current_change_authorized: false
+
+policy:
+  required_for_complete_adoption_default: false
+  default_activation_default: false
+  normative_semantic_authority: "release semantic trunk / Current contracts, not bundled reference schemas"
+  package_inclusion_implies_applicability: false
+  package_inclusion_implies_activation: false
+
+roles:
+  - GENERAL_OPTIONAL_REFERENCE
+  - ADVANCED_OPTIONAL_REFERENCE
+  - SPECIALIZED_OPTIONAL_REFERENCE
+
+references:
+  - id: retrieval-obligation-0.5
+    role: GENERAL_OPTIONAL_REFERENCE
+    candidate_path: references/general/retrieval-obligation/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use when decision-material knowledge depends on retrieval scope, effective content identity, freshness, or sufficiency closure."
+    not_applicable_summary: "Do not invoke merely because durable knowledge storage exists or for trivial work with no decision-material retrieval dependency."
+
+  - id: wait-state
+    role: GENERAL_OPTIONAL_REFERENCE
+    candidate_path: references/general/wait-state/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use when action should pause for a represented wake condition rather than re-execute from silence/uncertainty."
+    not_applicable_summary: "Do not manufacture WAIT state when no decision-material wait boundary exists."
+
+  - id: authority-lease
+    role: GENERAL_OPTIONAL_REFERENCE
+    candidate_path: references/general/authority-lease/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use when a consequential action depends on represented external authority scope/validity."
+    not_applicable_summary: "Use NOT_REQUIRED for genuinely non-authority-bearing actions; do not create permission ceremony for harmless local work."
+
+  - id: effect-lifecycle
+    role: GENERAL_OPTIONAL_REFERENCE
+    candidate_path: references/general/effect-lifecycle/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use for consequential external effects where retry, settlement, restart, compensation, or effect identity can change the decision."
+    not_applicable_summary: "Do not require idempotency/effect ceremony for read-only or intrinsically repeatable low-consequence operations."
+
+  - id: recovery-adapter
+    role: GENERAL_OPTIONAL_REFERENCE
+    candidate_path: references/general/recovery-adapter/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use when restore/recovery reachability and post-restore world/authority reconciliation can change safe resumption."
+    not_applicable_summary: "Independent rescue/drill are conditional; do not require them for every disposable or low-consequence recovery case."
+
+  - id: evidence-envelope
+    role: ADVANCED_OPTIONAL_REFERENCE
+    candidate_path: references/advanced/evidence-envelope/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use when material claims need explicit evidence/support/applicability/provenance/witness/activation/projection boundaries."
+    not_applicable_summary: "Do not require the full envelope for trivial observations or claims that do not need those mechanisms."
+
+  - id: evidence-dependency-map
+    role: ADVANCED_OPTIONAL_REFERENCE
+    candidate_path: references/advanced/evidence-dependency-map/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use for material corroboration when common causes among agreeing observations can change confidence."
+    not_applicable_summary: "Do not create dependency graphs for ordinary recurrence/low-risk work without decision value."
+
+  - id: contested-authorship
+    role: SPECIALIZED_OPTIONAL_REFERENCE
+    candidate_path: references/advanced/contested-authorship/
+    required_for_complete_adoption: false
+    default_activation: false
+    applicability_summary: "Use for material durable self-surface change where origin, endorsement, conflict, revision, or authority laundering matter."
+    not_applicable_summary: "Ordinary task state, cache/index maintenance, episodic logging, and reversible formatting are out of scope."
+
+deferred_not_bundled_first_candidate:
+  - id: commitment-settlement-recovered
+    disposition: RETAIN_IN_RESEARCH_PENDING_FRESH_INDEPENDENT_REVIEW_OR_RENEWED_CANDIDATE_CRITICAL_NEED
+    retired: false
+
+validation_intent:
+  - "Every bundled reference path exists."
+  - "Every bundled reference remains required_for_complete_adoption=false unless an explicit future release-scope decision changes that."
+  - "Every bundled reference remains default_activation=false unless an explicit future release-scope decision changes that."
+  - "A bundled reference role is one of the declared packaging roles."
+  - "The candidate baseline points to this manifest and does not infer universal applicability from package inclusion."
