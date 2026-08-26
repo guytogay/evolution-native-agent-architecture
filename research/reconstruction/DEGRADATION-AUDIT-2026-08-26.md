@@ -4,11 +4,13 @@ Date: 2026-08-26
 
 Status: `RESEARCH_AUDIT / ANTI_ABLATION / NOT_CURRENT`
 
-Related: #80, #89–#94, PR #82, `MECHANISM-RETENTION-LEDGER.md`.
+Related: #80, #89–#94, PR #82, `MECHANISM-RETENTION-LEDGER.md`, `CARDINALITY-DISCOVERY-GUARD.md`, `CARDINALITY-AUDIT-2026-08-26.md`.
 
 Purpose:
 
 > Detect cases where reconciliation, semantic compression, stop rules, or `Host organ` classification may have preserved abstract correctness while losing concrete implementation value.
+
+**Historical-state note:** the DA-001..DA-010 sections below preserve the state of the audit when first written. Some gaps were subsequently closed or narrowed later on 2026-08-26. Do not rewrite the original occurrence; consult **Follow-up state corrections** near the end for current research-branch status.
 
 Audit verdicts:
 
@@ -291,21 +293,139 @@ A compact end-to-end Local Projection/adoption reference packet on at least one 
 
 ---
 
+# Follow-up state corrections — later 2026-08-26
+
+The sections above remain historical occurrence truth. The following records later research-branch progress and supersedes only their **current gap status**, not the fact that the gaps existed when first audited.
+
+## DA-F01 — Contested Authorship machine realization advanced
+
+DA-006's `not yet machine-realized` gap is no longer current.
+
+A durable Contested Authorship validator, fixture corpus, and adversarial selftest now exist. The selftest was additionally repaired so total fixture count is not an accidental ontology constraint; targeted regression/control IDs are preserved instead.
+
+Current retention status:
+
+`KEEP_AS_REFERENCE_ORGAN / MACHINE_GUARDED / HOST_MAPPING_OPEN`
+
+Remaining gap:
+
+naturalistic Host mapping / decision-value evidence, not absence of machine realization.
+
+## DA-F02 — Evidence Dependency Map machine realization advanced
+
+DA-007's `No durable machine prototype yet` statement is historical.
+
+The research branch now contains a machine-guarded dependency-map prototype with adversarial tests for hidden shared source, fake scalar independence, lost lineage, and false-BLOCK controls.
+
+Current retention status:
+
+`KEEP_AS_REFERENCE_ORGAN / MACHINE_GUARDED / HOST_MAPPING_OPEN`
+
+Remaining boundary:
+
+representation of dependency/common cause is not external authentication and does not manufacture independence.
+
+## DA-F03 — Generic Evidence Envelope machine realization advanced
+
+DA-008's `not yet a small machine-guarded organ` statement is historical.
+
+A Generic Evidence Envelope prototype now exists with machine tests preserving applicability, projection, activation, witness, and dependency as separately testable behaviors rather than one undifferentiated metadata field.
+
+Current retention status:
+
+`KEEP_AS_REFERENCE_ORGAN / MACHINE_GUARDED / COMPOSITION_AND_MINIMALITY_TESTING_OPEN`
+
+Remaining risk:
+
+the reusable carrier must not absorb/erase the distinct behaviors it carries or grow into a giant universal evidence schema.
+
+## DA-F04 — Distributed History Merge advanced into plural executable HOW family
+
+The Distributed History Merge part of DA-009 is no longer merely vocabulary inside a broader workstream.
+
+Currently implemented reference lineages include Git/Merkle-DAG, causal siblings, event sourcing, and CRDT for explicitly commutative state. Their current count is descriptive, not closed.
+
+Exact cardinality-guarded machine readback:
+
+- head `c6bfd3890436925dec0aeabe0dfdf28425bcca34`;
+- Distributed History Merge Research run `32927677920`;
+- job `98053720609`;
+- result `SUCCESS`.
+
+Remaining boundary:
+
+semantic truth, authority, and external effect settlement are not solved by history merge mechanics.
+
+## DA-F05 — Finite-context/LITE adoption advanced into plural executable HOW family
+
+DA-010's `No complete reference adoption packet yet` is superseded by a stronger and deliberately non-single-packet result.
+
+The research branch now preserves multiple adoption HOWs rather than forcing one packet architecture:
+
+- File/Git tiny+cold;
+- Tool-native retrieval;
+- Monolithic hot;
+- Hybrid compiled projection;
+- Native Host organ rebind/mapping-only adoption.
+
+HOW-E emerged because forcing a mature DSH-like Host into HOW-D would distort its phenotype.
+
+Exact machine evidence for the open-cardinality A-E family:
+
+- head `2d0f589ea17b6b3b47d026006318a7363e6f25be`;
+- Finite Context Adoption Research run `32927153520`;
+- job `98052250754`;
+- result `SUCCESS`.
+
+Remaining boundary:
+
+naturalistic fresh-session application and cross-Host local fitness remain open.
+
+## DA-F06 — Cardinality distortion itself became a confirmed degradation class
+
+A new anti-distortion finding emerged during reconstruction:
+
+```text
+requested/presented N
+-> machine or prose assumes reality has N slots
+-> material items are merged/omitted or weak items are padded/split
+```
+
+This was found concretely in active selftests and repaired. See `CARDINALITY-AUDIT-2026-08-26.md`.
+
+Key classification:
+
+```text
+NORMATIVE_COUNT
+CONTROLLED_EXPERIMENT_COUNT
+OBSERVED_COUNT
+PRESENTATION_COUNT
+```
+
+The guard is not `remove all numeric assertions`. Tiny Hot Kernel's 36-case controlled corpus was retained after protocol inspection because its count is benchmark-version identity for cross-candidate comparability. Exactly one candidate kernel per packet was also retained as an experimental-isolation rule.
+
+Compact rule:
+
+> **Make every enforced number answer what gives that number authority.**
+
+---
+
 # Audit conclusion
 
-No confirmed recent **hard degradation** was found in the already-prototyped Memory Metabolism / Retrieval / Projection / Effect Lifecycle surfaces.
+The original audit correctly found no confirmed hard degradation in the already-prototyped Memory Metabolism / Retrieval / Projection / Effect Lifecycle surfaces and correctly identified several at-risk reconstruction gaps.
 
-The more dangerous pattern is different:
+Later work closed multiple **implementation-absence** gaps without claiming naturalistic or universal proof. The highest remaining risks are now less about missing files and more about:
 
-> **historical concrete mechanisms have been restored to the research map, but several remain one abstraction step away from disappearing again because their HOW has not yet been rebuilt into an executable/reference organ.**
-
-Highest-priority anti-degradation surfaces after this audit:
-
-1. Generic Evidence Envelope, while preserving Witness Survivability / Activation Witness / dependency structure as separately testable behaviors;
-2. Evidence Dependency Map;
-3. Contested Authorship fixtures/Host mapping;
-4. end-to-end LITE adoption packet after Tiny Kernel selection evidence.
+- preserving distinct mechanism behavior when shared carriers/abstractions are introduced;
+- obtaining Host/naturalistic evidence rather than mistaking machine representation for application;
+- preventing current inventory or prompt formatting from becoming ontology through cardinality distortion;
+- avoiding future compression that says `already covered` while removing the practical HOW;
+- keeping local winners local rather than universalizing them.
 
 `ANTI_ABLATION_GUARD = ACTIVE`
+
+`CARDINALITY_DISCOVERY = ACTIVE`
+
+`HISTORICAL_OCCURRENCE_PRESERVED = YES`
 
 `NO_CURRENT_MUTATION = YES`
