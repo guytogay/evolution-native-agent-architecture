@@ -1,0 +1,134 @@
+name: ENA v0.3.7 Candidate Identity Gate
+
+on:
+  push:
+    branches: [candidate/v0.3.7-candidate.0]
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/workflows/v037-candidate-identity.yml'
+  pull_request:
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/workflows/v037-candidate-identity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  identity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify Current isolation
+        run: git diff --exit-code 0ad263178ab8b7c21c150012b3c06a5c41a4f41c -- releases/current
+
+      - name: Verify candidate identity-bearing surfaces
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('releases/v0.3.7-candidate')
+          assert (root/'CANDIDATE-BASELINE.yaml').is_file()
+          assert not (root/'CURRENT-BASELINE.yaml').exists()
+
+          expected_candidate = [
+              'README.md',
+              '00-READ-ME-FIRST.md',
+              'RUNTIME-ADOPTION-KERNEL.md',
+              'AGENT-ADOPTION-INSTRUCTION.md',
+              'LITE-ADOPTION-INSTRUCTION.md',
+              '06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
+              '07-ADOPTION-AND-FIELD-VALIDATION.md',
+              '08-RELEASE-DISCIPLINE.md',
+              '09-EVOLUTION-METABOLISM.md',
+              '10-LANGUAGE-PORTABILITY.md',
+              'LINEAGE.md',
+              'operational/README.md',
+              'language-projections/zh-CN/00-READ-ME-FIRST.md',
+              'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md',
+              'language-projections/zh-CN/09-EVOLUTION-METABOLISM.md',
+          ]
+          forbidden_opening = [
+              'v0.3.6 Current',
+              'CURRENT / FIELD_VALIDATION',
+              'ADOPT CURRENT',
+              'STAGE_1_SHELL',
+          ]
+          for rel in expected_candidate:
+              p = root/rel
+              assert p.is_file(), rel
+              text = p.read_text(encoding='utf-8')
+              opening = '\n'.join(text.splitlines()[:8])
+              assert 'v0.3.7 candidate.0' in opening, (rel, opening)
+              for bad in forbidden_opening:
+                  assert bad not in opening, (rel, bad, opening)
+
+          checks = {
+              'README.md': ['NOT_CURRENT', 'Current', 'operational/CUE-INDEX.md'],
+              '00-READ-ME-FIRST.md': ['NOT_CURRENT', 'operational/HOW-MAP.md', 'BUNDLED != REQUIRED'],
+              'RUNTIME-ADOPTION-KERNEL.md': ['operational/CUE-INDEX.md', 'operational/HOW-MAP.md', 'tools/ena_evolve_v2.py', 'tools/legacy/ena_evolve_v1_2.py'],
+              'AGENT-ADOPTION-INSTRUCTION.md': ['CANDIDATE REVIEW', 'Do not upgrade one level into another'],
+              'LITE-ADOPTION-INSTRUCTION.md': ['optional/default-off', 'NOT_REQUIRED'],
+              '07-ADOPTION-AND-FIELD-VALIDATION.md': ['PRE_FREEZE_VALIDATION', 'fresh independent semantic falsification'],
+              '08-RELEASE-DISCIPLINE.md': ['candidate branch != frozen identity', 'EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE'],
+              '09-EVOLUTION-METABOLISM.md': ['tools/ena_evolve_v2.py', 'operational/CUE-INDEX.md', 'local success != universal recommendation'],
+              '10-LANGUAGE-PORTABILITY.md': ['semantic-fixtures.v3.yaml', 'TRANSLATED != BEHAVIORALLY_EQUIVALENT'],
+              'LINEAGE.md': ['733d21686b6ad1cb4f655dd4565c3a1b25ba9fbb', '33004330491', '33007647412'],
+              'operational/README.md': ['ASSEMBLED_OPERATIONAL_ARCHITECTURE', 'HOT_KERNEL != HOW_LIBRARY'],
+              'language-projections/zh-CN/00-READ-ME-FIRST.md': ['NOT_CURRENT', 'operational/CUE-INDEX.md'],
+              'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md': ['operational/CUE-INDEX.md', '../../tools/ena_evolve_v2.py'],
+              'language-projections/zh-CN/09-EVOLUTION-METABOLISM.md': ['operational/CUE-INDEX.md', '../../tools/ena_evolve_v2.py'],
+          }
+          for rel, needles in checks.items():
+              text = (root/rel).read_text(encoding='utf-8')
+              for needle in needles:
+                  assert needle in text, (rel, needle)
+
+          agent = (root/'AGENT-ADOPTION-INSTRUCTION.md').read_text(encoding='utf-8')
+          assert 'Status: **ADOPT CURRENT' not in agent
+          assert 'Read `CURRENT-BASELINE.yaml`' not in agent
+
+          op = (root/'operational/README.md').read_text(encoding='utf-8')
+          assert 'Stage 1 creates only this entry surface' not in op
+
+          print('candidate-identity-bearing-surfaces-pass', len(expected_candidate))
+          PY
+
+      - name: Verify preserved semantic trunk byte parity
+        run: |
+          set -euo pipefail
+          C='releases/v0.3.7-candidate'
+          R='releases/current'
+          for p in \
+            01-CONSTITUTION.md \
+            02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md \
+            03-ROLES-AND-DEVELOPMENTAL-STAGES.md \
+            04-CAPABILITY-MAP.md \
+            05-CORE-OPERATIONAL-CONTRACTS.md \
+            schemas/evolution-record.v2.schema.json \
+            schemas/adaptation-packet.v2.schema.json; do
+            test "$(git hash-object "$C/$p")" = "$(git hash-object "$R/$p")" || {
+              echo "unexpected semantic-trunk byte drift: $p"
+              exit 1
+            }
+          done
+          echo 'candidate-semantic-trunk-byte-parity-pass'
+
+      - name: Verify candidate operational reality pointers
+        run: |
+          set -euo pipefail
+          ROOT='releases/v0.3.7-candidate'
+          test -f "$ROOT/operational/CUE-INDEX.md"
+          test -f "$ROOT/operational/HOW-MAP.md"
+          test -f "$ROOT/operational/REFERENCE-INDEX.yaml"
+          test -f "$ROOT/tools/ena_evolve_v2.py"
+          test -f "$ROOT/tools/legacy/ena_evolve_v1_2.py"
+          test -f "$ROOT/language-projections/semantic-fixtures.v3.yaml"
+          test -f "$ROOT/language-projections/zh-CN/operational/CUE-INDEX.md"
+          test -f "$ROOT/language-projections/zh-CN/operational/HOW-MAP.md"
+          echo 'candidate-operational-reality-pointers-pass'
