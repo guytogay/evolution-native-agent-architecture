@@ -1,9 +1,9 @@
-schema_version: "0.7"
-as_of: "2026-08-26"
+schema_version: "0.8"
+as_of: "2026-08-27"
 status: ACTIVE_OPERATIONAL_ARCHITECTURE_ASSEMBLY
 
-# This is the hot current-state projection.
-# Detailed history belongs in Git lineage, Issues, reconstruction maps, prototypes, and evidence records.
+# Hot current-state projection only. Detailed history remains in Git lineage,
+# Issues, reconstruction maps, prototypes, and evidence records.
 progress_is_complete_history: false
 
 canonical_pointers:
@@ -16,6 +16,8 @@ canonical_pointers:
   alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  operational_architecture_root: research/operational-architecture/README.md
+  operational_architecture_map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
   reconstruction_ledger: "#89"
   archaeology_tracker: "#104"
   recovered_variation_map: research/reconstruction/RECOVERED-VARIATION-MAP.md
@@ -43,23 +45,17 @@ research_workspace:
     - research/ena-reconstruction
 
 alignment_gate:
-  state: COMPLETE_FOR_ARCHAEOLOGY_TO_ASSEMBLY_TRANSITION_PENDING_FINAL_CHECKPOINT_CI
-  reason: >-
-    Anti-ablation archaeology reached recovery-sufficient-for-assembly status and the
-    master plan changed Operational Architecture from NOT_READY to READY_TO_START.
-  aligned_surfaces:
-    - archaeology closure recorded in #104
-    - recovered verification-as-service variation persisted
-    - master plan updated to assembly-ready posture
-    - this Progress carrier updated to assembly-ready posture
-    - methodology remains unchanged and still governs the transition
-    - branch topology/control model is unchanged
-  final_readback_required:
-    - Current remains v0.3.6 / CURRENT / FIELD_VALIDATION
-    - live long-lived branches remain main + research/ena-reconstruction
-    - active research pointer still names research/ena-reconstruction
-    - PR #109 research diff does not modify releases/current/
-    - new research CI is classified honestly as success/pending/infra-failure rather than narrated from intent
+  state: COMPLETE_FOR_ARCHAEOLOGY_TO_ASSEMBLY_TRANSITION_WITH_CHECKPOINT_CI_PENDING
+  readback_completed:
+    - Current reverified as v0.3.6 / CURRENT / FIELD_VALIDATION
+    - live long-lived branches reverified as main + research/ena-reconstruction
+    - main active-research pointer still names research/ena-reconstruction
+    - active branch is ahead of main and not behind
+    - active-branch research diff contains no releases/current/ modification
+    - latest observed head had zero check-runs, so CI was not narrated as PASS or FAIL
+  remaining_checkpoint_condition: >-
+    PR #109 may not be merged merely because assembly work continues. Actual workflow
+    execution must be observed and interpreted before the research checkpoint is promoted.
   reopen_alignment_when:
     - branch/control-plane topology changes
     - methodology or master-plan closure rules change again
@@ -72,15 +68,15 @@ phase_state:
 
   anti_ablation_archaeology:
     state: RECOVERY_SUFFICIENT_FOR_ASSEMBLY_REOPENABLE
+    closure_is_completeness_proof: false
     closure_basis:
       - Issue/repository census did not reveal another large missing Core/topic family
       - predecessor/external critique recovered dormant concrete HOW and simplification variations
       - progressive projection archaeology exposed history-loss boundaries
       - Commitment/Settlement local-artifact durability gap was recovered semantically and persisted
       - final predecessor-history pass rechecked reputation, protected agency, culture, surprise, resource ecology, and compensation debt
-      - final pass recovered one additional dormant ecology variation: verification/certainty as purchased risk-control service
+      - final pass recovered verification/certainty as purchased risk-control service as an additional dormant ecology variation
       - another bounded pass over currently available history was mostly returning already-retained or correctly dormant branches
-    closure_is_completeness_proof: false
     reopen_trigger: >-
       New historical evidence, missing lineage, assembly contradiction, or field result
       materially changes the engineering map.
@@ -146,12 +142,23 @@ phase_state:
       - STATUS_QUERY_NOT_COMMITTED_NE_FUTURE_STALE_REQUEST_FENCED
 
   operational_architecture_assembly:
-    state: READY_TO_START_NOT_YET_ASSEMBLED
+    state: FIRST_MAP_PERSISTED_TRAVERSAL_AUDIT_ACTIVE
+    root: research/operational-architecture/README.md
+    map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
     purpose: >-
-      Build an adopter-facing navigation/architecture surface from the stable WHAT/WHY
-      trunk to plural concrete HOW branches, Host applicability, evidence, residuals,
+      Build an adopter-facing cold navigation/architecture surface from stable WHAT/WHY
+      semantics to plural concrete HOW branches, Host applicability, evidence/residuals,
       composition seams, and dormant/experimental alternatives.
-    first_output_should_be: OPERATIONAL_ARCHITECTURE_MAP_NOT_CURRENT_REWRITE
+    first_pass_properties:
+      - starts from problem/decision cue rather than repository taxonomy
+      - maps semantic nodes to multiple materially different HOW branches
+      - distinguishes Host patterns from universal ENA semantics
+      - keeps evidence and residuals scoped
+      - links composed organs rather than cloning new subsystems by default
+      - separates full operational-library size from active runtime-context size
+    audit_question: >-
+      Can a fresh Agent enter from a concrete failure/question and reach a performable
+      mechanism or an honest named gap without needing the original research session?
     assembly_invariants:
       - plural HOWs remain visible where applicability differs
       - dormant/failed/historical HOW lineage is not erased
@@ -159,6 +166,8 @@ phase_state:
       - unresolved branches remain explicit
       - repository richness does not imply active-context loading
       - Tiny Hot Kernel/routing should locate branches rather than contain the whole architecture
+      - navigation clusters are not ontology
+      - assembly does not mutate Current
 
   release_scope_reconciliation:
     state: NOT_STARTED
@@ -173,6 +182,12 @@ phase_state:
     prerequisite: CANDIDATE_VALIDATED_AND_RELEASE_READY
 
 recent_research_surfaces:
+  operational_architecture_first_pass:
+    path: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
+    status: FIRST_ASSEMBLY_PASS_PERSISTED
+    evidence_status: NAVIGATION_ARTIFACT_NOT_YET_FRESH_AGENT_VALIDATED
+    current_change: false
+
   progressive_evolution_record:
     path: research/prototypes/evolution-record-progressive-envelope/
     local_deterministic_status: PASS
@@ -222,24 +237,23 @@ recent_research_surfaces:
 
 ci_checkpoint:
   pull_request: "#109"
-  current_interpretation: INFRA_NOISE_AND_NEW_HEAD_VALIDATION_PENDING
-  observed_problem:
-    - some earlier runs ended startup_failure with zero jobs
-    - rapid pushes caused cancellation/queue churn under concurrency rules
+  current_interpretation: LATEST_OBSERVED_HEAD_HAS_NO_CHECK_RUNS
   evidence_rule: >-
-    startup_failure/cancelled/queued is not a prototype verdict; only actual job execution
-    and completed conclusions may upgrade machine evidence.
+    startup_failure/cancelled/queued/zero-check-run states are not prototype verdicts;
+    only actual job execution and completed conclusions may upgrade machine evidence.
   gate_weakening_authorized: false
+  merge_authorized_now: false
 
 next_actions:
-  - run the final Alignment Gate readback for the archaeology-to-assembly transition
-  - stabilize and inspect PR #109 CI on a quiet head; fix actual test failures but do not weaken gates for startup/queue noise
-  - if checkpoint evidence is green and releases/current remains unchanged, reconcile/merge #109 as research history only
-  - begin Operational Architecture map assembly from #89/#90-#94 plus recovered variation/evidence surfaces
-  - organize each semantic node as WHAT/WHY -> plural HOW -> Host binding -> evidence/residuals -> composition links
+  - audit Operational Architecture map traversal from concrete failure cues rather than from node names
+  - find nodes whose HOWs are still disguised principles, duplicated subsystems, or insufficiently performable
+  - add exact source/prototype/Host links only where they improve execution rather than turning the map into a bibliography
+  - test whether cross-node composition routes resolve seams without inventing unnecessary new organs
   - keep Tiny Hot Kernel/runtime routing separate from the full operational library
   - continue external HOW search only where assembly exposes a concrete mechanism gap
-  - schedule field/mesocosm work for uncertainties that static analysis can no longer resolve, including natural retrieval, control retirement, reputation rehabilitation, resource/specialization ecology, culture/discretionary agency, and verification-as-service
+  - schedule field/mesocosm work only for uncertainties static analysis cannot resolve, including natural retrieval, control retirement, reputation rehabilitation, resource/specialization ecology, culture/discretionary agency, and verification-as-service
+  - inspect PR #109 CI after a quiet-head interval; fix actual test failures but do not weaken gates for startup/queue noise
+  - merge #109 only after machine checkpoint evidence is actually observed and releases/current remains unchanged
   - start release-scope reconciliation only after the operational architecture is sufficiently traversable to classify adopter-facing changes
 
 methodology_incidents:
@@ -265,3 +279,4 @@ invariants:
   - COLD_REFERENCE_DOES_NOT_PROVE_RETRIEVABILITY
   - RECOVERY_SUFFICIENT_FOR_ASSEMBLY_NE_ARCHAEOLOGY_COMPLETE_FOREVER
   - ASSEMBLY_NE_CURRENT_PROMOTION
+  - OPERATIONAL_LIBRARY_SIZE_NE_ACTIVE_CONTEXT_SIZE

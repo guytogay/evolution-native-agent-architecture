@@ -15,7 +15,8 @@ Do not discover the active research workspace by browsing branch names or old pu
 5. `BRANCH-INVENTORY.yaml` — current live branch classification plus durable cleanup lineage.
 6. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable long-horizon project plan.
 7. Follow `ACTIVE-RESEARCH.yaml` to the active branch, then read its `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml` for fast-moving execution state.
-8. Discover an open PR by active head branch only when review/integration context is needed.
+8. During the current assembly phase, use `operational-architecture/README.md` and `operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md` to traverse from semantic problems to concrete HOW branches.
+9. Discover an open PR by active head branch only when review/integration context is needed.
 
 ```text
 MAIN PROJECT CONTROL PLANE
@@ -27,9 +28,11 @@ MAIN PROJECT CONTROL PLANE
                                   v
                         research/ena-reconstruction
                                   |
-                     +------------+------------+
-                     |            |            |
-                 prototypes    evidence    experiments / HOWs
+                  +---------------+----------------+
+                  |               |                |
+          reconstruction      prototypes     operational-architecture
+                  |               |                |
+             recovered HOWs   falsification    traversable assembly map
 ```
 
 Observed live long-lived topology after the 2026-08-26 cleanup:
@@ -45,7 +48,7 @@ Historical branch names remain lineage only when their refs have been deleted.
 
 `main` carries the stable project control plane and Current adoption baseline.
 
-The active research integration branch carries fast-moving reconstruction, prototypes, external-HOW harvesting, experiments, evidence, and execution progress.
+The active research integration branch carries fast-moving reconstruction, prototypes, external-HOW harvesting, experiments, evidence, Operational Architecture assembly, and execution progress.
 
 Temporary work branches may exist when isolation is genuinely useful, but they do not become continuation authority.
 
@@ -53,6 +56,7 @@ Temporary work branches may exist when isolation is genuinely useful, but they d
 BRANCH_EXISTS != BRANCH_ACTIVE
 OPEN_PR != ACTIVE_BRANCH_AUTHORITY
 RESEARCH_ARTIFACT_EXISTS != CURRENT
+ASSEMBLY_ARTIFACT_EXISTS != RELEASE_DELTA
 MAIN_FILE_EXISTS != ENA_CONSTITUTION
 ```
 
@@ -77,6 +81,39 @@ Important current disciplines include:
 - research can legitimately yield NO_CHANGE, dormancy, simplification, plurality, or retirement with lineage;
 - methodology inheritance is successful only when it changes actual research behavior;
 - after material project transitions, method/routing/plan/progress must be aligned before substantive research resumes.
+
+## Operational Architecture assembly
+
+Anti-ablation archaeology has reached `RECOVERY_SUFFICIENT_FOR_ASSEMBLY / REOPENABLE` for the current decision. The current work therefore assembles the recovered research tree into a cold, traversable operational library rather than immediately rewriting Current.
+
+Start from:
+
+`research/operational-architecture/README.md`
+
+then:
+
+`research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md`
+
+The intended relation is:
+
+```text
+semantic WHAT / WHY
+        |
+        +--> plural concrete HOW branches
+        |       |
+        |       +--> Host binding
+        |       +--> failure/fallback
+        |       +--> evidence/residuals
+        |
+        +--> composition links
+```
+
+The map is a routing surface, not a new ontology and not a mandatory always-hot context payload.
+
+```text
+OPERATIONAL_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE
+NAVIGATION_CLUSTER != NATURAL_ORGAN_BOUNDARY
+```
 
 ## Project State Alignment Gate
 
