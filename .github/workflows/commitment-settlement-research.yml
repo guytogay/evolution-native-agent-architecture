@@ -1,0 +1,46 @@
+name: Commitment Settlement Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/commitment-settlement-recovered/**'
+      - 'research/prototypes/migration-settlement-composition/**'
+      - '.github/workflows/commitment-settlement-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  commitment-settlement-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile research tools
+        run: |
+          python -m py_compile \
+            research/prototypes/commitment-settlement-recovered/tools/validate_commitment_settlement.py \
+            research/prototypes/commitment-settlement-recovered/tools/selftest_commitment_settlement.py \
+            research/prototypes/migration-settlement-composition/validate_migration_settlement.py \
+            research/prototypes/migration-settlement-composition/selftest_migration_settlement.py
+
+      - name: Run recovered Commitment Settlement selftest
+        run: python research/prototypes/commitment-settlement-recovered/tools/selftest_commitment_settlement.py
+
+      - name: Run migration settlement composition selftest
+        run: python research/prototypes/migration-settlement-composition/selftest_migration_settlement.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'RECOVERY_KIND=SEMANTIC_RECONSTRUCTION_NOT_BYTE_IDENTICAL_RESTORE'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_ASSIGNMENT_SETTLEMENT_AND_SOURCE_AWARE_PROJECTION_ONLY'
+          echo 'EXTERNAL_AUTHORITY=UNPROVEN'
+          echo 'EXTERNAL_SETTLEMENT_AUTHENTICITY=UNPROVEN'
+          echo 'STALE_EXECUTOR_PHYSICAL_FENCING=UNPROVEN'
+          echo 'CURRENT_CHANGE=NO'
