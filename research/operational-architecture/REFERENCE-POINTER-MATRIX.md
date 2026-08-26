@@ -1,140 +1,106 @@
 # ENA Operational Architecture Reference Pointer Matrix
 
-Status: `EXECUTION_ROUTING_SURFACE / FIRST_PASS / OPEN_CARDINALITY / RESEARCH_ONLY / NOT_CURRENT`
+Status: `EXECUTION_ROUTING_SURFACE / BREADTH_PASS_2 / OPEN_CARDINALITY / RESEARCH_ONLY / NOT_CURRENT`
 
 Date: 2026-08-27
 
 Parent map: `OPERATIONAL-ARCHITECTURE-MAP.md`
-
 Entry router: `CUE-INDEX.md`
+Audits: `EXECUTION-DEPTH-AUDIT-001.md`, `EXECUTION-DEPTH-AUDIT-002.md`
 
-Evidence:
-
-- `EXECUTION-DEPTH-AUDIT-001.md`
-- `PROCEDURE-AUDIT-001.md`
-
-## Purpose
-
-This file is a thin bridge from Operational Architecture nodes/HOW families to exact durable implementation/reference surfaces.
-
-It exists because:
+This is a thin bridge from Operational Architecture nodes/HOW families to exact durable implementation/reference surfaces.
 
 ```text
-HOW_HAS_A_NAME
-!=
-AGENT_CAN_FIND_THE_IMPLEMENTATION
+HOW_HAS_A_NAME != AGENT_CAN_FIND_THE_IMPLEMENTATION
 ```
 
-Do not duplicate full WHAT/WHY/HOW prose here. Follow the linked README/schema/tool/procedure when execution depth is needed.
-
-Gap/depth labels are descriptive and open-cardinality.
+Do not duplicate full WHAT/WHY/HOW prose here.
 
 | Node | Primary durable surface(s) | Current depth | Use / next action |
 |---|---|---|---|
-| `OA-RT-01` Runtime routing | `releases/current/RUNTIME-ADOPTION-KERNEL.md`; `research/prototypes/tiny-hot-kernel/`; `research/prototypes/finite-context-adoption/`; `research/prototypes/memory-metabolism/naturalistic-validation-0.1/` | `POINTER_PARTIAL / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_REQUIRED` | Choose Host routing mechanism; do not assume one universal hot kernel. |
+| `OA-RT-01` Runtime routing | `releases/current/RUNTIME-ADOPTION-KERNEL.md`; `research/prototypes/tiny-hot-kernel/` incl. `semantic-router.v0.1.json`; `research/prototypes/finite-context-adoption/`; naturalistic validation | `POINTER_READY / REFERENCE_MACHINE_EXISTS / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_REQUIRED` | Reuse existing router/kernel patterns; next unknown is natural fresh-session salience, not another router schema. |
 | `OA-MEM-01` Memory Metabolism | `research/prototypes/memory-metabolism/README.md`; `memory-set.schema.json`; `RETRIEVAL-MODEL.md`; `RESTORE-MODEL.md`; `host-integration-0.1/` | `POINTER_READY / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_REQUIRED` | Use compiler/archive/retrieval architecture; validate long-run Host behavior separately. |
-| `OA-RET-01` Retrieval Obligation | `research/prototypes/memory-metabolism/retrieval-obligation-0.5/README.md`; schema; `reference-runtime.json`; validator/selftest | `POINTER_READY / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_REQUIRED` | Bind scope, effective content identity, freshness and sufficiency; bounded no-hit/WAIT remains valid. |
-| `OA-PROJ-01` Projection/Compaction | `research/prototypes/memory-metabolism/projection-composition-0.1/`; `research/prototypes/lineage-compaction-contract/`; `research/prototypes/lineage-compaction-retrieval-composition/`; `research/reconstruction/PORTABLE-SNAPSHOT-LINEAGE-SURVIVAL-MAP.md` | `POINTER_READY / COMPOSITION_REQUIRED` | Preserve/refer decision-material lineage; route cold dependency to `OA-RET-01`. |
-| `OA-WAIT-01` WAIT/Pause | `research/prototypes/wait-state/README.md`; validator/selftest; `.github/workflows/wait-state-research.yml` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Map wait/callback/interrupt/polling to Host; preserve wake/timeout/evidence/escalation. |
-| `OA-AUTH-01` Authority | `research/prototypes/authority-lease/README.md`; `authority-lease.v0.1.json`; validator/selftest | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Resolve grant scope/validity; use `NOT_REQUIRED` for genuinely non-authority-bearing actions rather than manufacturing grants. |
-| `OA-EFF-01` Effect Lifecycle | `research/prototypes/effect-lifecycle/README.md`; contract/validator/selftest; `research/prototypes/execution-surface-fencing/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Select idempotency/fencing/version/status/gateway/compensation/WAIT according to target semantics; do not collapse them. |
-| `OA-COM-01` Commitment/Settlement | `research/prototypes/commitment-settlement-recovered/`; `research/prototypes/migration-settlement-composition/` | `POINTER_READY / COMPOSITION_REQUIRED` | Separate obligation subject, executor, effect and settlement; compose physical fencing through `OA-EFF-01`. |
-| `OA-REC-01` Recovery | `research/prototypes/recovery-adapter/README.md`; `recovery-adapter.v0.1.json`; validator/selftest | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Check recovery path/drill only where required; after restore consume world-settlement + authority outputs before resume. |
-| `OA-ID-01` Identity/Trajectory | `research/operational-architecture/procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md`; #75/#92; `research/prototypes/memory-metabolism/RESTORE-MODEL.md`; conditional epoch binding in Authority Lease; external identity HOW research | `REFERENCE_PROCEDURE_AUTHORED / STATICALLY_FALSIFIED / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_OPEN` | Ask continuity **for which decision** and evaluate only required relations; do not produce universal `SAME_AGENT` or infer authority/commitment from continuity. |
-| `OA-AUTHOR-01` Contested Authorship | `research/prototypes/contested-authorship/README.md`; contract/validator/selftest | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Use for material durable self-change; ordinary memory/cache/task state may return out-of-scope/lightweight path. |
-| `OA-STAND-01` Standing/Rehabilitation | `research/operational-architecture/procedures/STANDING-INPUT-PROCEDURE.md`; #79/#92; external selective-disclosure/reputation mechanisms | `STANDING_PROCEDURE_AUTHORED / STATICALLY_FALSIFIED / REHABILITATION_FIELD_EVIDENCE_REQUIRED` | Admit decision-material evidence-bearing objections for consideration without minting veto/authority/personhood; rehabilitation policy remains environment evidence/policy. |
-| `OA-EVID-01` Evidence/Provenance | `research/prototypes/evidence-envelope/README.md`; envelope contract/validator/selftest; `research/prototypes/evidence-dependency-map/README.md`; validator/selftest; Current contracts/fixtures | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Keep support/applicability/witness/activation/projection/dependency claims separate; machine PASS remains represented consistency. |
-| `OA-EVO-01` Evolution | `releases/current/09-EVOLUTION-METABOLISM.md`; `releases/current/schemas/evolution-record.v2.schema.json`; `releases/current/tools/validate_evolution_record_v2.py`; `research/prototypes/evolution-record-progressive-envelope/` | `POINTER_READY / RESEARCH_ALTERNATIVE_ACTIVE` | Current v2 remains adopter baseline; progressive event/enrichment is research branch. |
-| `OA-MIG-01` Migration/Commons | `releases/current/schemas/adaptation-packet.v2.schema.json`; `research/prototypes/migration-settlement-composition/`; lineage survival map; projection/compaction research | `POINTER_READY / HOST_ADAPTER_REQUIRED / COMPOSITION_REQUIRED` | Preserve source lineage and receiver-local selection; use A2A/Host protocol for active coordination rather than treating packet as protocol. |
-| `OA-ECO-01` Ecology/Resources | #93; `research/evolution-inbox/NETWORK-PROTOCOL-DESIGN-EXTRACTION.md`; `research/reconstruction/RECOVERED-VARIATION-VERIFICATION-AS-SERVICE.md`; mesocosm/community research | `POINTER_PARTIAL / FIELD_EVIDENCE_REQUIRED / MESOCOSM_REQUIRED / DORMANT_RESEARCH` | Reuse mature external mechanisms where fitting; do not complete ecology by inventing a universal schema. |
-| `OA-ADOPT-01` Adoption/Language/Release | `releases/current/00-READ-ME-FIRST.md`; `RUNTIME-ADOPTION-KERNEL.md`; `LITE-ADOPTION-INSTRUCTION.md`; `07-ADOPTION-AND-FIELD-VALIDATION.md`; `08-RELEASE-DISCIPLINE.md`; `10-LANGUAGE-PORTABILITY.md`; Current schemas/tools/projections | `POINTER_READY / FIELD_EVIDENCE_REQUIRED_FOR_SALIENCE_AND_EQUIVALENCE` | Resolve Current first, adopt minimal effective surface, preserve immutable release identity, test fresh-session/language behavior separately. |
+| `OA-RET-01` Retrieval Obligation | `research/prototypes/memory-metabolism/retrieval-obligation-0.5/` | `POINTER_READY / HOST_ADAPTER_REQUIRED / FIELD_EVIDENCE_REQUIRED` | Bind scope, effective content identity, freshness and sufficiency; bounded no-hit/WAIT remains valid. |
+| `OA-PROJ-01` Projection/Compaction | projection-composition, lineage-compaction, compaction×retrieval, lineage-survival map | `POINTER_READY / COMPOSITION_REQUIRED` | Preserve/refer decision-material lineage; route cold dependency to Retrieval Obligation. |
+| `OA-WAIT-01` WAIT/Pause | `research/prototypes/wait-state/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Map wait/callback/interrupt/polling to Host; preserve wake/timeout/evidence/escalation. |
+| `OA-AUTH-01` Authority | `research/prototypes/authority-lease/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Resolve grant scope/validity; use `NOT_REQUIRED` for genuinely non-authority-bearing actions. |
+| `OA-EFF-01` Effect Lifecycle | `research/prototypes/effect-lifecycle/`; `research/prototypes/execution-surface-fencing/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Choose idempotency/fencing/version/status/gateway/compensation/WAIT according to target semantics. |
+| `OA-COM-01` Commitment/Settlement | `research/prototypes/commitment-settlement-recovered/`; migration-settlement composition | `POINTER_READY / COMPOSITION_REQUIRED` | Separate obligation subject, executor, effect and settlement; compose physical fencing through Effect Lifecycle. |
+| `OA-REC-01` Recovery | `research/prototypes/recovery-adapter/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | After restore consume world-settlement + authority outputs before resume. |
+| `OA-ID-01` Identity/Trajectory | `procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md`; Current Continuity Vector; RESTORE-MODEL | `BOUNDED_PROCEDURE_READY / HOST_EVIDENCE_OPEN / UNIVERSAL_SCHEMA_NOT_JUSTIFIED` | Ask continuity-for-what-decision; select only material relations; never infer authority from continuity. |
+| `OA-AUTHOR-01` Contested Authorship | `research/prototypes/contested-authorship/` | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Use for material durable self-change; ordinary memory/cache/task state may be out-of-scope/lightweight. |
+| `OA-STAND-01` Standing/Rehabilitation | `procedures/STANDING-INPUT-PROCEDURE.md`; #92 lineage | `BOUNDED_PROCEDURE_READY / REHABILITATION_FIELD_POLICY_OPEN` | Route only decision-material objections into disposition/readback; no veto/personhood/authority promotion. |
+| `OA-EVID-01` Evidence/Provenance | Evidence Envelope; Evidence Dependency Map; Current contracts/fixtures | `POINTER_READY / HOST_ADAPTER_REQUIRED` | Keep support/applicability/witness/activation/projection/dependency claims separate. |
+| `OA-EVO-01` Evolution | Current Evolution Metabolism + v2 schemas/tools; progressive-envelope research | `POINTER_READY / RESEARCH_ALTERNATIVE_ACTIVE` | Current v2 remains adopter baseline; progressive occurrence/enrichment is research. |
+| `OA-MIG-01` Migration/Commons | Current adaptation packet v2; lineage-survival + migration-settlement; `COMMONS-TRANSPORT-AND-DISCOVERY-PATTERNS.md` | `SEMANTIC_CARRIER_READY / COMMONS_PATTERN_READY / HOST_PROTOCOL_ADAPTER_REQUIRED` | Keep adaptation packet, durable Commons substrate, A2A/live task protocol and local adoption separate. |
+| `OA-ECO-01` Ecology/Resources | #93; MSI experiment; network extraction; verification-as-service variation; `procedures/CONTROL-RETIREMENT-PROCEDURE.md` | `BOUNDED_CONTROL_RETIREMENT_PROCEDURE_READY / FIELD_MESOCOSM_REQUIRED` | Reuse mature mechanisms where fitting; retirement has no universal age/count/score threshold. |
+| `OA-ADOPT-01` Adoption/Language/Release | Current first-read/kernel/LITE/adoption/release/language docs; zh-CN projection; semantic fixtures; current validation workflow | `POINTER_READY / STRUCTURAL_MACHINE_SURFACE_EXISTS / BEHAVIORAL_FIELD_EVIDENCE_REQUIRED` | Do not mistake structural parity for behavioral decision equivalence. |
 
 ---
 
 # Fast routes by implementation need
 
-## I need a machine-checkable reference organ now
+## Machine-checkable reference organ
 
-Start with:
+Start with Retrieval Obligation, WAIT, Authority Lease, Effect Lifecycle, Commitment/Settlement, Recovery Adapter, Contested Authorship, Evidence Envelope, Evidence Dependency Map, Tiny Hot Kernel routing, and Current evolution/migration validators.
 
-- Retrieval Obligation;
-- WAIT State;
-- Authority Lease;
-- Effect Lifecycle;
-- Commitment/Settlement;
-- Recovery Adapter;
-- Contested Authorship;
-- Evidence Envelope;
-- Evidence Dependency Map;
-- Current evolution/migration schemas and validators.
+## Bounded procedure
 
-These surfaces remain research/reference unless Current explicitly says otherwise.
+Current procedures include:
 
-## I need a bounded reference procedure without a machine schema
+- purpose-relative continuity;
+- Standing Input;
+- Control Retirement.
 
-Start with:
+A procedure does not automatically justify a schema.
 
-- `procedures/PURPOSE-RELATIVE-CONTINUITY-PROCEDURE.md` — continuity sufficient/broken/unresolved **for a particular decision**;
-- `procedures/STANDING-INPUT-PROCEDURE.md` — decision-material objection/input consideration without veto/authority/personhood promotion.
+## Commons / interoperability substrate
 
-Both survived the authored static counterexamples in `PROCEDURE-AUDIT-001.md`.
+Use `COMMONS-TRANSPORT-AND-DISCOVERY-PATTERNS.md`.
+
+Current preserved branches include:
+
+- Git/repository Commons;
+- OCI-style content-addressed registry;
+- object store + explicit index;
+- direct transfer;
+- A2A/Host-native protocol for live Agent discovery/task exchange.
 
 ```text
-REFERENCE_PROCEDURE_AUTHORED
-!=
-UNIVERSAL_MACHINE_SCHEMA_REQUIRED
+ACTIVE_PROTOCOL != DURABLE_COMMONS
 ```
 
-## I need a Host-native mechanism
+## Host-native mechanism
 
-Common examples:
+Examples: idempotency keys, fencing tokens, conditional writes, durable workflows/checkpoints, callbacks/interrupts, RBAC/capability systems, workload identity, native memory/retrieval, provenance/trace/attestation, A2A/task orchestration.
 
-- idempotency keys;
-- fencing tokens;
-- conditional/versioned writes;
-- durable workflows/checkpoints;
-- callbacks/interrupts;
-- RBAC/capability systems;
-- workload identity/credential rotation;
-- memory blocks/vector/index/exact-path retrieval;
-- provenance/trace/attestation systems;
-- A2A/task orchestration.
-
-Use the Operational Map to preserve ENA boundaries while mapping to Host semantics.
-
-## I reached a field/ecology question
+## Field/mesocosm evidence
 
 Examples:
 
 - natural Tiny Kernel cue salience;
 - long-run Memory Compiler behavior;
-- reputation rehabilitation policy/value;
-- control retirement thresholds;
+- bilingual/other-language decision equivalence;
+- reputation rehabilitation;
+- control retirement value under real changing ecology;
 - culture/specialization/resource pressure;
 - discretionary exploration;
 - verification-as-service/validation markets.
-
-Use field/mesocosm evidence only where interaction/reality can produce decision-changing information.
 
 ---
 
 # Applicability guard
 
-Reference organ/procedure existence does not make it mandatory.
-
-Several mature surfaces encode out-of-scope/lightweight behavior:
+A concrete HOW should say both how to use it and when not to invoke it.
 
 ```text
 Authority Lease -> NOT_REQUIRED
 Contested Authorship -> OUT_OF_SCOPE_FOR_CONTESTED_AUTHORSHIP
 Recovery Adapter -> independent rescue/drill only when required
-Evidence Envelope -> optional sections / low-risk false-BLOCK controls
-Continuity Procedure -> CONTINUITY_DETERMINATION_NOT_REQUIRED_FOR_THIS_DECISION
-Standing Procedure -> STANDING_PROCESS_NOT_REQUIRED_FOR_THIS_DECISION
+Continuity Procedure -> NOT_REQUIRED when continuity cannot change the decision
+Standing Procedure -> NO_FORMAL_STANDING when objection cannot change the consequential decision
+Control Retirement -> KEEP_ACTIVE / UNKNOWN_WAIT when retirement basis is weak
 ```
 
-Assembly should preserve this pattern:
-
-> A concrete HOW should say both **how to use it** and **when not to invoke it**.
-
+`REFERENCE_ORGAN_EXISTS != UNIVERSAL_APPLICABILITY`
 `CURRENT_CHANGE = NO`
