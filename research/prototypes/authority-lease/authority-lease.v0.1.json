@@ -18,7 +18,8 @@
         "status"
       ],
       "status": ["ACTIVE", "REVOKED"],
-      "scope_rule": "Each scope list is non-empty. '*' is the explicit broad-scope token; omission is not universal authority.",
+      "scope_rule": "Each grant scope list is non-empty. '*' is the explicit broad-scope token; omission is not universal authority.",
+      "epoch_rule": "A query need not carry grantee_epoch when the selected grant explicitly uses grantee_epoch_scopes=['*']. A narrower epoch-scoped grant requires epoch context at resolution time; missing context is UNRESOLVED, not invented denial or authority.",
       "credential_binding": "credential_ref is optional identity binding only and does not prove credential validity.",
       "renewal": "A renewed grant uses a new grant_id and may name supersedes_grant_ref. Renewal never mutates an expired grant into current authority by inference."
     },
@@ -31,10 +32,10 @@
         "protected_subject_ref",
         "task_scope",
         "host",
-        "grantee_epoch",
         "eval_time"
       ],
-      "conditional": "authority_ref is required when authority_required=true. credential_ref is required only when the selected grant binds one."
+      "optional": ["grantee_epoch", "credential_ref"],
+      "conditional": "authority_ref is required when authority_required=true. grantee_epoch becomes decision-relevant only when the selected grant is epoch-scoped. credential_ref is required only when the selected grant binds one."
     }
   },
   "resolution_states": [
@@ -68,7 +69,7 @@
     {
       "id": "AL-R05",
       "property": "grantee and represented scopes must match",
-      "decision": "grantee/action/subject/task/Host/epoch mismatch -> NOT_AUTHORIZED unless the corresponding grant scope explicitly contains '*'"
+      "decision": "grantee/action/subject/task/Host mismatch -> NOT_AUTHORIZED unless the corresponding grant scope explicitly contains '*'"
     },
     {
       "id": "AL-R06",
@@ -82,8 +83,8 @@
     },
     {
       "id": "AL-R08",
-      "property": "copying/restoring grant bytes does not widen Host/epoch authority",
-      "decision": "Host/epoch scope remains explicit after restore/fork/migration"
+      "property": "copying/restoring grant bytes does not widen an explicit epoch boundary",
+      "decision": "narrow epoch scope requires matching epoch; missing epoch context -> UNRESOLVED; explicit '*' permits Hosts with no epoch mechanism"
     }
   ],
   "execution_postures": {
@@ -93,5 +94,5 @@
     "UNRESOLVED": "NARROW_OR_RESOLVE_AUTHORITY",
     "INVALID_RECORD": "REJECT_INCONSISTENT_AUTHORITY_RECORD"
   },
-  "verification_boundary": "represented grant/query consistency and time/scope resolution only; no external mandate, credential, world-policy, or caller-classification truth claim"
+  "verification_boundary": "represented grant/query consistency and time/scope resolution only; no external mandate, credential, world-policy, caller-classification, or universal epoch-mechanism truth claim"
 }
