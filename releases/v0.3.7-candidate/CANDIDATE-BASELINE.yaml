@@ -58,7 +58,7 @@ semantic_trunk:
     - "schemas/adaptation-packet.v2.schema.json"
 
 operational_architecture:
-  state: ASSEMBLY_IN_PROGRESS
+  state: ASSEMBLED_STAGE_2
   entrypoint: "operational/README.md"
   cue_index: "operational/CUE-INDEX.md"
   how_map: "operational/HOW-MAP.md"
@@ -67,13 +67,13 @@ operational_architecture:
   concrete_how_is_universal_mandate: false
   host_local_realization_allowed: true
   selected_procedures:
-    - PURPOSE_RELATIVE_CONTINUITY
-    - STANDING_INPUT
-    - CONTROL_RETIREMENT
+    - "operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md"
+    - "operational/procedures/STANDING-INPUT.md"
+    - "operational/procedures/CONTROL-RETIREMENT.md"
   selected_patterns:
-    - EVOLUTION_COMMONS
-    - HOST_MAPPINGS
-  stage1_missing_paths_are_expected: true
+    - "operational/patterns/EVOLUTION-COMMONS.md"
+    - "operational/patterns/HOST-MAPPINGS.md"
+  candidate_local_paths_exist: true
 
 references:
   state: MANIFEST_SELECTED_CONTENT_ASSEMBLY_PENDING
@@ -127,18 +127,23 @@ freeze_protocol:
   freeze_not_allowed_while_maturity_is_assembly_in_progress: true
 
 assembly:
-  stage: 1
-  state: TRUTHFUL_CANDIDATE_SHELL
+  stage: 2
+  state: OPERATIONAL_ARCHITECTURE_ASSEMBLED
   completed:
     - candidate branch aligned to exact release-scope checkpoint
-    - candidate baseline created
-    - candidate identity entry files created
-    - operational entry directory created
+    - candidate baseline and candidate identity entry files created
+    - operational entrypoint created
+    - cue index created
+    - cold HOW map created
+    - machine-readable operational reference index created
+    - Purpose-Relative Continuity procedure created
+    - Standing Input procedure created
+    - Control Retirement procedure created
+    - Evolution Commons pattern created
+    - Host mapping pattern created
     - optional reference manifest created
   pending:
-    - operational cue/how/reference-index cargo
-    - bounded procedures and patterns
-    - selected optional machine references
+    - selected optional machine reference contents
     - candidate-local v2 evolution helper and explicit legacy relocation
     - zh-CN operational projection and fixtures
     - candidate-specific validator and author adversarial suite
@@ -148,9 +153,9 @@ assembly:
 
 accepted_working_residuals:
   - "Current v0.3.6 remains the only adopter-facing baseline while candidate.0 is assembled."
-  - "Stage-1 inherited semantic files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
-  - "Bundled reference paths declared in the manifest are selected cargo but may not exist until later assembly stages."
-  - "The v2 primary tool direction is selected, but the candidate-local tool path is not yet assembled in Stage 1."
+  - "Inherited semantic files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
+  - "Operational Architecture is candidate-local and traversable, but selected machine reference paths are not yet assembled."
+  - "The v2 primary tool direction is selected, but the candidate-local tool path is not yet assembled."
   - "Fresh-session cue salience and behavioral language equivalence remain field evidence, not candidate-author proof."
 
 invariants:
