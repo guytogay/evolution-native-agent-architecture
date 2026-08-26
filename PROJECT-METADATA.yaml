@@ -1,4 +1,4 @@
-schema_version: "1.6"
+schema_version: "1.7"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -29,6 +29,13 @@ entrypoints:
   evolution_record_validator: "releases/current/tools/validate_evolution_record_v2.py"
   inherited_contract_validator: "releases/current/tools/validate_contracts.py"
   inherited_reference_tool: "releases/current/tools/ena_evolve.py"
+  research_bootstrap: "research/RESEARCH-START-HERE.md"
+  research_directory_map: "research/README.md"
+  research_methodology: "research/methodology/README.md"
+  research_master_method: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  research_master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
+  research_progress: "research/plans/PROGRESS.yaml"
+  external_how_registry: "research/external-how/SOURCE-REGISTRY.md"
 
 surfaces:
   github:
@@ -37,6 +44,12 @@ surfaces:
     role: "CANONICAL_ENGINEERING_RESEARCH_LINEAGE_AND_CURRENT_ADOPTION_SOURCE"
     main_branch: main
     current_adoption_baseline: "releases/current/"
+    research_bootstrap: "research/RESEARCH-START-HERE.md"
+    research_methodology: "research/methodology/"
+    research_plans: "research/plans/"
+    research_reconstruction: "research/reconstruction/"
+    external_how: "research/external-how/"
+    research_incidents: "research/incidents/"
     evolution_inbox: "research/evolution-inbox/README.md"
     contributions: "collaboration/inbox/"
     reconciliation: "collaboration/reconciliation/"
@@ -71,12 +84,23 @@ current_validation:
     - "Unexpected counterexamples and new variations"
 
 research_checkpoint:
+  counts_are_descriptive_not_ontology_or_closure_proof: true
   historical_adversarial_replay_cases: 13
   network_protocol_divergent_passes_reconciled: 62
   constitution_id_count: 38
   v036_new_constitution_ids: 0
   v036_candidate1_v2_selftests: 18
   inherited_composed_regression_cases: 235
+
+research_continuity:
+  handoff_summary_is_project_state: false
+  durable_implies_discoverable: false
+  discoverable_implies_retrieved: false
+  retrieved_implies_salient: false
+  salient_implies_applied: false
+  methodology_has_canonical_directory: true
+  progress_has_machine_readable_carrier: true
+  external_how_has_durable_registry: true
 
 authority_defaults:
   contribution: "UNRECONCILED / NOT_CURRENT / NOT_RELEASED"
@@ -104,6 +128,8 @@ release_policy:
   micro_release_every_issue_by_default: false
   batch_changes_until_release_roi_is_justified: true
   adopters_use_current_only: true
+  next_release_goal_active: true
+  next_release_version_preassigned: false
 
 branch_policy:
   branch_per_research_idea_by_default: false
@@ -118,6 +144,13 @@ architecture_policy:
   prefer_existing_contract_extension_over_parallel_ontology: true
   staged_runtime_implementation_allowed_when_boundary_is_explicit: true
   inherited_tool_rejection_must_not_be_silently_promoted_to_semantic_prohibition: true
+  semantic_trunk_may_compress: true
+  how_default_direction: "CONCRETIZE_AND_GROW"
+  how_cardinality_is_discovered: true
+  one_property_requires_one_implementation: false
+  local_how_winner_is_universal_winner: false
+  external_mechanisms_may_supply_candidate_hows: true
+  external_popularity_is_selection_proof: false
 
 contribution_policy:
   public_read_access: true
