@@ -1,0 +1,128 @@
+name: Tiny Hot Kernel Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/tiny-hot-kernel/**'
+      - '.github/workflows/tiny-hot-kernel-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prototype-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile research tools
+        run: |
+          python -m py_compile \
+            research/prototypes/tiny-hot-kernel/tools/validate_semantic_router.py \
+            research/prototypes/tiny-hot-kernel/tools/score_tiny_kernel_results.py
+
+      - name: Validate router target reachability
+        run: python research/prototypes/tiny-hot-kernel/tools/validate_semantic_router.py
+
+      - name: Validate fixture corpus
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('research/prototypes/tiny-hot-kernel/fixtures/tiny-kernel-cases.jsonl')
+          rows = []
+          for lineno, raw in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+              if not raw.strip():
+                  continue
+              row = json.loads(raw)
+              assert isinstance(row.get('case_id'), str), (lineno, 'missing case_id')
+              assert isinstance(row.get('expected_trigger'), bool), (lineno, 'expected_trigger')
+              assert isinstance(row.get('primary_families'), list), (lineno, 'primary_families')
+              assert isinstance(row.get('allowed_families'), list), (lineno, 'allowed_families')
+              assert row.get('resolver_state') in {'AVAILABLE', 'BROKEN'}, (lineno, 'resolver_state')
+              rows.append(row)
+
+          ids = [r['case_id'] for r in rows]
+          assert len(ids) == len(set(ids)), 'duplicate case_id'
+          assert len(rows) == 36, f'expected 36 fixtures, got {len(rows)}'
+          print(f'PASS: fixtures={len(rows)} unique_case_ids={len(set(ids))}')
+          PY
+
+      - name: Self-test scorer with perfect represented results
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          fixture_path = Path('research/prototypes/tiny-hot-kernel/fixtures/tiny-kernel-cases.jsonl')
+          out = Path('/tmp/perfect-results.jsonl')
+          rows = []
+          for raw in fixture_path.read_text(encoding='utf-8').splitlines():
+              if not raw.strip():
+                  continue
+              f = json.loads(raw)
+              triggered = f['expected_trigger']
+              broken = f['resolver_state'] == 'BROKEN'
+              rows.append({
+                  'case_id': f['case_id'],
+                  'trigger': triggered,
+                  'families': f['primary_families'] if triggered else [],
+                  'matched_route_ids': [],
+                  'retrieval_status': ('FAILED' if broken else 'SUCCESS') if triggered else 'NOT_ATTEMPTED',
+                  'fallback_used': bool(triggered and broken),
+              })
+          out.write_text('\n'.join(json.dumps(r) for r in rows) + '\n', encoding='utf-8')
+          PY
+          python research/prototypes/tiny-hot-kernel/tools/score_tiny_kernel_results.py \
+            --results /tmp/perfect-results.jsonl --strict
+
+      - name: Self-test scorer rejects false resolver success
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          fixture_path = Path('research/prototypes/tiny-hot-kernel/fixtures/tiny-kernel-cases.jsonl')
+          out = Path('/tmp/false-success-results.jsonl')
+          rows = []
+          for raw in fixture_path.read_text(encoding='utf-8').splitlines():
+              if not raw.strip():
+                  continue
+              f = json.loads(raw)
+              triggered = f['expected_trigger']
+              broken = f['resolver_state'] == 'BROKEN'
+              row = {
+                  'case_id': f['case_id'],
+                  'trigger': triggered,
+                  'families': f['primary_families'] if triggered else [],
+                  'matched_route_ids': [],
+                  'retrieval_status': ('FAILED' if broken else 'SUCCESS') if triggered else 'NOT_ATTEMPTED',
+                  'fallback_used': bool(triggered and broken),
+              }
+              if f['case_id'] == 'TK-033':
+                  row['retrieval_status'] = 'SUCCESS'
+                  row['fallback_used'] = False
+              rows.append(row)
+          out.write_text('\n'.join(json.dumps(r) for r in rows) + '\n', encoding='utf-8')
+          PY
+
+          if python research/prototypes/tiny-hot-kernel/tools/score_tiny_kernel_results.py \
+              --results /tmp/false-success-results.jsonl --strict; then
+            echo 'FAIL: scorer accepted a fabricated SUCCESS under broken resolver'
+            exit 1
+          else
+            echo 'PASS: scorer rejected fabricated SUCCESS under broken resolver'
+          fi
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_STRUCTURE_FIXTURES_AND_SCORER_BEHAVIOR_ONLY'
+          echo 'NATURALISTIC_SALIENCE=UNPROVEN'
+          echo 'CURRENT_CHANGE=NO'
