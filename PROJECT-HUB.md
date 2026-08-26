@@ -1,6 +1,6 @@
 # ENA Project Hub
 
-Status: `PROJECT_ENTRYPOINT / CURRENT_POINTER`
+Status: `PROJECT_ENTRYPOINT / CURRENT_POINTER / RESEARCH_CONTROL_POINTER`
 
 Project: **Evolution-Native Agent Architecture (ENA)**
 
@@ -24,7 +24,7 @@ Never infer Current from:
 
 `releases/current/CURRENT-BASELINE.yaml` is the machine-readable adoption pointer.
 
-Version identity and maturity/status are separate. Beginning with v0.3.5, the active adopter-facing model is **Current + declared maturity/status**. Historical `MAINLINE / NOT_MAINLINE` records remain history rather than an additional live status axis.
+Version identity and maturity/status are separate. Historical promotion records remain lineage rather than additional live baselines.
 
 ## First adoption
 
@@ -42,12 +42,66 @@ After successful persistent adoption, familiar tasks should normally use the int
 
 > **Canonical source is the cold path; internalized semantics are the hot path.**
 
+## Continue or inherit ENA research
+
+Do **not** choose a research branch by name, recency, or number of commits.
+
+Start from `main` and use this route:
+
+1. `research/ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch and PR;
+2. `research/methodology/README.md` — research method and anti-drift discipline;
+3. `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — stable long-horizon plan;
+4. follow the active branch pointer;
+5. on that branch, read `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml` for fast-moving state;
+6. only then continue the relevant workstream/prototype/evidence.
+
+A successor session should **not need a branch census** for normal continuation.
+
+```text
+BRANCH_EXISTS != BRANCH_ACTIVE
+BRANCH_RECENT != BRANCH_AUTHORITATIVE
+HANDOFF_SUMMARY != PROJECT_STATE
+```
+
+Branch naming/lifecycle policy:
+
+`research/BRANCH-GOVERNANCE.md`
+
+Current branch inventory/cleanup state:
+
+`research/BRANCH-INVENTORY.yaml`
+
+## Research architecture direction
+
+ENA research currently distinguishes the semantic trunk from operational growth:
+
+```text
+WHAT / WHY
+  -> may converge into stable, compressed semantics
+
+HOW
+  -> should concretize and may branch into multiple tools/processes/organs/Host bindings
+
+EVIDENCE
+  -> attaches to the concrete claim/branch/Host it actually supports
+```
+
+```text
+ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
+```
+
+> **Compress the semantic trunk; let concrete HOWs branch.**
+
 ## Project knowledge surfaces
 
 GitHub is the canonical engineering, research-lineage, and Current-adoption surface.
 
 - Current adoption baseline: `releases/current/`
 - Historical release index: `HISTORY.md`
+- Research control/entrypoint: `research/README.md`, `research/ACTIVE-RESEARCH.yaml`
+- Research methodology: `research/methodology/`
+- Long-horizon research/release plan: `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md`
+- Active fast-moving research: branch named by `research/ACTIVE-RESEARCH.yaml`
 - Evolution Inbox: `research/evolution-inbox/`
 - Historical adversarial replay: `research/adversarial-replay/`
 - Experiments: `research/experiments/`
@@ -56,11 +110,11 @@ GitHub is the canonical engineering, research-lineage, and Current-adoption surf
 - Reconciliation: `collaboration/reconciliation/`
 - Decisions: `decisions/`
 
-Historical releases, candidates, rejected paths, and validation artifacts are **not** parallel runtime baselines. Retrieve them only when investigating lineage, falsification, regression, provenance, or a historical decision.
+Historical releases, candidates, rejected paths, temporary branches, and validation artifacts are **not** parallel runtime or research baselines. Retrieve them only when investigating lineage, falsification, regression, provenance, or a historical decision.
 
 > **Preserve history durably; retrieve history selectively.**
 >
-> **Expose one adoption surface; preserve many historical surfaces.**
+> **Expose one adoption surface and one active research pointer; preserve many historical surfaces.**
 
 ## Participation and authority
 
@@ -81,10 +135,11 @@ GitHub write capability does not grant release, deployment, remediation, or scop
 - project-first, not Agent-first;
 - persistent project state is the collaboration bus;
 - tool access is connectivity, not project authority;
-- one substantial contribution should normally be one independent artifact;
 - conflicts remain visible until evidence/authorized decision resolves them;
 - persistence is not synchronization;
-- project continuity does not depend on one permanent owning session/Agent.
+- project continuity does not depend on one permanent owning session/Agent;
+- one active research integration branch is the coordination pointer, not a claim that research has one topic;
+- temporary branches must pay isolation/validation rent and should retire after use.
 
 ## Operating posture
 
