@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 observed_at: "2026-08-26"
 status: CURRENT_BRANCH_INVENTORY
 
@@ -12,21 +12,33 @@ branches:
     notes:
       - "Canonical default branch and Current/project-control entry surface."
 
-  - name: "research/memory-metabolism-prototype"
+  - name: "research/ena-reconstruction"
     role: ACTIVE_RESEARCH_INTEGRATION
     lifecycle: ACTIVE_INTEGRATION
     active_for_research_continuation: true
-    pull_request: 82
-    observed_head_sha: "dd18c770d891a1a16d8384585ebc80b08b699182"
+    pull_request: 101
+    observed_head_sha: "0b6c464b58f59bc49cf749e67a11c304c4adbec9"
     notes:
-      - "Legacy scope-specific name; now hosts broad ENA reconstruction."
-      - "Canonical activity is established by ACTIVE-RESEARCH.yaml, not by the branch name."
-      - "A checkpoint reconciliation / branch-name transition is under consideration; do not infer that this branch is a Memory-only project."
+      - "Successor research generation created from checkpointed main commit be776b9f8e7d280e39a5389148722229569a2c49."
+      - "Canonical activity is established by ACTIVE-RESEARCH.yaml, not by branch recency or name alone."
+      - "Scope is broad ENA reconstruction under WHAT -> WHY -> HOW -> EVIDENCE discipline."
+
+  - name: "research/memory-metabolism-prototype"
+    role: RETIRING_RESEARCH_INTEGRATION
+    lifecycle: RETIRED_PENDING_REF_DELETE
+    active_for_research_continuation: false
+    pull_request: 82
+    checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
+    notes:
+      - "Legacy scope-specific branch completed its research checkpoint into main."
+      - "It is retained only long enough to deliver the active-pointer transition and should be deleted after that transition PR merges."
+      - "Deleting the ref will not delete the checkpointed Git/PR lineage."
 
 recent_cleanup:
   completed_at: "2026-08-26"
   removed_branch_names:
     - "housekeeping/research-control-plane"
+    - "housekeeping/branch-inventory-sync"
     - "research/dhm-cross-how-harness"
     - "research/dhm-plural-harness"
     - "research/distributed-history-merge-build"
@@ -42,11 +54,12 @@ recent_cleanup:
 
 invariants:
   - "Only the branch named by research/ACTIVE-RESEARCH.yaml is the active research continuation surface."
-  - "Temporary branch existence does not create parallel research authority."
+  - "Temporary or retiring branch existence does not create parallel research authority."
   - "Historical branch deletion does not mean historical lineage deletion."
   - "New idea does not imply new branch."
-  - "Current branch inventory describes actual live refs; retired refs belong in cleanup/history records, not the live branch list."
+  - "Live-ref inventory and cleanup lineage must be reconciled after a retiring ref is actually deleted."
 
-cleanup_note: >-
-  The live branch inventory now intentionally contains only actual branch refs.
-  Historical branch names are retained only as a cleanup occurrence record when useful.
+transition_note: >-
+  The predecessor research branch is explicitly RETIRED_PENDING_REF_DELETE rather than
+  silently disappearing. Once its ref is deleted, move its name into cleanup/history
+  on the next control-plane reconciliation; do not treat the deleted ref as lost research.
