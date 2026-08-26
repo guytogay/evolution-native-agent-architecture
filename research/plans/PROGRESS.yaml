@@ -1,4 +1,4 @@
-schema_version: "1.5"
+schema_version: "1.6"
 as_of: "2026-08-27"
 status: ACTIVE_RELEASE_SCOPE_RECONCILIATION
 
@@ -15,6 +15,10 @@ canonical_pointers:
   release_scope_reconciliation_001: research/release-scope/RELEASE-SCOPE-RECONCILIATION-001.md
   release_tooling_reconciliation_001: research/release-scope/RELEASE-TOOLING-RECONCILIATION-001.md
   reference_library_selection_001: research/release-scope/REFERENCE-LIBRARY-SELECTION-001.md
+  candidate_surface_design_001: research/release-scope/CANDIDATE-SURFACE-DESIGN-001.md
+  language_scope_001: research/release-scope/LANGUAGE-SCOPE-001.md
+  reference_manifest_draft: research/release-scope/CANDIDATE-REFERENCE-MANIFEST-DRAFT.yaml
+  anti_ablation_selection_audit_001: research/release-scope/ANTI-ABLATION-SELECTION-AUDIT-001.md
   minimal_v2_tool_prototype: research/prototypes/ena-evolve-v2-minimal/README.md
 
 current_adoption:
@@ -50,17 +54,17 @@ phase_state:
     semantic_delta_count_at_entry: 0_DEMONSTRATED
 
   release_scope_reconciliation:
-    state: CARGO_SELECTION_NARROWED / REMAINING_PACKAGING_LANGUAGE_ANTI_ABLATION_WORK
+    state: CARGO_DECISIONS_MADE / SCOPE_STABILITY_GATE_NEXT
     current_result:
       new_constitution_rule_required: 0_DEMONSTRATED
       new_core_semantic_delta_required: 0_DEMONSTRATED
-      practical_adopter_delta: MATERIAL
+      practical_adopter_delta: MATERIAL_SELECTED
       reference_library_delta: MATERIAL_SELECTED
-      tooling_delta: MATERIAL_SELECTED_FOR_CANDIDATE
-      language_adoption_delta: MATERIAL_SCOPE_OPEN
-      next_version: UNASSIGNED
+      tooling_delta: MATERIAL_SELECTED
+      language_adoption_delta: MATERIAL_SELECTED
+      next_version: UNASSIGNED_PENDING_SCOPE_STABILITY_GATE
 
-    in_scope_adopter_guidance:
+    selected_adopter_surface:
       - release-local Operational Architecture entrypoint
       - compact cue index
       - cold HOW map
@@ -68,7 +72,8 @@ phase_state:
       - purpose-relative continuity procedure
       - Standing Input procedure
       - Control Retirement procedure
-      - Evolution Commons substrate/protocol pattern
+      - Evolution Commons pattern
+      - Host mapping guidance
       - curated Memory Metabolism guidance
 
     selected_general_optional_references:
@@ -85,6 +90,34 @@ phase_state:
 
     deferred_reference_candidates:
       - Commitment/Settlement recovered reconstruction pending fresh independent review or renewed candidate-critical need
+
+    selected_tooling:
+      default_candidate_path: MINIMAL_V2_COMPATIBLE_HELPER
+      research_path: research/prototypes/ena-evolve-v2-minimal/
+      deterministic_selftest: PASS_ON_GITHUB_ACTIONS
+      cli_roundtrip: PASS_ON_GITHUB_ACTIONS
+      legacy_v1_2: EXPLICIT_LEGACY_COMPATIBILITY_ONLY
+      narrow_legacy_repair_selected_as_primary: false
+
+    candidate_surface:
+      state: WORKING_PACKAGE_SHAPE_SELECTED
+      operational_directory: true
+      optional_reference_manifest: true
+      references_always_hot: false
+      research_tree_copied_into_release: false
+
+    language_scope:
+      state: SELECTED
+      zh_cn_hot_entry_projection: REQUIRED_FOR_CANDIDATE
+      zh_cn_operational_how_projection: REQUIRED_FOR_CANDIDATE
+      zh_cn_reference_semantic_guide: REQUIRED_FOR_CANDIDATE
+      full_machine_artifact_literal_translation: NOT_REQUIRED
+      behavioral_equivalence: UNPROVEN_REQUIRES_EVIDENCE
+
+    anti_ablation_selection:
+      state: PASS_ON_CURRENT_SCOPE_MAP
+      silently_erased_material_how_found: false
+      deferred_means_retired: false
 
     host_pattern_not_universal_organ:
       - Tiny Hot Kernel / semantic router phenotype
@@ -107,43 +140,19 @@ phase_state:
       - culture/specialization/resource ecology experiments
       - raw natural Tiny Kernel salience runs
 
-    tooling_decision:
-      inherited_ena_evolve:
-        state: LEGACY_NONDEFAULT_FOR_NEXT_CANDIDATE
-        known_false_block: VARIATION_SPACE_REQUIRED_FOR_LATENT_PROPOSE_AND_IMPORT
-        full_v2_runtime: false
-        narrow_legacy_repair_selected_as_primary: false
-      minimal_v2_helper:
-        state: SELECT_FOR_CANDIDATE_DEFAULT_PATH
-        research_path: research/prototypes/ena-evolve-v2-minimal/
-        reuses_current_record_validator: true
-        reuses_current_packet_schema: true
-        duplicates_record_semantic_engine: false
-        deterministic_selftest: PASS_ON_GITHUB_ACTIONS
-        cli_roundtrip: PASS_ON_GITHUB_ACTIONS
-        current_patch_authorized: false
-
-    language_release_requirement:
-      state: OPEN_SCOPE_DECISION
-      rule: >-
-        New hot/entry operational surfaces require honest zh-CN projection/fixture decisions;
-        structural parity does not prove behavioral equivalence.
-
   candidate_build_and_validation:
     state: NOT_STARTED
-    prerequisite: RELEASE_SCOPE_STABLE
+    prerequisite: SCOPE_STABILITY_GATE_PASS_AND_VERSION_ASSIGNMENT
 
   promotion:
     state: NOT_STARTED
 
 next_actions:
-  - define the minimum release-local Operational Architecture entry surface and package layout
-  - define machine-readable optional-reference semantics so bundled references cannot be inferred mandatory
-  - decide zh-CN coverage and semantic fixtures for new operational entry/hot surfaces
-  - identify which existing Current top-level prose must change versus only point to the operational library
-  - run anti-ablation selection audit to confirm deferred/unselected HOWs remain discoverable and were not silently retired
-  - decide whether remaining scope questions can still materially alter candidate cargo
-  - assign no version until release scope stabilizes
+  - run release-scope stability gate: identify whether any open question can still materially change candidate cargo rather than implementation details
+  - inspect versioning/history and assign next version only if scope stability gate passes
+  - update main-visible master plan/control plane if release-scope closure materially changes project phase
+  - create candidate build branch/surface only after version assignment and release discipline permits it
+  - preserve Current v0.3.6 unchanged until candidate promotion completes
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
@@ -157,3 +166,4 @@ invariants:
   - HELPER_ORCHESTRATES_CURRENT_SEMANTICS_NE_HELPER_REIMPLEMENTS_CURRENT_SEMANTICS
   - SOURCE_SELECTION_TRANSFERRED_NE_RECEIVER_LOCAL_SELECTION
   - DEFERRED_FROM_FIRST_CANDIDATE_NE_RETIRED_FROM_LINEAGE
+  - OPERATIONAL_LIBRARY_SIZE_NE_ACTIVE_CONTEXT_SIZE
