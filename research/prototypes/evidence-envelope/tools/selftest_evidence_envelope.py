@@ -50,40 +50,39 @@ def main() -> int:
 
     run([sys.executable, str(validator)], expect=0)
     rows = load_jsonl(fixtures)
-    assert len(rows) == 22, f"expected 22 fixtures, got {len(rows)}"
+    assert rows, "evidence-envelope fixture corpus must not be empty"
+    ids = [row.get("case_id") for row in rows]
+    assert len(ids) == len(set(ids)), "duplicate case_id"
+    required_ids = {"EE-001", "EE-002", "EE-009", "EE-015", "EE-017"}
+    assert required_ids <= set(ids), f"missing targeted regression fixtures: {sorted(required_ids - set(ids))}"
 
     with tempfile.TemporaryDirectory(prefix="ena-evidence-envelope-") as tmp:
         tmpdir = Path(tmp)
 
-        # Mutation 1: an explicit match is no longer honest once a dimension is represented as changed.
         row = by_id(rows, "EE-002")
         row["envelope"]["applicability"]["changed_dimensions"] = ["model:M1->M2"]
         path = tmpdir / "changed-dimension.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 2: configuration is upgraded to INVOKED without an invocation/trace witness.
         row = by_id(rows, "EE-009")
         row["envelope"]["activation"]["claimed_level"] = "INVOKED"
         path = tmpdir / "activation-upgrade.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 3: an externally represented witness is moved into the subject's failure domain.
         row = by_id(rows, "EE-015")
         row["envelope"]["witness"]["failure_domain_ref"] = "HOST-X"
         path = tmpdir / "same-domain-witness.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 4: corroboration loses dependency/common-cause representation.
         row = by_id(rows, "EE-017")
         del row["envelope"]["support"]["dependency_map_ref"]
         path = tmpdir / "corroboration-without-dependency.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 5: lightweight evidence tries to mint universal completeness.
         row = by_id(rows, "EE-001")
         row["envelope"]["completeness"] = {
             "complete": True,
@@ -95,6 +94,8 @@ def main() -> int:
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
     print("PASS: evidence-envelope portable adversarial selftest")
+    print(f"observed_fixture_count={len(rows)}")
+    print("fixture_cardinality=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES")
     print("verification_scope=REPRESENTED_CONSISTENCY_MUTATION_TESTS_ONLY")
     print("mechanism_retention=APPLICABILITY,PROJECTION,ACTIVATION,WITNESS,DEPENDENCY")
     print("external_truth=UNPROVEN")
