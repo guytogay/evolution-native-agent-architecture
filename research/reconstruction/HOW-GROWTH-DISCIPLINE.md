@@ -120,6 +120,60 @@ one property
 
 Diversity is useful information. A later shared interface may emerge from multiple working organs, but the interface does not erase the organs that revealed it.
 
+## HOW plurality is a first-class adaptive property
+
+A surviving WHAT/WHY does **not** need one privileged HOW.
+
+Multiple HOWs are often preferable because Hosts differ in:
+
+- persistence substrate;
+- context budget;
+- model behavior;
+- available tools;
+- latency and cost constraints;
+- failure domain;
+- concurrency model;
+- consequence materiality;
+- observability;
+- organizational authority boundaries.
+
+Therefore the preferred implementation research shape is:
+
+```text
+one WHAT / WHY
+-> HOW-A
+-> HOW-B
+-> HOW-C
+-> Host-local mapping and selection
+-> controlled/naturalistic evidence
+```
+
+Examples:
+
+```text
+history continuity
+-> Git/Merkle-DAG merge
+-> causal sibling / dotted-version-vector merge
+-> CRDT convergence
+-> event-sourced append + reconciliation
+```
+
+or:
+
+```text
+Hot Cues + Cold Capability
+-> generative resident grammar
+-> family index
+-> interrupt-question kernel
+-> Host-native rule engine
+```
+
+The goal is not to force these into one universal mechanism. A shared interface may make them comparable or composable, but concrete HOW diversity is itself useful adaptation space.
+
+A single reference organ is therefore **not** sufficient evidence that the HOW problem is closed when materially different Host phenotypes remain plausible.
+
+Retiring HOW-B merely because HOW-A exists is invalid unless one of the normal retirement conditions is met.
+
 ## Required forward question
 
 When advancing a topic, do not begin with:
@@ -133,12 +187,14 @@ Begin with:
 Then ask:
 
 1. Can we build or map one real organ?
-2. What decisions does it enable that prose alone cannot?
-3. What Host-specific alternatives exist?
-4. What external mature implementations can be reused?
-5. What fixtures expose its failure modes?
-6. What evidence would show it improves operation?
-7. What burden does it add?
+2. What alternative HOW phenotypes could make the same property real under different Host constraints?
+3. What decisions does each HOW enable that prose alone cannot?
+4. What Host-specific alternatives exist?
+5. What external mature implementations can be reused?
+6. What fixtures expose each HOW's characteristic failure modes?
+7. What evidence would show it improves operation?
+8. What burden does it add?
+9. Where should local selection choose among coexisting HOWs rather than universalizing one?
 
 Only after concrete realizations exist should abstraction/composition be considered.
 
@@ -159,18 +215,18 @@ NO HOW
 -> FIELD-SUPPORTED PATTERN
 ```
 
-A topic may have multiple parallel HOW lineages.
+A topic may have multiple parallel HOW lineages at different maturity levels.
 
 No stage requires promotion into Current.
 
 ## Retirement rule
 
-A concrete HOW should not be retired merely because its semantic property is represented elsewhere.
+A concrete HOW should not be retired merely because its semantic property is represented elsewhere or because another HOW exists.
 
 Retirement requires one of:
 
 1. demonstrated usefulness failure;
-2. replacement with function parity or better;
+2. replacement with function parity or better for the relevant Host/problem class;
 3. Host/problem specialization proving it is no longer relevant outside that niche;
 4. unacceptable burden relative to demonstrated value.
 
@@ -184,7 +240,8 @@ Falsification remains useful, but its target changes:
 - falsify broken implementations;
 - falsify portability claims;
 - falsify evidence quality;
-- falsify unnecessary burden.
+- falsify unnecessary burden;
+- compare competing HOW phenotypes without assuming one universal winner.
 
 Do **not** treat successful deletion as the default proof of architectural quality.
 
@@ -204,7 +261,15 @@ The goal is:
 
 `HOW_ABSTRACTION = INTERFACE_ONLY_UNLESS_FUNCTION_PARITY_IS_PROVEN`
 
-`REFERENCE_ORGAN_DIVERSITY = ALLOWED`
+`ONE_WHAT_MAY_HAVE_MULTIPLE_HOWS = YES`
+
+`MULTIPLE_HOWS_MAY_COEXIST_LONG_TERM = YES`
+
+`HOST_LOCAL_HOW_SELECTION = EXPECTED`
+
+`REFERENCE_ORGAN_DIVERSITY = ALLOWED_AND_VALUABLE`
+
+`ONE_REFERENCE_ORGAN != HOW_SPACE_CLOSED`
 
 `SEMANTIC_COVERAGE != IMPLEMENTATION_COMPLETION`
 
