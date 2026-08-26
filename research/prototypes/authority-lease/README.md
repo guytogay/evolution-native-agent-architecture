@@ -8,7 +8,7 @@ Related: #91 Reconstruction B, #92 Reconstruction C, #89, PR #82, Effect Lifecyc
 
 Turn ENA's existing authority property into a small executable reference organ for a single question:
 
-> Does this represented grant authorize this grantee to perform this action on this protected subject, for this task, on this Host/epoch, at this evaluation time?
+> Does this represented grant authorize this grantee to perform this action on this protected subject, for this task and represented runtime bindings, at this evaluation time?
 
 This prototype does **not** redefine authority. It operationalizes the existing Current separation:
 
@@ -54,20 +54,38 @@ A grant binds, where represented, to:
 - protected subject scope;
 - task scope;
 - Host scope;
-- grantee epoch scope;
+- optional decision-relevant grantee epoch scope;
 - optional credential identity binding;
 - `valid_from` / `expires_at`;
 - revocation time;
 - explicit source reference.
 
-Scope breadth is explicit. `*` is an explicit broad scope; omission is not silently treated as universal authority.
+Scope breadth is explicit. `*` is an explicit broad scope; omission from a grant is not silently treated as universal authority.
+
+## Epoch is conditional, not mandatory Host machinery
+
+The first v0.1 draft required every query to carry `grantee_epoch`. That would have turned a useful optional binding into a universal Host burden before explicit epochs had earned their complexity cost.
+
+The corrected rule is narrower:
+
+- a grant may deliberately bind authority to one or more epochs;
+- if the selected grant is epoch-scoped, matching epoch context is required;
+- if that context is missing, resolution is `UNRESOLVED`;
+- a grant may explicitly use `grantee_epoch_scopes = ["*"]` when its real mandate is not epoch-bound;
+- under that explicit broad binding, the Host does **not** need to manufacture an epoch mechanism merely to satisfy this reference organ.
+
+Therefore:
+
+`EPOCH_CAN_CHANGE_AUTHORITY_DECISION != EVERY_HOST_MUST_HAVE_EPOCHS`
+
+This is an example of **standardize the property; discover the organ**. Explicit Trajectory/Epoch machinery remains a separate research question and must pay rent in the Host/problem family where it is used.
 
 ## Resolution vocabulary
 
 - `NOT_REQUIRED` — caller says this action is not authority-bearing; no lease is manufactured merely for ceremony.
 - `AUTHORIZED` — the represented grant matches the represented query at the evaluation time.
-- `NOT_AUTHORIZED` — a represented grant exists but is expired, revoked, not-yet-valid, or out of represented scope.
-- `UNRESOLVED` — authority is required but the referenced grant is absent/unresolvable.
+- `NOT_AUTHORIZED` — a represented grant exists but is expired, revoked, not-yet-valid, or contradicts a represented required binding.
+- `UNRESOLVED` — authority is required but the referenced grant or a decision-relevant binding is unresolved.
 - `INVALID_RECORD` — represented grant/query structure is internally inconsistent.
 
 These states are protocol semantics for this reference organ, not a claim that all Hosts must persist the same enum.
@@ -90,9 +108,9 @@ and avoids wall-clock/latest authority inference.
 
 ## Restore / fork / migration discipline
 
-A grant may explicitly span or restrict Host and grantee epoch. Copying the grant record into a clone/fork does not change those bindings.
+When a real mandate is explicitly epoch- or Host-scoped, copying the grant record into a clone/fork does not change those bindings.
 
-An explicit `*` may represent a deliberately cross-Host/cross-epoch grant when the real mandate supports that breadth. The reference organ does not assume such breadth by default.
+An explicit `*` may represent a deliberately broader grant when the real mandate supports that breadth. The reference organ does not infer scope expansion from copying, restore, continuity narrative, or stable identity.
 
 ## Credential boundary
 
@@ -129,12 +147,15 @@ It does **not** establish:
 - that a credential is cryptographically valid merely because its reference matches;
 - that the caller correctly classified `authority_required = false`;
 - that every effect-equivalent path has the same authority boundary;
-- that external policy has not changed outside the represented record.
+- that external policy has not changed outside the represented record;
+- that every Host needs an explicit epoch system.
 
 `GRANT_REPRESENTED != EXTERNAL_MANDATE_TRUE`
 
 `AUTHORIZED_BY_REPRESENTED_LEASE != WORLD_POLICY_CERTIFIED`
 
 `NOT_REQUIRED_CLASSIFICATION != SELF_PROVING`
+
+`EPOCH_BINDING_AVAILABLE != UNIVERSAL_EPOCH_REQUIREMENT`
 
 `CURRENT_CHANGE = NO`
