@@ -3,7 +3,7 @@ ena_version: "v0.3.7-candidate.0"
 candidate_for: "v0.3.7"
 candidate_revision: 0
 adoption_status: WORKING_CANDIDATE
-maturity: ASSEMBLY_IN_PROGRESS
+maturity: PREFREEZE_AUTHOR_FALSIFICATION
 current: false
 frozen: false
 released: false
@@ -15,7 +15,7 @@ version_identity_includes_maturity_status: false
 package_scope: "ALL_FILES_UNDER_RELEASES_V0_3_7_CANDIDATE_WHEN_FROZEN"
 
 # ENA v0.3.7 candidate.0 working baseline.
-# This file is truthful assembly state, not a freeze claim.
+# Assembly and identity reconciliation are machine-checked; this is still not a freeze claim.
 
 lineage:
   base_current_version: "v0.3.6"
@@ -46,19 +46,23 @@ constitution:
 semantic_trunk:
   base: "v0.3.6 Current"
   material_semantic_rewrite_planned: false
-  inherited_files_may_still_contain_v036_current_identity_during_assembly: true
-  freeze_requires_candidate_identity_reconciliation: true
-  unchanged_unless_material_contradiction_found:
+  identity_reconciliation_complete: true
+  freeze_requires_candidate_identity_reconciliation: false
+  exact_byte_preserved:
     - "01-CONSTITUTION.md"
     - "02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md"
     - "03-ROLES-AND-DEVELOPMENTAL-STAGES.md"
     - "04-CAPABILITY-MAP.md"
-    - "05-CORE-OPERATIONAL-CONTRACTS.md"
     - "schemas/evolution-record.v2.schema.json"
     - "schemas/adaptation-packet.v2.schema.json"
+  identity_only_projection_allowed:
+    - "05-CORE-OPERATIONAL-CONTRACTS.md"
+  core_contract_identity_projection_rule: >-
+    05 must equal v0.3.6 Current bytes except for the three explicitly machine-checked
+    version/identity substitutions in the Candidate Identity Gate.
 
 operational_architecture:
-  state: ASSEMBLED_STAGE_2
+  state: ASSEMBLED_MACHINE_CHECKED
   entrypoint: "operational/README.md"
   cue_index: "operational/CUE-INDEX.md"
   how_map: "operational/HOW-MAP.md"
@@ -156,16 +160,40 @@ stage4_machine_evidence:
     - "Twelve cases are current corpus facts, not a required minimum."
     - "Fresh-session retrieval/salience and bilingual behavioral conformance remain field/independent evidence."
 
+identity_reconciliation:
+  state: MACHINE_CHECKED
+  top_level_how_navigation_repair_commit: "152d35fe4a7c13706e2f90eac530a7864031719e"
+  top_level_how_navigation_assembly_run_id: 33010099144
+  core_contract_identity_projection_commit: "24c60c161ce787c681b7aafcde56bb2b33ac4fc7"
+  core_contract_identity_assembly_run_id: 33010408383
+  identity_gate_semantic_parity_commit: "51585e7fc60b515bc59dcef9d0c9fd33381bdab2"
+  identity_gate_run_id: 33010461940
+  conclusion: SUCCESS
+  observed:
+    - "Current isolation PASS"
+    - "candidate identity-bearing projection surfaces PASS"
+    - "top-level README now routes directly to operational/CUE-INDEX.md and operational/HOW-MAP.md"
+    - "01-04 and key v2 schemas exact-byte parity with v0.3.6 Current PASS"
+    - "05 Core Operational Contracts semantic-body parity with only three allowed identity substitutions PASS"
+    - "candidate operational paths and candidate-local v2/legacy-tool boundaries PASS"
+  prior_gate_occurrence_truth:
+    - "run 33008927401 FAIL: oracle falsely treated correct predecessor-Current description as candidate self-identity"
+    - "run 33009019672 FAIL: real README navigation defect exposed; top-level path omitted explicit operational/CUE-INDEX.md"
+    - "run 33010099209 FAIL: oracle required an exact freeze slogan even though the freeze property was already present"
+  evidence_boundary:
+    - "Identity/navigation consistency is packaging evidence, not independent semantic support."
+    - "Semantic-body parity prevents accidental Core drift but does not prove the inherited semantics universally correct."
+
 freeze_protocol:
   model: EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE
   internal_frozen_flag_is_prefreeze_occurrence_state: true
   external_record_may_assign_frozen_identity_without_rewriting_candidate_tree: true
   post_freeze_material_change_requires_successor_identity: true
-  freeze_not_allowed_while_maturity_is_assembly_in_progress: true
+  freeze_not_allowed_before_author_attacks_and_prefreeze_validation: true
 
 assembly:
-  stage: 4
-  state: OPERATIONAL_REFERENCES_TOOLING_ZH_CN_MACHINE_CHECKED
+  stage: 5
+  state: IDENTITY_RECONCILED_MACHINE_CHECKED_AWAITING_AUTHOR_FALSIFICATION
   completed:
     - candidate branch aligned to exact release-scope checkpoint
     - candidate baseline and candidate identity entry files created
@@ -180,18 +208,23 @@ assembly:
     - zh-CN optional-reference usage guide assembled without duplicating machine canonical bytes
     - paired operational semantic fixture set v3 assembled
     - Stage-4 candidate assembly gate passed on exact head 7a59ac9b10e18f804ce7141b0beae2aef5e75cf6
+    - adopter-facing identity/status projections reconciled
+    - top-level HOW traversal repaired to expose exact Cue/HOW entry paths
+    - Core Operational Contracts identity reconciled without semantic-body drift
+    - Candidate Identity Gate passed with semantic-trunk parity
   pending:
-    - candidate identity/status reconciliation across inherited adopter-facing files
     - candidate-specific author adversarial suite
-    - pre-freeze machine validation
-    - freeze record and independent semantic falsification
+    - exact-head pre-freeze machine validation
+    - freeze record
+    - fresh independent semantic falsification
+    - post-falsification reconciliation and release decision
 
 accepted_working_residuals:
-  - "Current v0.3.6 remains the only adopter-facing baseline while candidate.0 is assembled."
-  - "Inherited semantic/adopter-facing files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
+  - "Current v0.3.6 remains the only adopter-facing baseline until explicit promotion."
   - "Selected bundled references are optional machine references; package inclusion does not establish applicability, activation, or external truth."
   - "The candidate-local v2 helper covers latent record and packet-v2 orchestration, not the entire evolution lifecycle state machine."
   - "Natural fresh-session cue salience and bilingual behavioral equivalence remain field/independent evidence, not candidate-author proof."
+  - "Commitment/Settlement recovered reconstruction remains durable but unbundled pending fresh independent review or renewed candidate-critical need."
 
 invariants:
   - CURRENT_V036_REMAINS_UNCHANGED
@@ -202,6 +235,7 @@ invariants:
   - HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
   - HOT_KERNEL_NE_FULL_HOW_LIBRARY
   - SEMANTIC_TRUNK_STABILITY_NE_NO_RELEASE_VALUE
+  - IDENTITY_PROJECTION_NE_SEMANTIC_DRIFT
   - MACHINE_PASS_NE_EXTERNAL_TRUTH
   - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
   - SILENT_DISSOLUTION_NE_EVIDENCE_BACKED_RETIREMENT
