@@ -1,4 +1,4 @@
-schema_version: "1.6"
+schema_version: "1.7"
 project_id: ena
 name: "Evolution-Native Agent Architecture"
 aliases:
@@ -23,6 +23,13 @@ entrypoints:
   github_current_baseline: "releases/current/CURRENT-BASELINE.yaml"
   github_history: "HISTORY.md"
   github_contributing: "CONTRIBUTING.md"
+  research: "research/README.md"
+  active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
+  research_methodology: "research/methodology/README.md"
+  research_method_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  research_branch_governance: "research/BRANCH-GOVERNANCE.md"
+  research_branch_inventory: "research/BRANCH-INVENTORY.yaml"
+  research_master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
   lite_adoption: "releases/current/LITE-ADOPTION-INSTRUCTION.md"
   field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
   field_experience_template: "releases/current/templates/field-experience.v2.yaml"
@@ -37,6 +44,8 @@ surfaces:
     role: "CANONICAL_ENGINEERING_RESEARCH_LINEAGE_AND_CURRENT_ADOPTION_SOURCE"
     main_branch: main
     current_adoption_baseline: "releases/current/"
+    research_control_plane: "main"
+    active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
     evolution_inbox: "research/evolution-inbox/README.md"
     contributions: "collaboration/inbox/"
     reconciliation: "collaboration/reconciliation/"
@@ -77,6 +86,7 @@ research_checkpoint:
   v036_new_constitution_ids: 0
   v036_candidate1_v2_selftests: 18
   inherited_composed_regression_cases: 235
+  counts_are_historical_observations_not_closure_thresholds: true
 
 authority_defaults:
   contribution: "UNRECONCILED / NOT_CURRENT / NOT_RELEASED"
@@ -106,8 +116,17 @@ release_policy:
   adopters_use_current_only: true
 
 branch_policy:
+  policy_path: "research/BRANCH-GOVERNANCE.md"
+  inventory_path: "research/BRANCH-INVENTORY.yaml"
+  active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
+  active_research_integration_branch_count: 1
+  active_research_count_authority: "PROJECT_COORDINATION_AND_UNAMBIGUOUS_SESSION_INHERITANCE"
   branch_per_research_idea_by_default: false
   prefer_issue_or_research_artifact_for_exploration: true
+  temporary_branch_requires_material_isolation_benefit: true
+  temporary_branch_is_inheritance_authority: false
+  historical_branch_should_remain_forever_by_default: false
+  delete_branch_erases_git_history: false
   max_active_release_branches_preferred: 1
   branch_is_release_identity: false
 
@@ -118,6 +137,17 @@ architecture_policy:
   prefer_existing_contract_extension_over_parallel_ontology: true
   staged_runtime_implementation_allowed_when_boundary_is_explicit: true
   inherited_tool_rejection_must_not_be_silently_promoted_to_semantic_prohibition: true
+
+research_method_policy:
+  canonical_path: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  method_count_is_open_cardinality: true
+  explanatory_coverage_is_operational_solution: false
+  how_cardinality_is_preallocated: false
+  working_taxonomy_is_ontology: false
+  experiments_must_pay_epistemic_rent: true
+  arbitrary_numeric_scientific_appearance_rejected: true
+  handoff_summary_is_project_state: false
+  methodology_inheritance_requires_behavioral_application: true
 
 contribution_policy:
   public_read_access: true
