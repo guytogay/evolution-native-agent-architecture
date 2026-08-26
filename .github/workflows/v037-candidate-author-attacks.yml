@@ -1,0 +1,48 @@
+name: ENA v0.3.7 Candidate Author Adversarial Gate
+
+on:
+  push:
+    branches: [candidate/v0.3.7-candidate.0]
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/scripts/v037_candidate_author_attacks.py'
+      - '.github/workflows/v037-candidate-author-attacks.yml'
+  pull_request:
+    paths:
+      - 'releases/v0.3.7-candidate/**'
+      - '.github/scripts/v037_candidate_author_attacks.py'
+      - '.github/workflows/v037-candidate-author-attacks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  author-attacks:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Run author adversarial attack suite
+        run: python .github/scripts/v037_candidate_author_attacks.py
+
+      - name: Verify Current remains isolated
+        run: git diff --exit-code 0ad263178ab8b7c21c150012b3c06a5c41a4f41c -- releases/current
+
+      - name: Verify author attack script is outside candidate cargo
+        run: |
+          test ! -e releases/v0.3.7-candidate/.github/scripts/v037_candidate_author_attacks.py
+          echo 'author-attack-harness-outside-candidate-cargo-pass'
