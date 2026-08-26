@@ -10,7 +10,6 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Iterable
 
 VALID_RETRIEVAL = {"NOT_ATTEMPTED", "SUCCESS", "PARTIAL", "FAILED"}
 
@@ -40,7 +39,7 @@ def main() -> int:
     default_fixtures = Path(__file__).resolve().parents[1] / "fixtures" / "tiny-kernel-cases.jsonl"
     parser.add_argument("--fixtures", type=Path, default=default_fixtures)
     parser.add_argument("--results", type=Path, required=True)
-    parser.add_argument("--strict", action="store_true", help="return nonzero on trigger FN/FP, zero-hit route, overroute, or false retrieval success")
+    parser.add_argument("--strict", action="store_true", help="return nonzero on trigger FN/FP, available-resolver route miss/overreach, or broken-resolver false success/fallback failure")
     args = parser.parse_args()
 
     fixtures = load_jsonl(args.fixtures)
@@ -108,8 +107,12 @@ def main() -> int:
 
         primary = set(fixture.get("primary_families", []))
         allowed = set(fixture.get("allowed_families", []))
+        resolver_broken = fixture.get("resolver_state") == "BROKEN"
 
-        if expected_trigger and trigger:
+        # Family routing is evaluated only when the fixture says the cold resolver
+        # is available. A broken resolver should test fallback honesty, not force the
+        # Host to reconstruct the unavailable route from resident memory.
+        if expected_trigger and trigger and not resolver_broken:
             if primary and not (predicted & primary):
                 route_zero_hit.append(case_id)
             elif primary and not primary.issubset(predicted):
@@ -121,7 +124,7 @@ def main() -> int:
         if not expected_trigger and predicted:
             quiet_family_leak.append(f"{case_id}:{','.join(sorted(predicted))}")
 
-        if fixture.get("resolver_state") == "BROKEN" and expected_trigger and trigger:
+        if resolver_broken and expected_trigger and trigger:
             if retrieval_status == "SUCCESS":
                 broken_resolver_false_success.append(case_id)
             if not fallback_used:
