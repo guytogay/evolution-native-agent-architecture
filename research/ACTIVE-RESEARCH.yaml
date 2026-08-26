@@ -1,4 +1,4 @@
-schema_version: "1.4"
+schema_version: "1.5"
 status: ACTIVE_RESEARCH_POINTER
 
 # Canonical main-visible pointer for continuing ENA research.
@@ -13,12 +13,15 @@ active_research:
   open_pull_request_required_for_activity: false
   pull_request_discovery: "SEARCH_OPEN_PR_BY_HEAD_BRANCH_AND_BASE_MAIN"
   successor_bootstrap_pr: 101
+  successor_bootstrap_pr_role: HISTORICAL_CONTROL_PLANE_CHECKPOINT
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
   embedded_head_sha_is_identity_lock: false
 
   bootstrap_path: "research/RESEARCH-START-HERE.md"
   progress_path: "research/plans/PROGRESS.yaml"
   detailed_plan_path: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
+  methodology_index_path: "research/methodology/README.md"
+  alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   external_how_registry_path: "research/external-how/SOURCE-REGISTRY.md"
   reconstruction_ledger_issue: 89
   workstream_issues: [90, 91, 92, 93, 94]
@@ -26,16 +29,20 @@ active_research:
 project_control_plane:
   branch: "main"
   project_hub: "PROJECT-HUB.md"
+  project_structure: "PROJECT-STRUCTURE.md"
   branch_governance: "research/BRANCH-GOVERNANCE.md"
   branch_inventory: "research/BRANCH-INVENTORY.yaml"
   methodology_index: "research/methodology/README.md"
   methodology_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
 
 continuation_protocol:
   - "Start from main, not from a guessed research branch."
+  - "Verify Current from releases/current/CURRENT-BASELINE.yaml."
   - "Read this file to discover the one active research integration branch."
   - "Read the main-visible methodology before selecting substantive work."
+  - "If a material project transition occurred, complete the Project State Alignment Gate before substantive work resumes."
   - "Switch/read the active research branch and its progress state."
   - "Reverify the active branch head live before writing."
   - "Discover an open PR by active head branch when PR context is needed; PR absence does not deactivate the branch."
@@ -51,6 +58,7 @@ branch_transition:
   predecessor_ref_deletion_observed_at: "2026-08-26"
   successor_branch: "research/ena-reconstruction"
   successor_bootstrap_pr: 101
+  successor_bootstrap_state: MERGED_TO_MAIN
   why: >-
     The predecessor branch began as a Memory Metabolism prototype and grew into a
     broad ENA reconstruction workspace. Its accumulated research was checkpointed to
@@ -60,6 +68,12 @@ branch_transition:
     deleted while its Git/PR/checkpoint lineage remained durable.
   direct_rename_used: false
   current_changed_by_transition: false
+
+alignment:
+  required_after_material_transition: true
+  gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
+  current_alignment_state_source: "research/plans/PROGRESS.yaml"
+  minor_commit_requires_full_gate: false
 
 branch_cardinality:
   active_research_integration_branches_allowed: 1
