@@ -6,6 +6,7 @@ canonical_pointers:
   project_hub: PROJECT-HUB.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   research_bootstrap: research/RESEARCH-START-HERE.md
+  research_directory_map: research/README.md
   methodology_index: research/methodology/README.md
   master_methodology: research/methodology/ENA-RESEARCH-DISCIPLINE.md
   how_growth_method: research/methodology/HOW-GROWTH-DISCIPLINE.md
@@ -13,7 +14,9 @@ canonical_pointers:
   session_continuity: research/methodology/SESSION-CONTINUITY-AND-COLLABORATION.md
   method_changelog: research/methodology/METHOD-CHANGELOG.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  external_how_index: research/external-how/README.md
   external_how_registry: research/external-how/SOURCE-REGISTRY.md
+  latest_external_harvest: research/external-how/harvests/2026-08-26-INITIAL-HOW-LANDSCAPE.md
   research_pr: "#82"
   reconstruction_ledger: "#89"
 
@@ -39,17 +42,18 @@ release_goal:
 
 phases:
   repo_information_architecture:
-    state: ACTIVE_NEAR_CLOSURE
+    state: BASELINE_ESTABLISHED
     evidence:
-      - research/RESEARCH-START-HERE.md established
-      - research/methodology/ canonical surface established
-      - master plan and progress state established
-      - legacy method paths retained as compatibility pointers
-    remaining:
-      - add research/README.md
-      - establish external-how directory and registry
-      - update PROJECT-HUB.md and PROJECT-STRUCTURE.md
-      - verify canonical paths by readback
+      - PROJECT-HUB.md routes research continuation
+      - PROJECT-STRUCTURE.md defines canonical semantic areas
+      - research/README.md defines research information architecture
+      - research/RESEARCH-START-HERE.md is the hot research router
+      - research/methodology/ is the canonical method surface
+      - research/plans/ carries master plan and machine-readable progress
+      - research/external-how/ carries external candidate mechanism research
+      - legacy method paths are compatibility pointers rather than duplicate canonical copies
+    residual:
+      - continue opportunistic cleanup only when it improves navigation without breaking lineage
 
   anti_ablation_archaeology:
     state: ACTIVE
@@ -80,11 +84,22 @@ phases:
     inventory_is_exhaustive: false
 
   external_how_harvest:
-    state: ACTIVE_INITIALIZATION
+    state: ACTIVE
+    initial_verified_source_families:
+      - LangGraph
+      - Temporal
+      - OpenAI Agents SDK
+      - Letta
+      - Microsoft Agent Framework
+      - A2A Protocol
+      - Anthropic multi-agent engineering
+      - Mem0
+      - AI developer community field reports
     rule: >-
       Search current AI frameworks, memory systems, durable workflow systems,
       agent protocols, research organizations, AI communities, and adjacent
       engineering domains; map mechanisms to ENA failure models before selection.
+    inventory_is_exhaustive: false
 
   host_binding:
     state: PARTIAL
@@ -107,9 +122,10 @@ phases:
       - Memory Metabolism x Retrieval x Decision Projection
       - Recovery x Authority x Effect Lifecycle
     next_high_value_seams:
-      - Commitment/Settlement x Effect Lifecycle x Authority Lease
-      - Tiny Hot Kernel x exact cold retrieval x language projection
+      - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
+      - Tiny Hot Kernel x exact cold retrieval x memory blocks/session compaction x language projection
       - Identity/lineage x commitment x reputation
+      - Evolution Commons x A2A task/message/artifact lifecycle
 
   operational_architecture_assembly:
     state: NOT_READY
@@ -135,10 +151,11 @@ methodology_incidents:
     lesson: DURABLE_DOES_NOT_IMPLY_SALIENT_OR_APPLIED
 
 next_actions:
-  - establish research/external-how/ registry and first verified harvest
-  - finish project/research directory navigation updates
+  - update #89 and relevant workstreams with the external HOW candidate mappings
   - continue anti-ablation archaeology before selecting a single dominant organ line
   - expand concrete HOW branches using internal lineage plus external mechanisms
+  - run static cross-organ falsification before expensive stochastic experiments
+  - start operational architecture assembly only when reconstruction evidence says the branch space is sufficiently recovered
   - update this file after material state changes
 
 invariants:
