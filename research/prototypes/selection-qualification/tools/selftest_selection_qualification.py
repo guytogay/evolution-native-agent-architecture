@@ -66,7 +66,7 @@ def make_harmful_current_record(current) -> dict:
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    repo_root = Path(__file__).resolve().parents[3]
+    repo_root = Path(__file__).resolve().parents[4]
     validator = root / "tools" / "validate_selection_qualification.py"
     fixtures_path = root / "fixtures" / "selection-qualification-cases.jsonl"
 
