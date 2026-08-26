@@ -93,11 +93,12 @@ def validate_blind_prompts(prompts_path: Path, fixtures: list[dict]) -> list[dic
     return prompts
 
 
-def represented_result(fixture: dict) -> dict:
+def represented_result(fixture: dict, kernel: str = "K-A") -> dict:
     triggered = fixture["expected_trigger"]
     broken = fixture["resolver_state"] == "BROKEN"
     return {
         "case_id": fixture["case_id"],
+        "kernel": kernel,
         "trigger": triggered,
         "families": fixture["primary_families"] if triggered else [],
         "matched_route_ids": [],
@@ -108,6 +109,18 @@ def represented_result(fixture: dict) -> dict:
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:
     path.write_text("\n".join(json.dumps(row) for row in rows) + "\n", encoding="utf-8")
+
+
+def score_cmd(scorer: Path, results: Path) -> list[str]:
+    return [
+        sys.executable,
+        str(scorer),
+        "--results",
+        str(results),
+        "--expected-kernel",
+        "K-A",
+        "--strict",
+    ]
 
 
 def main() -> int:
@@ -130,7 +143,7 @@ def main() -> int:
         perfect = [represented_result(f) for f in fixtures]
         perfect_path = tmpdir / "perfect.jsonl"
         write_jsonl(perfect_path, perfect)
-        run([sys.executable, str(scorer), "--results", str(perfect_path), "--strict"])
+        run(score_cmd(scorer, perfect_path))
 
         false_success = [represented_result(f) for f in fixtures]
         for row in false_success:
@@ -140,10 +153,7 @@ def main() -> int:
                 row["families"] = []
         false_success_path = tmpdir / "false-success.jsonl"
         write_jsonl(false_success_path, false_success)
-        run(
-            [sys.executable, str(scorer), "--results", str(false_success_path), "--strict"],
-            expect=1,
-        )
+        run(score_cmd(scorer, false_success_path), expect=1)
 
         false_negative = [represented_result(f) for f in fixtures]
         for row in false_negative:
@@ -153,10 +163,7 @@ def main() -> int:
                 row["retrieval_status"] = "NOT_ATTEMPTED"
         false_negative_path = tmpdir / "false-negative.jsonl"
         write_jsonl(false_negative_path, false_negative)
-        run(
-            [sys.executable, str(scorer), "--results", str(false_negative_path), "--strict"],
-            expect=1,
-        )
+        run(score_cmd(scorer, false_negative_path), expect=1)
 
         false_positive = [represented_result(f) for f in fixtures]
         for row in false_positive:
@@ -166,13 +173,18 @@ def main() -> int:
                 row["retrieval_status"] = "SUCCESS"
         false_positive_path = tmpdir / "false-positive.jsonl"
         write_jsonl(false_positive_path, false_positive)
-        run(
-            [sys.executable, str(scorer), "--results", str(false_positive_path), "--strict"],
-            expect=1,
-        )
+        run(score_cmd(scorer, false_positive_path), expect=1)
+
+        mixed_kernel = [represented_result(f) for f in fixtures]
+        for row in mixed_kernel:
+            if row["case_id"] == "TK-014":
+                row["kernel"] = "K-B"
+        mixed_kernel_path = tmpdir / "mixed-kernel.jsonl"
+        write_jsonl(mixed_kernel_path, mixed_kernel)
+        run(score_cmd(scorer, mixed_kernel_path), expect=2)
 
     print("PASS: tiny-hot-kernel deterministic selftest")
-    print("verification_scope=REPRESENTED_STRUCTURE_FIXTURES_SCORER_AND_BLINDING_ONLY")
+    print("verification_scope=REPRESENTED_STRUCTURE_FIXTURES_SCORER_BLINDING_AND_KERNEL_BINDING_ONLY")
     print("naturalistic_salience=UNPROVEN")
     return 0
 
