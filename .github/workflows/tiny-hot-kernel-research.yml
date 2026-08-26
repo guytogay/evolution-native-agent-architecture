@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'research/prototypes/tiny-hot-kernel/**'
+      - 'research/reconstruction/CARDINALITY-DISCOVERY-GUARD.md'
       - '.github/workflows/tiny-hot-kernel-research.yml'
   workflow_dispatch:
 
@@ -31,8 +32,10 @@ jobs:
       - name: Run portable deterministic selftest
         run: python research/prototypes/tiny-hot-kernel/tools/selftest_tiny_hot_kernel.py
 
-      - name: Build layered blinded packets for all kernel candidates
+      - name: Build layered blinded packets for currently selected controlled candidates
         run: |
+          # K-A/B/C are the candidates admitted to this benchmark version.
+          # This loop is an experimental control, not a closed recognizer taxonomy.
           for kernel in K-A K-B K-C; do
             out="/tmp/tiny-kernel-${kernel}"
             python research/prototypes/tiny-hot-kernel/tools/build_controlled_eval_packet.py \
@@ -40,6 +43,8 @@ jobs:
               --output "$out"
             test -f "$out/PACKET-MANIFEST.json"
             test -f "$out/resident/AGENT-OUTPUT-CONTRACT.md"
+            # Exactly one candidate kernel per packet is normative isolation:
+            # multiple kernels in one resident packet would confound the run.
             test "$(find "$out/resident" -maxdepth 1 -type f -name 'K-*.md' | wc -l)" -eq 1
             test -f "$out/stimuli/tiny-kernel-prompts.jsonl"
             test -f "$out/gated-resolver/semantic-router.v0.1.json"
@@ -51,6 +56,11 @@ jobs:
       - name: Verification boundary
         run: |
           echo 'PROTOTYPE_GATE=PASS'
+          echo 'CURRENTLY_SELECTED_CONTROLLED_KERNELS=K-A,K-B,K-C'
+          echo 'KERNEL_CANDIDATE_CARDINALITY=OPEN_OUTSIDE_THIS_BENCHMARK_VERSION'
+          echo 'CONTROLLED_CORPUS_VERSION_COUNT=36'
+          echo 'CONTROLLED_CORPUS_COUNT_IS_NOT_ONTOLOGY=TRUE'
+          echo 'ONE_KERNEL_PER_PACKET=NORMATIVE_EXPERIMENTAL_ISOLATION'
           echo 'VERIFICATION_SCOPE=REPRESENTED_STRUCTURE_FIXTURES_SCORER_BLINDING_KERNEL_BINDING_AND_PACKET_PACKAGING_ONLY'
           echo 'CONTROLLED_MODEL_BEHAVIOR=UNEXECUTED'
           echo 'NATURALISTIC_SALIENCE=UNPROVEN'
