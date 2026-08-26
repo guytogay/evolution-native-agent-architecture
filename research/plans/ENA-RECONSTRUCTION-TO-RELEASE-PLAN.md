@@ -1,28 +1,28 @@
 # ENA Reconstruction-to-Release Master Plan
 
-Status: `ACTIVE_MASTER_PLAN / MAIN_VISIBLE_PROJECT_CONTROL / CURRENT_UNCHANGED_UNTIL_RELEASE`
+Status: `ACTIVE_MASTER_PLAN / MAIN_VISIBLE_PROJECT_CONTROL / RELEASE_SCOPE_READY / CURRENT_UNCHANGED_UNTIL_RELEASE`
 
-This is the stable long-horizon plan for continuing ENA from the v0.3.6 semantic trunk into a usable operational architecture and, when evidence/release gates justify it, a new Current release.
+Updated: 2026-08-27
 
-Fast-moving execution state lives on the branch named by `research/ACTIVE-RESEARCH.yaml`.
+This is the stable long-horizon plan for moving ENA from the v0.3.6 semantic trunk through concrete Operational Architecture and, only when release scope and validation justify it, to a new Current release.
+
+Fast-moving execution state lives in `research/plans/PROGRESS.yaml` on the branch named by `research/ACTIVE-RESEARCH.yaml`.
 
 ## Goal
 
-ENA should become usable not only as a philosophy/semantic Constitution but as an operational architecture that lets an Agent discover concrete ways to implement the philosophy.
-
-Working shape:
+ENA must be inhabitable, not merely explainable.
 
 ```text
 TELOS / PURPOSE
       |
       v
 WHAT / WHY
-stable semantic trunk; abstraction may be useful
+stable semantic trunk; abstraction/compression may be useful
       |
       +--> HOW-A
-      |     +--> concrete organ/process/tool/protocol
+      |     +--> concrete organ/process/tool/protocol/procedure
       |     +--> Host binding / adapter
-      |     +--> failure/fallback behavior
+      |     +--> failure / fallback / non-applicability
       |     +--> evidence
       |
       +--> HOW-B
@@ -36,234 +36,162 @@ ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
 
 The final test is whether an Agent can actually live by the architecture.
 
-## Project control and active workspace
+## Continuation control plane
 
-Start from `main`:
+A successor session should start from `main` and resolve, in order:
 
 1. `PROJECT-HUB.md`;
-2. verify `releases/current/CURRENT-BASELINE.yaml`;
-3. `research/ACTIVE-RESEARCH.yaml` for the one active research integration **branch**;
+2. `releases/current/CURRENT-BASELINE.yaml`;
+3. `research/ACTIVE-RESEARCH.yaml`;
 4. `research/methodology/README.md` and canonical methodology;
-5. if a material project transition occurred, complete `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` before substantive work resumes;
-6. read this plan;
-7. follow the active branch pointer;
-8. read the active branch's `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml`;
-9. discover an open PR by active head branch only when review/integration context is needed.
+5. this master plan;
+6. active-branch `research/RESEARCH-START-HERE.md`;
+7. active-branch `research/plans/PROGRESS.yaml`;
+8. the relevant Operational Architecture / release-scope artifacts.
 
-Do not infer active work from branch names, recency, or historical PR numbers.
+Do not infer active work from branch names, recency, or old PR numbers.
 
-## Current aligned execution posture — 2026-08-26
+## Current aligned posture — 2026-08-27
 
-Observed long-lived topology:
+Current remains:
+
+```text
+v0.3.6 / CURRENT / FIELD_VALIDATION
+```
+
+Long-lived topology remains:
 
 ```text
 main
 research/ena-reconstruction
 ```
 
-Current adoption remains:
+PR #109 was merged to `main` as a research checkpoint at:
 
-```text
-v0.3.6 / CURRENT / FIELD_VALIDATION
-```
+`3e5862998200770c37a6c67ed1789c12a852739c`
 
-Research-state summary after the final bounded predecessor-history pass:
+The active research branch was fast-forwarded to that exact merge commit after the checkpoint, so `main` and `research/ena-reconstruction` began the next phase from identical content.
 
-- repository information architecture / branch control: aligned baseline established;
-- anti-ablation archaeology: `RECOVERY_SUFFICIENT_FOR_ASSEMBLY / REOPENABLE`;
-- HOW branch expansion: active;
-- external HOW harvesting: active where concrete gaps remain;
-- Host binding: partial and continues during assembly;
-- cross-organ composition: active with concrete projection, settlement, compaction, retrieval and stale-executor boundaries;
-- Operational Architecture assembly: `READY_TO_START / NOT_YET_ASSEMBLED`;
-- release-scope reconciliation: not started;
-- candidate build/validation: not started;
-- promotion: not started.
+PR #109 changed research/workflow surfaces only; `releases/current/` remained unchanged.
 
-Historical PR #82 and PR #101 are checkpoint/handoff lineage, not current continuation authority. Draft PR #109 is a transient research checkpoint surface, not continuation authority or release authority.
+Phase summary:
 
-## Phase — Research continuity and repository control plane
-
-Purpose:
-
-Make ENA research inheritable without reconstructing state from chat history or branch archaeology.
-
-Required capabilities:
-
-- main-visible active research branch pointer;
-- branch governance/lifecycle rules;
-- canonical research methodology;
-- project-state alignment method;
-- durable long-horizon plan;
-- active-branch progress carrier;
-- clear separation between Current adoption and research work.
-
-Current state:
-
-`BASELINE_ESTABLISHED / MAINTAIN_AS_INVARIANT`
-
-Closure condition for the current topology:
-
-A fresh session can start from `main` and identify Current, active research branch, methodology, plan, progress, and next permitted work without a branch census or old chat reconstruction.
-
-This phase is not “finished forever.” A material control-plane transition reopens an alignment obligation even when the baseline architecture remains valid.
+- research continuity/control plane: `BASELINE_ESTABLISHED / MAINTAIN`;
+- anti-ablation archaeology: `RECOVERY_SUFFICIENT / REOPENABLE`;
+- HOW branch expansion: `ACTIVE_DURING_SELECTION`;
+- external HOW harvest: `ACTIVE_ON_DEMAND`;
+- Host binding: `PARTIAL / CONTINUES`;
+- cross-organ composition: `ACTIVE_WHERE_DECISION_RELEVANT`;
+- Operational Architecture assembly: `ASSEMBLY_SUFFICIENT_FOR_RELEASE_SCOPE / CONTINUES_IN_PARALLEL`;
+- release-scope entry gate: `PASS_WITH_OPEN_FIELD_RESIDUALS`;
+- release-scope reconciliation: `READY_TO_START`;
+- candidate build/validation: `NOT_STARTED`;
+- promotion: `NOT_STARTED`;
+- next version: `UNASSIGNED`.
 
 ## Project State Alignment Gate
 
-Purpose:
-
-Prevent routing, methodology, plan, progress, and live Git state from describing different generations of the project after a material transition.
-
-Canonical method:
-
-`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
-
-Trigger examples:
+Use `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` after material transitions such as:
 
 - branch handoff/cleanup;
-- main control-plane checkpoint merge;
-- directory/canonical-path change;
-- material methodology change;
-- master-plan phase/closure-rule change;
-- Current/candidate/release-state change;
-- major session handoff after such changes.
+- checkpoint merge to main;
+- directory/canonical-path changes;
+- material methodology or master-plan phase change;
+- Current/candidate/release-state change.
 
 ```text
 INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
 MATERIAL_TRANSITION -> ALIGN -> RESUME
 ```
 
-The gate is transition-triggered, not required after every ordinary commit.
+The gate is transition-triggered, not ritual after every ordinary commit.
 
-## Phase — Anti-ablation archaeology / variation recovery
+## Phase 1 — Research continuity and repository control
 
-Purpose:
+State: `BASELINE_ESTABLISHED / MAINTAIN_AS_INVARIANT`
 
-Recover concrete problems/HOWs that were previously compressed by higher-level semantic coverage.
+Goal: a fresh session can identify Current, active research branch, methodology, plan, progress, and next permitted work without reconstructing old conversations.
 
-Sources include:
+## Phase 2 — Anti-ablation archaeology / variation recovery
 
-- historical Issues, PRs, comments, decisions, experiments, prototypes, and field reports;
-- prior session exports when they contain material research not durably mapped elsewhere;
-- existing Host-specific mechanisms and failed/abandoned branches;
-- previously dissolved concrete organs.
-
-For each surviving topic reconstruct:
-
-```text
-WHAT
-WHY
-HOW — existing/plural candidates
-EVIDENCE — existing/needed
-PROPERTY
-ORGAN
-HOST_BINDING
-EVIDENCE
-ADOPTION
-```
-
-Current state:
-
-`RECOVERY_SUFFICIENT_FOR_ASSEMBLY_DECISION / REOPENABLE`
-
-The second-pass Issue/repository archaeology plus the final bounded predecessor-history pass recovered decision-distinct lower-level variations and then reached diminishing returns: additional bounded passes over the currently available history were returning already-retained branches, correctly superseded mechanisms, or experiment/field candidates rather than missing architecture families.
-
-The last additional dormant variation recovered was verification/certainty as a voluntarily purchased Agent risk-control service, preserved as a mesocosm candidate rather than a Core/schema change.
-
-Closure rule:
-
-> Recovery is sufficient for the current assembly decision when another bounded pass over available history no longer yields decision-distinct missing lineage likely to change the engineering map.
-
-This is not a completeness proof. Reopen archaeology when new historical evidence, a missing lineage, an assembly contradiction, or a field result materially changes the map.
-
-## Phase — HOW branch expansion
-
-Purpose:
-
-Turn semantic properties into concrete ways an Agent can act.
-
-Candidate HOW forms include:
-
-- state machines;
-- workflows;
-- protocols;
-- resolvers;
-- adapters;
-- schemas;
-- tools/scripts/validators;
-- file/layout conventions;
-- manual procedures where automation is unjustified;
-- Host-native mechanism mappings.
-
-One property may retain multiple HOWs indefinitely when applicability differs.
-
-HOW branch expansion remains active during assembly. Assembly is not permission to stop growing/falsifying concrete branches.
-
-## Phase — External HOW harvest
-
-Purpose:
-
-Avoid inventing every mechanism from scratch.
-
-Search actively across:
-
-- AI Agent frameworks and SDKs;
-- memory systems;
-- durable workflow engines;
-- orchestration/protocol ecosystems;
-- AI developer communities and field reports;
-- distributed systems and adjacent engineering domains;
-- relevant academic/industry research.
+State: `RECOVERY_SUFFICIENT_FOR_CURRENT_SELECTION / REOPENABLE`
 
 Correct sequence:
 
 ```text
+historical problem/HOW recovery
+-> durable variation map
+-> WHAT / WHY / plural HOW / EVIDENCE reconstruction
+-> selection only after recovery is sufficient for the decision
+```
+
+This is not a completeness proof. Reopen when new history, missing lineage, assembly contradiction, or field evidence changes the engineering map.
+
+## Phase 3 — HOW branch expansion
+
+State: `ACTIVE_DURING_RELEASE_RECONCILIATION`
+
+Valid HOW forms include state machines, workflows, protocols, resolvers, adapters, schemas, validators, bounded procedures, file/layout conventions, and Host-native mechanisms.
+
+One property may retain multiple HOWs indefinitely.
+
+A concrete HOW should expose both:
+
+- how to invoke/use it;
+- when it does not apply or should yield WAIT/UNKNOWN/lightweight path.
+
+## Phase 4 — External HOW harvest
+
+State: `ACTIVE_ON_DEMAND`
+
+Use mature AI/distributed-systems/community mechanisms when a concrete execution-depth gap exists.
+
+```text
 ENA failure
--> search external mechanisms
--> extract concrete mechanism
--> map to ENA/Host conditions
--> falsify/compare
+-> external mechanism search
+-> mechanism extraction
+-> ENA/Host mapping
+-> falsification/comparison
 -> retain/specialize/reject
 ```
 
-External popularity, framework maturity, or vendor authority does not prove universal ENA fitness.
+Recent useful families include durable workflows, Host memory/retrieval, A2A active task interoperability, OCI-style durable content registries, idempotency/fencing, provenance/attestation, and reversible lifecycle/retirement mechanisms.
 
-During assembly, search externally when a branch lacks concrete viable HOWs or when a Host binding needs a mature implementation pattern. Do not keep harvesting frameworks merely to enlarge the registry.
+External popularity is never selection proof.
 
-## Phase — Host binding
+## Phase 5 — Host binding
 
-For each promising HOW, determine whether/how it binds to real Hosts.
+State: `PARTIAL / CONTINUES`
 
-Possible outcomes include:
+Possible dispositions:
 
 ```text
 NATIVE_HOST_ORGAN
 ADAPTER_REQUIRED
 REFERENCE_IMPLEMENTATION
-MANUAL_PROCEDURE
+BOUNDED_PROCEDURE
 INAPPLICABLE
 UNKNOWN
 ```
 
 Do not force every Host to instantiate every organ.
 
-Host binding is allowed to remain partial when the operational architecture can honestly expose applicability/unknown state and multiple concrete branches. Field evidence continues in parallel with assembly.
+## Phase 6 — Cross-organ composition
 
-## Phase — Cross-organ composition
+State: `ACTIVE_WHERE_DECISION_RELEVANT`
 
-Test whether individually reasonable organs create false confidence or false blocking when composed.
+High-value seams already established include:
 
-Established/high-value seams now include:
+```text
+Memory -> Retrieval -> Projection/Compaction
+Authority -> Effect -> Commitment/Settlement -> Recovery
+Migration -> Source Lineage -> Obligation/Settlement
+Assignment -> Idempotency/Fencing/Version/Status/Gateway/WAIT
+Identity/Continuity -> Commitment -> Standing/Reputation
+Commons substrate -> Active protocol -> Local selection
+```
 
-- Commitment/Settlement × Effect Lifecycle × Authority Lease × durable execution/fencing;
-- migration projection × decision-material lineage × Commitment/Settlement;
-- lineage compaction × Evidence Dependency Map × cold retrieval;
-- Memory Metabolism × Retrieval × Decision Projection × compaction/salience;
-- Tiny Hot Kernel × exact cold retrieval × language projection;
-- Identity/lineage × commitment × reputation;
-- Commons/coordination × A2A/task lifecycle × specialization/resource economics.
-
-Important already-demonstrated distinctions include:
+Preserve demonstrated boundaries such as:
 
 ```text
 CURRENT_STATE_EQUIVALENCE != HISTORY_EQUIVALENCE
@@ -272,109 +200,132 @@ SUMMARY_VALID != MATERIAL_USE_READY
 COLD_REF_PRESENT != RETRIEVAL_SUFFICIENCY_RESOLVED
 UNIQUE_CURRENT_ASSIGNMENT != STALE_EXECUTOR_PHYSICALLY_FENCED
 SINGLE_VERSIONED_WRITE != CURRENT_EXECUTOR_WON
-STATUS_QUERY_NOT_COMMITTED != FUTURE_STALE_REQUEST_FENCED
+ACTIVE_PROTOCOL != DURABLE_COMMONS
+NO_INCIDENT != CONTROL_NOT_NEEDED
 ```
 
-Prefer deterministic/state-space falsification when the bug is statically reachable. Use field/mesocosm evidence only where interaction, Host behavior, thresholds, cost, or emergence can still reveal decision-relevant structure.
+Prefer deterministic falsification when the failure is statically reachable. Use field/mesocosm evidence only where reality can reveal decision-relevant structure not already encoded.
 
-## Phase — Operational Architecture assembly
+## Phase 7 — Operational Architecture assembly
 
-Current state:
+State: `ASSEMBLY_SUFFICIENT_FOR_RELEASE_SCOPE / CONTINUES_IN_PARALLEL`
 
-`READY_TO_START / NOT_YET_ASSEMBLED`
+Canonical research assembly lives under:
 
-Archaeology recovery is now sufficient for the assembly decision. This does **not** mean every HOW is finished or every Host is proven.
+`research/operational-architecture/`
 
-Assembly goal:
-
-Create an adopter-facing, traversable architecture around the semantic trunk without compressing plural concrete HOWs back into one abstract implementation.
-
-Required shape:
+Current traversal:
 
 ```text
-TELOS / PURPOSE
-      |
-      v
-WHAT / WHY node
-      |
-      +--> concrete HOW family A
-      |      +--> applicability / trigger
-      |      +--> procedure / state machine / tool / adapter
-      |      +--> failure + WAIT/REFUSE/fallback
-      |      +--> Host mappings
-      |      +--> evidence + residuals
-      |
-      +--> concrete HOW family B
-      +--> dormant / experimental HOWs
+ordinary problem / semantic cue
+-> consequence-first routing
+-> CUE-INDEX
+-> WHAT/WHY node
+-> plural HOW branches
+-> REFERENCE-POINTER-MATRIX
+-> prototype / bounded procedure / pattern / Host mechanism
+-> action or honest residual
 ```
 
-Runtime discoverability remains separate from repository richness:
+Established bounded procedures/patterns include:
+
+- purpose-relative continuity;
+- Standing Input;
+- Control Retirement;
+- Commons transport/discovery layering.
+
+Many nodes already point to machine-checkable research organs.
+
+Assembly acceptance criteria for release-scope reconciliation are now met on static/durable project evidence:
+
+- route from problem/property to concrete HOW exists;
+- applicability/Host/evidence boundaries are visible;
+- pointer gaps are separated from organ gaps;
+- plural/dormant/experimental branches remain visible;
+- composition seams are discoverable;
+- unresolved field questions remain explicitly unresolved.
+
+This does not claim the Operational Architecture is complete forever.
+
+## Phase 8 — Release scope reconciliation
+
+State: `READY_TO_START`
+
+Canonical workspace:
+
+`research/release-scope/`
+
+Entry gate:
+
+`research/release-scope/RELEASE-SCOPE-ENTRY-GATE-001.md`
+
+The reconciliation must classify actual deliverables separately:
 
 ```text
-large divergent operational library
-!= load everything into active context
-
-small hot routing surface
--> retrieve relevant WHAT/WHY
--> retrieve applicable HOW family
--> map to Host
--> act
--> capture evidence/failure
+CURRENT_SEMANTIC_ANCHOR
+ADOPTER_GUIDANCE_CANDIDATE
+REFERENCE_ORGAN_CANDIDATE
+HOST_ADAPTER_PATTERN
+FIELD_OR_MESOCOSM_ONLY
+MAINTENANCE_TOOLING_CANDIDATE
+RESEARCH_EXPERIMENTAL
+DORMANT_LINEAGE
+SEMANTIC_DELTA_CANDIDATE
 ```
 
-Assembly work should first produce a **navigation/architecture map**, not prematurely rewrite Current. It should reuse existing prototypes, workstream decisions and evidence rather than inventing parallel representations.
+Working classes are navigation only, not ontology.
 
-Assembly acceptance for release-scope reconciliation:
+Key question:
 
-- a fresh Agent can start from a semantic property and find concrete executable/reference HOW branches;
-- branches expose applicability/Host conditions and evidence maturity honestly;
-- alternative/dormant/failed HOW lineage is not silently erased;
-- composition boundaries are discoverable;
-- unresolved areas are explicit and do not masquerade as completed organs;
-- another structural rewrite is not required merely to understand how to act.
+> Which concrete HOW/navigation/reference/tooling surfaces materially improve an adopter's ability to live ENA, and which should remain optional, Host-specific, experimental, dormant, or research-only?
 
-## Phase — Release scope reconciliation
+Important:
 
-Ask separately:
+```text
+NO_NEW_CORE_RULES != NO_RELEASE_VALUE
+LARGE_RESEARCH_TREE != SHIP_EVERYTHING
+```
 
-- Which changes belong in adopter-facing Current?
-- Which belong as reference organs/guidance/tools?
-- Which remain research/experimental/Host-specific?
-- Which old surfaces should be simplified/retired?
-- What real release delta exists?
+A practical architecture release with zero new Constitution/Core IDs is valid if the release materially improves usable HOW without falsely universalizing research organs.
 
-Research effort alone does not force a release delta.
+Known maintenance candidate to classify:
 
-The next version number is assigned only after release scope stabilizes.
+- inherited `tools/ena_evolve.py` requires `--variation-space` for `propose/import`, false-blocking Current v0.3.6 latent variation semantics. This is a tooling candidate, not demonstrated Core delta.
 
-## Phase — Candidate build and validation
+Do not assign the next version until release scope stabilizes.
 
-When release scope is stable:
+## Phase 9 — Candidate build and validation
 
-1. construct a self-contained candidate;
-2. preserve exact source/tree identity;
+State: `NOT_STARTED`
+
+After scope stabilizes:
+
+1. build a self-contained candidate from an exact committed tree;
+2. preserve immutable source identity;
 3. run deterministic machine validation;
-4. freeze the candidate;
-5. obtain independent semantic/implementation falsification appropriate to the changes;
+4. freeze candidate identity;
+5. obtain independent falsification appropriate to the actual changes;
 6. reconcile findings without mutating frozen identity;
-7. create successor candidate only when material correction is required;
-8. stop candidate succession when another round has no plausible decision-changing value.
+7. create a successor candidate only for material correction;
+8. stop succession when another round cannot plausibly change the decision.
 
-## Phase — Release and promotion
+## Phase 10 — Release and promotion
 
-Only after candidate/reconciliation evidence supports release:
+State: `NOT_STARTED`
 
-- create release branch;
-- package exact Current candidate bytes;
+Only after candidate evidence supports release:
+
+- create the governed release surface/branch;
+- package exact candidate bytes;
 - verify file-set/hash parity and release identity;
 - run required CI/security/regression checks;
-- publish/read back release artifact where applicable;
-- merge through release discipline;
-- verify post-merge `releases/current/` identity and package/readback;
+- publish/read back artifacts where applicable;
+- promote through release discipline;
+- verify post-merge `releases/current/` identity;
 - update project/history/control pointers;
-- complete a project-state alignment pass before declaring the post-release project state stable.
+- run the Project State Alignment Gate again.
 
-Do not claim release complete on narrative confidence alone.
+Do not claim release complete on narrative confidence.
 
 ## Research-method invariants
 
@@ -388,19 +339,16 @@ EXTERNAL_POPULARITY != SELECTION_PROOF
 NO_CHANGE = VALID_OUTCOME
 REMOVE_FROM_ACTIVE_ARCHITECTURE != ERASE_FROM_LINEAGE
 HANDOFF_SUMMARY != PROJECT_STATE
-BRANCH_EXISTS != ACTIVE_RESEARCH_AUTHORITY
-OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
 MATERIAL_TRANSITION -> ALIGN -> RESUME
 RECOVERY_SUFFICIENT_FOR_ASSEMBLY != ARCHAEOLOGY_COMPLETE_FOREVER
 ASSEMBLY != CURRENT_PROMOTION
+NO_NEW_CORE_RULES != NO_RELEASE_VALUE
 ```
 
 ## Progress carrier
 
-Do not add fast-changing task-by-task progress to this main plan.
-
-Follow `research/ACTIVE-RESEARCH.yaml` to the active branch and read:
+Fast-moving execution belongs in:
 
 `research/plans/PROGRESS.yaml`
 
-That file may change frequently. This plan should change only when the long-horizon execution model itself changes.
+This master plan changes only when the long-horizon phase model or closure criteria materially change.

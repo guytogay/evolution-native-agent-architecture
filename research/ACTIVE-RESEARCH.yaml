@@ -1,19 +1,17 @@
-schema_version: "1.5"
+schema_version: "1.6"
 status: ACTIVE_RESEARCH_POINTER
+updated_at: "2026-08-27"
 
 # Canonical main-visible pointer for continuing ENA research.
-# A new session must not infer the active branch from branch recency, names,
-# commit timestamps, PR numbers, or cached head SHAs.
+# Do not infer the active branch from recency, branch names, old PR numbers, or cached SHAs.
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "ACTIVE_RECONSTRUCTION / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
-  branch_name_status: "CURRENT_SCOPE_NAME / SUCCESSOR_TO_PR_82_CHECKPOINT"
+  state: "ACTIVE_RELEASE_SCOPE_RECONCILIATION / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
+  branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
+  branch_name_status: "STABLE_INTEGRATION_NAME / NOT_PHASE_ONTOLOGY"
   continuation_authority: BRANCH_POINTER
   open_pull_request_required_for_activity: false
-  pull_request_discovery: "SEARCH_OPEN_PR_BY_HEAD_BRANCH_AND_BASE_MAIN"
-  successor_bootstrap_pr: 101
-  successor_bootstrap_pr_role: HISTORICAL_CONTROL_PLANE_CHECKPOINT
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
   embedded_head_sha_is_identity_lock: false
 
@@ -22,6 +20,8 @@ active_research:
   detailed_plan_path: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
   methodology_index_path: "research/methodology/README.md"
   alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
+  operational_architecture_path: "research/operational-architecture/README.md"
+  release_scope_path: "research/release-scope/README.md"
   external_how_registry_path: "research/external-how/SOURCE-REGISTRY.md"
   reconstruction_ledger_issue: 89
   workstream_issues: [90, 91, 92, 93, 94]
@@ -41,33 +41,30 @@ continuation_protocol:
   - "Start from main, not from a guessed research branch."
   - "Verify Current from releases/current/CURRENT-BASELINE.yaml."
   - "Read this file to discover the one active research integration branch."
-  - "Read the main-visible methodology before selecting substantive work."
-  - "If a material project transition occurred, complete the Project State Alignment Gate before substantive work resumes."
-  - "Switch/read the active research branch and its progress state."
+  - "Read canonical methodology before selecting substantive work."
+  - "If a material project transition occurred, complete the Project State Alignment Gate before resuming."
+  - "Read the active branch bootstrap and PROGRESS.yaml."
+  - "Read the master plan and current release-scope entry/reconciliation artifacts."
   - "Reverify the active branch head live before writing."
-  - "Discover an open PR by active head branch when PR context is needed; PR absence does not deactivate the branch."
-  - "Do not treat historical branch names, deleted refs, old PR numbers, or cached SHAs as parallel research authority."
+  - "Open PR identity is integration context, not continuation authority."
 
-branch_transition:
-  current_decision: "CHECKPOINT_COMPLETED / SUCCESSOR_ACTIVATED / PREDECESSOR_REF_DELETED"
+latest_transition:
+  event: "PR_109_RESEARCH_CHECKPOINT_MERGED_AND_RELEASE_SCOPE_ENTRY_OPENED"
+  checkpoint_pull_request: 109
+  checkpoint_merge: "3e5862998200770c37a6c67ed1789c12a852739c"
+  checkpoint_changed_current: false
+  active_branch_fast_forwarded_to_checkpoint_main: true
+  operational_architecture_entry_gate: PASS_WITH_OPEN_FIELD_RESIDUALS
+  release_scope_reconciliation: READY_TO_START
+  next_version: UNASSIGNED
+
+historical_branch_lineage:
   predecessor_branch: "research/memory-metabolism-prototype"
   predecessor_pull_request: 82
-  predecessor_checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
-  reconciliation_commit: "3a465479a7bc7205bf595b3078a359dfb0710485"
   predecessor_ref_state: DELETED_AFTER_CHECKPOINT
-  predecessor_ref_deletion_observed_at: "2026-08-26"
-  successor_branch: "research/ena-reconstruction"
-  successor_bootstrap_pr: 101
+  successor_bootstrap_pull_request: 101
   successor_bootstrap_state: MERGED_TO_MAIN
-  why: >-
-    The predecessor branch began as a Memory Metabolism prototype and grew into a
-    broad ENA reconstruction workspace. Its accumulated research was checkpointed to
-    main without changing releases/current. A new branch was then created from the
-    exact checkpointed main commit so branch identity once again matches research scope.
-    After continuation authority transferred to the successor, the predecessor ref was
-    deleted while its Git/PR/checkpoint lineage remained durable.
-  direct_rename_used: false
-  current_changed_by_transition: false
+  note: "Historical branch/PR identity is lineage only and does not compete with this pointer."
 
 alignment:
   required_after_material_transition: true
@@ -77,13 +74,11 @@ alignment:
 
 branch_cardinality:
   active_research_integration_branches_allowed: 1
-  authority_basis: >-
-    This is a project-coordination invariant, not an ontology claim. A single active
-    integration branch prevents ambiguous session continuation while temporary
-    isolation branches may still exist when technically necessary.
+  note: >-
+    This is a project-coordination invariant, not ontology. Temporary isolation branches
+    may exist only when technically useful and do not become continuation authority.
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
-  note: "Research branch state never overrides Current adoption identity."
-
-updated_at: "2026-08-26"
+  expected_at_this_transition: "v0.3.6 / CURRENT / FIELD_VALIDATION"
+  note: "Research state never overrides Current adoption identity."
