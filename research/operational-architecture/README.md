@@ -22,15 +22,31 @@ traversable architecture
 
 ## Start here
 
+If you arrive with an ordinary problem/failure and do not know the ENA node vocabulary:
+
+`CUE-INDEX.md`
+
+Then follow the routed node(s) into:
+
 `OPERATIONAL-ARCHITECTURE-MAP.md`
 
-The map is the first assembly artifact. It links semantic problems to:
+Current static assembly audits:
 
-- concrete HOW families;
-- Host-native/adapted implementations;
-- evidence and residuals;
-- cross-organ composition seams;
-- dormant/experimental alternatives.
+- `TRAVERSAL-AUDIT-001.md` — natural-language problem -> map traversal;
+- `TRAVERSAL-AUDIT-002.md` — cue-index reroute and consequence-first routing.
+
+The current assembly path is:
+
+```text
+ordinary problem / decision cue
+-> compact cue index
+-> one or more WHAT/WHY nodes
+-> plural HOW branches
+-> durable artifact / Host binding
+-> concrete action or honest gap
+```
+
+The next audit depth is the `HOW -> exact artifact / Host action` seam.
 
 ## This directory is not a new Constitution
 
@@ -88,6 +104,23 @@ No fixed checklist is mandatory if a different shape is more useful. The test is
 7. **Do not solve context cost by deleting architecture.** Repository richness and active runtime context are separate problems.
 8. **Do not solve runtime routing by loading everything.** Tiny Hot Kernel / semantic routing should locate relevant branches.
 9. **Do not rewrite Current during assembly.** Release-scope reconciliation is a later phase.
+10. **Route by consequence before ceremony.** Clearly non-material local work should not automatically trigger full authority/effect/settlement machinery; material or unknown consequences route upward.
+
+## Cue-index boundary
+
+The cue index is a thin routing surface, not the architecture itself.
+
+```text
+CUE_INDEX = RECOGNITION / ROUTING
+OPERATIONAL_MAP = HOW BRANCH DISCOVERY
+REFERENCE_ARTIFACT / HOST = EXECUTION
+```
+
+Do not load the entire map into the cue index.
+
+Do not assume the first cue set is complete.
+
+Do not force one cue to one node; many-to-many routing is expected.
 
 ## Evidence labels in the map
 
@@ -150,6 +183,22 @@ OPERATIONAL_LIBRARY_SIZE
 ACTIVE_CONTEXT_SIZE
 ```
 
-The map should eventually become a good cold routing target for Tiny Hot Kernel / Host-native retrieval mechanisms.
+`CUE-INDEX.md` is closer to the future hot-routing problem than the full map, but it is still not automatically a universal always-hot payload.
 
-`CURRENT_CHANGE = NO`
+```text
+CUE_INDEX_EXISTS != CUE_FIRES_NATURALLY
+ROUTING_RULE_PRESENT != ROUTING_APPLIED
+```
+
+Fresh-session field evidence remains necessary before claiming spontaneous operational adoption.
+
+## Current assembly result
+
+```text
+FIRST_MAP = PERSISTED
+STATIC_NATURAL_LANGUAGE_TRAVERSAL = SUPPORTED
+COMPACT_CUE_INDEX = JUSTIFIED_AND_AUTHORED
+MACHINE_ROUTER_SCHEMA = DEFERRED
+NEXT_BOTTLENECK = HOW_TO_EXACT_ARTIFACT/HOST_EXECUTION_DEPTH
+CURRENT_CHANGE = NO
+```
