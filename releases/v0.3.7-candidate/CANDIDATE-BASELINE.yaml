@@ -76,7 +76,7 @@ operational_architecture:
   candidate_local_paths_exist: true
 
 references:
-  state: MANIFEST_SELECTED_CONTENT_ASSEMBLY_PENDING
+  state: ASSEMBLED_MACHINE_CHECKED_STAGE_3
   manifest: "references/REFERENCE-MANIFEST.yaml"
   required_for_complete_adoption_default: false
   default_activation_default: false
@@ -97,14 +97,35 @@ references:
     - commitment-settlement-recovered
 
 tooling:
-  state: CANDIDATE_PRIMARY_TOOL_ASSEMBLY_PENDING
+  state: ASSEMBLED_MACHINE_CHECKED_STAGE_3
   primary_v2_tool: "tools/ena_evolve_v2.py"
   primary_v2_tool_role: "thin orchestration over candidate-local v2 record validator/schema plus packet-v2 digest and narrow consistency"
+  helper_selftest: "tools/selftest_ena_evolve_v2.py"
   legacy_tool_target: "tools/legacy/ena_evolve_v1_2.py"
   legacy_tool_default_path: false
   narrow_legacy_variation_space_repair_selected_as_primary: false
   v2_tool_must_not_delegate_to_releases_current: true
   v2_tool_must_not_reimplement_second_evolution_semantic_engine: true
+
+stage3_machine_evidence:
+  exact_head: "8ba109528ecb14f9a22a372c897ac8d9ea1759f3"
+  workflow: "ENA v0.3.7 Candidate Assembly Gate"
+  workflow_run_id: 33004330491
+  conclusion: SUCCESS
+  observed:
+    - "Current isolation PASS"
+    - "candidate identity surface PASS"
+    - "8 selected optional reference paths and optionality metadata PASS"
+    - "all bundled reference selftests PASS"
+    - "candidate-local v2 helper deterministic corpus PASS; observed corpus size 10"
+    - "candidate-local v2 CLI latent/export/import round-trip PASS"
+    - "v2 helper contains no releases/current dependency and legacy tool is demoted PASS"
+    - "candidate Python compile PASS; observed files 24; failures 0"
+    - "bytecode hygiene PASS"
+  evidence_boundary:
+    - "Observed case counts are corpus facts, not architectural thresholds."
+    - "Machine consistency does not prove external authority, evidence truth, receipt authenticity, recovery truth, or universal Host applicability."
+    - "Stage-3 author/assembly validation does not substitute for later independent semantic falsification."
 
 language:
   state: OPERATIONAL_PROJECTION_ASSEMBLY_PENDING
@@ -115,6 +136,7 @@ language:
   how_map_projection_required: true
   bounded_procedure_projection_required: true
   commons_pattern_projection_required: true
+  host_mapping_projection_required: true
   machine_reference_file_by_file_translation_required: false
   machine_reference_zh_cn_guide_required: true
   structural_parity_is_behavioral_equivalence: false
@@ -127,8 +149,8 @@ freeze_protocol:
   freeze_not_allowed_while_maturity_is_assembly_in_progress: true
 
 assembly:
-  stage: 2
-  state: OPERATIONAL_ARCHITECTURE_ASSEMBLED
+  stage: 3
+  state: OPERATIONAL_REFERENCES_TOOLING_MACHINE_CHECKED
   completed:
     - candidate branch aligned to exact release-scope checkpoint
     - candidate baseline and candidate identity entry files created
@@ -142,20 +164,22 @@ assembly:
     - Evolution Commons pattern created
     - Host mapping pattern created
     - optional reference manifest created
+    - selected optional reference contents assembled with candidate-local wrappers
+    - candidate-local v2 evolution helper assembled
+    - inherited v1.2 evolution tool moved to explicit legacy path
+    - Stage-3 candidate assembly gate passed on exact head 8ba109528ecb14f9a22a372c897ac8d9ea1759f3
   pending:
-    - selected optional machine reference contents
-    - candidate-local v2 evolution helper and explicit legacy relocation
-    - zh-CN operational projection and fixtures
+    - zh-CN operational projection and decision fixtures
+    - candidate identity reconciliation across inherited adopter-facing files
     - candidate-specific validator and author adversarial suite
-    - identity reconciliation across inherited candidate files
     - pre-freeze machine validation
     - freeze record and independent falsification
 
 accepted_working_residuals:
   - "Current v0.3.6 remains the only adopter-facing baseline while candidate.0 is assembled."
-  - "Inherited semantic files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
-  - "Operational Architecture is candidate-local and traversable, but selected machine reference paths are not yet assembled."
-  - "The v2 primary tool direction is selected, but the candidate-local tool path is not yet assembled."
+  - "Inherited semantic/adopter-facing files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
+  - "Selected bundled references are optional machine references; package inclusion does not establish applicability, activation, or external truth."
+  - "The candidate-local v2 helper covers latent record and packet-v2 orchestration, not the entire evolution lifecycle state machine."
   - "Fresh-session cue salience and behavioral language equivalence remain field evidence, not candidate-author proof."
 
 invariants:
@@ -167,4 +191,5 @@ invariants:
   - HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
   - HOT_KERNEL_NE_FULL_HOW_LIBRARY
   - SEMANTIC_TRUNK_STABILITY_NE_NO_RELEASE_VALUE
+  - MACHINE_PASS_NE_EXTERNAL_TRUTH
   - SILENT_DISSOLUTION_NE_EVIDENCE_BACKED_RETIREMENT
