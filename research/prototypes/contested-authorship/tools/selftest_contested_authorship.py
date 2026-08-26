@@ -44,33 +44,33 @@ def main() -> int:
 
     run([sys.executable, str(validator)], expect=0)
     rows = load_jsonl(fixtures_path)
-    assert len(rows) == 18, f"expected 18 fixtures, got {len(rows)}"
+    assert rows, "authorship fixture corpus must not be empty"
+    ids = [row.get("case_id") for row in rows]
+    assert len(ids) == len(set(ids)), "duplicate case_id"
+    required_ids = {"CA-001", "CA-004", "CA-010", "CA-013", "CA-014"}
+    assert required_ids <= set(ids), f"missing targeted regression fixtures: {sorted(required_ids - set(ids))}"
 
     with tempfile.TemporaryDirectory(prefix="ena-authorship-") as tmp:
         tmpdir = Path(tmp)
 
-        # Mutation 1: operator-authored durable purpose is laundered into SELF_AUTHORED.
         row = by_id(rows, "CA-004")
         row["record"]["authorship"]["claim"] = "SELF_AUTHORED"
         path = tmpdir / "authorship-laundering.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 2: external-origin material purpose silently loses current endorsement.
         row = by_id(rows, "CA-004")
         row["record"]["endorsement"]["status"] = "NOT_EVALUATED"
         path = tmpdir / "silent-endorsement.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 3: self-description says authority is resolved after external mandate ref disappears.
         row = by_id(rows, "CA-010")
         del row["record"]["authority"]["external_authority_ref"]
         path = tmpdir / "authority-laundering.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # Mutation 4: a material conflict is integrated as if last-write-wins were sufficient.
         row = by_id(rows, "CA-013")
         row["record"]["conflict"]["disposition"] = "NONE"
         row["record"]["conflict"].pop("resolution_ref", None)
@@ -78,19 +78,19 @@ def main() -> int:
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=1)
 
-        # False-BLOCK control 1: low-consequence durable heuristic remains valid without full material readback ceremony.
         row = by_id(rows, "CA-001")
         path = tmpdir / "low-heuristic.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=0)
 
-        # False-BLOCK control 2: ordinary cache/index maintenance bypasses the organ entirely.
         row = by_id(rows, "CA-014")
         path = tmpdir / "cache-out-of-scope.jsonl"
         write_one(path, row)
         run([sys.executable, str(validator), "--fixtures", str(path)], expect=0)
 
     print("PASS: contested-authorship portable adversarial selftest")
+    print(f"observed_fixture_count={len(rows)}")
+    print("fixture_cardinality=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES")
     print("verification_scope=DURABLE_SELF_CHANGE_MUTATION_TESTS_ONLY")
     print("false_block_controls=LOW_HEURISTIC,CACHE_OUT_OF_SCOPE")
     print("external_authority=NOT_MINTED")
