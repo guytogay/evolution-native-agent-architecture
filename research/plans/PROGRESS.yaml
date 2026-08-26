@@ -1,4 +1,4 @@
-schema_version: "0.5"
+schema_version: "0.6"
 as_of: "2026-08-26"
 status: ACTIVE_RECONSTRUCTION_TO_RELEASE
 
@@ -22,6 +22,7 @@ canonical_pointers:
   recovered_variation_map: research/reconstruction/RECOVERED-VARIATION-MAP.md
   lineage_survival_map: research/reconstruction/PORTABLE-SNAPSHOT-LINEAGE-SURVIVAL-MAP.md
   latest_composition_harness: research/prototypes/migration-settlement-composition/README.md
+  latest_compaction_contract: research/prototypes/lineage-compaction-contract/README.md
   recovered_commitment_prototype: research/prototypes/commitment-settlement-recovered/README.md
   research_generation_record: research/reconstruction/RESEARCH-GENERATION-2026-08-26.md
   predecessor_checkpoint_pr: "#82"
@@ -114,6 +115,7 @@ phases:
       - predecessor/external critique revealed dormant concrete HOW and simplification variations not retained in the mechanism ledger
       - progressive record archaeology showed current-state projection can hide materially different occurrence history
       - local-only Commitment/Settlement machine artifacts were not durable and required semantic reconstruction from persisted README/Issue lineage
+      - bounded lineage compaction requires preserving or retrievably referencing decision-material negative evidence, obligations, settlement evidence, and dependency structure
     closure_rule: >-
       Continue while another bounded archaeology pass can reveal a material missing
       lineage likely to change the engineering map. Do not use a fixed topic count.
@@ -133,6 +135,8 @@ phases:
       - progressive evolution-record / event-to-projection HOW family
       - portable snapshot + decision-material lineage HOW family
       - migration projection x Commitment/Settlement composition
+      - decision-material lineage compaction contract
+      - inline summary / digest-bound cold lineage / mixed compaction HOW family
       - Contested Authorship
       - Distributed History Merge
       - Evidence Dependency Map
@@ -186,15 +190,17 @@ phases:
       - provider-native idempotency targets
       - target-side fencing/conditional-write systems
       - provenance/attestation carriers
+      - hot/cold or local/remote lineage stores
     note: HOST_LIST_IS_OPEN_CARDINALITY
 
   cross_organ_composition:
-    state: ACTIVE_WITH_EXECUTION_FENCING_AND_PROJECTION_OMISSION_GAPS_ESTABLISHED
+    state: ACTIVE_WITH_EXECUTION_FENCING_PROJECTION_OMISSION_AND_COMPACTION_BOUNDARIES_ESTABLISHED
     known_examples:
       - Memory Metabolism x Retrieval x Decision Projection
       - Recovery x Authority x Effect Lifecycle
       - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
       - Evolution migration x projection lineage x Commitment/Settlement
+      - Migration lineage x Evidence Dependency Map x Commitment/Settlement x compaction
     established_gaps:
       - statement: >-
           A unique represented current executor, valid authority, coherent effect record,
@@ -209,6 +215,14 @@ phases:
           Evolution migration can preserve experiments/evaluations/expression/integration
           history while still losing first-class unresolved obligation/settlement lineage.
         shorthand: EVOLUTION_HISTORY_TRANSFERRED_NE_OBLIGATION_SETTLEMENT_SURVIVED
+      - statement: >-
+          A structurally valid compact representation may still depend on cold lineage that
+          must be retrieved before a material decision; reference presence alone is not readiness.
+        shorthand: SUMMARY_VALID_NE_MATERIAL_USE_READY
+      - statement: >-
+          A digest-bound cold lineage reference proves represented identity binding only;
+          it does not prove the referenced lineage remains reachable or retrievable.
+        shorthand: COLD_REF_PRESENT_NE_COLD_LINEAGE_RETRIEVABLE
     universal_organ_shape_established: false
     concrete_candidate_hows:
       - provider effect-id idempotency
@@ -225,13 +239,18 @@ phases:
       - typed Commitment/Settlement carrier composition
       - digest-bound sidecar/reference to decision-material lineage
       - non-tree causal/dependency links
+      - inline decision-material lineage summary
+      - digest-bound cold lineage reference with retrieval-before-material-use
+      - mixed inline + cold compaction
     deterministic_evidence:
       - recovered Commitment/Settlement reconstructed corpus passes represented assignment/settlement cases
       - migration-settlement composition corpus demonstrates packet-only omission false-OK and source-aware rejection/control branches
       - progressive evolution-record corpus demonstrates equal Core projection with unequal represented history
+      - lineage-compaction corpus rejects negative-evidence/obligation/dependency loss and distinguishes structural validity from material-use readiness
     next_high_value_seams:
       - physical stale-executor fencing/idempotency composition against real target semantics
-      - migration-lineage compaction without erasing negative evidence, obligation, settlement, authority, or dependence
+      - cold-lineage retrieval/freshness/availability behavior under material use
+      - compaction interaction with memory metabolism and long-run repeated migration
       - Tiny Hot Kernel x exact cold retrieval x memory blocks/session compaction x language projection
       - Identity/lineage x commitment x reputation
       - Evolution Commons x A2A task/message/artifact lifecycle
@@ -276,7 +295,7 @@ methodology_incidents:
 next_actions:
   - continue anti-ablation archaeology beyond the Issue layer; preserve dormant/superseded HOW variations rather than selecting from visibility alone
   - compare projection-witness / source-shadow / typed-carrier HOWs without prematurely adding fields to Current adaptation packets
-  - design compaction fixtures proving decision-material lineage survives while migration history remains bounded
+  - test cold-lineage retrieval/freshness/availability and mixed inline/cold compaction on realistic Host storage/retrieval paths
   - continue stale-executor physical-fencing fixtures against materially different target/provider mechanisms
   - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
   - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
@@ -299,3 +318,5 @@ invariants:
   - ACTIVE_HEAD_SHA_MUST_BE_LIVE_REVERIFIED
   - ALIGN_BEFORE_RESUME_AFTER_MATERIAL_TRANSITION
   - LOCAL_ARTIFACT_IS_NOT_DURABLE_UNTIL_PERSISTED
+  - COMPACTION_MUST_NOT_LAUNDER_DEPENDENCE_OR_ERASE_DECISION_MATERIAL_LINEAGE
+  - COLD_REFERENCE_DOES_NOT_PROVE_RETRIEVABILITY
