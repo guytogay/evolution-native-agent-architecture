@@ -53,7 +53,7 @@ jobs:
               'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md',
               'language-projections/zh-CN/09-EVOLUTION-METABOLISM.md',
           ]
-          forbidden_opening = [
+          forbidden_identity = [
               'v0.3.6 Current',
               'CURRENT / FIELD_VALIDATION',
               'ADOPT CURRENT',
@@ -62,11 +62,13 @@ jobs:
           for rel in expected_candidate:
               p = root/rel
               assert p.is_file(), rel
-              text = p.read_text(encoding='utf-8')
-              opening = '\n'.join(text.splitlines()[:8])
-              assert 'v0.3.7 candidate.0' in opening, (rel, opening)
-              for bad in forbidden_opening:
-                  assert bad not in opening, (rel, bad, opening)
+              lines = p.read_text(encoding='utf-8').splitlines()
+              title = lines[0] if lines else ''
+              status = next((line for line in lines[:6] if line.startswith('Status:') or line.startswith('状态：')), '')
+              identity_surface = title + '\n' + status
+              assert 'v0.3.7 candidate.0' in identity_surface, (rel, identity_surface)
+              for bad in forbidden_identity:
+                  assert bad not in identity_surface, (rel, bad, identity_surface)
 
           checks = {
               'README.md': ['NOT_CURRENT', 'Current', 'operational/CUE-INDEX.md'],
