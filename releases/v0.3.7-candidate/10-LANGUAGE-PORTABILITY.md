@@ -1,15 +1,17 @@
-# 10. Language Portability and Semantic Projection — v0.3.6 Current
+# 10. Language Portability and Semantic Projection — v0.3.7 candidate.0
 
-ENA must not depend on English proficiency to remain ENA.
+Status: `WORKING_CANDIDATE / OPERATIONAL_LANGUAGE_PROJECTION / NOT_CURRENT / NOT_FROZEN`.
 
-A language version is a **semantic projection** of one release semantic identity, not a separate Constitution.
+ENA must not depend on English proficiency to remain usable as ENA.
+
+A language version is a **semantic projection** of one candidate/release identity, not a separate Constitution or a second machine implementation.
 
 ## 10.1 Stable identity
 
 Across languages:
 
-- inherited `ENA-CON-*`, `ENA-CAP-*`, contract/schema IDs remain unchanged unless a governed version change explicitly changes them;
-- release effective-content identity remains traceable;
+- inherited `ENA-CON-*`, `ENA-CAP-*`, contract/schema IDs remain stable unless a governed version change explicitly changes them;
+- effective-content identity remains traceable;
 - a projection declares source identity and language tag;
 - wording may differ to preserve decision meaning.
 
@@ -19,11 +21,11 @@ Example:
 
 `capability != authority`
 
-A literal Chinese `能力 ≠ 权威` is weaker/ambiguous. Prefer the operational meaning:
+Operational Chinese meaning:
 
 `有能力做到某件事 ≠ 被授权可以这样做`
 
-v0.3.6 adds additional high-risk distinctions such as:
+Other high-risk inherited distinctions include:
 
 `stimulus != mutation != improvement`
 
@@ -35,58 +37,87 @@ v0.3.6 adds additional high-risk distinctions such as:
 
 `published != imported != locally selected`
 
-These require semantic projection, not word substitution.
+Candidate.0 adds operational distinctions that also require semantic rather than lexical projection:
 
-## 10.2 Projection manifest
+`bundled reference != required/default-active`
 
-A language projection declares:
+`cue match != applicability proven`
 
-- language tag;
-- source release identity;
-- projection version;
-- covered files/concepts;
-- untranslated/partial areas;
-- glossary identity;
-- structural validation status;
-- behavioral semantic-conformance status.
+`continuity for one decision != universal same-agent claim`
 
-The zh-CN projection shipped with Current is bound to v0.3.6 release semantics. A projection becomes stale when material source semantics change without reconciliation.
+`being heard != sovereignty/authority`
 
-## 10.3 Semantic glossary
+`no incident != control not needed`
 
-High-risk terms should carry an operational definition rather than rely on one-word dictionaries.
+## 10.2 Candidate projection manifest
 
-v0.3.6 glossary adds/clarifies:
+The zh-CN projection declares candidate source identity, covered semantic/operational surfaces, machine-artifact policy, fixture sets, validation state, and known gaps in:
 
-`stimulus | mutation pressure | latent variation | expression | local selection | Evolution Commons | rescue plane | canonical lineage`
+`language-projections/zh-CN/projection-manifest.yaml`
 
-English terms may remain alongside Chinese where that reduces semantic drift, but Chinese users/Agents should not be forced to reason in English to access ENA meaning.
+Candidate.0 is `NOT_CURRENT / NOT_FROZEN`; the projection is therefore also a working candidate projection. If freeze occurs, it must be bound to the exact frozen candidate tree rather than a mutable branch name.
 
-## 10.4 Cross-language conformance
+## 10.3 Decision-bearing operational projection
+
+Candidate.0 adds zh-CN paths for:
+
+- operational entrypoint;
+- Cue Index;
+- HOW Map;
+- Purpose-Relative Continuity;
+- Standing Input;
+- Control Retirement;
+- Evolution Commons patterns;
+- Host Mapping patterns;
+- optional-reference usage guidance.
+
+Root:
+
+`language-projections/zh-CN/operational/`
+
+Reference guide:
+
+`language-projections/zh-CN/REFERENCE-GUIDE.md`
+
+Chinese adopters should be able to reach the practical HOW layer without hidden English-only decision instructions.
+
+## 10.4 One canonical machine surface
+
+Candidate.0 intentionally does **not** translate every machine reference schema/tool/fixture into a second zh-CN implementation.
+
+```text
+ONE_MACHINE_SURFACE
++ MULTIPLE_SEMANTIC_USAGE_PROJECTIONS
+```
+
+Canonical machine bytes remain under `references/`, `schemas/`, `templates/`, and `tools/`.
+
+This avoids two nominally equivalent machine contracts drifting independently. Chinese usage guidance explains applicability/boundaries while preserving the same machine paths.
+
+## 10.5 Cross-language conformance
 
 Validate **decision meaning**, not literary similarity.
 
-Included fixtures:
+Fixture sets:
 
-- `language-projections/semantic-fixtures.v1.yaml` — inherited v0.3.5 paired scenarios;
-- `language-projections/semantic-fixtures.v2.yaml` — v0.3.6 ecology paired scenarios.
+- `semantic-fixtures.v1.yaml` — inherited v0.3.5 paired scenarios;
+- `semantic-fixtures.v2.yaml` — inherited v0.3.6 ecology scenarios;
+- `semantic-fixtures.v3.yaml` — v0.3.7 candidate operational routing/applicability scenarios.
 
-v2 covers:
+v3 currently exercises Retrieval, WAIT, Authority, Effect, Recovery, Purpose-Relative Continuity, Standing Input, Evidence dependency, Adoption/reference optionality, Commons/Migration, Control Retirement, and Contested Authorship.
 
-- stimulus not automatically causing mutation/improvement;
-- legitimate latent variation;
-- stored not equal expressed;
-- local selection not universal fitness;
-- publisher/receiver autonomy;
-- rescue not sovereignty;
-- canonical lineage not self-declared Current;
-- minimal intervention not externality waiver.
+The current v3 case count is a corpus fact, not a required minimum or proof that the operational ontology is exhaustive.
 
-Fixture presence/structure is not behavioral proof. Only actual paired model/Host/language experiments provide such evidence.
+Fixture presence/structure and route parity are not behavioral proof. Only observed paired model/Host/language behavior can support behavioral conformance claims.
 
-## 10.5 Local Projection
+```text
+TRANSLATED != BEHAVIORALLY_EQUIVALENT
+FIXTURE_DEFINED != MODEL_PASS
+```
 
-Where language can materially affect interpretation, record:
+## 10.6 Local Projection and applicability
+
+Where language can materially affect interpretation, record as needed:
 
 - operating/adoption language;
 - projection identity;
@@ -98,18 +129,20 @@ Where language can materially affect interpretation, record:
 
 Language change can be an applicability boundary for evidence when it can change a decision.
 
-## 10.6 Current projection status
+## 10.7 Candidate evidence status
 
-v0.3.6 Current includes:
+The Stage-4 Assembly Gate has machine-checked:
 
-- canonical English authoring source;
-- Simplified Chinese (`zh-CN`) hot-path projection;
-- aligned glossary;
-- inherited v1 and v0.3.6 v2 semantic fixture sets.
+- required zh-CN operational files exist;
+- projection manifest is candidate-scoped and `not_current=true`;
+- machine reference bytes remain single/canonical by policy;
+- paired v3 fixtures are structurally valid;
+- every expected v3 route resolves in both English and zh-CN HOW maps;
+- the zh-CN reference guide preserves optional/default-off/deferred-not-retired boundaries.
 
-The predecessor v0.3.5 same-model 8/8 bilingual result remains predecessor evidence only; it does not prove v0.3.6 ecology semantics.
+This is author-side structural/semantic packaging evidence, not natural bilingual behavior proof.
 
-Current v0.3.6 behavioral semantic conformance: **UNPROVEN / FIELD EVIDENCE REQUIRED**.
+Predecessor behavioral results remain predecessor evidence with their original scope. Candidate v0.3.7 behavioral semantic conformance is **UNPROVEN / FIELD OR INDEPENDENT EVIDENCE REQUIRED**.
 
 > **Translate wording; preserve decisions.**
 >

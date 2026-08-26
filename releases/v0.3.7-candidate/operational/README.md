@@ -1,12 +1,12 @@
 # Operational Architecture — v0.3.7 candidate.0
 
-Status: `WORKING_CANDIDATE / STAGE_1_SHELL / NOT_CURRENT / NOT_FROZEN`
+Status: `WORKING_CANDIDATE / ASSEMBLED_OPERATIONAL_ARCHITECTURE / NOT_CURRENT / NOT_FROZEN`
 
 This directory is the candidate-local practical HOW layer.
 
-Its job is not to restate the whole Constitution. Its job is to help an adopter move from a real problem to one or more usable implementation branches without reading `research/`.
+Its job is not to restate the Constitution. Its job is to help an adopter move from a real problem to one or more usable implementation branches without reading `research/`.
 
-## Intended traversal
+## Traversal
 
 ```text
 ordinary cue / failure / decision
@@ -15,10 +15,10 @@ ordinary cue / failure / decision
 -> HOW-MAP
 -> REFERENCE-INDEX
 -> bounded procedure / optional reference / Host pattern
--> concrete action, WAIT, UNKNOWN, REFUSE, or not-applicable
+-> concrete action, WAIT, UNKNOWN, REFUSE, or NOT_APPLICABLE
 ```
 
-Stage 1 creates only this entry surface. The remaining operational files are explicitly pending in `../CANDIDATE-BASELINE.yaml`; their absence is not completion.
+All Stage-2 operational paths above are now assembled. Selected reference contents and candidate-local v2 tooling are also assembled; see `../CANDIDATE-BASELINE.yaml` for exact machine evidence and remaining pre-freeze gates.
 
 ## Architecture rule
 
@@ -34,7 +34,7 @@ HOW
 
 `HOW_VARIATION != SEMANTIC_DUPLICATION`
 
-One property may legitimately map to multiple concrete mechanisms. For example, consequential effect control can map to provider idempotency, assignment fencing, optimistic concurrency, status query, compensation, or WAIT depending on the target semantics.
+One property may map to multiple concrete mechanisms. Consequential effect control, for example, can map to provider idempotency, assignment fencing, optimistic concurrency, status query, compensation, or WAIT depending on target semantics.
 
 ## Hot/cold rule
 
@@ -52,9 +52,9 @@ HOT_KERNEL != HOW_LIBRARY
 
 ## Candidate reference boundary
 
-Selected reference organs live under `../references/` when later stages assemble them.
+Selected reusable reference organs live under `../references/`.
 
-They are examples and reusable machine surfaces, not a required ENA organ inventory.
+They are examples/machine surfaces, not a required ENA organ inventory.
 
 ```text
 REFERENCE_EXISTS != UNIVERSAL_APPLICABILITY
@@ -78,11 +78,9 @@ A useful HOW should change what an Agent can actually do. Depending on the mecha
 - evidence maturity;
 - explicit non-applicability.
 
-This is not a fixed mandatory checklist. A HOW that merely paraphrases the principle remains operational debt.
+This is not a fixed checklist. A HOW that merely paraphrases the principle remains operational debt.
 
 ## Evidence rule
-
-Evidence belongs to branches, not only parent claims:
 
 ```text
 WHAT_WHY_SUPPORTED
@@ -95,8 +93,6 @@ A Host success does not create universal fitness.
 
 ## Anti-ablation rule
 
-Not selected for this candidate does not mean disproven or retired.
-
-Alternative/dormant/research branches remain durable in project lineage. Candidate assembly must not erase them from ENA research merely because they are not adopter cargo.
+Not selected for candidate.0 does not mean disproven or retired. Alternative/dormant/research branches remain durable in project lineage. Candidate packaging must not erase them merely because they are not adopter cargo.
 
 > **Compress the semantic trunk; let concrete HOWs branch.**

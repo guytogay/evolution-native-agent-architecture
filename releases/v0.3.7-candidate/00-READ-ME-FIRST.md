@@ -1,30 +1,32 @@
 # ENA v0.3.7 candidate.0 — Read Me First
 
-Status: **WORKING_CANDIDATE / ASSEMBLY_IN_PROGRESS / NOT_CURRENT / NOT_FROZEN**
+Status: **WORKING_CANDIDATE / ASSEMBLED_PENDING_AUTHOR_FALSIFICATION / NOT_CURRENT / NOT_FROZEN**
 
-The active adopter baseline is still `releases/current/` = `v0.3.6 / CURRENT / FIELD_VALIDATION`.
+The active adopter baseline remains `releases/current/` = `v0.3.6 / CURRENT / FIELD_VALIDATION`.
 
-This candidate exists to test whether ENA can become substantially more usable without inventing unnecessary new Core law.
+This candidate tests whether ENA can become substantially more usable through concrete Operational Architecture without inventing unnecessary Core law.
 
 ## Start here during candidate review
 
-1. `CANDIDATE-BASELINE.yaml` — exact working state, lineage, selected cargo, and assembly gaps;
+1. `CANDIDATE-BASELINE.yaml` — exact working state, lineage, machine evidence, and remaining gates;
 2. `README.md` — candidate thesis and package boundary;
-3. `RUNTIME-ADOPTION-KERNEL.md` — inherited hot/cold semantic kernel; candidate identity wording still requires reconciliation before freeze;
-4. `operational/README.md` — the new practical HOW layer being assembled;
-5. `references/REFERENCE-MANIFEST.yaml` — machine-readable optionality and applicability contract for selected references.
+3. `RUNTIME-ADOPTION-KERNEL.md` — compact hot semantic/cue surface;
+4. `operational/CUE-INDEX.md` — route from an ordinary problem to the relevant HOW family;
+5. `operational/HOW-MAP.md` — cold practical branch map;
+6. `operational/REFERENCE-INDEX.yaml` — exact local paths and optionality;
+7. `references/REFERENCE-MANIFEST.yaml` — machine-readable bundled-reference policy;
+8. `tools/ena_evolve_v2.py` — narrow candidate-local v2 practical evolution path;
+9. `language-projections/zh-CN/operational/` — decision-bearing Simplified Chinese operational projection.
 
-Do not treat missing Stage-1 paths as silent completion. The baseline explicitly lists them as pending.
+No `research/` path is required for ordinary candidate use/review of these mechanisms.
 
 ## Candidate architecture
-
-The candidate keeps a small hot semantic trunk and grows concrete HOWs outside it:
 
 ```text
 TELOS / WHAT / WHY
         |
         v
-hot cues / durable distinctions
+compact hot cues / durable distinctions
         |
         v
 operational routing
@@ -32,33 +34,37 @@ operational routing
         +--> procedure
         +--> optional reference organ
         +--> Host-native pattern
-        +--> field/research residual
+        +--> honest residual / WAIT / UNKNOWN
 ```
 
-The operational tree may become large. The active context should not.
+The repository may contain many HOW branches. Active context should remain bounded.
 
 ```text
 REPOSITORY_DIVERGENCE != CONTEXT_EXPLOSION
+HOT_KERNEL != HOW_LIBRARY
 ```
 
-## What candidate.0 is expected to add
+## Concrete HOW applicability
 
-### Adopter-facing Operational Architecture
+Every concrete mechanism must retain a non-applicability path where appropriate.
 
-- consequence-first cue routing;
-- cold HOW map;
-- exact reference pointer/index;
-- Purpose-Relative Continuity procedure;
-- Standing Input procedure;
-- Control Retirement procedure;
-- Evolution Commons substrate/protocol patterns;
-- Host mapping guidance;
-- curated Memory Metabolism guidance.
+Examples:
 
-### Optional machine references
+```text
+Authority -> NOT_REQUIRED
+Contested Authorship -> OUT_OF_SCOPE
+Recovery -> independent rescue/drill only when consequence requires it
+Continuity -> NOT_REQUIRED when continuity cannot change the decision
+Control Retirement -> KEEP_ACTIVE / UNKNOWN_WAIT when retirement basis is weak
+```
+
+A mechanism that can only say “activate me” is likely to create false-BLOCK bureaucracy.
+
+## Bundled references are optional
+
+Candidate.0 bundles:
 
 General optional:
-
 - Retrieval Obligation 0.5;
 - WAIT;
 - Authority Lease;
@@ -66,51 +72,50 @@ General optional:
 - Recovery Adapter.
 
 Advanced/specialized optional:
-
 - Evidence Envelope;
 - Evidence Dependency Map;
 - Contested Authorship.
 
-Commitment/Settlement recovered reconstruction remains research lineage for the first candidate unless new material evidence changes that decision.
-
-### Tooling
-
-The intended primary practical evolution tool is a minimal v2 helper that:
-
-- creates valid latent v2 records without forcing an early Variation Space;
-- delegates evolution-record semantics to the candidate-local v2 validator;
-- exports/imports packet v2 with canonical digest and narrow packet consistency;
-- never upgrades imported source selection into receiver-local selection.
-
-The inherited v1.2 `ena_evolve.py` will become explicit legacy compatibility rather than the equally prominent default path.
-
-## Applicability rule
-
-Concrete HOWs must expose when they do **not** apply.
-
-Examples include:
-
 ```text
-Authority -> NOT_REQUIRED
-Contested Authorship -> OUT_OF_SCOPE
-Recovery -> independent rescue/drill only when required
-Continuity -> NOT_REQUIRED when continuity cannot change the decision
-Control Retirement -> KEEP_ACTIVE / UNKNOWN_WAIT when retirement basis is weak
+BUNDLED != REQUIRED
+BUNDLED != DEFAULT_ACTIVE
+REFERENCE_IMPLEMENTATION != REQUIRED_IMPLEMENTATION
 ```
 
-A mechanism that can only say “activate me” but cannot say “not applicable” is likely to create false-BLOCK bureaucracy.
+The recovered Commitment/Settlement machine prototype remains research lineage and is deliberately not bundled in candidate.0. That is deferral, not retirement.
 
-## Candidate proof boundary
+## Tool boundary
 
-This candidate may eventually pass deterministic machine checks and still fail independent semantic falsification.
+Primary candidate tool: `tools/ena_evolve_v2.py`.
+
+It supports:
+- creating latent v2 records without forcing an early Variation Space;
+- candidate-local v2 record validation;
+- packet-v2 export/import with digest and narrow represented consistency;
+- preserving source-selection vs receiver-local-selection separation.
+
+The inherited v1.2 implementation is retained at `tools/legacy/ena_evolve_v1_2.py` and is not the default candidate path.
+
+The v2 helper still does **not** implement the full evolution lifecycle state machine. Tool success remains represented machine evidence, not external truth.
+
+## Language boundary
+
+The zh-CN candidate projection covers operational routing/HOW/procedures/patterns and provides a reference usage guide. Machine reference bytes are not duplicated into translated variants.
+
+Paired v3 fixtures define expected operational decisions/routes but do not prove natural cross-language model behavior.
+
+## Proof boundary
+
+Stage-3 and Stage-4 Assembly Gates passed on their exact heads. That is author-side assembly evidence only.
 
 ```text
-ASSEMBLED != VALIDATED
-VALIDATED_BY_AUTHOR != INDEPENDENTLY_FALSIFIED
+ASSEMBLED != VALIDATED_BY_FRESH_FALSIFIER
+MACHINE_PASS != EXTERNAL_TRUTH
+TRANSLATED != BEHAVIORALLY_EQUIVALENT
 FROZEN != RELEASED
 BRANCH_EXISTS != CURRENT
 ```
 
-If frozen candidate.0 needs a material correction, a successor candidate identity is required.
+Before freeze, candidate identity/status must be reconciled and author adversarial/pre-freeze gates must pass. Any material correction after freeze requires a successor candidate identity.
 
 > **The final test is whether an Agent can actually live by it.**

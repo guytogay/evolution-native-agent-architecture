@@ -1,8 +1,8 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.6 Current
+# 8. Release and Canonical-Lineage Discipline — v0.3.7 candidate.0
 
-Status: `CURRENT / FIELD_VALIDATION`.
+Status: `WORKING_CANDIDATE / PRE_FREEZE_DISCIPLINE / NOT_CURRENT / NOT_FROZEN`.
 
-A deployable ENA adoption version must be self-contained and immutably identifiable.
+A deployable ENA adoption version must be self-contained and immutably identifiable. Candidate.0 is not yet deployable Current and must not acquire release status by self-description.
 
 ## Version identity
 
@@ -10,34 +10,46 @@ One adoption version identifies one immutable effective-content state.
 
 `same ena_version -> same effective content`
 
-Material change requires a new version/candidate identity. Research/candidates may branch; the adopter-facing Current remains singular.
+Material change requires a new version/candidate identity. Research/candidates may branch; adopter-facing Current remains singular.
 
 `Git main != ENA Current`
 
+`candidate branch != frozen identity`
+
 ## Candidate discipline
 
-A candidate is a variation.
+A candidate is a variation:
 
-`candidate -> author attacks -> freeze -> independent falsification/validation -> targeted correction/revalidation where needed -> reconciliation -> release decision`
+`candidate -> author attacks -> exact pre-freeze validation -> freeze -> fresh independent falsification/validation -> targeted correction/revalidation where needed -> reconciliation -> release decision`
 
-If a frozen candidate needs material correction, create a successor identity; do not silently edit the frozen effective-content tree.
+If a frozen candidate needs material correction, create a successor identity; do not silently edit its frozen effective-content tree.
 
 A same-falsifier targeted revalidation may verify specific fixes when labeled honestly; it is not fresh independent validation.
 
 Stop candidate succession when decision-changing residuals converge. Visible research questions are not automatic release blockers.
 
-v0.3.6 followed this discipline:
+### v0.3.7 candidate.0 current state
 
-- frozen candidate.0 received fresh independent semantic verdict `NEEDS_REVISION`;
-- frozen candidate.1 repaired material findings;
-- the same falsifier returned `TARGETED_REVALIDATION_PASS_WITH_RESIDUALS`;
-- host-side reconciliation concluded `CANDIDATE_SUCCESSION_STOP = YES` and `RELEASE_PREPARATION_SUPPORTED`.
+Candidate birth base:
+
+`0ad263178ab8b7c21c150012b3c06a5c41a4f41c`
+
+That main commit contains the merged release-scope checkpoint and version selection before candidate bytes were authored.
+
+Candidate.0 has assembled:
+
+- release-local Operational Architecture routing;
+- optional reference library with machine-readable default-off policy;
+- candidate-local minimal v2 evolution helper with explicit v1.2 legacy demotion;
+- decision-bearing zh-CN Operational Architecture projection and paired v3 route fixtures.
+
+Assembly machine checks have passed on recorded exact heads, but candidate.0 is still mutable workspace. It remains `NOT_CURRENT / NOT_FROZEN / NOT_RELEASED` until later governed gates complete.
 
 ## Canonical ENA evolution
 
 ENA itself is evolvable, but one local Agent/fork cannot mint canonical status by self-description.
 
-Canonical change requires a durable lineage process with properties sufficient to establish:
+Canonical change requires durable lineage sufficient to establish:
 
 - proposal/change identity;
 - reviewable effective content;
@@ -47,47 +59,57 @@ Canonical change requires a durable lineage process with properties sufficient t
 - recoverable/publicly inspectable history appropriate to the project;
 - explicit promotion/admission event.
 
-GitHub is the **current project carrier** for this lineage. The semantic requirement is the governed reproducible lineage, not eternal metaphysical dependence on GitHub as a service.
+GitHub is the current project carrier for this lineage. The semantic requirement is governed reproducible lineage, not eternal dependence on one service.
 
-Changing carriers must itself preserve enough lineage/evidence to avoid a silent standards fork masquerading as continuity.
+## Current isolation
 
-## Frozen Current
-
-`releases/current/` must not be edited in place under an unchanged version identity.
+`releases/current/` is still v0.3.6 and must not be edited as a side effect of candidate assembly.
 
 A material Current change requires a new release identity and explicit release decision.
 
+Candidate validation therefore checks Current isolation against the exact release-scope checkpoint.
+
 ## Freeze identity
 
-A freeze may be assigned by an external governed record to an exact already-tested immutable tree. The tested tree need not be rewritten merely to insert a post-hoc `frozen: true` marker.
+Candidate.0 uses the external-record freeze model:
 
-The authoritative property is the exact source/tree binding plus governed lineage, not a mutable label inside the bytes being frozen.
+- finish all material candidate bytes first;
+- run exact-source machine validation;
+- identify exact source commit and exact `releases/v0.3.7-candidate/` subtree;
+- record that binding outside the candidate subtree in governed lineage;
+- do not rewrite the tested candidate tree merely to insert a post-hoc `frozen: true` marker.
+
+The authoritative freeze property is exact source/tree binding plus governed lineage.
+
+Any material correction after freeze requires a successor such as candidate.1.
 
 ## Source/distribution identity
 
-A release must be built from identified committed source/effective-content bytes.
+A release must be built from identified committed source/effective-content bytes. Release evidence may include source commit/tree, exact file set, byte/hash parity, package digest, and published artifact readback.
 
-Release evidence may include source commit/tree, exact file set, byte/hash parity, package digest, and published artifact readback.
-
-Ordinary adopters need the minimum sufficient immutable effective-content identity for what they actually compiled from; they need not reproduce release-author ceremony merely to use Current.
+Ordinary adopters need the minimum sufficient immutable effective-content identity; they need not reproduce release-author ceremony.
 
 ## Language projections
 
-A supported language projection is part of the release file set or otherwise immutably bound to it. Material decision meaning must remain conformant across supported projections.
+Supported projections must be immutably bound to the same candidate/release identity. Material decision meaning must remain conformant across supported languages.
 
-A projection change that alters material decision meaning is a material version change.
+Candidate.0 adds zh-CN operational decision surfaces and v3 paired route fixtures. Fixture structure/parity does not prove behavioral equivalence; actual model/Host evidence is still required.
 
-## Runtime/schema compatibility
+## Runtime/reference compatibility
 
-A newer semantic baseline may retain an older reference-tool mechanism when all of the following are explicit:
+A semantic baseline may retain older compatibility mechanisms only when their actual scope is explicit.
 
-- which semantic surface is normative;
-- which runtime/tool version is actually implemented;
-- which paths are unsupported or false-BLOCKed by the inherited tool;
-- the gap is not silently turned into semantic law;
-- no false claim of runtime parity is made.
+Candidate.0 therefore exposes one primary practical v2 path:
 
-`canonical semantic baseline != Host mechanism version`
+`tools/ena_evolve_v2.py`
+
+and keeps the inherited state/schema 1.2 tool only under:
+
+`tools/legacy/ena_evolve_v1_2.py`
+
+Bundled optional reference schemas likewise do not become normative Host implementations merely by being packaged.
+
+`canonical semantic property != bundled reference implementation != Host mechanism`
 
 ## History and carriers
 
@@ -95,6 +117,6 @@ Preserve historical releases/candidates/evidence as occurrence truth without for
 
 Repository/carrier availability is an implementation dependency. Project continuity should not require one permanent session, Agent, validator, institution, or hosting vendor to remain forever available or correct.
 
-> **Expose one adoption surface; preserve many historical surfaces.**
+> **Expose one Current; allow many candidates and historical surfaces.**
 >
 > **The carrier hosts the lineage; it is not the sovereign of the lineage.**

@@ -1,14 +1,14 @@
-# ENA v0.3.7 candidate.0 — Operational Architecture working candidate
+# ENA v0.3.7 candidate.0 — Operational Architecture candidate
 
-Status: **WORKING_CANDIDATE / ASSEMBLY_IN_PROGRESS / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED**
+Status: **WORKING_CANDIDATE / ASSEMBLED_PENDING_AUTHOR_FALSIFICATION / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED**
 
-Current remains `v0.3.6 / CURRENT / FIELD_VALIDATION` under `releases/current/`.
+The active adopter baseline remains `releases/current/` = `v0.3.6 / CURRENT / FIELD_VALIDATION`.
 
-Do **not** adopt this directory as Current while candidate assembly, author attacks, machine validation, freeze, and independent falsification are incomplete.
+Do **not** adopt this directory as Current. Candidate assembly is now materially complete, but author adversarial testing, exact pre-freeze validation, freeze, independent semantic falsification, reconciliation, and an explicit release decision are still required.
 
 ## Candidate thesis
 
-v0.3.7 is being built as a practical Operational Architecture release rather than a manufactured Constitution expansion.
+v0.3.7 is a practical Operational Architecture candidate, not a manufactured Constitution expansion.
 
 ```text
 v0.3.6 semantic trunk
@@ -19,12 +19,10 @@ optional reference organs
 +
 Host implementation patterns
 +
-minimal v2 practical tooling
+candidate-local minimal v2 tooling
 +
-operational zh-CN projection
+decision-bearing zh-CN operational projection
 ```
-
-No new Constitution ID is currently planned.
 
 ```text
 NEW_CONSTITUTION_IDS = 0
@@ -32,35 +30,29 @@ NEW_CORE_SEMANTIC_DELTA_REQUIRED = 0_DEMONSTRATED
 PRACTICAL_OPERATIONAL_RELEASE_VALUE = MATERIAL
 ```
 
-## Why this candidate exists
+## What is now assembled
 
-v0.3.6 already carries strong WHAT/WHY semantics, but an adopter should not need repository archaeology or researcher memory to answer:
+### Operational routing
 
-> What concrete mechanism can I use here, what are the alternatives, when does this mechanism not apply, and what evidence boundary remains?
-
-The candidate therefore adds a release-local Operational Architecture layer while keeping the hot runtime surface small.
+`operational/` provides:
 
 ```text
-HOT CUE
--> operational routing
--> plural HOW branches
--> procedure / optional reference / Host pattern
--> concrete action or honest WAIT / UNKNOWN / not-applicable
+ordinary cue / failure / decision
+-> consequence-first routing
+-> CUE-INDEX
+-> HOW-MAP
+-> REFERENCE-INDEX
+-> bounded procedure / optional reference / Host pattern
+-> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
 ```
+
+The HOW library is cold capability, not mandatory active context.
 
 `HOW_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE`
 
-## Working package layers
+### Optional reference library
 
-- semantic trunk — inherited from v0.3.6 unless a material contradiction is found;
-- `operational/` — candidate-local cue/HOW/pattern/procedure navigation;
-- `references/` — optional reference organs, never automatic runtime requirements;
-- `tools/` — candidate-local practical v2 evolution path plus explicit legacy compatibility boundary;
-- `language-projections/` — decision-bearing zh-CN operational projection target.
-
-## Reference-library rule
-
-A reference being bundled means only that ENA provides a concrete reusable implementation pattern.
+Selected reusable references are bundled under `references/` with machine-readable policy in `references/REFERENCE-MANIFEST.yaml`.
 
 ```text
 BUNDLED_REFERENCE
@@ -70,22 +62,48 @@ BUNDLED_REFERENCE
 != NORMATIVE_ONTOLOGY
 ```
 
-A Host-native implementation may satisfy the same operational property without instantiating the bundled reference schema.
+A Host-native implementation may satisfy the same property without instantiating the bundled schema.
 
-## Assembly state
+### Evolution tooling
 
-This first candidate commit is intentionally only a truthful shell.
+Primary candidate practical path:
 
-`CANDIDATE-BASELINE.yaml` records exactly what is assembled and what remains pending. Some inherited semantic files still contain their v0.3.6 Current identity wording during Stage 1; therefore this subtree is **not freeze-ready**.
+`tools/ena_evolve_v2.py`
 
-Freeze will be allowed only after:
+It provides a narrow candidate-local v2 path for latent records and packet-v2 export/import/validation. It delegates record semantics to the candidate-local v2 validator rather than implementing a second semantic engine.
 
-1. operational cargo is self-contained;
-2. selected reference paths exist and pass their machine tests;
-3. the candidate-local v2 helper no longer depends on `releases/current/`;
-4. zh-CN decision-bearing operational surfaces are present;
-5. candidate identity wording is reconciled across the candidate subtree;
-6. author adversarial checks and exact candidate validation pass.
+The inherited v1.2 tool is retained only as:
+
+`tools/legacy/ena_evolve_v1_2.py`
+
+It is compatibility history, not an equally prominent default.
+
+### zh-CN operational projection
+
+Decision-bearing operational surfaces are available under:
+
+`language-projections/zh-CN/operational/`
+
+Machine reference bytes remain single/canonical; Chinese adopters use `language-projections/zh-CN/REFERENCE-GUIDE.md` rather than a second translated machine implementation.
+
+`language-projections/semantic-fixtures.v3.yaml` defines paired candidate operational decision expectations. Fixture structure is machine-checked; natural bilingual behavior remains field/independent evidence.
+
+## Machine assembly evidence
+
+Stage 3 exact head `8ba109528ecb14f9a22a372c897ac8d9ea1759f3` passed Assembly Gate run `33004330491`.
+
+Stage 4 exact head `7a59ac9b10e18f804ce7141b0beae2aef5e75cf6` passed Assembly Gate run `33007647412`, including zh-CN operational-route checks.
+
+Machine PASS establishes exercised represented consistency and packaging facts. It does not establish external truth, universal Host applicability, future salience, or independent semantic support.
+
+## Deferred without ablation
+
+The recovered Commitment/Settlement machine prototype remains durable research lineage but is not bundled in candidate.0 pending fresh independent review or renewed candidate-critical need.
+
+```text
+NOT_BUNDLED != RETIRED
+SILENT_DISSOLUTION != EVIDENCE_BACKED_RETIREMENT
+```
 
 ## Lineage
 
@@ -97,10 +115,18 @@ Correct candidate birth base:
 
 `0ad263178ab8b7c21c150012b3c06a5c41a4f41c`
 
-That main commit is the merged release-scope checkpoint where scope stability and version selection were already durable before candidate authoring began.
+This is the merged release-scope checkpoint. Branch mutability before freeze is workspace behavior; if candidate.0 reaches freeze, frozen identity will bind an exact source commit and exact candidate subtree through an external governed freeze record.
 
-Branch mutability before freeze is workspace behavior. Frozen identity, if reached, will be the exact source commit + candidate subtree tree bound by an external freeze record.
+## What remains before freeze
+
+1. reconcile candidate identity/status across inherited adopter-facing projections;
+2. run candidate-specific author adversarial attacks;
+3. run exact-head pre-freeze machine validation;
+4. bind the exact immutable source/tree with an external freeze record;
+5. send the frozen candidate to a fresh independent semantic falsifier.
+
+Any material correction after freeze requires a successor candidate identity.
 
 > **Compress the semantic trunk; let concrete HOWs branch.**
 >
-> **Candidate assembly is not candidate proof.**
+> **Assembled is not independently supported.**

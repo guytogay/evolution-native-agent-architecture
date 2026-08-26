@@ -1,168 +1,222 @@
-# ENA v0.3.6 Lineage
+# ENA v0.3.7 candidate.0 Lineage
 
-Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`.
+Status: `WORKING_CANDIDATE / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED`.
 
 ## Parent baseline
 
-- predecessor Current: `v0.3.5 / CURRENT / FIELD_VALIDATION`;
-- predecessor Current tree: `9c928b4c99ae72e53c89978cf1d10b7ea068c182`;
-- repository base commit: `f14855fdfd57b975195f0b1c261b754bd3058749`.
+Active predecessor/current baseline:
 
-## Design / authoring lineage
+- version: `v0.3.6 / CURRENT / FIELD_VALIDATION`;
+- Current tree inherited by candidate: `7dcbb3934883ffa6cc5292a662588cafc1533cff`.
 
-- design seed: `f48b70f7cb82cd240a97d6d807874def37d67d70`;
-- working candidate initialized: `5d4b5ea92c9d3bf8972f56e72c3487e03a598623`;
-- full v0.3.5 baseline inherited into candidate without changing Current: `668a1be941045cb25c86008eaee620340a21b9a6`;
-- ecology semantics, Runtime Kernel, v2 schema, bilingual fixtures, field template, and author self-attacks evolved through the candidate branch.
+The v0.3.6 release/falsification history remains occurrence truth in Git, PR #68/#69/#71, and its reconciliation records. Candidate.0 does not rewrite that history.
 
-The detailed authoring history remains recoverable through PR #68 and Git; Current does not require ordinary adopters to replay every intermediate author checkpoint.
+## Pre-candidate reconstruction and release-scope lineage
 
-## candidate.0
+The v0.3.7 candidate did not begin from a version number guess. Broad ENA reconstruction recovered operational HOW lineages before release selection, then release-scope reconciliation selected a practical Operational Architecture release with no demonstrated need for new Constitution/Core semantics.
 
-Frozen source:
+Merged release-scope checkpoint / candidate birth base:
 
-`3cb94d98882621acede189d0d47806efae44fb0f`
+`0ad263178ab8b7c21c150012b3c06a5c41a4f41c`
 
-Frozen effective candidate tree:
+Checkpoint PR:
 
-`80f2da918811c26381d65eb5afa8e40f8410a32e`
+`#111 — Research checkpoint: stabilize v0.3.7 release scope and candidate-build handoff`
 
-Freeze-record commit:
+At that checkpoint:
 
-`15e513a72d59e28f8d3050ef877746f85ab706ba`
+```text
+NEXT_VERSION = v0.3.7
+NEW_CONSTITUTION_RULE_REQUIRED = 0_DEMONSTRATED
+NEW_CORE_SEMANTIC_DELTA_REQUIRED = 0_DEMONSTRATED
+PRACTICAL_OPERATIONAL_RELEASE_VALUE = MATERIAL
+CURRENT_CHANGE = NO
+```
 
-PR:
+`research/ena-reconstruction` and the candidate branch were aligned to this exact main checkpoint before the first real candidate-content commit.
 
-`#68`, closed without merge.
+## Candidate birth
 
-Pre-freeze machine verification required three passes; the first two correctly preserved FAIL results before the third exact source passed. The frozen candidate then received a fresh independent semantic falsification.
+Branch:
 
-Fresh independent verdict:
+`candidate/v0.3.7-candidate.0`
 
-`NEEDS_REVISION`
+First real candidate-content commit:
 
-Material release blockers:
+`733d21686b6ad1cb4f655dd4565c3a1b25ba9fbb`
 
-- F-01 — v2 `integration_history` weakened predecessor representation strength;
-- F-02 — array order could masquerade as chronological latest evidence/expression state.
+That commit created a truthful `releases/v0.3.7-candidate/` shell while leaving `releases/current/` unchanged.
 
-The falsifier also identified successor repairs F-03 through F-09 and residual/research findings, while explicitly withdrawing three of its own initial attacks as false positives.
+Branch mutability before freeze is workspace behavior. The branch name is **not** frozen identity.
 
-Independent report:
+## Stage 2 — Operational Architecture
 
-PR #68 comment `issuecomment-5389079667`.
+Candidate-local Operational Architecture assembled:
 
-## candidate.1
+- consequence-first Cue Index;
+- cold HOW Map;
+- machine-readable Reference Index;
+- Purpose-Relative Continuity procedure;
+- Standing Input procedure;
+- Control Retirement procedure;
+- Evolution Commons patterns;
+- Host Mapping patterns.
 
-Successor branch:
+The design preserves:
 
-`candidate/v0.3.6-candidate.1`
+`WHAT/WHY may compress; concrete HOWs may branch.`
 
-Frozen source:
+`HOT_KERNEL != HOW_LIBRARY`
 
-`4af5d17a1cedcf2850b2b4dfe5446e132023369a`
+Operational HOW plurality is not treated as semantic duplication.
 
-Frozen effective candidate tree:
+## Stage 3 — optional reference library and tooling
 
-`52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d`
+Selected optional references were packaged with candidate-local wrappers while preserving their machine contract/fixture/tool bytes where practical.
 
-Freeze-record commit:
+General optional:
+- Retrieval Obligation 0.5;
+- WAIT;
+- Authority Lease;
+- Effect Lifecycle;
+- Recovery Adapter.
 
-`aa9a79b305d2ae8f8ff423df314af974e2e51d23`
+Advanced/specialized:
+- Evidence Envelope;
+- Evidence Dependency Map;
+- Contested Authorship.
 
-PR:
+Machine policy:
 
-`#69`, closed without merge after targeted revalidation/reconciliation.
+`required_for_complete_adoption=false`
 
-candidate.1 repaired the representation/machine defects while intentionally preserving the independently supported Evolution Ecology semantic core.
+`default_activation=false`
 
-### Exact-source machine evidence
+`package inclusion != applicability/activation`
 
-On source `4af5d17a1cedcf2850b2b4dfe5446e132023369a`:
+The recovered Commitment/Settlement machine prototype remains research lineage and is not bundled in candidate.0. This is explicit deferral, not retirement.
 
-- ENA v0.3.6 Candidate Validate run `32677101732` — SUCCESS;
-- Main Gate run `32677101720` — SUCCESS;
-- CodeQL run `32677101753` — SUCCESS;
-- v2 consistency selftest — `18/18`;
-- inherited `ena_evolve.py` selftest — PASS, state/schema 1.2, 10 cases;
-- inherited composed regression — `235/235`;
-- unexpected verdicts — `0`;
-- uncaught exceptions — `0`;
-- Python compile — `7/7`;
-- bytecode hygiene — PASS;
-- Current isolation — PASS.
+Candidate-local practical evolution tool:
 
-### Same-falsifier targeted revalidation
+`tools/ena_evolve_v2.py`
 
-Role:
+Legacy compatibility:
 
-`SAME_FALSIFIER / TARGETED_REVALIDATION / NOT_FRESH / NOT_AUTHOR`
+`tools/legacy/ena_evolve_v1_2.py`
 
-Report:
+The primary helper is a thin v2 record/packet path, not a replacement full lifecycle semantic engine.
 
-PR #69 comment `issuecomment-5389505830`.
+### Stage-3 machine evidence
 
-Verdict:
+Exact head:
 
-`TARGETED_REVALIDATION_PASS_WITH_RESIDUALS`
+`8ba109528ecb14f9a22a372c897ac8d9ea1759f3`
 
-Per-finding closure:
+Workflow:
 
-- F-01 CLOSED;
-- F-02 CLOSED;
-- F-03 CLOSED_WITH_RESIDUAL;
-- F-04 CLOSED;
-- F-05 CLOSED_WITH_RESIDUAL;
-- F-06 CLOSED;
-- F-07 CLOSED;
-- F-08 CLOSED;
-- F-09 CLOSED_BY_TRUTHFUL_BOUNDARY;
-- F-10 CLOSED.
+`ENA v0.3.7 Candidate Assembly Gate`
 
-No material repair-induced regression was reported.
+Run:
 
-## Host-side final reconciliation
+`33004330491 — SUCCESS`
 
-Durable record:
+Observed on candidate-local paths:
 
-`collaboration/reconciliation/2026-08-24-v036-candidate1-final-reconciliation.md`
+- Current isolation PASS;
+- candidate identity baseline PASS;
+- 8 bundled-reference optionality/path checks PASS;
+- all bundled reference selftests PASS;
+- v2 helper deterministic corpus PASS;
+- v2 CLI latent/export/import round-trip PASS;
+- candidate-local dependency + legacy demotion PASS;
+- candidate Python compile PASS;
+- bytecode hygiene PASS.
 
-Commit:
+Observed case counts are corpus facts, not architectural thresholds.
 
-`ac816471a0522d21494913a62a15bf0917d936ac`
+## Stage 4 — zh-CN decision-bearing Operational Architecture
 
-Decision:
+Candidate.0 added zh-CN projections for operational entry/Cue/HOW/procedures/patterns and a Chinese reference usage guide while retaining one canonical machine-reference surface.
 
-`CANDIDATE_SUCCESSION_STOP = YES unless new material evidence appears`
+Paired v3 fixtures define expected operational routes/properties for both English and zh-CN without claiming natural behavioral equivalence.
 
-`RELEASE_PREPARATION_SUPPORTED`
+### Stage-4 machine evidence
 
-No candidate.2 was justified by the remaining residuals.
+Exact head:
 
-## Release packaging lineage
+`7a59ac9b10e18f804ce7141b0beae2aef5e75cf6`
 
-Release branch:
+Workflow run:
 
-`release/v0.3.6`
+`33007647412 — SUCCESS`
 
-Packaging begins with a byte-for-byte transplant of frozen candidate.1 effective tree `52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d` into `releases/current/`, then applies release-only identity/adoption/package transformations.
+Observed:
 
-Release packaging is permitted to change identity labels, Current baseline metadata, projection bindings, adopter instructions, lineage/changelog, root status metadata, and release-validation/package machinery. It must not silently alter the validated material semantics closing candidate.1's findings.
+- required zh-CN operational paths PASS;
+- projection manifest candidate scope / `not_current=true` PASS;
+- single canonical machine surface policy PASS;
+- paired v3 fixture structure PASS;
+- every expected v3 route resolves in both English and zh-CN HOW maps PASS;
+- reference optional/default-off/deferred-not-retired wording PASS;
+- inherited Stage-3 checks remained green.
 
-The final release commit/tree/package digest and merge identity are recorded only after exact release PR checks and post-merge readback complete.
+This is structural/author-side candidate evidence, not bilingual behavioral proof.
 
-## Accepted residuals
+## Identity/status reconciliation
 
-Carry forward visibly:
+After Stage 4, inherited adopter-facing files were audited because several still truthfully described their historical v0.3.6 source but falsely projected that identity inside the candidate as `Current`.
 
-1. F-03 — self-asserted `LOCAL` provenance is not external attestation;
-2. F-05 — obligation references are represented but not authenticated merely by schema acceptance;
-3. F-09 — inherited `ena_evolve.py` v1.2 false-BLOCKs the normative v0.3.6 latent propose/import path and remains explicitly non-normative for that path;
-4. tied-latest timestamp rejection is conservative;
-5. F-11 — fresh-session cue salience/application remains unproven field evidence;
-6. F-12 — `experiment` versus broader `reality contact` terminology remains research wording.
+Candidate reconciliation changes only identity/navigation/operational reality where needed:
 
-Do not silently report these as solved.
+- candidate headers/status replace false Current claims;
+- Current v0.3.6 remains explicitly named as the active external baseline;
+- Runtime Kernel routes hot cues to the new cold Operational Architecture;
+- adoption/LITE instructions preserve optional/default-off reference semantics;
+- evolution tool boundary reflects the candidate-local v2 helper and explicit legacy path;
+- language documents point to the new zh-CN operational surface.
+
+The inherited Constitution IDs and v0.3.6 ecology semantic trunk are not rewritten merely to manufacture version delta.
+
+This reconciliation is a packaging/projection truth correction:
+
+`MACHINE_STATE_CORRECT != PROSE_PROJECTION_CORRECT`
+
+## Freeze protocol
+
+Candidate.0 uses:
+
+`EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE`
+
+Before freeze:
+
+1. finish material candidate bytes;
+2. run author adversarial attacks;
+3. run exact-source pre-freeze machine validation;
+4. identify exact source commit and exact `releases/v0.3.7-candidate/` subtree;
+5. write a governed external freeze record outside the candidate subtree binding those identities.
+
+Do not rewrite the tested candidate tree merely to insert `frozen: true` afterward.
+
+Any material correction after freeze requires a successor identity such as `v0.3.7-candidate.1`.
+
+## Required post-freeze path
+
+`frozen candidate.0 -> fresh independent semantic falsification -> author reconciliation -> successor only if material correction is required -> explicit release decision`
+
+Machine/author PASS alone cannot promote Current.
+
+## Evidence boundaries carried forward
+
+Keep visible:
+
+- machine representation/fixtures do not prove external authority, evidence truth, receipt authenticity, recovery truth, or source authenticity;
+- source/imported selection is not receiver-local selection;
+- cue configuration does not prove natural future salience;
+- paired language fixtures do not prove behavioral equivalence;
+- Host success does not create universal fitness;
+- bundled reference does not create universal applicability or adoption requirement;
+- deferred/not-bundled does not mean retired;
+- candidate branch does not mean frozen or released.
 
 ## Constitution identity
 
@@ -170,14 +224,6 @@ All 38 inherited Constitution IDs remain unchanged.
 
 `NEW_CONSTITUTION_IDS = 0`
 
-## Canonical boundary
-
-A local branch/fork may freely vary ENA but cannot self-promote by writing `CURRENT` into metadata.
-
-Canonical admission requires governed lineage, validation/falsification evidence, reconciliation, immutable release identity, and explicit release promotion.
-
-GitHub is the current project carrier for that lineage, not the metaphysical definition of ENA validity.
-
 > **History is evidence, not a second runtime baseline.**
 >
-> **Variation first; selection by reality.**
+> **Candidate lineage records what happened; it does not grant promotion.**
