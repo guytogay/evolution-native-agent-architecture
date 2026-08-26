@@ -27,15 +27,24 @@ jobs:
             research/prototypes/finite-context-adoption/tools/tool_native_adoption.py \
             research/prototypes/finite-context-adoption/tools/monolithic_hot_adoption.py \
             research/prototypes/finite-context-adoption/tools/compiled_projection_adoption.py \
-            research/prototypes/finite-context-adoption/tools/selftest_finite_context_adoption.py
+            research/prototypes/finite-context-adoption/tools/selftest_finite_context_adoption.py \
+            research/prototypes/finite-context-adoption/deployment/install_file_git_adoption.py \
+            research/prototypes/finite-context-adoption/deployment/gate_native_retrieval_result.py \
+            research/prototypes/finite-context-adoption/deployment/inspect_monolithic_hot_projection.py \
+            research/prototypes/finite-context-adoption/deployment/compile_local_projection.py \
+            research/prototypes/finite-context-adoption/deployment/selftest_deployment_recipes.py
 
       - name: Run plural adoption HOW selftest
         run: python research/prototypes/finite-context-adoption/tools/selftest_finite_context_adoption.py
+
+      - name: Run deployment recipe selftest
+        run: python research/prototypes/finite-context-adoption/deployment/selftest_deployment_recipes.py
 
       - name: Verification boundary
         run: |
           echo 'PROTOTYPE_GATE=PASS'
           echo 'HOWS=FILE_GIT_TINY_COLD,TOOL_NATIVE_RETRIEVAL,MONOLITHIC_HOT,HYBRID_COMPILED_PROJECTION'
+          echo 'DEPLOYMENT_RECIPES=SEPARATE_NOT_ONE_ADAPTER_FRAMEWORK'
           echo 'UNIVERSAL_WINNER=NOT_SELECTED'
           echo 'MONOLITHIC_HOT=VALID_LOCAL_PHENOTYPE'
           echo 'NATURALISTIC_APPLICATION=UNPROVEN'
