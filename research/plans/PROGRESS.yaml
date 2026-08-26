@@ -1,8 +1,7 @@
-schema_version: "1.3"
+schema_version: "1.4"
 as_of: "2026-08-27"
 status: ACTIVE_RELEASE_SCOPE_RECONCILIATION
 
-# Hot state only. Detailed history belongs in Git, Issues, Operational Architecture, release-scope ledgers, prototypes, and evidence records.
 progress_is_complete_history: false
 
 canonical_pointers:
@@ -13,99 +12,113 @@ canonical_pointers:
   operational_architecture: research/operational-architecture/README.md
   release_scope_root: research/release-scope/README.md
   release_scope_entry_gate: research/release-scope/RELEASE-SCOPE-ENTRY-GATE-001.md
-  architecture_map: research/operational-architecture/OPERATIONAL-ARCHITECTURE-MAP.md
-  cue_index: research/operational-architecture/CUE-INDEX.md
-  reference_pointer_matrix: research/operational-architecture/REFERENCE-POINTER-MATRIX.md
-  reconstruction_ledger: "#89"
-  archaeology_tracker: "#104"
+  release_scope_reconciliation_001: research/release-scope/RELEASE-SCOPE-RECONCILIATION-001.md
 
 current_adoption:
   version: v0.3.6
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  source_of_truth: releases/current/CURRENT-BASELINE.yaml
   research_authorizes_current_mutation: false
 
 research_workspace:
   branch: research/ena-reconstruction
+  branch_role: LONG_LIVED_RESEARCH_INTEGRATION_SURFACE
   continuation_authority: MAIN_VISIBLE_BRANCH_POINTER
   head_identity_policy: LIVE_REVERIFY_BEFORE_WRITE
-  branch_role: LONG_LIVED_RESEARCH_INTEGRATION_SURFACE
 
-post_checkpoint_alignment:
-  checkpoint_pr: "#109"
-  checkpoint_state: MERGED_RESEARCH_HISTORY
-  merge_commit: 3e5862998200770c37a6c67ed1789c12a852739c
-  checkpoint_modified_current: false
-  checkpoint_head_ci:
-    Progressive_Evolution_Record_Research: SUCCESS
-    Commitment_Settlement_Research: SUCCESS
-    CodeQL: SUCCESS
-    Lineage_Compaction_Research: SUCCESS
-    Lineage_Compaction_Retrieval_Composition: SUCCESS
-    Validate_ENA_research_records: SUCCESS
-    Execution_Surface_Fencing_Research: SUCCESS
-    Main_Gate: SUCCESS
-  post_merge_branch_alignment:
-    main_and_active_branch_started_phase_from_same_commit: true
-    aligned_commit: 3e5862998200770c37a6c67ed1789c12a852739c
+alignment:
+  control_plane_pr_109: MERGED
+  control_plane_pr_110: MERGED
+  latest_main_alignment_commit: e8257e61a01652d4db799edfdd51f4ce7ae7a2b4
+  main_and_active_branch_aligned_at_phase_start: true
 
 phase_state:
-  research_control_plane:
-    state: BASELINE_ESTABLISHED_MAINTAIN
-
   anti_ablation_archaeology:
     state: RECOVERY_SUFFICIENT_REOPENABLE
-    completeness_claimed: false
 
   how_branch_expansion:
     state: ACTIVE_DURING_RELEASE_RECONCILIATION
-    rule: COMPRESS_SEMANTIC_TRUNK_LET_CONCRETE_HOWS_BRANCH
 
   operational_architecture_assembly:
     state: ASSEMBLY_SUFFICIENT_FOR_RELEASE_SCOPE_CONTINUES_IN_PARALLEL
-    entry_chain:
-      - ordinary problem or semantic cue
-      - consequence-first routing
-      - CUE-INDEX
-      - WHAT/WHY node
-      - plural HOW branches
-      - REFERENCE-POINTER-MATRIX
-      - prototype / bounded procedure / pattern / Host mechanism
-      - action or honest residual
-    durable_procedures:
-      - purpose-relative continuity
-      - Standing Input
-      - Control Retirement
-    durable_patterns:
-      - Evolution Commons transport/discovery layering
-    key_result: >-
-      Missing pointers, missing procedures, Host-adapter needs, field/mesocosm questions,
-      and genuinely absent reusable mechanisms can now be distinguished without another
-      structural rewrite merely to understand how to act.
 
   release_scope_entry_gate:
     state: PASS_WITH_OPEN_FIELD_RESIDUALS
     semantic_delta_count_at_entry: 0_DEMONSTRATED
-    next_version: UNASSIGNED
-    result: >-
-      Operational Architecture is traversable enough to select adopter-facing deliverables
-      while preserving plural HOWs and explicit field/research residuals.
 
   release_scope_reconciliation:
-    state: READY_TO_START
-    workspace: research/release-scope/
-    working_dispositions:
-      - CURRENT_SEMANTIC_ANCHOR
-      - ADOPTER_GUIDANCE_CANDIDATE
-      - REFERENCE_ORGAN_CANDIDATE
-      - HOST_ADAPTER_PATTERN
-      - FIELD_OR_MESOCOSM_ONLY
-      - MAINTENANCE_TOOLING_CANDIDATE
-      - RESEARCH_EXPERIMENTAL
-      - DORMANT_LINEAGE
-      - SEMANTIC_DELTA_CANDIDATE
-    disposition_set_is_ontology: false
+    state: FIRST_CARGO_PASS_ACTIVE
+    current_result:
+      new_constitution_rule_required: 0_DEMONSTRATED
+      new_core_semantic_delta_required: 0_DEMONSTRATED
+      practical_adopter_delta: MATERIAL
+      reference_library_delta: MATERIAL_IF_SELECTED
+      tooling_delta: MATERIAL_CANDIDATE
+      language_adoption_delta: MATERIAL_CANDIDATE
+      next_version: UNASSIGNED
+
+    in_scope_adopter_guidance:
+      - release-local Operational Architecture entrypoint
+      - compact cue index
+      - cold HOW map
+      - release-local reference pointer/index
+      - purpose-relative continuity procedure
+      - Standing Input procedure
+      - Control Retirement procedure
+      - Evolution Commons substrate/protocol pattern
+      - curated Memory Metabolism guidance
+
+    strong_reference_candidates:
+      - Retrieval Obligation 0.5
+      - WAIT State
+      - Authority Lease
+      - Effect Lifecycle
+      - Recovery Adapter
+
+    conditional_reference_candidates:
+      - Evidence Envelope
+      - Evidence Dependency Map
+      - Commitment/Settlement recovered reconstruction
+      - Contested Authorship
+
+    host_pattern_not_universal_organ:
+      - Tiny Hot Kernel / semantic router phenotype
+      - durable workflow adapters
+      - native memory/retrieval
+      - idempotency/fencing/conditional writes
+      - RBAC/capability/workload identity
+      - A2A active Agent interoperability
+      - OCI/Git/object Commons substrates
+      - provenance/attestation/tracing systems
+
+    first_candidate_research_hold:
+      - progressive evolution-record occurrence/enrichment runtime
+      - lineage compaction/composition harnesses
+      - migration-settlement harness
+      - execution-surface fencing simulator
+      - MSI/mesocosm infrastructure
+      - verification-as-service ecology
+      - reputation rehabilitation experiments
+      - culture/specialization/resource ecology experiments
+      - raw natural Tiny Kernel salience runs
+
+    tooling_decision:
+      inherited_ena_evolve:
+        state: OPEN_SELECTION
+        known_false_block: VARIATION_SPACE_REQUIRED_FOR_LATENT_PROPOSE_AND_IMPORT
+        full_v2_runtime: false
+        options:
+          - NARROW_LEGACY_REPAIR
+          - EXPLICIT_DEPRECATION
+          - MINIMAL_V2_COMPATIBLE_HELPER
+        provisional_preference: EVALUATE_MINIMAL_V2_HELPER_FIRST
+        current_patch_authorized: false
+
+    language_release_requirement:
+      state: OPEN_SCOPE_DECISION
+      rule: >-
+        New hot/entry operational surfaces require honest zh-CN projection/fixture decisions;
+        structural parity does not prove behavioral equivalence.
 
   candidate_build_and_validation:
     state: NOT_STARTED
@@ -113,69 +126,21 @@ phase_state:
 
   promotion:
     state: NOT_STARTED
-    prerequisite: CANDIDATE_VALIDATED_AND_RELEASE_READY
-
-known_release_scope_inputs:
-  practical_architecture_value:
-    - adopter routing from cue to HOW to implementation
-    - bounded operational procedures
-    - plural Host/reference patterns
-    - optional reference organs
-    - explicit non-applicability / WAIT / UNKNOWN paths
-
-  maintenance_tooling:
-    ena_evolve_latent_variation_false_block:
-      state: CONFIRMED_STATIC_TOOLING_DEBT
-      current_tool: releases/current/tools/ena_evolve.py
-      inherited_non_normative_v2_path: true
-      false_block:
-        - propose requires --variation-space
-        - import requires --variation-space
-      contradicts_current_property: LATENT_STORAGE_DOES_NOT_REQUIRE_VARIATION_SPACE
-      disposition: MAINTENANCE_TOOLING_CANDIDATE_NOT_CORE_DELTA
-      patch_current_in_place_authorized: false
-
-  likely_research_only:
-    - progressive evolution-record event/enrichment alternative until selected
-    - lineage compaction/migration composition harnesses as evidence tools
-    - execution-fencing simulator as research evidence
-    - MSI/mesocosm experiments
-    - verification-as-service ecology
-    - reputation rehabilitation ecology
-    - natural Tiny Hot Kernel salience tests
-    - behavioral language-equivalence field evidence
-
-open_field_residuals:
-  - natural Tiny Hot Kernel cue salience
-  - long-run Memory Compiler behavior
-  - language decision equivalence across model/Host/language
-  - real rescue/failure-domain independence
-  - reputation rehabilitation
-  - control-retirement outcomes in real changing ecology
-  - culture/specialization/resource pressure
-  - discretionary exploration
-  - verification-as-service ecology
 
 next_actions:
-  - persist release-scope entry gate and post-#109 alignment state
-  - reconcile this material phase transition back to main through a small research-control checkpoint
-  - create RELEASE-SCOPE-RECONCILIATION-001 and classify actual candidate deliverables node-by-node
-  - select reference organs by adopter value, maturity, dependency burden, false-BLOCK risk, Host breadth, and maintenance cost rather than by prototype visibility
-  - classify ena_evolve latent-path repair as tooling candidate and design it on a future candidate/research surface, not Current
-  - keep field/mesocosm-only questions out of schema theater
-  - assign no version until release scope stabilizes
+  - compare reference-organ candidates qualitatively by adopter value, breadth, dependency burden, false-BLOCK risk, evidence maturity, and maintenance cost
+  - make a bounded tooling decision/prototype for inherited ena_evolve rather than applying a cosmetic Current patch
+  - define the minimum release-local Operational Architecture entry surface and optional-reference packaging semantics
+  - decide zh-CN coverage for new operational entry/hot surfaces
+  - run anti-ablation selection audit before declaring scope stable
+  - assign no version until scope stabilizes
 
 invariants:
   - CURRENT_CHANGE_REQUIRES_RELEASE_DISCIPLINE
-  - RESEARCH_PROGRESS_DOES_NOT_FORCE_SEMANTIC_DELTA
   - NO_NEW_CORE_RULES_NE_NO_RELEASE_VALUE
   - LARGE_RESEARCH_TREE_NE_SHIP_EVERYTHING
-  - WHAT_WHY_COVERAGE_NE_HOW_COMPLETION
-  - HOW_CARDINALITY_IS_DISCOVERED
-  - WORKING_TAXONOMY_IS_NOT_ONTOLOGY
-  - REFERENCE_ORGAN_EXISTS_NE_UNIVERSAL_APPLICABILITY
+  - BUNDLED_REFERENCE_NE_REQUIRED_RUNTIME_ORGAN
+  - REFERENCE_SCHEMA_NE_ENA_ONTOLOGY
+  - HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
   - STRUCTURAL_LANGUAGE_PARITY_NE_BEHAVIORAL_DECISION_EQUIVALENCE
-  - ACTIVE_PROTOCOL_NE_DURABLE_COMMONS
-  - NO_INCIDENT_NE_CONTROL_NOT_NEEDED
-  - ASSEMBLY_NE_CURRENT_PROMOTION
   - RELEASE_SCOPE_SELECTION_NE_VERSION_ASSIGNMENT
