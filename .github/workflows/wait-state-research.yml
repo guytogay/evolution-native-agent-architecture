@@ -1,0 +1,45 @@
+name: WAIT State Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/wait-state/**'
+      - 'research/prototypes/effect-lifecycle/**'
+      - 'research/prototypes/authority-lease/**'
+      - '.github/workflows/wait-state-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wait-state-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile WAIT state tools
+        run: |
+          python -m py_compile \
+            research/prototypes/wait-state/tools/validate_wait_state.py \
+            research/prototypes/wait-state/tools/selftest_wait_state.py
+
+      - name: Run WAIT state adversarial selftest
+        run: python research/prototypes/wait-state/tools/selftest_wait_state.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'VERIFICATION_SCOPE=REPRESENTED_WAIT_WAKE_CANCEL_TIMEOUT_CONSISTENCY_ONLY'
+          echo 'EXTERNAL_EVENT_AUTHENTICITY=UNPROVEN'
+          echo 'HOST_TIMER_LIVENESS=UNPROVEN'
+          echo 'WAKE_READY!=AUTHORIZED_TO_RESUME'
+          echo 'TIMEOUT_REACHED!=RETRY_EFFECT'
+          echo 'WAITING!=COMPLETED'
+          echo 'OPEN_ENDED_WAIT=HOST_CONSEQUENCE_BOUNDARY'
+          echo 'FIXTURE_CARDINALITY=OPEN'
+          echo 'CURRENT_CHANGE=NO'
