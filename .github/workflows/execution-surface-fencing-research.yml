@@ -1,0 +1,41 @@
+name: Execution Surface Fencing Research
+
+on:
+  pull_request:
+    paths:
+      - 'research/prototypes/execution-surface-fencing/**'
+      - '.github/workflows/execution-surface-fencing-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fencing-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile simulator
+        run: |
+          python -m py_compile \
+            research/prototypes/execution-surface-fencing/execution_surface_simulator.py \
+            research/prototypes/execution-surface-fencing/selftest_execution_surface_fencing.py
+
+      - name: Run HOW comparison selftest
+        run: |
+          cd research/prototypes/execution-surface-fencing
+          python selftest_execution_surface_fencing.py
+
+      - name: Verification boundary
+        run: |
+          echo 'PROTOTYPE_GATE=PASS'
+          echo 'UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_PHYSICALLY_FENCED'
+          echo 'SINGLE_VERSIONED_WRITE_NE_CURRENT_EXECUTOR_WON'
+          echo 'STATUS_QUERY_NE_FUTURE_STALE_EXECUTOR_FENCE'
+          echo 'EXTERNAL_EXACTLY_ONCE=NOT_CLAIMED'
+          echo 'CURRENT_CHANGE=NO'
