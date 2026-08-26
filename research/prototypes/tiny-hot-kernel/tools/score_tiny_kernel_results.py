@@ -2,7 +2,9 @@
 """Score Tiny Hot Kernel / Semantic Router Host results.
 
 Input results are Host/model observations. This scorer checks them against the
-research fixture expectations. It does not prove naturalistic salience or safety.
+current research fixture expectations. The fixture oracle is author-derived and
+independent review is pending; scores are exploratory until oracle reconciliation.
+This tool does not prove naturalistic salience or safety.
 """
 
 from __future__ import annotations
@@ -13,6 +15,8 @@ from pathlib import Path
 
 VALID_RETRIEVAL = {"NOT_ATTEMPTED", "SUCCESS", "PARTIAL", "FAILED"}
 VALID_KERNELS = {"K-A", "K-B", "K-C"}
+ORACLE_STATUS = "AUTHOR_EXPECTATION / INDEPENDENT_REVIEW_PENDING / NOT_GROUND_TRUTH"
+SELECTION_ELIGIBILITY = "EXPLORATORY_ONLY_UNTIL_ORACLE_RECONCILIATION"
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -138,6 +142,8 @@ def main() -> int:
 
     evaluated = tp + tn + fp + fn
     print(f"kernel={args.expected_kernel} fixtures={len(fixtures)} results={len(results)} evaluated={evaluated}")
+    print(f"oracle_status={ORACLE_STATUS}")
+    print(f"selection_eligibility={SELECTION_ELIGIBILITY}")
     print(f"trigger: TP={tp} TN={tn} FP={fp} FN={fn}")
     print(f"trigger_precision={pct(tp, tp + fp)} trigger_recall={pct(tp, tp + fn)}")
     print(f"route_zero_hit={len(route_zero_hit)} route_incomplete={len(route_incomplete)} route_overreach={len(route_overreach)}")
