@@ -66,6 +66,7 @@ def main() -> int:
         "AL-012",  # unresolved grant
         "AL-013",  # renewal does not resurrect old grant
         "AL-014",  # explicit new grant can authorize
+        "AL-015",  # explicit broad Host/epoch scope
         "AL-016",  # structurally inconsistent authority record
     }
     require(required_regressions <= set(ids), "targeted authority regression fixture removed")
@@ -81,12 +82,30 @@ def main() -> int:
     print("PASS: expiry removes represented current authority")
 
     # Mutation 2: copying the authority bytes into a later epoch does not widen
-    # the original epoch binding.
+    # an explicitly narrow epoch binding.
     copied_epoch = copy.deepcopy(valid)
     copied_epoch["query"]["grantee_epoch"] = "epoch:E2"
     resolution, _, diagnostics = resolve_case(copied_epoch)
     require(resolution == "NOT_AUTHORIZED", f"epoch-copy authority inflation: {resolution} {diagnostics}")
-    print("PASS: copied/restored grant does not auto-authorize a new epoch")
+    print("PASS: copied/restored grant does not auto-authorize a new scoped epoch")
+
+    # Missing epoch is uncertainty, not a fabricated denial, when the selected
+    # grant actually depends on epoch scope.
+    missing_scoped_epoch = copy.deepcopy(valid)
+    missing_scoped_epoch["query"].pop("grantee_epoch")
+    resolution, posture, diagnostics = resolve_case(missing_scoped_epoch)
+    require(resolution == "UNRESOLVED", f"missing scoped epoch not preserved as uncertainty: {resolution} {diagnostics}")
+    require(posture == "NARROW_OR_RESOLVE_AUTHORITY", "missing scoped epoch posture wrong")
+    print("PASS: missing decision-relevant epoch remains UNRESOLVED")
+
+    # Counter-control: a Host is not forced to manufacture epoch machinery when
+    # the real grant explicitly spans epochs.
+    broad_epoch = by_id(rows, "AL-015")["case"]
+    broad_epoch["query"].pop("grantee_epoch")
+    resolution, posture, diagnostics = resolve_case(broad_epoch)
+    require(resolution == "AUTHORIZED", f"universal epoch false-BLOCK: {resolution} {diagnostics}")
+    require(posture == "AUTHORITY_PRECONDITION_SATISFIED", "broad-epoch posture wrong")
+    print("PASS: explicit cross-epoch grant does not require a Host epoch mechanism")
 
     # False-BLOCK control: harmless local synchronization is allowed to declare
     # that no external Authority Lease is required. The validator does not mint
@@ -146,6 +165,7 @@ def main() -> int:
     print("external_mandate_authenticity=UNPROVEN")
     print("credential_external_validity=UNPROVEN")
     print("authority_required_classification=CALLER_TRUST_BOUNDARY")
+    print("epoch_mechanism=OPTIONAL_UNLESS_SELECTED_GRANT_IS_EPOCH_SCOPED")
     print("fixture_cardinality=OPEN_WITH_TARGETED_REGRESSION_DEPENDENCIES")
     return 0
 
