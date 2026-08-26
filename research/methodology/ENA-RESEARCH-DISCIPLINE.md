@@ -437,6 +437,88 @@ For example, effect truth, executor assignment, obligation ownership, authority,
 
 The boundary itself should be allowed to vary and be selected by failure models and Host reality.
 
+## 38. Put the compression boundary before HOW, not through HOW
+
+ENA may deliberately compress universal semantic structure at the WHAT/WHY layer. A stable abstract trunk is useful because many Hosts can share the same purpose, distinctions, and failure semantics without sharing one implementation.
+
+The same compression becomes destructive when it replaces concrete HOWs with generic prose such as "use an appropriate recovery mechanism", "preserve authority", or "retrieve relevant memory".
+
+```text
+ABSTRACT_WHAT_WHY = ALLOWED_AND_OFTEN_USEFUL
+ABSTRACT_HOW = OPERATIONAL_DEBT_UNLESS_IT_POINTS_TO_CONCRETE_BRANCHES
+```
+
+A useful structural direction is:
+
+```text
+TELOS / PURPOSE
+        |
+        v
+WHAT / WHY  -- stable semantic trunk; compression is allowed here
+        |
+        +--> HOW-A -- concrete mechanism / process / tool / organ
+        |      |
+        |      +--> Host adapter / implementation pattern
+        |      +--> procedure / state machine / template / script / resolver
+        |      +--> failure and fallback behavior
+        |      +--> evidence and field results
+        |
+        +--> HOW-B -- a different concrete path to the same property
+        |      +--> ...
+        |
+        +--> HOW-C -- Host-conditional or experimental path
+               +--> ...
+```
+
+This is a working structural metaphor, not proof that every topic has one trunk or a fixed number/depth of branches.
+
+## 39. HOW should branch divergently and concretely
+
+From the HOW layer onward, the default research posture is expansion of usable possibility, not compression toward a single elegant sentence.
+
+One WHAT/WHY may legitimately have zero, one, or many HOWs. Different HOWs may be optimized for different Hosts, capabilities, consequence classes, environments, cost envelopes, or maturity levels.
+
+A HOW should become concrete enough that an Agent can do something with it. Depending on the problem, useful concrete content may include:
+
+- applicability/trigger conditions;
+- exact actions or ordered workflow;
+- state machine or protocol;
+- tool, command, script, validator, resolver, schema, or template;
+- required Host capability/interface;
+- authority and effect boundaries;
+- failure modes and observable symptoms;
+- fallback / WAIT / REFUSE / recovery behavior;
+- examples and adversarial counterexamples;
+- evidence already supporting the mechanism;
+- evidence still needed to select or reject it.
+
+No fixed checklist item is universally mandatory; concreteness is judged by whether the branch changes real action rather than merely restating the parent philosophy.
+
+```text
+ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
+HOW_VARIATION != SEMANTIC_DUPLICATION
+```
+
+Do not collapse several materially different HOW branches back into a single phrase merely because they share the same parent property.
+
+## 40. Evidence belongs to concrete branches as well as abstract claims
+
+Evidence that a WHAT/WHY distinction is coherent does not prove every implementation branch works. Conversely, one successful HOW under one Host does not prove the parent property has only that realization.
+
+Track evidence at the mechanism/Host boundary when it can change selection:
+
+```text
+WHAT_WHY_SUPPORTED
+!=
+HOW_A_SUPPORTED
+!=
+HOW_B_SUPPORTED
+!=
+HOW_A_SUPPORTED_ON_HOST_X
+```
+
+This allows multiple branches to coexist honestly: supported here, unsupported there, dormant elsewhere, or still UNKNOWN.
+
 ## Operational use
 
 Before a substantial research action, ask at least:
@@ -446,6 +528,8 @@ Am I explaining a problem or solving it?
 Am I preserving concrete HOW lineage?
 Am I selecting before recovering variation?
 Am I freezing a convenient count/category into ontology?
+Am I compressing several materially different HOWs back into abstract advice?
+If I call something a HOW, can a fresh Agent actually perform, instantiate, or map it?
 Can the proposed experiment reveal something I cannot already derive?
 Am I treating correlated outputs as independent evidence?
 Does every number/axis/state/process have a real source of authority or complexity rent?
@@ -458,6 +542,8 @@ Can a fresh Agent actually act from the resulting HOW?
 This checklist is also open-cardinality. Add or revise questions when field failures reveal new research-method defects.
 
 > **Recover variation before selection.**
+>
+> **Compress the semantic trunk; let concrete HOWs branch.**
 >
 > **Explanatory adequacy is not operational adequacy.**
 >
