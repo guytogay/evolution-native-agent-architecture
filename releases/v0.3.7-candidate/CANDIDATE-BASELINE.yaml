@@ -128,18 +128,33 @@ stage3_machine_evidence:
     - "Stage-3 author/assembly validation does not substitute for later independent semantic falsification."
 
 language:
-  state: OPERATIONAL_PROJECTION_ASSEMBLY_PENDING
+  state: ZH_CN_OPERATIONAL_PROJECTION_MACHINE_CHECKED_STAGE_4
   authoring_language: "en"
   supported_projection_target: "zh-CN"
-  operational_entry_projection_required: true
-  cue_index_projection_required: true
-  how_map_projection_required: true
-  bounded_procedure_projection_required: true
-  commons_pattern_projection_required: true
-  host_mapping_projection_required: true
+  projection_manifest: "language-projections/zh-CN/projection-manifest.yaml"
+  operational_projection_root: "language-projections/zh-CN/operational/"
+  machine_reference_zh_cn_guide: "language-projections/zh-CN/REFERENCE-GUIDE.md"
+  operational_fixture_set: "language-projections/semantic-fixtures.v3.yaml"
   machine_reference_file_by_file_translation_required: false
-  machine_reference_zh_cn_guide_required: true
   structural_parity_is_behavioral_equivalence: false
+  natural_fresh_session_bilingual_equivalence_proven: false
+
+stage4_machine_evidence:
+  exact_head: "7a59ac9b10e18f804ce7141b0beae2aef5e75cf6"
+  workflow: "ENA v0.3.7 Candidate Assembly Gate"
+  workflow_run_id: 33007647412
+  conclusion: SUCCESS
+  observed:
+    - "zh-CN operational entry/Cue/HOW/procedure/pattern/reference-guide paths PASS"
+    - "zh-CN projection manifest is candidate-scoped and not_current=true PASS"
+    - "machine reference artifacts remain single canonical machine surface PASS"
+    - "paired semantic fixture corpus structure PASS; observed corpus size 12"
+    - "all expected operational routes resolve in both English and zh-CN HOW maps PASS"
+    - "reference-guide optional/default-off/deferred-not-retired boundaries PASS"
+  evidence_boundary:
+    - "Paired fixtures define expected semantic decisions; they do not prove natural bilingual model behavior."
+    - "Twelve cases are current corpus facts, not a required minimum."
+    - "Fresh-session retrieval/salience and bilingual behavioral conformance remain field/independent evidence."
 
 freeze_protocol:
   model: EXTERNAL_RECORD_BINDS_EXACT_IMMUTABLE_TREE
@@ -149,38 +164,34 @@ freeze_protocol:
   freeze_not_allowed_while_maturity_is_assembly_in_progress: true
 
 assembly:
-  stage: 3
-  state: OPERATIONAL_REFERENCES_TOOLING_MACHINE_CHECKED
+  stage: 4
+  state: OPERATIONAL_REFERENCES_TOOLING_ZH_CN_MACHINE_CHECKED
   completed:
     - candidate branch aligned to exact release-scope checkpoint
     - candidate baseline and candidate identity entry files created
-    - operational entrypoint created
-    - cue index created
-    - cold HOW map created
-    - machine-readable operational reference index created
-    - Purpose-Relative Continuity procedure created
-    - Standing Input procedure created
-    - Control Retirement procedure created
-    - Evolution Commons pattern created
-    - Host mapping pattern created
-    - optional reference manifest created
+    - operational Cue/HOW/reference routing created
+    - Purpose-Relative Continuity, Standing Input, and Control Retirement procedures created
+    - Evolution Commons and Host Mapping patterns created
     - selected optional reference contents assembled with candidate-local wrappers
     - candidate-local v2 evolution helper assembled
     - inherited v1.2 evolution tool moved to explicit legacy path
     - Stage-3 candidate assembly gate passed on exact head 8ba109528ecb14f9a22a372c897ac8d9ea1759f3
+    - zh-CN decision-bearing operational projection assembled
+    - zh-CN optional-reference usage guide assembled without duplicating machine canonical bytes
+    - paired operational semantic fixture set v3 assembled
+    - Stage-4 candidate assembly gate passed on exact head 7a59ac9b10e18f804ce7141b0beae2aef5e75cf6
   pending:
-    - zh-CN operational projection and decision fixtures
-    - candidate identity reconciliation across inherited adopter-facing files
-    - candidate-specific validator and author adversarial suite
+    - candidate identity/status reconciliation across inherited adopter-facing files
+    - candidate-specific author adversarial suite
     - pre-freeze machine validation
-    - freeze record and independent falsification
+    - freeze record and independent semantic falsification
 
 accepted_working_residuals:
   - "Current v0.3.6 remains the only adopter-facing baseline while candidate.0 is assembled."
   - "Inherited semantic/adopter-facing files may still contain v0.3.6 Current identity wording; candidate.0 is therefore not freeze-ready."
   - "Selected bundled references are optional machine references; package inclusion does not establish applicability, activation, or external truth."
   - "The candidate-local v2 helper covers latent record and packet-v2 orchestration, not the entire evolution lifecycle state machine."
-  - "Fresh-session cue salience and behavioral language equivalence remain field evidence, not candidate-author proof."
+  - "Natural fresh-session cue salience and bilingual behavioral equivalence remain field/independent evidence, not candidate-author proof."
 
 invariants:
   - CURRENT_V036_REMAINS_UNCHANGED
@@ -192,4 +203,5 @@ invariants:
   - HOT_KERNEL_NE_FULL_HOW_LIBRARY
   - SEMANTIC_TRUNK_STABILITY_NE_NO_RELEASE_VALUE
   - MACHINE_PASS_NE_EXTERNAL_TRUTH
+  - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
   - SILENT_DISSOLUTION_NE_EVIDENCE_BACKED_RETIREMENT
