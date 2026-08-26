@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1",
+  "status": "RESEARCH_REFERENCE_CONTRACT / NOT_CURRENT",
+  "history_states": ["LINEAR", "DIVERGED", "RECONCILED", "STALE"],
+  "closure_claims": ["NONE", "CURRENT_CLOSED"],
+  "event_kinds": ["APPEND", "MERGE", "COMPENSATION", "TOMBSTONE"],
+  "merge_strategies": ["EXPLICIT_MERGE", "DOMAIN_RESOLUTION", "CRDT_AUTO", "WALL_CLOCK_LWW"],
+  "conflict_status": ["OPEN", "RESOLVED", "AUTO_MERGED"],
+  "claim_boundary": [
+    "VALID_CAUSAL_GRAPH != SEMANTICALLY_CORRECT_HISTORY",
+    "CURRENT_CLOSED != ALL_REMOTE_HISTORY_DISCOVERED",
+    "MERGED != AUTHORITY_VALID",
+    "MERGED != EXTERNAL_EFFECT_SETTLED",
+    "CURRENT_CHANGE = NO"
+  ]
+}
