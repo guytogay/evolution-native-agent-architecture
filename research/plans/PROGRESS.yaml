@@ -16,7 +16,9 @@ canonical_pointers:
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
   external_how_index: research/external-how/README.md
   external_how_registry: research/external-how/SOURCE-REGISTRY.md
-  latest_external_harvest: research/external-how/harvests/2026-08-26-INITIAL-HOW-LANDSCAPE.md
+  initial_external_harvest: research/external-how/harvests/2026-08-26-INITIAL-HOW-LANDSCAPE.md
+  latest_external_harvest: research/external-how/harvests/2026-08-26-EXECUTION-FENCING-AND-IDEMPOTENCY.md
+  latest_composition_analysis: research/reconstruction/COMPOSITION-COMMITMENT-EFFECT-AUTHORITY-DURABLE-WORKFLOW.md
   research_pr: "#82"
   reconstruction_ledger: "#89"
 
@@ -53,7 +55,7 @@ phases:
       - research/plans/ carries master plan and machine-readable progress
       - research/external-how/ carries external candidate mechanism research
       - legacy method paths are compatibility pointers rather than duplicate canonical copies
-      - PR #82 and #89 record the new continuation structure
+      - PR #82 and #89 record the continuation structure
     residual: >-
       Continue opportunistic cleanup only when it improves navigation without
       breaking lineage; do not turn directory neatness into a release blocker.
@@ -80,6 +82,7 @@ phases:
       - Authority Grant / Lease
       - Recovery Adapter
       - Commitment / Settlement research
+      - execution-fencing/idempotency HOW family
       - Contested Authorship
       - Distributed History Merge
       - Evidence Dependency Map
@@ -87,7 +90,7 @@ phases:
     inventory_is_exhaustive: false
 
   external_how_harvest:
-    state: ACTIVE_WITH_INITIAL_VERIFIED_REGISTRY
+    state: ACTIVE_WITH_MULTIPLE_MAPPED_HARVESTS
     initial_verified_source_families:
       - LangGraph
       - Temporal
@@ -98,6 +101,10 @@ phases:
       - Anthropic multi-agent engineering
       - Mem0
       - AI developer community field reports
+      - Hazelcast FencedLock
+      - Stripe idempotency
+      - Kubernetes resourceVersion / optimistic concurrency
+      - AWS Step Functions execution guarantees
     mapped_into_workstreams:
       - "#90 memory/runtime/cognition"
       - "#91 authority/effects/recovery/settlement"
@@ -121,15 +128,34 @@ phases:
       - Letta
       - Microsoft Agent Framework
       - A2A-compatible agents
+      - provider-native idempotency targets
+      - target-side fencing/conditional-write systems
     note: HOST_LIST_IS_OPEN_CARDINALITY
 
   cross_organ_composition:
-    state: PARTIAL
+    state: ACTIVE_WITH_EXECUTION_FENCING_GAP_ESTABLISHED
     known_examples:
       - Memory Metabolism x Retrieval x Decision Projection
       - Recovery x Authority x Effect Lifecycle
-    next_high_value_seams:
       - Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
+    established_gap:
+      statement: >-
+        A unique represented current executor, valid authority, coherent effect record,
+        and safe-resume decision do not by themselves physically prevent a stale
+        executor from causing an external effect through an effective path.
+      shorthand: UNIQUE_CURRENT_ASSIGNMENT_NE_STALE_EXECUTOR_FENCED
+      universal_organ_shape_established: false
+    concrete_candidate_hows:
+      - provider effect-id idempotency
+      - target-side assignment-generation fencing token
+      - conditional external version / optimistic concurrency
+      - durable single logical workflow execution
+      - authoritative status query before retry
+      - single controlled effect gateway
+      - compensation/manual reconciliation
+      - unsafe-unknown -> WAIT/NARROW/ESCALATE
+    next_high_value_seams:
+      - deterministic fixtures for stale executor and positive fencing/idempotency controls
       - Tiny Hot Kernel x exact cold retrieval x memory blocks/session compaction x language projection
       - Identity/lineage x commitment x reputation
       - Evolution Commons x A2A task/message/artifact lifecycle
@@ -159,8 +185,8 @@ methodology_incidents:
 
 next_actions:
   - continue anti-ablation archaeology and update the mechanism retention map when material missing lineages are found
-  - expand concrete HOW branches using internal lineage plus the external registry; do not pick one framework-shaped winner prematurely
-  - perform static composition analysis for Commitment/Settlement x Effect Lifecycle x Authority Lease x durable workflow/task identity
+  - repair/finish Commitment/Settlement prototype without conflating assignment truth with physical fencing
+  - add deterministic cross-organ stale-executor false-OK and positive HOW controls
   - deepen Memory HOW comparison around retrieval invocation, staleness, compaction/projection loss, shared-memory write conflicts, and natural salience
   - deepen Commons/coordination HOW mapping around A2A task lifecycle, opaque-agent interoperability, and specialization/resource economics
   - run stochastic/field experiments only where reality can reveal structure not already derivable
