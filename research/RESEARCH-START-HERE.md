@@ -4,12 +4,12 @@ Status: `ACTIVE_RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / NON_NORMATIVE / NOT_RELEAS
 
 This file is the fast-moving bootstrap **inside the active research integration branch**.
 
-The canonical project/research control plane now lives on `main`. A successor session should discover this branch from `main`; it should not discover `main` from this branch.
+The canonical project/research control plane lives on `main`. A successor session should discover this branch from `main`; it should not discover `main` from this branch.
 
 ```text
 MAIN CONTROL PLANE
 -> research/ACTIVE-RESEARCH.yaml
--> ACTIVE RESEARCH BRANCH
+-> research/ena-reconstruction
 -> this file / PROGRESS.yaml
 ```
 
@@ -17,24 +17,28 @@ MAIN CONTROL PLANE
 BOOTSTRAP != COMPLETE_RESEARCH_STATE
 HOT_ENTRYPOINT != ONTOLOGY
 BRANCH_NAME != BRANCH_AUTHORITY
+OPEN_PR != ACTIVE_BRANCH_AUTHORITY
 ```
 
 ## Required continuation order
 
 Before substantive ENA continuation:
 
-1. Start from the repository default branch `main`.
-2. Read `research/ACTIVE-RESEARCH.yaml` on `main`; verify that it still designates this branch / PR #82 as the active research integration surface.
-3. Read `research/methodology/README.md` and `research/methodology/ENA-RESEARCH-DISCIPLINE.md` on `main`. Main is the canonical cross-session methodology/control surface.
-4. Read `research/BRANCH-GOVERNANCE.md` on `main` when branch creation, handoff, candidate work, validation isolation, or cleanup is relevant.
-5. Verify actual Current from `releases/current/CURRENT-BASELINE.yaml` on `main`.
-6. On the active research branch, read `research/plans/PROGRESS.yaml` for fast-moving execution state.
-7. Read the durable master plan from `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` on `main`; active-branch copies/history do not override it.
-8. Read PR #82 and #89, then only the relevant #90–#94 workstream/prototype/evidence.
-9. When looking for a practical HOW, inspect `research/external-how/SOURCE-REGISTRY.md` on this active branch and perform fresh external research when the map is insufficient or stale.
-10. If a prior session export contains material work not yet mapped into GitHub, retrieve only the decision/method-bearing parts needed to repair the durable project state.
+1. Start from the repository default branch `main` and read `PROJECT-HUB.md`.
+2. Verify actual Current from `releases/current/CURRENT-BASELINE.yaml` on `main`.
+3. Read `research/ACTIVE-RESEARCH.yaml` on `main` and verify that it still designates `research/ena-reconstruction` as the active research integration branch. An open PR is not required for branch authority.
+4. Read `research/methodology/README.md`, `research/methodology/ENA-RESEARCH-DISCIPLINE.md`, and relevant focused methodology on `main`.
+5. Check whether a material project transition occurred since the last aligned checkpoint. If so, run `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` before substantive work.
+6. On this active branch, read `research/plans/PROGRESS.yaml` for fast-moving execution state.
+7. Read the durable master plan from `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` on `main`.
+8. Read #89 and only the relevant #90–#94 workstream/prototype/evidence for the task at hand.
+9. Retrieve PR #82, PR #101, the deleted `research/memory-metabolism-prototype` branch name, or other historical artifacts only when lineage/provenance makes them decision-relevant.
+10. When looking for a practical HOW, inspect `research/external-how/SOURCE-REGISTRY.md` on this active branch and perform fresh external research when the map is insufficient or stale.
+11. If a prior session export contains material work not yet mapped into GitHub, retrieve only the decision/method-bearing parts needed to repair the durable project state.
 
-Only after this routing should a new research node select substantive work.
+Before writing, reverify the live head of `research/ena-reconstruction`. Discover an open PR by head branch only when review/integration context is needed.
+
+Only after this routing should a research node select substantive work.
 
 ## Authority of local methodology copies
 
@@ -50,7 +54,8 @@ When this branch discovers a material new research-method lesson:
 1. capture the triggering incident/evidence here;
 2. use it immediately where needed to avoid repeating a known error;
 3. reconcile the durable method change back to `main/research/methodology/`;
-4. record the reason in the main methodology changelog.
+4. record the reason in the main methodology changelog;
+5. run the Project State Alignment Gate before resuming substantive work if the method change also affects routing, plan, progress, or project state.
 
 This avoids methodology drift between long-running research branches and the default project entrypoint.
 
@@ -131,6 +136,7 @@ Before a substantial action, ask at least:
 
 ```text
 Am I continuing from the active branch named by main, or from a guessed branch?
+Has a material project transition occurred that requires the alignment gate before I resume?
 Am I explaining a problem or solving it?
 Am I treating a parent property as proof that a concrete problem is solved?
 Am I preserving plural/Host-specific/failed/dormant HOW lineage?
@@ -160,6 +166,8 @@ SALIENT != APPLIED
 
 A new session that can quote methodology but immediately performs forbidden compression/selection has not inherited it operationally.
 
+A new session that can quote the latest branch topology but continues from stale plan/progress/current-state references has not inherited the project state operationally.
+
 ## Record-first continuity
 
 After material progress:
@@ -168,7 +176,8 @@ After material progress:
 - update relevant reconstruction/prototype/Issue evidence;
 - add external mechanisms under `research/external-how/` when they change the HOW possibility space;
 - if the research method itself changes, capture the evidence here and reconcile the durable methodology update to `main`;
-- if active branch identity/routing changes, update `main/research/ACTIVE-RESEARCH.yaml` before retiring the old active surface.
+- if active branch identity/routing changes, update `main/research/ACTIVE-RESEARCH.yaml` before retiring the old active surface;
+- after a material project transition, complete and record the Project State Alignment Gate before substantive work resumes.
 
 A handoff summary is a pointer, not project state.
 
@@ -177,12 +186,12 @@ A handoff summary is a pointer, not project state.
 Before claiming successful inheritance, a successor should be able to state from persisted sources:
 
 - what Current actually is;
-- which branch/PR main currently designates as active research;
-- what phase the reconstruction-to-release plan is in;
-- why WHAT/WHY coverage does not imply practical closure;
-- why HOW is open-cardinality and may branch into multiple concrete mechanisms;
+- which branch main currently designates as active research;
 - where canonical methodology lives;
+- whether a project-state alignment pass is required or complete;
+- what phase the reconstruction-to-release plan is in;
 - where active fast-moving progress and external HOW research live;
+- which old branch/PR references are lineage only;
 - and what next action is permitted without silently dissolving historical variation.
 
 > **Do not merely inherit conclusions. Inherit the method that governs how new conclusions may be produced.**
