@@ -157,9 +157,16 @@ Do not select one HOW from aggregate token count or architectural elegance alone
 
 ## Machine evidence status
 
-HOW-A through HOW-D currently have separate executable reference mechanisms and deployment/selftest coverage on the research branch.
+HOW-A through HOW-E now have separate reference behavior and targeted machine coverage on the research branch. The currently implemented count remains an implementation inventory, not an architectural invariant.
 
-HOW-E is currently a concrete reference design added from field-fit pressure and is **not yet machine-guarded**. It must not inherit A-D's machine-evidence maturity merely by joining the same family.
+Exact research head `2d0f589ea17b6b3b47d026006318a7363e6f25be` passed `Finite Context Adoption Research`, run `32927153520`, job `98052250754`:
+
+- all currently implemented plural HOW tools compiled;
+- plural adoption HOW selftest passed with open fixture cardinality;
+- deployment recipe selftest passed, including HOW-E stale/evidence/gap boundaries;
+- verification boundary completed with `HOW_CARDINALITY=OPEN` and `CURRENT_IMPLEMENTED_COUNT_IS_NOT_ONTOLOGY=TRUE`.
+
+This upgrades HOW-E from design-only reference to **machine-guarded reference behavior**. It does not prove naturalistic Host application, cross-Host fitness, or that five is the final number of adoption HOWs.
 
 Future family-level selftests must preserve both:
 
