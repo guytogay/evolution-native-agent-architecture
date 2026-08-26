@@ -142,6 +142,58 @@ jobs:
           print('candidate-v2-tool-boundary-pass')
           PY
 
+      - name: Verify zh-CN operational projection and paired route fixtures
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          root = Path('releases/v0.3.7-candidate')
+          zh = root/'language-projections/zh-CN'
+          required = [
+              zh/'operational/README.md',
+              zh/'operational/CUE-INDEX.md',
+              zh/'operational/HOW-MAP.md',
+              zh/'operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md',
+              zh/'operational/procedures/STANDING-INPUT.md',
+              zh/'operational/procedures/CONTROL-RETIREMENT.md',
+              zh/'operational/patterns/EVOLUTION-COMMONS.md',
+              zh/'operational/patterns/HOST-MAPPINGS.md',
+              zh/'REFERENCE-GUIDE.md',
+              zh/'projection-manifest.yaml',
+              root/'language-projections/semantic-fixtures.v3.yaml',
+          ]
+          for p in required:
+              assert p.is_file(), p
+
+          manifest = yaml.safe_load((zh/'projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert manifest['not_current'] is True
+          assert manifest['source_semantic_version'] == 'v0.3.7-candidate.0'
+          assert manifest['machine_artifact_policy']['translate_machine_reference_files_one_by_one'] is False
+
+          guide = (zh/'REFERENCE-GUIDE.md').read_text(encoding='utf-8')
+          assert 'BUNDLED != REQUIRED' in guide
+          assert 'BUNDLED != DEFAULT_ACTIVE' in guide
+          assert 'NOT_BUNDLED != RETIRED' in guide
+
+          fixtures = yaml.safe_load((root/'language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
+          cases = fixtures['cases']
+          assert len(cases) == 12
+          routes = {case['expected_route'] for case in cases}
+          assert routes == set(fixtures['coverage']['routes_expected'])
+          en_how = (root/'operational/HOW-MAP.md').read_text(encoding='utf-8')
+          zh_how = (zh/'operational/HOW-MAP.md').read_text(encoding='utf-8')
+          for case in cases:
+              assert case['id'].startswith('LANG-037-')
+              assert case['en'].strip()
+              assert case['zh-CN'].strip()
+              assert case['expected_properties']
+              assert case['expected_route'] in en_how, case['expected_route']
+              assert case['expected_route'] in zh_how, case['expected_route']
+          assert 'cardinality is open' in fixtures['evidence_boundary'][-1].lower()
+          print('zh-cn-operational-projection-pass', len(cases), sorted(routes))
+          PY
+
       - name: Compile candidate Python surfaces without bytecode
         run: |
           python - <<'PY'
