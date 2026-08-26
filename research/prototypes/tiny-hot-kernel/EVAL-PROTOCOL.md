@@ -2,15 +2,19 @@
 
 Status: `RESEARCH_EVAL_PROTOCOL / NOT_CURRENT / NOT_RELEASE_CANDIDATE`
 
-Related: #87, #90, #89, PR #82.
+Related: #87, #90, #89, PR #82, `research/reconstruction/CARDINALITY-DISCOVERY-GUARD.md`.
 
 ## 1. Question under test
 
-Compare three resident ENA recognizer phenotypes while holding the downstream Semantic Router and fixture corpus constant:
+Compare the **three currently selected resident ENA recognizer candidates** while holding the downstream Semantic Router and fixture corpus constant:
 
 - `K-A` — Generative Consequence Grammar;
 - `K-B` — Seven-Family Advertised Index;
 - `K-C` — Minimal Interrupt Questions.
+
+The candidate count is an experimental selection for this controlled comparison, not a claim that the design space has exactly three recognizer phenotypes.
+
+`CURRENT_EXPERIMENT_CANDIDATE_COUNT != KERNEL_ONTOLOGY_COUNT`
 
 Primary question:
 
@@ -43,7 +47,7 @@ output contract
 scorer
 ```
 
-Vary only:
+Vary only among the candidates admitted to this benchmark version:
 
 `K-A | K-B | K-C`
 
@@ -65,6 +69,8 @@ Resident material provided to the model:
 2. exactly one kernel candidate file;
 3. a small mechanical output instruction describing the JSON result shape;
 4. access to the router/cold source **only as a tool/resource**, not preloaded semantic content.
+
+Here `exactly one kernel candidate file` is a normative experimental-isolation rule: loading two candidate kernels into one run would confound the comparison. It does not constrain how many candidate designs may exist outside the run.
 
 Do **not** say:
 
@@ -151,10 +157,16 @@ The free-text reasons are diagnostic only and are not scored as machine truth.
 
 ## 6. Fixture order / contamination controls
 
+The current benchmark uses a frozen fixture corpus for comparability across candidate runs. The current selftest records its fixture count as `CONTROLLED_CORPUS_VERSION_COUNT`. That number identifies this benchmark version; it is **not** the natural number of ENA-relevant decision shapes.
+
+A changed corpus is allowed, but should be treated as a changed benchmark version/condition rather than silently mixed into earlier scores.
+
 Run at least two controlled orders where affordable:
 
 - canonical fixture order;
 - deterministic shuffled order recorded with a seed/list.
+
+`at least two orders` is a robustness recommendation for the controlled experiment, not an ontology claim.
 
 Do not show expected answers after each case. Immediate correction would train later cases.
 
@@ -204,7 +216,7 @@ Priority ordering for consequential adoption is normally:
 4. irrelevant FP/governance cost;
 5. context/token/latency cost.
 
-But local Host consequences may justify another ordering; record it explicitly.
+This priority list is a default decision ordering, not a claim that all Hosts have exactly five relevant cost dimensions. Local Host consequences may justify another ordering; record it explicitly.
 
 ## 8. Error taxonomy
 
@@ -237,6 +249,8 @@ Right material was retrieved but final bounded context/reasoning loses or misrea
 Relevant distinction is present/salient but final action ignores it.
 
 The current scorer directly covers mainly R0/R1/R3. R4/R5 require behavioral review or a later task-specific evaluator. Do not invent one universal certificate ladder.
+
+The currently named R0-R5 taxonomy is an observed research taxonomy and may grow, merge, or be revised if materially different failure mechanisms appear. Do not pad it for symmetry or reject an R6 solely because the current list ends at R5.
 
 ## 9. Evidence labels
 
@@ -292,9 +306,9 @@ Failure to observe an event during a short window is also not proof that the rec
 
 ## 11. Stop / selection rule
 
-Do not iterate kernels indefinitely.
+Do not iterate kernels indefinitely and do not manufacture candidates to fill a desired count.
 
-A new K-D/K-E candidate should require a failure mechanism that cannot be repaired economically in A/B/C.
+A new K-D/K-E/other candidate should require a failure mechanism that cannot be repaired economically in the currently admitted candidates, or a materially different Host phenotype that makes another recognizer organ plausible.
 
 After enough controlled evidence to distinguish the candidates:
 
@@ -316,5 +330,7 @@ This protocol is itself a research artifact.
 `ROUTER_SUCCESS != SAFE_DECISION`
 
 `MODEL_AGREEMENT != INDEPENDENT_EVIDENCE`
+
+`BENCHMARK_CARDINALITY != ONTOLOGY_CARDINALITY`
 
 > The experiment should reveal which small mind knows when to look — not reward the model that best guesses the benchmark author's labels.
