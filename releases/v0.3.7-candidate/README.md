@@ -4,7 +4,7 @@ Status: **WORKING_CANDIDATE / ASSEMBLED_PENDING_AUTHOR_FALSIFICATION / NOT_CURRE
 
 The active adopter baseline remains `releases/current/` = `v0.3.6 / CURRENT / FIELD_VALIDATION`.
 
-Do **not** adopt this directory as Current. Candidate assembly is now materially complete, but author adversarial testing, exact pre-freeze validation, freeze, independent semantic falsification, reconciliation, and an explicit release decision are still required.
+Do **not** adopt this directory as Current. Candidate assembly and identity reconciliation are materially complete, but author adversarial testing, exact pre-freeze validation, freeze, independent semantic falsification, reconciliation, and an explicit release decision are still required.
 
 ## Candidate thesis
 
@@ -30,11 +30,31 @@ NEW_CORE_SEMANTIC_DELTA_REQUIRED = 0_DEMONSTRATED
 PRACTICAL_OPERATIONAL_RELEASE_VALUE = MATERIAL
 ```
 
+## Minimum adopter traversal
+
+A reviewer/adopter should not need to inspect `research/` to reach a usable mechanism.
+
+```text
+00-READ-ME-FIRST.md
+-> RUNTIME-ADOPTION-KERNEL.md
+-> operational/CUE-INDEX.md
+-> operational/HOW-MAP.md
+-> operational/REFERENCE-INDEX.yaml
+-> bounded procedure / optional reference / Host pattern
+-> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
+```
+
+For the rationale and package boundary of this layer, see `operational/README.md`.
+
+The HOW library is cold capability, not mandatory active context.
+
+`HOW_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE`
+
 ## What is now assembled
 
 ### Operational routing
 
-`operational/` provides:
+`operational/CUE-INDEX.md` is the ordinary-problem router. `operational/HOW-MAP.md` preserves plural concrete implementation branches. `operational/REFERENCE-INDEX.yaml` binds those branches to exact candidate-local procedures, references, and patterns.
 
 ```text
 ordinary cue / failure / decision
@@ -45,10 +65,6 @@ ordinary cue / failure / decision
 -> bounded procedure / optional reference / Host pattern
 -> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
 ```
-
-The HOW library is cold capability, not mandatory active context.
-
-`HOW_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE`
 
 ### Optional reference library
 
@@ -119,8 +135,8 @@ This is the merged release-scope checkpoint. Branch mutability before freeze is 
 
 ## What remains before freeze
 
-1. reconcile candidate identity/status across inherited adopter-facing projections;
-2. run candidate-specific author adversarial attacks;
+1. run candidate-specific author adversarial attacks;
+2. repair only decision-changing defects those attacks actually expose;
 3. run exact-head pre-freeze machine validation;
 4. bind the exact immutable source/tree with an external freeze record;
 5. send the frozen candidate to a fresh independent semantic falsifier.
