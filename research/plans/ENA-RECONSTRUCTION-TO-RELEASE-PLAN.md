@@ -54,8 +54,6 @@ Do not infer active work from branch names, recency, or historical PR numbers.
 
 ## Current aligned execution posture — 2026-08-26
 
-The repository/control-plane cleanup is now an established baseline rather than an unresolved prerequisite.
-
 Observed long-lived topology:
 
 ```text
@@ -69,20 +67,20 @@ Current adoption remains:
 v0.3.6 / CURRENT / FIELD_VALIDATION
 ```
 
-Research-state summary:
+Research-state summary after the final bounded predecessor-history pass:
 
 - repository information architecture / branch control: aligned baseline established;
-- anti-ablation archaeology: active;
+- anti-ablation archaeology: `RECOVERY_SUFFICIENT_FOR_ASSEMBLY / REOPENABLE`;
 - HOW branch expansion: active;
-- external HOW harvesting: active;
-- Host binding: partial;
-- cross-organ composition: active, with stale-executor/fencing gap established;
-- Operational Architecture assembly: not ready;
+- external HOW harvesting: active where concrete gaps remain;
+- Host binding: partial and continues during assembly;
+- cross-organ composition: active with concrete projection, settlement, compaction, retrieval and stale-executor boundaries;
+- Operational Architecture assembly: `READY_TO_START / NOT_YET_ASSEMBLED`;
 - release-scope reconciliation: not started;
 - candidate build/validation: not started;
 - promotion: not started.
 
-Historical PR #82 and PR #101 are checkpoint/handoff lineage, not current continuation authority.
+Historical PR #82 and PR #101 are checkpoint/handoff lineage, not current continuation authority. Draft PR #109 is a transient research checkpoint surface, not continuation authority or release authority.
 
 ## Phase — Research continuity and repository control plane
 
@@ -164,9 +162,19 @@ EVIDENCE
 ADOPTION
 ```
 
+Current state:
+
+`RECOVERY_SUFFICIENT_FOR_ASSEMBLY_DECISION / REOPENABLE`
+
+The second-pass Issue/repository archaeology plus the final bounded predecessor-history pass recovered decision-distinct lower-level variations and then reached diminishing returns: additional bounded passes over the currently available history were returning already-retained branches, correctly superseded mechanisms, or experiment/field candidates rather than missing architecture families.
+
+The last additional dormant variation recovered was verification/certainty as a voluntarily purchased Agent risk-control service, preserved as a mesocosm candidate rather than a Core/schema change.
+
 Closure rule:
 
-Continue while additional archaeology can still reveal material missing lineage likely to change the engineering map. Do not use a fixed topic count as closure.
+> Recovery is sufficient for the current assembly decision when another bounded pass over available history no longer yields decision-distinct missing lineage likely to change the engineering map.
+
+This is not a completeness proof. Reopen archaeology when new historical evidence, a missing lineage, an assembly contradiction, or a field result materially changes the map.
 
 ## Phase — HOW branch expansion
 
@@ -188,6 +196,8 @@ Candidate HOW forms include:
 - Host-native mechanism mappings.
 
 One property may retain multiple HOWs indefinitely when applicability differs.
+
+HOW branch expansion remains active during assembly. Assembly is not permission to stop growing/falsifying concrete branches.
 
 ## Phase — External HOW harvest
 
@@ -218,6 +228,8 @@ ENA failure
 
 External popularity, framework maturity, or vendor authority does not prove universal ENA fitness.
 
+During assembly, search externally when a branch lacks concrete viable HOWs or when a Host binding needs a mature implementation pattern. Do not keep harvesting frameworks merely to enlarge the registry.
+
 ## Phase — Host binding
 
 For each promising HOW, determine whether/how it binds to real Hosts.
@@ -235,39 +247,91 @@ UNKNOWN
 
 Do not force every Host to instantiate every organ.
 
+Host binding is allowed to remain partial when the operational architecture can honestly expose applicability/unknown state and multiple concrete branches. Field evidence continues in parallel with assembly.
+
 ## Phase — Cross-organ composition
 
 Test whether individually reasonable organs create false confidence or false blocking when composed.
 
-Current high-value seams include:
+Established/high-value seams now include:
 
 - Commitment/Settlement × Effect Lifecycle × Authority Lease × durable execution/fencing;
+- migration projection × decision-material lineage × Commitment/Settlement;
+- lineage compaction × Evidence Dependency Map × cold retrieval;
 - Memory Metabolism × Retrieval × Decision Projection × compaction/salience;
 - Tiny Hot Kernel × exact cold retrieval × language projection;
 - Identity/lineage × commitment × reputation;
 - Commons/coordination × A2A/task lifecycle × specialization/resource economics.
 
-Prefer deterministic/state-space falsification when the bug is statically reachable.
+Important already-demonstrated distinctions include:
+
+```text
+CURRENT_STATE_EQUIVALENCE != HISTORY_EQUIVALENCE
+IMPORT_VALIDATOR != OMISSION_DETECTOR_WITHOUT_SOURCE_WITNESS
+SUMMARY_VALID != MATERIAL_USE_READY
+COLD_REF_PRESENT != RETRIEVAL_SUFFICIENCY_RESOLVED
+UNIQUE_CURRENT_ASSIGNMENT != STALE_EXECUTOR_PHYSICALLY_FENCED
+SINGLE_VERSIONED_WRITE != CURRENT_EXECUTOR_WON
+STATUS_QUERY_NOT_COMMITTED != FUTURE_STALE_REQUEST_FENCED
+```
+
+Prefer deterministic/state-space falsification when the bug is statically reachable. Use field/mesocosm evidence only where interaction, Host behavior, thresholds, cost, or emergence can still reveal decision-relevant structure.
 
 ## Phase — Operational Architecture assembly
 
-Only after archaeology/HOW recovery is sufficiently mature for the decision, assemble an adopter-facing operational architecture around the semantic trunk.
+Current state:
 
-The assembly should make concrete HOWs discoverable without forcing all HOWs into every runtime context.
+`READY_TO_START / NOT_YET_ASSEMBLED`
 
-Likely structure:
+Archaeology recovery is now sufficient for the assembly decision. This does **not** mean every HOW is finished or every Host is proven.
+
+Assembly goal:
+
+Create an adopter-facing, traversable architecture around the semantic trunk without compressing plural concrete HOWs back into one abstract implementation.
+
+Required shape:
 
 ```text
-small semantic/runtime hot surface
--> retrieve relevant WHAT/WHY
--> route to applicable HOW family
--> select/map according to Host conditions
--> execute with concrete tool/process
--> capture evidence/failure
--> evolve/revise
+TELOS / PURPOSE
+      |
+      v
+WHAT / WHY node
+      |
+      +--> concrete HOW family A
+      |      +--> applicability / trigger
+      |      +--> procedure / state machine / tool / adapter
+      |      +--> failure + WAIT/REFUSE/fallback
+      |      +--> Host mappings
+      |      +--> evidence + residuals
+      |
+      +--> concrete HOW family B
+      +--> dormant / experimental HOWs
 ```
 
-Do not assemble prematurely merely to produce a neat document.
+Runtime discoverability remains separate from repository richness:
+
+```text
+large divergent operational library
+!= load everything into active context
+
+small hot routing surface
+-> retrieve relevant WHAT/WHY
+-> retrieve applicable HOW family
+-> map to Host
+-> act
+-> capture evidence/failure
+```
+
+Assembly work should first produce a **navigation/architecture map**, not prematurely rewrite Current. It should reuse existing prototypes, workstream decisions and evidence rather than inventing parallel representations.
+
+Assembly acceptance for release-scope reconciliation:
+
+- a fresh Agent can start from a semantic property and find concrete executable/reference HOW branches;
+- branches expose applicability/Host conditions and evidence maturity honestly;
+- alternative/dormant/failed HOW lineage is not silently erased;
+- composition boundaries are discoverable;
+- unresolved areas are explicit and do not masquerade as completed organs;
+- another structural rewrite is not required merely to understand how to act.
 
 ## Phase — Release scope reconciliation
 
@@ -327,6 +391,8 @@ HANDOFF_SUMMARY != PROJECT_STATE
 BRANCH_EXISTS != ACTIVE_RESEARCH_AUTHORITY
 OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
 MATERIAL_TRANSITION -> ALIGN -> RESUME
+RECOVERY_SUFFICIENT_FOR_ASSEMBLY != ARCHAEOLOGY_COMPLETE_FOREVER
+ASSEMBLY != CURRENT_PROMOTION
 ```
 
 ## Progress carrier
