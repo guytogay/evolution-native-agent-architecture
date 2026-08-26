@@ -44,22 +44,25 @@ After successful persistent adoption, familiar tasks should normally use the int
 
 ## Continue or inherit ENA research
 
-Do **not** choose a research branch by name, recency, or number of commits.
+Do **not** choose a research branch by name, recency, old PR number, or number of commits.
 
 Start from `main` and use this route:
 
-1. `research/ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch and PR;
-2. `research/methodology/README.md` — research method and anti-drift discipline;
-3. `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — stable long-horizon plan;
-4. follow the active branch pointer;
-5. on that branch, read `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml` for fast-moving state;
-6. only then continue the relevant workstream/prototype/evidence.
+1. `releases/current/CURRENT-BASELINE.yaml` — verify Current adoption identity;
+2. `research/ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration **branch**;
+3. `research/methodology/README.md` — canonical research method and anti-drift discipline;
+4. `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — run after material project transitions before substantive work resumes;
+5. `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — stable long-horizon plan;
+6. follow the active branch pointer;
+7. on that branch, read `research/RESEARCH-START-HERE.md` and `research/plans/PROGRESS.yaml` for fast-moving state;
+8. discover an open PR for the active branch only when review/integration context is needed.
 
-A successor session should **not need a branch census** for normal continuation.
+A successor session should **not need a branch census** or a historical PR census for normal continuation.
 
 ```text
 BRANCH_EXISTS != BRANCH_ACTIVE
 BRANCH_RECENT != BRANCH_AUTHORITATIVE
+OPEN_PR != ACTIVE_BRANCH_AUTHORITY
 HANDOFF_SUMMARY != PROJECT_STATE
 ```
 
@@ -67,9 +70,24 @@ Branch naming/lifecycle policy:
 
 `research/BRANCH-GOVERNANCE.md`
 
-Current branch inventory/cleanup state:
+Current live-ref inventory/cleanup lineage:
 
 `research/BRANCH-INVENTORY.yaml`
+
+## Alignment before substantive resume
+
+After a material branch/control-plane transition, directory move, methodology change, master-plan change, release-state change, or major checkpoint merge, first verify that live repository state, routing guides, methodology, plan, Progress, and next actions still tell one coherent current story.
+
+Canonical method:
+
+`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+
+```text
+INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
+MATERIAL_TRANSITION -> ALIGN -> RESUME
+```
+
+Do not turn this into ceremony after every ordinary content commit.
 
 ## Research architecture direction
 
@@ -100,6 +118,7 @@ GitHub is the canonical engineering, research-lineage, and Current-adoption surf
 - Historical release index: `HISTORY.md`
 - Research control/entrypoint: `research/README.md`, `research/ACTIVE-RESEARCH.yaml`
 - Research methodology: `research/methodology/`
+- Project-state alignment method: `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
 - Long-horizon research/release plan: `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md`
 - Active fast-moving research: branch named by `research/ACTIVE-RESEARCH.yaml`
 - Evolution Inbox: `research/evolution-inbox/`
@@ -110,7 +129,7 @@ GitHub is the canonical engineering, research-lineage, and Current-adoption surf
 - Reconciliation: `collaboration/reconciliation/`
 - Decisions: `decisions/`
 
-Historical releases, candidates, rejected paths, temporary branches, and validation artifacts are **not** parallel runtime or research baselines. Retrieve them only when investigating lineage, falsification, regression, provenance, or a historical decision.
+Historical releases, candidates, rejected paths, deleted research branches, old PR generations, and validation artifacts are **not** parallel runtime or research baselines. Retrieve them only when investigating lineage, falsification, regression, provenance, or a historical decision.
 
 > **Preserve history durably; retrieve history selectively.**
 >
@@ -139,7 +158,9 @@ GitHub write capability does not grant release, deployment, remediation, or scop
 - persistence is not synchronization;
 - project continuity does not depend on one permanent owning session/Agent;
 - one active research integration branch is the coordination pointer, not a claim that research has one topic;
-- temporary branches must pay isolation/validation rent and should retire after use.
+- PR generations on that branch are transient integration artifacts;
+- temporary branches must pay isolation/validation rent and should retire after use;
+- material project transitions require alignment before substantive research resumes.
 
 ## Operating posture
 
