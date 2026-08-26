@@ -1,17 +1,18 @@
-schema_version: "1.0"
+schema_version: "1.1"
 status: ACTIVE_RESEARCH_POINTER
 
-# This file is the canonical main-visible pointer for continuing ENA research.
-# A new session must not infer the active branch from branch recency, branch names,
+# Canonical main-visible pointer for continuing ENA research.
+# A new session must not infer the active branch from branch recency, names,
 # commit timestamps, or the number of open research artifacts.
 
 active_research:
   branch: "research/memory-metabolism-prototype"
   pull_request: 82
   state: "ACTIVE_RECONSTRUCTION / DRAFT / NOT_CURRENT / NOT_RELEASE_CANDIDATE"
-  observed_head_sha: "286b5a247f83744d7b831360bf20902f76499171"
+  observed_head_sha: "dd18c770d891a1a16d8384585ebc80b08b699182"
   head_sha_is_identity_lock: false
   reverify_head_before_writes: true
+  branch_name_status: "LEGACY_SCOPE_NAME / BROADER_THAN_MEMORY"
 
   bootstrap_path: "research/RESEARCH-START-HERE.md"
   progress_path: "research/plans/PROGRESS.yaml"
@@ -36,6 +37,21 @@ continuation_protocol:
   - "Switch/read the active research branch and its progress state."
   - "Reverify the branch head and PR state before writing."
   - "Do not treat temporary or historical branches as parallel research authority."
+
+branch_transition:
+  current_decision: "CHECKPOINT_RECONCILIATION_PREFERRED_OVER_DIRECT_RENAME"
+  why: >-
+    The active branch has outgrown its Memory-specific name and PR #82 is a large
+    reconstruction workspace. A direct GitHub rename of a PR head branch would close
+    the open pull request. Preferred transition is to reconcile a research checkpoint
+    to main without changing releases/current, then create a fresh accurately named
+    active research integration branch from the reconciled main.
+  merge_now: false
+  merge_blocker: >-
+    PR #82 is currently reported by GitHub as mergeable=false / mergeable_state=dirty.
+    Main advanced with the research control-plane checkpoint and overlapping files now
+    require explicit reconciliation before a safe research-checkpoint merge.
+  preferred_successor_name: "research/ena-reconstruction"
 
 branch_cardinality:
   active_research_integration_branches_allowed: 1
