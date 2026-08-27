@@ -1,4 +1,4 @@
-schema_version: "1.7"
+schema_version: "1.8"
 status: ACTIVE_RESEARCH_POINTER
 updated_at: "2026-08-27"
 
@@ -7,11 +7,9 @@ updated_at: "2026-08-27"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE_BUILD_PREPARATION / NOT_CURRENT / CANDIDATE_NOT_YET_CREATED"
+  state: "V0_3_7_CANDIDATE0_FROZEN / VALIDATION_ANTI_ABLATION_AUDIT_NEXT / INDEPENDENT_FALSIFICATION_PENDING / NOT_CURRENT"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
-  branch_name_status: "STABLE_INTEGRATION_NAME / NOT_PHASE_ONTOLOGY"
   continuation_authority: BRANCH_POINTER
-  open_pull_request_required_for_activity: false
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
   embedded_head_sha_is_identity_lock: false
 
@@ -19,11 +17,12 @@ active_research:
   progress_path: "research/plans/PROGRESS.yaml"
   detailed_plan_path: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
   methodology_index_path: "research/methodology/README.md"
+  handoff_method_path: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
+  convergence_divergence_method_path: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
+  current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
   alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   operational_architecture_path: "research/operational-architecture/README.md"
   release_scope_path: "research/release-scope/README.md"
-  scope_stability_gate_path: "research/release-scope/RELEASE-SCOPE-STABILITY-GATE-001.md"
-  version_selection_path: "research/release-scope/VERSION-SELECTION-001.md"
   external_how_registry_path: "research/external-how/SOURCE-REGISTRY.md"
   reconstruction_ledger_issue: 89
   workstream_issues: [90, 91, 92, 93, 94]
@@ -31,54 +30,79 @@ active_research:
 project_control_plane:
   branch: "main"
   project_hub: "PROJECT-HUB.md"
+  current_baseline: "releases/current/CURRENT-BASELINE.yaml"
+  current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
   project_structure: "PROJECT-STRUCTURE.md"
   branch_governance: "research/BRANCH-GOVERNANCE.md"
   branch_inventory: "research/BRANCH-INVENTORY.yaml"
   methodology_index: "research/methodology/README.md"
   methodology_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
+  handoff_method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
+  convergence_divergence_method: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
   alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
 
 continuation_protocol:
   - "Start from main, not from a guessed research or candidate branch."
   - "Verify Current from releases/current/CURRENT-BASELINE.yaml; Current remains singular until explicit promotion."
-  - "Read this file to discover the active integration branch and current project phase."
-  - "Read canonical methodology before selecting substantive work."
-  - "If a material project transition occurred, complete the Project State Alignment Gate before resuming."
-  - "Read the active branch bootstrap and PROGRESS.yaml."
-  - "For candidate work, read release-scope stability/version records, branch governance, and Current release discipline before creating or continuing candidate branches."
+  - "Read research/handoffs/CURRENT-HANDOFF.yaml and the pointed handoff package before reconstructing session history from chat."
+  - "Read this file to discover the active research integration branch and current project phase."
+  - "Read canonical methodology, including session handoff and convergence/divergence discipline, before selecting substantive work."
+  - "If current-state surfaces disagree after handoff or another material transition, complete the Project State Alignment Gate before resuming."
+  - "Read the active branch bootstrap, PROGRESS.yaml, and master plan."
+  - "For candidate work, distinguish the candidate branch head from the exact frozen source/tree identity."
   - "Reverify live branch/candidate heads before writing."
-  - "Open PR identity is integration context, not continuation authority."
+  - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "RELEASE_SCOPE_STABILIZED_AND_V0_3_7_CANDIDATE_LINE_ASSIGNED"
-  prior_control_plane_pull_request: 110
-  prior_control_plane_merge: "e8257e61a01652d4db799edfdd51f4ce7ae7a2b4"
-  release_scope_stability_gate: PASS
-  next_version: "v0.3.7"
-  next_candidate_generation: "candidate.0"
-  candidate_branch_expected_name: "candidate/v0.3.7-candidate.0"
-  candidate_branch_created: false
+  event: "V0_3_7_CANDIDATE0_FROZEN_AND_CONVERGENCE_GUARD_CANONICALIZED"
   current_changed_by_transition: false
+  next_version: "v0.3.7"
+  candidate_identity: "v0.3.7-candidate.0"
+  candidate_branch: "candidate/v0.3.7-candidate.0"
+  candidate_state: FROZEN_INDEPENDENT_FALSIFICATION_PENDING
+  frozen_source_commit: "d0e793593184740d9732902e948afd48ed96ae2f"
+  frozen_candidate_subtree: "cffbf76fe1448b020b637c78d1f7ae46e4c0115b"
+  freeze_record: "collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md"
+  exact_prefreeze_run: 33011823923
+  convergence_method_main_commit: "e42f9838294716b2ad34e6a2a0150e5d1cb89027"
 
-candidate_build_transition:
-  current_state: PREPARE_EXACT_CANDIDATE_WORKSPACE
-  prerequisites_completed:
-    - anti-ablation archaeology sufficient/reopenable
-    - Operational Architecture traversable enough for selection
-    - release cargo classes selected
-    - optional reference library selected
-    - minimal v2 practical tooling selected and machine-tested
-    - zh-CN operational coverage selected
-    - anti-ablation selection audit passed
-    - release-scope stability gate passed
-    - next candidate version assigned
+candidate_validation_transition:
+  current_state: AUTHOR_VALIDATION_ANTI_ABLATION_AUDIT_BEFORE_INDEPENDENT_REVIEW
+  completed:
+    - release scope stabilized and v0.3.7 assigned
+    - self-contained candidate.0 assembled
+    - selected Operational Architecture / references / tooling / zh-CN cargo assembled
+    - author assembly/identity/adversarial validation completed with defects and oracle false positives preserved/repaired
+    - exact pre-freeze validation passed on one exact source/subtree
+    - candidate.0 frozen by an external exact source/tree record
+    - fresh independent validator handoff prepared
+    - convergence/divergence discipline canonicalized after user challenged the 1080-to-188 author-harness reduction
   next_required_steps:
-    - checkpoint current release-scope decisions to main
-    - align main and active research branch
-    - create candidate/v0.3.7-candidate.0 from the exact checkpointed main commit
-    - build self-contained candidate outside releases/current
-    - validate, author-attack, freeze exact source/tree, then seek independent falsification
+    - "perform tree-external 1080 -> 188 author-harness anti-ablation audit"
+    - "recover materially distinct predecessor attack/failure shapes; do not optimize for numeric count"
+    - "repair validation method outside frozen candidate.0 if coverage gaps are found"
+    - "if a recovered attack reveals a material candidate-byte defect, preserve candidate.0 and enter reconciliation/candidate.1 only as required"
+    - "after the audit, create a DO NOT MERGE independent-falsification review PR bound to the exact frozen source/tree"
+    - "obtain fresh independent Phase A inspection before Phase B comparison with author evidence"
+    - "reconcile independent verdict before release preparation or candidate succession"
+
+frozen_candidate:
+  identity: "v0.3.7-candidate.0"
+  branch: "candidate/v0.3.7-candidate.0"
+  branch_head_is_identity: false
+  source_commit: "d0e793593184740d9732902e948afd48ed96ae2f"
+  subtree_sha: "cffbf76fe1448b020b637c78d1f7ae46e4c0115b"
+  subtree_path: "releases/v0.3.7-candidate/"
+  mutable_in_place: false
+  independent_falsification: PENDING
+  release_decision: NOT_MADE
+
+handoff:
+  state: STANDARDIZED_SESSION_HANDOFF_ACTIVE
+  pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
+  method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
+  rule: "HANDOFF_PACKAGE_IS_BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY"
 
 historical_branch_lineage:
   predecessor_branch: "research/memory-metabolism-prototype"
@@ -87,6 +111,8 @@ historical_branch_lineage:
   successor_bootstrap_pull_request: 101
   research_checkpoint_pull_request: 109
   release_scope_control_plane_pull_request: 110
+  release_scope_checkpoint_pull_request: 111
+  convergence_method_pull_request: 112
   note: "Historical branch/PR identity is lineage only and does not compete with this pointer."
 
 alignment:
@@ -94,17 +120,9 @@ alignment:
   gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   current_alignment_state_source: "research/plans/PROGRESS.yaml"
   minor_commit_requires_full_gate: false
-
-branch_cardinality:
-  active_research_integration_branches_allowed: 1
-  candidate_branches_allowed_when_release_candidate_lifecycle_active: true
-  note: >-
-    Candidate branches are release-lifecycle surfaces and do not replace the active research
-    integration branch as general research continuation authority. Their exact frozen commit/tree,
-    not branch recency, becomes candidate identity after freeze.
+  session_handoff_is_alignment_trigger_when_control_state_would_otherwise_drift: true
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
   expected_at_this_transition: "v0.3.6 / CURRENT / FIELD_VALIDATION"
-  next_version_assignment_does_not_change_current: true
-  note: "v0.3.7 is only the assigned next candidate/release line until explicit promotion succeeds."
+  next_version_assignment_or_candidate_freeze_does_not_change_current: true

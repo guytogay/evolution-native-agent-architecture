@@ -14,11 +14,6 @@ Correction:
 
 ```text
 PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
-```
-
-and:
-
-```text
 WHAT -> WHY -> HOW -> EVIDENCE
 ```
 
@@ -32,7 +27,7 @@ Practical effect:
 
 Trigger:
 
-The project recognized that applying narrow-waist/semantic compression pressure to the HOW layer causes implementation dissolution.
+Applying narrow-waist/semantic-compression pressure to the HOW layer caused implementation dissolution.
 
 Correction:
 
@@ -89,17 +84,12 @@ Practical effect:
 
 Trigger:
 
-A successor session had access to both prior-session summaries and GitHub records containing anti-dissolution/plural-HOW ideas, but still resumed work by selecting one visible organ and deepening it. The method had been written/retrieved but was not salient/applied.
+A successor session had access to prior-session summaries and GitHub records containing anti-dissolution/plural-HOW ideas, but still resumed work by selecting one visible organ and deepening it. The method had been written/retrieved but was not salient/applied.
 
 Correction:
 
 ```text
 WRITTEN -> RETRIEVED -> INTERPRETED -> SALIENT -> APPLIED
-```
-
-and:
-
-```text
 DURABLE != DISCOVERABLE != RETRIEVED != SALIENT != APPLIED
 ```
 
@@ -113,7 +103,7 @@ Practical effect:
 
 Trigger:
 
-The active research methodology, plan, and reconstruction state were stored only on `research/memory-metabolism-prototype`, while `main` contained many historical branches and no canonical active-research pointer. A new session starting from the default branch could not know which branch to inherit without doing a branch census.
+The active research methodology, plan, and reconstruction state were stored only on a research branch while `main` contained many historical branches and no canonical active-research pointer. A new session starting from the default branch could not know which branch to inherit without doing a branch census.
 
 Correction:
 
@@ -121,17 +111,17 @@ Correction:
 - `research/ACTIVE-RESEARCH.yaml` defines exactly one active research integration branch;
 - temporary branches never become continuation authority by existence/recency;
 - branch roles/lifecycle are standardized in `research/BRANCH-GOVERNANCE.md`;
-- historical branch cleanup preserves commit/PR/freeze lineage rather than preserving every branch name forever.
+- historical cleanup preserves commit/PR/freeze lineage rather than preserving every branch name forever.
 
 Practical effect:
 
-A successor begins at `main`, reads one stable pointer, then follows the active workspace. It should not need to infer project state from the branch list.
+A successor begins at `main`, reads one stable pointer, then follows the active workspace.
 
 ## 2026-08-26 — Branch-centric continuation identity
 
 Trigger:
 
-During the successor-branch transition, the control plane bound continuation state to a specific PR number and cached active-branch head SHA. Both proved unstable: PR generations can change while the active branch remains the same, and recording a branch's own head SHA inside a commit on that branch makes the recorded SHA stale immediately.
+The control plane bound continuation state to a specific PR number and cached active-branch head SHA. Both proved unstable.
 
 Correction:
 
@@ -143,15 +133,15 @@ HEAD_SHA = LIVE_REVERIFY_BEFORE_WRITE
 
 Practical effect:
 
-- `research/ena-reconstruction` can remain the active integration branch across multiple PR generations;
-- opening/merging/closing a PR on the same active branch no longer requires another branch handoff;
-- exact active head is observed from GitHub before writes instead of embedded as a self-referential identity lock.
+- the stable active research branch may span multiple PR generations;
+- opening/merging/closing a PR on that branch no longer requires another branch handoff;
+- exact head is observed from GitHub before writes instead of embedded as a self-referential lock.
 
 ## 2026-08-26 — Project State Alignment Gate
 
 Trigger:
 
-After branch cleanup, PR #82 checkpointing, successor activation, PR #101 bootstrap reconciliation, and deletion of the predecessor ref, several individually reasonable documents still described different generations of the project. The repo was durable, but routing, method, plan, progress, and historical references could drift apart after a material transition.
+After branch cleanup/checkpoints/successor activation, several individually reasonable documents still described different generations of the project. The repo was durable, but routing, method, plan, Progress, and historical references could drift apart after a material transition.
 
 Correction:
 
@@ -161,29 +151,28 @@ MATERIAL_TRANSITION -> ALIGN -> RESUME
 HISTORY_PRESERVED != HISTORY_USED_AS_CURRENT_POINTER
 ```
 
-Canonical focused procedure:
+Canonical procedure:
 
 `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
 
 Practical effect:
 
-- after material branch/control-plane, directory, methodology, plan, release-state, or checkpoint transitions, ENA research aligns live repository state, routing guides, methodology, master plan, Progress, and next actions before substantive work resumes;
-- old branches/PRs remain available as lineage without masquerading as current pointers;
-- the gate is not required after every ordinary commit, only transitions capable of creating current-state disagreement.
+- after material branch/control-plane, directory, methodology, plan, release-state, or checkpoint transitions, align live repository state, routing, methodology, plan, Progress, and next actions before substantive work resumes;
+- old branches/PRs remain lineage without masquerading as current pointers;
+- the gate is not required after every ordinary commit.
 
-## 2026-08-27 — Convergence-bias / variation-preservation discipline
+## 2026-08-27 — Convergence/divergence discipline
 
 Trigger:
 
-During v0.3.7 candidate author-falsification work, an adversarial harness was refactored from an earlier run reporting 1080 observed pass conditions to a phase-aware harness reporting 188 observed pass conditions. The newer oracle removed noisy whole-file/token-style checks and was more decision-focused, but the reduction was initially described too quickly as "progress" before proving that all materially distinct predecessor attack shapes were preserved, replaced by stronger checks, or deliberately retired.
+During v0.3.7 candidate author-falsification work, an adversarial harness was refactored from an observed 1080 pass conditions to 188 more structured pass conditions. The project-manager initially described the smaller harness as an improvement before proving that materially distinct predecessor attack/failure shapes had not been lost.
 
-The incident exposed a broader LLM research bias: models often present success as summary, consolidation, reduced visible complexity, and narrative closure. That communication habit is unsafe when applied to ENA HOW space, adversarial/failure space, Host variation, or evidence applicability without an anti-ablation accounting step.
+The user flagged this as a characteristic LLM success-narration bias: summarization/convergence can look like progress while silently ablating the HOW/failure possibility space.
 
 Correction:
 
 ```text
 COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
-ABSTRACTION_MAY_COMPRESS_DESCRIPTION != LICENSE_TO_COLLAPSE_VARIATION
 PROVEN_BEHAVIORAL_EQUIVALENCE -> MAY_COMPRESS
 UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
 UNKNOWN_SPACE -> EXPAND
@@ -193,17 +182,57 @@ Canonical focused method:
 
 `research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md`
 
+Incident evidence:
+
+`research/methodology/incidents/2026-08-27-CONVERGENCE-BIAS-INCIDENT.md`
+
 Practical effect:
 
-- a smaller harness, document, taxonomy, organ set, or summary is no longer treated as improvement merely because it is smaller;
-- before convergence, materially distinct predecessor variations require disposition as preserved, proven-equivalent merge, stronger replacement, dormant, evidence-backed retirement, lost, or unknown;
-- adversarial/falsification work preserves or expands distinct failure shapes by default and compresses only redundant execution/representation;
-- LLM-generated summaries are treated as projections rather than ontology/completeness proof;
-- HOW, Host, failure, and evidence spaces remain open-cardinality until equivalence or selection is actually supported;
-- growth remains subject to complexity/epistemic rent, so the correction does not invert into permanent uncontrolled expansion.
+- smaller assertion/file/category counts are not success evidence by themselves;
+- HOW/failure/Host/evidence distinctions remain separate while behaviorally distinct or equivalence is unproven;
+- representation duplication may still be compressed once it adds no distinct behavior or decision value;
+- the 1080 -> 188 harness change requires an anti-ablation audit before independent candidate review.
+
+## 2026-08-27 — Standardized session/project-manager handoff discipline
+
+Trigger:
+
+The user intentionally replaced an unstable project-manager session and requested that future Agents/sessions know by default how to hand a project over and how to take it over.
+
+During preparation, live-state inspection showed that main-visible `ACTIVE-RESEARCH.yaml`, `PROGRESS.yaml`, and master-plan phase descriptions still said v0.3.7 candidate.0 had not yet been created, while the actual candidate had already been built, pre-freeze validated, frozen, and prepared for independent review.
+
+This showed that a chat summary alone could not provide safe continuity.
+
+Correction:
+
+```text
+PROJECT_CONTINUITY > SESSION_CONTINUITY
+HANDOFF = DURABLE_BOOTSTRAP_PROJECTION
+HANDOFF != PROJECT_AUTHORITY
+```
+
+Canonical focused method:
+
+`research/methodology/SESSION-HANDOFF-DISCIPLINE.md`
+
+Stable handoff pointer:
+
+`research/handoffs/CURRENT-HANDOFF.yaml`
+
+Incident evidence:
+
+`research/methodology/incidents/2026-08-27-SESSION-HANDOFF-STANDARDIZATION.md`
+
+Practical effect:
+
+- outgoing sessions flush material work, reverify live state, align stale project-control surfaces, build a classified handoff package, and publish it through a stable pointer;
+- handoff packages preserve at least the latest three decision-bearing conversation rounds, with older context included when still decision-relevant;
+- incoming sessions read the handoff for speed, then independently verify canonical Current/live refs/frozen identities/method/Progress/plan before continuing;
+- next sessions should not ask the user to reconstruct project state already persisted in GitHub;
+- handoff completion is tested by successor behavior, not by the existence of a summary document.
 
 ## Future changes
 
-Add a new entry when a research-process failure, field observation, or stronger method changes how future ENA research should actually be conducted.
+Add a new entry when a research-process failure, field observation, handoff incident, or stronger method changes how future ENA research should actually be conducted.
 
 Do not add entries solely for editorial rephrasing.

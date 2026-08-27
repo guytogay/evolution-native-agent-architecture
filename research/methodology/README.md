@@ -2,7 +2,7 @@
 
 Status: `CANONICAL_PROJECT_RESEARCH_METHOD_SURFACE / MAIN_VISIBLE / OPEN_CARDINALITY / NON_NORMATIVE_TO_CURRENT`
 
-This directory is the stable home for **how ENA itself is researched**.
+This directory is the stable home for **how ENA itself is researched and handed between project-manager sessions**.
 
 It is project process, not adopter-facing ENA Constitution semantics.
 
@@ -18,18 +18,22 @@ Fast-moving active research may contain newer method observations, but a materia
 CHAT_INSIGHT != DURABLE_METHOD
 ACTIVE_BRANCH_NOTE != CANONICAL_METHOD
 METHOD_WRITTEN != METHOD_APPLIED
+HANDOFF_PACKAGE != PROJECT_AUTHORITY
 ```
 
 ## Read order
 
 1. `ENA-RESEARCH-DISCIPLINE.md` — open-cardinality master method ledger.
-2. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — guard against LLM-style premature summary/convergence that silently compresses HOW, failure, Host, or evidence variation.
-3. `PROJECT-STATE-ALIGNMENT-GATE.md` — how to realign routing, method, plan, and progress after material project transitions before substantive work resumes.
-4. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
-5. `../BRANCH-GOVERNANCE.md` — how research topology is controlled across sessions.
-6. `../ACTIVE-RESEARCH.yaml` — where the active work actually lives now.
+2. `SESSION-HANDOFF-DISCIPLINE.md` — how an outgoing session durably hands over and how a new session takes over without reconstructing the project from chat.
+3. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when abstraction/compression is valid and when HOW/failure/Host variation must remain open or grow.
+4. `PROJECT-STATE-ALIGNMENT-GATE.md` — how to realign routing, method, plan, progress, candidate/release state, and next actions after material transitions.
+5. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
+6. `incidents/` — concrete method failures that changed future behavior.
+7. `../BRANCH-GOVERNANCE.md` — how research/candidate topology is controlled across sessions.
+8. `../ACTIVE-RESEARCH.yaml` — where active research work actually lives now.
+9. `../handoffs/CURRENT-HANDOFF.yaml` — latest standardized project-manager/session handoff projection.
 
-Focused methodology files may be added when a distinction is important enough to change behavior; the file count is not a completeness claim.
+Focused methodology files may be added when a distinction is important enough to change behavior; file count is not a completeness claim.
 
 ## Core shape
 
@@ -52,9 +56,7 @@ semantic trunk; abstraction/compression may help
 
 > **Compress the semantic trunk; let concrete HOWs branch.**
 
-## Convergence/divergence guard
-
-LLMs often express progress by summarizing, consolidating, and reducing visible complexity. In ENA this is safe only when the change compresses representation rather than silently shrinking the decision-relevant possibility space.
+And:
 
 ```text
 COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
@@ -63,13 +65,26 @@ UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
 UNKNOWN_SPACE -> EXPAND
 ```
 
-HOW branches, adversarial/failure shapes, Host-specific mechanisms, evidence-applicability conditions, and unresolved/dormant alternatives should remain distinct until equivalence, replacement, or retirement is actually evidenced.
+## Session handoff rule
 
-Before replacing a larger surface with a smaller abstraction, use `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` to account for what was preserved, merged, replaced, retired, lost, or remains unknown.
+Project continuity must survive replacement of the current conversational session.
+
+```text
+PROJECT_CONTINUITY > SESSION_CONTINUITY
+```
+
+An outgoing session persists project state and produces a standardized handoff package under `research/handoffs/`, then updates `research/handoffs/CURRENT-HANDOFF.yaml`.
+
+An incoming session reads the handoff for speed, then independently re-verifies Current, live refs, frozen candidate identities, methodology, Progress, and plan from canonical sources before substantive work.
+
+```text
+HANDOFF = BOOTSTRAP MAP
+CANONICAL SOURCES + LIVE REFS = TERRAIN
+```
 
 ## Project-state alignment rule
 
-Durable files can all be locally reasonable yet collectively stale after a material handoff, branch transition, directory change, method change, release-state change, or plan change.
+Durable files can all be locally reasonable yet collectively stale after a material handoff, branch transition, directory change, method change, candidate/release-state change, or plan change.
 
 ```text
 INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
@@ -78,7 +93,7 @@ MATERIAL_TRANSITION -> ALIGN -> RESUME
 
 A successor/resuming session should check whether such a transition occurred. When it did, run `PROJECT-STATE-ALIGNMENT-GATE.md` before selecting substantive research work.
 
-The gate is not ceremony after every ordinary commit. It is a continuity repair mechanism for transitions capable of making current-state surfaces disagree.
+The gate is not ceremony after every ordinary content commit. It is a continuity repair mechanism for transitions capable of making current-state surfaces disagree.
 
 ## Update discipline
 
@@ -88,10 +103,10 @@ When research reveals a new method defect or stronger discipline:
 2. determine whether the new lesson changes research behavior rather than merely wording;
 3. update the master ledger or add a focused method file;
 4. record why in `METHOD-CHANGELOG.md`;
-5. update `research/ACTIVE-RESEARCH.yaml` or other project-control pointers only when routing changes;
-6. run the project-state alignment gate when the change is material enough to affect routing, plan, progress, release state, or future-session continuation;
+5. update project-control pointers only when routing/phase changes;
+6. run the Project State Alignment Gate when the change is material enough to affect routing, plan, progress, candidate/release state, or future-session continuation;
 7. do not force the method into an existing category merely to keep the list short;
-8. do not split methods merely to make the directory look comprehensive.
+8. do not split methods or create duplicate helper files merely to make the directory look comprehensive.
 
 ```text
 CURRENT_METHOD_SET != COMPLETE_METHOD_SPACE
@@ -108,7 +123,9 @@ WRITTEN -> RETRIEVED -> INTERPRETED -> SALIENT -> APPLIED
 
 If it reads anti-dissolution/plural-HOW discipline and then immediately compresses the work into one abstract mechanism or selects before recovery, inheritance failed at the salience/application layer.
 
-If it reads convergence/divergence discipline and then treats a smaller summary, harness, category set, or branch inventory as intrinsically superior without a variation-disposition map, inheritance failed at the anti-convergence layer.
+If it reads the convergence/divergence rule and treats a smaller assertion/file/category count as success without proving behavioral equivalence, inheritance failed.
+
+If it reads a handoff package but does not verify live canonical state, inheritance failed.
 
 If it reads a new branch/control-plane state but continues from stale routing or a superseded plan, inheritance failed at the project-state alignment layer.
 

@@ -1,21 +1,23 @@
 # ENA Research
 
-Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / RELEASE_SCOPE_READY`
+Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / V0_3_7_CANDIDATE0_FROZEN`
 
 This directory is the stable starting point for anyone asked to continue, inherit, review, or improve ENA research.
 
-Do not discover active work by browsing branch names or old pull requests.
+Do not discover active work by browsing branch names, old pull requests, candidate recency, or chat history.
 
 ## Start here
 
-1. `ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch.
-2. `methodology/README.md` — current research method.
-3. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — required after material transitions.
-4. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable long-horizon plan.
-5. Follow the active branch and read `RESEARCH-START-HERE.md` + `plans/PROGRESS.yaml`.
-6. For practical architecture, read `operational-architecture/README.md`.
-7. For current release selection, read `release-scope/README.md`.
-8. `BRANCH-GOVERNANCE.md` and `BRANCH-INVENTORY.yaml` are for topology/cleanup, not ordinary continuation.
+1. `../releases/current/CURRENT-BASELINE.yaml` — verify singular Current.
+2. `handoffs/CURRENT-HANDOFF.yaml` — locate the latest intended project-manager/session handoff package.
+3. `ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch.
+4. `methodology/README.md` — canonical research/handoff method index.
+5. `methodology/SESSION-HANDOFF-DISCIPLINE.md` — how outgoing/incoming sessions preserve project continuity.
+6. `methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when to compress vs preserve/grow variation.
+7. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — required after material transitions or state disagreement.
+8. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable long-horizon plan.
+9. Follow the active branch and read `RESEARCH-START-HERE.md` + `plans/PROGRESS.yaml`.
+10. Retrieve `operational-architecture/`, `release-scope/`, prototypes, evidence, reconstruction, or external HOWs only when the current action requires them.
 
 ```text
 main
@@ -23,40 +25,54 @@ main
 +--> Current adoption
 |     -> releases/current/
 |
++--> current handoff
+|     -> research/handoffs/CURRENT-HANDOFF.yaml
+|
 +--> research control
       -> research/ACTIVE-RESEARCH.yaml
            |
            v
       research/ena-reconstruction
            |
-           +--> methodology / reconstruction lineage
-           +--> operational-architecture/
-           +--> release-scope/
+           +--> fast-moving progress / validation-method work
+           +--> methodology lineage
+           +--> operational-architecture / release-scope
            +--> prototypes / evidence / experiments / external HOWs
+
+candidate/v0.3.7-candidate.0
+-> release-lifecycle/review surface
+-> branch head != frozen identity
 ```
-
-Observed intended long-lived topology:
-
-```text
-main
-research/ena-reconstruction
-```
-
-`research/ena-reconstruction` is a stable integration name, not a promise that the project will remain forever in archaeology/reconstruction phase.
 
 ## Current phase
 
-PR #109 integrated the anti-ablation recovery and first Operational Architecture assembly into `main` without changing `releases/current/`.
+Current adoption remains:
 
-Operational Architecture has passed the first release-scope entry gate with open field residuals.
+`v0.3.6 / CURRENT / FIELD_VALIDATION`
+
+Next release line:
+
+`v0.3.7`
+
+Candidate.0 is frozen by exact external source/tree identity:
+
+```text
+candidate = v0.3.7-candidate.0
+source = d0e793593184740d9732902e948afd48ed96ae2f
+candidate subtree = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+```
+
+Author exact pre-freeze validation passed, but fresh independent semantic falsification is pending.
 
 Current research phase:
 
-`ACTIVE_RELEASE_SCOPE_RECONCILIATION`
+`VALIDATION_ANTI_ABLATION_AUDIT_BEFORE_INDEPENDENT_FALSIFICATION`
 
-Current adoption remains whatever `releases/current/CURRENT-BASELINE.yaml` says; at this transition it remains `v0.3.6 / CURRENT / FIELD_VALIDATION`.
+Immediate next action:
 
-The next version is not assigned until release scope stabilizes.
+**1080 -> 188 author-harness anti-ablation audit**, outside frozen candidate.0.
+
+Why: a smaller/cleaner validation harness cannot be called epistemically better until materially distinct predecessor attack/failure shapes have explicit disposition.
 
 ## Research methodology
 
@@ -66,19 +82,22 @@ Important current disciplines include:
 
 - explanatory coverage is not operational solution;
 - WHAT/WHY may be compressed into a semantic trunk;
-- concrete HOW branches must remain plural when reality supports different mechanisms;
+- concrete HOW branches remain plural when behavior differs or equivalence is unproven;
+- failure/adversarial space should expand while distinct failure shapes remain plausible;
+- `COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE`;
 - recover variation before selecting among it;
 - working taxonomies/counts are not ontology;
 - experiments must pay epistemic rent;
 - evidence is branch/Host/applicability scoped;
 - NO_CHANGE, dormancy, simplification and evidence-backed retirement are valid outcomes;
-- a concrete HOW should say both how to use it and when it does not apply;
+- a concrete HOW says both how to use it and when it does not apply;
 - missing pointer != missing organ;
-- after a material transition, align routing/plan/progress/live Git state before continuing.
+- session handoff is a normal lifecycle and must be durable/standardized;
+- after material transitions, align routing/plan/progress/handoff/live Git state before continuing.
 
 ## Operational Architecture
 
-`research/operational-architecture/` provides the current research navigation chain:
+`research/operational-architecture/` provides the research navigation chain:
 
 ```text
 problem/cue
@@ -90,30 +109,46 @@ problem/cue
 -> action or honest residual
 ```
 
-This library may be much larger than an Agent's active context. Tiny Hot Kernel/Host-native routing should retrieve relevant branches rather than load everything.
+A release-local form of this architecture is bundled in frozen v0.3.7 candidate.0.
+
+The library may be much larger than an Agent's active context. Hot routing should retrieve relevant branches rather than load everything.
 
 ## Release scope
 
-`research/release-scope/` now asks what should actually be delivered to adopters.
+`research/release-scope/` records why candidate.0 contains its current adopter guidance, optional references, tooling, language surface, and deferred branches.
 
-Key distinction:
+Key distinctions:
 
 ```text
 NO_NEW_CORE_RULES != NO_RELEASE_VALUE
 LARGE_RESEARCH_TREE != SHIP_EVERYTHING
+BUNDLED_REFERENCE != REQUIRED_RUNTIME_ORGAN
+DEFERRED != RETIRED
 ```
 
-Release reconciliation may select adopter guidance, optional reference organs, Host patterns, maintenance tooling, or practical navigation without expanding Core semantics.
+## Handoff semantics
+
+`research/handoffs/` stores historical/current session handoff packages.
+
+Only `CURRENT-HANDOFF.yaml` identifies the latest intended handoff.
+
+```text
+HANDOFF_PACKAGE != PROJECT_AUTHORITY
+HISTORICAL_HANDOFF_PRESERVED != HISTORICAL_HANDOFF_ACTIVE
+```
+
+The incoming session reads the handoff for speed, then verifies Current, live refs, frozen identity, methodology, Progress, and plan from canonical sources.
 
 ## Branch/PR semantics
 
 ```text
 BRANCH_EXISTS != BRANCH_ACTIVE
 OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
+CANDIDATE_BRANCH_HEAD != FROZEN_CANDIDATE_IDENTITY
 RESEARCH_ARTIFACT_EXISTS != CURRENT
 MAIN_FILE_EXISTS != ENA_CONSTITUTION
 ```
 
-Historical PRs #82, #101 and #109 are durable lineage/checkpoints. The main-visible branch pointer remains continuation authority.
+Historical PRs/branches are durable lineage/checkpoints. The main-visible active branch pointer remains continuation authority.
 
-> **One active research integration surface; many concrete HOW branches may grow inside the research tree.**
+> **One active research integration surface; one current handoff pointer; many concrete HOW/failure branches may remain open inside the research tree.**
