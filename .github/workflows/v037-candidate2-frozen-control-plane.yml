@@ -1,0 +1,91 @@
+name: ENA v0.3.7 Candidate.2 Frozen Control Plane
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - .github/candidate2-frozen-control-plane.trigger
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+
+      - name: Bind frozen candidate.2 and Current
+        run: |
+          set -euo pipefail
+          git fetch origin candidate/v0.3.7-candidate.2
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/v0.3.7-candidate)" = "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
+
+      - name: Apply exact control-plane transform
+        run: python .github/scripts/apply_v037_candidate2_frozen_control_plane.py
+
+      - name: Enforce control-plane-only mutation scope
+        run: |
+          set -euo pipefail
+          git diff --name-only | sort | tee /tmp/changed.txt
+          cat > /tmp/expected.txt <<'EOF'
+          research/ACTIVE-RESEARCH.yaml
+          research/RESEARCH-START-HERE.md
+          research/handoffs/CURRENT-HANDOFF.yaml
+          research/plans/PROGRESS.yaml
+          EOF
+          diff -u /tmp/expected.txt /tmp/changed.txt
+          if git diff --name-only | grep -E '^releases/'; then
+            echo 'release/candidate mutation forbidden'
+            exit 1
+          fi
+
+      - name: Parse and assert aligned state
+        run: |
+          python -m pip install --disable-pip-version-check PyYAML
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          active = yaml.safe_load(Path('research/ACTIVE-RESEARCH.yaml').read_text())
+          progress = yaml.safe_load(Path('research/plans/PROGRESS.yaml').read_text())
+          handoff = yaml.safe_load(Path('research/handoffs/CURRENT-HANDOFF.yaml').read_text())
+          assert 'CANDIDATE2_FROZEN' in active['active_research']['state']
+          assert active['successor_candidate2']['frozen'] is True
+          assert active['successor_candidate2']['frozen_source'] == 'bda470e0a6b170cec61225a905957a501454a2fe'
+          assert active['successor_candidate2']['frozen_subtree'] == 'd5fefc8c786d7e40b3e9a59211ee7045bccee5bf'
+          assert active['candidate_validation_transition']['current_state'] == 'CANDIDATE2_FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT'
+          assert progress['status'] == 'V0_3_7_CANDIDATE2_FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT'
+          assert progress['successor_candidate2']['frozen'] is True
+          assert progress['immediate_next_action']['id'] == 'PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE'
+          assert handoff['current_handoff_record']['id'] == '2026-08-28-v037-candidate2-frozen-blind-view-next'
+          assert handoff['candidate2_successor_state']['frozen'] is True
+          assert handoff['fresh_independent_validation_boundary']['current_project_manager_can_claim_fresh_a_s'] is False
+          assert handoff['completion_evidence']['immediate_next_action'] == 'PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE'
+          start = Path('research/RESEARCH-START-HERE.md').read_text()
+          assert 'candidate.2 = bda470e0a6b170cec61225a905957a501454a2fe / d5fefc8c786d7e40b3e9a59211ee7045bccee5bf / FROZEN_NOT_CURRENT_NOT_RELEASED' in start
+          print('CANDIDATE2_FROZEN_CONTROL_PLANE_READBACK=PASS')
+          PY
+
+      - name: Reassert release isolation
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+          echo 'CURRENT_CHANGE=NO'
+          echo 'CANDIDATE2_MUTATION=NO'
+          echo 'ATTACK_CARDINALITY=OPEN'
+
+      - name: Commit aligned control plane
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml
+          git commit -m 'control-plane: candidate.2 frozen fresh blind view next'
+          git push origin HEAD:research/ena-reconstruction
