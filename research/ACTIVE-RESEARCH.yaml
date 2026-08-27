@@ -7,7 +7,7 @@ updated_at: "2026-08-27"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE1_FROZEN / BLIND_SEMANTIC_VIEW_READY / FRESH_A_S_A_P_NEXT / NOT_CURRENT / NOT_RELEASED"
+  state: "V0_3_7_CANDIDATE1_NEEDS_REVISION / CANDIDATE2_FOCUSED_REPAIR_NEXT / NOT_CURRENT / NOT_RELEASED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -62,7 +62,7 @@ continuation_protocol:
   - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "V0_3_7_CANDIDATE1_BLIND_SEMANTIC_VIEW_READY_A_S_A_P_NEXT"
+  event: "V0_3_7_CANDIDATE1_A_S_A_P_PHASE_B_NEEDS_REVISION_CANDIDATE2_REQUIRED"
   current_changed_by_transition: false
   next_version: "v0.3.7"
   predecessor_candidate_identity: "v0.3.7-candidate.0"
@@ -77,7 +77,7 @@ latest_transition:
   successor_reconciliation_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md"
   final_targeted_run: 33052764739
   final_open_branch_probe_run: 33052764661
-  candidate_state: FROZEN_FRESH_A_S_A_P_NEXT
+  candidate_state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE2
   exact_prefreeze_run: 33055811978
   frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
   frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
@@ -94,9 +94,14 @@ latest_transition:
   blind_view_repair_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md"
   self_priming_incident: "research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md"
   exact_prefreeze_next: false
+  fresh_a_s_seal: "2e6b46aeedc1945a03aac93620ad36aa1ccbd70f"
+  final_a_p_commit: "b970148fe9596ea9cad0a2817a3b399a1d2b75f5"
+  phase_b_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md"
+  phase_b_verdict: NEEDS_REVISION
+  successor_required: "v0.3.7-candidate.2"
 
 candidate_validation_transition:
-  current_state: CANDIDATE1_FROZEN_BLIND_SEMANTIC_VIEW_READY_FRESH_A_S_A_P_NEXT
+  current_state: CANDIDATE1_FROZEN_NEEDS_REVISION_CANDIDATE2_FOCUSED_REPAIR_NEXT
   completed:
     - release scope stabilized and v0.3.7 assigned
     - candidate.0 assembled, exact-pre-freeze validated, and externally frozen
@@ -118,12 +123,16 @@ candidate_validation_transition:
     - Issue 128 invalidated after a fresh reviewer detected candidate-local self-priming; no Phase-A seal exists
     - blind semantic validation view audited as declared removals only with retained candidate bytes unchanged
     - Issue 131 prepared for fresh A-S then A-P independent validation
+    - fresh A-S sealed at 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f with four deterministic semantic findings
+    - A-P committed at b970148fe9596ea9cad0a2817a3b399a1d2b75f5 and confirmed all four A-S findings plus one package self-description drift
+    - Phase B independently reproduced the four semantic defects from frozen candidate.1 bytes and classified them as shared blind spots rather than oracle errors
+    - candidate.1 verdict is NEEDS_REVISION; frozen bytes remain immutable and candidate.2 is required
   next_required_steps:
-    - "fresh reviewer performs A-S from Issue 131 / blind semantic entry only"
-    - "persist and verify the A-S seal before opening withheld candidate-local history/oracle surfaces"
-    - "same independent reviewer performs A-P package/self-description audit, then stops before Phase B"
-    - "project manager verifies both independent commits and frozen candidate identity before reconciliation"
-    - "material candidate-byte correction requires candidate.2; validation-interface defects alone do not"
+    - "repair A-S-01 through A-S-04 on candidate/v0.3.7-candidate.2 only; never mutate frozen candidate.1"
+    - "repair A-P-05 active package/self-description drift without rewriting historical freeze occurrence truth"
+    - "add mutation-sensitive regressions plus legitimate-behavior false-BLOCK controls"
+    - "rerun inherited candidate checks and focused nearby open-branch probes"
+    - "run exact candidate.2 prefreeze validation only after focused repairs reconcile"
     - "keep attack cardinality open and Current v0.3.6 unchanged"
 
 frozen_candidate0:
@@ -144,7 +153,7 @@ successor_candidate1:
   branch_head_is_freeze_identity: false
   observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
   observed_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
-  state: FROZEN_FRESH_A_S_A_P_NEXT
+  state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE2
   frozen: true
   frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
   frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
@@ -160,8 +169,27 @@ successor_candidate1:
   targeted_revalidation_run: 33052764739
   open_branch_reprobe_run: 33052764661
   attack_cardinality: OPEN
+  fresh_a_s_seal: "2e6b46aeedc1945a03aac93620ad36aa1ccbd70f"
+  final_a_p_commit: "b970148fe9596ea9cad0a2817a3b399a1d2b75f5"
+  phase_b_verdict: NEEDS_REVISION
+  release_decision: NOT_RELEASED_NEEDS_REVISION
   remaining_visible_residuals:
     - "source/receiver candidate_id namespace collision remains allowed absent a universal cross-environment uniqueness contract"
+
+successor_candidate2:
+  identity: "v0.3.7-candidate.2"
+  branch: "candidate/v0.3.7-candidate.2"
+  created_from_frozen_candidate1_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+  state: FOCUSED_SUCCESSOR_REPAIR_NEXT
+  frozen: false
+  current: false
+  phase_b_basis: "collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md"
+  repair_scope:
+    - "integration requires represented reality contact at/before commit while preserving unresolved UNKNOWN semantics"
+    - "durable migration provenance duplicate claims cannot contradict"
+    - "Authority NOT_REQUIRED cannot be poisoned by irrelevant malformed grants"
+    - "same-sequence conflicting effect receipts cannot create input-order-dependent replay"
+    - "active candidate self-description/status projection repaired"
 
 handoff:
   state: STANDARDIZED_SESSION_HANDOFF_ACTIVE
