@@ -6,7 +6,7 @@ This directory is the stable home for **how ENA itself is researched**.
 
 It is project process, not adopter-facing ENA Constitution semantics and not the canonical session-handoff framework.
 
-Session succession now lives under:
+Session succession lives under:
 
 `research/handoffs/`
 
@@ -28,7 +28,7 @@ HANDOFF RECORD = one time-bounded succession occurrence
 
 A successor project manager must inherit both framework and methodology.
 
-A **fresh independent validator** is a different role: before Phase A it should use a deliberately minimal information boundary rather than inheriting author-shaped attack/oracle context. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`.
+A **fresh independent validator** is a different epistemic role. Before its blind semantic work is sealed, it should receive a deliberately priming-reduced target view rather than project-manager continuity context or candidate-local author history/oracles. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`.
 
 ## Canonical rule
 
@@ -47,7 +47,7 @@ METHOD_WRITTEN != METHOD_APPLIED
 1. `ENA-RESEARCH-DISCIPLINE.md` — open-cardinality master method ledger.
 2. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when abstraction/compression is valid and when HOW/failure/Host variation must remain open or grow.
 3. `PROJECT-STATE-ALIGNMENT-GATE.md` — realign routing, method, plan, progress, candidate/release state, and next actions after material transitions.
-4. `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` — when a fresh validator must receive less author-shaped context before Phase A than a project-manager successor receives during takeover.
+4. `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` — role/search-space/oracle information boundaries, including A-S blind semantic falsification and post-seal A-P package audit for self-describing candidates.
 5. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
 6. `incidents/` — concrete method failures that changed future behavior.
 7. `../BRANCH-GOVERNANCE.md` — research/candidate topology across sessions.
@@ -88,15 +88,36 @@ UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
 UNKNOWN_SPACE -> EXPAND
 ```
 
-For fresh independent validation, preserve another distinction:
+For fresh independent validation, preserve two further distinctions:
 
 ```text
 PROJECT_MANAGER_TAKEOVER_CONTEXT
 !=
-FRESH_VALIDATOR_PRE_PHASE_A_CONTEXT
+FRESH_VALIDATOR_PRE_A-S_CONTEXT
+
+FULL_PACKAGE_INDEPENDENCE
+!=
+FULL_PACKAGE_SEARCH_SPACE_BLINDNESS
 ```
 
-The project manager needs continuity. The fresh validator needs enough target identity to inspect safely without receiving the author's search map before independent findings are sealed.
+The project manager needs continuity. The fresh validator needs enough exact target identity and behavior-bearing material to inspect safely without receiving the author's prior search map before independent semantic findings are sealed.
+
+For a self-describing candidate:
+
+```text
+CANDIDATE_LOCAL
+!=
+AUTOMATICALLY_BLIND_SAFE
+
+FROZEN_CANDIDATE
+-> EXACT_BYTE_PRESERVING_PROJECTION
+-> A-S BLIND SEMANTIC FALSIFICATION
+-> A-S SEAL
+-> A-P INDEPENDENT PACKAGE/HISTORY AUDIT
+-> PHASE B AUTHOR RECONCILIATION
+```
+
+A blind validation projection is not a successor candidate and its exclusions are not release ablation.
 
 ## Project-state alignment rule
 
@@ -143,7 +164,13 @@ If it treats a smaller assertion/file/category count as success without proving 
 
 If a project-manager successor reads project state but skips the handoff framework or project methodology, takeover failed.
 
-If a fresh independent validator is given the author's detailed attack map before it independently derives Phase-A findings, independent-validation information hygiene failed.
+If a fresh independent validator is given the author's detailed attack map before A-S, information hygiene failed.
+
+If a self-describing candidate exposes predecessor findings, repair history, expected fixtures, or regression/selftest answers and the project calls the resulting search "blind" without an explicit boundary, information hygiene failed.
+
+If A-P opens candidate-local history before A-S is durably sealed, the search-space independence claim for A-S failed.
+
+If a validation projection is treated as a releasable candidate or its excluded files are silently treated as release deletions, validation-interface separation failed.
 
 If it reads a new branch/control-plane state but continues from stale routing or superseded plan, project-state inheritance failed.
 

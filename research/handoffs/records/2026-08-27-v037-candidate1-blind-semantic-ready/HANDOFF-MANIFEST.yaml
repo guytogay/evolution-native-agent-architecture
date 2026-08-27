@@ -1,0 +1,40 @@
+schema_version: "1.0"
+handoff_id: 2026-08-27-v037-candidate1-blind-semantic-ready
+status: HANDOFF_READY_A_S_A_P_NEXT
+
+current:
+  version: v0.3.6
+  status: CURRENT
+  maturity: FIELD_VALIDATION
+
+frozen_candidate1:
+  identity: v0.3.7-candidate.1
+  source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  mutable_in_place: false
+
+invalid_intake:
+  issue: 128
+  branch: validation/v037-c1-blind-phase-a-primary
+  result: REVIEWER_INELIGIBLE_AFTER_CANDIDATE_SELF_PRIMING
+  phase_a_sealed: false
+  active: false
+
+active_independent_validation:
+  issue: 131
+  branch: validation/v037-c1-blind-semantic-primary
+  entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
+  view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
+  sequence: [A-S, A-P, STOP_BEFORE_PHASE_B]
+  a_s_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md
+  a_p_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md
+
+method:
+  canonical: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+  incident: research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md
+  reconciliation: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
+
+next_action: CANDIDATE1_FRESH_A_S_A_P
+attack_cardinality: OPEN
+candidate2_required_now: false
+promotion_authorized: false
