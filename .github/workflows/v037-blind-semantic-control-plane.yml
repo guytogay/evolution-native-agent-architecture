@@ -1,0 +1,56 @@
+name: ENA v0.3.7 Blind Semantic Control Plane
+
+on:
+  push:
+    branches: [research/ena-reconstruction]
+    paths:
+      - '.github/blind-semantic-control-plane.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  update-control-plane:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply exact-anchor transition
+        run: python .github/scripts/apply_v037_blind_semantic_control_plane.py
+      - name: Verify mutation scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)" || {
+            echo 'blind-semantic control-plane update must not touch Current or candidate cargo'
+            git diff --name-only -- releases/current releases/v0.3.7-candidate
+            exit 1
+          }
+          changed="$(git diff --name-only)"
+          printf '%s\n' "$changed"
+          expected=$(printf '%s\n' \
+            research/ACTIVE-RESEARCH.yaml \
+            research/handoffs/CURRENT-HANDOFF.yaml \
+            research/plans/PROGRESS.yaml | sort)
+          actual=$(printf '%s\n' "$changed" | sort)
+          test "$actual" = "$expected" || {
+            echo 'unexpected control-plane mutation scope'
+            exit 1
+          }
+          echo 'BLIND_SEMANTIC_CONTROL_PLANE_SCOPE_PASS'
+      - name: Commit transition
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/plans/PROGRESS.yaml research/handoffs/CURRENT-HANDOFF.yaml
+          git commit -m 'control-plane: candidate.1 blind semantic A-S A-P next'
+          git push origin HEAD:research/ena-reconstruction
