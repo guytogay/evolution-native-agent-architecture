@@ -26,8 +26,76 @@ jobs:
           test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
           test "$(git rev-parse d020d82d442156b75c667ee9f987f2654d814561^{commit})" = "d020d82d442156b75c667ee9f987f2654d814561"
 
-      - name: Apply exact fresh-intake control-plane transform
-        run: python .github/scripts/apply_v037_candidate2_fresh_intake_ready.py
+      - name: Apply exact fresh-intake YAML control-plane transform
+        run: python .github/scripts/apply_v037_candidate2_fresh_intake_ready_core.py
+
+      - name: Apply exact Start-Here transition
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('research/RESEARCH-START-HERE.md')
+          text=p.read_text(encoding='utf-8')
+          old='''## Immediate next action
+
+`PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE`
+
+Use the repaired blind semantic view method from:
+
+`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
+
+Required sequence:
+
+```text
+EXACT FROZEN CANDIDATE.2
+-> DECLARED BLIND SEMANTIC VIEW
+-> FRESH A-S
+-> PERSIST / SEAL A-S
+-> A-P OPENS WITHHELD CANDIDATE-LOCAL HISTORY / ORACLES
+-> PERSIST A-P
+-> STOP FRESH REVIEWER
+-> PROJECT-MANAGER PHASE B
+```
+
+Before A-S seal, do not send the fresh reviewer through the project-manager handoff, predecessor findings, candidate.2 repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces declared withheld by the new view manifest.
+'''
+          new='''## Immediate next action
+
+`GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S`
+
+Fresh intake is ready:
+
+- Issue `#137 — Fresh independent A-S/A-P — v0.3.7 candidate.2`
+- validation branch `validation/v037-c2-blind-semantic-primary`
+- neutral entry `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md`
+- blind view `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml`
+- view audit `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md`
+
+The source-to-view audit found 31 declared A-S removals plus the two intake files and **zero retained candidate-byte modifications**. The view is a projection, not a new candidate.
+
+Required sequence:
+
+```text
+FRESH REVIEWER
+-> A-S ON DECLARED BLIND VIEW
+-> PERSIST / SEAL A-S
+-> A-P OPENS WITHHELD CANDIDATE-LOCAL HISTORY / ORACLES FROM EXACT FROZEN SOURCE
+-> PERSIST A-P
+-> STOP FRESH REVIEWER
+-> PROJECT-MANAGER PHASE B
+```
+
+Before A-S seal, do not send the fresh reviewer through the project-manager handoff, predecessor findings, candidate.2 repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces declared withheld by the view manifest. The current project-manager session is not eligible to perform fresh candidate.2 A-S.
+'''
+          if text.count(old) != 1:
+              raise SystemExit(f'Start-Here immediate-action anchor count={text.count(old)}')
+          text=text.replace(old,new,1)
+          old2='- candidate.2 = frozen exact successor at `bda470e0...` / `d5fefc8c...`, fresh blind semantic view preparation next;'
+          new2='- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`, with fresh A-S intake Issue #137 ready on `validation/v037-c2-blind-semantic-primary`;'
+          if text.count(old2) != 1:
+              raise SystemExit(f'Start-Here inheritance anchor count={text.count(old2)}')
+          p.write_text(text.replace(old2,new2,1),encoding='utf-8')
+          print('CANDIDATE2_FRESH_INTAKE_START_HERE_TRANSFORM=PASS')
+          PY
 
       - name: Enforce control-plane-only mutation scope
         run: |
@@ -39,6 +107,9 @@ jobs:
           bad="$(printf '%s\n' "$changed" | grep -Ev "$allowed" || true)"
           test -z "$bad" || { echo "unexpected changed paths:"; echo "$bad"; exit 1; }
           test "$(printf '%s\n' "$changed" | wc -l | tr -d ' ')" = "4"
+
+      - name: Install YAML parser
+        run: python -m pip install --disable-pip-version-check PyYAML
 
       - name: Parse and assert aligned intake state
         run: |
