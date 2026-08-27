@@ -1,0 +1,52 @@
+name: ENA v0.3.7 Frozen Candidate Anti-Ablation Gate
+
+on:
+  push:
+    branches: [candidate/v0.3.7-candidate.0]
+    paths:
+      - '.github/scripts/v037_candidate_anti_ablation.py'
+      - '.github/workflows/v037-candidate-anti-ablation.yml'
+  pull_request:
+    paths:
+      - '.github/scripts/v037_candidate_anti_ablation.py'
+      - '.github/workflows/v037-candidate-anti-ablation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  anti-ablation:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout exact branch history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Run tree-external anti-ablation guard
+        run: python .github/scripts/v037_candidate_anti_ablation.py
+
+      - name: Rebind exact frozen candidate identity
+        run: |
+          set -euo pipefail
+          FROZEN_SOURCE='d0e793593184740d9732902e948afd48ed96ae2f'
+          FROZEN_TREE='cffbf76fe1448b020b637c78d1f7ae46e4c0115b'
+          test "$(git rev-parse HEAD:releases/v0.3.7-candidate)" = "$FROZEN_TREE"
+          test "$(git rev-parse "$FROZEN_SOURCE:releases/v0.3.7-candidate")" = "$FROZEN_TREE"
+          git diff --exit-code "$FROZEN_SOURCE" HEAD -- releases/v0.3.7-candidate
+          echo "ANTI_ABLATION_FROZEN_SOURCE=$FROZEN_SOURCE"
+          echo "ANTI_ABLATION_FROZEN_TREE=$FROZEN_TREE"
+          echo "candidate_bytes_changed=NO"
+          echo "independent_semantic_support=NOT_ESTABLISHED"
+          echo "external_truth=NOT_ESTABLISHED"
