@@ -1,0 +1,5 @@
+candidate=v0.3.7-candidate.1
+phase_a_seal=5ba3d241efa460fe170253860ad67045aa1d96a5
+candidate1_head=b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
+candidate1_subtree=25d068d158ee37e4e43481c345cce9281febddd1
+next=CANDIDATE1_EXACT_PREFREEZE_VALIDATION
