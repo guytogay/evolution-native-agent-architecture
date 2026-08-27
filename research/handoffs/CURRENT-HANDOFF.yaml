@@ -17,7 +17,7 @@ project_methodology_required:
 
 current_handoff_record:
   id: "2026-08-27-v037-independent-review-ready"
-  state: HANDOFF_READY_FOR_SESSION_SUCCESSION
+  state: HANDOFF_PENDING_POST_MERGE_READBACK
   record_root: "research/handoffs/records/2026-08-27-v037-independent-review-ready/"
   start_here: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-START-HERE.md"
   manifest: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-MANIFEST.yaml"
@@ -43,6 +43,11 @@ receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
   infer_current_record_from_directory_recency: FORBIDDEN
   treat_handoff_record_as_project_authority: FORBIDDEN
+
+completion_rule: >-
+  The record becomes HANDOFF_READY_FOR_SESSION_SUCCESSION only after the structure
+  refactor is merged to main and the outgoing session performs and persists a main-based
+  post-merge readback according to HANDOFF-PROTOCOL.md.
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
