@@ -1,4 +1,4 @@
-schema_version: "2.1"
+schema_version: "2.2"
 handoff_id: "2026-08-27-v037-independent-review-ready"
 status: HANDOFF_READY_FOR_SESSION_SUCCESSION
 prepared_at: "2026-08-27"
@@ -37,21 +37,12 @@ integration_readback:
   handoff_architecture_pr: 116
   main_merge_commit: fd532380bf1892f481f34fdb090ea38002ac5bc3
   checks:
-    handoff_structure:
-      run: 33037382432
-      result: SUCCESS
-    main_gate:
-      run: 33037382387
-      result: SUCCESS
-    validate_and_package_current:
-      run: 33037382383
-      result: SUCCESS
-    codeql:
-      run: 33037382382
-      result: SUCCESS
+    handoff_structure: {run: 33037382432, result: SUCCESS}
+    main_gate: {run: 33037382387, result: SUCCESS}
+    validate_and_package_current: {run: 33037382383, result: SUCCESS}
+    codeql: {run: 33037382382, result: SUCCESS}
   active_research_branch: research/ena-reconstruction
   active_research_aligned_to_main_at_readback: true
-  aligned_commit_at_readback: fd532380bf1892f481f34fdb090ea38002ac5bc3
 
 current:
   version: v0.3.6
@@ -92,6 +83,19 @@ immediate_next_action:
     Fresh validator inspects exact frozen candidate bytes and independently derives
     material attacks before consulting author-side expected behavior/oracles.
 
+branch_cleanup:
+  status: COMPLETE_REOBSERVED
+  live_branches:
+    - main
+    - research/ena-reconstruction
+    - candidate/v0.3.7-candidate.0
+  removed_no_unique_work_refs:
+    - research/handoff-structure-refactor
+    - research/work/release-scope-checkpoint-temp
+    - tmp-ignore
+    - tmp-ignore-2
+    - tmp-ignore-3
+
 forbidden_now:
   - MODIFY_RELEASES_CURRENT
   - CLAIM_V0_3_7_CURRENT
@@ -109,31 +113,13 @@ handoff_structure_rule:
   project_methodology_mandatory_for_takeover: true
   handoff_protocol_mandatory_for_takeover: true
 
-branch_cleanup:
-  required_for_handoff_readiness: false
-  status: MANUAL_DELETION_REQUESTED_NOT_YET_REOBSERVED
-  delete_safe_no_unique_work:
-    - research/handoff-structure-refactor
-    - research/work/release-scope-checkpoint-temp
-    - tmp-ignore
-    - tmp-ignore-2
-    - tmp-ignore-3
-  must_retain:
-    - main
-    - research/ena-reconstruction
-    - candidate/v0.3.7-candidate.0
-  rule: LIVE_REOBSERVE_BEFORE_MARKING_DELETED
-
 completion:
-  structure_refactor_written: true
   integrated_to_main: true
   post_merge_main_readback_completed: true
+  branch_cleanup_reobserved: true
   current_reverified: true
   active_research_reverified_and_aligned: true
   frozen_identity_reverified: true
-  current_record_pointer_resolved: true
-  project_methodology_required_for_takeover: true
-  handoff_protocol_required_for_takeover: true
   ready_for_session_successor: true
 
 receiver_rule: >-
