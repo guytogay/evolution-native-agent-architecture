@@ -7,7 +7,7 @@ updated_at: "2026-08-27"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED / EXACT_PREFREEZE_NEXT / NOT_FROZEN / NOT_CURRENT"
+  state: "V0_3_7_CANDIDATE1_FROZEN / FRESH_BLIND_PHASE_A_NEXT / NOT_CURRENT / NOT_RELEASED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -62,7 +62,7 @@ continuation_protocol:
   - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "V0_3_7_CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED"
+  event: "V0_3_7_CANDIDATE1_EXACT_PREFREEZE_PASS_AND_EXTERNAL_FREEZE"
   current_changed_by_transition: false
   next_version: "v0.3.7"
   predecessor_candidate_identity: "v0.3.7-candidate.0"
@@ -72,16 +72,25 @@ latest_transition:
   predecessor_verdict: NEEDS_REVISION
   active_candidate_identity: "v0.3.7-candidate.1"
   active_candidate_branch: "candidate/v0.3.7-candidate.1"
-  active_candidate_observed_head: "b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6"
-  active_candidate_observed_subtree: "25d068d158ee37e4e43481c345cce9281febddd1"
+  active_candidate_observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+  active_candidate_observed_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
   successor_reconciliation_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md"
   final_targeted_run: 33052764739
   final_open_branch_probe_run: 33052764661
-  candidate_state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
-  exact_prefreeze_next: true
+  candidate_state: FROZEN_FRESH_BLIND_PHASE_A_NEXT
+  exact_prefreeze_run: 33055811978
+  frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+  frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
+  freeze_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md"
+  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
+  independence_decision_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md"
+  fresh_phase_a_issue: 128
+  fresh_phase_a_branch: "validation/v037-c1-blind-phase-a-primary"
+  fresh_phase_a_entry: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md"
+  exact_prefreeze_next: false
 
 candidate_validation_transition:
-  current_state: CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+  current_state: CANDIDATE1_FROZEN_FRESH_BLIND_PHASE_A_NEXT
   completed:
     - release scope stabilized and v0.3.7 assigned
     - candidate.0 assembled, exact-pre-freeze validated, and externally frozen
@@ -96,13 +105,18 @@ candidate_validation_transition:
     - final targeted run 33052764739 PASS; record selftest observed 24, helper selftest observed 13, targeted conditions 16
     - final open-branch run 33052764661 PASS; repaired shapes rejected, post-commit reselection control retained
     - candidate-ID collision remains a visible namespace residual because no universal uniqueness contract is established
+    - candidate.1 package state reconciled to exact-pre-freeze before binding
+    - exact candidate.1 pre-freeze run 33055811978 PASS on source ae6903464133cb5bcf3cd8909ecae1215fe0b9ba / subtree c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+    - external freeze record binds the exact tested tree without rewriting candidate cargo
+    - post-freeze independence decision found one fresh blind successor review pays epistemic rent
+    - blind validation branch and Issue 128 prepared without author attack-map priming
   next_required_steps:
-    - "run an exact candidate.1 pre-freeze gate bound to one exact source commit and candidate subtree"
-    - "include Current isolation, inherited candidate checks, sealed-Phase-A successor regressions, and focused open-branch regressions"
-    - "freeze candidate.1 only if the exact-source gate passes; bind source/subtree externally without rewriting tested cargo"
-    - "after freeze, explicitly reconcile whether any additional independent review is warranted; do not silently equate targeted revalidation with fresh Phase A"
-    - "keep attack cardinality open and visible residuals durable; do not convert unknown namespace policy into universal law"
-    - "do not modify or promote releases/current/ during candidate.1 validation/freeze"
+    - "have a genuinely fresh reviewer inspect only the minimal blind entry and exact frozen candidate.1 bytes"
+    - "seal the Phase-A report on validation/v037-c1-blind-phase-a-primary before opening author-side context"
+    - "project manager independently verifies seal identity and candidate subtree immutability"
+    - "only after the seal, reconcile independent findings against author/repair evidence in Phase B"
+    - "if a material candidate-byte defect is established, create candidate.2 rather than mutate frozen candidate.1"
+    - "keep attack cardinality open and Current v0.3.6 unchanged"
 
 frozen_candidate0:
   identity: "v0.3.7-candidate.0"
@@ -120,10 +134,17 @@ successor_candidate1:
   identity: "v0.3.7-candidate.1"
   branch: "candidate/v0.3.7-candidate.1"
   branch_head_is_freeze_identity: false
-  observed_head: "b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6"
-  observed_subtree: "25d068d158ee37e4e43481c345cce9281febddd1"
-  state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
-  frozen: false
+  observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+  observed_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
+  state: FROZEN_FRESH_BLIND_PHASE_A_NEXT
+  frozen: true
+  frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+  frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
+  freeze_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md"
+  exact_prefreeze_run: 33055811978
+  fresh_phase_a_issue: 128
+  fresh_phase_a_branch: "validation/v037-c1-blind-phase-a-primary"
+  fresh_phase_a_entry: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md"
   current: false
   targeted_revalidation_run: 33052764739
   open_branch_reprobe_run: 33052764661

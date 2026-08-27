@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-27"
-status: V0_3_7_CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+status: V0_3_7_CANDIDATE1_FROZEN_FRESH_BLIND_PHASE_A_NEXT
 
 progress_is_complete_history: false
 
@@ -61,17 +61,23 @@ frozen_candidate0:
 
 successor_candidate1:
   identity: v0.3.7-candidate.1
-  state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+  state: FROZEN_FRESH_BLIND_PHASE_A_NEXT
   candidate_branch: candidate/v0.3.7-candidate.1
   branch_head_is_frozen_identity: false
-  observed_head: b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
-  observed_candidate_subtree: 25d068d158ee37e4e43481c345cce9281febddd1
+  frozen_source_commit: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  frozen_candidate_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
   current_subtree_same_head: 7dcbb3934883ffa6cc5292a662588cafc1533cff
   reconciliation_record: collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md
+  freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md
+  independence_decision_record: collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md
   targeted_revalidation_run: 33052764739
   open_branch_reprobe_run: 33052764661
-  exact_prefreeze_validation: PENDING
-  frozen: false
+  exact_prefreeze_run: 33055811978
+  exact_prefreeze_validation: PASS
+  fresh_phase_a_issue: 128
+  fresh_phase_a_branch: validation/v037-c1-blind-phase-a-primary
+  fresh_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md
+  frozen: true
   release_decision: NOT_MADE
   attack_cardinality: OPEN
 
@@ -91,11 +97,12 @@ phase_state:
     new_core_semantic_delta_required: 0_DEMONSTRATED
 
   candidate_build:
-    state: CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+    state: CANDIDATE1_FROZEN_FRESH_BLIND_PHASE_A_NEXT
     current_candidate_identity: v0.3.7-candidate.1
     predecessor_frozen_identity: v0.3.7-candidate.0
-    mutable_in_place: true_until_successor_freeze_only
-    exact_prefreeze_validation: PENDING
+    mutable_in_place: false_frozen_successor_required_for_material_change
+    exact_prefreeze_validation: PASS
+    exact_prefreeze_run: 33055811978
 
   author_validation:
     state: PREFREEZE_MACHINE_PASS_PLUS_POSTFREEZE_TREE_EXTERNAL_ANTI_ABLATION_PASS
@@ -124,7 +131,10 @@ phase_state:
     phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
     candidate0_verdict: NEEDS_REVISION
     candidate1_targeted_revalidation_is_fresh_phase_a: false
-    candidate1_additional_independent_review_after_freeze: EXPLICIT_DECISION_PENDING
+    candidate1_additional_independent_review_after_freeze: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
+    candidate1_fresh_phase_a_issue: 128
+    candidate1_fresh_phase_a_branch: validation/v037-c1-blind-phase-a-primary
+    candidate1_fresh_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md
     attack_cardinality: OPEN
 
   handoff_framework:
@@ -202,31 +212,35 @@ current_method_transition:
   candidate1_required: false
 
 immediate_next_action:
-  id: CANDIDATE1_EXACT_PREFREEZE_VALIDATION
-  target: V0_3_7_CANDIDATE1_EXACT_SOURCE_AND_SUBTREE
+  id: CANDIDATE1_FRESH_BLIND_PHASE_A
+  target: V0_3_7_CANDIDATE1_EXACT_FROZEN_TREE
   objective: >-
-    Run the full candidate.1 pre-freeze validation on one exact committed source head,
-    preserving Current isolation and combining inherited candidate gates with all
-    successor repair regressions derived from sealed Phase A and later focused probes.
+    Obtain one genuinely fresh blind inspection of the exact frozen candidate.1 bytes,
+    growing an independent attack tree before any author-side repair or oracle context
+    is exposed. Persist and seal Phase A before Phase B reconciliation.
   candidate_identity: v0.3.7-candidate.1
-  candidate_branch: candidate/v0.3.7-candidate.1
-  observed_pre_gate_head: b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
-  observed_pre_gate_subtree: 25d068d158ee37e4e43481c345cce9281febddd1
-  predecessor_phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
+  frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  validation_branch: validation/v037-c1-blind-phase-a-primary
+  blind_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md
+  issue: 128
+  report_path: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-phase-a-primary.md
   current_must_remain: v0.3.6
   do_not_promote: true
 
-next_after_exact_prefreeze:
-  - if exact-source validation fails, repair candidate.1 before freeze and rerun the exact gate
-  - if it passes, bind the exact candidate.1 source commit and subtree in an external freeze record without rewriting tested cargo
-  - explicitly decide whether additional independent post-freeze review is warranted; targeted same-falsifier revalidation is not fresh Phase A
-  - reconcile visible residuals without treating every unknown as a release blocker
-  - only after governed acceptance consider release preparation/promotion; Current remains v0.3.6 until then
+next_after_candidate1_phase_a:
+  - independently verify the Phase-A seal and frozen subtree identity
+  - only then open author-side evidence for Phase B reconciliation
+  - material candidate-byte defect requires candidate.2; do not mutate frozen candidate.1
+  - non-contract residuals remain visible rather than being universalized merely for closure
+  - only after evidence reconciliation consider release preparation/promotion
 
 candidate1_rule:
   creation_basis: MATERIAL_CANDIDATE_BYTE_CORRECTIONS_ESTABLISHED_BY_SEALED_PHASE_A_AND_PHASE_B
   candidate0_must_remain_frozen_lineage: true
   candidate1_may_mutate_before_freeze: true
+  candidate1_is_now_frozen: true
+  candidate1_may_mutate_now: false
   candidate1_material_change_after_freeze_requires_successor: true
 
 handoff:
@@ -250,13 +264,18 @@ successor_repair_transition:
   focused_repair_commit: bc8be8bc02a2b2515cfa1b7eee2c4bd3c2a37f90
   final_targeted_run: 33052764739
   final_open_branch_run: 33052764661
-  exact_prefreeze_next: true
+  exact_prefreeze_next: false
+  exact_prefreeze_run: 33055811978
+  frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
   attack_cardinality: OPEN
 
 forbidden_now:
   - MODIFY_RELEASES_CURRENT
   - CLAIM_V0_3_7_CURRENT
   - EDIT_FROZEN_CANDIDATE0_IN_PLACE
+  - EDIT_FROZEN_CANDIDATE1_IN_PLACE
+  - PRIME_CANDIDATE1_FRESH_VALIDATOR_WITH_AUTHOR_REPAIR_OR_ATTACK_CONTEXT
   - TREAT_AUTHOR_PASS_AS_INDEPENDENT_VALIDATION
   - TREAT_ANTI_ABLATION_AUDIT_AS_INDEPENDENT_VALIDATION
   - LET_AUTHOR_ORACLE_OR_ATTACK_MAP_PRECEDE_FRESH_PHASE_A

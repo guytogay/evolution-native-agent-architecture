@@ -1,4 +1,4 @@
-schema_version: "2.5"
+schema_version: "2.6"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -48,7 +48,12 @@ receiver_contract:
 
 fresh_independent_validation_boundary:
   project_manager_takeover_context_is_validator_phase_a_context: false
-  phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
+  phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md
+  phase_a_target_identity: v0.3.7-candidate.1
+  phase_a_target_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  phase_a_target_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  phase_a_validation_branch: validation/v037-c1-blind-phase-a-primary
+  phase_a_issue: 128
   detailed_author_validator_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
   detailed_author_validator_handoff_phase: PHASE_B_ONLY_AFTER_PHASE_A_SEAL
   validator_must_not_read_full_project_handoff_before_phase_a: true
@@ -65,23 +70,34 @@ completion_evidence:
   fresh_phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
   candidate0_phase_b_verdict: NEEDS_REVISION
   candidate1_branch: candidate/v0.3.7-candidate.1
-  candidate1_observed_head: b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
-  candidate1_observed_subtree: 25d068d158ee37e4e43481c345cce9281febddd1
+  candidate1_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  candidate1_frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  candidate1_current_subtree_at_freeze: 7dcbb3934883ffa6cc5292a662588cafc1533cff
   candidate1_reconciliation_record: collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md
   candidate1_final_targeted_run: 33052764739
   candidate1_final_open_branch_run: 33052764661
-  candidate1_state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
-  immediate_next_action: CANDIDATE1_EXACT_PREFREEZE_VALIDATION
-  current_handoff_record_refresh: REQUIRED_AFTER_NEXT_MATERIAL_GATE
+  candidate1_exact_prefreeze_run: 33055811978
+  candidate1_freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md
+  candidate1_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
+  candidate1_independence_decision_record: collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md
+  candidate1_fresh_phase_a_issue: 128
+  candidate1_state: FROZEN_FRESH_BLIND_PHASE_A_NEXT
+  immediate_next_action: CANDIDATE1_FRESH_BLIND_PHASE_A
+  current_handoff_record_refresh: REQUIRED_NOW_AFTER_FREEZE_MATERIAL_GATE
 
 candidate1_successor_state:
   identity: v0.3.7-candidate.1
   predecessor_identity: v0.3.7-candidate.0
   predecessor_phase_a_sealed: true
   predecessor_verdict: NEEDS_REVISION
-  successor_frozen: false
+  successor_frozen: true
   successor_current: false
-  exact_prefreeze_validation: PENDING
+  frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  exact_prefreeze_validation: PASS
+  exact_prefreeze_run: 33055811978
+  fresh_blind_phase_a_next: true
+  fresh_blind_phase_a_issue: 128
   targeted_revalidation_is_fresh_phase_a: false
   attack_cardinality: OPEN
   remaining_visible_residuals:
@@ -95,9 +111,11 @@ branch_hygiene:
     - candidate/v0.3.7-candidate.0
     - candidate/v0.3.7-candidate.1
     - validation/v037-c0-blind-phase-a-primary
-  validation_branch_role: SEALED_PHASE_A_OCCURRENCE_TRUTH
+    - validation/v037-c1-blind-phase-a-primary
+  candidate0_validation_branch_role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
+  candidate1_validation_branch_role: FRESH_PHASE_A_INTAKE_PREPARED_NOT_YET_SEALED
   candidate0_branch_role: FROZEN_PREDECESSOR_LINEAGE
-  candidate1_branch_role: ACTIVE_SUCCESSOR_PREFREEZE_WORKSPACE
+  candidate1_branch_role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
