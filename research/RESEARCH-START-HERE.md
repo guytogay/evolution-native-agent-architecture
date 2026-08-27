@@ -58,14 +58,14 @@ subtree  = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
 verdict  = NEEDS_REVISION / SUPERSEDED_BY_CANDIDATE1
 ```
 
-Frozen active successor candidate.1:
+Frozen candidate.1 after independent A-S/A-P:
 
 ```text
 identity = v0.3.7-candidate.1
 source   = ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
 subtree  = c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
 exact pre-freeze run = 33055811978 / PASS
-state    = FROZEN / NOT_CURRENT / NOT_RELEASED
+state    = FROZEN / NEEDS_REVISION / SUPERSEDED_BY_CANDIDATE2 / NOT_CURRENT / NOT_RELEASED
 ```
 
 ```text
@@ -101,14 +101,26 @@ Reconciliation:
 
 `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md`
 
+## Independent A-S/A-P result
+
+Fresh A-S sealed at `2e6b46aeedc1945a03aac93620ad36aa1ccbd70f`.
+
+A-P completed at `b970148fe9596ea9cad0a2817a3b399a1d2b75f5`.
+
+Phase B reproduced four material semantic defects plus one deterministic package self-description drift. Candidate.1 is therefore `NEEDS_REVISION`; its frozen bytes remain immutable.
+
+Reconciliation:
+
+`collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md`
+
 ## Immediate next action
 
-`CANDIDATE1_FRESH_A_S_A_P`
+`CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR`
 
-Active independent intake:
+Completed independent intake:
 
 - Issue `#131 — Fresh independent A-S/A-P — v0.3.7 candidate.1`
-- branch `validation/v037-c1-blind-semantic-primary`
+- sealed branch `validation/v037-c1-blind-semantic-primary`
 - entry `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md`
 - view manifest `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml`
 
@@ -134,30 +146,18 @@ Before A-S seal, the reviewer must not receive project-manager handoff context, 
 
 After A-S seal, A-P may inspect those withheld candidate-local surfaces from the exact frozen source. A-P remains independent but is not claimed to retain search-space blindness after history/oracles open.
 
-After A-P, the fresh reviewer stops before Phase B.
+After A-P, the fresh reviewer stopped before Phase B as required. Project-manager Phase B is now complete and candidate.2 is the active repair workspace.
 
 ```text
 FULL_PACKAGE_INDEPENDENCE != FULL_PACKAGE_SEARCH_SPACE_BLINDNESS
 ATTACK_CARDINALITY = OPEN
 ```
 
-## Decision after A-S/A-P
+## Candidate.2 successor repair
 
-The project manager first verifies:
+Candidate.2 branch: `candidate/v0.3.7-candidate.2`, created from exact frozen candidate.1 source `ae6903464133cb5bcf3cd8909ecae1215fe0b9ba`.
 
-- A-S seal commit;
-- A-P report commit;
-- candidate.1 frozen source/subtree unchanged;
-- Current remains v0.3.6;
-- the independent reviewer respected the declared information boundary.
-
-Only then open author/project-manager evidence for Phase B reconciliation.
-
-```text
-material candidate-byte/package defect -> candidate.2 may be required
-validation-interface defect alone      -> repair interface/method, not candidate identity
-no material defect                     -> do not manufacture successor for closure
-```
+Repair only the sealed failure shapes and adjacent consistency needed to close them while retaining legitimate lightweight paths. Targeted repair/reprobe is author-side evidence, not another fresh A-S. Current remains v0.3.6.
 
 ## Core research direction
 
@@ -208,10 +208,11 @@ Before claiming successful takeover, a successor project manager should be able 
 - candidate.0 = frozen predecessor, NEEDS_REVISION, superseded;
 - candidate.1 = exact frozen successor at `ae690346...` / `c0458e0...`;
 - Issue #128 = invalidated self-primed intake with no Phase-A seal;
-- Issue #131 = active fresh A-S/A-P intake;
-- fresh validator entry = blind semantic entry, not the full project-manager takeover context;
-- A-S must seal before A-P opens withheld candidate-local history/oracles;
-- A-P stops before Phase B;
+- Issue #131 = sealed A-S/A-P occurrence truth for candidate.1;
+- A-S seal = `2e6b46ae...`; A-P final = `b970148f...`;
+- candidate.1 = `NEEDS_REVISION`, immutable predecessor to candidate.2;
+- candidate.2 = active focused successor-repair workspace;
+- fresh validator entry remains blind semantic entry, not full project-manager context for any future independent intake;
 - `releases/current/` remains untouched until governed release/promotion.
 
 > **Do not merely inherit conclusions. Inherit project state, method, management discipline, open variation, and the exact next permitted action — while preserving the information boundary required by each role.**

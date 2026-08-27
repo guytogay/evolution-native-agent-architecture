@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-27"
-status: V0_3_7_CANDIDATE1_FROZEN_BLIND_SEMANTIC_VIEW_READY_FRESH_A_S_A_P_NEXT
+status: V0_3_7_CANDIDATE1_NEEDS_REVISION_CANDIDATE2_FOCUSED_REPAIR_NEXT
 
 progress_is_complete_history: false
 
@@ -61,7 +61,7 @@ frozen_candidate0:
 
 successor_candidate1:
   identity: v0.3.7-candidate.1
-  state: FROZEN_FRESH_A_S_A_P_NEXT
+  state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE2
   candidate_branch: candidate/v0.3.7-candidate.1
   branch_head_is_frozen_identity: false
   frozen_source_commit: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
@@ -83,8 +83,20 @@ successor_candidate1:
   blind_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
   blind_view_repair_record: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
   frozen: true
-  release_decision: NOT_MADE
+  release_decision: NOT_RELEASED_NEEDS_REVISION
+  fresh_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
+  final_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
+  phase_b_record: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
   attack_cardinality: OPEN
+
+successor_candidate2:
+  identity: v0.3.7-candidate.2
+  state: FOCUSED_SUCCESSOR_REPAIR_NEXT
+  candidate_branch: candidate/v0.3.7-candidate.2
+  created_from_candidate1_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  frozen: false
+  current: false
+  repair_basis: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
 
 phase_state:
   anti_ablation_archaeology:
@@ -102,12 +114,12 @@ phase_state:
     new_core_semantic_delta_required: 0_DEMONSTRATED
 
   candidate_build:
-    state: CANDIDATE1_FROZEN_BLIND_SEMANTIC_VIEW_READY_FRESH_A_S_A_P_NEXT
-    current_candidate_identity: v0.3.7-candidate.1
-    predecessor_frozen_identity: v0.3.7-candidate.0
-    mutable_in_place: false_frozen_successor_required_for_material_change
-    exact_prefreeze_validation: PASS
-    exact_prefreeze_run: 33055811978
+    state: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR_NEXT
+    current_candidate_identity: v0.3.7-candidate.2
+    predecessor_frozen_identity: v0.3.7-candidate.1
+    mutable_in_place: true_until_candidate2_freeze
+    exact_prefreeze_validation: NOT_RUN
+    exact_prefreeze_run: null
 
   author_validation:
     state: CANDIDATE1_EXACT_PREFREEZE_PASS_WITH_INHERITED_AUTHOR_AND_ANTI_ABLATION_REPLAY
@@ -126,14 +138,14 @@ phase_state:
     invalid_intake_phase_a_sealed: false
     active_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
     active_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
-    active_issue: 131
-    active_branch: validation/v037-c1-blind-semantic-primary
+    completed_issue: 131
+    sealed_branch: validation/v037-c1-blind-semantic-primary
     detailed_author_handoff_disposition: RETAINED_AS_PHASE_B_CONTEXT_ONLY
     candidate_bytes_affected_by_method_change: false
     candidate2_required_by_method_change: false
 
   independent_falsification:
-    state: CANDIDATE0_RECONCILED / CANDIDATE1_A_S_A_P_INTAKE_READY
+    state: CANDIDATE1_A_S_A_P_SEALED_PHASE_B_NEEDS_REVISION
     predecessor_review_pr: 115
     predecessor_phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
     candidate0_verdict: NEEDS_REVISION
@@ -144,6 +156,10 @@ phase_state:
     active_candidate1_issue: 131
     active_candidate1_branch: validation/v037-c1-blind-semantic-primary
     active_candidate1_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
+    candidate1_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
+    candidate1_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
+    candidate1_phase_b_verdict: NEEDS_REVISION
+    candidate1_phase_b_record: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
     a_s_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md
     a_p_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md
     independent_sequence: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
@@ -215,40 +231,38 @@ completed_transition:
 current_method_transition:
   id: CANDIDATE_SELF_PRIMING_TO_BLIND_SEMANTIC_VIEW
   target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE1
-  result: BLIND_SEMANTIC_VIEW_READY_A_S_A_P_INTAKE_131
+  result: BLIND_SEMANTIC_VIEW_COMPLETED_A_S_A_P_SEALED_PHASE_B_NEEDS_REVISION
   method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
   incident: research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md
   reconciliation: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
   invalid_issue: 128
-  active_issue: 131
-  active_branch: validation/v037-c1-blind-semantic-primary
+  completed_issue: 131
+  sealed_branch: validation/v037-c1-blind-semantic-primary
   candidate_bytes_changed: false
-  candidate2_required: false
+  candidate2_required_by_method_change: false
+  candidate2_required_by_phase_b_defects: true
 
 immediate_next_action:
-  id: CANDIDATE1_FRESH_A_S_A_P
-  target: V0_3_7_CANDIDATE1_FROZEN_VIA_BLIND_SEMANTIC_VIEW
+  id: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR
+  target: V0_3_7_CANDIDATE2
   objective: >-
-    Obtain one genuinely fresh A-S semantic falsification before candidate-local history/oracles open,
-    seal it, then obtain an independent A-P package/self-description audit and stop before Phase B.
-  candidate_identity: v0.3.7-candidate.1
-  frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
-  frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
-  validation_branch: validation/v037-c1-blind-semantic-primary
-  blind_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
-  view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
-  issue: 131
-  a_s_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md
-  a_p_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md
+    Repair the four material frozen-candidate.1 semantic defects sealed by fresh A-S and confirmed by A-P/Phase B,
+    plus the deterministic active-package self-description drift, without mutating candidate.1 or Current.
+  candidate_identity: v0.3.7-candidate.2
+  candidate_branch: candidate/v0.3.7-candidate.2
+  predecessor_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  predecessor_frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  phase_b_record: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
   current_must_remain: v0.3.6
   do_not_promote: true
 
-next_after_candidate1_phase_a:
-  - independently verify A-S seal, A-P report commit, and frozen subtree identity
-  - only then open author-side evidence for Phase B reconciliation
-  - material candidate-byte defect or required package correction requires candidate.2; do not mutate frozen candidate.1
-  - non-contract residuals remain visible rather than being universalized merely for closure
-  - only after evidence reconciliation consider release preparation/promotion
+candidate2_repair_path:
+  - implement narrow semantic repairs for A-S-01 through A-S-04
+  - repair A-P-05 active package/self-description drift
+  - add mutation-sensitive regressions and legitimate-behavior controls
+  - run focused nearby open-branch probes without pretending this is fresh A-S
+  - only after repair reconciliation run exact candidate.2 prefreeze validation
+  - preserve non-contract residuals rather than universalizing them for closure
 
 candidate1_rule:
   creation_basis: MATERIAL_CANDIDATE_BYTE_CORRECTIONS_ESTABLISHED_BY_SEALED_PHASE_A_AND_PHASE_B

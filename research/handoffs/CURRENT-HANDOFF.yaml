@@ -1,4 +1,4 @@
-schema_version: "2.7"
+schema_version: "2.8"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -51,8 +51,8 @@ fresh_independent_validation_boundary:
   invalidated_issue: 128
   invalidated_branch: validation/v037-c1-blind-phase-a-primary
   invalidated_result: CANDIDATE_SELF_PRIMING_NO_PHASE_A_SEAL
-  active_issue: 131
-  active_branch: validation/v037-c1-blind-semantic-primary
+  completed_issue: 131
+  sealed_branch: validation/v037-c1-blind-semantic-primary
   active_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
   blind_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
   target_identity: v0.3.7-candidate.1
@@ -68,6 +68,10 @@ fresh_independent_validation_boundary:
   validator_must_not_open_withheld_candidate_local_history_or_oracles_before_a_s_seal: true
   a_s_findings_must_be_persisted_before_a_p: true
   independent_artifacts_must_be_persisted_before_phase_b: true
+  a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
+  final_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
+  phase_b_record: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
+  phase_b_verdict: NEEDS_REVISION
   previously_exposed_project_manager_can_claim_fresh_a_s: false
 
 completion_evidence:
@@ -91,15 +95,19 @@ completion_evidence:
   candidate1_independence_decision_record: collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md
   candidate1_invalidated_phase_a_issue: 128
   candidate1_invalidated_phase_a_seal_exists: false
-  candidate1_active_a_s_a_p_issue: 131
+  candidate1_completed_a_s_a_p_issue: 131
   candidate1_blind_semantic_branch: validation/v037-c1-blind-semantic-primary
   candidate1_blind_semantic_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
   candidate1_blind_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
   candidate1_blind_view_repair: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
   candidate1_self_priming_incident: research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md
-  candidate1_state: FROZEN_BLIND_SEMANTIC_VIEW_READY_FRESH_A_S_A_P_NEXT
-  immediate_next_action: CANDIDATE1_FRESH_A_S_A_P
-  current_handoff_record_refresh: COMPLETE_CANDIDATE1_BLIND_SEMANTIC_READY
+  candidate1_state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE2
+  candidate1_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
+  candidate1_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
+  candidate1_phase_b_verdict: NEEDS_REVISION
+  candidate2_branch: candidate/v0.3.7-candidate.2
+  immediate_next_action: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR
+  current_handoff_record_refresh: REQUIRED_AFTER_CANDIDATE2_FOCUSED_REPAIR
 
 candidate1_successor_state:
   identity: v0.3.7-candidate.1
@@ -114,14 +122,28 @@ candidate1_successor_state:
   exact_prefreeze_run: 33055811978
   fresh_blind_phase_a_next: false
   invalidated_phase_a_issue: 128
-  fresh_a_s_a_p_next: true
+  fresh_a_s_a_p_next: false
   fresh_a_s_a_p_issue: 131
+  fresh_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
+  final_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
+  phase_b_verdict: NEEDS_REVISION
+  superseded_by_candidate2: true
   fresh_a_s_a_p_branch: validation/v037-c1-blind-semantic-primary
   targeted_revalidation_is_fresh_phase_a: false
   targeted_revalidation_is_fresh_a_s: false
   attack_cardinality: OPEN
   remaining_visible_residuals:
     - candidate-id cross-environment namespace uniqueness is not universalized without a governing contract
+
+candidate2_successor_state:
+  identity: v0.3.7-candidate.2
+  branch: candidate/v0.3.7-candidate.2
+  created_from_frozen_candidate1_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  state: FOCUSED_SUCCESSOR_REPAIR_NEXT
+  frozen: false
+  current: false
+  repair_basis: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
+  current_must_remain: v0.3.6
 
 branch_hygiene:
   cleanup_completed_and_reobserved: false
@@ -130,6 +152,7 @@ branch_hygiene:
     - research/ena-reconstruction
     - candidate/v0.3.7-candidate.0
     - candidate/v0.3.7-candidate.1
+    - candidate/v0.3.7-candidate.2
     - validation/v037-c0-blind-phase-a-primary
     - validation/v037-c1-blind-phase-a-primary
     - validation/v037-c1-blind-semantic-primary
@@ -137,9 +160,10 @@ branch_hygiene:
     - tmp/noop-check-2
   candidate0_validation_branch_role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
   candidate1_invalid_validation_branch_role: INVALIDATED_SELF_PRIMED_INTAKE_NO_SEAL
-  candidate1_validation_branch_role: FRESH_A_S_A_P_INTAKE_PREPARED_NOT_YET_SEALED
+  candidate1_validation_branch_role: SEALED_A_S_A_P_OCCURRENCE_TRUTH_NEEDS_REVISION
   candidate0_branch_role: FROZEN_PREDECESSOR_LINEAGE
-  candidate1_branch_role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH
+  candidate1_branch_role: FROZEN_NEEDS_REVISION_PREDECESSOR_TO_CANDIDATE2
+  candidate2_branch_role: ACTIVE_SUCCESSOR_REPAIR_WORKSPACE_NOT_CURRENT
   operator_noise_branches:
     - tmp/noop-check
     - tmp/noop-check-2
