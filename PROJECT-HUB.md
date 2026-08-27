@@ -24,6 +24,8 @@ Never infer Current from:
 
 `releases/current/CURRENT-BASELINE.yaml` is the machine-readable Current identity authority.
 
+The active adopter-facing model is **Current + declared maturity/status**. Candidate, research, handoff, and historical surfaces do not replace that model unless governed release/promotion changes Current.
+
 Current at this handoff transition remains:
 
 ```text
