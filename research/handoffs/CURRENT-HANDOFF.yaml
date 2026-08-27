@@ -1,4 +1,4 @@
-schema_version: "2.2"
+schema_version: "2.3"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -7,6 +7,7 @@ handoff_framework:
   required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
   framework_required_before_substantive_work: true
+  scope: PROJECT_MANAGER_SESSION_SUCCESSION
 
 project_methodology_required:
   required: true
@@ -14,6 +15,7 @@ project_methodology_required:
   master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
   convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
   project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+  independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
 
 current_handoff_record:
   id: "2026-08-27-v037-independent-review-ready"
@@ -44,6 +46,16 @@ receiver_contract:
   infer_current_record_from_directory_recency: FORBIDDEN
   treat_handoff_record_as_project_authority: FORBIDDEN
 
+fresh_independent_validation_boundary:
+  project_manager_takeover_context_is_validator_phase_a_context: false
+  phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
+  detailed_author_validator_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
+  detailed_author_validator_handoff_phase: PHASE_B_ONLY_AFTER_PHASE_A_SEAL
+  validator_must_not_read_full_project_handoff_before_phase_a: true
+  validator_must_not_receive_author_attack_map_before_phase_a: true
+  phase_a_findings_must_be_persisted_before_phase_b: true
+  previously_exposed_project_manager_can_claim_fresh_phase_a: false
+
 completion_evidence:
   handoff_architecture_pr: 116
   main_merge_commit: fd532380bf1892f481f34fdb090ea38002ac5bc3
@@ -51,7 +63,7 @@ completion_evidence:
   current_reverified: "v0.3.6 / CURRENT / FIELD_VALIDATION"
   active_research_aligned_to_main_at_readback: true
   frozen_candidate_subtree_reverified: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
-  immediate_next_action: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
+  immediate_next_action: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY
 
 branch_hygiene:
   cleanup_completed_and_reobserved: true
@@ -68,8 +80,11 @@ branch_hygiene:
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
-  for handing over/taking over are all first-class succession context. The current
-  handoff record accelerates takeover but does not override canonical project authority.
+  for handing over/taking over are all first-class project-manager succession context.
+  A fresh independent validator is a different epistemic role and must use the
+  task-specific minimal-prime Phase-A entry before author-shaped Phase-B context opens.
+  The current handoff record accelerates project-manager takeover but does not override
+  canonical project authority.
 
 historical_records_root: research/handoffs/records/
 historical_records_remain_lineage: true
