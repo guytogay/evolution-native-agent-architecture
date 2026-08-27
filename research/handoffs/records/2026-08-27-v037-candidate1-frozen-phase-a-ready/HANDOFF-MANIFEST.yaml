@@ -1,0 +1,46 @@
+schema_version: "1.0"
+handoff_id: "2026-08-27-v037-candidate1-frozen-phase-a-ready"
+date: "2026-08-27"
+role_scope: PROJECT_MANAGER_SESSION_SUCCESSION
+state: CANDIDATE1_FROZEN_FRESH_BLIND_PHASE_A_NEXT
+
+current:
+  version: v0.3.6
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+
+frozen_candidate:
+  identity: v0.3.7-candidate.1
+  source_commit: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  subtree_path: releases/v0.3.7-candidate/
+  subtree_sha: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  current_subtree_at_source: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  exact_prefreeze_run: 33055811978
+  freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md
+  mutable_in_place: false
+
+independence_decision:
+  result: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
+  record: collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md
+
+fresh_phase_a:
+  issue: 128
+  branch: validation/v037-c1-blind-phase-a-primary
+  intake_head: bac074097579ad930b2e90c46c00773f6f20c86d
+  blind_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md
+  required_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-phase-a-primary.md
+  report_state: NOT_YET_SEALED
+  project_manager_handoff_allowed_as_phase_a_context: false
+
+record_files:
+  start_here: research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-START-HERE.md
+  manifest: research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-MANIFEST.yaml
+  project_state: research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/PROJECT-STATE.md
+  recent_three_rounds: research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/RECENT-THREE-ROUNDS.md
+  file_catalog: research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/FILE-CATALOG.md
+  readback: research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-READBACK.md
+
+immediate_next_action: CANDIDATE1_FRESH_BLIND_PHASE_A
+attack_cardinality: OPEN
+current_mutation_authorized: false
+promotion_authorized: false
