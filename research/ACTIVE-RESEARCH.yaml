@@ -1,4 +1,4 @@
-schema_version: "1.9"
+schema_version: "2.0"
 status: ACTIVE_RESEARCH_POINTER
 updated_at: "2026-08-27"
 
@@ -17,7 +17,9 @@ active_research:
   progress_path: "research/plans/PROGRESS.yaml"
   detailed_plan_path: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
   methodology_index_path: "research/methodology/README.md"
-  handoff_method_path: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
+  handoff_protocol_path: "research/handoffs/HANDOFF-PROTOCOL.md"
+  required_takeover_context_path: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
+  project_management_discipline_path: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
   convergence_divergence_method_path: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
   current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
   alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
@@ -32,12 +34,14 @@ project_control_plane:
   project_hub: "PROJECT-HUB.md"
   current_baseline: "releases/current/CURRENT-BASELINE.yaml"
   current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
+  handoff_protocol: "research/handoffs/HANDOFF-PROTOCOL.md"
+  required_takeover_context: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
+  project_management_discipline: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
   project_structure: "PROJECT-STRUCTURE.md"
   branch_governance: "research/BRANCH-GOVERNANCE.md"
   branch_inventory: "research/BRANCH-INVENTORY.yaml"
   methodology_index: "research/methodology/README.md"
   methodology_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
-  handoff_method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
   convergence_divergence_method: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
   alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
@@ -45,9 +49,11 @@ project_control_plane:
 continuation_protocol:
   - "Start from main, not from a guessed research or candidate branch."
   - "Verify Current from releases/current/CURRENT-BASELINE.yaml; Current remains singular until explicit promotion."
-  - "Read research/handoffs/CURRENT-HANDOFF.yaml and the pointed handoff package before reconstructing session history from chat."
+  - "Read research/handoffs/CURRENT-HANDOFF.yaml."
+  - "Read research/handoffs/HANDOFF-PROTOCOL.md, REQUIRED-TAKEOVER-CONTEXT.yaml, and PROJECT-MANAGEMENT-DISCIPLINE.md before substantive work."
+  - "Read the current handoff record pointed to by CURRENT-HANDOFF.yaml; do not guess from record recency."
   - "Read this file to discover the active research integration branch and current project phase."
-  - "Read canonical methodology, including session handoff and convergence/divergence discipline, before selecting substantive work."
+  - "Read canonical project methodology; project-state inheritance without method inheritance is incomplete takeover."
   - "If current-state surfaces disagree after handoff or another material transition, complete the Project State Alignment Gate before resuming."
   - "Read the active branch bootstrap, PROGRESS.yaml, and master plan."
   - "For candidate work, distinguish the candidate branch head from the exact frozen source/tree identity."
@@ -109,8 +115,12 @@ frozen_candidate:
 handoff:
   state: STANDARDIZED_SESSION_HANDOFF_ACTIVE
   pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
-  method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
-  rule: "HANDOFF_PACKAGE_IS_BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY"
+  protocol: "research/handoffs/HANDOFF-PROTOCOL.md"
+  required_takeover_context: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
+  project_management_discipline: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
+  records_root: "research/handoffs/records/"
+  rule: "HANDOFF_RECORD_IS_BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY"
+  takeover_rule: "PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE_IS_INCOMPLETE"
 
 historical_branch_lineage:
   predecessor_branch: "research/memory-metabolism-prototype"
@@ -130,6 +140,7 @@ alignment:
   current_alignment_state_source: "research/plans/PROGRESS.yaml"
   minor_commit_requires_full_gate: false
   session_handoff_is_alignment_trigger_when_control_state_would_otherwise_drift: true
+  canonical_path_move_is_alignment_trigger: true
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
