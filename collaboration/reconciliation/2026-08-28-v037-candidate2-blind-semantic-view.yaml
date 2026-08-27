@@ -1,0 +1,111 @@
+schema_version: "1.2"
+status: BLIND_SEMANTIC_VIEW / NOT_A_CANDIDATE / NOT_RELEASE_AUTHORITY
+
+frozen_target:
+  identity: v0.3.7-candidate.2
+  source_commit: bda470e0a6b170cec61225a905957a501454a2fe
+  candidate_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  candidate_path: releases/v0.3.7-candidate/
+
+view:
+  branch: validation/v037-c2-blind-semantic-primary
+  construction: EXACT_FROZEN_SOURCE_PLUS_DECLARED_INFORMATION_ROLE_EXCLUSIONS
+  retained_candidate_files_must_be_byte_identical_to_frozen_source: true
+  candidate_bytes_rewritten: false
+  new_candidate_identity_created: false
+  current_changed: false
+  full_package_review_deferred_not_waived: true
+  attack_cardinality: OPEN
+
+# path | frozen blob | information role
+excluded_candidate_files:
+  - "releases/v0.3.7-candidate/CANDIDATE-BASELINE.yaml | 67810600b2bc1c3d92a4d3f0ed6ba78ff114467b | HISTORY_EVIDENCE_AND_AUTHOR_CONFIDENCE"
+  - "releases/v0.3.7-candidate/CHANGELOG.md | 105f16163e8f4d06fcf0b239a658d544577fbf62 | HISTORY_EVIDENCE"
+  - "releases/v0.3.7-candidate/LINEAGE.md | c68aa20e86f8ebb7675f8cde10ede88e4754a99e | HISTORY_EVIDENCE"
+  - "releases/v0.3.7-candidate/08-RELEASE-DISCIPLINE.md | 1a113f3d027040c92d262e956e04fc200f41681a | PREDECESSOR_FINDINGS_AND_REPAIR_NARRATIVE"
+  - "releases/v0.3.7-candidate/language-projections/semantic-fixtures.v1.yaml | b998b9faaa7a63c8b5905e6690d0faad1d740380 | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/language-projections/semantic-fixtures.v2.yaml | 31835858b181317017aec07c4546edd644bc73ed | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/language-projections/semantic-fixtures.v3.yaml | a3615f2a43fb2133f3e764b05cecbd404b8831d3 | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/tools/contract-fixtures.v1.json | 797187e74dd3df2d9b754efc4f0beade42c3d7a8 | REGRESSION_ORACLE"
+  - "releases/v0.3.7-candidate/tools/contract-fixtures.v2.json | f437f54d4803a7d17b100f039ee77b1f86cedff3 | REGRESSION_ORACLE"
+  - "releases/v0.3.7-candidate/tools/contract-fixtures.v2.1.json | 38c1ec3add759b5b4f56ee927a48fe1c82eee122 | REGRESSION_ORACLE"
+  - "releases/v0.3.7-candidate/tools/regression-results-v033.json | 97af226798e5f2de8222aad5d1fd11a2c226bdf9 | REGRESSION_RESULT"
+  - "releases/v0.3.7-candidate/tools/regression_suite.py | acd6ca29a39c1f94686bc08693bf577c26ba6378 | REGRESSION_ORACLE"
+  - "releases/v0.3.7-candidate/tools/selftest_ena_evolve_v2.py | 42367d3055088fea51583fc616562e66d83f7a91 | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/tools/legacy/README.md | 91a5e30ab5f6da9e815899444074bb64abe47b47 | HISTORY_INDEX"
+  - "releases/v0.3.7-candidate/tools/legacy/candidate1_adversarial_v1_2.py | 540dc3914c79f0119c3c209e8b8fb47a82b9ddeb | PRIOR_PROBE_CORPUS"
+  - "releases/v0.3.7-candidate/tools/legacy/candidate2_adversarial_v1_2.py | 54990db49517c6d43f03423f502c85e0802f34af | PRIOR_PROBE_CORPUS"
+  - "releases/v0.3.7-candidate/references/advanced/contested-authorship/fixtures/contested-authorship-cases.jsonl | 3bbaf34e454e44ffe34944bdc4a7334bfb8b313d | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/advanced/contested-authorship/tools/selftest_contested_authorship.py | be04aac6078c8849801b4293480105ee796cd14a | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/advanced/evidence-dependency-map/fixtures/evidence-dependency-map-cases.jsonl | 20ae9c30332207c9e037cbcd38c12fc26e6a409d | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/advanced/evidence-dependency-map/tools/selftest_evidence_dependency_map.py | 01125da953525e941dea027f6d2a4e8b9b4d7b67 | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/advanced/evidence-envelope/fixtures/evidence-envelope-cases.jsonl | d2ad3c4ccbb955563bc5b4f71b21d9537c635d5f | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/advanced/evidence-envelope/tools/selftest_evidence_envelope.py | cd3a7ea421d8a5bccfd9020c0277a27d3886fb8b | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/general/authority-lease/fixtures/authority-lease-cases.jsonl | ae9275086dc8b2b8c13677ba86c4c774643e498b | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/general/authority-lease/tools/selftest_authority_lease.py | 375cba400b6309e8d33e8732946d264d095ff1af | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/general/effect-lifecycle/fixtures/effect-lifecycle-cases.jsonl | 272fd8319d21b87b19525a9d79f31f86fa7e737b | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/general/effect-lifecycle/tools/selftest_effect_lifecycle.py | 8247b8d2b00162d769d62c0c9de9018b260fe15d | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/general/recovery-adapter/fixtures/recovery-adapter-cases.jsonl | 219d644d8d0bb590870c9ccaa41df976d40e28a2 | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/general/recovery-adapter/tools/selftest_recovery_adapter.py | 2b938257eb0eb27f7b11a7a88a6c78a350cf8d4e | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/general/retrieval-obligation/selftest.py | af44194aacac8d7dfd251a880df1571fb602e180 | SELFTEST_CORPUS"
+  - "releases/v0.3.7-candidate/references/general/wait-state/fixtures/wait-state-cases.jsonl | 158c9f1f97b3a432ace5857a6c067f57ed214fc9 | EXPECTED_FIXTURE"
+  - "releases/v0.3.7-candidate/references/general/wait-state/tools/selftest_wait_state.py | 197998acc0b7d33d77c05e3ceca383b5246cfbbc | SELFTEST_CORPUS"
+
+mixed_role_retained_files:
+  - path: releases/v0.3.7-candidate/README.md
+    frozen_blob: dbd85f9f290c01af1fcdb81f43f81882d5ff21b7
+    reason_retained: CANDIDATE_SEMANTIC_AND_ADOPTION_OVERVIEW
+    a_s_allowed_source_ranges: ["9-EOF"]
+    a_s_withheld_source_range: "1-8"
+    withheld_role: AUTHOR_STATUS_AND_CONFIDENCE_HEADER
+    limitation: RANGED_READ_REQUIRED_FOR_THIS_FILE
+
+  - path: releases/v0.3.7-candidate/00-READ-ME-FIRST.md
+    frozen_blob: 973c90b26366f11097fccb208479dcf988756b05
+    reason_retained: SEMANTIC_ENTRY_AND_OPERATIONAL_NAVIGATION
+    a_s_allowed_source_ranges: ["7-EOF"]
+    a_s_withheld_source_range: "1-6"
+    withheld_role: AUTHOR_STATUS_HEADER
+    limitation: RANGED_READ_REQUIRED_FOR_THIS_FILE
+
+  - path: releases/v0.3.7-candidate/RUNTIME-ADOPTION-KERNEL.md
+    frozen_blob: 8207494dc38c4ae5a14e4617ef58c72a1824ccc3
+    reason_retained: HOT_SEMANTIC_CUE_SURFACE
+    a_s_allowed_source_ranges: ["7-EOF"]
+    a_s_withheld_source_range: "1-6"
+    withheld_role: PACKAGE_STATUS_HEADER
+    limitation: RANGED_READ_REQUIRED_FOR_THIS_FILE
+
+  - path: releases/v0.3.7-candidate/tools/validate_evolution_record_v2.py
+    frozen_blob: 4a98306ee8bc0685ec6706aedb782381f57071bb
+    reason_retained: CORE_EXECUTABLE_SEMANTICS
+    a_s_allowed_source_ranges: ["1-358", "789-EOF"]
+    a_s_withheld_source_range: "359-788"
+    withheld_role: EMBEDDED_SELFTEST_CORPUS
+    a_s_must_not_invoke: "--selftest"
+    limitation: RANGED_READ_REQUIRED_FOR_THIS_FILE
+
+blind_semantic_rule:
+  inspect_retained_candidate_bytes: true
+  inspect_excluded_files_before_a_s_seal: false
+  inspect_withheld_mixed_role_ranges_before_a_s_seal: false
+  inspect_external_author_context_before_a_s_seal: false
+  inspect_full_project_manager_handoff_before_a_s_seal: false
+  do_not_treat_view_exclusions_as_release_ablation: true
+  do_not_infer_correctness_from_candidate_status_or_predecessor_history: true
+
+post_seal_rule:
+  excluded_candidate_files_may_be_opened_from_exact_frozen_source: true
+  withheld_mixed_role_ranges_may_be_opened: true
+  external_author_repair_maps_remain_withheld_during_a_p: true
+  full_candidate_package_self_description_and_oracles_may_be_audited_during_a_p: true
+  phase_b_starts_only_after_independent_artifacts_are_persisted: true
+
+invariants:
+  - BLIND_VIEW_NE_NEW_CANDIDATE
+  - EXCLUSION_FOR_BLINDNESS_NE_RELEASE_ABLATION
+  - RETAINED_FILE_BYTES_EQUAL_FROZEN_SOURCE
+  - RANGED_READ_NE_BYTE_REWRITE
+  - FULL_PACKAGE_REVIEW_DEFERRED_NE_WAIVED
+  - AUTHOR_CONFIDENCE_NE_VALIDATOR_PRIOR
+  - ATTACK_CARDINALITY_OPEN
