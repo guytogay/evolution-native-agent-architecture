@@ -1,4 +1,4 @@
-schema_version: "2.3"
+schema_version: "2.4"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -58,10 +58,17 @@ fresh_independent_validation_boundary:
 
 completion_evidence:
   handoff_architecture_pr: 116
-  main_merge_commit: fd532380bf1892f481f34fdb090ea38002ac5bc3
+  handoff_architecture_main_merge: fd532380bf1892f481f34fdb090ea38002ac5bc3
+  blind_phase_a_method_pr: 119
+  blind_phase_a_method_main_merge: a927f70d6ec91def375ec3cccbc90b2e944e1fd2
+  blind_phase_a_method_checks:
+    main_gate: {run: 33046077141, result: SUCCESS}
+    handoff_structure: {run: 33046077032, result: SUCCESS}
+    codeql: {run: 33046077103, result: SUCCESS}
+  pr115_briefing_rewritten_for_blind_phase_a: true
   post_merge_readback_completed: true
   current_reverified: "v0.3.6 / CURRENT / FIELD_VALIDATION"
-  active_research_aligned_to_main_at_readback: true
+  active_research_aligned_to_main_after_method_merge: true
   frozen_candidate_subtree_reverified: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
   immediate_next_action: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY
 
