@@ -1,0 +1,6 @@
+trigger=2026-08-28-candidate2-frozen-control-plane
+candidate2_frozen_source=bda470e0a6b170cec61225a905957a501454a2fe
+candidate2_frozen_subtree=d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+exact_prefreeze_run=33095987843
+next=PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE
+attack_cardinality=OPEN
