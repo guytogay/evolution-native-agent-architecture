@@ -23,10 +23,11 @@ METHOD_WRITTEN != METHOD_APPLIED
 ## Read order
 
 1. `ENA-RESEARCH-DISCIPLINE.md` — open-cardinality master method ledger.
-2. `PROJECT-STATE-ALIGNMENT-GATE.md` — how to realign routing, method, plan, and progress after material project transitions before substantive work resumes.
-3. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
-4. `../BRANCH-GOVERNANCE.md` — how research topology is controlled across sessions.
-5. `../ACTIVE-RESEARCH.yaml` — where the active work actually lives now.
+2. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — guard against LLM-style premature summary/convergence that silently compresses HOW, failure, Host, or evidence variation.
+3. `PROJECT-STATE-ALIGNMENT-GATE.md` — how to realign routing, method, plan, and progress after material project transitions before substantive work resumes.
+4. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
+5. `../BRANCH-GOVERNANCE.md` — how research topology is controlled across sessions.
+6. `../ACTIVE-RESEARCH.yaml` — where the active work actually lives now.
 
 Focused methodology files may be added when a distinction is important enough to change behavior; the file count is not a completeness claim.
 
@@ -50,6 +51,21 @@ semantic trunk; abstraction/compression may help
 ```
 
 > **Compress the semantic trunk; let concrete HOWs branch.**
+
+## Convergence/divergence guard
+
+LLMs often express progress by summarizing, consolidating, and reducing visible complexity. In ENA this is safe only when the change compresses representation rather than silently shrinking the decision-relevant possibility space.
+
+```text
+COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
+PROVEN_BEHAVIORAL_EQUIVALENCE -> MAY_COMPRESS
+UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
+UNKNOWN_SPACE -> EXPAND
+```
+
+HOW branches, adversarial/failure shapes, Host-specific mechanisms, evidence-applicability conditions, and unresolved/dormant alternatives should remain distinct until equivalence, replacement, or retirement is actually evidenced.
+
+Before replacing a larger surface with a smaller abstraction, use `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` to account for what was preserved, merged, replaced, retired, lost, or remains unknown.
 
 ## Project-state alignment rule
 
@@ -91,6 +107,8 @@ WRITTEN -> RETRIEVED -> INTERPRETED -> SALIENT -> APPLIED
 ```
 
 If it reads anti-dissolution/plural-HOW discipline and then immediately compresses the work into one abstract mechanism or selects before recovery, inheritance failed at the salience/application layer.
+
+If it reads convergence/divergence discipline and then treats a smaller summary, harness, category set, or branch inventory as intrinsically superior without a variation-disposition map, inheritance failed at the anti-convergence layer.
 
 If it reads a new branch/control-plane state but continues from stale routing or a superseded plan, inheritance failed at the project-state alignment layer.
 

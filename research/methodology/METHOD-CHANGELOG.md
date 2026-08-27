@@ -171,6 +171,37 @@ Practical effect:
 - old branches/PRs remain available as lineage without masquerading as current pointers;
 - the gate is not required after every ordinary commit, only transitions capable of creating current-state disagreement.
 
+## 2026-08-27 — Convergence-bias / variation-preservation discipline
+
+Trigger:
+
+During v0.3.7 candidate author-falsification work, an adversarial harness was refactored from an earlier run reporting 1080 observed pass conditions to a phase-aware harness reporting 188 observed pass conditions. The newer oracle removed noisy whole-file/token-style checks and was more decision-focused, but the reduction was initially described too quickly as "progress" before proving that all materially distinct predecessor attack shapes were preserved, replaced by stronger checks, or deliberately retired.
+
+The incident exposed a broader LLM research bias: models often present success as summary, consolidation, reduced visible complexity, and narrative closure. That communication habit is unsafe when applied to ENA HOW space, adversarial/failure space, Host variation, or evidence applicability without an anti-ablation accounting step.
+
+Correction:
+
+```text
+COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
+ABSTRACTION_MAY_COMPRESS_DESCRIPTION != LICENSE_TO_COLLAPSE_VARIATION
+PROVEN_BEHAVIORAL_EQUIVALENCE -> MAY_COMPRESS
+UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
+UNKNOWN_SPACE -> EXPAND
+```
+
+Canonical focused method:
+
+`research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md`
+
+Practical effect:
+
+- a smaller harness, document, taxonomy, organ set, or summary is no longer treated as improvement merely because it is smaller;
+- before convergence, materially distinct predecessor variations require disposition as preserved, proven-equivalent merge, stronger replacement, dormant, evidence-backed retirement, lost, or unknown;
+- adversarial/falsification work preserves or expands distinct failure shapes by default and compresses only redundant execution/representation;
+- LLM-generated summaries are treated as projections rather than ontology/completeness proof;
+- HOW, Host, failure, and evidence spaces remain open-cardinality until equivalence or selection is actually supported;
+- growth remains subject to complexity/epistemic rent, so the correction does not invert into permanent uncontrolled expansion.
+
 ## Future changes
 
 Add a new entry when a research-process failure, field observation, or stronger method changes how future ENA research should actually be conducted.
