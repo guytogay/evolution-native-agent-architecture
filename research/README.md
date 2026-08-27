@@ -9,15 +9,17 @@ Do not discover active work by browsing branch names, old pull requests, candida
 ## Start here
 
 1. `../releases/current/CURRENT-BASELINE.yaml` — verify singular Current.
-2. `handoffs/CURRENT-HANDOFF.yaml` — locate the latest intended project-manager/session handoff package.
-3. `ACTIVE-RESEARCH.yaml` — canonical pointer to the one active research integration branch.
-4. `methodology/README.md` — canonical research/handoff method index.
-5. `methodology/SESSION-HANDOFF-DISCIPLINE.md` — how outgoing/incoming sessions preserve project continuity.
-6. `methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when to compress vs preserve/grow variation.
-7. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — required after material transitions or state disagreement.
-8. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` — durable long-horizon plan.
-9. Follow the active branch and read `RESEARCH-START-HERE.md` + `plans/PROGRESS.yaml`.
-10. Retrieve `operational-architecture/`, `release-scope/`, prototypes, evidence, reconstruction, or external HOWs only when the current action requires them.
+2. `handoffs/CURRENT-HANDOFF.yaml` — current handoff record pointer + takeover contract.
+3. `handoffs/HANDOFF-PROTOCOL.md` — canonical outgoing/incoming succession rules.
+4. `handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — mandatory takeover context.
+5. `handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md` — cross-session project-management rules.
+6. Read the current record under `handoffs/records/` named by the pointer.
+7. `methodology/README.md` — canonical ENA research-method index.
+8. `ACTIVE-RESEARCH.yaml` — active research integration pointer.
+9. `methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — compression/growth/anti-ablation discipline.
+10. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — material-transition alignment.
+11. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` and `plans/PROGRESS.yaml`.
+12. Retrieve Operational Architecture, release-scope, prototypes, evidence, reconstruction, or external HOWs only when the current action requires them.
 
 ```text
 main
@@ -25,24 +27,41 @@ main
 +--> Current adoption
 |     -> releases/current/
 |
-+--> current handoff
-|     -> research/handoffs/CURRENT-HANDOFF.yaml
++--> handoff framework
+|     -> research/handoffs/
+|          +--> CURRENT-HANDOFF.yaml
+|          +--> HANDOFF-PROTOCOL.md
+|          +--> REQUIRED-TAKEOVER-CONTEXT.yaml
+|          +--> PROJECT-MANAGEMENT-DISCIPLINE.md
+|          +--> records/<handoff-id>/
 |
-+--> research control
++--> ENA research methodology
+|     -> research/methodology/
+|
++--> active research control
       -> research/ACTIVE-RESEARCH.yaml
-           |
-           v
-      research/ena-reconstruction
-           |
-           +--> fast-moving progress / validation-method work
-           +--> methodology lineage
-           +--> operational-architecture / release-scope
-           +--> prototypes / evidence / experiments / external HOWs
+           -> research/ena-reconstruction
 
 candidate/v0.3.7-candidate.0
 -> release-lifecycle/review surface
 -> branch head != frozen identity
 ```
+
+## Succession distinction
+
+```text
+HANDOFF_FRAMEWORK != HANDOFF_RECORD
+HANDOFF_RECORD != PROJECT_METHODOLOGY
+PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
+```
+
+The handoff framework governs how responsibility is transferred and received.
+
+A handoff record is one time-bounded succession occurrence.
+
+`research/methodology/` governs how ENA research itself is performed.
+
+All are relevant to takeover, but they are not the same authority layer.
 
 ## Current phase
 
@@ -50,11 +69,9 @@ Current adoption remains:
 
 `v0.3.6 / CURRENT / FIELD_VALIDATION`
 
-Next release line:
+Next release line: `v0.3.7`.
 
-`v0.3.7`
-
-Candidate.0 is frozen by exact external source/tree identity:
+Frozen candidate.0:
 
 ```text
 candidate = v0.3.7-candidate.0
@@ -62,28 +79,30 @@ source = d0e793593184740d9732902e948afd48ed96ae2f
 candidate subtree = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
 ```
 
-Author exact pre-freeze validation passed, but fresh independent semantic falsification is pending.
+The `1080 -> 188` anti-ablation audit is complete with `PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR`; candidate bytes did not change.
 
-Current research phase:
+Fresh independent semantic falsification is pending.
 
-`VALIDATION_ANTI_ABLATION_AUDIT_BEFORE_INDEPENDENT_FALSIFICATION`
+Current phase:
 
-Immediate next action:
+`FRESH_INDEPENDENT_FALSIFICATION_PHASE_A`
 
-**1080 -> 188 author-harness anti-ablation audit**, outside frozen candidate.0.
+Review surface:
 
-Why: a smaller/cleaner validation harness cannot be called epistemically better until materially distinct predecessor attack/failure shapes have explicit disposition.
+`PR #115 / DO NOT MERGE`
+
+A fresh validator must inspect exact frozen bytes and derive attacks before consulting author-side expected outcomes/oracles.
 
 ## Research methodology
 
-Canonical methodology lives under `research/methodology/`.
+Canonical ENA research methodology lives under `research/methodology/`.
 
-Important current disciplines include:
+Important disciplines include:
 
 - explanatory coverage is not operational solution;
 - WHAT/WHY may be compressed into a semantic trunk;
 - concrete HOW branches remain plural when behavior differs or equivalence is unproven;
-- failure/adversarial space should expand while distinct failure shapes remain plausible;
+- failure/adversarial space grows while distinct failure shapes remain plausible;
 - `COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE`;
 - recover variation before selecting among it;
 - working taxonomies/counts are not ontology;
@@ -91,33 +110,26 @@ Important current disciplines include:
 - evidence is branch/Host/applicability scoped;
 - NO_CHANGE, dormancy, simplification and evidence-backed retirement are valid outcomes;
 - a concrete HOW says both how to use it and when it does not apply;
-- missing pointer != missing organ;
-- session handoff is a normal lifecycle and must be durable/standardized;
 - after material transitions, align routing/plan/progress/handoff/live Git state before continuing.
 
 ## Operational Architecture
 
-`research/operational-architecture/` provides the research navigation chain:
+`research/operational-architecture/` provides:
 
 ```text
 problem/cue
 -> CUE-INDEX
 -> WHAT/WHY node
 -> plural HOW branches
--> REFERENCE-POINTER-MATRIX
--> prototype / bounded procedure / Host pattern
+-> reference / procedure / Host pattern
 -> action or honest residual
 ```
 
-A release-local form of this architecture is bundled in frozen v0.3.7 candidate.0.
-
-The library may be much larger than an Agent's active context. Hot routing should retrieve relevant branches rather than load everything.
+A release-local form is bundled in frozen v0.3.7 candidate.0.
 
 ## Release scope
 
-`research/release-scope/` records why candidate.0 contains its current adopter guidance, optional references, tooling, language surface, and deferred branches.
-
-Key distinctions:
+`research/release-scope/` records candidate cargo selection and deferred branches.
 
 ```text
 NO_NEW_CORE_RULES != NO_RELEASE_VALUE
@@ -128,16 +140,16 @@ DEFERRED != RETIRED
 
 ## Handoff semantics
 
-`research/handoffs/` stores historical/current session handoff packages.
+Reusable succession rules live at `research/handoffs/` root.
 
-Only `CURRENT-HANDOFF.yaml` identifies the latest intended handoff.
+Time-bounded occurrences live under `research/handoffs/records/`.
+
+Only `CURRENT-HANDOFF.yaml` identifies the intended current record.
 
 ```text
-HANDOFF_PACKAGE != PROJECT_AUTHORITY
+HANDOFF_RECORD != PROJECT_AUTHORITY
 HISTORICAL_HANDOFF_PRESERVED != HISTORICAL_HANDOFF_ACTIVE
 ```
-
-The incoming session reads the handoff for speed, then verifies Current, live refs, frozen identity, methodology, Progress, and plan from canonical sources.
 
 ## Branch/PR semantics
 
@@ -148,7 +160,5 @@ CANDIDATE_BRANCH_HEAD != FROZEN_CANDIDATE_IDENTITY
 RESEARCH_ARTIFACT_EXISTS != CURRENT
 MAIN_FILE_EXISTS != ENA_CONSTITUTION
 ```
-
-Historical PRs/branches are durable lineage/checkpoints. The main-visible active branch pointer remains continuation authority.
 
 > **One active research integration surface; one current handoff pointer; many concrete HOW/failure branches may remain open inside the research tree.**
