@@ -153,4 +153,4 @@ alignment:
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
   expected_at_this_transition: "v0.3.6 / CURRENT / FIELD_VALIDATION"
-  next_version_assignment_or candidate_freeze_does_not_change_current: true
+  next_version_assignment_or_candidate_freeze_does_not_change_current: true
