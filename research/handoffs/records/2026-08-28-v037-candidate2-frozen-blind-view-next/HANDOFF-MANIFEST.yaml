@@ -1,0 +1,39 @@
+schema_version: "1.0"
+record_id: "2026-08-28-v037-candidate2-frozen-blind-view-next"
+status: HANDOFF_READY_FOR_PROJECT_MANAGER_SUCCESSION
+record_is_project_authority: false
+
+project_state:
+  current: "v0.3.6 / CURRENT / FIELD_VALIDATION"
+  next_release_line: v0.3.7
+  candidate: v0.3.7-candidate.2
+  candidate_state: FROZEN_NOT_CURRENT_NOT_RELEASED
+  frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  exact_prefreeze_run: 33095987843
+  current_subtree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  attack_cardinality: OPEN
+
+immediate_next_action:
+  id: PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE
+  current_project_manager_may_perform_fresh_a_s: false
+
+files:
+  start_here: HANDOFF-START-HERE.md
+  project_state: PROJECT-STATE.md
+  recent_three_rounds: RECENT-THREE-ROUNDS.md
+  file_catalog: FILE-CATALOG.md
+  readback: HANDOFF-READBACK.md
+
+required_methodology:
+  - research/methodology/README.md
+  - research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  - research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+  - research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+  - research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+
+boundaries:
+  modify_current: false
+  mutate_frozen_candidate2: false
+  fresh_validator_reads_project_manager_handoff_before_a_s: false
+  fresh_validator_receives_author_attack_map_before_a_s: false
