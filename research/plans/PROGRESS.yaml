@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-27"
-status: V0_3_7_CANDIDATE0_FROZEN_BLIND_FRESH_PHASE_A_READY
+status: V0_3_7_CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
 
 progress_is_complete_history: false
 
@@ -44,26 +44,36 @@ next_release_line:
 
 frozen_candidate0:
   identity: v0.3.7-candidate.0
-  state: FROZEN_INDEPENDENT_FALSIFICATION_REVIEW_OPEN
+  state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE1
   candidate_branch: candidate/v0.3.7-candidate.0
   branch_head_is_frozen_identity: false
   frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
   frozen_candidate_subtree: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
   subtree_path: releases/v0.3.7-candidate/
   freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md
-  freeze_record_commit: a3b5c16fa7af1559c84be5f9ee47351db5d0387e
-  detailed_independent_falsification_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
   blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
-  anti_ablation_audit: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
-  anti_ablation_workflow_run: 33035656311
-  independent_falsification_review_pr: 115
-  independent_falsification_review_pr_mode: DRAFT_DO_NOT_MERGE
-  exact_prefreeze_workflow: ENA v0.3.7 Candidate Exact Pre-Freeze Gate
-  exact_prefreeze_run: 33011823923
-  exact_prefreeze_result: SUCCESS
-  independent_semantic_falsification: PENDING_FRESH_PHASE_A_VIA_BLIND_ENTRY
+  phase_a_report: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-phase-a-primary.md
+  phase_a_seal_commit: 5ba3d241efa460fe170253860ad67045aa1d96a5
+  phase_b_reconciliation_commit: cbdc2b00a4bdb490b83aff426db3cfe844e22490
+  independent_semantic_falsification: SEALED_NEEDS_REVISION
+  release_decision: NOT_RELEASED
+  successor_required: true
+
+successor_candidate1:
+  identity: v0.3.7-candidate.1
+  state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+  candidate_branch: candidate/v0.3.7-candidate.1
+  branch_head_is_frozen_identity: false
+  observed_head: b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
+  observed_candidate_subtree: 25d068d158ee37e4e43481c345cce9281febddd1
+  current_subtree_same_head: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  reconciliation_record: collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md
+  targeted_revalidation_run: 33052764739
+  open_branch_reprobe_run: 33052764661
+  exact_prefreeze_validation: PENDING
+  frozen: false
   release_decision: NOT_MADE
-  candidate_succession_stop: NOT_DECIDED
+  attack_cardinality: OPEN
 
 phase_state:
   anti_ablation_archaeology:
@@ -81,9 +91,11 @@ phase_state:
     new_core_semantic_delta_required: 0_DEMONSTRATED
 
   candidate_build:
-    state: CANDIDATE0_FROZEN
-    current_candidate_identity: v0.3.7-candidate.0
-    mutable_in_place: false
+    state: CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+    current_candidate_identity: v0.3.7-candidate.1
+    predecessor_frozen_identity: v0.3.7-candidate.0
+    mutable_in_place: true_until_successor_freeze_only
+    exact_prefreeze_validation: PENDING
 
   author_validation:
     state: PREFREEZE_MACHINE_PASS_PLUS_POSTFREEZE_TREE_EXTERNAL_ANTI_ABLATION_PASS
@@ -107,14 +119,13 @@ phase_state:
     candidate1_required_by_method_change: false
 
   independent_falsification:
-    state: REVIEW_PR_115_OPEN_AWAITING_FRESH_BLIND_PHASE_A
+    state: PHASE_A_SEALED_PHASE_B_RECONCILED_SUCCESSOR_TARGETED_REVALIDATED
     review_pr: 115
-    validator_must_be_fresh: true
-    blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
-    author_oracle_must_not_precede_phase_a: true
-    author_attack_map_must_not_precede_phase_a: true
-    phase_a_findings_must_be_persisted_before_phase_b: true
-    project_manager_takeover_context_is_phase_a_context: false
+    phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
+    candidate0_verdict: NEEDS_REVISION
+    candidate1_targeted_revalidation_is_fresh_phase_a: false
+    candidate1_additional_independent_review_after_freeze: EXPLICIT_DECISION_PENDING
+    attack_cardinality: OPEN
 
   handoff_framework:
     state: FRAMEWORK_RECORDS_METHODOLOGY_SEPARATED_WITH_VALIDATOR_ROLE_BOUNDARY
@@ -191,39 +202,32 @@ current_method_transition:
   candidate1_required: false
 
 immediate_next_action:
-  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY
-  target: EXACT_FROZEN_CANDIDATE_SUBTREE_WITH_PR_115_AS_DO_NOT_MERGE_REVIEW_SURFACE
+  id: CANDIDATE1_EXACT_PREFREEZE_VALIDATION
+  target: V0_3_7_CANDIDATE1_EXACT_SOURCE_AND_SUBTREE
   objective: >-
-    A genuinely fresh validator uses only the minimal-prime blind entry, inspects the
-    exact frozen candidate subtree, independently derives material candidate claims,
-    attacks, legitimate controls, and unknowns, and persists a Phase-A report before
-    any author-shaped Phase-B context is opened.
-  validator_must_be_fresh: true
-  blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
-  detailed_author_handoff_phase: PHASE_B_ONLY
-  phase_a_before_author_oracle: true
-  phase_a_before_author_attack_map: true
-  phase_a_findings_must_be_persisted: true
-  candidate_branch_head_is_not_review_identity: true
-  frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
-  frozen_candidate_subtree: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
-  review_pr: 115
-  do_not_merge: true
+    Run the full candidate.1 pre-freeze validation on one exact committed source head,
+    preserving Current isolation and combining inherited candidate gates with all
+    successor repair regressions derived from sealed Phase A and later focused probes.
+  candidate_identity: v0.3.7-candidate.1
+  candidate_branch: candidate/v0.3.7-candidate.1
+  observed_pre_gate_head: b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
+  observed_pre_gate_subtree: 25d068d158ee37e4e43481c345cce9281febddd1
+  predecessor_phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
+  current_must_remain: v0.3.6
+  do_not_promote: true
 
-next_after_fresh_phase_a:
-  - seal the Phase-A report with immutable commit/content identity
-  - open the detailed author validator handoff and author-side evidence only after the seal
-  - compare independent findings against author evidence in Phase B
-  - classify whether existing tests catch, miss, false-BLOCK, or overclaim each material finding
-  - allow new attack branches to emerge during Phase B rather than forcing immediate closure
-  - reconcile independent verdict before release preparation
-  - create candidate.1 only if a material candidate-byte correction is required
-  - otherwise preserve candidate.0 frozen identity and proceed through governed release discipline only after acceptance
+next_after_exact_prefreeze:
+  - if exact-source validation fails, repair candidate.1 before freeze and rerun the exact gate
+  - if it passes, bind the exact candidate.1 source commit and subtree in an external freeze record without rewriting tested cargo
+  - explicitly decide whether additional independent post-freeze review is warranted; targeted same-falsifier revalidation is not fresh Phase A
+  - reconcile visible residuals without treating every unknown as a release blocker
+  - only after governed acceptance consider release preparation/promotion; Current remains v0.3.6 until then
 
 candidate1_rule:
-  create_only_if: MATERIAL_CANDIDATE_BYTE_CORRECTION_REQUIRED
-  research_residual_alone_requires_candidate1: false
+  creation_basis: MATERIAL_CANDIDATE_BYTE_CORRECTIONS_ESTABLISHED_BY_SEALED_PHASE_A_AND_PHASE_B
   candidate0_must_remain_frozen_lineage: true
+  candidate1_may_mutate_before_freeze: true
+  candidate1_material_change_after_freeze_requires_successor: true
 
 handoff:
   standardized: true
@@ -237,6 +241,17 @@ handoff:
   project_methodology_required_for_project_manager_takeover: true
   fresh_validator_uses_full_project_manager_takeover_context_before_phase_a: false
   receiver_must_live_reverify: true
+
+successor_repair_transition:
+  id: CANDIDATE1_SUCCESSOR_REPAIR_RECONCILIATION
+  result: TARGETED_REPAIR_PASS_WITH_OPEN_RESIDUALS
+  record: collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md
+  first_repair_commit: 583ac81
+  focused_repair_commit: bc8be8bc02a2b2515cfa1b7eee2c4bd3c2a37f90
+  final_targeted_run: 33052764739
+  final_open_branch_run: 33052764661
+  exact_prefreeze_next: true
+  attack_cardinality: OPEN
 
 forbidden_now:
   - MODIFY_RELEASES_CURRENT

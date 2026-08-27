@@ -1,4 +1,4 @@
-schema_version: "2.4"
+schema_version: "2.5"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -58,32 +58,46 @@ fresh_independent_validation_boundary:
 
 completion_evidence:
   handoff_architecture_pr: 116
-  handoff_architecture_main_merge: fd532380bf1892f481f34fdb090ea38002ac5bc3
   blind_phase_a_method_pr: 119
-  blind_phase_a_method_main_merge: a927f70d6ec91def375ec3cccbc90b2e944e1fd2
-  blind_phase_a_method_checks:
-    main_gate: {run: 33046077141, result: SUCCESS}
-    handoff_structure: {run: 33046077032, result: SUCCESS}
-    codeql: {run: 33046077103, result: SUCCESS}
-  pr115_briefing_rewritten_for_blind_phase_a: true
-  post_merge_readback_completed: true
   current_reverified: "v0.3.6 / CURRENT / FIELD_VALIDATION"
-  active_research_aligned_to_main_after_method_merge: true
-  frozen_candidate_subtree_reverified: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
-  immediate_next_action: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY
+  frozen_candidate0_source: d0e793593184740d9732902e948afd48ed96ae2f
+  frozen_candidate0_subtree: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+  fresh_phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
+  candidate0_phase_b_verdict: NEEDS_REVISION
+  candidate1_branch: candidate/v0.3.7-candidate.1
+  candidate1_observed_head: b76bb9e7d0d2ee820d7dcc3a7f72f20fefe363e6
+  candidate1_observed_subtree: 25d068d158ee37e4e43481c345cce9281febddd1
+  candidate1_reconciliation_record: collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md
+  candidate1_final_targeted_run: 33052764739
+  candidate1_final_open_branch_run: 33052764661
+  candidate1_state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT
+  immediate_next_action: CANDIDATE1_EXACT_PREFREEZE_VALIDATION
+  current_handoff_record_refresh: REQUIRED_AFTER_NEXT_MATERIAL_GATE
+
+candidate1_successor_state:
+  identity: v0.3.7-candidate.1
+  predecessor_identity: v0.3.7-candidate.0
+  predecessor_phase_a_sealed: true
+  predecessor_verdict: NEEDS_REVISION
+  successor_frozen: false
+  successor_current: false
+  exact_prefreeze_validation: PENDING
+  targeted_revalidation_is_fresh_phase_a: false
+  attack_cardinality: OPEN
+  remaining_visible_residuals:
+    - candidate-id cross-environment namespace uniqueness is not universalized without a governing contract
 
 branch_hygiene:
   cleanup_completed_and_reobserved: true
-  live_branches_after_cleanup:
+  live_branches_after_successor_transition:
     - main
     - research/ena-reconstruction
     - candidate/v0.3.7-candidate.0
-  removed_no_unique_work_refs:
-    - research/handoff-structure-refactor
-    - research/work/release-scope-checkpoint-temp
-    - tmp-ignore
-    - tmp-ignore-2
-    - tmp-ignore-3
+    - candidate/v0.3.7-candidate.1
+    - validation/v037-c0-blind-phase-a-primary
+  validation_branch_role: SEALED_PHASE_A_OCCURRENCE_TRUTH
+  candidate0_branch_role: FROZEN_PREDECESSOR_LINEAGE
+  candidate1_branch_role: ACTIVE_SUCCESSOR_PREFREEZE_WORKSPACE
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
