@@ -1,0 +1,99 @@
+schema_version: "2.0"
+handoff_id: "2026-08-27-v037-independent-review-ready"
+status: HANDOFF_READY_FOR_SESSION_SUCCESSION
+prepared_at: "2026-08-27"
+project: Evolution-Native Agent Architecture
+handoff_role: BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY
+
+record_root: "research/handoffs/records/2026-08-27-v037-independent-review-ready/"
+record_files:
+  start_here: HANDOFF-START-HERE.md
+  project_state: PROJECT-STATE.md
+  recent_three_rounds: RECENT-THREE-ROUNDS.md
+  file_catalog: FILE-CATALOG.md
+  manifest: HANDOFF-MANIFEST.yaml
+  post_merge_readback: HANDOFF-READBACK.md
+
+required_handoff_framework:
+  protocol: research/handoffs/HANDOFF-PROTOCOL.md
+  required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
+  project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+
+required_project_methodology:
+  index: research/methodology/README.md
+  master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+  project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+
+canonical_project_sources:
+  project_hub: PROJECT-HUB.md
+  current_baseline: releases/current/CURRENT-BASELINE.yaml
+  active_research_pointer: research/ACTIVE-RESEARCH.yaml
+  progress: research/plans/PROGRESS.yaml
+  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+
+observed_project_state:
+  main_head_before_handoff_structure_refactor: acce46af40e6d53f93759fbe75609c9478e2eea3
+  active_research_branch: research/ena-reconstruction
+  active_research_observed_head: 487ce8f1afe724ea74abb0e07a5e1751b7e3488c
+  active_research_tree_content_equal_to_main_at_observation: true
+  candidate_branch: candidate/v0.3.7-candidate.0
+  candidate_branch_observed_head: 828c7b0832d83062511e337a9286dc826a081101
+  branch_heads_must_be_live_reverified_before_write: true
+
+current:
+  version: v0.3.6
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  current_change_authorized: false
+
+frozen_candidate:
+  identity: v0.3.7-candidate.0
+  state: FROZEN_INDEPENDENT_FALSIFICATION_REVIEW_OPEN
+  frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
+  frozen_subtree_sha: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+  subtree_path: releases/v0.3.7-candidate/
+  freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md
+  branch_head_is_frozen_identity: false
+
+anti_ablation_transition:
+  status: COMPLETE
+  verdict: PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
+  audit_record: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
+  workflow_run: 33035656311
+  candidate_bytes_changed: false
+  candidate1_required_by_audit: false
+
+independent_falsification:
+  status: PENDING_FRESH_PHASE_A
+  review_pr: 115
+  review_pr_mode: DRAFT_DO_NOT_MERGE
+  validator_must_be_fresh: true
+  phase_a_before_author_oracle: true
+
+immediate_next_action:
+  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
+  objective: >-
+    Fresh validator inspects exact frozen candidate bytes and independently derives
+    material attacks before consulting author-side expected behavior/oracles.
+
+forbidden_now:
+  - MODIFY_RELEASES_CURRENT
+  - CLAIM_V0_3_7_CURRENT
+  - EDIT_FROZEN_CANDIDATE0_IN_PLACE
+  - TREAT_AUTHOR_PASS_AS_INDEPENDENT_VALIDATION
+  - TREAT_ANTI_ABLATION_AUDIT_AS_INDEPENDENT_VALIDATION
+  - LET_AUTHOR_ORACLE_PRECEDE_FRESH_PHASE_A
+  - MERGE_PR_115_AS_RELEASE_OR_PROMOTION
+  - CREATE_CANDIDATE1_WITHOUT_MATERIAL_CANDIDATE_BYTE_DEFECT
+  - SILENTLY_COLLAPSE_UNPROVEN_HOW_FAILURE_HOST_EVIDENCE_VARIATION
+
+handoff_structure_rule:
+  reusable_handoff_method_inside_record: false
+  reusable_project_management_method_inside_record: false
+  project_methodology_mandatory_for_takeover: true
+  handoff_protocol_mandatory_for_takeover: true
+
+receiver_rule: >-
+  Inherit the handoff framework and project methodology as first-class context,
+  then use this record for fast project-state bootstrap and live reverify canonical state.
