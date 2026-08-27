@@ -1,0 +1,47 @@
+name: ENA v0.3.7 Candidate.1 Post-Freeze Progress Alignment
+
+on:
+  push:
+    branches: [research/ena-reconstruction]
+    paths:
+      - '.github/candidate1-postfreeze-progress-alignment.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  align-progress:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Align post-freeze progress projection
+        run: python .github/scripts/align_v037_candidate1_postfreeze_progress.py
+      - name: Verify exact mutation scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          changed="$(git diff --name-only)"
+          test "$changed" = 'research/plans/PROGRESS.yaml' || {
+            echo 'unexpected mutation scope:'
+            printf '%s\n' "$changed"
+            exit 1
+          }
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
+          echo 'CANDIDATE1_POSTFREEZE_PROGRESS_ALIGNMENT_SCOPE_PASS'
+      - name: Commit aligned progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/plans/PROGRESS.yaml
+          git commit -m 'control-plane: align candidate.1 frozen progress detail'
+          git push origin HEAD:research/ena-reconstruction
