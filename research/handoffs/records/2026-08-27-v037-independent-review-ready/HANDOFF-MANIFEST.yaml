@@ -1,6 +1,6 @@
 schema_version: "2.0"
 handoff_id: "2026-08-27-v037-independent-review-ready"
-status: HANDOFF_READY_FOR_SESSION_SUCCESSION
+status: HANDOFF_STRUCTURE_READY_PENDING_MAIN_READBACK
 prepared_at: "2026-08-27"
 project: Evolution-Native Agent Architecture
 handoff_role: BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY
@@ -93,6 +93,12 @@ handoff_structure_rule:
   reusable_project_management_method_inside_record: false
   project_methodology_mandatory_for_takeover: true
   handoff_protocol_mandatory_for_takeover: true
+
+completion:
+  structure_refactor_written: true
+  integrated_to_main: false
+  post_merge_main_readback_completed: false
+  ready_for_session_successor: false
 
 receiver_rule: >-
   Inherit the handoff framework and project methodology as first-class context,
