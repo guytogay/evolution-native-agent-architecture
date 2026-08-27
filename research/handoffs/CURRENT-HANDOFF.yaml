@@ -1,4 +1,4 @@
-schema_version: "2.1"
+schema_version: "2.2"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -54,18 +54,17 @@ completion_evidence:
   immediate_next_action: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
 
 branch_hygiene:
-  cleanup_is_handoff_blocker: false
-  manual_cleanup_pending_reobservation: true
-  delete_safe_no_unique_work:
+  cleanup_completed_and_reobserved: true
+  live_branches_after_cleanup:
+    - main
+    - research/ena-reconstruction
+    - candidate/v0.3.7-candidate.0
+  removed_no_unique_work_refs:
     - research/handoff-structure-refactor
     - research/work/release-scope-checkpoint-temp
     - tmp-ignore
     - tmp-ignore-2
     - tmp-ignore-3
-  retain:
-    - main
-    - research/ena-reconstruction
-    - candidate/v0.3.7-candidate.0
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
