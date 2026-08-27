@@ -118,8 +118,8 @@ phase_state:
     current_candidate_identity: v0.3.7-candidate.2
     predecessor_frozen_identity: v0.3.7-candidate.1
     mutable_in_place: true_until_candidate2_freeze
-    exact_prefreeze_validation: PASS
-    exact_prefreeze_run: 33055811978
+    exact_prefreeze_validation: NOT_RUN
+    exact_prefreeze_run: null
 
   author_validation:
     state: CANDIDATE1_EXACT_PREFREEZE_PASS_WITH_INHERITED_AUTHOR_AND_ANTI_ABLATION_REPLAY
@@ -138,8 +138,8 @@ phase_state:
     invalid_intake_phase_a_sealed: false
     active_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
     active_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
-    active_issue: 131
-    active_branch: validation/v037-c1-blind-semantic-primary
+    completed_issue: 131
+    sealed_branch: validation/v037-c1-blind-semantic-primary
     detailed_author_handoff_disposition: RETAINED_AS_PHASE_B_CONTEXT_ONLY
     candidate_bytes_affected_by_method_change: false
     candidate2_required_by_method_change: false
@@ -231,15 +231,16 @@ completed_transition:
 current_method_transition:
   id: CANDIDATE_SELF_PRIMING_TO_BLIND_SEMANTIC_VIEW
   target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE1
-  result: BLIND_SEMANTIC_VIEW_READY_A_S_A_P_INTAKE_131
+  result: BLIND_SEMANTIC_VIEW_COMPLETED_A_S_A_P_SEALED_PHASE_B_NEEDS_REVISION
   method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
   incident: research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md
   reconciliation: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
   invalid_issue: 128
-  active_issue: 131
-  active_branch: validation/v037-c1-blind-semantic-primary
+  completed_issue: 131
+  sealed_branch: validation/v037-c1-blind-semantic-primary
   candidate_bytes_changed: false
-  candidate2_required: false
+  candidate2_required_by_method_change: false
+  candidate2_required_by_phase_b_defects: true
 
 immediate_next_action:
   id: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR

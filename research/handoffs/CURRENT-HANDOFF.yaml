@@ -95,7 +95,7 @@ completion_evidence:
   candidate1_independence_decision_record: collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md
   candidate1_invalidated_phase_a_issue: 128
   candidate1_invalidated_phase_a_seal_exists: false
-  candidate1_active_a_s_a_p_issue: 131
+  candidate1_completed_a_s_a_p_issue: 131
   candidate1_blind_semantic_branch: validation/v037-c1-blind-semantic-primary
   candidate1_blind_semantic_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
   candidate1_blind_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
@@ -107,7 +107,7 @@ completion_evidence:
   candidate1_phase_b_verdict: NEEDS_REVISION
   candidate2_branch: candidate/v0.3.7-candidate.2
   immediate_next_action: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR
-  current_handoff_record_refresh: COMPLETE_CANDIDATE1_BLIND_SEMANTIC_READY
+  current_handoff_record_refresh: REQUIRED_AFTER_CANDIDATE2_FOCUSED_REPAIR
 
 candidate1_successor_state:
   identity: v0.3.7-candidate.1
