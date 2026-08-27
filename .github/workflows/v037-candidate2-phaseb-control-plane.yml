@@ -1,0 +1,50 @@
+name: ENA v0.3.7 Candidate.2 Phase B Control Plane
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - .github/candidate2-phaseb-control-plane.trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-control-plane:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+      - name: Verify no release cargo mutation in incoming trigger
+        run: |
+          git diff --name-only HEAD^ HEAD | tee /tmp/incoming.txt
+          if grep -E '^releases/(current|v0\.3\.7-candidate)/' /tmp/incoming.txt; then
+            echo 'release cargo mutation not allowed in this control-plane trigger'
+            exit 1
+          fi
+      - name: Apply exact control-plane transition
+        run: python .github/scripts/apply_v037_candidate2_phaseb_control_plane.py
+      - name: Scope check
+        run: |
+          git diff --name-only | tee /tmp/changed.txt
+          test -s /tmp/changed.txt
+          bad=$(grep -Ev '^(research/ACTIVE-RESEARCH\.yaml|research/plans/PROGRESS\.yaml|research/handoffs/CURRENT-HANDOFF\.yaml|research/RESEARCH-START-HERE\.md|research/BRANCH-INVENTORY\.yaml)$' /tmp/changed.txt || true)
+          if [ -n "$bad" ]; then
+            echo "unexpected changed files:"
+            echo "$bad"
+            exit 1
+          fi
+          if grep -E '^releases/' /tmp/changed.txt; then
+            echo 'release cargo changed'
+            exit 1
+          fi
+      - name: Commit canonical transition
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/plans/PROGRESS.yaml research/handoffs/CURRENT-HANDOFF.yaml research/RESEARCH-START-HERE.md research/BRANCH-INVENTORY.yaml
+          git commit -m 'control-plane: candidate.1 needs revision; candidate.2 repair next'
+          git push origin HEAD:research/ena-reconstruction
