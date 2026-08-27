@@ -1,4 +1,4 @@
-trigger=2026-08-28-candidate2-fresh-intake-ready
+trigger=2026-08-28-candidate2-fresh-intake-ready-retry2
 frozen_source=bda470e0a6b170cec61225a905957a501454a2fe
 frozen_candidate_tree=d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
 validation_view_head=d020d82d442156b75c667ee9f987f2654d814561
