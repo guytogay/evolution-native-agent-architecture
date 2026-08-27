@@ -1,4 +1,4 @@
-schema_version: "2.2"
+schema_version: "2.3"
 handoff_id: "2026-08-27-v037-independent-review-ready"
 status: HANDOFF_READY_FOR_SESSION_SUCCESSION
 prepared_at: "2026-08-27"
@@ -19,12 +19,14 @@ required_handoff_framework:
   protocol: research/handoffs/HANDOFF-PROTOCOL.md
   required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+  applies_to_role: PROJECT_MANAGER_SESSION_SUCCESSION
 
 required_project_methodology:
   index: research/methodology/README.md
   master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
   convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
   project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+  independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
 
 canonical_project_sources:
   project_hub: PROJECT-HUB.md
@@ -71,17 +73,23 @@ anti_ablation_transition:
   candidate1_required_by_audit: false
 
 independent_falsification:
-  status: PENDING_FRESH_PHASE_A
+  status: PENDING_FRESH_PHASE_A_VIA_BLIND_ENTRY
   review_pr: 115
   review_pr_mode: DRAFT_DO_NOT_MERGE
   validator_must_be_fresh: true
-  phase_a_before_author_oracle: true
+  blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
+  detailed_author_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
+  detailed_author_handoff_phase: PHASE_B_ONLY_AFTER_PHASE_A_SEAL
+  validator_receives_full_project_manager_takeover_before_phase_a: false
+  author_attack_map_before_phase_a: forbidden
+  phase_a_findings_persisted_before_phase_b: true
 
 immediate_next_action:
-  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
+  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY
   objective: >-
-    Fresh validator inspects exact frozen candidate bytes and independently derives
-    material attacks before consulting author-side expected behavior/oracles.
+    Fresh validator inspects exact frozen candidate bytes through the minimal-prime
+    blind Phase-A entry and independently derives material claims, attacks, legitimate
+    controls, and unknowns before author-shaped Phase-B context is opened.
 
 branch_cleanup:
   status: COMPLETE_REOBSERVED
@@ -102,7 +110,8 @@ forbidden_now:
   - EDIT_FROZEN_CANDIDATE0_IN_PLACE
   - TREAT_AUTHOR_PASS_AS_INDEPENDENT_VALIDATION
   - TREAT_ANTI_ABLATION_AUDIT_AS_INDEPENDENT_VALIDATION
-  - LET_AUTHOR_ORACLE_PRECEDE_FRESH_PHASE_A
+  - LET_AUTHOR_ORACLE_OR_ATTACK_MAP_PRECEDE_FRESH_PHASE_A
+  - SEND_FRESH_VALIDATOR_THROUGH_FULL_PROJECT_MANAGER_HANDOFF_BEFORE_PHASE_A
   - MERGE_PR_115_AS_RELEASE_OR_PROMOTION
   - CREATE_CANDIDATE1_WITHOUT_MATERIAL_CANDIDATE_BYTE_DEFECT
   - SILENTLY_COLLAPSE_UNPROVEN_HOW_FAILURE_HOST_EVIDENCE_VARIATION
@@ -110,8 +119,9 @@ forbidden_now:
 handoff_structure_rule:
   reusable_handoff_method_inside_record: false
   reusable_project_management_method_inside_record: false
-  project_methodology_mandatory_for_takeover: true
-  handoff_protocol_mandatory_for_takeover: true
+  project_methodology_mandatory_for_project_manager_takeover: true
+  handoff_protocol_mandatory_for_project_manager_takeover: true
+  fresh_validator_context_is_role_scoped: true
 
 completion:
   integrated_to_main: true
@@ -123,6 +133,7 @@ completion:
   ready_for_session_successor: true
 
 receiver_rule: >-
-  Inherit project state, the handoff/takeover protocol, project-management discipline,
-  and project methodology as first-class context; use this record for fast bootstrap,
-  then live-reverify canonical state before substantive work.
+  Project-manager successors inherit project state, handoff/takeover protocol,
+  project-management discipline, and project methodology as first-class context.
+  Fresh independent validators are a different role and must use the minimal-prime
+  Phase-A entry before detailed author/project context opens.
