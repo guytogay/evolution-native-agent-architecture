@@ -1,6 +1,6 @@
-schema_version: "2.0"
+schema_version: "2.1"
 as_of: "2026-08-27"
-status: V0_3_7_CANDIDATE0_FROZEN_INDEPENDENT_FALSIFICATION_REVIEW_OPEN
+status: V0_3_7_CANDIDATE0_FROZEN_BLIND_FRESH_PHASE_A_READY
 
 progress_is_complete_history: false
 
@@ -16,6 +16,7 @@ canonical_pointers:
   research_bootstrap: research/RESEARCH-START-HERE.md
   methodology: research/methodology/README.md
   convergence_divergence_method: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+  independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
   alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
   operational_architecture: research/operational-architecture/README.md
@@ -51,7 +52,8 @@ frozen_candidate0:
   subtree_path: releases/v0.3.7-candidate/
   freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md
   freeze_record_commit: a3b5c16fa7af1559c84be5f9ee47351db5d0387e
-  independent_falsification_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
+  detailed_independent_falsification_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
+  blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
   anti_ablation_audit: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
   anti_ablation_workflow_run: 33035656311
   independent_falsification_review_pr: 115
@@ -59,7 +61,7 @@ frozen_candidate0:
   exact_prefreeze_workflow: ENA v0.3.7 Candidate Exact Pre-Freeze Gate
   exact_prefreeze_run: 33011823923
   exact_prefreeze_result: SUCCESS
-  independent_semantic_falsification: PENDING_FRESH_PHASE_A
+  independent_semantic_falsification: PENDING_FRESH_PHASE_A_VIA_BLIND_ENTRY
   release_decision: NOT_MADE
   candidate_succession_stop: NOT_DECIDED
 
@@ -90,26 +92,32 @@ phase_state:
     author_evidence_is_independent_evidence: false
 
   validation_method_reconciliation:
-    state: ANTI_ABLATION_AUDIT_COMPLETE_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
-    trigger: >-
-      User challenged the project's unverified claim that reducing the author harness
-      from an observed 1080 pass conditions to 188 structured pass conditions was
-      epistemically better. Direct old/new comparison found both legitimate lifecycle-
-      aware oracle repair and several materially distinct lost failure shapes.
-    canonical_method: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
-    audit_record: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
-    machine_run: 33035656311
+    state: BLIND_PHASE_A_INFORMATION_BOUNDARY_ADDED
+    previous_transition: ANTI_ABLATION_AUDIT_COMPLETE_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
+    new_trigger: >-
+      Re-takeover review found that the original independent-validator handoff and PR 115
+      exposed a detailed author-generated attack map before Phase A. Although not an
+      expected-verdict oracle, this could prime the validator's search space and preserve
+      shared author/validator blind spots.
+    canonical_method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+    incident_record: research/methodology/incidents/2026-08-27-INDEPENDENT-VALIDATOR-PRIMING-INCIDENT.md
+    blind_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
+    detailed_author_handoff_disposition: RETAINED_AS_PHASE_B_CONTEXT
     candidate_bytes_affected_by_method_change: false
-    candidate1_required_by_audit: false
+    candidate1_required_by_method_change: false
 
   independent_falsification:
-    state: REVIEW_PR_115_OPEN_AWAITING_FRESH_PHASE_A
+    state: REVIEW_PR_115_OPEN_AWAITING_FRESH_BLIND_PHASE_A
     review_pr: 115
     validator_must_be_fresh: true
+    blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
     author_oracle_must_not_precede_phase_a: true
+    author_attack_map_must_not_precede_phase_a: true
+    phase_a_findings_must_be_persisted_before_phase_b: true
+    project_manager_takeover_context_is_phase_a_context: false
 
   handoff_framework:
-    state: STRUCTURE_REFACTORED_FRAMEWORK_RECORDS_METHODOLOGY_SEPARATED
+    state: FRAMEWORK_RECORDS_METHODOLOGY_SEPARATED_WITH_VALIDATOR_ROLE_BOUNDARY
     framework_root: research/handoffs/
     records_root: research/handoffs/records/
     handoff_protocol: research/handoffs/HANDOFF-PROTOCOL.md
@@ -117,6 +125,7 @@ phase_state:
     project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
     project_methodology_root: research/methodology/
     project_state_without_method_is_complete_takeover: false
+    full_project_manager_context_for_fresh_phase_a: false
 
   promotion:
     state: NOT_STARTED
@@ -169,16 +178,32 @@ completed_transition:
     route-to-deferred-manifest coupling, and stale competing primary-tool-route checks
     were materially distinct lost shapes and were restored tree-external.
 
+current_method_transition:
+  id: FRESH_VALIDATOR_INFORMATION_BOUNDARY
+  target: VALIDATION_METHOD_OUTSIDE_FROZEN_CANDIDATE0
+  result: BLIND_PHASE_A_ENTRY_PREPARED
+  method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+  incident: research/methodology/incidents/2026-08-27-INDEPENDENT-VALIDATOR-PRIMING-INCIDENT.md
+  blind_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
+  original_detailed_handoff_erased: false
+  original_detailed_handoff_phase: PHASE_B_AFTER_PHASE_A_SEAL
+  candidate_bytes_changed: false
+  candidate1_required: false
+
 immediate_next_action:
-  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
-  target: PULL_REQUEST_115_BOUND_TO_FROZEN_SOURCE_AND_SUBTREE
+  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY
+  target: EXACT_FROZEN_CANDIDATE_SUBTREE_WITH_PR_115_AS_DO_NOT_MERGE_REVIEW_SURFACE
   objective: >-
-    Have a fresh validator inspect the exact frozen candidate bytes and independently
-    derive false-claim, false-confidence, false-BLOCK, routing, composition, migration,
-    language, and operational-inhabitability attacks before consulting author-side
-    expected outcomes or validation oracles.
+    A genuinely fresh validator uses only the minimal-prime blind entry, inspects the
+    exact frozen candidate subtree, independently derives material candidate claims,
+    attacks, legitimate controls, and unknowns, and persists a Phase-A report before
+    any author-shaped Phase-B context is opened.
   validator_must_be_fresh: true
+  blind_phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md
+  detailed_author_handoff_phase: PHASE_B_ONLY
   phase_a_before_author_oracle: true
+  phase_a_before_author_attack_map: true
+  phase_a_findings_must_be_persisted: true
   candidate_branch_head_is_not_review_identity: true
   frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
   frozen_candidate_subtree: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
@@ -186,8 +211,11 @@ immediate_next_action:
   do_not_merge: true
 
 next_after_fresh_phase_a:
-  - compare independent findings against author evidence only in Phase B
+  - seal the Phase-A report with immutable commit/content identity
+  - open the detailed author validator handoff and author-side evidence only after the seal
+  - compare independent findings against author evidence in Phase B
   - classify whether existing tests catch, miss, false-BLOCK, or overclaim each material finding
+  - allow new attack branches to emerge during Phase B rather than forcing immediate closure
   - reconcile independent verdict before release preparation
   - create candidate.1 only if a material candidate-byte correction is required
   - otherwise preserve candidate.0 frozen identity and proceed through governed release discipline only after acceptance
@@ -206,7 +234,8 @@ handoff:
   records_root: research/handoffs/records/
   outgoing_session_reason: CURRENT_SESSION_UNSTABLE_INTENTIONAL_SUCCESSION
   handoff_record_is_project_authority: false
-  project_methodology_required_for_takeover: true
+  project_methodology_required_for_project_manager_takeover: true
+  fresh_validator_uses_full_project_manager_takeover_context_before_phase_a: false
   receiver_must_live_reverify: true
 
 forbidden_now:
@@ -215,7 +244,8 @@ forbidden_now:
   - EDIT_FROZEN_CANDIDATE0_IN_PLACE
   - TREAT_AUTHOR_PASS_AS_INDEPENDENT_VALIDATION
   - TREAT_ANTI_ABLATION_AUDIT_AS_INDEPENDENT_VALIDATION
-  - LET_AUTHOR_ORACLE_PRECEDE_FRESH_PHASE_A
+  - LET_AUTHOR_ORACLE_OR_ATTACK_MAP_PRECEDE_FRESH_PHASE_A
+  - SEND_FRESH_VALIDATOR_THROUGH_FULL_PROJECT_MANAGER_HANDOFF_BEFORE_PHASE_A
   - MERGE_PR_115_AS_RELEASE_OR_PROMOTION
   - CREATE_CANDIDATE1_WITHOUT_MATERIAL_CANDIDATE_BYTE_DEFECT
   - SILENTLY_COLLAPSE_UNPROVEN_HOW_FAILURE_HOST_VARIATION
@@ -232,6 +262,9 @@ invariants:
   - NEW_CORE_SEMANTIC_DELTA_ZERO_NE_RELEASE_VALUE_ZERO
   - COMPRESS_REPRESENTATION_NE_COMPRESS_POSSIBILITY_SPACE
   - PROVEN_BEHAVIORAL_EQUIVALENCE_REQUIRED_BEFORE_MATERIAL_COLLAPSE
+  - PROJECT_MANAGER_TAKEOVER_CONTEXT_NE_FRESH_VALIDATOR_PRE_PHASE_A_CONTEXT
+  - PHASE_A_FINDINGS_PERSISTED_BEFORE_PHASE_B_CONTEXT
+  - PRIOR_MATERIAL_EXPOSURE_NE_RECOVERABLE_FRESHNESS_BY_INSTRUCTION
   - HANDOFF_RECORD_NE_PROJECT_AUTHORITY
   - HANDOFF_FRAMEWORK_NE_HANDOFF_RECORD
   - HANDOFF_RECORD_NE_PROJECT_METHODOLOGY
