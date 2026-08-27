@@ -1,0 +1,41 @@
+name: ENA v0.3.7 Candidate.1 Control Plane Update
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - .github/candidate1-control-plane.trigger
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply exact-anchor control-plane transition
+        run: python .github/scripts/apply_v037_candidate1_control_plane.py
+      - name: Verify scope and syntax hygiene
+        run: |
+          set -euo pipefail
+          git diff --check
+          git diff --name-only
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
+          grep -q 'CANDIDATE1_SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT' research/ACTIVE-RESEARCH.yaml
+          grep -q 'CANDIDATE1_EXACT_PREFREEZE_VALIDATION' research/plans/PROGRESS.yaml
+          grep -q 'candidate1_state: SUCCESSOR_REPAIR_RECONCILED_EXACT_PREFREEZE_NEXT' research/handoffs/CURRENT-HANDOFF.yaml
+      - name: Commit control-plane transition
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/plans/PROGRESS.yaml research/handoffs/CURRENT-HANDOFF.yaml
+          git commit -m 'control-plane: advance to candidate.1 exact pre-freeze validation'
+          git push origin HEAD:research/ena-reconstruction
