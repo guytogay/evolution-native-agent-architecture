@@ -1,6 +1,6 @@
 schema_version: "2.1"
-as_of: "2026-08-27"
-status: V0_3_7_CANDIDATE1_NEEDS_REVISION_CANDIDATE2_FOCUSED_REPAIR_NEXT
+as_of: "2026-08-28"
+status: V0_3_7_CANDIDATE2_FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
 
 progress_is_complete_history: false
 
@@ -91,12 +91,30 @@ successor_candidate1:
 
 successor_candidate2:
   identity: v0.3.7-candidate.2
-  state: FOCUSED_SUCCESSOR_REPAIR_NEXT
+  state: FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
   candidate_branch: candidate/v0.3.7-candidate.2
+  branch_head_is_frozen_identity: false
   created_from_candidate1_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
-  frozen: false
+  frozen: true
   current: false
-  repair_basis: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
+  frozen_source_commit: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_candidate_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  current_subtree_same_source: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  final_candidate_cargo_commit: aba6f12cabc84146c92809bd7d8293a3c907dc55
+  focused_repair_run: 33090294820
+  nearby_open_branch_probe_run: 33090585653
+  round2_repair_run: 33091573678
+  committed_reprobe_run: 33091652046
+  prefreeze_status_transition_run: 33095122958
+  exact_prefreeze_run: 33095987843
+  exact_prefreeze_validation: PASS
+  repair_reconciliation_record: collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md
+  freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
+  independence_decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
+  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
+  mutable_in_place: false
+  material_change_requires_successor: v0.3.7-candidate.3
+  attack_cardinality: OPEN
 
 phase_state:
   anti_ablation_archaeology:
@@ -114,19 +132,23 @@ phase_state:
     new_core_semantic_delta_required: 0_DEMONSTRATED
 
   candidate_build:
-    state: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR_NEXT
+    state: CANDIDATE2_FROZEN
     current_candidate_identity: v0.3.7-candidate.2
     predecessor_frozen_identity: v0.3.7-candidate.1
-    mutable_in_place: true_until_candidate2_freeze
-    exact_prefreeze_validation: NOT_RUN
-    exact_prefreeze_run: null
+    mutable_in_place: false
+    exact_prefreeze_validation: PASS
+    exact_prefreeze_run: 33095987843
+    frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+    frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
 
   author_validation:
-    state: CANDIDATE1_EXACT_PREFREEZE_PASS_WITH_INHERITED_AUTHOR_AND_ANTI_ABLATION_REPLAY
-    candidate1_exact_prefreeze_run: 33055811978
-    predecessor_candidate0_exact_prefreeze_run: 33011823923
-    candidate0_anti_ablation_run: 33035656311
+    state: CANDIDATE2_EXACT_PREFREEZE_PASS_WITH_SUCCESSOR_AND_INHERITED_REPLAY
+    candidate2_exact_prefreeze_run: 33095987843
+    candidate2_focused_repair_run: 33090294820
+    candidate2_round2_repair_run: 33091573678
+    candidate2_committed_reprobe_run: 33091652046
     author_evidence_is_independent_evidence: false
+    attack_cardinality: OPEN
 
   validation_method_reconciliation:
     state: BLIND_SEMANTIC_VIEW_METHOD_REPAIRED_AFTER_CANDIDATE_SELF_PRIMING
@@ -145,24 +167,17 @@ phase_state:
     candidate2_required_by_method_change: false
 
   independent_falsification:
-    state: CANDIDATE1_A_S_A_P_SEALED_PHASE_B_NEEDS_REVISION
-    predecessor_review_pr: 115
-    predecessor_phase_a_seal: 5ba3d241efa460fe170253860ad67045aa1d96a5
-    candidate0_verdict: NEEDS_REVISION
-    candidate1_targeted_revalidation_is_fresh_phase_a: false
-    candidate1_additional_independent_review_after_freeze: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
-    invalid_candidate1_intake_issue: 128
-    invalid_candidate1_intake_result: REVIEWER_INELIGIBLE_AFTER_SELF_PRIMING_NO_SEAL
-    active_candidate1_issue: 131
-    active_candidate1_branch: validation/v037-c1-blind-semantic-primary
-    active_candidate1_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
+    state: CANDIDATE2_FROZEN_FRESH_BLIND_VIEW_PREPARATION_NEXT
     candidate1_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
     candidate1_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
     candidate1_phase_b_verdict: NEEDS_REVISION
-    candidate1_phase_b_record: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
-    a_s_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md
-    a_p_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md
-    independent_sequence: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
+    candidate2_exact_prefreeze_run: 33095987843
+    candidate2_frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+    candidate2_frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+    candidate2_fresh_review_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
+    candidate2_fresh_review_completed: false
+    current_project_manager_is_fresh_candidate2_reviewer: false
+    sequence_required: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
     attack_cardinality: OPEN
 
   handoff_framework:
@@ -243,26 +258,27 @@ current_method_transition:
   candidate2_required_by_phase_b_defects: true
 
 immediate_next_action:
-  id: CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR
-  target: V0_3_7_CANDIDATE2
+  id: PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE
+  target: FROZEN_V0_3_7_CANDIDATE2
   objective: >-
-    Repair the four material frozen-candidate.1 semantic defects sealed by fresh A-S and confirmed by A-P/Phase B,
-    plus the deterministic active-package self-description drift, without mutating candidate.1 or Current.
-  candidate_identity: v0.3.7-candidate.2
-  candidate_branch: candidate/v0.3.7-candidate.2
-  predecessor_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
-  predecessor_frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
-  phase_b_record: collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md
+    Construct a declared blind semantic view of the exact frozen candidate.2 tree,
+    withholding candidate-local history/oracle roles before A-S while preserving
+    retained executable semantic bytes unchanged; then prepare one genuinely fresh
+    A-S -> A-P intake and stop the fresh reviewer before Phase B.
+  frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  exact_prefreeze_run: 33095987843
+  current_project_manager_may_claim_fresh_a_s: false
   current_must_remain: v0.3.6
   do_not_promote: true
 
-candidate2_repair_path:
-  - implement narrow semantic repairs for A-S-01 through A-S-04
-  - repair A-P-05 active package/self-description drift
-  - add mutation-sensitive regressions and legitimate-behavior controls
-  - run focused nearby open-branch probes without pretending this is fresh A-S
-  - only after repair reconciliation run exact candidate.2 prefreeze validation
-  - preserve non-contract residuals rather than universalizing them for closure
+candidate2_postfreeze_path:
+  - prepare exact frozen-source blind semantic view with declared information-role exclusions
+  - verify every retained candidate byte equals frozen source and view exclusions are not release ablation
+  - prepare neutral fresh intake without predecessor findings, repair narrative, or author oracle
+  - require A-S artifact persistence/seal before withheld candidate-local history/oracles open
+  - permit A-P only after A-S seal and stop independent reviewer before Phase B
+  - keep attack cardinality open and preserve Current v0.3.6
 
 candidate1_rule:
   creation_basis: MATERIAL_CANDIDATE_BYTE_CORRECTIONS_ESTABLISHED_BY_SEALED_PHASE_A_AND_PHASE_B
@@ -305,8 +321,10 @@ forbidden_now:
   - CLAIM_V0_3_7_CURRENT
   - EDIT_FROZEN_CANDIDATE0_IN_PLACE
   - EDIT_FROZEN_CANDIDATE1_IN_PLACE
+  - EDIT_FROZEN_CANDIDATE2_IN_PLACE
   - REUSE_INVALIDATED_ISSUE_128_AS_ACTIVE_FRESH_INTAKE
   - PRIME_CANDIDATE1_FRESH_VALIDATOR_WITH_AUTHOR_REPAIR_OR_ATTACK_CONTEXT
+  - PRIME_CANDIDATE2_FRESH_VALIDATOR_WITH_AUTHOR_REPAIR_OR_ATTACK_CONTEXT
   - PRIME_A_S_WITH_WITHHELD_CANDIDATE_LOCAL_HISTORY_OR_ORACLE_SURFACES
   - TREAT_AUTHOR_PASS_AS_INDEPENDENT_VALIDATION
   - TREAT_ANTI_ABLATION_AUDIT_AS_INDEPENDENT_VALIDATION

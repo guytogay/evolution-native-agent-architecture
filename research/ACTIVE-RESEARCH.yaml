@@ -1,13 +1,13 @@
 schema_version: "2.2"
 status: ACTIVE_RESEARCH_POINTER
-updated_at: "2026-08-27"
+updated_at: "2026-08-28"
 
 # Canonical main-visible pointer for continuing ENA research/release preparation.
 # Do not infer active work from recency, branch names, old PR numbers, or cached SHAs.
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE1_NEEDS_REVISION / CANDIDATE2_FOCUSED_REPAIR_NEXT / NOT_CURRENT / NOT_RELEASED"
+  state: "V0_3_7_CANDIDATE2_FROZEN / FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT / NOT_CURRENT / NOT_RELEASED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -62,77 +62,44 @@ continuation_protocol:
   - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "V0_3_7_CANDIDATE1_A_S_A_P_PHASE_B_NEEDS_REVISION_CANDIDATE2_REQUIRED"
+  event: "V0_3_7_CANDIDATE2_EXACT_PREFREEZE_PASS_EXTERNALLY_FROZEN_FRESH_BLIND_REVIEW_WARRANTED"
   current_changed_by_transition: false
   next_version: "v0.3.7"
-  predecessor_candidate_identity: "v0.3.7-candidate.0"
-  predecessor_frozen_source: "d0e793593184740d9732902e948afd48ed96ae2f"
-  predecessor_frozen_subtree: "cffbf76fe1448b020b637c78d1f7ae46e4c0115b"
-  predecessor_phase_a_seal: "5ba3d241efa460fe170253860ad67045aa1d96a5"
-  predecessor_verdict: NEEDS_REVISION
-  active_candidate_identity: "v0.3.7-candidate.1"
-  active_candidate_branch: "candidate/v0.3.7-candidate.1"
-  active_candidate_observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-  active_candidate_observed_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
-  successor_reconciliation_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-successor-repair-reconciliation.md"
-  final_targeted_run: 33052764739
-  final_open_branch_probe_run: 33052764661
-  candidate_state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE2
-  exact_prefreeze_run: 33055811978
-  frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-  frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
-  freeze_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md"
-  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
-  independence_decision_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md"
-  invalidated_phase_a_issue: 128
-  invalidated_phase_a_branch: "validation/v037-c1-blind-phase-a-primary"
-  invalidated_phase_a_result: CANDIDATE_SELF_PRIMING_NO_SEAL
-  fresh_a_s_a_p_issue: 131
-  fresh_a_s_a_p_branch: "validation/v037-c1-blind-semantic-primary"
-  fresh_a_s_a_p_entry: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md"
-  blind_view_manifest: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml"
-  blind_view_repair_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md"
-  self_priming_incident: "research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md"
-  exact_prefreeze_next: false
-  fresh_a_s_seal: "2e6b46aeedc1945a03aac93620ad36aa1ccbd70f"
-  final_a_p_commit: "b970148fe9596ea9cad0a2817a3b399a1d2b75f5"
-  phase_b_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md"
-  phase_b_verdict: NEEDS_REVISION
-  successor_required: "v0.3.7-candidate.2"
+  active_candidate_identity: "v0.3.7-candidate.2"
+  active_candidate_branch: "candidate/v0.3.7-candidate.2"
+  candidate_state: FROZEN_NOT_CURRENT_NOT_RELEASED
+  final_candidate_cargo_commit: "aba6f12cabc84146c92809bd7d8293a3c907dc55"
+  exact_prefreeze_run: 33095987843
+  frozen_source: "bda470e0a6b170cec61225a905957a501454a2fe"
+  frozen_subtree: "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+  current_subtree_same_source: "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+  repair_reconciliation_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md"
+  freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md"
+  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
+  independence_decision_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md"
+  blind_semantic_view_preparation_next: true
+  fresh_candidate2_review_completed: false
+  fresh_candidate2_review_by_current_project_manager_allowed: false
+  attack_cardinality: OPEN
 
 candidate_validation_transition:
-  current_state: CANDIDATE1_FROZEN_NEEDS_REVISION_CANDIDATE2_FOCUSED_REPAIR_NEXT
+  current_state: CANDIDATE2_FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
   completed:
-    - release scope stabilized and v0.3.7 assigned
-    - candidate.0 assembled, exact-pre-freeze validated, and externally frozen
-    - blind Phase-A information boundary integrated before independent review
-    - fresh blind Phase A sealed at 5ba3d241efa460fe170253860ad67045aa1d96a5
-    - Phase B classified four deterministic candidate.0 byte defects as shared blind spots
-    - candidate.0 verdict reconciled as NEEDS_REVISION / CANDIDATE_1_REQUIRED
-    - candidate.1 created as a successor rather than mutating frozen candidate.0
-    - first successor repair closed Phase-A findings A-D while preserving false-BLOCK controls
-    - open-branch probes expanded beyond A-D and exposed integration-chronology and shallow-source-history defects
-    - second focused repair closed those demonstrated defects without forcing post-commit current-state immutability
-    - final targeted run 33052764739 PASS; record selftest observed 24, helper selftest observed 13, targeted conditions 16
-    - final open-branch run 33052764661 PASS; repaired shapes rejected, post-commit reselection control retained
-    - candidate-ID collision remains a visible namespace residual because no universal uniqueness contract is established
-    - candidate.1 package state reconciled to exact-pre-freeze before binding
-    - exact candidate.1 pre-freeze run 33055811978 PASS on source ae6903464133cb5bcf3cd8909ecae1215fe0b9ba / subtree c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+    - candidate.0 and candidate.1 remain immutable frozen occurrence truth
+    - candidate.1 fresh A-S/A-P plus Phase B required candidate.2
+    - candidate.2 focused repair run 33090294820 PASS; cargo commit 613c1e8be898865ce674199118618c0f9389da97
+    - nearby open-branch probe 33090585653 exposed two homologous decision-changing gaps
+    - candidate.2 round-2 repair run 33091573678 PASS; cargo commit 34458c2ba0b94b82d182afe2606efe48e741bcda
+    - committed readback re-probe 33091652046 PASS
+    - status-only prefreeze transition run 33095122958 PASS; final candidate cargo commit aba6f12cabc84146c92809bd7d8293a3c907dc55
+    - exact candidate.2 pre-freeze run 33095987843 PASS on source bda470e0a6b170cec61225a905957a501454a2fe / subtree d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
     - external freeze record binds the exact tested tree without rewriting candidate cargo
-    - post-freeze independence decision found one fresh blind successor review pays epistemic rent
-    - Issue 128 invalidated after a fresh reviewer detected candidate-local self-priming; no Phase-A seal exists
-    - blind semantic validation view audited as declared removals only with retained candidate bytes unchanged
-    - Issue 131 prepared for fresh A-S then A-P independent validation
-    - fresh A-S sealed at 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f with four deterministic semantic findings
-    - A-P committed at b970148fe9596ea9cad0a2817a3b399a1d2b75f5 and confirmed all four A-S findings plus one package self-description drift
-    - Phase B independently reproduced the four semantic defects from frozen candidate.1 bytes and classified them as shared blind spots rather than oracle errors
-    - candidate.1 verdict is NEEDS_REVISION; frozen bytes remain immutable and candidate.2 is required
+    - post-freeze independence decision authorizes one fresh blind successor review cycle based on measured search-space information gain
   next_required_steps:
-    - "repair A-S-01 through A-S-04 on candidate/v0.3.7-candidate.2 only; never mutate frozen candidate.1"
-    - "repair A-P-05 active package/self-description drift without rewriting historical freeze occurrence truth"
-    - "add mutation-sensitive regressions plus legitimate-behavior false-BLOCK controls"
-    - "rerun inherited candidate checks and focused nearby open-branch probes"
-    - "run exact candidate.2 prefreeze validation only after focused repairs reconcile"
+    - "prepare a declared candidate.2 blind semantic view bound to the exact frozen source/blob identities"
+    - "prepare a neutral fresh A-S -> A-P intake without author repair maps or project-manager context"
+    - "have a genuinely fresh reviewer seal A-S before A-P opens withheld candidate-local history/oracles"
+    - "stop fresh reviewer before Phase B; project manager reconciles only after independent artifacts persist"
     - "keep attack cardinality open and Current v0.3.6 unchanged"
 
 frozen_candidate0:
@@ -179,17 +146,23 @@ successor_candidate1:
 successor_candidate2:
   identity: "v0.3.7-candidate.2"
   branch: "candidate/v0.3.7-candidate.2"
-  created_from_frozen_candidate1_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-  state: FOCUSED_SUCCESSOR_REPAIR_NEXT
-  frozen: false
+  branch_head_is_freeze_identity: false
+  state: FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
+  frozen: true
   current: false
-  phase_b_basis: "collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md"
-  repair_scope:
-    - "integration requires represented reality contact at/before commit while preserving unresolved UNKNOWN semantics"
-    - "durable migration provenance duplicate claims cannot contradict"
-    - "Authority NOT_REQUIRED cannot be poisoned by irrelevant malformed grants"
-    - "same-sequence conflicting effect receipts cannot create input-order-dependent replay"
-    - "active candidate self-description/status projection repaired"
+  frozen_source: "bda470e0a6b170cec61225a905957a501454a2fe"
+  frozen_subtree: "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+  current_subtree_at_freeze: "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+  exact_prefreeze_run: 33095987843
+  final_candidate_cargo_commit: "aba6f12cabc84146c92809bd7d8293a3c907dc55"
+  repair_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md"
+  freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md"
+  independence_decision_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md"
+  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
+  fresh_review_completed: false
+  mutable_in_place: false
+  material_change_requires_successor: "v0.3.7-candidate.3"
+  attack_cardinality: OPEN
 
 handoff:
   state: STANDARDIZED_SESSION_HANDOFF_ACTIVE
