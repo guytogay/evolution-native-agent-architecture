@@ -22,7 +22,7 @@ Before substantive ENA project-management/research work:
    - `ENA-RESEARCH-DISCIPLINE.md`;
    - `CONVERGENCE-DIVERGENCE-DISCIPLINE.md`;
    - `PROJECT-STATE-ALIGNMENT-GATE.md`;
-   - `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` when independent validation is active;
+   - `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` while independent validation is active;
 7. read `research/ACTIVE-RESEARCH.yaml` and verify the active research branch;
 8. if canonical/live surfaces disagree, run the alignment gate before substantive work;
 9. read `research/plans/PROGRESS.yaml` and the master plan;
@@ -37,7 +37,7 @@ BRANCH_HEAD != FROZEN_IDENTITY
 
 A new project-manager session should not ask the user to reconstruct already-persisted background.
 
-A **fresh independent validator is not a project-manager successor**. Do not send that validator through the full continuation route above before Phase A.
+A **fresh independent validator is not a project-manager successor**. Do not send that validator through the full continuation route above before A-S.
 
 ## Current project posture
 
@@ -49,89 +49,115 @@ v0.3.6 / CURRENT / FIELD_VALIDATION
 
 Next release line: `v0.3.7`.
 
-Frozen candidate:
+Frozen predecessor candidate.0:
 
 ```text
-candidate identity = v0.3.7-candidate.0
-frozen source      = d0e793593184740d9732902e948afd48ed96ae2f
-frozen subtree     = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+identity = v0.3.7-candidate.0
+source   = d0e793593184740d9732902e948afd48ed96ae2f
+subtree  = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+verdict  = NEEDS_REVISION / SUPERSEDED_BY_CANDIDATE1
+```
+
+Frozen active successor candidate.1:
+
+```text
+identity = v0.3.7-candidate.1
+source   = ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+subtree  = c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+exact pre-freeze run = 33055811978 / PASS
+state    = FROZEN / NOT_CURRENT / NOT_RELEASED
 ```
 
 ```text
-FROZEN != INDEPENDENTLY_VALIDATED != RELEASED != CURRENT
+FROZEN != INDEPENDENTLY_RECONCILED != RELEASED != CURRENT
 ```
 
-## Completed validation-method transitions
+Candidate.1 frozen bytes must not be edited in place. A material candidate/package correction after freeze requires a successor candidate.
 
-The required `1080 -> 188` author-harness anti-ablation audit is complete.
+## Independent-validation method transition
 
-Result:
+The first candidate.1 post-freeze blind intake was Issue #128.
 
-`PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR`
+A genuinely fresh reviewer correctly stopped after discovering that a permitted candidate-local self-description file disclosed predecessor findings and candidate.1 repair history. No Phase-A report was sealed.
 
-Audit record:
-
-`collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md`
-
-Workflow run: `33035656311`.
-
-The audit found both legitimate lifecycle-sensitive oracle repair and several materially distinct lost attack shapes. Lost shapes were restored outside frozen candidate.0; candidate bytes did not change.
-
-The earlier narrative that 1080 -> 188 was simply “better” is therefore not accepted as a general conclusion.
-
-A subsequent re-takeover review found a second method issue: the original detailed validator handoff/PR exposed an author-generated attack map before Phase A. That can prime a nominally fresh validator and preserve shared blind spots even without reusing expected verdicts.
-
-Correction:
+Therefore:
 
 ```text
-PROJECT_MANAGER_TAKEOVER_CONTEXT
-!=
-FRESH_VALIDATOR_PRE_PHASE_A_CONTEXT
+CANDIDATE_LOCAL != AUTOMATICALLY_BLIND_SAFE
+VALIDATION_INTERFACE_DEFECT != CANDIDATE_BYTE_DEFECT
 ```
 
-Canonical focused method:
+Issue #128 is historical invalid-intake occurrence truth, not active review authority and not candidate acceptance/rejection evidence.
+
+Canonical method:
 
 `research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
 
+Incident:
+
+`research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md`
+
+Reconciliation:
+
+`collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md`
+
 ## Immediate next action
 
-`FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_VIA_BLIND_ENTRY`
+`CANDIDATE1_FRESH_A_S_A_P`
 
-Review surface:
+Active independent intake:
 
-`PR #115 — DO NOT MERGE`
+- Issue `#131 — Fresh independent A-S/A-P — v0.3.7 candidate.1`
+- branch `validation/v037-c1-blind-semantic-primary`
+- entry `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md`
+- view manifest `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml`
 
-Fresh validator entrypoint:
+The validation branch is a mechanically bound **projection**, not a successor candidate and not release authority.
 
-`collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md`
-
-A **genuinely fresh independent validator** should receive that minimal-prime entry, inspect the exact frozen candidate subtree, independently derive material claims, attacks, legitimate controls, and unknowns, then persist/seal a Phase-A artifact.
-
-Before that seal, do not preload the validator with the author's attack taxonomy, expected verdicts, detailed reconciliation narrative, or the original detailed validator handoff.
-
-Only after Phase A is sealed should Phase B open:
-
-`collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md`
-
-and compare the independent findings with author harnesses, exact pre-freeze evidence, reference selftests, language fixtures, anti-ablation evidence, and other decision-relevant lineage.
+Sequence:
 
 ```text
-INDEPENDENT_INSPECTION
--> PERSIST_PHASE_A
--> OPEN_PHASE_B_CONTEXT
--> RECONCILE
+A-S BLIND SEMANTIC FALSIFICATION
+-> PERSIST A-S SEAL
+-> A-P INDEPENDENT PACKAGE / SELF-DESCRIPTION / ORACLE AUDIT
+-> PERSIST A-P REPORT
+-> STOP
+-> PROJECT-MANAGER PHASE B RECONCILIATION
 ```
 
-The Phase-A attack space remains open-cardinality. The absence of a predeclared attack list is intentional; it lets another observer grow a different tree before the trees are compared.
+Required independent outputs:
 
-## Candidate succession rule
+- A-S: `collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md`
+- A-P: `collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md`
+
+Before A-S seal, the reviewer must not receive project-manager handoff context, predecessor findings, repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces withheld by the view manifest.
+
+After A-S seal, A-P may inspect those withheld candidate-local surfaces from the exact frozen source. A-P remains independent but is not claimed to retain search-space blindness after history/oracles open.
+
+After A-P, the fresh reviewer stops before Phase B.
 
 ```text
-research residual alone -> candidate.1 NOT required
-material candidate-byte correction -> candidate.1 required
+FULL_PACKAGE_INDEPENDENCE != FULL_PACKAGE_SEARCH_SPACE_BLINDNESS
+ATTACK_CARDINALITY = OPEN
 ```
 
-Candidate.0 remains frozen lineage either way.
+## Decision after A-S/A-P
+
+The project manager first verifies:
+
+- A-S seal commit;
+- A-P report commit;
+- candidate.1 frozen source/subtree unchanged;
+- Current remains v0.3.6;
+- the independent reviewer respected the declared information boundary.
+
+Only then open author/project-manager evidence for Phase B reconciliation.
+
+```text
+material candidate-byte/package defect -> candidate.2 may be required
+validation-interface defect alone      -> repair interface/method, not candidate identity
+no material defect                     -> do not manufacture successor for closure
+```
 
 ## Core research direction
 
@@ -179,11 +205,13 @@ Before claiming successful takeover, a successor project manager should be able 
 - handoff protocol and project-management discipline = root files under `research/handoffs/`;
 - current handoff record = the record named by `CURRENT-HANDOFF.yaml`;
 - project methodology = mandatory context under `research/methodology/`;
-- candidate.0 exact frozen source/tree;
-- anti-ablation audit = complete, tree-external repair PASS;
-- independent validation = pending fresh blind Phase A on PR #115;
-- fresh validator entry = blind Phase-A entry, not the full project-manager takeover context;
-- detailed author validator handoff = Phase B only after the Phase-A seal;
+- candidate.0 = frozen predecessor, NEEDS_REVISION, superseded;
+- candidate.1 = exact frozen successor at `ae690346...` / `c0458e0...`;
+- Issue #128 = invalidated self-primed intake with no Phase-A seal;
+- Issue #131 = active fresh A-S/A-P intake;
+- fresh validator entry = blind semantic entry, not the full project-manager takeover context;
+- A-S must seal before A-P opens withheld candidate-local history/oracles;
+- A-P stops before Phase B;
 - `releases/current/` remains untouched until governed release/promotion.
 
 > **Do not merely inherit conclusions. Inherit project state, method, management discipline, open variation, and the exact next permitted action — while preserving the information boundary required by each role.**
