@@ -1,6 +1,6 @@
 # ENA Reconstruction-to-Release Master Plan
 
-Status: `ACTIVE_MASTER_PLAN / MAIN_VISIBLE_PROJECT_CONTROL / V0_3_7_CANDIDATE0_FROZEN / INDEPENDENT_FALSIFICATION_PREPARATION / CURRENT_UNCHANGED`
+Status: `ACTIVE_MASTER_PLAN / MAIN_VISIBLE_PROJECT_CONTROL / V0_3_7_CANDIDATE0_FROZEN / FRESH_INDEPENDENT_FALSIFICATION / CURRENT_UNCHANGED`
 
 Updated: 2026-08-27
 
@@ -8,9 +8,17 @@ This is the stable long-horizon plan for moving ENA from the v0.3.6 semantic tru
 
 Fast-moving execution state lives in `research/plans/PROGRESS.yaml` on the branch named by `research/ACTIVE-RESEARCH.yaml`.
 
-Latest standardized session handoff is routed by:
+Latest intended succession record is routed by:
 
 `research/handoffs/CURRENT-HANDOFF.yaml`
+
+Canonical handoff/takeover framework lives at:
+
+- `research/handoffs/HANDOFF-PROTOCOL.md`;
+- `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`;
+- `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`.
+
+ENA research methodology remains under `research/methodology/` and is mandatory takeover context.
 
 ## Goal
 
@@ -46,13 +54,22 @@ A successor session should start from `main` and resolve, in order:
 
 1. `PROJECT-HUB.md`;
 2. `releases/current/CURRENT-BASELINE.yaml`;
-3. `research/handoffs/CURRENT-HANDOFF.yaml` and the pointed handoff package;
-4. `research/ACTIVE-RESEARCH.yaml`;
-5. `research/methodology/README.md` and canonical focused methods;
-6. this master plan;
-7. active-branch `research/RESEARCH-START-HERE.md`;
-8. active-branch `research/plans/PROGRESS.yaml`;
-9. the exact candidate/reconciliation/evidence artifacts required by the next action.
+3. `research/handoffs/CURRENT-HANDOFF.yaml`;
+4. `research/handoffs/HANDOFF-PROTOCOL.md`;
+5. `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`;
+6. `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`;
+7. the current record under `research/handoffs/records/` named by the pointer;
+8. required project methodology under `research/methodology/`;
+9. `research/ACTIVE-RESEARCH.yaml`;
+10. this master plan and `research/plans/PROGRESS.yaml`;
+11. active-branch `research/RESEARCH-START-HERE.md`;
+12. exact candidate/reconciliation/evidence artifacts required by the next action.
+
+```text
+HANDOFF_FRAMEWORK != HANDOFF_RECORD
+HANDOFF_RECORD != PROJECT_METHODOLOGY
+PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
+```
 
 Do not infer active work from branch names, recency, or old PR numbers.
 
@@ -64,9 +81,7 @@ Current remains:
 v0.3.6 / CURRENT / FIELD_VALIDATION
 ```
 
-Next release line:
-
-`v0.3.7`
+Next release line: `v0.3.7`.
 
 Candidate.0 exists and is frozen:
 
@@ -80,24 +95,30 @@ External freeze record:
 
 `collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md`
 
-Exact pre-freeze validation run:
+Exact pre-freeze validation:
 
 `33011823923 / SUCCESS`
 
-Fresh independent semantic falsification is pending.
-
-The canonical convergence/divergence method was added after the user challenged an unverified author claim that reducing an observed 1080 pass conditions to 188 structured pass conditions was epistemically better.
+The required author-harness anti-ablation audit is complete:
 
 ```text
-COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
-PROVEN_BEHAVIORAL_EQUIVALENCE -> MAY_COMPRESS
-UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
-UNKNOWN_SPACE -> EXPAND
+verdict = PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
+run = 33035656311
+candidate bytes changed = NO
+candidate.1 required by audit = NO
 ```
+
+Audit record:
+
+`collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md`
+
+A draft independent-review surface is open:
+
+`PR #115 / DO NOT MERGE`
 
 Immediate next action:
 
-**tree-external 1080 -> 188 author-harness anti-ablation audit** before independent falsification.
+**fresh independent falsification Phase A on the exact frozen candidate bytes before consulting author-side expected outcomes/oracles.**
 
 ## Project State Alignment Gate
 
@@ -119,13 +140,22 @@ The gate is transition-triggered, not ritual after every ordinary commit.
 
 ## Phase 1 — Research continuity and repository control
 
-State: `BASELINE_ESTABLISHED / HANDOFF_STANDARDIZED / MAINTAIN_AS_INVARIANT`
+State: `BASELINE_ESTABLISHED / SUCCESSION_FRAMEWORK_STANDARDIZED / MAINTAIN_AS_INVARIANT`
 
-Goal: a fresh session can identify Current, current handoff, active research branch, methodology, plan, progress, candidate identity, and next permitted work without reconstructing old conversations.
+Goal: a fresh session can identify Current, handoff framework, current record, project methodology, active research branch, plan, progress, candidate identity, and next permitted work without reconstructing old conversations.
 
-Canonical session succession method:
+Canonical succession framework:
 
-`research/methodology/SESSION-HANDOFF-DISCIPLINE.md`
+`research/handoffs/`
+
+Key files:
+
+- `HANDOFF-PROTOCOL.md`;
+- `REQUIRED-TAKEOVER-CONTEXT.yaml`;
+- `PROJECT-MANAGEMENT-DISCIPLINE.md`;
+- `CURRENT-HANDOFF.yaml`.
+
+Time-bounded handoff occurrences live under `research/handoffs/records/`.
 
 ## Phase 2 — Anti-ablation archaeology / variation recovery
 
@@ -150,10 +180,7 @@ Valid HOW forms include state machines, workflows, protocols, resolvers, adapter
 
 One property may retain multiple HOWs indefinitely.
 
-A concrete HOW should expose both:
-
-- how to invoke/use it;
-- when it does not apply or should yield WAIT/UNKNOWN/lightweight path.
+A concrete HOW should expose both how to invoke/use it and when it does not apply or should yield WAIT/UNKNOWN/lightweight path.
 
 ## Phase 4 — External HOW harvest
 
@@ -223,9 +250,7 @@ Prefer deterministic falsification when failure is statically reachable. Use fie
 
 State: `ASSEMBLED_IN_CANDIDATE0 / REOPENABLE_IF_NEW_MATERIAL_GAP_APPEARS`
 
-Research source lives under:
-
-`research/operational-architecture/`
+Research source: `research/operational-architecture/`.
 
 Candidate.0 contains release-local traversal:
 
@@ -254,9 +279,7 @@ Assembly being present in candidate.0 is not proof of universal Host fitness or 
 
 State: `STABLE_AND_REALIZED_IN_FROZEN_CANDIDATE0`
 
-Canonical workspace:
-
-`research/release-scope/`
+Canonical workspace: `research/release-scope/`.
 
 v0.3.7 scope stabilized with no demonstrated need for new Constitution IDs merely to create the candidate.
 
@@ -269,7 +292,7 @@ Selected candidate classes include:
 - legacy v1.2 tool/probes retained under explicit legacy packaging;
 - zh-CN operational guidance and paired route fixtures.
 
-Deferred is not retired. In particular recovered Commitment/Settlement remains durable research lineage and is not bundled in candidate.0.
+Deferred is not retired. Recovered Commitment/Settlement remains durable research lineage and is not bundled in candidate.0.
 
 ```text
 NO_NEW_CORE_RULES != NO_RELEASE_VALUE
@@ -278,7 +301,7 @@ LARGE_RESEARCH_TREE != SHIP_EVERYTHING
 
 ## Phase 9 — Candidate build, freeze, validation, and succession
 
-State: `CANDIDATE0_FROZEN / VALIDATION_ANTI_ABLATION_AUDIT_NEXT / INDEPENDENT_FALSIFICATION_PENDING`
+State: `CANDIDATE0_FROZEN / ANTI_ABLATION_COMPLETE / FRESH_INDEPENDENT_PHASE_A_NEXT`
 
 Completed:
 
@@ -288,53 +311,48 @@ Completed:
 4. author adversarial and identity/projection defects repaired while preserving occurrence truth;
 5. exact pre-freeze validation recomposed on one exact source/tree;
 6. external freeze record bound candidate.0 immutable identity;
-7. fresh independent validator handoff prepared.
+7. fresh independent validator handoff prepared;
+8. `1080 -> 188` author-harness anti-ablation audit completed;
+9. materially distinct lost attack shapes restored tree-external without changing frozen candidate bytes;
+10. draft `DO NOT MERGE` independent-falsification PR #115 opened.
 
-Current correction required before independent validation:
-
-### Validation anti-ablation audit
-
-The earlier and newer author harnesses produced observed pass-condition counts of 1080 and 188 respectively. Counts are not evidence of better or worse coverage.
-
-Before independent review:
+Anti-ablation conclusion:
 
 ```text
-recover materially distinct predecessor attack/failure shapes
--> map each to newer harness
--> explicit disposition
+FEWER_ASSERTIONS != BETTER_ORACLE
+MORE_ASSERTIONS != BROADER_EVIDENCE
+COMPRESS_REPRESENTATION != COMPRESS_POSSIBILITY_SPACE
 ```
 
-Valid dispositions include:
+The reduction from observed 1080 to 188 pass conditions was not uniformly an improvement. Some lifecycle-sensitive broad scans were legitimately replaced; some materially distinct attack shapes were lost and restored outside the frozen candidate.
+
+### Fresh independent falsification
+
+Current required sequence:
 
 ```text
-PRESERVED
-MERGED_AS_PROVEN_EQUIVALENT
-REPLACED_BY_STRONGER_ORACLE
-RETAINED_OUTSIDE_CURRENT_HARNESS
-RETIRED_WITH_EVIDENCE
-LOST
-UNKNOWN
+Phase A
+independent frozen-byte inspection
+-> derive attacks without author oracle
+
+Phase B
+compare independent findings
+-> author harnesses / pre-freeze evidence / reference selftests / language fixtures / anti-ablation audit
+
+Reconciliation
+-> PASS_WITH_RESIDUALS / NEEDS_REVISION / UNRESOLVED_EVIDENCE_REQUIRED
 ```
 
-`LOST` and `UNKNOWN` are not successful simplification.
+PR #115 remains a review surface only and must not be merged as release/promotion authority.
 
-Do not modify frozen candidate.0 merely to repair validator coverage.
-
-If restored attack coverage exposes a material candidate-byte defect:
+Candidate succession rule:
 
 ```text
-candidate.0 remains frozen lineage
--> candidate.1 only if candidate bytes require correction
+research residual alone -> no candidate.1
+material candidate-byte correction required -> candidate.1
 ```
 
-If candidate.0 survives the recovered attack space, proceed to a clearly labeled `DO NOT MERGE / INDEPENDENT FALSIFICATION` review PR bound to the exact frozen source/tree.
-
-Fresh validator protocol:
-
-```text
-Phase A: independent inspection before accepting author oracle
-Phase B: compare independent findings with author evidence
-```
+Candidate.0 remains frozen occurrence truth either way.
 
 Candidate succession stops only when another candidate round cannot plausibly change the release decision.
 
@@ -342,7 +360,7 @@ Candidate succession stops only when another candidate round cannot plausibly ch
 
 State: `NOT_STARTED`
 
-Only after independent falsification and reconciliation support release:
+Only after fresh independent falsification and reconciliation support release:
 
 - decide candidate succession stop or create candidate.1 as evidence requires;
 - create governed release surface/branch;
@@ -357,7 +375,7 @@ Only after independent falsification and reconciliation support release:
 
 Do not claim release complete on narrative confidence.
 
-## Research-method invariants
+## Research / project-method invariants
 
 ```text
 PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
@@ -368,7 +386,10 @@ EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
 EXTERNAL_POPULARITY != SELECTION_PROOF
 NO_CHANGE = VALID_OUTCOME
 REMOVE_FROM_ACTIVE_ARCHITECTURE != ERASE_FROM_LINEAGE
-HANDOFF_PACKAGE != PROJECT_AUTHORITY
+HANDOFF_RECORD != PROJECT_AUTHORITY
+HANDOFF_FRAMEWORK != HANDOFF_RECORD
+HANDOFF_RECORD != PROJECT_METHODOLOGY
+PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
 SESSION_CONTINUITY != PROJECT_CONTINUITY
 MATERIAL_TRANSITION -> ALIGN -> RESUME
 RECOVERY_SUFFICIENT_FOR_ASSEMBLY != ARCHAEOLOGY_COMPLETE_FOREVER
@@ -381,8 +402,6 @@ FROZEN != INDEPENDENTLY_VALIDATED != RELEASED != CURRENT
 
 ## Progress carrier
 
-Fast-moving execution belongs in:
-
-`research/plans/PROGRESS.yaml`
+Fast-moving execution belongs in `research/plans/PROGRESS.yaml`.
 
 This master plan changes only when the long-horizon phase model or closure criteria materially change.
