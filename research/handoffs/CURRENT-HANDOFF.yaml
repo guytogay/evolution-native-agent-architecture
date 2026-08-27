@@ -1,0 +1,23 @@
+schema_version: "1.0"
+status: CURRENT_HANDOFF_POINTER
+updated_at: "2026-08-27"
+
+current_handoff:
+  id: "2026-08-27-v037-candidate0-frozen"
+  package_root: "research/handoffs/2026-08-27-v037-candidate0-frozen/"
+  start_here: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/2026-08-27-v037-candidate0-frozen/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/2026-08-27-v037-candidate0-frozen/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/2026-08-27-v037-candidate0-frozen/FILE-CATALOG.md"
+  management_lessons: "research/handoffs/2026-08-27-v037-candidate0-frozen/PROJECT-MANAGEMENT-LESSONS.md"
+
+handoff_method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
+
+rule: >-
+  This pointer identifies the latest intended project-manager/session handoff package.
+  The package is a bootstrap projection and does not override canonical Current,
+  frozen candidate records, live refs, canonical methodology, or aligned Progress.
+
+receiver_must_live_reverify: true
+historical_handoffs_remain_lineage: true
