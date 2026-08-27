@@ -1,0 +1,74 @@
+schema_version: "1.0"
+status: CANONICAL_REQUIRED_TAKEOVER_CONTEXT
+updated_at: "2026-08-27"
+
+principle:
+  project_state_and_method_are_equal_takeover_requirements: true
+  handoff_and_takeover_rules_are_first_class_context: true
+  handoff_record_is_bootstrap_not_authority: true
+
+handoff_framework:
+  required: true
+  files:
+    - path: research/handoffs/HANDOFF-PROTOCOL.md
+      role: CANONICAL_OUTGOING_AND_INCOMING_SUCCESSION_RULES
+    - path: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+      role: CROSS_SESSION_PROJECT_MANAGEMENT_RULES_AND_PROMOTED_LESSONS
+    - path: research/handoffs/CURRENT-HANDOFF.yaml
+      role: CURRENT_RECORD_POINTER_AND_TAKEOVER_CONTRACT
+
+project_methodology:
+  required: true
+  files:
+    - path: research/methodology/README.md
+      role: PROJECT_METHOD_INDEX
+    - path: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+      role: MASTER_RESEARCH_METHOD_LEDGER
+    - path: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+      role: ABSTRACTION_GROWTH_AND_ANTI_ABLATION_DISCIPLINE
+    - path: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+      role: MATERIAL_TRANSITION_STATE_ALIGNMENT
+
+project_authority_and_governance:
+  required: true
+  files:
+    - path: PROJECT-HUB.md
+      role: STABLE_PROJECT_ENTRYPOINT
+    - path: releases/current/CURRENT-BASELINE.yaml
+      role: CURRENT_IDENTITY_AUTHORITY
+    - path: research/ACTIVE-RESEARCH.yaml
+      role: ACTIVE_RESEARCH_ROUTING_AUTHORITY
+    - path: research/BRANCH-GOVERNANCE.md
+      role: BRANCH_AND_CANDIDATE_TOPOLOGY_RULES
+
+execution_state:
+  required: true
+  files:
+    - path: research/plans/PROGRESS.yaml
+      role: FAST_MOVING_EXECUTION_STATE
+    - path: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+      role: LONG_HORIZON_PLAN_AND_PHASE_CONSTRAINTS
+
+current_handoff_record:
+  required: true
+  resolution_rule: READ_research/handoffs/CURRENT-HANDOFF.yaml_DO_NOT_GUESS_FROM_RECENCY
+
+receiver_requirements:
+  - READ_HANDOFF_FRAMEWORK_BEFORE_SUBSTANTIVE_WORK
+  - INHERIT_PROJECT_METHODOLOGY_NOT_ONLY_PROJECT_STATE
+  - READ_CURRENT_HANDOFF_RECORD
+  - LIVE_REVERIFY_CURRENT_REFS_AND_FROZEN_IDENTITIES
+  - RUN_ALIGNMENT_GATE_IF_CURRENT_SURFACES_DISAGREE
+  - DO_NOT_ASK_USER_TO_REPEAT_DURABLY_AVAILABLE_PROJECT_CONTEXT
+  - PRESERVE_UNPROVEN_HOW_FAILURE_HOST_EVIDENCE_VARIATION
+
+outgoing_requirements:
+  - PERSIST_MATERIAL_WORK
+  - ALIGN_PROJECT_STATE_AFTER_MATERIAL_TRANSITIONS
+  - PROMOTE_REUSABLE_METHOD_OUT_OF_INSTANCE_RECORDS
+  - UPDATE_CURRENT_HANDOFF_POINTER
+  - COMPLETE_POST_MERGE_READBACK
+
+invariant: >-
+  A receiver that inherits only project state but not handoff protocol,
+  project-management discipline, and project methodology has not completed takeover.

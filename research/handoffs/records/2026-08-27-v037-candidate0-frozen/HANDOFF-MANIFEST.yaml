@@ -1,0 +1,44 @@
+schema_version: "2.0"
+handoff_id: "2026-08-27-v037-candidate0-frozen"
+status: HISTORICAL_HANDOFF_RECORD
+prepared_at: "2026-08-27"
+project: Evolution-Native Agent Architecture
+handoff_role: HISTORICAL_BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY
+
+record_root: "research/handoffs/records/2026-08-27-v037-candidate0-frozen/"
+migrated_from: "research/handoffs/2026-08-27-v037-candidate0-frozen/"
+structure_migration_note: >-
+  This record was moved under records/ when the handoff framework was separated
+  from time-bounded handoff instances. Git history preserves the original layout.
+
+record_files:
+  start_here: HANDOFF-START-HERE.md
+  project_state: PROJECT-STATE.md
+  recent_three_rounds: RECENT-THREE-ROUNDS.md
+  file_catalog: FILE-CATALOG.md
+  manifest: HANDOFF-MANIFEST.yaml
+  post_merge_readback: HANDOFF-READBACK.md
+
+promoted_reusable_method:
+  handoff_protocol: research/handoffs/HANDOFF-PROTOCOL.md
+  required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
+  project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+  note: >-
+    The former PROJECT-MANAGEMENT-LESSONS.md mixed reusable method with this
+    instance. Its reusable lessons were promoted to the root discipline and the
+    original occurrence remains recoverable from Git history.
+
+project_methodology:
+  index: research/methodology/README.md
+  convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+  project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+
+historical_observation:
+  current_at_record_time: "v0.3.6 / CURRENT / FIELD_VALIDATION"
+  candidate: v0.3.7-candidate.0
+  frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
+  frozen_subtree_sha: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+  immediate_next_action_at_record_time: AUTHOR_HARNESS_1080_TO_188_ANTI_ABLATION_AUDIT
+
+historical_only: true
+current_pointer_must_not_be_inferred_from_this_record: true

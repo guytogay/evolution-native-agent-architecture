@@ -1,25 +1,58 @@
-schema_version: "1.1"
-status: CURRENT_HANDOFF_POINTER
+schema_version: "2.0"
+status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
-current_handoff:
-  id: "2026-08-27-v037-candidate0-frozen"
-  state: HANDOFF_READY_FOR_SESSION_SUCCESSION
-  package_root: "research/handoffs/2026-08-27-v037-candidate0-frozen/"
-  start_here: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-START-HERE.md"
-  manifest: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-MANIFEST.yaml"
-  project_state: "research/handoffs/2026-08-27-v037-candidate0-frozen/PROJECT-STATE.md"
-  recent_three_rounds: "research/handoffs/2026-08-27-v037-candidate0-frozen/RECENT-THREE-ROUNDS.md"
-  file_catalog: "research/handoffs/2026-08-27-v037-candidate0-frozen/FILE-CATALOG.md"
-  management_lessons: "research/handoffs/2026-08-27-v037-candidate0-frozen/PROJECT-MANAGEMENT-LESSONS.md"
-  post_merge_readback: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-READBACK.md"
+handoff_framework:
+  protocol: research/handoffs/HANDOFF-PROTOCOL.md
+  required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
+  project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+  framework_required_before_substantive_work: true
 
-handoff_method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
+project_methodology_required:
+  required: true
+  index: research/methodology/README.md
+  master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+  project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+
+current_handoff_record:
+  id: "2026-08-27-v037-independent-review-ready"
+  state: HANDOFF_PENDING_POST_MERGE_READBACK
+  record_root: "research/handoffs/records/2026-08-27-v037-independent-review-ready/"
+  start_here: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/records/2026-08-27-v037-independent-review-ready/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/records/2026-08-27-v037-independent-review-ready/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/records/2026-08-27-v037-independent-review-ready/FILE-CATALOG.md"
+  post_merge_readback: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-READBACK.md"
+
+current_project_authorities:
+  project_hub: PROJECT-HUB.md
+  current_baseline: releases/current/CURRENT-BASELINE.yaml
+  active_research_pointer: research/ACTIVE-RESEARCH.yaml
+  progress: research/plans/PROGRESS.yaml
+  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+
+receiver_contract:
+  inherit_project_state: REQUIRED
+  inherit_handoff_protocol: REQUIRED
+  inherit_project_management_discipline: REQUIRED
+  inherit_project_methodology: REQUIRED
+  read_current_record: REQUIRED
+  live_reverify_refs_and_exact_identities: REQUIRED
+  ask_user_to_repeat_persisted_background: FORBIDDEN
+  infer_current_record_from_directory_recency: FORBIDDEN
+  treat_handoff_record_as_project_authority: FORBIDDEN
+
+completion_rule: >-
+  The record becomes HANDOFF_READY_FOR_SESSION_SUCCESSION only after the structure
+  refactor is merged to main and the outgoing session performs and persists a main-based
+  post-merge readback according to HANDOFF-PROTOCOL.md.
 
 rule: >-
-  This pointer identifies the latest intended project-manager/session handoff package.
-  The package is a bootstrap projection and does not override canonical Current,
-  frozen candidate records, live refs, canonical methodology, or aligned Progress.
+  Project state, project methodology, project-management discipline, and the rules
+  for handing over/taking over are all first-class succession context. The current
+  handoff record accelerates takeover but does not override canonical project authority.
 
-receiver_must_live_reverify: true
-historical_handoffs_remain_lineage: true
+historical_records_root: research/handoffs/records/
+historical_records_remain_lineage: true

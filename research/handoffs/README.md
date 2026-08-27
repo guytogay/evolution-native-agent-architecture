@@ -1,18 +1,18 @@
 # ENA Session Handoffs
 
-Status: `PROJECT_CONTINUITY_SURFACE / MAIN_VISIBLE / HANDOFF_HISTORY`
+Status: `CANONICAL_SUCCESSION_SURFACE / MAIN_VISIBLE / FRAMEWORK_PLUS_RECORDS`
 
-This directory stores standardized project-manager/session handoff packages.
+This directory is the stable home for **project-manager/session succession**.
 
-A handoff is a fast bootstrap projection. It does **not** replace Current, branch authority, frozen candidate records, canonical methodology, or live repository state.
+It deliberately separates reusable succession method from time-bounded handoff records.
 
-## Stable pointer
-
-Always start with:
-
-`research/handoffs/CURRENT-HANDOFF.yaml`
-
-Do not infer the active handoff from directory names, timestamps, or commit recency.
+```text
+HANDOFF FRAMEWORK
+!=
+HANDOFF RECORD
+!=
+PROJECT METHODOLOGY
+```
 
 ## Directory layout
 
@@ -20,46 +20,72 @@ Do not infer the active handoff from directory names, timestamps, or commit rece
 research/handoffs/
 ├─ README.md
 ├─ CURRENT-HANDOFF.yaml
-└─ <handoff-id>/
-   ├─ HANDOFF-START-HERE.md
-   ├─ PROJECT-STATE.md
-   ├─ RECENT-THREE-ROUNDS.md
-   ├─ FILE-CATALOG.md
-   ├─ PROJECT-MANAGEMENT-LESSONS.md
-   └─ HANDOFF-MANIFEST.yaml
+├─ HANDOFF-PROTOCOL.md
+├─ REQUIRED-TAKEOVER-CONTEXT.yaml
+├─ PROJECT-MANAGEMENT-DISCIPLINE.md
+└─ records/
+   ├─ README.md
+   └─ <handoff-id>/
+      ├─ HANDOFF-START-HERE.md
+      ├─ HANDOFF-MANIFEST.yaml
+      ├─ PROJECT-STATE.md
+      ├─ RECENT-THREE-ROUNDS.md
+      ├─ FILE-CATALOG.md
+      └─ HANDOFF-READBACK.md
 ```
 
-The package shape is a default, not an ontology. Add another file only when it has a distinct continuity purpose.
+## Layer 1 — reusable handoff framework
 
-## Meaning of each surface
+These files govern **every** future succession:
 
-- `HANDOFF-START-HERE.md` — shortest human takeover path and exact next action.
-- `PROJECT-STATE.md` — detailed current-state projection with exact refs and invariants.
-- `RECENT-THREE-ROUNDS.md` — minimum recent conversational decision lineage.
-- `FILE-CATALOG.md` — categorized repository map and recommended read order.
-- `PROJECT-MANAGEMENT-LESSONS.md` — management/method incidents the next session should operationally inherit.
-- `HANDOFF-MANIFEST.yaml` — machine-readable handoff identity and pointers.
+- `HANDOFF-PROTOCOL.md` — how the outgoing session hands over and how the incoming session takes over; both directions have equal continuity importance;
+- `REQUIRED-TAKEOVER-CONTEXT.yaml` — machine-readable mandatory context, including project methodology;
+- `PROJECT-MANAGEMENT-DISCIPLINE.md` — reusable project-management rules and promoted lessons;
+- `CURRENT-HANDOFF.yaml` — stable current-record pointer plus takeover contract.
 
-## Authority boundary
+Do not bury reusable method inside one dated record.
+
+## Layer 2 — handoff records
+
+`records/<handoff-id>/` stores one succession occurrence: project state, recent decisions, file map, exact next action, and readback evidence.
+
+A record is a bootstrap projection and lineage artifact, not project authority.
 
 ```text
-HANDOFF_PACKAGE != CANONICAL_PROJECT_STATE
+HANDOFF_RECORD != CANONICAL_PROJECT_STATE
 ```
 
-If a handoff conflicts with a live authoritative source, verify the authoritative source and repair the handoff/control plane before proceeding.
+Older records remain useful for history, but only `CURRENT-HANDOFF.yaml` identifies the intended current record.
 
-Canonical handoff method:
+## Layer 3 — project methodology
 
-`research/methodology/SESSION-HANDOFF-DISCIPLINE.md`
+ENA research methodology remains under:
 
-Project-state realignment method:
+`research/methodology/`
 
-`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+It is intentionally separate from handoff framework because it governs **how ENA is researched**, not only how sessions are replaced.
 
-## Historical handoffs
+However, project methodology is mandatory takeover context. `REQUIRED-TAKEOVER-CONTEXT.yaml` makes that requirement explicit so a successor cannot inherit project state while silently dropping the method that produced it.
 
-Older handoff packages remain useful for lineage, incident reconstruction, and understanding why a later session changed direction.
+## Start here
+
+For any new project-manager/session:
+
+1. read `CURRENT-HANDOFF.yaml`;
+2. read `HANDOFF-PROTOCOL.md`;
+3. read `REQUIRED-TAKEOVER-CONTEXT.yaml`;
+4. read `PROJECT-MANAGEMENT-DISCIPLINE.md`;
+5. read the current record pointed to by `CURRENT-HANDOFF.yaml`;
+6. independently reverify Current, live refs, exact frozen/released identities, methodology, Progress, and plan before substantive work.
+
+## Promotion rule for lessons
+
+When one handoff discovers a reusable lesson:
 
 ```text
-HISTORICAL_HANDOFF_PRESERVED != HISTORICAL_HANDOFF_ACTIVE
+instance incident
+-> preserve occurrence evidence in record/history
+-> promote reusable rule to framework or research methodology
 ```
+
+Do not make the next session rediscover a method because it was trapped inside a dated directory.

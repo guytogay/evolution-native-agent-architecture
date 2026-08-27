@@ -1,4 +1,4 @@
-schema_version: "1.9"
+schema_version: "2.0"
 as_of: "2026-08-27"
 status: V0_3_7_CANDIDATE0_FROZEN_INDEPENDENT_FALSIFICATION_REVIEW_OPEN
 
@@ -8,10 +8,13 @@ canonical_pointers:
   project_hub: PROJECT-HUB.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   current_handoff: research/handoffs/CURRENT-HANDOFF.yaml
+  handoff_protocol: research/handoffs/HANDOFF-PROTOCOL.md
+  required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
+  project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+  handoff_records_root: research/handoffs/records/
   active_research_pointer: research/ACTIVE-RESEARCH.yaml
   research_bootstrap: research/RESEARCH-START-HERE.md
   methodology: research/methodology/README.md
-  handoff_method: research/methodology/SESSION-HANDOFF-DISCIPLINE.md
   convergence_divergence_method: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
   alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
@@ -105,6 +108,16 @@ phase_state:
     validator_must_be_fresh: true
     author_oracle_must_not_precede_phase_a: true
 
+  handoff_framework:
+    state: STRUCTURE_REFACTORED_FRAMEWORK_RECORDS_METHODOLOGY_SEPARATED
+    framework_root: research/handoffs/
+    records_root: research/handoffs/records/
+    handoff_protocol: research/handoffs/HANDOFF-PROTOCOL.md
+    required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
+    project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+    project_methodology_root: research/methodology/
+    project_state_without_method_is_complete_takeover: false
+
   promotion:
     state: NOT_STARTED
 
@@ -187,9 +200,13 @@ candidate1_rule:
 handoff:
   standardized: true
   current_handoff_pointer: research/handoffs/CURRENT-HANDOFF.yaml
-  handoff_method: research/methodology/SESSION-HANDOFF-DISCIPLINE.md
+  handoff_protocol: research/handoffs/HANDOFF-PROTOCOL.md
+  required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
+  project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+  records_root: research/handoffs/records/
   outgoing_session_reason: CURRENT_SESSION_UNSTABLE_INTENTIONAL_SUCCESSION
-  handoff_package_is_project_authority: false
+  handoff_record_is_project_authority: false
+  project_methodology_required_for_takeover: true
   receiver_must_live_reverify: true
 
 forbidden_now:
@@ -215,5 +232,8 @@ invariants:
   - NEW_CORE_SEMANTIC_DELTA_ZERO_NE_RELEASE_VALUE_ZERO
   - COMPRESS_REPRESENTATION_NE_COMPRESS_POSSIBILITY_SPACE
   - PROVEN_BEHAVIORAL_EQUIVALENCE_REQUIRED_BEFORE_MATERIAL_COLLAPSE
-  - HANDOFF_PACKAGE_NE_PROJECT_AUTHORITY
+  - HANDOFF_RECORD_NE_PROJECT_AUTHORITY
+  - HANDOFF_FRAMEWORK_NE_HANDOFF_RECORD
+  - HANDOFF_RECORD_NE_PROJECT_METHODOLOGY
+  - PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE_NE_COMPLETE_TAKEOVER
   - SESSION_CONTINUITY_NE_PROJECT_CONTINUITY

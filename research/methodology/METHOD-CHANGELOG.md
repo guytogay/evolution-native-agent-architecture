@@ -191,7 +191,7 @@ Practical effect:
 - smaller assertion/file/category counts are not success evidence by themselves;
 - HOW/failure/Host/evidence distinctions remain separate while behaviorally distinct or equivalence is unproven;
 - representation duplication may still be compressed once it adds no distinct behavior or decision value;
-- the 1080 -> 188 harness change requires an anti-ablation audit before independent candidate review.
+- the 1080 -> 188 harness change required an anti-ablation audit before independent candidate review.
 
 ## 2026-08-27 — Standardized session/project-manager handoff discipline
 
@@ -199,9 +199,7 @@ Trigger:
 
 The user intentionally replaced an unstable project-manager session and requested that future Agents/sessions know by default how to hand a project over and how to take it over.
 
-During preparation, live-state inspection showed that main-visible `ACTIVE-RESEARCH.yaml`, `PROGRESS.yaml`, and master-plan phase descriptions still said v0.3.7 candidate.0 had not yet been created, while the actual candidate had already been built, pre-freeze validated, frozen, and prepared for independent review.
-
-This showed that a chat summary alone could not provide safe continuity.
+During preparation, live-state inspection showed that main-visible project-state projections lagged actual candidate/freeze state. A chat summary alone could not provide safe continuity.
 
 Correction:
 
@@ -211,13 +209,7 @@ HANDOFF = DURABLE_BOOTSTRAP_PROJECTION
 HANDOFF != PROJECT_AUTHORITY
 ```
 
-Canonical focused method:
-
-`research/methodology/SESSION-HANDOFF-DISCIPLINE.md`
-
-Stable handoff pointer:
-
-`research/handoffs/CURRENT-HANDOFF.yaml`
+The initial canonical focused method was created as `research/methodology/SESSION-HANDOFF-DISCIPLINE.md` together with `research/handoffs/CURRENT-HANDOFF.yaml`.
 
 Incident evidence:
 
@@ -225,11 +217,48 @@ Incident evidence:
 
 Practical effect:
 
-- outgoing sessions flush material work, reverify live state, align stale project-control surfaces, build a classified handoff package, and publish it through a stable pointer;
-- handoff packages preserve at least the latest three decision-bearing conversation rounds, with older context included when still decision-relevant;
-- incoming sessions read the handoff for speed, then independently verify canonical Current/live refs/frozen identities/method/Progress/plan before continuing;
-- next sessions should not ask the user to reconstruct project state already persisted in GitHub;
-- handoff completion is tested by successor behavior, not by the existence of a summary document.
+- outgoing sessions persist material work, reverify live state, align stale control surfaces, create a classified handoff record, and publish it through a stable pointer;
+- incoming sessions use the handoff for speed, then independently verify canonical Current/live refs/frozen identities/method/Progress/plan;
+- next sessions should not ask the user to reconstruct project state already persisted in GitHub.
+
+## 2026-08-27 — Handoff hierarchy correction: framework, records, and project methodology
+
+Trigger:
+
+The user identified that the first handoff layout mixed reusable handoff/project-management method with one dated project-state-specific handoff occurrence. The dated folder sat directly under `research/handoffs/`, reusable project-management lessons were trapped inside it, while the handoff/takeover discipline itself lived under `research/methodology/`.
+
+The user also made explicit that **project methodology is as important as project state during takeover**, and that **rules for handing over and taking over are themselves first-class continuity method**.
+
+Correction:
+
+```text
+HANDOFF_FRAMEWORK != HANDOFF_RECORD
+HANDOFF_RECORD != PROJECT_METHODOLOGY
+PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
+INSTANCE_DISCOVERS_METHOD -> PROMOTE_METHOD -> KEEP_INSTANCE_AS_EVIDENCE
+```
+
+Canonical handoff framework moved to `research/handoffs/` root:
+
+- `HANDOFF-PROTOCOL.md`;
+- `REQUIRED-TAKEOVER-CONTEXT.yaml`;
+- `PROJECT-MANAGEMENT-DISCIPLINE.md`;
+- `CURRENT-HANDOFF.yaml`.
+
+Dated occurrences moved under `research/handoffs/records/`.
+
+ENA research methodology remains under `research/methodology/` and is explicitly mandatory takeover context.
+
+Incident evidence:
+
+`research/methodology/incidents/2026-08-27-HANDOFF-HIERARCHY-CORRECTION.md`
+
+Practical effect:
+
+- a successor can distinguish how to take over, what project state was handed over, and how ENA research itself must be conducted;
+- outgoing and incoming protocol are equal halves of continuity;
+- reusable method is promoted out of instance records;
+- the current handoff pointer directly declares method inheritance rather than relying on indirect links inside a dated manifest.
 
 ## Future changes
 
