@@ -1,4 +1,4 @@
-schema_version: "2.6"
+schema_version: "2.7"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -18,15 +18,15 @@ project_methodology_required:
   independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
 
 current_handoff_record:
-  id: "2026-08-27-v037-candidate1-frozen-phase-a-ready"
+  id: "2026-08-27-v037-candidate1-blind-semantic-ready"
   state: HANDOFF_READY_FOR_SESSION_SUCCESSION
-  record_root: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/"
-  start_here: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-START-HERE.md"
-  manifest: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-MANIFEST.yaml"
-  project_state: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/PROJECT-STATE.md"
-  recent_three_rounds: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/RECENT-THREE-ROUNDS.md"
-  file_catalog: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/FILE-CATALOG.md"
-  post_merge_readback: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-READBACK.md"
+  record_root: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/"
+  start_here: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/FILE-CATALOG.md"
+  post_merge_readback: "research/handoffs/records/2026-08-27-v037-candidate1-blind-semantic-ready/HANDOFF-READBACK.md"
 
 current_project_authorities:
   project_hub: PROJECT-HUB.md
@@ -47,19 +47,28 @@ receiver_contract:
   treat_handoff_record_as_project_authority: FORBIDDEN
 
 fresh_independent_validation_boundary:
-  project_manager_takeover_context_is_validator_phase_a_context: false
-  phase_a_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-phase-a-entry.md
-  phase_a_target_identity: v0.3.7-candidate.1
-  phase_a_target_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
-  phase_a_target_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
-  phase_a_validation_branch: validation/v037-c1-blind-phase-a-primary
-  phase_a_issue: 128
+  project_manager_takeover_context_is_validator_a_s_context: false
+  invalidated_issue: 128
+  invalidated_branch: validation/v037-c1-blind-phase-a-primary
+  invalidated_result: CANDIDATE_SELF_PRIMING_NO_PHASE_A_SEAL
+  active_issue: 131
+  active_branch: validation/v037-c1-blind-semantic-primary
+  active_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
+  blind_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
+  target_identity: v0.3.7-candidate.1
+  target_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+  target_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
+  a_s_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md
+  a_p_report: collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md
+  sequence: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
   detailed_author_validator_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
-  detailed_author_validator_handoff_phase: PHASE_B_ONLY_AFTER_PHASE_A_SEAL
-  validator_must_not_read_full_project_handoff_before_phase_a: true
-  validator_must_not_receive_author_attack_map_before_phase_a: true
-  phase_a_findings_must_be_persisted_before_phase_b: true
-  previously_exposed_project_manager_can_claim_fresh_phase_a: false
+  detailed_author_validator_handoff_phase: PHASE_B_ONLY_AFTER_A_S_AND_A_P_ARTIFACTS
+  validator_must_not_read_full_project_handoff_before_a_s: true
+  validator_must_not_receive_author_attack_map_before_a_s: true
+  validator_must_not_open_withheld_candidate_local_history_or_oracles_before_a_s_seal: true
+  a_s_findings_must_be_persisted_before_a_p: true
+  independent_artifacts_must_be_persisted_before_phase_b: true
+  previously_exposed_project_manager_can_claim_fresh_a_s: false
 
 completion_evidence:
   handoff_architecture_pr: 116
@@ -80,10 +89,17 @@ completion_evidence:
   candidate1_freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md
   candidate1_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED
   candidate1_independence_decision_record: collaboration/reconciliation/2026-08-27-v037-candidate1-post-freeze-independence-decision.md
-  candidate1_fresh_phase_a_issue: 128
-  candidate1_state: FROZEN_FRESH_BLIND_PHASE_A_NEXT
-  immediate_next_action: CANDIDATE1_FRESH_BLIND_PHASE_A
-  current_handoff_record_refresh: COMPLETE_CANDIDATE1_FROZEN_PHASE_A_READY
+  candidate1_invalidated_phase_a_issue: 128
+  candidate1_invalidated_phase_a_seal_exists: false
+  candidate1_active_a_s_a_p_issue: 131
+  candidate1_blind_semantic_branch: validation/v037-c1-blind-semantic-primary
+  candidate1_blind_semantic_entry: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md
+  candidate1_blind_view_manifest: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml
+  candidate1_blind_view_repair: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
+  candidate1_self_priming_incident: research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md
+  candidate1_state: FROZEN_BLIND_SEMANTIC_VIEW_READY_FRESH_A_S_A_P_NEXT
+  immediate_next_action: CANDIDATE1_FRESH_A_S_A_P
+  current_handoff_record_refresh: COMPLETE_CANDIDATE1_BLIND_SEMANTIC_READY
 
 candidate1_successor_state:
   identity: v0.3.7-candidate.1
@@ -96,15 +112,19 @@ candidate1_successor_state:
   frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
   exact_prefreeze_validation: PASS
   exact_prefreeze_run: 33055811978
-  fresh_blind_phase_a_next: true
-  fresh_blind_phase_a_issue: 128
+  fresh_blind_phase_a_next: false
+  invalidated_phase_a_issue: 128
+  fresh_a_s_a_p_next: true
+  fresh_a_s_a_p_issue: 131
+  fresh_a_s_a_p_branch: validation/v037-c1-blind-semantic-primary
   targeted_revalidation_is_fresh_phase_a: false
+  targeted_revalidation_is_fresh_a_s: false
   attack_cardinality: OPEN
   remaining_visible_residuals:
     - candidate-id cross-environment namespace uniqueness is not universalized without a governing contract
 
 branch_hygiene:
-  cleanup_completed_and_reobserved: true
+  cleanup_completed_and_reobserved: false
   live_branches_after_successor_transition:
     - main
     - research/ena-reconstruction
@@ -112,16 +132,28 @@ branch_hygiene:
     - candidate/v0.3.7-candidate.1
     - validation/v037-c0-blind-phase-a-primary
     - validation/v037-c1-blind-phase-a-primary
+    - validation/v037-c1-blind-semantic-primary
+    - tmp/noop-check
+    - tmp/noop-check-2
   candidate0_validation_branch_role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
-  candidate1_validation_branch_role: FRESH_PHASE_A_INTAKE_PREPARED_NOT_YET_SEALED
+  candidate1_invalid_validation_branch_role: INVALIDATED_SELF_PRIMED_INTAKE_NO_SEAL
+  candidate1_validation_branch_role: FRESH_A_S_A_P_INTAKE_PREPARED_NOT_YET_SEALED
   candidate0_branch_role: FROZEN_PREDECESSOR_LINEAGE
   candidate1_branch_role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH
+  operator_noise_branches:
+    - tmp/noop-check
+    - tmp/noop-check-2
+  operator_noise_role: NON_AUTHORITY_IDENTICAL_POINTER_NO_PROJECT_CONTENT
+  operator_noise_cleanup: DELETE_WHEN_REF_DELETE_CAPABILITY_IS_AVAILABLE
+  operator_noise_must_not_be_used_for_continuation: true
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
   for handing over/taking over are all first-class project-manager succession context.
   A fresh independent validator is a different epistemic role and must use the
-  task-specific minimal-prime Phase-A entry before author-shaped Phase-B context opens.
+  task-specific A-S minimal-prime blind semantic entry before withheld candidate-local
+  history/oracles or author-shaped Phase-B context open. A-P follows only after the A-S
+  seal and remains independent without being represented as search-space blind.
   The current handoff record accelerates project-manager takeover but does not override
   canonical project authority.
 
