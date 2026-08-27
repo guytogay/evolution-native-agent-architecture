@@ -290,6 +290,46 @@ Practical effect:
 - the detailed author validator handoff is retained as Phase-B context/lineage rather than erased;
 - a reviewer with prior material author-oracle exposure may still contribute, but cannot relabel itself as fresh Phase A.
 
+## 2026-08-27 — Candidate self-priming / A-S + A-P split
+
+Trigger:
+
+A genuinely fresh reviewer followed the candidate.1 blind intake and opened a permitted candidate-local file, `CANDIDATE-BASELINE.yaml`. The file itself disclosed predecessor findings, `NEEDS_REVISION`, required repairs, repair commits, and validation lineage. The reviewer correctly stopped rather than claiming freshness.
+
+Further contamination audit found the same information-role problem in changelog/lineage, expected fixtures, regression/selftest corpora, and prior adversarial probes.
+
+Correction:
+
+```text
+CANDIDATE_LOCAL != AUTOMATICALLY_BLIND_SAFE
+FULL_PACKAGE_INDEPENDENCE != FULL_PACKAGE_SEARCH_SPACE_BLINDNESS
+VALIDATION_INTERFACE_DEFECT != CANDIDATE_BYTE_DEFECT
+
+FROZEN_CANDIDATE
+-> EXACT_BYTE_PRESERVING_BLIND_SEMANTIC_VIEW
+-> A-S BLIND SEMANTIC FALSIFICATION
+-> A-S SEAL
+-> A-P INDEPENDENT PACKAGE/HISTORY/ORACLE AUDIT
+-> PHASE B AUTHOR RECONCILIATION
+```
+
+Canonical focused method:
+
+`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
+
+Incident evidence:
+
+`research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md`
+
+Practical effect:
+
+- the invalidated candidate.1 Issue #128 remains occurrence truth but carries no Phase-A seal;
+- a validation projection may withhold explicitly declared history/oracle/selftest surfaces while retaining behavior-bearing candidate bytes exactly;
+- the projection is not a successor candidate and the withheld files are not release ablation;
+- A-S must be durably sealed before withheld candidate-local history/oracles open;
+- A-P remains independent but is not mislabeled search-space blind;
+- candidate.2 is not manufactured for a validation-interface defect alone; a material candidate/package correction basis is still required.
+
 ## Future changes
 
 Add a new entry when a research-process failure, field observation, handoff incident, or stronger method changes how future ENA research should actually be conducted.
