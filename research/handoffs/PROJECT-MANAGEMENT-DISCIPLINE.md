@@ -31,7 +31,7 @@ The handoff/takeover framework lives under `research/handoffs/`.
 
 The ENA research methodology lives under `research/methodology/`.
 
-Both are mandatory takeover context.
+Both are mandatory takeover context for a project-manager/session successor.
 
 ## 3. Handoff framework and handoff records must not be mixed
 
@@ -182,9 +182,42 @@ WRITTEN -> RETRIEVED -> INTERPRETED -> SALIENT -> APPLIED
 
 If the successor can quote the handoff but still asks the user to reconstruct persisted background, treats branch recency as authority, skips required method, or collapses unproven variation, inheritance failed.
 
-## 13. Promoted lessons from the 2026-08-27 succession
+## 13. Project-manager succession and fresh-validator briefing are different jobs
 
-The first standardized handoff exposed several durable lessons:
+The full handoff framework is designed to prevent project-manager context loss. It must not be mechanically reused as the pre-Phase-A briefing for a fresh independent validator.
+
+```text
+PROJECT_MANAGER_SUCCESSION
+-> MAXIMIZE_RELEVANT_CONTEXT_CONTINUITY
+
+FRESH_VALIDATOR_PHASE_A
+-> MINIMIZE_AUTHOR_SHAPED_PRIMING
+```
+
+A different person/model/Agent is not automatically search-space independent if the author gives it the author's detailed attack taxonomy before it has inspected the target.
+
+For fresh independent validation:
+
+```text
+EXACT_TARGET + ROLE_BOUNDARY + MINIMAL_TASK
+-> INDEPENDENT_PHASE_A
+-> PERSIST / SEAL FINDINGS
+-> OPEN_AUTHOR_CONTEXT_FOR_PHASE_B
+```
+
+The project manager should prepare and route the role-scoped entrypoint, but should not send the fresh validator through the full project-manager handoff first.
+
+A reviewer already materially exposed to author oracle/attack construction may still contribute Phase B, oracle auditing, or reconciliation, but cannot restore `FRESH_INDEPENDENT_PHASE_A` status merely by promising to ignore what it has read.
+
+Canonical focused method:
+
+`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
+
+This is not a general rule that "less information is better". It is an ordering rule: rich author context is delayed until after independent observations are durably captured.
+
+## 14. Promoted lessons from the 2026-08-27 succession
+
+The standardized succession work exposed several durable lessons:
 
 - `research/ACTIVE-RESEARCH.yaml` and `PROGRESS.yaml` can drift behind actual candidate/freeze state; alignment must precede succession.
 - the author's initial claim that reducing an observed 1080 pass conditions to 188 was "better" was not justified without anti-ablation lineage; assertion count is not epistemic coverage.
@@ -192,5 +225,6 @@ The first standardized handoff exposed several durable lessons:
 - frozen candidate identity must remain external and content-addressed.
 - handoff framework/method must not be buried inside a dated record.
 - outgoing and incoming succession rules have equal continuity importance.
+- project-manager context completeness and fresh-validator pre-Phase-A information hygiene have different optimization directions.
 
 Historical occurrence evidence remains in the dated handoff records and collaboration/reconciliation records. This file carries the reusable method forward.
