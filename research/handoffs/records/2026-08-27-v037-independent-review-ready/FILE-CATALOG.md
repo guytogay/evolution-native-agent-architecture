@@ -14,18 +14,18 @@ This catalog tells a successor **where to look and why**. Authority remains with
 | `releases/current/CURRENT-BASELINE.yaml` | machine-readable Current identity authority |
 | `releases/current/` | adopter-facing Current baseline only |
 
-## B. Handoff framework — mandatory succession method
+## B. Handoff framework — mandatory project-manager succession method
 
 | Path | Role |
 |---|---|
 | `research/handoffs/README.md` | handoff hierarchy and navigation |
 | `research/handoffs/CURRENT-HANDOFF.yaml` | latest intended record pointer + takeover contract |
 | `research/handoffs/HANDOFF-PROTOCOL.md` | canonical outgoing + incoming succession rules |
-| `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` | machine-readable mandatory takeover context |
+| `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` | machine-readable mandatory project-manager takeover context |
 | `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md` | reusable cross-session project-management rules |
 | `research/handoffs/records/README.md` | historical/current record semantics |
 
-These are not ENA Current semantics, but they are first-class project-continuity method.
+These are not ENA Current semantics, but they are first-class project-continuity method for project-manager/session succession.
 
 ## C. Current handoff record — this occurrence
 
@@ -35,12 +35,12 @@ Root:
 
 | File | Role |
 |---|---|
-| `HANDOFF-START-HERE.md` | fastest instance-specific bootstrap and exact next action |
+| `HANDOFF-START-HERE.md` | fastest project-manager bootstrap and exact next action |
 | `HANDOFF-MANIFEST.yaml` | machine-readable record identity/state |
 | `PROJECT-STATE.md` | detailed current-state projection |
 | `RECENT-THREE-ROUNDS.md` | latest decision-bearing conversation continuity |
 | `FILE-CATALOG.md` | this map |
-| `HANDOFF-READBACK.md` | integration/readback evidence |
+| `HANDOFF-READBACK.md` | prior integration/readback evidence |
 
 ## D. Historical handoff records
 
@@ -48,7 +48,7 @@ Root:
 
 This is the predecessor succession occurrence. It is lineage, not the current pointer.
 
-## E. Project research methodology — mandatory takeover context
+## E. Project research methodology — mandatory project-manager takeover context
 
 | Path | Role |
 |---|---|
@@ -56,17 +56,17 @@ This is the predecessor succession occurrence. It is lineage, not the current po
 | `research/methodology/ENA-RESEARCH-DISCIPLINE.md` | master research-method ledger |
 | `research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md` | convergence, growth, anti-ablation discipline |
 | `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` | material-transition coherence repair |
+| `research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` | role-scoped information boundary for fresh Phase A |
 | `research/methodology/METHOD-CHANGELOG.md` | method-change lineage |
 | `research/methodology/incidents/` | concrete method failures/evidence |
 
 Important distinction:
 
 ```text
-handoff framework = how operators exchange project responsibility
+handoff framework = how project managers exchange responsibility
 project methodology = how ENA research itself is performed
+fresh validator blind entry = minimal pre-Phase-A information surface
 ```
-
-Both must be inherited.
 
 ## F. Active research control plane
 
@@ -87,11 +87,10 @@ Both must be inherited.
 | `d0e793593184740d9732902e948afd48ed96ae2f` | frozen source commit |
 | `cffbf76fe1448b020b637c78d1f7ae46e4c0115b` | frozen candidate subtree SHA |
 | `collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md` | freeze record |
-| `collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md` | validator handoff |
 
 Candidate branch head is not frozen identity.
 
-## H. Author validation / anti-ablation evidence
+## H. Author validation / anti-ablation evidence — Phase B only for a fresh validator
 
 | Path | Role |
 |---|---|
@@ -102,21 +101,35 @@ Candidate branch head is not frozen identity.
 
 Anti-ablation run: `33035656311`.
 
-These are author-side/validation-method evidence, not independent semantic support.
+These are author-side/validation-method evidence, not independent semantic support. A fresh Phase-A validator must not use them before the Phase-A seal.
 
 ## I. Fresh independent validation surface
 
-PR `#115`:
+Review PR:
 
-`DO NOT MERGE: v0.3.7 candidate.0 fresh independent falsification`
+`#115 — DO NOT MERGE: v0.3.7 candidate.0 fresh independent falsification`
 
-Use the exact frozen source/subtree, not the mutable candidate branch head, as review identity.
+### Phase A — blind entry
 
-Phase A must precede author-oracle comparison.
+Use first:
+
+`collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md`
+
+This exposes the exact frozen target and role boundary without preloading the author's detailed attack map.
+
+The Phase-A validator should inspect only the exact frozen candidate subtree, independently derive findings/controls/unknowns, and persist them before opening Phase-B context.
+
+### Phase B — detailed author context
+
+Only after the Phase-A seal, use:
+
+`collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md`
+
+Then compare the independent report with author harnesses, pre-freeze evidence, reference selftests, language fixtures, anti-ablation evidence, and reconciliation history.
 
 ## J. Operational Architecture / selected candidate research lineage
 
-Useful when Phase A needs deeper mechanism context:
+Useful to the **project manager** or during Phase B when deeper mechanism lineage is decision-relevant:
 
 - `research/operational-architecture/`
 - `research/release-scope/`
@@ -124,9 +137,9 @@ Useful when Phase A needs deeper mechanism context:
 - `research/experiments/`
 - `research/external-how/`
 
-Retrieve selectively; do not make research history a parallel runtime baseline.
+Do not send a fresh Phase-A validator through these research-lineage surfaces merely because they are available; that can import the author's search priors before independent inspection.
 
-## Recommended takeover routes
+## Recommended routes
 
 ### Normal project-manager succession
 
@@ -146,18 +159,18 @@ PROJECT-HUB
 ### Current task: fresh independent validation
 
 ```text
-CURRENT-HANDOFF
--> current record
--> exact freeze identity
--> PR #115 instructions
--> Phase A direct frozen-byte inspection
--> only then Phase B author evidence comparison
+blind Phase-A entry
+-> exact frozen candidate subtree only
+-> independently derive claims / attacks / controls / unknowns
+-> persist immutable Phase-A artifact
+-> open detailed Phase-B handoff + author evidence
+-> reconcile
 ```
 
-### If sources disagree
+### If project-manager sources disagree
 
 ```text
-stop substantive work
+stop substantive project work
 -> research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
 -> repair control-plane disagreement
 -> resume

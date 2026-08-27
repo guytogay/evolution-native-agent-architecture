@@ -1,4 +1,4 @@
-schema_version: "2.0"
+schema_version: "2.1"
 status: ACTIVE_RESEARCH_POINTER
 updated_at: "2026-08-27"
 
@@ -7,7 +7,7 @@ updated_at: "2026-08-27"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE0_FROZEN / ANTI_ABLATION_AUDIT_COMPLETE / INDEPENDENT_FALSIFICATION_PR_115_OPEN / FRESH_PHASE_A_NEXT / NOT_CURRENT"
+  state: "V0_3_7_CANDIDATE0_FROZEN / ANTI_ABLATION_AUDIT_COMPLETE / BLIND_PHASE_A_ENTRY_READY / INDEPENDENT_FALSIFICATION_PR_115_OPEN / FRESH_PHASE_A_NEXT / NOT_CURRENT"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -21,6 +21,7 @@ active_research:
   required_takeover_context_path: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
   project_management_discipline_path: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
   convergence_divergence_method_path: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
+  independent_validation_information_boundary_path: "research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md"
   current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
   alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   operational_architecture_path: "research/operational-architecture/README.md"
@@ -43,6 +44,7 @@ project_control_plane:
   methodology_index: "research/methodology/README.md"
   methodology_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
   convergence_divergence_method: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
+  independent_validation_information_boundary: "research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md"
   alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
   master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
 
@@ -50,10 +52,9 @@ continuation_protocol:
   - "Start from main, not from a guessed research or candidate branch."
   - "Verify Current from releases/current/CURRENT-BASELINE.yaml; Current remains singular until explicit promotion."
   - "Read research/handoffs/CURRENT-HANDOFF.yaml."
-  - "Read research/handoffs/HANDOFF-PROTOCOL.md, REQUIRED-TAKEOVER-CONTEXT.yaml, and PROJECT-MANAGEMENT-DISCIPLINE.md before substantive work."
-  - "Read the current handoff record pointed to by CURRENT-HANDOFF.yaml; do not guess from record recency."
+  - "Project-manager successors read the full handoff framework, current record, and canonical project methodology before substantive work."
+  - "Fresh independent validators are a different role and must use the task-specific blind Phase-A entry before detailed author/project context."
   - "Read this file to discover the active research integration branch and current project phase."
-  - "Read canonical project methodology; project-state inheritance without method inheritance is incomplete takeover."
   - "If current-state surfaces disagree after handoff or another material transition, complete the Project State Alignment Gate before resuming."
   - "Read the active branch bootstrap, PROGRESS.yaml, and master plan."
   - "For candidate work, distinguish the candidate branch head from the exact frozen source/tree identity."
@@ -61,7 +62,7 @@ continuation_protocol:
   - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "V0_3_7_ANTI_ABLATION_AUDIT_COMPLETE_AND_FRESH_INDEPENDENT_REVIEW_OPENED"
+  event: "V0_3_7_FRESH_VALIDATOR_BLIND_PHASE_A_INFORMATION_BOUNDARY_ADDED"
   current_changed_by_transition: false
   next_version: "v0.3.7"
   candidate_identity: "v0.3.7-candidate.0"
@@ -74,10 +75,12 @@ latest_transition:
   anti_ablation_audit: "collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md"
   anti_ablation_run: 33035656311
   independent_falsification_review_pr: 115
+  blind_phase_a_entry: "collaboration/reconciliation/2026-08-27-v037-candidate0-blind-phase-a-entry.md"
+  detailed_author_handoff_phase: PHASE_B_AFTER_PHASE_A_SEAL
   convergence_method_main_commit: "e42f9838294716b2ad34e6a2a0150e5d1cb89027"
 
 candidate_validation_transition:
-  current_state: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A_NEXT
+  current_state: FRESH_INDEPENDENT_FALSIFICATION_BLIND_PHASE_A_NEXT
   completed:
     - release scope stabilized and v0.3.7 assigned
     - self-contained candidate.0 assembled
@@ -85,16 +88,19 @@ candidate_validation_transition:
     - author assembly/identity/adversarial validation completed with defects and oracle false positives preserved/repaired
     - exact pre-freeze validation passed on one exact source/subtree
     - candidate.0 frozen by an external exact source/tree record
-    - fresh independent validator handoff prepared
     - convergence/divergence discipline canonicalized after user challenged the 1080-to-188 author-harness reduction
     - tree-external 1080 -> 188 anti-ablation audit completed
     - materially distinct lost attack shapes restored outside frozen candidate.0
     - anti-ablation workflow passed while rebinding exact frozen subtree and candidate_bytes_changed=NO
     - draft DO NOT MERGE independent-falsification review PR 115 opened
+    - validator-priming risk identified in the original detailed Phase-A handoff
+    - blind minimal-prime Phase-A entry prepared while retaining the original detailed handoff as Phase-B context
   next_required_steps:
-    - "use a fresh validator for Phase A independent inspection of exact frozen bytes"
-    - "do not consult author expected outcomes/oracles before Phase A findings are formed"
-    - "in Phase B compare independent findings with author harnesses, pre-freeze evidence, reference selftests, language fixtures, and anti-ablation audit"
+    - "integrate the blind Phase-A information-boundary method/control-plane update to main"
+    - "use a genuinely fresh validator through the blind Phase-A entry"
+    - "do not expose author attack taxonomy, expected outcomes, or detailed reconciliation context before Phase-A findings are persisted"
+    - "seal Phase-A findings with immutable identity"
+    - "in Phase B compare sealed independent findings with author harnesses, pre-freeze evidence, reference selftests, language fixtures, and anti-ablation audit"
     - "reconcile the independent verdict before release preparation or candidate succession"
     - "create candidate.1 only if a material candidate-byte correction is required"
     - "keep PR 115 DO NOT MERGE; it is a review surface, not release authority"
@@ -108,7 +114,7 @@ frozen_candidate:
   subtree_path: "releases/v0.3.7-candidate/"
   mutable_in_place: false
   anti_ablation_audit: COMPLETE_TREE_EXTERNAL_PASS
-  independent_falsification: PENDING_FRESH_PHASE_A
+  independent_falsification: PENDING_FRESH_BLIND_PHASE_A
   independent_falsification_review_pr: 115
   release_decision: NOT_MADE
 
@@ -121,6 +127,7 @@ handoff:
   records_root: "research/handoffs/records/"
   rule: "HANDOFF_RECORD_IS_BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY"
   takeover_rule: "PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE_IS_INCOMPLETE"
+  validator_role_rule: "FULL_PROJECT_MANAGER_TAKEOVER_CONTEXT_IS_NOT_FRESH_PHASE_A_CONTEXT"
 
 historical_branch_lineage:
   predecessor_branch: "research/memory-metabolism-prototype"
@@ -141,6 +148,7 @@ alignment:
   minor_commit_requires_full_gate: false
   session_handoff_is_alignment_trigger_when_control_state_would_otherwise_drift: true
   canonical_path_move_is_alignment_trigger: true
+  material_validation_method_change_is_alignment_trigger: true
 
 current_release:
   source_of_truth: "releases/current/CURRENT-BASELINE.yaml"

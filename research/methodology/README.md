@@ -26,7 +26,9 @@ PROJECT METHODOLOGY = how ENA research itself is performed
 HANDOFF RECORD = one time-bounded succession occurrence
 ```
 
-A successor must inherit both framework and methodology.
+A successor project manager must inherit both framework and methodology.
+
+A **fresh independent validator** is a different role: before Phase A it should use a deliberately minimal information boundary rather than inheriting author-shaped attack/oracle context. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`.
 
 ## Canonical rule
 
@@ -45,13 +47,14 @@ METHOD_WRITTEN != METHOD_APPLIED
 1. `ENA-RESEARCH-DISCIPLINE.md` — open-cardinality master method ledger.
 2. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when abstraction/compression is valid and when HOW/failure/Host variation must remain open or grow.
 3. `PROJECT-STATE-ALIGNMENT-GATE.md` — realign routing, method, plan, progress, candidate/release state, and next actions after material transitions.
-4. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
-5. `incidents/` — concrete method failures that changed future behavior.
-6. `../BRANCH-GOVERNANCE.md` — research/candidate topology across sessions.
-7. `../ACTIVE-RESEARCH.yaml` — active research routing.
-8. `../handoffs/CURRENT-HANDOFF.yaml` — current succession pointer.
-9. `../handoffs/HANDOFF-PROTOCOL.md` — outgoing/incoming succession rules.
-10. `../handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — explicit mandatory inheritance context.
+4. `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` — when a fresh validator must receive less author-shaped context before Phase A than a project-manager successor receives during takeover.
+5. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
+6. `incidents/` — concrete method failures that changed future behavior.
+7. `../BRANCH-GOVERNANCE.md` — research/candidate topology across sessions.
+8. `../ACTIVE-RESEARCH.yaml` — active research routing.
+9. `../handoffs/CURRENT-HANDOFF.yaml` — current succession pointer.
+10. `../handoffs/HANDOFF-PROTOCOL.md` — outgoing/incoming succession rules.
+11. `../handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — explicit mandatory inheritance context for project-manager succession.
 
 Focused methodology files may be added when a distinction changes behavior; file count is not a completeness claim.
 
@@ -84,6 +87,16 @@ PROVEN_BEHAVIORAL_EQUIVALENCE -> MAY_COMPRESS
 UNPROVEN_EQUIVALENCE -> DO_NOT_COLLAPSE
 UNKNOWN_SPACE -> EXPAND
 ```
+
+For fresh independent validation, preserve another distinction:
+
+```text
+PROJECT_MANAGER_TAKEOVER_CONTEXT
+!=
+FRESH_VALIDATOR_PRE_PHASE_A_CONTEXT
+```
+
+The project manager needs continuity. The fresh validator needs enough target identity to inspect safely without receiving the author's search map before independent findings are sealed.
 
 ## Project-state alignment rule
 
@@ -128,8 +141,10 @@ If it reads anti-dissolution/plural-HOW discipline and then immediately compress
 
 If it treats a smaller assertion/file/category count as success without proving behavioral equivalence, inheritance failed.
 
-If it reads project state but skips the handoff framework or project methodology, takeover failed.
+If a project-manager successor reads project state but skips the handoff framework or project methodology, takeover failed.
+
+If a fresh independent validator is given the author's detailed attack map before it independently derives Phase-A findings, independent-validation information hygiene failed.
 
 If it reads a new branch/control-plane state but continues from stale routing or superseded plan, project-state inheritance failed.
 
-> **Do not merely inherit conclusions. Inherit the method that governs how new conclusions may be produced.**
+> **Do not merely inherit conclusions. Inherit the method that governs how new conclusions may be produced — and give each role only the context its epistemic job requires.**
