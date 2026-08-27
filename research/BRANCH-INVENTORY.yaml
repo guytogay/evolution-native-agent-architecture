@@ -1,5 +1,5 @@
-schema_version: "1.3"
-observed_at: "2026-08-26"
+schema_version: "1.4"
+observed_at: "2026-08-27"
 status: CURRENT_BRANCH_INVENTORY
 
 canonical_active_pointer: "research/ACTIVE-RESEARCH.yaml"
@@ -7,6 +7,7 @@ inventory_scope: "LIVE_PROJECT_REFS_PLUS_DURABLE_REMOVAL_LINEAGE"
 
 branches:
   - name: "main"
+    observed_head: "3312aabaf43d7cedf173b07a57d755ae504f2057"
     role: PROJECT_CONTROL_PLANE
     lifecycle: PERMANENT
     active_for_research_continuation: false
@@ -14,14 +15,70 @@ branches:
       - "Canonical default branch and Current/project-control entry surface."
 
   - name: "research/ena-reconstruction"
+    observed_head_mode: LIVE_REVERIFY_BEFORE_WRITE
     role: ACTIVE_RESEARCH_INTEGRATION
     lifecycle: ACTIVE_INTEGRATION
     active_for_research_continuation: true
-    head_observation: LIVE_REVERIFY_BEFORE_WRITE
     notes:
-      - "Successor research generation created from checkpointed main commit be776b9f8e7d280e39a5389148722229569a2c49."
-      - "Canonical activity is established by ACTIVE-RESEARCH.yaml, not by branch recency, PR number, or an embedded head SHA."
-      - "Scope is broad ENA reconstruction under WHAT -> WHY -> HOW -> EVIDENCE discipline."
+      - "Only branch authorized by ACTIVE-RESEARCH.yaml for ongoing project-manager continuation."
+      - "Head changes during active work and is not embedded as a continuation identity lock."
+
+  - name: "candidate/v0.3.7-candidate.0"
+    observed_head: "828c7b0832d83062511e337a9286dc826a081101"
+    role: FROZEN_PREDECESSOR_LINEAGE_BRANCH
+    lifecycle: HISTORICAL_LIVE_REF
+    active_for_research_continuation: false
+    frozen_identity_is_branch_head: false
+    frozen_source: "d0e793593184740d9732902e948afd48ed96ae2f"
+    frozen_subtree: "cffbf76fe1448b020b637c78d1f7ae46e4c0115b"
+
+  - name: "candidate/v0.3.7-candidate.1"
+    observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+    role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH
+    lifecycle: FROZEN_LIVE_REF
+    active_for_research_continuation: false
+    frozen_identity_is_branch_head: true
+    frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
+    frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
+
+  - name: "validation/v037-c0-blind-phase-a-primary"
+    observed_head: "5ba3d241efa460fe170253860ad67045aa1d96a5"
+    role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
+    lifecycle: SEALED_VALIDATION_LINEAGE
+    active_for_research_continuation: false
+
+  - name: "validation/v037-c1-blind-phase-a-primary"
+    observed_head: "bac074097579ad930b2e90c46c00773f6f20c86d"
+    role: INVALIDATED_SELF_PRIMED_INTAKE_NO_SEAL
+    lifecycle: HISTORICAL_INVALID_VALIDATION_INTAKE
+    active_for_research_continuation: false
+    notes:
+      - "Issue #128 is closed; this branch must not be reused as fresh validation authority."
+
+  - name: "validation/v037-c1-blind-semantic-primary"
+    observed_head: "711a2028ae5644eefa90219e49e3f4325aadc903"
+    role: ACTIVE_FRESH_A_S_A_P_VALIDATION_INTAKE
+    lifecycle: OPEN_VALIDATION_INTAKE
+    active_for_research_continuation: false
+    notes:
+      - "Issue #131 is the active independent-validation intake."
+      - "Validation projection only; never release/promotion authority."
+
+  - name: "tmp/noop-check"
+    observed_head: "0427fe4f34d54b7f17cfb075c6fbc3b35b442fba"
+    role: OPERATOR_NOISE_NON_AUTHORITY
+    lifecycle: CLEANUP_PENDING_CAPABILITY
+    active_for_research_continuation: false
+    notes:
+      - "Accidentally created during connector function discovery; contains no unique project content."
+
+  - name: "tmp/noop-check-2"
+    observed_head: "0427fe4f34d54b7f17cfb075c6fbc3b35b442fba"
+    role: OPERATOR_NOISE_NON_AUTHORITY
+    lifecycle: CLEANUP_PENDING_CAPABILITY
+    active_for_research_continuation: false
+    notes:
+      - "Accidentally created during connector function discovery; contains no unique project content."
 
 recent_cleanup:
   completed_at: "2026-08-26"
@@ -52,6 +109,9 @@ recent_cleanup:
 
 invariants:
   - "Only the branch named by research/ACTIVE-RESEARCH.yaml is the active research continuation surface."
+  - "Candidate and validation branches may be live without becoming research continuation authority."
+  - "A blind validation projection is not a candidate and cannot become release authority."
+  - "An invalidated validation branch remains occurrence truth without becoming an active intake."
   - "An open PR on the active branch is a transient integration artifact, not branch authority."
   - "The active branch head must be reverified live before writes; embedded self-referential head SHAs are not identity locks."
   - "Temporary branch existence does not create parallel research authority."
@@ -60,6 +120,6 @@ invariants:
   - "The live branch list contains only refs observed to exist; deleted refs belong only in cleanup/history lineage."
 
 cleanup_note: >-
-  Live project refs observed after predecessor cleanup are main and
-  research/ena-reconstruction. The deleted predecessor remains represented only as
-  durable lineage, not as a live or retiring ref.
+  Two tmp/noop-check refs are known operator noise and are not project authority. The
+  currently available GitHub connector exposes ref creation/move but not ref deletion;
+  they remain explicitly classified until a proper delete-ref capability is available.
