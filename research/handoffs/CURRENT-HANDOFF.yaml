@@ -18,15 +18,15 @@ project_methodology_required:
   independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
 
 current_handoff_record:
-  id: "2026-08-27-v037-independent-review-ready"
+  id: "2026-08-27-v037-candidate1-frozen-phase-a-ready"
   state: HANDOFF_READY_FOR_SESSION_SUCCESSION
-  record_root: "research/handoffs/records/2026-08-27-v037-independent-review-ready/"
-  start_here: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-START-HERE.md"
-  manifest: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-MANIFEST.yaml"
-  project_state: "research/handoffs/records/2026-08-27-v037-independent-review-ready/PROJECT-STATE.md"
-  recent_three_rounds: "research/handoffs/records/2026-08-27-v037-independent-review-ready/RECENT-THREE-ROUNDS.md"
-  file_catalog: "research/handoffs/records/2026-08-27-v037-independent-review-ready/FILE-CATALOG.md"
-  post_merge_readback: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-READBACK.md"
+  record_root: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/"
+  start_here: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/FILE-CATALOG.md"
+  post_merge_readback: "research/handoffs/records/2026-08-27-v037-candidate1-frozen-phase-a-ready/HANDOFF-READBACK.md"
 
 current_project_authorities:
   project_hub: PROJECT-HUB.md
@@ -83,7 +83,7 @@ completion_evidence:
   candidate1_fresh_phase_a_issue: 128
   candidate1_state: FROZEN_FRESH_BLIND_PHASE_A_NEXT
   immediate_next_action: CANDIDATE1_FRESH_BLIND_PHASE_A
-  current_handoff_record_refresh: REQUIRED_NOW_AFTER_FREEZE_MATERIAL_GATE
+  current_handoff_record_refresh: COMPLETE_CANDIDATE1_FROZEN_PHASE_A_READY
 
 candidate1_successor_state:
   identity: v0.3.7-candidate.1
