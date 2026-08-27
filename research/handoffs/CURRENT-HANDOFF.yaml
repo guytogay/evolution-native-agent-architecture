@@ -1,4 +1,4 @@
-schema_version: "2.0"
+schema_version: "2.1"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-27"
 
@@ -17,7 +17,7 @@ project_methodology_required:
 
 current_handoff_record:
   id: "2026-08-27-v037-independent-review-ready"
-  state: HANDOFF_PENDING_POST_MERGE_READBACK
+  state: HANDOFF_READY_FOR_SESSION_SUCCESSION
   record_root: "research/handoffs/records/2026-08-27-v037-independent-review-ready/"
   start_here: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-START-HERE.md"
   manifest: "research/handoffs/records/2026-08-27-v037-independent-review-ready/HANDOFF-MANIFEST.yaml"
@@ -44,10 +44,28 @@ receiver_contract:
   infer_current_record_from_directory_recency: FORBIDDEN
   treat_handoff_record_as_project_authority: FORBIDDEN
 
-completion_rule: >-
-  The record becomes HANDOFF_READY_FOR_SESSION_SUCCESSION only after the structure
-  refactor is merged to main and the outgoing session performs and persists a main-based
-  post-merge readback according to HANDOFF-PROTOCOL.md.
+completion_evidence:
+  handoff_architecture_pr: 116
+  main_merge_commit: fd532380bf1892f481f34fdb090ea38002ac5bc3
+  post_merge_readback_completed: true
+  current_reverified: "v0.3.6 / CURRENT / FIELD_VALIDATION"
+  active_research_aligned_to_main_at_readback: true
+  frozen_candidate_subtree_reverified: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+  immediate_next_action: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
+
+branch_hygiene:
+  cleanup_is_handoff_blocker: false
+  manual_cleanup_pending_reobservation: true
+  delete_safe_no_unique_work:
+    - research/handoff-structure-refactor
+    - research/work/release-scope-checkpoint-temp
+    - tmp-ignore
+    - tmp-ignore-2
+    - tmp-ignore-3
+  retain:
+    - main
+    - research/ena-reconstruction
+    - candidate/v0.3.7-candidate.0
 
 rule: >-
   Project state, project methodology, project-management discipline, and the rules
