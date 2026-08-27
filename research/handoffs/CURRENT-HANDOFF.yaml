@@ -1,9 +1,10 @@
-schema_version: "1.0"
+schema_version: "1.1"
 status: CURRENT_HANDOFF_POINTER
 updated_at: "2026-08-27"
 
 current_handoff:
   id: "2026-08-27-v037-candidate0-frozen"
+  state: HANDOFF_READY_FOR_SESSION_SUCCESSION
   package_root: "research/handoffs/2026-08-27-v037-candidate0-frozen/"
   start_here: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-START-HERE.md"
   manifest: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-MANIFEST.yaml"
@@ -11,6 +12,7 @@ current_handoff:
   recent_three_rounds: "research/handoffs/2026-08-27-v037-candidate0-frozen/RECENT-THREE-ROUNDS.md"
   file_catalog: "research/handoffs/2026-08-27-v037-candidate0-frozen/FILE-CATALOG.md"
   management_lessons: "research/handoffs/2026-08-27-v037-candidate0-frozen/PROJECT-MANAGEMENT-LESSONS.md"
+  post_merge_readback: "research/handoffs/2026-08-27-v037-candidate0-frozen/HANDOFF-READBACK.md"
 
 handoff_method: "research/methodology/SESSION-HANDOFF-DISCIPLINE.md"
 

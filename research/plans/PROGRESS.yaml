@@ -1,6 +1,6 @@
-schema_version: "1.8"
+schema_version: "1.9"
 as_of: "2026-08-27"
-status: V0_3_7_CANDIDATE0_FROZEN_VALIDATION_ANTI_ABLATION_AUDIT_NEXT
+status: V0_3_7_CANDIDATE0_FROZEN_INDEPENDENT_FALSIFICATION_REVIEW_OPEN
 
 progress_is_complete_history: false
 
@@ -40,7 +40,7 @@ next_release_line:
 
 frozen_candidate0:
   identity: v0.3.7-candidate.0
-  state: FROZEN_INDEPENDENT_FALSIFICATION_PENDING
+  state: FROZEN_INDEPENDENT_FALSIFICATION_REVIEW_OPEN
   candidate_branch: candidate/v0.3.7-candidate.0
   branch_head_is_frozen_identity: false
   frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
@@ -49,16 +49,22 @@ frozen_candidate0:
   freeze_record: collaboration/reconciliation/2026-08-27-v037-candidate0-freeze.md
   freeze_record_commit: a3b5c16fa7af1559c84be5f9ee47351db5d0387e
   independent_falsification_handoff: collaboration/reconciliation/2026-08-27-v037-candidate0-independent-falsification-handoff.md
+  anti_ablation_audit: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
+  anti_ablation_workflow_run: 33035656311
+  independent_falsification_review_pr: 115
+  independent_falsification_review_pr_mode: DRAFT_DO_NOT_MERGE
   exact_prefreeze_workflow: ENA v0.3.7 Candidate Exact Pre-Freeze Gate
   exact_prefreeze_run: 33011823923
   exact_prefreeze_result: SUCCESS
-  independent_semantic_falsification: PENDING
+  independent_semantic_falsification: PENDING_FRESH_PHASE_A
   release_decision: NOT_MADE
   candidate_succession_stop: NOT_DECIDED
 
 phase_state:
   anti_ablation_archaeology:
-    state: RECOVERY_SUFFICIENT_REOPENABLE
+    state: AUDIT_COMPLETE_TREE_EXTERNAL_REPAIR_PASS
+    verdict: PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
+    candidate_bytes_changed: false
 
   operational_architecture_assembly:
     state: ASSEMBLED_IN_FROZEN_CANDIDATE0 / REOPEN_IF_NEW_MATERIAL_GAP_APPEARS
@@ -75,22 +81,29 @@ phase_state:
     mutable_in_place: false
 
   author_validation:
-    state: PREFREEZE_MACHINE_PASS_WITH_REPAIRED_AUTHOR_AND_ORACLE_DEFECTS
+    state: PREFREEZE_MACHINE_PASS_PLUS_POSTFREEZE_TREE_EXTERNAL_ANTI_ABLATION_PASS
     exact_prefreeze_run: 33011823923
+    anti_ablation_run: 33035656311
     author_evidence_is_independent_evidence: false
 
   validation_method_reconciliation:
-    state: ANTI_ABLATION_AUDIT_REQUIRED_BEFORE_INDEPENDENT_REVIEW
+    state: ANTI_ABLATION_AUDIT_COMPLETE_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
     trigger: >-
       User challenged the project's unverified claim that reducing the author harness
       from an observed 1080 pass conditions to 188 structured pass conditions was
-      epistemically better. The canonical convergence/divergence discipline now
-      requires explicit disposition of materially distinct predecessor attack shapes.
+      epistemically better. Direct old/new comparison found both legitimate lifecycle-
+      aware oracle repair and several materially distinct lost failure shapes.
     canonical_method: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
+    audit_record: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
+    machine_run: 33035656311
     candidate_bytes_affected_by_method_change: false
+    candidate1_required_by_audit: false
 
   independent_falsification:
-    state: PENDING_AFTER_VALIDATION_ANTI_ABLATION_AUDIT
+    state: REVIEW_PR_115_OPEN_AWAITING_FRESH_PHASE_A
+    review_pr: 115
+    validator_must_be_fresh: true
+    author_oracle_must_not_precede_phase_a: true
 
   promotion:
     state: NOT_STARTED
@@ -128,31 +141,43 @@ selected_candidate0_surface:
     candidate_path: releases/v0.3.7-candidate/tools/ena_evolve_v2.py
     legacy_v1_2: RETAINED_UNDER_TOOLS_LEGACY_NOT_DEFAULT
 
-immediate_next_action:
+completed_transition:
   id: AUTHOR_HARNESS_1080_TO_188_ANTI_ABLATION_AUDIT
   target: VALIDATION_METHOD_OUTSIDE_FROZEN_CANDIDATE0
-  objective: >-
-    Recover materially distinct predecessor attack/failure shapes and map each
-    to the newer author harness before independent falsification.
-  optimize_for_numeric_count: false
-  optimize_for_distinct_failure_shape_recovery: true
-  required_dispositions:
-    - PRESERVED
-    - MERGED_AS_PROVEN_EQUIVALENT
-    - REPLACED_BY_STRONGER_ORACLE
-    - RETAINED_OUTSIDE_CURRENT_HARNESS
-    - RETIRED_WITH_EVIDENCE
-    - LOST
-    - UNKNOWN
-  lost_or_unknown_counts_as_successful_simplification: false
+  result: PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR
+  audit_record: collaboration/reconciliation/2026-08-27-v037-candidate0-author-harness-anti-ablation-audit.md
+  workflow_run: 33035656311
+  frozen_subtree_reverified: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+  candidate_bytes_changed: false
+  candidate1_required: false
+  key_conclusion: >-
+    The 1080-to-188 reduction was not uniformly an improvement: lifecycle-sensitive
+    broad token scans were legitimately retired/replaced, while route-target integrity,
+    route-to-deferred-manifest coupling, and stale competing primary-tool-route checks
+    were materially distinct lost shapes and were restored tree-external.
 
-next_after_audit_if_no_material_candidate_defect:
-  - create a clearly labeled DO NOT MERGE independent-falsification review PR
-  - bind review to frozen source/subtree
-  - use a fresh independent validator
-  - require Phase A independent inspection before accepting author tests/oracles
-  - compare against author evidence only in Phase B
-  - reconcile verdict before release preparation
+immediate_next_action:
+  id: FRESH_INDEPENDENT_FALSIFICATION_PHASE_A
+  target: PULL_REQUEST_115_BOUND_TO_FROZEN_SOURCE_AND_SUBTREE
+  objective: >-
+    Have a fresh validator inspect the exact frozen candidate bytes and independently
+    derive false-claim, false-confidence, false-BLOCK, routing, composition, migration,
+    language, and operational-inhabitability attacks before consulting author-side
+    expected outcomes or validation oracles.
+  validator_must_be_fresh: true
+  phase_a_before_author_oracle: true
+  candidate_branch_head_is_not_review_identity: true
+  frozen_source_commit: d0e793593184740d9732902e948afd48ed96ae2f
+  frozen_candidate_subtree: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+  review_pr: 115
+  do_not_merge: true
+
+next_after_fresh_phase_a:
+  - compare independent findings against author evidence only in Phase B
+  - classify whether existing tests catch, miss, false-BLOCK, or overclaim each material finding
+  - reconcile independent verdict before release preparation
+  - create candidate.1 only if a material candidate-byte correction is required
+  - otherwise preserve candidate.0 frozen identity and proceed through governed release discipline only after acceptance
 
 candidate1_rule:
   create_only_if: MATERIAL_CANDIDATE_BYTE_CORRECTION_REQUIRED
@@ -171,8 +196,10 @@ forbidden_now:
   - MODIFY_RELEASES_CURRENT
   - CLAIM_V0_3_7_CURRENT
   - EDIT_FROZEN_CANDIDATE0_IN_PLACE
-  - SKIP_VALIDATION_ANTI_ABLATION_AUDIT
   - TREAT_AUTHOR_PASS_AS_INDEPENDENT_VALIDATION
+  - TREAT_ANTI_ABLATION_AUDIT_AS_INDEPENDENT_VALIDATION
+  - LET_AUTHOR_ORACLE_PRECEDE_FRESH_PHASE_A
+  - MERGE_PR_115_AS_RELEASE_OR_PROMOTION
   - CREATE_CANDIDATE1_WITHOUT_MATERIAL_CANDIDATE_BYTE_DEFECT
   - SILENTLY_COLLAPSE_UNPROVEN_HOW_FAILURE_HOST_VARIATION
 
