@@ -260,6 +260,36 @@ Practical effect:
 - reusable method is promoted out of instance records;
 - the current handoff pointer directly declares method inheritance rather than relying on indirect links inside a dated manifest.
 
+## 2026-08-27 — Independent validator information-boundary correction
+
+Trigger:
+
+After the project correctly required fresh independent Phase A for v0.3.7 candidate.0, the first validator handoff and PR #115 still exposed a detailed author-generated attack map before Phase A. The list was open-ended and not an expected-verdict oracle, but it could prime the validator to search the author's already-imagined branches and preserve shared blind spots.
+
+Correction:
+
+```text
+PROJECT_MANAGER_TAKEOVER_CONTEXT != FRESH_VALIDATOR_PRE_PHASE_A_CONTEXT
+PROJECT_MANAGER_SUCCESSION -> MAXIMIZE_RELEVANT_CONTEXT_CONTINUITY
+FRESH_VALIDATOR_PHASE_A     -> MINIMIZE_AUTHOR_SHAPED_PRIMING
+PHASE_A_FINDINGS_PERSISTED  -> AUTHOR_CONTEXT_MAY_OPEN_FOR_PHASE_B
+```
+
+Canonical focused method:
+
+`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
+
+Incident evidence:
+
+`research/methodology/incidents/2026-08-27-INDEPENDENT-VALIDATOR-PRIMING-INCIDENT.md`
+
+Practical effect:
+
+- fresh validators receive a minimal-prime Phase-A entry rather than the full project-manager handoff or author attack taxonomy;
+- Phase A derives its claim/failure space from exact frozen bytes and persists findings before Phase B;
+- the detailed author validator handoff is retained as Phase-B context/lineage rather than erased;
+- a reviewer with prior material author-oracle exposure may still contribute, but cannot relabel itself as fresh Phase A.
+
 ## Future changes
 
 Add a new entry when a research-process failure, field observation, handoff incident, or stronger method changes how future ENA research should actually be conducted.
