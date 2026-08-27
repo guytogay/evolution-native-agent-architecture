@@ -24,7 +24,7 @@ update("research/plans/PROGRESS.yaml", [
     ('    active_issue: 131\n    active_branch: validation/v037-c1-blind-semantic-primary',
      '    completed_issue: 131\n    sealed_branch: validation/v037-c1-blind-semantic-primary',
      'validation method intake status'),
-    ('  current_method_transition:\n  id: CANDIDATE_SELF_PRIMING_TO_BLIND_SEMANTIC_VIEW\n  target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE1\n  result: BLIND_SEMANTIC_VIEW_READY_A_S_A_P_INTAKE_131',
+    ('current_method_transition:\n  id: CANDIDATE_SELF_PRIMING_TO_BLIND_SEMANTIC_VIEW\n  target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE1\n  result: BLIND_SEMANTIC_VIEW_READY_A_S_A_P_INTAKE_131',
      'current_method_transition:\n  id: CANDIDATE_SELF_PRIMING_TO_BLIND_SEMANTIC_VIEW\n  target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE1\n  result: BLIND_SEMANTIC_VIEW_COMPLETED_A_S_A_P_SEALED_PHASE_B_NEEDS_REVISION',
      'method transition result'),
     ('  active_issue: 131\n  active_branch: validation/v037-c1-blind-semantic-primary\n  candidate_bytes_changed: false\n  candidate2_required: false',
