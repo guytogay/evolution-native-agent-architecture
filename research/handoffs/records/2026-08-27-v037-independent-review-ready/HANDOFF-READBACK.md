@@ -4,136 +4,48 @@ Status: `POST_MERGE_READBACK_COMPLETE / HANDOFF_READY_FOR_SESSION_SUCCESSION`
 
 Handoff ID: `2026-08-27-v037-independent-review-ready`
 
-This is the completion evidence for the handoff architecture refactor and the current session-successor record.
+This is the completion evidence for the handoff architecture refactor and current session succession.
 
-## Integration result
+## Integrated state
 
-Handoff architecture PR:
-
-`#116 — Handoff architecture: separate framework, records, and project methodology`
-
-Merged to `main` as:
+PR `#116 — Handoff architecture: separate framework, records, and project methodology` merged to `main` as:
 
 `fd532380bf1892f481f34fdb090ea38002ac5bc3`
 
-Pre-merge required checks on PR #116 all completed successfully:
+Required checks all passed:
 
-- `Handoff Structure` run `33037382432` — `SUCCESS`
-- `Main Gate` run `33037382387` — `SUCCESS`
-- `Validate and package ENA Current` run `33037382383` — `SUCCESS`
-- `CodeQL` run `33037382382` — `SUCCESS`
+- Handoff Structure `33037382432` — SUCCESS
+- Main Gate `33037382387` — SUCCESS
+- Validate and package ENA Current `33037382383` — SUCCESS
+- CodeQL `33037382382` — SUCCESS
 
-## Main-based takeover readback
+## Main-based readback
 
-The outgoing session then re-entered the project from `main` rather than trusting the pre-merge branch state.
+Verified after merge:
 
-Verified from `main`:
+- Current remains `v0.3.6 / CURRENT / FIELD_VALIDATION`;
+- `releases/current/` was not changed by the handoff refactor;
+- reusable handoff/takeover framework lives at `research/handoffs/` root;
+- dated handoff occurrences live only under `research/handoffs/records/`;
+- project methodology remains under `research/methodology/` and is mandatory takeover context;
+- `research/ena-reconstruction` was aligned to the merged main control-plane state;
+- frozen candidate.0 remains bound to source `d0e793593184740d9732902e948afd48ed96ae2f` and subtree `cffbf76fe1448b020b637c78d1f7ae46e4c0115b`;
+- PR #115 remains `DRAFT / DO NOT MERGE / FRESH_INDEPENDENT_VALIDATION_REQUIRED`;
+- immediate substantive next action remains `FRESH_INDEPENDENT_FALSIFICATION_PHASE_A`.
 
-### Current
+## Branch hygiene — final readback
 
-`releases/current/CURRENT-BASELINE.yaml` still reports:
+After the user deleted the previously identified temporary/accidental refs, live branch enumeration was repeated.
 
-```text
-v0.3.6 / CURRENT / FIELD_VALIDATION
-```
-
-No `releases/current/` file was changed by PR #116.
-
-### Handoff hierarchy
-
-`research/handoffs/` contains reusable succession framework at root:
-
-- `CURRENT-HANDOFF.yaml`
-- `HANDOFF-PROTOCOL.md`
-- `REQUIRED-TAKEOVER-CONTEXT.yaml`
-- `PROJECT-MANAGEMENT-DISCIPLINE.md`
-- `records/`
-
-The previous root-level dated handoff directory no longer exists as a root sibling.
-
-Historical/current handoff occurrences are under:
-
-`research/handoffs/records/`
-
-including:
-
-- `2026-08-27-v037-candidate0-frozen/`
-- `2026-08-27-v037-independent-review-ready/`
-
-This verifies the intended separation:
+Observed live branches are now exactly:
 
 ```text
-HANDOFF_FRAMEWORK != HANDOFF_RECORD
-HANDOFF_RECORD != PROJECT_METHODOLOGY
+main
+research/ena-reconstruction
+candidate/v0.3.7-candidate.0
 ```
 
-### Required method inheritance
-
-`CURRENT-HANDOFF.yaml` explicitly requires all of the following before substantive successor work:
-
-- project state;
-- handoff/takeover protocol;
-- project-management discipline;
-- ENA project research methodology;
-- live ref / exact identity reverification.
-
-The rules for handing over and taking over are therefore first-class succession method, not implicit knowledge hidden in a dated record.
-
-### Active research
-
-`research/ACTIVE-RESEARCH.yaml` still identifies:
-
-`research/ena-reconstruction`
-
-as the active long-lived research integration surface.
-
-After PR #116 merged, that branch was fast-forwarded to:
-
-`fd532380bf1892f481f34fdb090ea38002ac5bc3`
-
-so `main` and the active research branch were aligned at readback.
-
-### Frozen candidate identity
-
-The frozen source commit was re-opened directly:
-
-`d0e793593184740d9732902e948afd48ed96ae2f`
-
-Its Git tree was traversed to `releases/`, where:
-
-`releases/v0.3.7-candidate/`
-
-still resolves exactly to:
-
-`cffbf76fe1448b020b637c78d1f7ae46e4c0115b`
-
-Therefore:
-
-```text
-HANDOFF_REFACTOR_CHANGED_FROZEN_CANDIDATE_BYTES = NO
-```
-
-### Independent review surface
-
-PR #115 remains:
-
-```text
-OPEN
-DRAFT
-DO NOT MERGE
-FRESH_INDEPENDENT_VALIDATION_REQUIRED
-NOT_RELEASE_AUTHORITY
-```
-
-Immediate substantive next action remains:
-
-`FRESH_INDEPENDENT_FALSIFICATION_PHASE_A`
-
-A fresh validator must inspect the exact frozen bytes before consulting author-side expected outcomes/oracles.
-
-## Branch hygiene observation
-
-A live branch audit performed after the handoff refactor found five non-authoritative refs with no commits unique relative to `main` (`ahead_by = 0`):
+The following refs are no longer present:
 
 ```text
 research/handoff-structure-refactor
@@ -143,43 +55,29 @@ tmp-ignore-2
 tmp-ignore-3
 ```
 
-Disposition:
+They had no commits unique relative to `main` and were classified `DELETE_SAFE / NO_UNIQUE_WORK / NOT_AUTHORITY` before deletion.
 
-`DELETE_SAFE / NO_UNIQUE_WORK / NOT_AUTHORITY`
+Therefore branch hygiene is now:
 
-The three `tmp-ignore*` refs were accidental tool-created branches. The handoff-refactor branch has been fully integrated through #116. The release-scope checkpoint temp branch is historical temporary work already reachable from `main`.
-
-Deletion is housekeeping, not a prerequisite for project succession. Until live deletion is re-observed, record it as pending rather than completed.
-
-Branches that must remain:
-
-```text
-main
-research/ena-reconstruction
-candidate/v0.3.7-candidate.0
-```
+`COMPLETE_REOBSERVED`
 
 ## Completion verdict
 
-The successor can now recover from durable project surfaces:
+The successor can recover from durable project surfaces:
 
-- what is Current;
-- what project/release phase is active;
-- which research branch is authoritative;
+- Current and release posture;
 - exact frozen candidate identity;
-- which review surface is active;
+- active research branch;
 - project methodology;
 - project-management discipline;
-- how to hand the project over;
-- how to take the project over;
-- recent decision lineage;
-- exact next action;
-- forbidden transitions.
+- how to hand over and how to take over;
+- current handoff record and recent decision context;
+- exact next action and forbidden transitions.
 
 ```text
 WRITTEN -> MAIN_INTEGRATED -> READ_BACK -> LIVE_REVERIFIED -> HANDOFF_READY
 ```
 
-Handoff status is therefore:
+Handoff status:
 
 `HANDOFF_READY_FOR_SESSION_SUCCESSION`
