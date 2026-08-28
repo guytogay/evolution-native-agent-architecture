@@ -1,0 +1,74 @@
+name: ENA v0.3.7 Candidate.2 Phase B -> Candidate.3 Next
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - '.github/scripts/apply_v037_candidate2_phaseb_candidate3_next.py'
+      - '.github/workflows/v037-candidate2-phaseb-candidate3-next.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+
+      - name: Bind frozen target and sealed independent evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/v0.3.7-candidate)" = "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+          test "$(wc -c < collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md)" = "14839"
+          test "$(sha256sum collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md | awk '{print $1}')" = "0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f"
+          test "$(wc -c < collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-p-primary-r3.md)" = "18101"
+          test "$(sha256sum collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-p-primary-r3.md | awk '{print $1}')" = "80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db"
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-p-primary-r3-seal.yaml
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-a-s-a-p-phase-b-reconciliation.md
+          test -f research/handoffs/records/2026-08-28-v037-candidate2-phaseb-needs-revision-candidate3-next/HANDOFF-MANIFEST.yaml
+          echo 'CANDIDATE2_PHASE_B_BINDING=PASS'
+
+      - name: Apply Phase-B control and method transition
+        run: python3 .github/scripts/apply_v037_candidate2_phaseb_candidate3_next.py
+
+      - name: Verify exact scope, YAML, and isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected=(
+            research/ACTIVE-RESEARCH.yaml
+            research/RESEARCH-START-HERE.md
+            research/handoffs/CURRENT-HANDOFF.yaml
+            research/plans/PROGRESS.yaml
+            research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+            research/methodology/METHOD-CHANGELOG.md
+          )
+          mapfile -t changed < <(git diff --name-only | sort)
+          printf '%s\n' "${expected[@]}" | sort >/tmp/expected
+          printf '%s\n' "${changed[@]}" | sort >/tmp/observed
+          diff -u /tmp/expected /tmp/observed
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          for p in ['research/ACTIVE-RESEARCH.yaml','research/plans/PROGRESS.yaml','research/handoffs/CURRENT-HANDOFF.yaml']:
+              yaml.safe_load(Path(p).read_text())
+          print('CANDIDATE2_PHASE_B_SCOPE_YAML_ISOLATION=PASS')
+          PY
+
+      - name: Commit aligned control plane and method
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md research/methodology/METHOD-CHANGELOG.md
+          git commit -m 'control-plane: reconcile candidate.2 Phase B and route candidate.3'
+          git push origin HEAD:research/ena-reconstruction
