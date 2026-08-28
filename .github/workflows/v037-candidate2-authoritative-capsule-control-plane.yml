@@ -29,7 +29,7 @@ jobs:
           test -f research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md
           test -f collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md
           test -f research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/HANDOFF-MANIFEST.yaml
-          test -f research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready/HANDOFF-MANIFEST.yaml
+          test ! -e research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready
           grep -q '33131773164' research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
           grep -q 'dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da' research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
 
@@ -42,9 +42,9 @@ jobs:
           set -euo pipefail
           test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
           python3 - <<'PY'
-          import yaml
+          import yaml, subprocess
           from pathlib import Path
-          changed=set(__import__('subprocess').check_output(['git','diff','--name-only'],text=True).splitlines())
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
           allowed_exact={
             'research/ACTIVE-RESEARCH.yaml',
             'research/RESEARCH-START-HERE.md',
@@ -53,11 +53,8 @@ jobs:
             'research/methodology/README.md',
             'research/methodology/METHOD-CHANGELOG.md',
           }
-          allowed_prefixes=(
-            'research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/',
-            'research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready/',
-          )
-          unexpected=[p for p in changed if p not in allowed_exact and not p.startswith(allowed_prefixes)]
+          allowed_prefix='research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/'
+          unexpected=[p for p in changed if p not in allowed_exact and not p.startswith(allowed_prefix)]
           assert not unexpected, unexpected
           for p in ['research/ACTIVE-RESEARCH.yaml','research/plans/PROGRESS.yaml','research/handoffs/CURRENT-HANDOFF.yaml']:
               yaml.safe_load(Path(p).read_text())
@@ -81,6 +78,6 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml research/methodology/README.md research/methodology/METHOD-CHANGELOG.md research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready
+          git add -A research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml research/methodology/README.md research/methodology/METHOD-CHANGELOG.md research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready
           git commit -m 'control-plane: reconcile candidate.2 final isolated carrier representation'
           git push origin HEAD:research/ena-reconstruction
