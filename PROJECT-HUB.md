@@ -4,17 +4,15 @@ Status: `PROJECT_ENTRYPOINT / CURRENT_POINTER / RESEARCH_CONTROL_POINTER / HANDO
 
 Project: **Evolution-Native Agent Architecture (ENA)**
 
-This is the stable entrypoint for participants asked to adopt, use, continue, review, research, experiment on, or contribute to ENA.
+This is the stable entrypoint for adoption, project continuation, research, review, contribution, and release work.
 
 ## Canonical adoption pointer
 
-For any new or refreshed adoption:
+For adoption, always start from repository `main` and read:
 
-1. use repository `main`;
-2. read `releases/current/CURRENT-BASELINE.yaml` for effective version and maturity/status;
-3. use only `releases/current/` as the adoption baseline.
+`releases/current/CURRENT-BASELINE.yaml`
 
-Never infer Current from the highest-looking version, newest commit, candidate directory/branch, research branch, handoff record, or historical artifact.
+Never infer Current from the highest-looking version, candidate/release branch, branch recency, handoff record, or research state.
 
 The active adopter-facing model is **Current + declared maturity/status**.
 
@@ -24,150 +22,115 @@ Current remains:
 v0.3.6 / CURRENT / FIELD_VALIDATION
 ```
 
-## Continue or inherit ENA project/research management
+until an exact reviewed v0.3.7 release head is explicitly promoted and post-merge read back.
 
-Session replacement is a normal project lifecycle. Do not reconstruct the project from chat when a standardized handoff exists.
+## Project-manager continuation route
 
-Start from `main` and use this route:
+A successor session must resolve, in order:
 
-1. `releases/current/CURRENT-BASELINE.yaml` — verify Current;
-2. `research/handoffs/CURRENT-HANDOFF.yaml` — discover the intended current handoff record and takeover contract;
-3. `research/handoffs/HANDOFF-PROTOCOL.md` — canonical outgoing/incoming succession rules;
-4. `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — mandatory takeover context, including project methodology;
-5. `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md` — cross-session project-management rules;
-6. read the current record under `research/handoffs/records/` named by `CURRENT-HANDOFF.yaml`;
-7. read required project methodology under `research/methodology/`;
-8. `research/ACTIVE-RESEARCH.yaml` — discover active research integration branch and phase;
+1. `releases/current/CURRENT-BASELINE.yaml`;
+2. `research/handoffs/CURRENT-HANDOFF.yaml`;
+3. `research/handoffs/HANDOFF-PROTOCOL.md`;
+4. `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`;
+5. `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`;
+6. the current handoff record named by the pointer;
+7. required project methodology under `research/methodology/`;
+8. `research/ACTIVE-RESEARCH.yaml`;
 9. `research/plans/PROGRESS.yaml` and the master plan;
-10. reverify live branch heads and exact frozen identities before writing.
+10. live refs/exact frozen or release identities before writing.
 
 ```text
-HANDOFF_FRAMEWORK != HANDOFF_RECORD
-HANDOFF_RECORD != PROJECT_METHODOLOGY
-PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
+TAKEOVER = STATE + METHOD + GOVERNANCE + DECISION_LINEAGE + NEXT_ACTION
+HANDOFF_RECORD != PROJECT_AUTHORITY
+BRANCH_HEAD != FROZEN_IDENTITY
 ```
-
-A handoff **record** is a map, not project authority. The handoff **framework** is canonical succession process. ENA project methodology remains a separate canonical surface.
 
 ## Current project/release posture
 
+Live project state verified on 2026-08-28:
+
 ```text
-Current = v0.3.6
-next release line = v0.3.7
-candidate.0 = frozen
-1080->188 anti-ablation audit = complete with tree-external coverage repair
-fresh independent falsification = pending Phase A
-review surface = PR #115 / DO NOT MERGE
-release preparation = not started
-promotion = not started
+Current                     = v0.3.6 / CURRENT / FIELD_VALIDATION
+main release-prep checkpoint = 280a8b0f7629d5deb013a5257cb74759213e8080
+frozen candidate             = v0.3.7-candidate.3
+frozen source                = b7e88d7adb70396bd671ca97066daf2c120e0adc
+frozen subtree               = e3a9a20d16cecd78df7f32f19fca56e21159e810
+candidate succession         = STOP
+release preparation          = SUPPORTED
+release branch               = release/v0.3.7
+byte-exact transplant commit = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+transplanted Current tree    = e3a9a20d16cecd78df7f32f19fca56e21159e810
+release identity transform   = NOT YET APPLIED
+release PR / promotion       = NOT YET AUTHORIZED
 ```
 
-Frozen v0.3.7 candidate.0 identity:
+The first release-branch occurrence is deliberately still candidate-shaped: `releases/current/` contains the frozen candidate.3 bytes exactly, including `CANDIDATE-BASELINE.yaml`. That is packaging evidence, not Current adoption authority.
+
+## Immediate permitted next action
+
+After this project-state alignment is main-visible:
+
+`RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7`
+
+Required sequence:
 
 ```text
-source commit = d0e793593184740d9732902e948afd48ed96ae2f
-candidate subtree = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+BYTE-EXACT TRANSPLANT (already recorded)
+-> identity/status-only release projection
+-> CURRENT-BASELINE.yaml replaces CANDIDATE-BASELINE.yaml
+-> exact-head release validation / Main Gate / CodeQL / regressions
+-> package/tree/readback evidence
+-> explicit authorization on the exact reviewed release head
+-> merge
+-> post-merge Current readback
+-> project-control/handoff/history alignment
 ```
 
-Frozen identity is governed by exact source/tree records, not branch recency.
+A material defect in frozen candidate.3 semantics/bytes would require candidate.4. A packaging defect is repaired on the release surface without rewriting frozen candidate.3 occurrence truth.
 
-The current project next action is **fresh independent falsification Phase A** on exact frozen bytes before author-oracle comparison.
+## Independent validation clean room
 
-## Alignment before substantive resume
-
-After a material branch/control-plane transition, session handoff, canonical directory/path move, methodology change, plan phase change, candidate/freeze/release-state change, or major checkpoint merge, verify that live repository state, routing guides, method, plan, Progress, handoff, and next actions tell one coherent story.
-
-Canonical method:
-
-`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+`guytogay/independent-validation-cleanroom` is reusable validation infrastructure, not an ENA-candidate-specific repository.
 
 ```text
-INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
-MATERIAL_TRANSITION -> ALIGN -> RESUME
+CLEAN_ROOM_REPOSITORY_IDENTITY = REUSABLE_VALIDATION_INFRASTRUCTURE
+CLEAN_ROOM_CONTENT = CURRENT_STAGE_EPHEMERAL_REVIEW_SURFACE
 ```
 
-Do not turn this into ceremony after every ordinary content commit.
+It may be reused across ENA stages and across unrelated projects. Occurrence truth belongs back in the source project; clean-room stage contents should be reset/replaced rather than accumulated as project history.
 
-## Research architecture direction
-
-ENA distinguishes semantic compression from operational/adversarial growth:
+## Research direction
 
 ```text
-WHAT / WHY
-  -> may converge into stable compressed semantics
-
-HOW
-  -> should concretize and may branch into multiple tools/processes/organs/Host bindings
-
-FAILURE / ADVERSARIAL SPACE
-  -> should remain open/grow while materially distinct failure shapes remain plausible
-
-EVIDENCE
-  -> attaches to the concrete claim/branch/Host it actually supports
+WHAT / WHY -> may compress into a stable semantic trunk
+HOW -> concretize / branch / specialize / recombine
+FAILURE / ADVERSARIAL SPACE -> remain open while distinct shapes remain plausible
+EVIDENCE -> bind to the concrete claim / HOW / Host / applicability scope it supports
 ```
 
 ```text
-ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
 COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
+ANTI_CONVERGENCE != MAXIMIZE ARTIFACT COUNT
 ```
 
 ## Project knowledge surfaces
 
-- Current adoption baseline: `releases/current/`
-- Historical release index: `HISTORY.md`
-- Research control: `research/README.md`, `research/ACTIVE-RESEARCH.yaml`
-- Handoff framework: `research/handoffs/`
-- Current handoff pointer: `research/handoffs/CURRENT-HANDOFF.yaml`
-- Handoff protocol: `research/handoffs/HANDOFF-PROTOCOL.md`
-- Required takeover context: `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`
-- Project-management discipline: `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`
-- Historical/current handoff records: `research/handoffs/records/`
-- ENA research methodology: `research/methodology/`
-- Convergence/divergence discipline: `research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md`
+- Current adoption: `releases/current/`
+- Project control: `main`
+- Active research pointer: `research/ACTIVE-RESEARCH.yaml`
+- Active research integration branch: `research/ena-reconstruction`
+- Handoff framework/current pointer: `research/handoffs/`
+- Research methodology: `research/methodology/`
 - Project-state alignment: `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
 - Long-horizon plan: `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md`
-- Fast-moving progress: `research/plans/PROGRESS.yaml`
-- Operational Architecture research: `research/operational-architecture/`
-- Release-scope research: `research/release-scope/`
-- Experiments/prototypes: `research/experiments/`, `research/prototypes/`
-- External HOW registry: `research/external-how/`
-- Reconciliation/freeze/validation records: `collaboration/reconciliation/`
-- Decisions: `decisions/`
+- Fast execution state: `research/plans/PROGRESS.yaml`
+- Branch governance/inventory: `research/BRANCH-GOVERNANCE.md`, `research/BRANCH-INVENTORY.yaml`
+- Reconciliation/freeze/validation evidence: `collaboration/reconciliation/`
 
-Historical releases, candidates, old handoff records, rejected paths, deleted research branches, old PR generations, and validation artifacts are not parallel runtime/research baselines. Retrieve them only when lineage, falsification, regression, provenance, or a historical decision makes them relevant.
-
-## Participation and authority
-
-Any participant may, within actual capability and authority, read, question, critique, research, experiment, and contribute.
+## Authority boundary
 
 `Contribution != Reconciliation != Release/Promotion Authority.`
 
-GitHub write capability, candidate-branch access, handoff authorship, or review-PR access does not grant promotion authority.
+GitHub write access, candidate authorship, validation work, or release-branch access does not by itself establish promotion authority.
 
-## Persistent collaboration rules
-
-- project-first, not Agent-first;
-- project continuity must survive session replacement;
-- outgoing and incoming succession method are equally important;
-- project state and project methodology are equally required for takeover;
-- handoff framework, handoff record, and ENA research methodology remain distinct;
-- persistent project state is the collaboration bus;
-- conflicts remain visible until evidence/authorized decision resolves them;
-- one active research pointer is coordination, not an ontology claim;
-- candidate branch head is not frozen identity;
-- material transitions require alignment before substantive work resumes;
-- summarization must not silently dissolve materially distinct HOW/failure/Host/evidence variation.
-
-## Operating posture
-
-Falsify before formalize.
-
-Use the cheapest evidence that can honestly support the decision.
-
-Recover variation before selection when omission could change the decision.
-
-Batch variation; concentrate expensive selection.
-
-Production before perfection; not production without evidence.
-
-The whole project may evolve. Current must remain singular, legible, and evidence-backed.
+> Preserve one legible Current, many recoverable experiments/candidates, and enough method that the next project manager can continue without reconstructing the project from chat.

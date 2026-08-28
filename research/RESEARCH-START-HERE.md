@@ -1,151 +1,100 @@
 # ENA Research — Start Here
 
-Status: `ACTIVE_RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / NON_NORMATIVE / NOT_RELEASE_AUTHORITY`
+Status: `ACTIVE_RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / V0_3_7_RELEASE_PACKAGING / NOT_RELEASE_AUTHORITY`
 
-This file is the fast-moving bootstrap inside the active research integration branch.
+The canonical control plane lives on `main`. This active-branch bootstrap accelerates continuation but does not override Current or exact frozen/release identities.
 
-The canonical project/control plane lives on `main`. A successor discovers the active branch from `main`, not the other way around.
+## Project-manager continuation order
 
-## Required project-manager continuation order
+Before substantive work:
 
-Before substantive ENA project-management/research work:
-
-1. start from repository `main` and read `PROJECT-HUB.md`;
+1. start from `main` and read `PROJECT-HUB.md`;
 2. verify Current from `releases/current/CURRENT-BASELINE.yaml`;
-3. read `research/handoffs/CURRENT-HANDOFF.yaml`;
-4. read the handoff framework:
-   - `research/handoffs/HANDOFF-PROTOCOL.md`;
-   - `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`;
-   - `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`;
-5. read the current handoff record under `research/handoffs/records/` named by the pointer;
-6. read required project methodology under `research/methodology/`, especially:
-   - `ENA-RESEARCH-DISCIPLINE.md`;
-   - `CONVERGENCE-DIVERGENCE-DISCIPLINE.md`;
-   - `PROJECT-STATE-ALIGNMENT-GATE.md`;
-   - `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` while independent validation is active;
-   - `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md` when repository navigation is not blind-safe;
-7. read `research/ACTIVE-RESEARCH.yaml` and verify the active research branch;
-8. if canonical/live surfaces disagree, run the alignment gate before substantive work;
-9. read `research/plans/PROGRESS.yaml` and the master plan;
-10. reverify live branch/candidate heads before writing;
-11. retrieve deeper Issues/prototypes/evidence only when the next project-management action requires them.
+3. read `research/handoffs/CURRENT-HANDOFF.yaml` and the canonical handoff framework;
+4. read the current handoff record named by the pointer;
+5. read required methodology under `research/methodology/`;
+6. read `research/ACTIVE-RESEARCH.yaml`;
+7. if current surfaces disagree, complete the Project State Alignment Gate;
+8. read `research/plans/PROGRESS.yaml` and the master plan;
+9. reverify live mutable refs and exact governed identities before writes.
+
+A fresh independent validator is a different epistemic role and must not be sent through this full project-manager context before A-S seal.
+
+## Current posture — 2026-08-28
 
 ```text
-PROJECT_STATE_INHERITANCE WITHOUT METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
-HANDOFF_RECORD != PROJECT_AUTHORITY
-BRANCH_HEAD != FROZEN_IDENTITY
+Current = v0.3.6 / CURRENT / FIELD_VALIDATION
+Current tree = 7dcbb3934883ffa6cc5292a662588cafc1533cff
 ```
 
-A new project-manager session should not ask the user to reconstruct already-persisted background.
-
-A **fresh independent validator is not a project-manager successor**. Do not send that validator through the full continuation route above before A-S.
-
-## Current project posture
-
-Current remains:
+Final frozen candidate:
 
 ```text
-v0.3.6 / CURRENT / FIELD_VALIDATION
+v0.3.7-candidate.3
+source  = b7e88d7adb70396bd671ca97066daf2c120e0adc
+subtree = e3a9a20d16cecd78df7f32f19fca56e21159e810
+exact pre-freeze      = 33150269264 PASS
+targeted post-freeze  = 33150553992 PASS
+release hardening     = 33152201566 PASS
+candidate succession  = STOP
+release preparation   = SUPPORTED
 ```
 
-Next release line: `v0.3.7`.
-
-Frozen candidate lineage now culminates in:
+Release packaging live state:
 
 ```text
-candidate.3 = b7e88d7adb70396bd671ca97066daf2c120e0adc / e3a9a20d16cecd78df7f32f19fca56e21159e810
-state = FROZEN / EXACT_PREFREEZE_PASS / TARGETED_POSTFREEZE_PASS / RELEASE_HARDENING_PASS
-candidate succession = STOP
-release preparation = SUPPORTED
-Current changed = NO
+main checkpoint            = 280a8b0f7629d5deb013a5257cb74759213e8080
+release branch             = release/v0.3.7
+byte-exact transplant head = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+transplanted tree          = e3a9a20d16cecd78df7f32f19fca56e21159e810
+identity/status transform  = pending
+release PR                 = not open
+promotion                  = not authorized
 ```
 
-Key evidence:
-
-- exact pre-freeze run `33150269264` — SUCCESS;
-- targeted post-freeze run `33150553992` — SUCCESS;
-- release hardening run `33152201566` — SUCCESS;
-- freeze record `collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md`;
-- final release reconciliation `collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md`;
-- release hardening reconciliation `collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md`.
-
-The hardening audit found no material frozen candidate-byte defect requiring candidate.4. It confirmed adopter traversal, v0.3.6 compatibility/legacy relocation, release identity projection readiness, visible evidence boundaries, 38 stable Constitution IDs, 164/164 inherited zero-flip behavior, and 61/61 successor closure behavior.
-
-`attack_cardinality = OPEN` and external/field truth remain evidence boundaries, not completeness claims.
+The transplant is intentionally candidate-shaped and is preserved as a separately auditable occurrence.
 
 ## Immediate next action
 
-`MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3`
+The current project-management step is to complete and merge the Project State Alignment checkpoint. After that:
 
-Required sequence:
+`RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7`
+
+Then:
 
 ```text
-MAIN-VISIBLE CANDIDATE.3 CHECKPOINT
--> CREATE release/v0.3.7 FROM EXACT MAIN
--> BYTE-FOR-BYTE TRANSPLANT frozen candidate.3 INTO releases/current
--> RECORD TRANSPLANT IDENTITY
--> RELEASE IDENTITY/PACKAGING TRANSFORM ONLY
--> EXACT RELEASE GATES + MAIN GATE + CODEQL + PACKAGE READBACK
--> EXPLICIT RELEASE AUTHORIZATION
--> MERGE / POST-MERGE CURRENT READBACK
+identity/status-only projection
+-> exact release gates / Main Gate / CodeQL / regressions
+-> package/tree/readback evidence
+-> exact-head release PR review
+-> explicit authorization
+-> merge
+-> post-merge Current readback
+-> history/control/handoff alignment
 ```
 
-Do not modify frozen candidate.3. Candidate.4 is permitted only if new evidence demonstrates a material defect in the frozen candidate bytes/semantics rather than in release packaging or field evidence.
+Do not modify frozen candidate.3. Candidate.4 requires new material candidate-byte evidence; it is not a ritual next generation.
 
-## Core research direction
+## Method reminders
 
 ```text
-WHAT / WHY
--> abstraction/compression may help
-
-HOW
--> concretize / branch / recombine
-
-FAILURE / ADVERSARIAL SPACE
--> expand while distinct failure shapes remain plausible
-
-PROVEN REPRESENTATION DUPLICATION
--> may compress
+WHAT / WHY -> abstraction may help
+HOW -> concretize / branch / recombine
+FAILURE SPACE -> remain open while materially distinct shapes remain plausible
+PROVEN REPRESENTATION DUPLICATION -> may compress
 ```
 
 ```text
 PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
-ONE_WHAT_WHY -> 0..N_CONCRETE_HOW_BRANCHES
-COMPRESS_REPRESENTATION != COMPRESS_POSSIBILITY_SPACE
+COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
 ```
+
+## Reusable independent-validation infrastructure
+
+`guytogay/independent-validation-cleanroom` is a reusable clean-room facility across ENA stages and across unrelated projects. Repository identity is infrastructure; stage contents are ephemeral. Reports/seals/occurrence truth return to the relevant source project.
 
 ## Record-first continuity
 
-After material progress:
+After material progress, update fast Progress, reconcile stale control surfaces, persist decision/evidence records, and update succession context when needed. A file being durable is not enough if future sessions cannot discover or correctly apply it.
 
-- update `research/plans/PROGRESS.yaml`;
-- persist decision-material evidence/prototypes/reconciliation records;
-- promote reusable handoff/project-management lessons to `research/handoffs/` root rather than trapping them in one record;
-- reconcile ENA research-method changes to `research/methodology/`;
-- update the current handoff record/pointer when succession context materially changes;
-- align main-visible control surfaces after material routing/phase/candidate/release changes.
-
-```text
-LOCAL_ARTIFACT_IS_NOT_DURABLE_UNTIL_PERSISTED
-```
-
-## Final project-manager inheritance test
-
-Before claiming successful takeover, a successor project manager should be able to state from persisted sources:
-
-- Current = v0.3.6;
-- active research branch = the branch named by `main`'s `ACTIVE-RESEARCH.yaml`;
-- handoff protocol and project-management discipline = root files under `research/handoffs/`;
-- current handoff record = the record named by `CURRENT-HANDOFF.yaml`;
-- project methodology = mandatory context under `research/methodology/`;
-- candidate.0 = frozen predecessor, NEEDS_REVISION, superseded;
-- candidate.1 = exact frozen successor at `ae690346...` / `c0458e0...`;
-- Issue #128 = invalidated self-primed intake with no Phase-A seal;
-- Issue #131 = sealed A-S/A-P occurrence truth for candidate.1;
-- A-S seal = `2e6b46ae...`; A-P final = `b970148f...`;
-- candidate.1 = `NEEDS_REVISION`, immutable predecessor to candidate.2;
-- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`; Issue #137 is interface-aborted history; active A-S carrier is clean-room commit `28dde50c...`;
-- fresh validator entry remains blind semantic entry, not full project-manager context for any future independent intake;
-- `releases/current/` remains untouched until governed release/promotion.
-
-> **Do not merely inherit conclusions. Inherit project state, method, management discipline, open variation, and the exact next permitted action — while preserving the information boundary required by each role.**
+> Inherit state, method, governance, decision lineage, open uncertainty, and the exact next permitted action — while giving each epistemic role only the context it should receive.

@@ -1,251 +1,84 @@
-schema_version: "2.2"
+schema_version: "2.3"
 status: ACTIVE_RESEARCH_POINTER
 updated_at: "2026-08-28"
 
-# Canonical main-visible pointer for continuing ENA research/release preparation.
-# Do not infer active work from recency, branch names, old PR numbers, or cached SHAs.
-
 active_research:
-  branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE3_FROZEN / EXACT_PREFREEZE_PASS / TARGETED_POSTFREEZE_PASS / RELEASE_HARDENING_PASS / CANDIDATE_SUCCESSION_STOP / RELEASE_PREPARATION_SUPPORTED / NOT_CURRENT / NOT_RELEASED"
-  branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
+  branch: research/ena-reconstruction
+  branch_role: LONG_LIVED_RESEARCH_INTEGRATION_SURFACE
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
   embedded_head_sha_is_identity_lock: false
-
-  bootstrap_path: "research/RESEARCH-START-HERE.md"
-  progress_path: "research/plans/PROGRESS.yaml"
-  detailed_plan_path: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
-  methodology_index_path: "research/methodology/README.md"
-  handoff_protocol_path: "research/handoffs/HANDOFF-PROTOCOL.md"
-  required_takeover_context_path: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
-  project_management_discipline_path: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
-  convergence_divergence_method_path: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
-  independent_validation_information_boundary_path: "research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md"
-  current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
-  alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
-  operational_architecture_path: "research/operational-architecture/README.md"
-  release_scope_path: "research/release-scope/README.md"
-  external_how_registry_path: "research/external-how/SOURCE-REGISTRY.md"
-  reconstruction_ledger_issue: 89
-  workstream_issues: [90, 91, 92, 93, 94]
+  state: V0_3_7_RELEASE_PACKAGING_TRANSPLANT_COMPLETE_IDENTITY_TRANSFORM_PENDING_NOT_CURRENT_NOT_RELEASED
+  bootstrap_path: research/RESEARCH-START-HERE.md
+  progress_path: research/plans/PROGRESS.yaml
+  detailed_plan_path: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  methodology_index_path: research/methodology/README.md
+  alignment_gate_path: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
 
 project_control_plane:
-  branch: "main"
-  project_hub: "PROJECT-HUB.md"
-  current_baseline: "releases/current/CURRENT-BASELINE.yaml"
-  current_handoff_pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
-  handoff_protocol: "research/handoffs/HANDOFF-PROTOCOL.md"
-  required_takeover_context: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
-  project_management_discipline: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
-  project_structure: "PROJECT-STRUCTURE.md"
-  branch_governance: "research/BRANCH-GOVERNANCE.md"
-  branch_inventory: "research/BRANCH-INVENTORY.yaml"
-  methodology_index: "research/methodology/README.md"
-  methodology_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
-  convergence_divergence_method: "research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md"
-  independent_validation_information_boundary: "research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md"
-  alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
-  master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
+  branch: main
+  project_hub: PROJECT-HUB.md
+  current_baseline: releases/current/CURRENT-BASELINE.yaml
+  current_handoff_pointer: research/handoffs/CURRENT-HANDOFF.yaml
+  branch_governance: research/BRANCH-GOVERNANCE.md
+  branch_inventory: research/BRANCH-INVENTORY.yaml
+  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
 
-continuation_protocol:
-  - "Start from main, not from a guessed research or candidate branch."
-  - "Verify Current from releases/current/CURRENT-BASELINE.yaml; Current remains singular until explicit promotion."
-  - "Read research/handoffs/CURRENT-HANDOFF.yaml."
-  - "Project-manager successors read the full handoff framework, current record, and canonical project methodology before substantive work."
-  - "Fresh independent validators are a different role and must use the task-specific blind semantic entry before detailed candidate-local history or author/project context."
-  - "Read this file to discover the active research integration branch and current project phase."
-  - "If current-state surfaces disagree after handoff or another material transition, complete the Project State Alignment Gate before resuming."
-  - "Read the active branch bootstrap, PROGRESS.yaml, and master plan."
-  - "For candidate work, distinguish the candidate branch head from the exact frozen source/tree identity."
-  - "Reverify live branch/candidate heads before writing."
-  - "Open PR identity is integration/review context, not continuation authority."
+current_adoption:
+  expected: v0.3.6 / CURRENT / FIELD_VALIDATION
+  tree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  release_preparation_changes_current: false
 
-latest_transition:
-  event: "V0_3_7_CANDIDATE3_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED"
-  current_changed_by_transition: false
-  next_version: "v0.3.7"
-  active_candidate_identity: "v0.3.7-candidate.3"
-  active_candidate_branch: "candidate/v0.3.7-candidate.3"
-  candidate_state: FROZEN_NOT_CURRENT_NOT_RELEASED
+frozen_release_source:
+  identity: v0.3.7-candidate.3
+  branch: candidate/v0.3.7-candidate.3
+  source: b7e88d7adb70396bd671ca97066daf2c120e0adc
+  subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
   exact_prefreeze_run: 33150269264
   targeted_postfreeze_run: 33150553992
   release_hardening_run: 33152201566
-  frozen_source: "b7e88d7adb70396bd671ca97066daf2c120e0adc"
-  frozen_subtree: "e3a9a20d16cecd78df7f32f19fca56e21159e810"
-  current_subtree_same_source: "7dcbb3934883ffa6cc5292a662588cafc1533cff"
-  freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md"
-  targeted_postfreeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate3-targeted-postfreeze-revalidation.md"
-  final_release_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md"
-  release_hardening_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md"
   candidate_succession_stop: true
-  release_preparation_supported: true
   candidate4_currently_justified: false
-  attack_cardinality: OPEN
-  immediate_next_action: MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3
-
-candidate_validation_transition:
-  current_state: CANDIDATE3_FROZEN_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED_NOT_CURRENT_NOT_RELEASED
-  completed:
-    - candidate.0, candidate.1, and candidate.2 remain immutable predecessor occurrence truth
-    - candidate.2 fresh A-S/A-P Phase B required bounded candidate.3 repair
-    - candidate.3 exact pre-freeze run 33150269264 PASS
-    - candidate.3 external freeze binds source b7e88d7adb70396bd671ca97066daf2c120e0adc / subtree e3a9a20d16cecd78df7f32f19fca56e21159e810
-    - targeted post-freeze run 33150553992 closed all six candidate.2 Phase-B material repair classes
-    - release hardening run 33152201566 PASS without a demonstrated material frozen candidate-byte defect
-    - candidate succession stop reaffirmed; candidate.4 is not justified by current evidence
-  next_required_steps:
-    - "MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3"
-
-frozen_candidate0:
-  identity: "v0.3.7-candidate.0"
-  branch: "candidate/v0.3.7-candidate.0"
-  branch_head_is_identity: false
-  source_commit: "d0e793593184740d9732902e948afd48ed96ae2f"
-  subtree_sha: "cffbf76fe1448b020b637c78d1f7ae46e4c0115b"
-  subtree_path: "releases/v0.3.7-candidate/"
-  mutable_in_place: false
-  independent_falsification: SEALED_NEEDS_REVISION
-  phase_a_seal: "5ba3d241efa460fe170253860ad67045aa1d96a5"
-  release_decision: NOT_RELEASED_SUPERSEDED_BY_SUCCESSOR
-
-successor_candidate1:
-  identity: "v0.3.7-candidate.1"
-  branch: "candidate/v0.3.7-candidate.1"
-  branch_head_is_freeze_identity: false
-  observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-  observed_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
-  state: FROZEN_NEEDS_REVISION_SUPERSEDED_BY_CANDIDATE2
-  frozen: true
-  frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-  frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
-  freeze_record: "collaboration/reconciliation/2026-08-27-v037-candidate1-freeze.md"
-  exact_prefreeze_run: 33055811978
-  invalidated_phase_a_issue: 128
-  invalidated_phase_a_branch: "validation/v037-c1-blind-phase-a-primary"
-  fresh_a_s_a_p_issue: 131
-  fresh_a_s_a_p_branch: "validation/v037-c1-blind-semantic-primary"
-  fresh_a_s_a_p_entry: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md"
-  blind_view_manifest: "collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml"
-  current: false
-  targeted_revalidation_run: 33052764739
-  open_branch_reprobe_run: 33052764661
-  attack_cardinality: OPEN
-  fresh_a_s_seal: "2e6b46aeedc1945a03aac93620ad36aa1ccbd70f"
-  final_a_p_commit: "b970148fe9596ea9cad0a2817a3b399a1d2b75f5"
-  phase_b_verdict: NEEDS_REVISION
-  release_decision: NOT_RELEASED_NEEDS_REVISION
-  remaining_visible_residuals:
-    - "source/receiver candidate_id namespace collision remains allowed absent a universal cross-environment uniqueness contract"
-
-successor_candidate2:
-  identity: "v0.3.7-candidate.2"
-  branch: "candidate/v0.3.7-candidate.2"
-  branch_head_is_freeze_identity: false
-  state: FROZEN_A_S_SEALED_A_P_SEALED_PHASE_B_NEEDS_REVISION
-  frozen: true
-  current: false
-  frozen_source: "bda470e0a6b170cec61225a905957a501454a2fe"
-  frozen_subtree: "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
-  current_subtree_at_freeze: "7dcbb3934883ffa6cc5292a662588cafc1533cff"
-  exact_prefreeze_run: 33095987843
-  final_candidate_cargo_commit: "aba6f12cabc84146c92809bd7d8293a3c907dc55"
-  repair_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md"
-  freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md"
-  independence_decision_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md"
-  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
-  invalidated_repository_intake_issue: 137
-  invalidated_repository_intake_branch: "validation/v037-c2-blind-semantic-primary"
-  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
-  capsule_carrier_method: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"
-  capsule_build_run: 33131773164
-  a_s_actions_artifact_id: 9670518379
-  a_p_actions_artifact_id: 9670518708
-  a_s_capsule_sha256: "dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da"
-  a_p_supplement_sha256: "427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649"
-  a_p_delivery_state: A_P_SEALED_PHASE_B_COMPLETE
-  a_s_delivery_mode: DEDICATED_CLEAN_ROOM_REPOSITORY
-  cleanroom_repository: guytogay/independent-validation-cleanroom
-  cleanroom_commit: 28dde50c9caaeee3b5c269e28a7be5f07ac29ae5
-  cleanroom_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
-  fresh_a_s_report_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
-  fresh_a_s_report_path: "collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md"
-  fresh_a_s_seal_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3-seal.yaml"
-  fresh_a_s_git_blob_sha1: "a8ec063fc1dcda9be70a53bf150e45ea11ac125e"
-  fresh_a_s_verdict: NOT_CLEARED
-  fresh_a_s_findings: [A-S-01, A-S-02, A-S-03, A-S-04]
-  final_a_p_report_sha256: 80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db
-  fresh_review_completed: false
-  mutable_in_place: false
-  material_change_requires_successor: "v0.3.7-candidate.3"
+  mutation_forbidden: true
   attack_cardinality: OPEN
 
-handoff:
-  state: STANDARDIZED_SESSION_HANDOFF_ACTIVE
-  pointer: "research/handoffs/CURRENT-HANDOFF.yaml"
-  protocol: "research/handoffs/HANDOFF-PROTOCOL.md"
-  required_takeover_context: "research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml"
-  project_management_discipline: "research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md"
-  records_root: "research/handoffs/records/"
-  rule: "HANDOFF_RECORD_IS_BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY"
-  takeover_rule: "PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE_IS_INCOMPLETE"
-  validator_role_rule: "FULL_PROJECT_MANAGER_TAKEOVER_CONTEXT_IS_NOT_FRESH_A_S_CONTEXT"
-
-historical_branch_lineage:
-  predecessor_branch: "research/memory-metabolism-prototype"
-  predecessor_pull_request: 82
-  predecessor_ref_state: DELETED_AFTER_CHECKPOINT
-  successor_bootstrap_pull_request: 101
-  research_checkpoint_pull_request: 109
-  release_scope_control_plane_pull_request: 110
-  release_scope_checkpoint_pull_request: 111
-  convergence_method_pull_request: 112
-  handoff_architecture_pull_request: 116
-  blind_phase_a_method_pull_request: 119
-  independent_falsification_review_pull_request: 115
-  note: "Historical branch/PR identity is lineage only and does not compete with this pointer."
+release_preparation:
+  target: v0.3.7 / CURRENT / FIELD_VALIDATION
+  branch: release/v0.3.7
+  base_main_checkpoint: 280a8b0f7629d5deb013a5257cb74759213e8080
+  byte_exact_transplant_commit: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+  transplanted_current_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+  exact_frozen_subtree_match: true
+  identity_status_transform_applied: false
+  release_pr_open: false
+  release_authorized: false
+  promoted: false
 
 alignment:
-  required_after_material_transition: true
-  gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
-  current_alignment_state_source: "research/plans/PROGRESS.yaml"
-  minor_commit_requires_full_gate: false
-  session_handoff_is_alignment_trigger_when_control_state_would_otherwise_drift: true
-  material_validation_method_change_is_alignment_trigger: true
+  triggered_by_release_transition: true
+  stale_surfaces_detected: true
+  reconciliation_branch: research/ena-reconstruction
+  required_before_release_identity_packaging: MAIN_VISIBLE_ALIGNMENT_CHECKPOINT
 
-current_release:
-  source_of_truth: "releases/current/CURRENT-BASELINE.yaml"
-  expected_at_this_transition: "v0.3.6 / CURRENT / FIELD_VALIDATION"
-  next_version_assignment_or_candidate_freeze_does_not_change_current: true
+immediate_next_action_after_alignment_merge: RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7
 
+continuation_protocol:
+  - start from main and verify Current
+  - inherit handoff framework, current record, project-management discipline, and project methodology
+  - use this pointer to discover the active integration branch
+  - read Progress and the master plan
+  - reverify live mutable heads and exact frozen/release identities before writes
+  - if current-state surfaces disagree, align before substantive work
+  - never treat a handoff record, PR, branch recency, or cached SHA as Current authority
 
-candidate2_phase_b:
-  a_s_sha256: "0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f"
-  a_p_report: "collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-p-primary-r3.md"
-  a_p_seal: "collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-p-primary-r3-seal.yaml"
-  a_p_sha256: "80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db"
-  a_p_git_blob_sha1: "2465272b73c5ad4fb3027237b886604f1c9eab5a"
-  phase_b_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-a-s-a-p-phase-b-reconciliation.md"
-  verdict: NEEDS_REVISION
-  successor_required: v0.3.7-candidate.3
-  immediate_next_action: CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2
-  candidate2_mutation_forbidden: true
-  current_mutation_forbidden: true
-  full_fresh_cycle_automatic_for_candidate3: false
+fresh_validator_boundary:
+  project_manager_full_context_is_fresh_a_s_context: false
+  reusable_cleanroom_repository: guytogay/independent-validation-cleanroom
+  cleanroom_role: REUSABLE_CROSS_STAGE_CROSS_PROJECT_VALIDATION_INFRASTRUCTURE
+  cleanroom_contents_are_stage_ephemeral: true
 
-
-successor_candidate3:
-  identity: "v0.3.7-candidate.3"
-  branch: "candidate/v0.3.7-candidate.3"
-  state: FROZEN_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED
-  frozen: true
-  current: false
-  released: false
-  frozen_source: "b7e88d7adb70396bd671ca97066daf2c120e0adc"
-  frozen_subtree: "e3a9a20d16cecd78df7f32f19fca56e21159e810"
-  exact_prefreeze_run: 33150269264
-  targeted_postfreeze_run: 33150553992
-  release_hardening_run: 33152201566
-  candidate_succession_stop: true
-  candidate4_currently_justified: false
-  immediate_next_action: MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3
+rule: >-
+  Current remains singular on main. Frozen candidate.3 is immutable occurrence truth.
+  The active release branch is a bounded packaging workspace. After the alignment
+  checkpoint is main-visible, continue with identity/status-only release projection,
+  exact-head gates, explicit authorization, merge, and post-merge readback.
