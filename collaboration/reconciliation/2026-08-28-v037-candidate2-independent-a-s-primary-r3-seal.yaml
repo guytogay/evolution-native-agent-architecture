@@ -1,6 +1,8 @@
-schema_version: "1.0"
+schema_version: "1.1"
 record_type: INDEPENDENT_A_S_CONTENT_SEAL
 recorded_at: "2026-08-28"
+record_revision: 2
+revision_reason: CLEANROOM_WRAPPER_COMMIT_IDENTITY_CORRECTION
 
 candidate:
   identity: v0.3.7-candidate.2
@@ -13,9 +15,16 @@ candidate:
 cleanroom:
   repository: guytogay/independent-validation-cleanroom
   branch: main
-  a_s_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
-  a_s_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
-  a_s_commit_parent_count: 0
+  reviewer_requested_a_s_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
+  reviewer_requested_a_s_commit_resolvable: false
+  actual_a_s_commit: 28dde50c9caaeee3b5c269e28a7be5f07ac29ae5
+  actual_a_s_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
+  actual_a_s_commit_parent_count: 0
+  recorded_tree_before_correction: 42debebed620bd05e6e2635409057f20b57bfa9e
+  tree_identity_was_correct_before_commit_correction: true
+  reviewer_reported_wrapper_resolution_failure: true
+  reviewer_used_current_cleanroom_bytes_only: true
+  wrapper_identity_correction_changes_reviewed_file_surface: false
 
 report:
   path: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md
@@ -34,6 +43,8 @@ independent_review:
   phase_b_performed: false
   verdict: NOT_CLEARED
   attack_cardinality: OPEN
+  wrapper_git_object_independently_attested_by_reviewer: false
+  reviewed_file_surface_continuity_posthoc_confirmed: true
   findings:
     - id: A-S-01
       severity: BLOCKER_HIGH
@@ -52,19 +63,26 @@ project_manager_verification:
   exact_uploaded_report_sha256_recomputed: true
   exact_uploaded_report_size_recomputed: true
   exact_persisted_report_git_blob_recomputed_and_matched: true
+  actual_cleanroom_a_s_commit_reverified: true
+  actual_cleanroom_a_s_tree_reverified: true
+  actual_cleanroom_a_s_commit_parentless_reverified: true
+  a_s_tree_matches_previously_recorded_tree: true
   a_s_occurrence_truth_accepted: true
   candidate_correctness_cleared: false
   candidate_bytes_changed_by_seal: false
   current_changed_by_seal: false
 
 next_sequence:
-  a_p_material_state: WITHHELD_UNTIL_THIS_SEAL_PERSISTED
+  a_p_material_state: SEPARATE_A_P_STAGE_MAY_BE_PREPARED_AFTER_THIS_SEAL
   seal_requirement_satisfied: true
   next_action: PREPARE_AND_DELIVER_A_P_TO_SAME_FRESH_REVIEWER
   phase_b_before_a_p: FORBIDDEN
   candidate_repair_before_a_p: FORBIDDEN
 
 notes:
+  - The independent report is immutable occurrence truth and is not edited to hide the wrapper-SHA failure it recorded.
+  - The originally supplied wrapper commit SHA was incorrect/unresolvable; the actual parentless A-S commit is now explicitly bound above.
+  - The A-S tree SHA was correct before this correction and matches the actual parentless A-S commit tree, so the reviewed file surface is unchanged by the identity correction.
   - A-S-04 is accepted as a validation-interface defect, not treated as reviewer noncompliance.
   - The report SHA-256 is deliberately external to the report bytes, matching the non-self-referential hashing principle already used for carrier manifests.
   - A-S findings are occurrence truth pending A-P and project-manager Phase B reconciliation; they are not yet author-side defect classification or repair authorization.
