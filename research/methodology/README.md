@@ -28,7 +28,7 @@ HANDOFF RECORD = one time-bounded succession occurrence
 
 A successor project manager must inherit both framework and methodology.
 
-A **fresh independent validator** is a different epistemic role. Before its blind semantic work is sealed, it should receive a deliberately priming-reduced target view rather than project-manager continuity context or candidate-local author history/oracles. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`.
+A **fresh independent validator** is a different epistemic role. Before its blind semantic work is sealed, it should receive a deliberately priming-reduced target view rather than project-manager continuity context or candidate-local author history/oracles. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` and, when repository/UI navigation cannot enforce the boundary, `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`.
 
 ## Canonical rule
 
@@ -48,13 +48,14 @@ METHOD_WRITTEN != METHOD_APPLIED
 2. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when abstraction/compression is valid and when HOW/failure/Host variation must remain open or grow.
 3. `PROJECT-STATE-ALIGNMENT-GATE.md` — realign routing, method, plan, progress, candidate/release state, and next actions after material transitions.
 4. `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` — role/search-space/oracle information boundaries, including A-S blind semantic falsification and post-seal A-P package audit for self-describing candidates.
-5. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
-6. `incidents/` — concrete method failures that changed future behavior.
-7. `../BRANCH-GOVERNANCE.md` — research/candidate topology across sessions.
-8. `../ACTIVE-RESEARCH.yaml` — active research routing.
-9. `../handoffs/CURRENT-HANDOFF.yaml` — current succession pointer.
-10. `../handoffs/HANDOFF-PROTOCOL.md` — outgoing/incoming succession rules.
-11. `../handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — explicit mandatory inheritance context for project-manager succession.
+5. `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md` — enforce A-S boundaries at the carrier layer when same-repository navigation/search/auto-render can expose withheld context.
+6. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
+7. `incidents/` — concrete method failures that changed future behavior.
+8. `../BRANCH-GOVERNANCE.md` — research/candidate topology across sessions.
+9. `../ACTIVE-RESEARCH.yaml` — active research routing.
+10. `../handoffs/CURRENT-HANDOFF.yaml` — current succession pointer.
+11. `../handoffs/HANDOFF-PROTOCOL.md` — outgoing/incoming succession rules.
+12. `../handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — explicit mandatory inheritance context for project-manager succession.
 
 Focused methodology files may be added when a distinction changes behavior; file count is not a completeness claim.
 
@@ -110,14 +111,32 @@ CANDIDATE_LOCAL
 AUTOMATICALLY_BLIND_SAFE
 
 FROZEN_CANDIDATE
--> EXACT_BYTE_PRESERVING_PROJECTION
+-> ROLE-AWARE A-S CARRIER
 -> A-S BLIND SEMANTIC FALSIFICATION
 -> A-S SEAL
 -> A-P INDEPENDENT PACKAGE/HISTORY AUDIT
 -> PHASE B AUTHOR RECONCILIATION
 ```
 
-A blind validation projection is not a successor candidate and its exclusions are not release ablation.
+When a repository/UI surface cannot enforce withholding:
+
+```text
+PROCEDURAL_RANGED_READ != INFORMATION_BOUNDARY
+PROCEDURAL_PATH_AVOIDANCE != INFORMATION_BOUNDARY
+
+FROZEN_TARGET
+-> PHYSICALLY_ISOLATED A-S CARRIER
+-> A-S CONTENT SEAL
+-> ONLY THEN A-P SUPPLEMENT
+```
+
+A blind validation projection or isolated carrier is not a successor candidate and its exclusions are not release ablation.
+
+Generic semantic failure vocabulary must not itself be removed merely because it resembles an attack term:
+
+```text
+SEMANTIC_FAILURE_VOCABULARY != AUTHOR_ATTACK_MAP
+```
 
 ## Project-state alignment rule
 
@@ -168,7 +187,13 @@ If a fresh independent validator is given the author's detailed attack map befor
 
 If a self-describing candidate exposes predecessor findings, repair history, expected fixtures, or regression/selftest answers and the project calls the resulting search "blind" without an explicit boundary, information hygiene failed.
 
+If a declared blind view still lets ordinary UI navigation, auto-render, repository search, or branch traversal expose withheld material before A-S seal, the validation interface failed even if the written instructions said not to read it.
+
 If A-P opens candidate-local history before A-S is durably sealed, the search-space independence claim for A-S failed.
+
+If an A-S carrier removes ordinary semantic failure vocabulary merely to make a priming scan quiet, the carrier compressed the object under review rather than preserving independence.
+
+If a manifest claims a stable hash of its own final bytes by recording a pre-final self-hash, carrier integrity representation failed; manifest self-hash must be excluded by definition and the outer carrier hash should bind the final manifest bytes.
 
 If a validation projection is treated as a releasable candidate or its excluded files are silently treated as release deletions, validation-interface separation failed.
 

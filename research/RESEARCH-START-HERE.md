@@ -23,6 +23,7 @@ Before substantive ENA project-management/research work:
    - `CONVERGENCE-DIVERGENCE-DISCIPLINE.md`;
    - `PROJECT-STATE-ALIGNMENT-GATE.md`;
    - `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` while independent validation is active;
+   - `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md` when repository navigation is not blind-safe;
 7. read `research/ACTIVE-RESEARCH.yaml` and verify the active research branch;
 8. if canonical/live surfaces disagree, run the alignment gate before substantive work;
 9. read `research/plans/PROGRESS.yaml` and the master plan;
@@ -49,115 +50,75 @@ v0.3.6 / CURRENT / FIELD_VALIDATION
 
 Next release line: `v0.3.7`.
 
-Frozen predecessor candidate.0:
+Frozen candidate lineage:
 
 ```text
-identity = v0.3.7-candidate.0
-source   = d0e793593184740d9732902e948afd48ed96ae2f
-subtree  = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
-verdict  = NEEDS_REVISION / SUPERSEDED_BY_CANDIDATE1
+candidate.0 = d0e793593184740d9732902e948afd48ed96ae2f / cffbf76fe1448b020b637c78d1f7ae46e4c0115b / NEEDS_REVISION
+candidate.1 = ae6903464133cb5bcf3cd8909ecae1215fe0b9ba / c0458e0d7ea417b841cbf4c8bf6e64e4aff37319 / NEEDS_REVISION
+candidate.2 = bda470e0a6b170cec61225a905957a501454a2fe / d5fefc8c786d7e40b3e9a59211ee7045bccee5bf / FROZEN_NOT_CURRENT_NOT_RELEASED
 ```
 
-Frozen candidate.1 after independent A-S/A-P:
+Candidate.2 exact pre-freeze run `33095987843` passed. External freeze authority is recorded at:
 
-```text
-identity = v0.3.7-candidate.1
-source   = ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
-subtree  = c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
-exact pre-freeze run = 33055811978 / PASS
-state    = FROZEN / NEEDS_REVISION / SUPERSEDED_BY_CANDIDATE2 / NOT_CURRENT / NOT_RELEASED
-```
+`collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md`
 
-```text
-FROZEN != INDEPENDENTLY_RECONCILED != RELEASED != CURRENT
-```
+Repair/exact reconciliation:
 
-Candidate.1 frozen bytes must not be edited in place. A material candidate/package correction after freeze requires a successor candidate.
+`collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md`
 
-## Independent-validation method transition
+Post-freeze independence decision:
 
-The first candidate.1 post-freeze blind intake was Issue #128.
+`collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md`
 
-A genuinely fresh reviewer correctly stopped after discovering that a permitted candidate-local self-description file disclosed predecessor findings and candidate.1 repair history. No Phase-A report was sealed.
+Decision:
 
-Therefore:
+`FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED / ONE_FINAL_SEARCH_SPACE_INDEPENDENCE_CYCLE`
 
-```text
-CANDIDATE_LOCAL != AUTOMATICALLY_BLIND_SAFE
-VALIDATION_INTERFACE_DEFECT != CANDIDATE_BYTE_DEFECT
-```
+This is not a ritual completeness claim. It is justified because candidate.1 fresh review found author-missed defects and candidate.2's author-side nearby probe then found additional homologous decision-changing gaps after the known repairs.
 
-Issue #128 is historical invalid-intake occurrence truth, not active review authority and not candidate acceptance/rejection evidence.
-
-Canonical method:
-
-`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
-
-Incident:
-
-`research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md`
-
-Reconciliation:
-
-`collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md`
-
-## Independent A-S/A-P result
-
-Fresh A-S sealed at `2e6b46aeedc1945a03aac93620ad36aa1ccbd70f`.
-
-A-P completed at `b970148fe9596ea9cad0a2817a3b399a1d2b75f5`.
-
-Phase B reproduced four material semantic defects plus one deterministic package self-description drift. Candidate.1 is therefore `NEEDS_REVISION`; its frozen bytes remain immutable.
-
-Reconciliation:
-
-`collaboration/reconciliation/2026-08-27-v037-candidate1-a-s-a-p-phase-b-reconciliation.md`
+The current project-manager session is **not eligible** to perform fresh candidate.2 A-S because it has material exposure to predecessor findings, candidate.2 repairs, probes, and exact regression expectations.
 
 ## Immediate next action
 
-`CANDIDATE2_FOCUSED_SUCCESSOR_REPAIR`
+`GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S_IN_DEDICATED_CLEAN_ROOM`
 
-Completed independent intake:
+Issue #137 is historical and closed. Its reviewer correctly aborted before A-S seal because normal GitHub navigation crossed the declared boundary. Do not reuse the GitHub repository/branch UI as the candidate.2 A-S carrier.
 
-- Issue `#131 — Fresh independent A-S/A-P — v0.3.7 candidate.1`
-- sealed branch `validation/v037-c1-blind-semantic-primary`
-- entry `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-entry.md`
-- view manifest `collaboration/reconciliation/2026-08-27-v037-candidate1-blind-semantic-view.yaml`
+Active review carrier:
 
-The validation branch is a mechanically bound **projection**, not a successor candidate and not release authority.
+- method `research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`;
+- dedicated clean-room repo `https://github.com/guytogay/independent-validation-cleanroom`;
+- pinned A-S commit `28dde50c9caaeee3b5cfabf51410083dbbb05a93`;
+- tree `42debebed620bd05e6e2635409057f20b57bfa9e`;
+- commit parents `[]`;
+- A-P delivery state `WITHHELD_UNTIL_A_S_CONTENT_SEAL`.
 
-Sequence:
+The deterministic r3 ZIP build remains construction/integrity evidence (final audit run `33131773164`, A-S package SHA-256 `dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`), not a requirement that the reviewer consume a ZIP.
+
+Required sequence:
 
 ```text
-A-S BLIND SEMANTIC FALSIFICATION
--> PERSIST A-S SEAL
--> A-P INDEPENDENT PACKAGE / SELF-DESCRIPTION / ORACLE AUDIT
--> PERSIST A-P REPORT
+FRESH REVIEWER RECEIVES ONLY CLEAN-ROOM URL / PINNED A-S STATE
+-> READ ROOT README / INTAKE-A-S.md
+-> FREELY BROWSE / SEARCH / EXECUTE THE CLEAN-ROOM CONTENT
+-> INDEPENDENT A-S
+-> WRITE FINAL A-S REPORT
+-> SHA-256 THAT EXACT REPORT
 -> STOP
--> PROJECT-MANAGER PHASE B RECONCILIATION
+-> PROJECT MANAGER VERIFY/PERSIST CONTENT SEAL
+-> ONLY THEN MAKE A-P MATERIAL REACHABLE TO SAME REVIEWER
+-> A-P
+-> STOP BEFORE PHASE B
 ```
 
-Required independent outputs:
+Do not provide the ENA project repository as A-S review context and do not expose A-P before the A-S report digest is fixed.
 
-- A-S: `collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-s-primary.md`
-- A-P: `collaboration/reconciliation/2026-08-27-v037-candidate1-independent-a-p-primary.md`
-
-Before A-S seal, the reviewer must not receive project-manager handoff context, predecessor findings, repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces withheld by the view manifest.
-
-After A-S seal, A-P may inspect those withheld candidate-local surfaces from the exact frozen source. A-P remains independent but is not claimed to retain search-space blindness after history/oracles open.
-
-After A-P, the fresh reviewer stopped before Phase B as required. Project-manager Phase B is now complete and candidate.2 is the active repair workspace.
+Candidate.2 remains frozen. Material candidate-byte correction requires candidate.3.
 
 ```text
-FULL_PACKAGE_INDEPENDENCE != FULL_PACKAGE_SEARCH_SPACE_BLINDNESS
+FROZEN != INDEPENDENTLY_RECONCILED != RELEASED != CURRENT
 ATTACK_CARDINALITY = OPEN
 ```
-
-## Candidate.2 successor repair
-
-Candidate.2 branch: `candidate/v0.3.7-candidate.2`, created from exact frozen candidate.1 source `ae6903464133cb5bcf3cd8909ecae1215fe0b9ba`.
-
-Repair only the sealed failure shapes and adjacent consistency needed to close them while retaining legitimate lightweight paths. Targeted repair/reprobe is author-side evidence, not another fresh A-S. Current remains v0.3.6.
 
 ## Core research direction
 
@@ -211,7 +172,7 @@ Before claiming successful takeover, a successor project manager should be able 
 - Issue #131 = sealed A-S/A-P occurrence truth for candidate.1;
 - A-S seal = `2e6b46ae...`; A-P final = `b970148f...`;
 - candidate.1 = `NEEDS_REVISION`, immutable predecessor to candidate.2;
-- candidate.2 = active focused successor-repair workspace;
+- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`; Issue #137 is interface-aborted history; active A-S carrier is clean-room commit `28dde50c...`;
 - fresh validator entry remains blind semantic entry, not full project-manager context for any future independent intake;
 - `releases/current/` remains untouched until governed release/promotion.
 
