@@ -38,10 +38,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cp .github/scripts/apply_v037_candidate3_release_ready_control_plane.py /tmp/align.py
+          cp .github/scripts/apply_v037_candidate3_release_ready_control_plane.py .github/scripts/.tmp_candidate3_release_ready_align.py
           python3 - <<'PY'
           from pathlib import Path
-          p=Path('/tmp/align.py')
+          p=Path('.github/scripts/.tmp_candidate3_release_ready_align.py')
           s=p.read_text()
           old="""for stale in ['CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2','A_P_CLEAN_ROOM_READY_NOT_STARTED']:\n    if stale in '\\n'.join([ACTIVE.read_text(),HANDOFF.read_text(),START.read_text()]):\n        raise SystemExit('stale active marker remains '+stale)\nprint('CANDIDATE3_RELEASE_READY_CONTROL_PLANE=READY')\n"""
           new="""# Historical occurrence sections may legitimately retain predecessor next-actions.\n# Validate only current-active surfaces rather than demanding history erasure.\nactive=ACTIVE.read_text()\nstart=START.read_text()\nhandoff=HANDOFF.read_text()\nif 'active_candidate_identity: \"v0.3.7-candidate.3\"' not in active:\n    raise SystemExit('ACTIVE candidate.3 pointer missing')\nif 'id: \"2026-08-28-v037-candidate3-frozen-release-preparation\"' not in handoff:\n    raise SystemExit('CURRENT-HANDOFF active record pointer missing')\nif '`MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3`' not in start:\n    raise SystemExit('START active next action missing')\nprint('CANDIDATE3_RELEASE_READY_CONTROL_PLANE=READY')\n"""
@@ -49,7 +49,8 @@ jobs:
               raise SystemExit('temporary assertion patch anchor missing')
           p.write_text(s.replace(old,new,1))
           PY
-          python3 /tmp/align.py
+          python3 .github/scripts/.tmp_candidate3_release_ready_align.py
+          rm .github/scripts/.tmp_candidate3_release_ready_align.py
 
       - name: Verify scope, YAML, and release isolation
         shell: bash
