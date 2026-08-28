@@ -3,8 +3,6 @@ name: ENA v0.3.7 Exact Release Gate
 on:
   push:
     branches: [release/v0.3.7]
-    paths:
-      - '.github/workflows/v037-release-gate.yml'
   workflow_dispatch:
 
 permissions:
