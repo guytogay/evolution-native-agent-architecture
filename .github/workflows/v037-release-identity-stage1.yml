@@ -1,0 +1,118 @@
+name: ENA v0.3.7 Release Identity Stage 1
+
+on:
+  push:
+    branches:
+      - release/v0.3.7
+    paths:
+      - '.github/scripts/v037_release_identity_stage1.py'
+      - '.github/workflows/v037-release-identity-stage1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  project:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    env:
+      FROZEN_TREE: e3a9a20d16cecd78df7f32f19fca56e21159e810
+      TRANSPLANT_COMMIT: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+    steps:
+      - name: Checkout exact release branch head
+        uses: actions/checkout@v4
+        with:
+          ref: release/v0.3.7
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install exact transform dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Reconfirm byte-exact transplant occurrence before projection
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse "$TRANSPLANT_COMMIT:releases/current")" = "$FROZEN_TREE"
+          test -f releases/current/CANDIDATE-BASELINE.yaml
+          test ! -f releases/current/CURRENT-BASELINE.yaml
+          echo V037_RELEASE_TRANSPLANT_PRECONDITION=PASS
+
+      - name: Apply deterministic stage-1 identity projection
+        run: python .github/scripts/v037_release_identity_stage1.py
+
+      - name: Enforce stage-1 mutation whitelist
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only | sort > /tmp/changed.txt
+          cat > /tmp/allowed.txt <<'EOF'
+          releases/current/00-READ-ME-FIRST.md
+          releases/current/05-CORE-OPERATIONAL-CONTRACTS.md
+          releases/current/06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md
+          releases/current/07-ADOPTION-AND-FIELD-VALIDATION.md
+          releases/current/08-RELEASE-DISCIPLINE.md
+          releases/current/09-EVOLUTION-METABOLISM.md
+          releases/current/10-LANGUAGE-PORTABILITY.md
+          releases/current/AGENT-ADOPTION-INSTRUCTION.md
+          releases/current/CANDIDATE-BASELINE.yaml
+          releases/current/CHANGELOG.md
+          releases/current/CONTRIBUTION-PROTOCOL.md
+          releases/current/CURRENT-BASELINE.yaml
+          releases/current/LINEAGE.md
+          releases/current/LITE-ADOPTION-INSTRUCTION.md
+          releases/current/README.md
+          releases/current/RUNTIME-ADOPTION-KERNEL.md
+          releases/current/language-projections/zh-CN/00-READ-ME-FIRST.md
+          releases/current/language-projections/zh-CN/09-EVOLUTION-METABOLISM.md
+          releases/current/language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md
+          releases/current/language-projections/zh-CN/projection-manifest.yaml
+          releases/current/operational/REFERENCE-INDEX.yaml
+          releases/current/references/REFERENCE-MANIFEST.yaml
+          releases/current/schemas/evolution-record.v2.schema.json
+          EOF
+          sed -i 's/^          //' /tmp/allowed.txt
+          diff -u /tmp/allowed.txt /tmp/changed.txt
+          echo V037_STAGE1_MUTATION_WHITELIST=PASS
+
+      - name: Validate new Current pointer and preserved evidence boundaries
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root=Path('releases/current')
+          doc=yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['ena_version']=='v0.3.7'
+          assert doc['adoption_status']=='CURRENT'
+          assert doc['maturity']=='FIELD_VALIDATION'
+          assert doc['current'] is True
+          assert doc['complete_adoption_baseline'] is True
+          assert doc['lineage']['frozen_candidate3_source_commit']=='b7e88d7adb70396bd671ca97066daf2c120e0adc'
+          assert doc['lineage']['frozen_candidate3_tree']=='e3a9a20d16cecd78df7f32f19fca56e21159e810'
+          assert doc['lineage']['candidate_succession_stop'] is True
+          assert not (root/'CANDIDATE-BASELINE.yaml').exists()
+          assert len(doc['evidence_boundaries']) >= 8
+          ref=yaml.safe_load((root/'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          assert ref['policy']['required_for_complete_adoption_default'] is False
+          assert ref['policy']['default_activation_default'] is False
+          assert ref['policy']['host_native_equivalent_allowed'] is True
+          zh=yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert zh['source_semantic_version']=='v0.3.7'
+          assert zh['not_current'] is False
+          assert zh['validation']['universal_behavioral_semantic_conformance']=='UNPROVEN'
+          print('V037_STAGE1_POINTER_AND_BOUNDARY_CHECK=PASS')
+          PY
+
+      - name: Commit stage-1 projection as one auditable occurrence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add releases/current
+          git commit -m 'release: project v0.3.7 Current identity stage 1'
+          git push origin HEAD:release/v0.3.7
