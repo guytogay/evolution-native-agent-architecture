@@ -1,7 +1,7 @@
 {
-  "implementation_surface": "releases/current/tools/validate_contracts.py",
-  "implementation_lineage": "inherited validator surface released through v0.3.5 candidate.2 lineage",
-  "coverage_boundary": "INHERITED_COMPOSED_VALIDATOR_ONLY_NOT_V035_NEW_SEMANTICS",
+  "implementation_surface": "releases/v0.3.7-candidate/tools/validate_contracts.py",
+  "implementation_lineage": "candidate-local successor validator preserving inherited composed-validator corpora",
+  "coverage_boundary": "INHERITED_COMPOSED_VALIDATOR_CORPORA_ONLY_NOT_CANDIDATE_COMPLETENESS",
   "migrated_v032_selftest": {
     "total": 10,
     "passed": 10

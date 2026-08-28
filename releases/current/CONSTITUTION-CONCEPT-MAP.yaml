@@ -1,7 +1,7 @@
 schema_version: "1.2"
 purpose: >
-  Cognitive/retrieval map for the inherited 38-ID ENA Constitution. v0.3.6
-  adds cue/index refinements without creating new Constitution rules.
+  Cognitive/retrieval map for the inherited 38-ID ENA Constitution. v0.3.7
+  retains all 38 IDs and adds Operational Architecture routing without creating new Constitution rules.
 rule: "compress loaded text != compress applicability"
 
 families:

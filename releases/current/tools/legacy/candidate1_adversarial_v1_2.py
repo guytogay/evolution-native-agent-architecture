@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Candidate.1 adversarial regression probes for ena_evolve.py.
+"""Legacy v1.2 candidate.1 adversarial regression probes.
 
 These are regression tests for independently reproduced v0.3.5 frozen-candidate
-failures. They do not prove external authority/evidence/recovery truth.
+failures. They exercise the explicitly legacy v1.2 tool and do not prove
+external authority/evidence/recovery truth or v0.3.7 v2 parity.
 """
 from __future__ import annotations
 import importlib.util
@@ -11,9 +12,9 @@ import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-TOOL = HERE / "ena_evolve.py"
+TOOL = HERE / "ena_evolve_v1_2.py"
 
-spec = importlib.util.spec_from_file_location("ena_evolve_candidate1", TOOL)
+spec = importlib.util.spec_from_file_location("ena_evolve_candidate1_v1_2", TOOL)
 ee = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
 spec.loader.exec_module(ee)
@@ -129,7 +130,7 @@ def main() -> int:
     assert ee.closure_state_obligations(state, None)
     results["closure_reads_unresolved_state"] = True
 
-    print(json.dumps({"candidate1_adversarial": "PASS", "results": results}, ensure_ascii=False, indent=2))
+    print(json.dumps({"candidate1_adversarial_v1_2": "PASS", "results": results}, ensure_ascii=False, indent=2))
     return 0
 
 if __name__ == "__main__":

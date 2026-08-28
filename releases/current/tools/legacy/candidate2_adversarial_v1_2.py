@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Candidate.2 adversarial regressions for residuals N1/N2 and adjacent packet claims.
+"""Legacy v1.2 candidate.2 adversarial regressions.
 
-These probes close packet-consistency gaps found by the same DSH falsifier after
-candidate.1. They do not prove external source identity, authority, evidence, or
-recovery truth.
+These probes retain residual N1/N2 and adjacent packet-consistency regressions
+against the explicitly legacy v1.2 tool. They do not prove external source
+identity, authority, evidence, recovery truth, or v0.3.7 v2 parity.
 """
 from __future__ import annotations
 
@@ -12,9 +12,9 @@ import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-TOOL = HERE / "ena_evolve.py"
+TOOL = HERE / "ena_evolve_v1_2.py"
 
-spec = importlib.util.spec_from_file_location("ena_evolve_candidate2", TOOL)
+spec = importlib.util.spec_from_file_location("ena_evolve_candidate2_v1_2", TOOL)
 ee = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
 spec.loader.exec_module(ee)
@@ -73,7 +73,7 @@ def main() -> int:
     assert packet["transfer_status"] == "TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF"
 
     print(json.dumps({
-        "candidate2_adversarial": "PASS",
+        "candidate2_adversarial_v1_2": "PASS",
         "results": {
             "invalid_lifecycle_rejected_by_cli": True,
             "forged_source_authentication_rejected_by_cli": True,

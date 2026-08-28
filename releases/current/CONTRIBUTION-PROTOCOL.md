@@ -1,4 +1,4 @@
-# Contribution Protocol — v0.3.6 Current
+# Contribution Protocol — v0.3.7 Current
 
 Status: `CURRENT / FIELD_VALIDATION`.
 
@@ -30,6 +30,6 @@ Contribution does not grant reconciliation, freeze, release/Current promotion, d
 
 A contributor may challenge a current selection without first proving a replacement is better. Variation generation, publication, receiver adoption, local selection, and canonical admission are different functions.
 
-A field finding that exposes a material defect in v0.3.6 may justify a future candidate/version; it does not silently rewrite this Current identity.
+A field finding that exposes a material defect in v0.3.7 may justify a future candidate/version; it does not silently rewrite this Current identity.
 
 > **Contribute possibilities and evidence; do not self-mint promotion.**

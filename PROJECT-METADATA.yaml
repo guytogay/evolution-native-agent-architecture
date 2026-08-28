@@ -1,87 +1,84 @@
-schema_version: "1.9"
+schema_version: '1.9'
 project_id: ena
-name: "Evolution-Native Agent Architecture"
+name: Evolution-Native Agent Architecture
 aliases:
-  - ENA
-  - "Evolution Native Agent Architecture"
+- ENA
+- Evolution Native Agent Architecture
 status: ACTIVE
 lifecycle: FIELD_VALIDATION
 license: Apache-2.0
-
 canonical_state:
-  current_adoption_path: "releases/current/"
-  current_adoption_pointer: "releases/current/CURRENT-BASELINE.yaml"
+  current_adoption_path: releases/current/
+  current_adoption_pointer: releases/current/CURRENT-BASELINE.yaml
   current_version_and_maturity_must_be_read_from_pointer: true
   infer_current_from_version_number_or_recency: false
   active_mainline_axis: false
   historical_mainline_labels_are_cold_history: true
-  repository_origin_baseline: "ENA v0.2.11 MAINLINE (historical only)"
-
+  repository_origin_baseline: ENA v0.2.11 MAINLINE (historical only)
 entrypoints:
-  github: "PROJECT-HUB.md"
-  github_current_release: "releases/current/README.md"
-  github_current_baseline: "releases/current/CURRENT-BASELINE.yaml"
-  github_history: "HISTORY.md"
-  github_contributing: "CONTRIBUTING.md"
-  research: "research/README.md"
-  active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
-  research_methodology: "research/methodology/README.md"
-  research_method_master: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
-  research_alignment_gate: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
-  research_branch_governance: "research/BRANCH-GOVERNANCE.md"
-  research_branch_inventory: "research/BRANCH-INVENTORY.yaml"
-  research_master_plan: "research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md"
-  research_progress: "research/plans/PROGRESS.yaml"
-  lite_adoption: "releases/current/LITE-ADOPTION-INSTRUCTION.md"
-  field_contribution_protocol: "releases/current/CONTRIBUTION-PROTOCOL.md"
-  field_experience_template: "releases/current/templates/field-experience.v2.yaml"
-  evolution_record_validator: "releases/current/tools/validate_evolution_record_v2.py"
-  inherited_contract_validator: "releases/current/tools/validate_contracts.py"
-  inherited_reference_tool: "releases/current/tools/ena_evolve.py"
-
+  github: PROJECT-HUB.md
+  github_current_release: releases/current/README.md
+  github_current_baseline: releases/current/CURRENT-BASELINE.yaml
+  github_history: HISTORY.md
+  github_contributing: CONTRIBUTING.md
+  research: research/README.md
+  active_research_pointer: research/ACTIVE-RESEARCH.yaml
+  research_methodology: research/methodology/README.md
+  research_method_master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  research_alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
+  research_branch_governance: research/BRANCH-GOVERNANCE.md
+  research_branch_inventory: research/BRANCH-INVENTORY.yaml
+  research_master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  research_progress: research/plans/PROGRESS.yaml
+  lite_adoption: releases/current/LITE-ADOPTION-INSTRUCTION.md
+  field_contribution_protocol: releases/current/CONTRIBUTION-PROTOCOL.md
+  field_experience_template: releases/current/templates/field-experience.v2.yaml
+  evolution_record_validator: releases/current/tools/validate_evolution_record_v2.py
+  inherited_contract_validator: releases/current/tools/validate_contracts.py
+  inherited_reference_tool: releases/current/tools/legacy/ena_evolve_v1_2.py
+  primary_v2_evolution_tool: releases/current/tools/ena_evolve_v2.py
 surfaces:
   github:
-    repository: "guytogay/evolution-native-agent-architecture"
+    repository: guytogay/evolution-native-agent-architecture
     visibility_intent: PUBLIC
-    role: "CANONICAL_ENGINEERING_RESEARCH_LINEAGE_AND_CURRENT_ADOPTION_SOURCE"
+    role: CANONICAL_ENGINEERING_RESEARCH_LINEAGE_AND_CURRENT_ADOPTION_SOURCE
     main_branch: main
-    current_adoption_baseline: "releases/current/"
-    research_control_plane: "main"
-    active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
-    active_research_branch: "research/ena-reconstruction"
-    evolution_inbox: "research/evolution-inbox/README.md"
-    contributions: "collaboration/inbox/"
-    reconciliation: "collaboration/reconciliation/"
-    decisions: "decisions/"
-    evidence_index: "evidence/README.md"
+    current_adoption_baseline: releases/current/
+    research_control_plane: main
+    active_research_pointer: research/ACTIVE-RESEARCH.yaml
+    active_research_branch: research/ena-reconstruction
+    evolution_inbox: research/evolution-inbox/README.md
+    contributions: collaboration/inbox/
+    reconciliation: collaboration/reconciliation/
+    decisions: decisions/
+    evidence_index: evidence/README.md
   maintainer_private_recovery_mirror:
-    role: "DURABLE_ARTIFACT_RESEARCH_EVIDENCE_AND_RECOVERY_SURFACE"
+    role: DURABLE_ARTIFACT_RESEARCH_EVIDENCE_AND_RECOVERY_SURFACE
     public_dependency: false
     canonical_runtime_source: false
     coordinates_published: false
     synchronization_assumed: false
-
 current_validation:
-  baseline_pointer: "releases/current/CURRENT-BASELINE.yaml"
-  current_version: "v0.3.6"
+  baseline_pointer: releases/current/CURRENT-BASELINE.yaml
+  current_version: v0.3.7
   field_use_intended: true
   field_participation_open: true
-  active_tracker: "GitHub Issue #70"
-  predecessor_tracker: "GitHub Issue #61 (v0.3.5 scope preserved)"
+  active_tracker: null
+  predecessor_tracker: 'GitHub Issue #70 (v0.3.6 field scope preserved as predecessor evidence)'
   focus:
-    - "Cue-triggered salience without permanent prompt encyclopedias"
-    - "Long-lived latent variation: useful reservoir versus curation garbage"
-    - "Lifecycle / expression / selection three-axis usefulness in real behavior"
-    - "Represented EXPRESSED versus actual routing/loading/behavioral influence"
-    - "Evolution Commons import/reselection without source-proof laundering"
-    - "Environment-local selection including bad local fitness"
-    - "Rescue Plane recovery independence without sovereign authority creep"
-    - "English / zh-CN decision-semantic portability for v0.3.6 ecology semantics"
-    - "Evolution economics: adaptation value versus maintenance/governance/storage burden"
-    - "Inherited v1.2 reference-tool boundary and practical false-BLOCK confusion"
-    - "Accepted provenance/obligation-reference residuals"
-    - "Unexpected counterexamples and new variations"
-
+  - Natural hot-cue -> cold-HOW retrieval and application without permanent HOW-library loading
+  - 'Operational routing economics: usefulness versus maintenance/governance/context burden'
+  - 'False-BLOCK controls: NOT_REQUIRED / NOT_APPLICABLE / WAIT / UNKNOWN remain usable'
+  - Optional/default-off reference applicability without normative or universal laundering
+  - Authority / Effect / Recovery composition under real external consequence
+  - Evolution Commons receiver-local reselection without source-proof laundering
+  - Purpose-relative continuity only where it changes a decision
+  - Standing input without sovereignty or authority creep
+  - Host-native mechanism equivalence and Host-relative fitness
+  - Primary v2 helper usefulness versus explicit legacy v1.2 compatibility boundary
+  - English / zh-CN operational route reachability and natural behavioral equivalence
+  - Unexpected counterexamples, new variations, and release residuals
+  active_tracker_state: POST_PROMOTION_BINDING_REQUIRED
 research_checkpoint:
   historical_adversarial_replay_cases: 13
   network_protocol_divergent_passes_reconciled: 62
@@ -90,13 +87,19 @@ research_checkpoint:
   v036_candidate1_v2_selftests: 18
   inherited_composed_regression_cases: 235
   counts_are_historical_observations_not_closure_thresholds: true
-
+  v037_frozen_candidate3_files: 118
+  v037_inherited_composed_valid_cases: 164
+  v037_successor_closure_cases: 61
+  v037_v2_record_selftest_cases: 35
+  v037_v2_helper_selftest_cases: 13
+  v037_candidate3_exact_prefreeze_run: 33150269264
+  v037_candidate3_targeted_postfreeze_run: 33150553992
+  v037_candidate3_release_hardening_run: 33152201566
 authority_defaults:
-  contribution: "UNRECONCILED / NOT_CURRENT / NOT_RELEASED"
+  contribution: UNRECONCILED / NOT_CURRENT / NOT_RELEASED
   github_write_means_current_release_authority: false
   review_authority_implies_implementation_authority: false
   field_use_means_project_authority: false
-
 release_policy:
   adoption_version_must_be_self_contained: true
   runtime_version_composition_allowed: false
@@ -117,13 +120,12 @@ release_policy:
   micro_release_every_issue_by_default: false
   batch_changes_until_release_roi_is_justified: true
   adopters_use_current_only: true
-
 branch_policy:
-  policy_path: "research/BRANCH-GOVERNANCE.md"
-  inventory_path: "research/BRANCH-INVENTORY.yaml"
-  active_research_pointer: "research/ACTIVE-RESEARCH.yaml"
+  policy_path: research/BRANCH-GOVERNANCE.md
+  inventory_path: research/BRANCH-INVENTORY.yaml
+  active_research_pointer: research/ACTIVE-RESEARCH.yaml
   active_research_integration_branch_count: 1
-  active_research_count_authority: "PROJECT_COORDINATION_AND_UNAMBIGUOUS_SESSION_INHERITANCE"
+  active_research_count_authority: PROJECT_COORDINATION_AND_UNAMBIGUOUS_SESSION_INHERITANCE
   active_research_branch_is_continuation_authority: true
   active_research_pr_is_continuation_authority: false
   active_research_pr_is_transient_integration_artifact: true
@@ -138,7 +140,6 @@ branch_policy:
   delete_branch_erases_git_history: false
   max_active_release_branches_preferred: 1
   branch_is_release_identity: false
-
 architecture_policy:
   preserve_narrow_waist: true
   universal_semantics_require_universal_implementation: false
@@ -146,10 +147,9 @@ architecture_policy:
   prefer_existing_contract_extension_over_parallel_ontology: true
   staged_runtime_implementation_allowed_when_boundary_is_explicit: true
   inherited_tool_rejection_must_not_be_silently_promoted_to_semantic_prohibition: true
-
 research_method_policy:
-  canonical_path: "research/methodology/ENA-RESEARCH-DISCIPLINE.md"
-  alignment_gate_path: "research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md"
+  canonical_path: research/methodology/ENA-RESEARCH-DISCIPLINE.md
+  alignment_gate_path: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   method_count_is_open_cardinality: true
   explanatory_coverage_is_operational_solution: false
   how_cardinality_is_preallocated: false
@@ -161,7 +161,6 @@ research_method_policy:
   material_transition_requires_alignment_before_resume: true
   minor_commit_requires_full_alignment_gate: false
   individually_correct_files_imply_project_state_coherence: false
-
 contribution_policy:
   public_read_access: true
   public_inquiry_allowed: true
@@ -169,7 +168,6 @@ contribution_policy:
   contribution_is_release: false
   pull_request_is_acceptance: false
   credentials_or_unrelated_secrets_allowed_in_contributions: false
-
 bridge_policy:
   persistence_is_synchronization: false
   bridge_must_preserve_provenance: true

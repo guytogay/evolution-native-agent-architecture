@@ -541,6 +541,123 @@ def check_obligation_path(claim: dict[str, Any], ob_by_id: dict[str, list] | Non
     return out
 
 
+RICH_AUTHORITY_FIELDS = {
+    "status", "valid_from", "revoked_at", "grantee", "allowed_actions",
+    "protected_subject_refs", "task_scopes", "host_scopes",
+    "grantee_epoch_scopes", "credential_ref",
+}
+
+
+def _valid_scope_list(value: Any) -> bool:
+    return isinstance(value, list) and bool(value) and all(isinstance(x, str) and x for x in value)
+
+
+def _scope_allows(scope: list[str], value: str) -> bool:
+    return "*" in scope or value in scope
+
+
+def _represented_rich_grant_checks(grant: dict[str, Any], binding: dict[str, Any],
+                                   eval_time: date) -> list[tuple[str, str]]:
+    """Honor richer Authority-Lease-like fields when they are represented.
+
+    Legacy composed grants containing only grant_id/agent/host/expires_at remain
+    valid under the inherited contract. Once richer revocation/time/scope fields
+    are explicitly represented they are decision-bearing and cannot be ignored.
+    This is represented-consistency enforcement only, not external authentication.
+    """
+    if not any(field in grant for field in RICH_AUTHORITY_FIELDS):
+        return []
+
+    out: list[tuple[str, str]] = []
+    status = grant.get("status")
+    if status is not None:
+        if status not in {"ACTIVE", "REVOKED"}:
+            out.append(("BLOCK", "AUTHORITY_GRANT_STATUS_INVALID"))
+        elif status == "REVOKED":
+            revoked_at = parse_date(grant.get("revoked_at"))
+            if revoked_at is None:
+                out.append(("BLOCK", "AUTHORITY_REVOKED_WITHOUT_VALID_REVOKED_AT"))
+            elif revoked_at <= eval_time:
+                out.append(("BLOCK", "AUTHORITY_GRANT_REVOKED"))
+        elif grant.get("revoked_at") is not None:
+            out.append(("BLOCK", "AUTHORITY_ACTIVE_WITH_REVOKED_AT"))
+
+    if "valid_from" in grant:
+        valid_from = parse_date(grant.get("valid_from"))
+        if valid_from is None:
+            out.append(("BLOCK", "AUTHORITY_VALID_FROM_UNPARSEABLE"))
+        elif eval_time < valid_from:
+            out.append(("BLOCK", "AUTHORITY_GRANT_NOT_YET_VALID"))
+
+    represented_grantee = grant.get("grantee")
+    if represented_grantee is not None and represented_grantee != binding.get("agent"):
+        out.append(("BLOCK", "AUTHORITY_GRANTEE_MISMATCH"))
+
+    allowed_actions = grant.get("allowed_actions")
+    if allowed_actions is not None:
+        if not _valid_scope_list(allowed_actions):
+            out.append(("BLOCK", "AUTHORITY_ALLOWED_ACTIONS_MALFORMED"))
+        else:
+            for action in binding.get("authority_envelope") or []:
+                if not _scope_allows(allowed_actions, action):
+                    out.append(("BLOCK", "AUTHORITY_ACTION_OUT_OF_SCOPE"))
+                    break
+
+    for grant_field, binding_single, binding_many, missing_code, mismatch_code in [
+        ("protected_subject_refs", "protected_subject_ref", "protected_subject_refs",
+         "AUTHORITY_PROTECTED_SUBJECT_UNRESOLVED", "AUTHORITY_PROTECTED_SUBJECT_OUT_OF_SCOPE"),
+        ("task_scopes", "task_scope", "task_scopes",
+         "AUTHORITY_TASK_SCOPE_UNRESOLVED", "AUTHORITY_TASK_OUT_OF_SCOPE"),
+    ]:
+        scope = grant.get(grant_field)
+        if scope is None:
+            continue
+        if not _valid_scope_list(scope):
+            out.append(("BLOCK", f"{grant_field.upper()}_MALFORMED"))
+            continue
+        if "*" in scope:
+            continue
+        values: list[str] = []
+        one = binding.get(binding_single)
+        many = binding.get(binding_many)
+        if isinstance(one, str) and one:
+            values.append(one)
+        if isinstance(many, list):
+            values.extend(x for x in many if isinstance(x, str) and x)
+        if not values:
+            out.append(("UNKNOWN", missing_code))
+        elif any(not _scope_allows(scope, value) for value in values):
+            out.append(("BLOCK", mismatch_code))
+
+    host_scopes = grant.get("host_scopes")
+    if host_scopes is not None:
+        if not _valid_scope_list(host_scopes):
+            out.append(("BLOCK", "AUTHORITY_HOST_SCOPES_MALFORMED"))
+        elif "*" not in host_scopes:
+            host = binding.get("host")
+            if not isinstance(host, str) or not host:
+                out.append(("UNKNOWN", "AUTHORITY_HOST_UNRESOLVED"))
+            elif host not in host_scopes:
+                out.append(("BLOCK", "AUTHORITY_HOST_OUT_OF_SCOPE"))
+
+    epoch_scopes = grant.get("grantee_epoch_scopes")
+    if epoch_scopes is not None:
+        if not _valid_scope_list(epoch_scopes):
+            out.append(("BLOCK", "AUTHORITY_GRANTEE_EPOCH_SCOPES_MALFORMED"))
+        elif "*" not in epoch_scopes:
+            epoch = binding.get("grantee_epoch")
+            if not isinstance(epoch, str) or not epoch:
+                out.append(("UNKNOWN", "AUTHORITY_GRANTEE_EPOCH_UNRESOLVED"))
+            elif epoch not in epoch_scopes:
+                out.append(("BLOCK", "AUTHORITY_GRANTEE_EPOCH_OUT_OF_SCOPE"))
+
+    credential_ref = grant.get("credential_ref")
+    if credential_ref is not None and credential_ref != binding.get("credential_ref"):
+        out.append(("BLOCK", "AUTHORITY_CREDENTIAL_BINDING_MISMATCH"))
+
+    return out
+
+
 def check_binding(binding: dict[str, Any], ev_by_id: dict[str, list] | None,
                   authority_by_id: dict[str, list] | None, eval_time: date) -> list[tuple[str, str]]:
     """R9 positive mandate typing + capability grade/evidence checks."""
@@ -553,18 +670,29 @@ def check_binding(binding: dict[str, Any], ev_by_id: dict[str, list] | None,
             out.append(("BLOCK", "AUTHORITY_WITHOUT_MANDATE_SOURCE"))
         else:
             authorized = src in AUTHORIZING_MANDATE_SOURCES
+            grant_resolution_recorded = False
             if not authorized and authority_by_id is not None:
                 st, code, grant = typed_resolve(src, authority_by_id, "authority")
                 if st == "OK":
                     g = grant
-                    if g.get("agent") in (None, binding.get("agent")) and \
-                       g.get("host") in (None, binding.get("host")) and \
-                       parse_date(g.get("expires_at") or "2999-12-31") is not None and \
-                       (parse_date(g.get("expires_at") or "2999-12-31") >= eval_time):
-                        authorized = True
-                    else:
+                    expiry = parse_date(g.get("expires_at") or "2999-12-31")
+                    legacy_binding_ok = (
+                        g.get("agent") in (None, binding.get("agent"))
+                        and g.get("host") in (None, binding.get("host"))
+                        and expiry is not None
+                        and expiry >= eval_time
+                    )
+                    if not legacy_binding_ok:
                         out.append(("BLOCK", "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"))
-            if not authorized:
+                        grant_resolution_recorded = True
+                    else:
+                        represented = _represented_rich_grant_checks(g, binding, eval_time)
+                        if represented:
+                            out.extend(represented)
+                            grant_resolution_recorded = True
+                        else:
+                            authorized = True
+            if not authorized and not grant_resolution_recorded:
                 out.append(("BLOCK", "AUTHORITY_MANDATE_SOURCE_NOT_AUTHORIZING"))
             horizon = mandate.get("expires_at")
             if not horizon:

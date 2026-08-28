@@ -1,104 +1,155 @@
-# ENA v0.3.6 — Evolution Ecology Current Baseline
+# ENA v0.3.7 — Operational Architecture successor candidate
 
 Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-This directory is the singular ENA adoption surface.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
-## Purpose
+Do **not** adopt this directory as Current. v0.3.7 Current successor repairs are reconciled; exact pre-freeze validation is next, followed only on PASS by external freeze and explicit post-freeze independence/release reconciliation.
 
-**ENA exists to make sustained self-evolution viable.**
+## Candidate thesis
 
-Governance protects evolvability, truthful selection, consequence ownership, recovery/correction capacity, and future revision. Governance is not the telos.
+v0.3.7 is a practical Operational Architecture candidate, not a manufactured Constitution expansion.
 
-## What v0.3.6 adds
+```text
+v0.3.6 semantic trunk
++
+concrete HOW navigation
++
+optional reference organs
++
+Host implementation patterns
++
+Current-local minimal v2 tooling
++
+decision-bearing zh-CN operational projection
+```
 
-v0.3.6 extends v0.3.5 evolution metabolism with an explicit evolution-ecology layer:
+```text
+NEW_CONSTITUTION_IDS = 0
+NEW_CORE_SEMANTIC_DELTA_REQUIRED = 0_DEMONSTRATED
+PRACTICAL_OPERATIONAL_RELEASE_VALUE = MATERIAL
+```
 
-- stimulus and mutation pressure without forced mutation;
-- long-lived latent/cryptic variation;
-- explicit `stored != expressed != applied != selected` semantics;
-- a separate expression axis `LATENT | EXPRESSED` alongside lifecycle and selection;
-- chronological consistency guards for expression/evaluation/integration histories;
-- environment-local selection rather than universal scalar fitness;
-- Evolution Commons separation of publication, discovery, import, expression/experiment, and local selection;
-- additive `adaptation-packet.v2` source expression/dormancy and negative-lineage context;
-- cue-triggered hot salience / cold capability direction;
-- Rescue Plane semantics for self-disabling mutations without creating a sovereign approver;
-- governed canonical lineage as the property, with GitHub as the current carrier rather than a permanent sovereign;
-- ecological/minimal-intervention governance: govern the floor, not every interaction.
+## Minimum adopter traversal
 
-## Machine surface
+A reviewer/adopter should not need to inspect `research/` to reach a usable mechanism.
 
-Current includes:
+```text
+00-READ-ME-FIRST.md
+-> RUNTIME-ADOPTION-KERNEL.md
+-> operational/CUE-INDEX.md
+-> operational/HOW-MAP.md
+-> operational/REFERENCE-INDEX.yaml
+-> bounded procedure / optional reference / Host pattern
+-> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
+```
 
-- `schemas/evolution-record.v2.schema.json`;
-- `templates/evolution-record.v2.json`;
-- `tools/validate_evolution_record_v2.py`;
-- `schemas/adaptation-packet.v2.schema.json`;
-- retained v1 schemas and inherited validator/regression surfaces;
-- inherited `tools/ena_evolve.py` reference implementation.
+For the rationale and package boundary of this layer, see `operational/README.md`.
 
-The v2 schema/validator is a formal represented-consistency surface. It does not prove external events happened.
+The HOW library is cold capability, not mandatory active context.
 
-The inherited `ena_evolve.py` remains state/schema 1.2 and does not fully implement mutation-pressure/latent-reservoir/expression/packet-v2 runtime semantics. Its inherited `propose` and `import` commands still require `--variation-space`; therefore it is not the normative v0.3.6 latent-now/experiment-later proposal/import path.
+`HOW_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE`
 
-`SCHEMA_OR_PROSE_PRESENT != FULL_RUNTIME_IMPLEMENTATION`
+## What is now assembled
 
-## Selection / migration boundary
+### Operational routing
 
-Source evidence may travel. Source conclusions do not automatically become receiver-local conclusions.
+`operational/CUE-INDEX.md` is the ordinary-problem router. `operational/HOW-MAP.md` preserves plural concrete implementation branches. `operational/REFERENCE-INDEX.yaml` binds those branches to exact Current-local procedures, references, and patterns.
 
-`PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`
+```text
+ordinary cue / failure / decision
+-> consequence-first routing
+-> CUE-INDEX
+-> HOW-MAP
+-> REFERENCE-INDEX
+-> bounded procedure / optional reference / Host pattern
+-> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
+```
 
-`source success != receiver proof`
+### Optional reference library
 
-Popularity, propagation, packet existence, and source selection are not substitutes for receiver-local reality contact where local selection is claimed.
+Selected reusable references are bundled under `references/` with machine-readable policy in `references/REFERENCE-MANIFEST.yaml`.
 
-## Constitution discipline
+```text
+BUNDLED_REFERENCE
+!= REQUIRED_FOR_COMPLETE_ADOPTION
+!= DEFAULT_ACTIVE
+!= UNIVERSALLY_APPLICABLE
+!= NORMATIVE_ONTOLOGY
+```
 
-All 38 inherited Constitution IDs remain unchanged.
+A Host-native implementation may satisfy the same property without instantiating the bundled schema.
 
-`NEW_CONSTITUTION_IDS = 0`
+### Evolution tooling
 
-The Evolution Ecology layer survived independent falsification without evidence that it needed additional universal constitutional invariants.
+Primary candidate practical path:
 
-## Supported language surface
+`tools/ena_evolve_v2.py`
 
-Authoring language: English.
+It provides a narrow Current-local v2 path for latent records and packet-v2 export/import/validation. It delegates record semantics to the Current-local v2 validator rather than implementing a second semantic engine.
 
-Supported hot-path semantic projection: Simplified Chinese (`zh-CN`).
+The inherited v1.2 tool is retained only as:
 
-The v0.3.6 paired semantic fixtures are included, but behavioral EN/zh-CN equivalence for the new ecology semantics remains field evidence rather than release-author proof.
+`tools/legacy/ena_evolve_v1_2.py`
 
-## Accepted residuals
+It is compatibility history, not an equally prominent default.
 
-Visible nonblocking residuals include:
+### zh-CN operational projection
 
-- self-asserted `LOCAL` provenance is not external attestation;
-- `triggered_obligation_refs` are not authenticated by schema acceptance alone;
-- tied latest timestamps are conservatively rejected;
-- the inherited v1.2 reference tool false-BLOCK described above remains an explicit non-normative boundary;
-- future cue salience/application remains unproven field evidence;
-- `experiment` versus broader `reality contact` terminology remains research wording.
+Decision-bearing operational surfaces are available under:
 
-Do not silently report these as solved.
+`language-projections/zh-CN/operational/`
 
-## Adoption
+Machine reference bytes remain single/canonical; Chinese adopters use `language-projections/zh-CN/REFERENCE-GUIDE.md` rather than a second translated machine implementation.
 
-Use `CURRENT-BASELINE.yaml` for identity and scope.
+`language-projections/semantic-fixtures.v3.yaml` defines paired candidate operational decision expectations. Fixture structure is machine-checked; natural bilingual behavior remains field/independent evidence.
 
-Use `RUNTIME-ADOPTION-KERNEL.md` as the hot-path semantic surface, with cold documents retrieved when relevant.
+## Machine assembly evidence
 
-Use `LITE-ADOPTION-INSTRUCTION.md` for bounded low-ceremony work; profiles change governance intensity, not the Constitution.
+Stage 3 exact head `8ba109528ecb14f9a22a372c897ac8d9ea1759f3` passed Assembly Gate run `33004330491`.
 
-## Evidence lineage
+Stage 4 exact head `7a59ac9b10e18f804ce7141b0beae2aef5e75cf6` passed Assembly Gate run `33007647412`, including zh-CN operational-route checks.
 
-v0.3.6 candidate.0 received fresh independent semantic verdict `NEEDS_REVISION`. Candidate.1 repaired the material findings and then received `TARGETED_REVALIDATION_PASS_WITH_RESIDUALS` from the same falsifier. Host-side reconciliation stopped candidate succession and supported release preparation.
+Machine PASS establishes exercised represented consistency and packaging facts. It does not establish external truth, universal Host applicability, future salience, or independent semantic support.
 
-See `LINEAGE.md` for exact source/tree identities and residuals.
+## Deferred without ablation
 
-> **Variation first; selection by reality.**
+The recovered Commitment/Settlement machine prototype remains durable research lineage but is not bundled in v0.3.7 Current; deferral remains reversible if renewed candidate-critical evidence warrants it.
+
+```text
+NOT_BUNDLED != RETIRED
+SILENT_DISSOLUTION != EVIDENCE_BACKED_RETIREMENT
+```
+
+## Lineage
+
+Candidate branch:
+
+`candidate/v0.3.7`
+
+Exact v0.3.7 Current birth base / predecessor frozen source:
+
+`bda470e0a6b170cec61225a905957a501454a2fe`
+
+Predecessor frozen candidate.2 subtree:
+
+`d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`
+
+v0.3.7 Current was created directly from frozen candidate.2 after candidate.2 fresh A-S/A-P and Phase B required a material successor. Candidate.2 remains immutable occurrence truth; v0.3.7 Current does not rewrite it.
+
+Round-1 successor repair gate `33149597432` passed and committed bounded Authority, Effect Lifecycle, transferred-source chronology, and regression-provenance repairs at `55e08740fa2e4b033cfb5bd9e8f7a4214a479f08` while preserving inherited valid behavior.
+
+## What remains before freeze
+
+1. finish v0.3.7 Current package identity/lineage/zh-CN reconciliation without expanding executable semantic scope;
+2. rerun inherited/targeted machine checks without treating their counts as completeness;
+3. run exact-head v0.3.7 Current pre-freeze machine validation;
+4. bind the exact immutable source/tree with an external governed freeze record;
+5. targeted post-freeze reconciliation must verify the sealed candidate.2 blockers are closed; another full fresh A-S/A-P cycle is not automatic;
+6. if no material blocker remains, perform explicit v0.3.7 release reconciliation and promotion decision.
+
+Any material correction after freeze requires a successor candidate identity.
+
+> **Compress the semantic trunk; let concrete HOWs branch.**
 >
-> **Governance must pay rent.**
->
-> **Evolution is the purpose; governance protects evolvability.**
+> **Assembled is not independently supported.**

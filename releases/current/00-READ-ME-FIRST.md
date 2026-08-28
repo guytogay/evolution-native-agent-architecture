@@ -1,97 +1,121 @@
-# ENA v0.3.6 — Read Me First
+# ENA v0.3.7 — Read Me First
 
 Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-This directory is the singular adopter-facing ENA baseline.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
-**ENA exists to make sustained self-evolution viable.**
+This candidate tests whether ENA can become substantially more usable through concrete Operational Architecture without inventing unnecessary Core law.
 
-v0.3.6 extends v0.3.5's explicit evolution metabolism into an evolution-ecology model:
+## Start here during Current adoption
 
-`environment/stimulus -> mutation pressure -> variation -> latent storage or expression -> reality contact -> local selection -> retention/dormancy/loss -> migration/recombination -> renewed variation`
+1. `CURRENT-BASELINE.yaml` — exact working state, lineage, machine evidence, and remaining gates;
+2. `README.md` — candidate thesis and package boundary;
+3. `RUNTIME-ADOPTION-KERNEL.md` — compact hot semantic/cue surface;
+4. `operational/CUE-INDEX.md` — route from an ordinary problem to the relevant HOW family;
+5. `operational/HOW-MAP.md` — cold practical branch map;
+6. `operational/REFERENCE-INDEX.yaml` — exact local paths and optionality;
+7. `references/REFERENCE-MANIFEST.yaml` — machine-readable bundled-reference policy;
+8. `tools/ena_evolve_v2.py` — narrow Current-local v2 practical evolution path;
+9. `language-projections/zh-CN/operational/` — decision-bearing Simplified Chinese operational projection.
 
-Evolution is the purpose; governance protects evolvability.
+No `research/` path is required for ordinary candidate use/review of these mechanisms.
 
-## Start here
+## Candidate architecture
 
-1. `CURRENT-BASELINE.yaml` — release identity, scope, lineage, machine boundaries, accepted residuals;
-2. `RUNTIME-ADOPTION-KERNEL.md` — hot-path distinctions and cues;
-3. `01-CONSTITUTION.md` — the 38 stable universal invariants;
-4. `09-EVOLUTION-METABOLISM.md` — evolution ecology and candidate lifecycle/selection/expression semantics;
-5. `06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md` — Evolution Commons and receiver-local reselection;
-6. `08-RELEASE-DISCIPLINE.md` — candidate/release/canonical-lineage discipline;
-7. `schemas/evolution-record.v2.schema.json` + `tools/validate_evolution_record_v2.py` — v0.3.6 represented consistency contract;
-8. `language-projections/zh-CN/` — supported Simplified Chinese hot-path projection.
+```text
+TELOS / WHAT / WHY
+        |
+        v
+compact hot cues / durable distinctions
+        |
+        v
+operational routing
+        |
+        +--> procedure
+        +--> optional reference organ
+        +--> Host-native pattern
+        +--> honest residual / WAIT / UNKNOWN
+```
 
-## Durable v0.3.6 distinctions
+The repository may contain many HOW branches. Active context should remain bounded.
 
-Preserve at least:
+```text
+REPOSITORY_DIVERGENCE != CONTEXT_EXPLOSION
+HOT_KERNEL != HOW_LIBRARY
+```
 
-- `stimulus != mutation != improvement`;
-- a variation may remain latent without immediate experiment or verdict;
-- `stored != expressed != applied != selected`;
-- lifecycle, expression, and selection are separate axes;
-- `INTEGRATED != SUPPORTED`;
-- `ARCHIVED/RETIRED != selection verdict`;
-- local selection is not universal fitness;
-- `PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`;
-- popularity/propagation is not proof;
-- source context/evidence is not receiver-local proof;
-- rescue authority is not general approval authority;
-- state rollback is not reversal of escaped external consequence;
-- GitHub is the current carrier of canonical lineage, not a permanent sovereign;
-- minimal intervention does not waive consequence ownership or externality boundaries.
+## Concrete HOW applicability
 
-## Constitution status
+Every concrete mechanism must retain a non-applicability path where appropriate.
 
-All 38 Constitution IDs are inherited unchanged.
+Examples:
 
-`NEW_CONSTITUTION_IDS = 0`
+```text
+Authority -> NOT_REQUIRED
+Contested Authorship -> OUT_OF_SCOPE
+Recovery -> independent rescue/drill only when consequence requires it
+Continuity -> NOT_REQUIRED when continuity cannot change the decision
+Control Retirement -> KEEP_ACTIVE / UNKNOWN_WAIT when retirement basis is weak
+```
 
-The ecology layer was not promoted into new universal Constitution IDs merely because it was new. Independent falsification supported the semantic core while material representation defects were corrected in candidate.1.
+A mechanism that can only say “activate me” is likely to create false-BLOCK bureaucracy.
 
-## Machine boundary
+## Bundled references are optional
 
-v0.3.6 Current includes:
+This candidate bundles:
 
-- `schemas/evolution-record.v2.schema.json`;
-- `templates/evolution-record.v2.json`;
-- `tools/validate_evolution_record_v2.py`;
-- additive `schemas/adaptation-packet.v2.schema.json`;
-- inherited v1 schemas and the v0.3.5 `tools/ena_evolve.py` reference implementation.
+General optional:
+- Retrieval Obligation 0.5;
+- WAIT;
+- Authority Lease;
+- Effect Lifecycle;
+- Recovery Adapter.
 
-The inherited `ena_evolve.py` remains state/schema 1.2 and does **not** fully implement mutation-pressure, latent-reservoir, expression, or packet-v2 runtime semantics. Its `propose` and `import` commands still require `--variation-space`, so it is not the normative v0.3.6 path for legal latent-now/experiment-later creation or import.
+Advanced/specialized optional:
+- Evidence Envelope;
+- Evidence Dependency Map;
+- Contested Authorship.
 
-`CURRENT_SEMANTIC_BASELINE != FULL_REFERENCE_TOOL_RUNTIME_PARITY`
+```text
+BUNDLED != REQUIRED
+BUNDLED != DEFAULT_ACTIVE
+REFERENCE_IMPLEMENTATION != REQUIRED_IMPLEMENTATION
+```
 
-Do not convert that visible staged boundary into a false claim that v2 is fully executable through the inherited tool.
+The recovered Commitment/Settlement machine prototype remains research lineage and is deliberately not bundled in this candidate. That is deferral, not retirement.
 
-## Field-evidence boundary
+## Tool boundary
 
-Current status is `FIELD_VALIDATION`, not universal proof.
+Primary candidate tool: `tools/ena_evolve_v2.py`.
 
-Particularly unproven in fresh heterogeneous Hosts:
+It supports:
+- creating latent v2 records without forcing an early Variation Space;
+- Current-local v2 record validation;
+- packet-v2 export/import with digest and narrow represented consistency;
+- preserving source-selection vs receiver-local-selection separation.
 
-- cue-triggered future salience/application;
-- long-term economics of large latent-variation reservoirs;
-- how often expression-state representation tracks actual behavioral influence;
-- Rescue Plane narrowness in real deployments;
-- behavioral EN/zh-CN equivalence for the new ecology semantics;
-- whether the inherited reference-tool boundary creates practical confusion.
+The inherited v1.2 implementation is retained at `tools/legacy/ena_evolve_v1_2.py` and is not the default candidate path.
 
-## Accepted visible residuals
+The v2 helper still does **not** implement the full evolution lifecycle state machine. Tool success remains represented machine evidence, not external truth.
 
-The release intentionally keeps visible that:
+## Language boundary
 
-- self-asserted `provenance: LOCAL` is not external attestation;
-- `triggered_obligation_refs` are represented references, not authenticated truth merely because schema validation passes;
-- tied latest timestamps are conservatively rejected;
-- the inherited tool false-BLOCK described above remains non-normative rather than silently becoming semantic law.
+The zh-CN candidate projection covers operational routing/HOW/procedures/patterns and provides a reference usage guide. Machine reference bytes are not duplicated into translated variants.
 
-These are field/research opportunities, not hidden release claims.
+Paired v3 fixtures define expected operational decisions/routes but do not prove natural cross-language model behavior.
 
-> **Variation does not owe reality an immediate verdict.**
->
-> **Stored possibility is not active authority.**
->
-> **Govern the floor; let the ecology grow above it.**
+## Proof boundary
+
+Stage-3 and Stage-4 Assembly Gates passed on their exact heads. That is author-side assembly evidence only.
+
+```text
+ASSEMBLED != VALIDATED_BY_FRESH_FALSIFIER
+MACHINE_PASS != EXTERNAL_TRUTH
+TRANSLATED != BEHAVIORALLY_EQUIVALENT
+FROZEN != RELEASED
+BRANCH_EXISTS != CURRENT
+```
+
+Before freeze, candidate identity/status must be reconciled and author adversarial/pre-freeze gates must pass. Any material correction after freeze requires a successor candidate identity.
+
+> **The final test is whether an Agent can actually live by it.**

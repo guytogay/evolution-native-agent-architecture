@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Inherited deterministic composed-validator regression suite.
 
-This file intentionally exercises the byte-inherited v0.3.3/v0.3.4
-`validate_contracts.py` implementation surface. Passing this suite proves
+This file intentionally exercises the candidate-local `validate_contracts.py`
+surface against inherited v0.3.3/v0.3.4 regression corpora. Passing this suite proves
 regression preservation only; it does NOT prove coverage of new v0.3.5
 semantics such as evolution metabolism, migration, emergence, continuity, or
 language portability.
@@ -50,7 +50,7 @@ def run_fixture_file(path: Path, label: str):
 
 def main() -> int:
     print("=" * 100)
-    print("V0.3.5 CURRENT INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
+    print("V0.3.7 CANDIDATE.3 CANDIDATE-LOCAL INHERITED COMPOSED-VALIDATOR REGRESSION SUITE")
     print("=" * 100)
 
     v1 = run_fixture_file(FIXTURES_V1, "migrated v0.3.2 selftests")
@@ -87,9 +87,9 @@ def main() -> int:
                           if ok else "FAIL"))
 
     out = {
-        "implementation_surface": "releases/current/tools/validate_contracts.py",
-        "implementation_lineage": "inherited validator surface released through v0.3.5 candidate.2 lineage",
-        "coverage_boundary": "INHERITED_COMPOSED_VALIDATOR_ONLY_NOT_V035_NEW_SEMANTICS",
+        "implementation_surface": "releases/v0.3.7-candidate/tools/validate_contracts.py",
+        "implementation_lineage": "candidate-local successor validator preserving inherited composed-validator corpora",
+        "coverage_boundary": "INHERITED_COMPOSED_VALIDATOR_CORPORA_ONLY_NOT_CANDIDATE_COMPLETENESS",
         "migrated_v032_selftest": {"total": v1["total"], "passed": v1["total"] - v1["failed"]},
         "inherited_v2": {"total": v2["total"], "passed": v2["total"] - v2["failed"]},
         "closure_v21": {"total": v21["total"], "passed": v21["total"] - v21["failed"]},

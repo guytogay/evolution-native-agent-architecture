@@ -23,8 +23,10 @@ permissions:
 
 jobs:
   validate-current:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
+      FROZEN_SOURCE: b7e88d7adb70396bd671ca97066daf2c120e0adc
+      FROZEN_TREE: e3a9a20d16cecd78df7f32f19fca56e21159e810
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - name: Checkout exact source head
@@ -41,329 +43,255 @@ jobs:
       - name: Install validation dependencies
         run: python -m pip install --disable-pip-version-check PyYAML jsonschema
 
-      - name: Parse Current YAML and JSON
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          import yaml
-          root = Path('releases/current')
-          for p in sorted(root.rglob('*.json')):
-              json.loads(p.read_text(encoding='utf-8'))
-              print('json-parse-pass', p)
-          for p in sorted(root.rglob('*.yaml')):
-              yaml.safe_load(p.read_text(encoding='utf-8'))
-              print('yaml-parse-pass', p)
-          PY
-
-      - name: Validate v0.3.6 Current baseline identity
+      - name: Validate v0.3.7 Current baseline identity
         run: |
           python - <<'PY'
           from pathlib import Path
-          import yaml
-          root = Path('releases/current')
-          doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          assert doc['schema_version'] == '2.1'
-          assert doc['ena_version'] == 'v0.3.6'
-          assert doc['adoption_status'] == 'CURRENT'
-          assert doc['maturity'] == 'FIELD_VALIDATION'
+          import subprocess,yaml
+          root=Path('releases/current')
+          frozen='b7e88d7adb70396bd671ca97066daf2c120e0adc'
+          frozen_tree=subprocess.check_output(['git','rev-parse',f'{frozen}:releases/v0.3.7-candidate'],text=True).strip()
+          assert frozen_tree=='e3a9a20d16cecd78df7f32f19fca56e21159e810'
+          doc=yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['schema_version']=='3.1'
+          assert doc['ena_version']=='v0.3.7'
+          assert doc['adoption_status']=='CURRENT'
+          assert doc['maturity']=='FIELD_VALIDATION'
           assert doc['current'] is True
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
           assert doc['active_mainline_axis'] is False
           assert doc['version_identity_includes_maturity_status'] is False
-          assert doc['package_scope'] == 'ALL_FILES_UNDER_RELEASES_CURRENT'
-          lin = doc['lineage']
-          assert lin['frozen_candidate0_source_commit'] == '3cb94d98882621acede189d0d47806efae44fb0f'
-          assert lin['frozen_candidate0_tree'] == '80f2da918811c26381d65eb5afa8e40f8410a32e'
-          assert lin['candidate0_independent_verdict'] == 'NEEDS_REVISION'
-          assert lin['frozen_candidate1_source_commit'] == '4af5d17a1cedcf2850b2b4dfe5446e132023369a'
-          assert lin['frozen_candidate1_tree'] == '52a0cc260ec33fc3e332f6ac0f98f5d1e98b565d'
-          assert lin['candidate1_targeted_verdict'] == 'TARGETED_REVALIDATION_PASS_WITH_RESIDUALS'
-          assert lin['release_preparation_decision'] == 'RELEASE_PREPARATION_SUPPORTED'
-          assert lin['candidate_succession_stop'] is True
-          evo = doc['evolution']
-          assert evo['evolution_record_schema'] == 'schemas/evolution-record.v2.schema.json'
-          assert evo['evolution_record_consistency_validator'] == 'tools/validate_evolution_record_v2.py'
-          assert evo['adaptation_packet_schema'] == 'schemas/adaptation-packet.v2.schema.json'
-          assert evo['inherited_reference_tool_state_version'] == '1.2'
-          assert evo['inherited_reference_tool_is_normative_v2_record_or_packet_path'] is False
-          assert evo['inherited_reference_tool_latent_propose_import_false_block_known'] is True
-          assert doc['constitution']['inherited_stable_ids'] == 38
-          assert doc['constitution']['new_ids_added_in_v036'] == 0
+          assert doc['package_scope']=='ALL_FILES_UNDER_RELEASES_CURRENT'
+          assert doc['lineage']['frozen_candidate3_source_commit']==frozen
+          assert doc['lineage']['frozen_candidate3_tree']==frozen_tree
+          assert doc['lineage']['candidate3_exact_prefreeze_run']==33150269264
+          assert doc['lineage']['candidate3_targeted_postfreeze_run']==33150553992
+          assert doc['lineage']['candidate3_release_hardening_run']==33152201566
+          assert doc['lineage']['candidate_succession_stop'] is True
+          assert doc['lineage']['candidate4_required_by_current_evidence'] is False
           assert not (root/'CANDIDATE-BASELINE.yaml').exists()
-          assert not (root/'tools/validate_candidate.py').exists()
-          for rel in doc.get('core_files', []):
-              assert (root/rel).is_file(), f'missing core file: {rel}'
+          for rel in doc.get('core_files',[]): assert (root/rel).is_file(), rel
           assert (root/doc['lite_entrypoint']).is_file()
           assert (root/doc['runtime_adoption']['kernel_entrypoint']).is_file()
-          print('current-baseline-pass', doc['ena_version'], doc['maturity'])
+          print('CURRENT_BASELINE_V037_PASS')
           PY
 
-      - name: Ensure one adoption surface
-        run: |
-          test -f releases/current/CURRENT-BASELINE.yaml
-          test ! -f releases/current/CANDIDATE-BASELINE.yaml
-          echo 'single-current-surface-pass'
-
-      - name: Validate v2 evolution schemas and template
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          import jsonschema
-          root = Path('releases/current')
-          evo_schema = json.loads((root/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
-          evo_doc = json.loads((root/'templates/evolution-record.v2.json').read_text(encoding='utf-8'))
-          packet_schema = json.loads((root/'schemas/adaptation-packet.v2.schema.json').read_text(encoding='utf-8'))
-          jsonschema.Draft202012Validator.check_schema(evo_schema)
-          jsonschema.Draft202012Validator(evo_schema, format_checker=jsonschema.FormatChecker()).validate(evo_doc)
-          jsonschema.Draft202012Validator.check_schema(packet_schema)
-          assert evo_doc['expression_state'] == 'LATENT'
-          assert evo_doc['selection_state'] == 'UNASSESSED'
-          assert evo_doc['variation_space'] is None
-          props = packet_schema.get('properties', {})
-          for key in ('source_expression_state', 'source_expression_history', 'source_last_expressed_at', 'source_negative_lineage_refs'):
-              assert key in props, key
-          print('v2-schema-template-pass')
-          PY
-
-      - name: Run v0.3.6 evolution-record v2 consistency selftest
-        run: python releases/current/tools/validate_evolution_record_v2.py --selftest
-
-      - name: Run inherited semantic selftests and regression
-        run: |
-          python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v1.json
-          python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.json
-          python releases/current/tools/validate_contracts.py selftest releases/current/tools/contract-fixtures.v2.1.json
-          python releases/current/tools/regression_suite.py
-          git diff --exit-code -- releases/current/tools/regression-results-v033.json
-
-      - name: Run inherited evolution tool and historical adversarial regressions
-        run: |
-          python releases/current/tools/ena_evolve.py selftest
-          python releases/current/tools/candidate1_adversarial.py
-          python releases/current/tools/candidate2_adversarial.py
-
-      - name: Validate actual inherited tool output against inherited v1 schemas
-        shell: bash
-        run: |
-          set -euo pipefail
-          ROOT='releases/current'
-          TOOL="$ROOT/tools/ena_evolve.py"
-          TMP="$(mktemp -d)"
-          STATE="$TMP/state.json"
-          PACKET="$TMP/packet.json"
-          python "$TOOL" --state "$STATE" init >/dev/null
-          CID="$(python "$TOOL" --state "$STATE" propose --hypothesis 'release schema wiring' --change 'test change' --variation-space 'ci-sandbox' --expected quality | python -c 'import json,sys; print(json.load(sys.stdin)["candidate_id"])')"
-          python "$TOOL" --state "$STATE" experiment "$CID" --actual-change 'test change' >/dev/null
-          python "$TOOL" --state "$STATE" evaluate "$CID" --selection SUPPORTED --outcome quality=IMPROVED --evidence ci-observation >/dev/null
-          python "$TOOL" --state "$STATE" export "$CID" --output "$PACKET" >/dev/null
-          STATE="$STATE" PACKET="$PACKET" ROOT="$ROOT" python - <<'PY'
-          import json, os
-          from pathlib import Path
-          import jsonschema
-          root = Path(os.environ['ROOT'])
-          state = json.loads(Path(os.environ['STATE']).read_text(encoding='utf-8'))
-          candidate = state['candidates'][0]
-          packet = json.loads(Path(os.environ['PACKET']).read_text(encoding='utf-8'))
-          evo_schema = json.loads((root/'schemas/evolution-record.v1.schema.json').read_text(encoding='utf-8'))
-          packet_schema = json.loads((root/'schemas/adaptation-packet.v1.schema.json').read_text(encoding='utf-8'))
-          jsonschema.validate(candidate, evo_schema)
-          jsonschema.validate(packet, packet_schema)
-          assert candidate['selection_state'] == 'SUPPORTED'
-          assert packet['source_selection_state'] == 'SUPPORTED'
-          assert packet['packet_purpose'] == 'ADAPTATION_CANDIDATE'
-          assert packet['source_authentication'] == 'NOT_AUTHENTICATED_BY_THIS_PACKET'
-          assert packet['transfer_status'] == 'TRANSFERRED_SOURCE_EVIDENCE_NOT_LOCAL_PROOF'
-          print('inherited-tool-v1-schema-wiring-pass')
-          PY
-
-      - name: Check inherited tool boundary remains truthful
-        run: |
-          python - <<'PY'
-          import ast
-          from pathlib import Path
-          import yaml
-          root = Path('releases/current')
-          baseline = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          tree = ast.parse((root/'tools/ena_evolve.py').read_text(encoding='utf-8'))
-          required_variation_space_lines = []
-          string_constants = set()
-          state_version = None
-          for node in ast.walk(tree):
-              if isinstance(node, ast.Constant) and isinstance(node.value, str):
-                  string_constants.add(node.value)
-              if isinstance(node, ast.Assign):
-                  for target in node.targets:
-                      if isinstance(target, ast.Name) and target.id == 'STATE_VERSION' and isinstance(node.value, ast.Constant):
-                          state_version = node.value.value
-              if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr == 'add_argument':
-                  if not node.args or not isinstance(node.args[0], ast.Constant) or node.args[0].value != '--variation-space':
-                      continue
-                  required = any(
-                      kw.arg == 'required' and isinstance(kw.value, ast.Constant) and kw.value.value is True
-                      for kw in node.keywords
-                  )
-                  if required:
-                      required_variation_space_lines.append(node.lineno)
-          has_expression_runtime_field = 'expression_state' in string_constants
-          requires_variation_space = len(required_variation_space_lines) >= 2
-          evo = baseline['evolution']
-          assert evo['inherited_reference_tool_state_version'] == str(state_version)
-          assert evo['inherited_reference_tool_is_normative_v2_record_or_packet_path'] is False
-          assert evo['inherited_reference_tool_latent_propose_import_false_block_known'] == requires_variation_space
-          assert has_expression_runtime_field is False
-          assert requires_variation_space is True
-          print('inherited-tool-boundary-pass', {
-              'state_version': state_version,
-              'expression_runtime_field': has_expression_runtime_field,
-              'variation_space_required_lines': required_variation_space_lines,
-          })
-          PY
-
-      - name: Compile Current Python tools and reject bytecode artifacts
+      - name: Parse all Current JSON and YAML
         run: |
           python - <<'PY'
           from pathlib import Path
-          files = sorted(Path('releases/current/tools').glob('*.py'))
-          failures = []
-          for path in files:
-              try:
-                  compile(path.read_text(encoding='utf-8'), str(path), 'exec')
-              except Exception as exc:
-                  failures.append((str(path), repr(exc)))
-          print('PYTHON_COMPILE_TOTAL', len(files))
-          print('PYTHON_COMPILE_FAILED', len(failures))
-          for item in failures:
-              print(*item)
-          if failures:
-              raise SystemExit(1)
+          import json,yaml
+          root=Path('releases/current')
+          for p in sorted(root.rglob('*.json')): json.loads(p.read_text(encoding='utf-8'))
+          for p in sorted(root.rglob('*.yaml')): yaml.safe_load(p.read_text(encoding='utf-8'))
+          print('CURRENT_PARSE_PASS')
           PY
-          found="$(find releases/current \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) -print)"
-          if [ -n "$found" ]; then
-            echo "$found"
-            exit 1
-          fi
 
-      - name: Check Constitution identity parity across English and Chinese
+      - name: Preserve frozen non-projection implementation bytes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          frozen='b7e88d7adb70396bd671ca97066daf2c120e0adc'; prefix='releases/v0.3.7-candidate/'
+          root=Path('releases/current')
+          def fb(rel): return subprocess.check_output(['git','show',f'{frozen}:{prefix}{rel}'])
+          count=0
+          for p in sorted((root/'tools').rglob('*')):
+              if p.is_file():
+                  rel=p.relative_to(root).as_posix(); assert p.read_bytes()==fb(rel), rel; count+=1
+          for p in sorted((root/'references').rglob('*')):
+              if not p.is_file(): continue
+              rel=p.relative_to(root).as_posix()
+              if rel=='references/REFERENCE-MANIFEST.yaml' or p.name=='README.md': continue
+              assert p.read_bytes()==fb(rel), rel; count+=1
+          for rel in ['01-CONSTITUTION.md','02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md','03-ROLES-AND-DEVELOPMENTAL-STAGES.md','04-CAPABILITY-MAP.md','schemas/adaptation-packet.v2.schema.json']:
+              assert (root/rel).read_bytes()==fb(rel), rel; count+=1
+          print('FROZEN_NON_PROJECTION_PARITY_PASS',count)
+          PY
+
+      - name: Check identity-only semantic projections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import difflib,json,subprocess
+          frozen='b7e88d7adb70396bd671ca97066daf2c120e0adc'; prefix='releases/v0.3.7-candidate/'
+          root=Path('releases/current')
+          def ft(rel): return subprocess.check_output(['git','show',f'{frozen}:{prefix}{rel}']).decode()
+          rel='05-CORE-OPERATIONAL-CONTRACTS.md'
+          for line in difflib.ndiff(ft(rel).splitlines(),(root/rel).read_text(encoding='utf-8').splitlines()):
+              if line.startswith(('- ','+ ')):
+                  assert any(t in line[2:].lower() for t in ['candidate','current','v0.3.7','v0.3.6']), line
+          rel='schemas/evolution-record.v2.schema.json'
+          old=json.loads(ft(rel)); new=json.loads((root/rel).read_text(encoding='utf-8'))
+          old['title']='NORMALIZED'; new['title']='NORMALIZED'; assert old==new
+          print('IDENTITY_ONLY_PROJECTION_PASS')
+          PY
+
+      - name: Validate Constitution identity and relative navigation
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
-          root = Path('releases/current')
-          def ids(path):
-              return re.findall(r'ENA-CON-\d{3}', path.read_text(encoding='utf-8'))
-          en = ids(root/'01-CONSTITUTION.md')
-          zh = ids(root/'language-projections/zh-CN/01-CONSTITUTION.md')
-          expected = [f'ENA-CON-{i:03d}' for i in range(1,39)]
-          assert en == expected, ('English Constitution IDs differ', en)
-          assert zh == expected, ('Chinese Constitution IDs differ', zh)
-          print('constitution-id-parity-pass', len(en))
+          root=Path('releases/current')
+          expected=[f'ENA-CON-{i:03d}' for i in range(1,39)]
+          en=re.findall(r'ENA-CON-\d{3}',(root/'01-CONSTITUTION.md').read_text(encoding='utf-8'))
+          zh=re.findall(r'ENA-CON-\d{3}',(root/'language-projections/zh-CN/01-CONSTITUTION.md').read_text(encoding='utf-8'))
+          assert en==zh==expected
+          link=re.compile(r'\[[^\]]*\]\(([^)]+)\)'); broken=[]
+          for p in root.rglob('*.md'):
+              for raw in link.findall(p.read_text(encoding='utf-8')):
+                  target=raw.strip().split('#',1)[0].split('?',1)[0]
+                  if not target or target.startswith(('http://','https://','mailto:','/')): continue
+                  resolved=(p.parent/target).resolve()
+                  try: resolved.relative_to(root.resolve())
+                  except ValueError: continue
+                  if not resolved.exists(): broken.append(f'{p.relative_to(root)} -> {raw}')
+          assert not broken, broken[:20]
+          print('CONSTITUTION_AND_LINKS_PASS',len(en))
           PY
 
-      - name: Check bilingual semantic fixture structure v1 and v2
+      - name: Run v2 evolution record and practical helper selftests
+        run: |
+          python releases/current/tools/validate_evolution_record_v2.py --selftest | tee /tmp/v2-record.log
+          grep -q 'EVOLUTION_RECORD_V2_SELFTEST_PASS 35' /tmp/v2-record.log
+          python releases/current/tools/selftest_ena_evolve_v2.py | tee /tmp/v2-helper.log
+          grep -q "'selftest': 'PASS'" /tmp/v2-helper.log
+          grep -q "'cases': 13" /tmp/v2-helper.log
+
+      - name: Run inherited composed semantic regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=releases/current
+          python "$ROOT/tools/validate_contracts.py" selftest "$ROOT/tools/contract-fixtures.v1.json"
+          python "$ROOT/tools/validate_contracts.py" selftest "$ROOT/tools/contract-fixtures.v2.json"
+          python "$ROOT/tools/validate_contracts.py" selftest "$ROOT/tools/contract-fixtures.v2.1.json"
+          cp "$ROOT/tools/regression-results-v033.json" /tmp/regression.before.json
+          python "$ROOT/tools/regression_suite.py" | tee /tmp/regression.log
+          grep -q 'inherited 164-case corpus : 164/164 passed (ZERO flips required)' /tmp/regression.log
+          grep -q 'successor closure corpus  : 61/61 passed' /tmp/regression.log
+          cmp /tmp/regression.before.json "$ROOT/tools/regression-results-v033.json"
+
+      - name: Run explicit legacy compatibility regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=releases/current/tools/legacy
+          python "$ROOT/ena_evolve_v1_2.py" selftest
+          python "$ROOT/candidate1_adversarial_v1_2.py"
+          python "$ROOT/candidate2_adversarial_v1_2.py"
+
+      - name: Run bundled optional-reference selftests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' files < <(find releases/current/references -type f \( -name 'selftest.py' -o -name 'selftest_*.py' \) -print0 | sort -z)
+          test "${#files[@]}" -ge 8
+          for f in "${files[@]}"; do echo "RUN_REFERENCE_SELFTEST=$f"; python "$f"; done
+          echo "OPTIONAL_REFERENCE_SELFTEST_FILES=${#files[@]}"
+
+      - name: Validate optional/default-off reference boundaries
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,yaml
+          root=Path('releases/current')
+          ref=yaml.safe_load((root/'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          assert ref['status']=='CURRENT_OPTIONAL_REFERENCE_MANIFEST'
+          p=ref['policy']
+          assert p['required_for_complete_adoption_default'] is False
+          assert p['default_activation_default'] is False
+          assert p['package_inclusion_implies_applicability'] is False
+          assert p['package_inclusion_implies_activation'] is False
+          assert p['host_native_equivalent_allowed'] is True
+          for item in ref['references']:
+              assert item['required_for_complete_adoption'] is False
+              assert item['default_activation'] is False
+          auth=json.loads((root/'references/general/authority-lease/authority-lease.v0.1.json').read_text(encoding='utf-8'))
+          assert 'RESEARCH_PROTOTYPE' in auth['status'] and 'NOT_CURRENT' in auth['status']
+          print('REFERENCE_OPTIONALITY_PASS',len(ref['references']))
+          PY
+
+      - name: Validate v0.3.7 English and zh-CN operational routing
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
-          root = Path('releases/current/language-projections')
-          specs = {
-              'semantic-fixtures.v1.yaml': ('1.0', 'semantic_ids'),
-              'semantic-fixtures.v2.yaml': ('2.1', 'semantic_basis'),
-          }
-          for name, (schema_version, binding_key) in specs.items():
-              doc = yaml.safe_load((root/name).read_text(encoding='utf-8'))
-              assert str(doc.get('schema_version')) == schema_version, (name, doc.get('schema_version'))
-              cases = doc.get('cases') or []
-              assert cases, f'no semantic fixtures: {name}'
-              ids = set()
-              for case in cases:
-                  cid = case['id']
-                  assert cid not in ids, f'duplicate fixture id: {name}:{cid}'
-                  ids.add(cid)
-                  assert case.get('en', '').strip(), f'missing English scenario: {name}:{cid}'
-                  assert case.get('zh-CN', '').strip(), f'missing Chinese scenario: {name}:{cid}'
-                  assert case.get(binding_key), f'missing {binding_key}: {name}:{cid}'
-                  assert case.get('expected_properties'), f'missing expected properties: {name}:{cid}'
-              print('language-fixture-structure-pass', name, schema_version, binding_key, len(cases))
+          root=Path('releases/current')
+          idx=yaml.safe_load((root/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
+          routes=set(idx['routes'])
+          v3=yaml.safe_load((root/'language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
+          assert str(v3['schema_version'])=='3.0'; assert len(v3['cases'])==12
+          for c in v3['cases']:
+              assert c['expected_route'] in routes
+              assert c.get('en','').strip() and c.get('zh-CN','').strip() and c.get('expected_properties')
+          zh=yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert zh['source_semantic_version']=='v0.3.7'
+          assert zh['not_current'] is False
+          assert zh['validation']['structural_parity']=='CURRENT_DECISION_SURFACE_CHECKABLE'
+          assert zh['validation']['universal_behavioral_semantic_conformance']=='UNPROVEN'
+          print('V037_OPERATIONAL_ZH_STRUCTURE_PASS',len(v3['cases']))
           PY
 
-      - name: Check zh-CN v0.3.6 Current projection manifest
+      - name: Check active Current identity while preserving historical truth
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root=Path('releases/current')
+          active=['README.md','00-READ-ME-FIRST.md','05-CORE-OPERATIONAL-CONTRACTS.md','06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md','07-ADOPTION-AND-FIELD-VALIDATION.md','09-EVOLUTION-METABOLISM.md','10-LANGUAGE-PORTABILITY.md','AGENT-ADOPTION-INSTRUCTION.md','LITE-ADOPTION-INSTRUCTION.md','RUNTIME-ADOPTION-KERNEL.md','CONTRIBUTION-PROTOCOL.md','operational/README.md','operational/CUE-INDEX.md','operational/HOW-MAP.md','language-projections/zh-CN/00-READ-ME-FIRST.md','language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md','language-projections/zh-CN/operational/README.md']
+          forbidden=['WORKING_CANDIDATE','NOT_CURRENT','NOT_FROZEN','CANDIDATE-BASELINE.yaml']
+          for rel in active:
+              head='\n'.join((root/rel).read_text(encoding='utf-8').splitlines()[:30])
+              for token in forbidden: assert token not in head,(rel,token)
+          for rel in ['LINEAGE.md','CHANGELOG.md','08-RELEASE-DISCIPLINE.md']:
+              assert 'candidate' in (root/rel).read_text(encoding='utf-8').lower()
+          print('CURRENT_ACTIVE_IDENTITY_PASS')
+          PY
+
+      - name: Check root status model for v0.3.7 payload
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
-          root = Path('releases/current')
-          manifest = yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
-          assert manifest['language'] == 'zh-CN'
-          assert manifest['projection_version'] == 'v0.3.6.zh-CN.1'
-          assert manifest['source_semantic_version'] == 'v0.3.6'
-          assert manifest['status'] == 'CURRENT_SEMANTIC_PROJECTION'
-          assert manifest['not_current'] is False
-          assert manifest['validation']['v036_behavioral_semantic_conformance'] == 'UNPROVEN_FIELD_EVIDENCE_REQUIRED'
-          for rel in manifest['coverage']:
-              assert (root/'language-projections/zh-CN'/rel).is_file(), f'missing zh-CN file: {rel}'
-          print('zh-cn-current-projection-pass')
-          PY
-
-      - name: Check v0.3.6 Current active identity surfaces
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          root = Path('releases/current')
-          active = [
-              root/'README.md', root/'00-READ-ME-FIRST.md', root/'05-CORE-OPERATIONAL-CONTRACTS.md',
-              root/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md', root/'07-ADOPTION-AND-FIELD-VALIDATION.md',
-              root/'08-RELEASE-DISCIPLINE.md', root/'09-EVOLUTION-METABOLISM.md', root/'10-LANGUAGE-PORTABILITY.md',
-              root/'AGENT-ADOPTION-INSTRUCTION.md', root/'LITE-ADOPTION-INSTRUCTION.md', root/'RUNTIME-ADOPTION-KERNEL.md',
-              root/'language-projections/zh-CN/00-READ-ME-FIRST.md', root/'language-projections/zh-CN/01-CONSTITUTION.md',
-              root/'language-projections/zh-CN/09-EVOLUTION-METABOLISM.md', root/'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md',
-          ]
-          forbidden = ('WORKING_CANDIDATE', 'NOT_CURRENT', 'DO NOT ADOPT')
-          for path in active:
-              text = '\n'.join(path.read_text(encoding='utf-8').splitlines()[:12])
-              for token in forbidden:
-                  assert token not in text, (path, token)
-          readme = (root/'README.md').read_text(encoding='utf-8')
-          assert 'CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE' in readme
-          assert 'ENA exists to make sustained self-evolution viable.' in readme
-          field = (root/'templates/field-experience.v2.yaml').read_text(encoding='utf-8')
-          assert 'ena_semantic_identity: "v0.3.6"' in field
-          assert 'v0.3.6-candidate' not in field
-          print('current-hot-path-identity-pass')
-          PY
-
-      - name: Check root status model
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import yaml
-          readme = Path('README.md').read_text(encoding='utf-8')
-          hub = Path('PROJECT-HUB.md').read_text(encoding='utf-8')
-          meta = yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
+          readme=Path('README.md').read_text(encoding='utf-8')
+          hub=Path('PROJECT-HUB.md').read_text(encoding='utf-8')
+          meta=yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
           assert 'Git main != ENA Current' in readme
-          assert 'v0.3.6' in readme
+          assert 'v0.3.7 is `FIELD_VALIDATION` in this release payload' in readme
           assert 'active adopter-facing model is **Current + declared maturity/status**' in hub
-          assert meta['canonical_state']['current_adoption_path'] == 'releases/current/'
-          assert meta['lifecycle'] == 'FIELD_VALIDATION'
-          print('root-status-model-pass')
+          assert meta['canonical_state']['current_adoption_path']=='releases/current/'
+          assert meta['current_validation']['current_version']=='v0.3.7'
+          assert meta['lifecycle']=='FIELD_VALIDATION'
+          assert meta['entrypoints']['primary_v2_evolution_tool']=='releases/current/tools/ena_evolve_v2.py'
+          assert meta['entrypoints']['inherited_reference_tool']=='releases/current/tools/legacy/ena_evolve_v1_2.py'
+          print('ROOT_STATUS_MODEL_V037_PASS')
           PY
+
+      - name: Compile all Current Python and reject bytecode artifacts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          failures=[]; files=sorted(Path('releases/current').rglob('*.py'))
+          for p in files:
+              try: compile(p.read_text(encoding='utf-8'),str(p),'exec')
+              except Exception as exc: failures.append((str(p),repr(exc)))
+          print('PYTHON_COMPILE_TOTAL',len(files),'FAILED',len(failures)); assert not failures,failures
+          PY
+          found="$(find releases/current \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) -print)"
+          test -z "$found"
 
       - name: Verify validation did not dirty repository
         run: |
           git status --porcelain
           test -z "$(git status --porcelain)"
 
-      - name: Build deterministic v0.3.6 package from committed Current bytes
-        id: package
+      - name: Build deterministic v0.3.7 package from committed Current bytes
         shell: bash
         run: |
           set -euo pipefail
           SOURCE_COMMIT="$(git rev-parse HEAD)"
           CURRENT_TREE="$(git rev-parse HEAD:releases/current)"
-          echo "source_commit=$SOURCE_COMMIT" >> "$GITHUB_OUTPUT"
-          echo "current_tree=$CURRENT_TREE" >> "$GITHUB_OUTPUT"
           rm -rf release-build
           mkdir -p release-build/current release-build/out
           git ls-tree -r --name-only "$SOURCE_COMMIT" releases/current | sort > release-build/source-paths.txt
@@ -374,70 +302,32 @@ jobs:
           done < release-build/source-paths.txt
           SOURCE_COMMIT="$SOURCE_COMMIT" CURRENT_TREE="$CURRENT_TREE" python - <<'PY'
           from pathlib import Path
-          import hashlib, json, os, zipfile
-          root = Path('release-build/current')
-          out = Path('release-build/out')
-          zip_path = out/'ENA-v0.3.6-CURRENT.zip'
-          files = sorted(p for p in root.rglob('*') if p.is_file())
-          file_hashes = {}
-          with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
-              for path in files:
-                  rel = path.relative_to(root).as_posix()
-                  data = path.read_bytes()
-                  file_hashes[rel] = hashlib.sha256(data).hexdigest()
-                  info = zipfile.ZipInfo(rel, (1980,1,1,0,0,0))
-                  info.compress_type = zipfile.ZIP_DEFLATED
-                  info.external_attr = 0o100644 << 16
-                  zf.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
-          with zipfile.ZipFile(zip_path, 'r') as zf:
-              names = sorted(zf.namelist())
-              expected = sorted(file_hashes)
-              assert names == expected, {'zip': names, 'source': expected}
-              assert all(hashlib.sha256(zf.read(name)).hexdigest() == file_hashes[name] for name in names)
-          zip_sha = hashlib.sha256(zip_path.read_bytes()).hexdigest()
-          manifest = {
-              'ena_version': 'v0.3.6',
-              'status': 'CURRENT',
-              'maturity': 'FIELD_VALIDATION',
-              'source_commit': os.environ['SOURCE_COMMIT'],
-              'current_tree': os.environ['CURRENT_TREE'],
-              'file_count': len(files),
-              'file_sha256': file_hashes,
-              'zip_sha256': zip_sha,
-              'exact_file_set_parity': True,
-              'zip_readback_hash_parity': True,
-          }
-          (out/'ENA-v0.3.6-CURRENT.manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8')
-          (out/'ENA-v0.3.6-CURRENT.zip.sha256').write_text(f'{zip_sha}  ENA-v0.3.6-CURRENT.zip\n', encoding='utf-8')
-          print('PACKAGE_FILE_COUNT', len(files))
-          print('PACKAGE_SHA256', zip_sha)
-          print('CURRENT_TREE', os.environ['CURRENT_TREE'])
-          print('SOURCE_COMMIT', os.environ['SOURCE_COMMIT'])
-          PY
-
-      - name: Verify package manifest/readback
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib, json, zipfile
-          out = Path('release-build/out')
-          manifest = json.loads((out/'ENA-v0.3.6-CURRENT.manifest.json').read_text(encoding='utf-8'))
-          zip_path = out/'ENA-v0.3.6-CURRENT.zip'
-          assert hashlib.sha256(zip_path.read_bytes()).hexdigest() == manifest['zip_sha256']
-          with zipfile.ZipFile(zip_path, 'r') as zf:
-              assert len(zf.namelist()) == manifest['file_count']
-              for name, digest in manifest['file_sha256'].items():
-                  assert hashlib.sha256(zf.read(name)).hexdigest() == digest
-          print('package-readback-pass', manifest['file_count'], manifest['zip_sha256'])
+          import hashlib,json,os,zipfile
+          root=Path('release-build/current'); out=Path('release-build/out')
+          files=sorted(p for p in root.rglob('*') if p.is_file()); assert len(files)==118
+          hashes={}; zp=out/'ENA-v0.3.7-CURRENT.zip'
+          with zipfile.ZipFile(zp,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as zf:
+              for p in files:
+                  rel=p.relative_to(root).as_posix(); data=p.read_bytes(); hashes[rel]=hashlib.sha256(data).hexdigest()
+                  info=zipfile.ZipInfo(rel,(1980,1,1,0,0,0)); info.compress_type=zipfile.ZIP_DEFLATED; info.external_attr=0o100644<<16
+                  zf.writestr(info,data,compress_type=zipfile.ZIP_DEFLATED,compresslevel=9)
+          with zipfile.ZipFile(zp) as zf:
+              assert sorted(zf.namelist())==sorted(hashes)
+              assert all(hashlib.sha256(zf.read(n)).hexdigest()==d for n,d in hashes.items())
+          zsha=hashlib.sha256(zp.read_bytes()).hexdigest()
+          manifest={'ena_version':'v0.3.7','status':'CURRENT','maturity':'FIELD_VALIDATION','source_commit':os.environ['SOURCE_COMMIT'],'current_tree':os.environ['CURRENT_TREE'],'frozen_candidate3_source':'b7e88d7adb70396bd671ca97066daf2c120e0adc','frozen_candidate3_tree':'e3a9a20d16cecd78df7f32f19fca56e21159e810','file_count':len(files),'file_sha256':hashes,'zip_sha256':zsha,'exact_file_set_parity':True,'zip_readback_hash_parity':True}
+          (out/'ENA-v0.3.7-CURRENT.manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+          (out/'ENA-v0.3.7-CURRENT.zip.sha256').write_text(f'{zsha}  ENA-v0.3.7-CURRENT.zip\n',encoding='utf-8')
+          print('PACKAGE_FILE_COUNT',len(files)); print('PACKAGE_SHA256',zsha); print('CURRENT_TREE',os.environ['CURRENT_TREE']); print('SOURCE_COMMIT',os.environ['SOURCE_COMMIT'])
           PY
 
       - name: Upload deterministic Current package evidence
         uses: actions/upload-artifact@v4
         with:
-          name: ENA-v0.3.6-release-package
+          name: ENA-v0.3.7-current-package
           path: |
-            release-build/out/ENA-v0.3.6-CURRENT.zip
-            release-build/out/ENA-v0.3.6-CURRENT.zip.sha256
-            release-build/out/ENA-v0.3.6-CURRENT.manifest.json
+            release-build/out/ENA-v0.3.7-CURRENT.zip
+            release-build/out/ENA-v0.3.7-CURRENT.zip.sha256
+            release-build/out/ENA-v0.3.7-CURRENT.manifest.json
           if-no-files-found: error
           retention-days: 90

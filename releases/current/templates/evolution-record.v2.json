@@ -1,6 +1,6 @@
 {
   "candidate_id": "var-example",
-  "created_at": "candidate-template",
+  "created_at": "REPLACE_WITH_RFC3339_TIMESTAMP",
   "origin": "LOCAL_VARIATION",
   "lifecycle_state": "PROPOSED",
   "expression_state": "LATENT",
