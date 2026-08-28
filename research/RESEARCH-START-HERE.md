@@ -50,106 +50,47 @@ v0.3.6 / CURRENT / FIELD_VALIDATION
 
 Next release line: `v0.3.7`.
 
-Frozen candidate lineage:
+Frozen candidate lineage now culminates in:
 
 ```text
-candidate.0 = d0e793593184740d9732902e948afd48ed96ae2f / cffbf76fe1448b020b637c78d1f7ae46e4c0115b / NEEDS_REVISION
-candidate.1 = ae6903464133cb5bcf3cd8909ecae1215fe0b9ba / c0458e0d7ea417b841cbf4c8bf6e64e4aff37319 / NEEDS_REVISION
-candidate.2 = bda470e0a6b170cec61225a905957a501454a2fe / d5fefc8c786d7e40b3e9a59211ee7045bccee5bf / FROZEN_NOT_CURRENT_NOT_RELEASED
+candidate.3 = b7e88d7adb70396bd671ca97066daf2c120e0adc / e3a9a20d16cecd78df7f32f19fca56e21159e810
+state = FROZEN / EXACT_PREFREEZE_PASS / TARGETED_POSTFREEZE_PASS / RELEASE_HARDENING_PASS
+candidate succession = STOP
+release preparation = SUPPORTED
+Current changed = NO
 ```
 
-Candidate.2 exact pre-freeze run `33095987843` passed. External freeze authority is recorded at:
+Key evidence:
 
-`collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md`
+- exact pre-freeze run `33150269264` — SUCCESS;
+- targeted post-freeze run `33150553992` — SUCCESS;
+- release hardening run `33152201566` — SUCCESS;
+- freeze record `collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md`;
+- final release reconciliation `collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md`;
+- release hardening reconciliation `collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md`.
 
-Repair/exact reconciliation:
+The hardening audit found no material frozen candidate-byte defect requiring candidate.4. It confirmed adopter traversal, v0.3.6 compatibility/legacy relocation, release identity projection readiness, visible evidence boundaries, 38 stable Constitution IDs, 164/164 inherited zero-flip behavior, and 61/61 successor closure behavior.
 
-`collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md`
-
-Post-freeze independence decision:
-
-`collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md`
-
-Decision:
-
-`FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED / ONE_FINAL_SEARCH_SPACE_INDEPENDENCE_CYCLE`
-
-This is not a ritual completeness claim. It is justified because candidate.1 fresh review found author-missed defects and candidate.2's author-side nearby probe then found additional homologous decision-changing gaps after the known repairs.
-
-The current project-manager session is **not eligible** to perform fresh candidate.2 A-S because it has material exposure to predecessor findings, candidate.2 repairs, probes, and exact regression expectations.
+`attack_cardinality = OPEN` and external/field truth remain evidence boundaries, not completeness claims.
 
 ## Immediate next action
 
-`CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2`
-
-Candidate.2 Phase B is complete:
-
-- A-S SHA-256 `0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f`;
-- A-P SHA-256 `80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db`;
-- Phase-B record `collaboration/reconciliation/2026-08-28-v037-candidate2-a-s-a-p-phase-b-reconciliation.md`;
-- verdict `NEEDS_REVISION / CANDIDATE_3_REQUIRED`.
-
-Candidate.2 remains frozen and must not be edited. Candidate.3 must be born directly from the frozen candidate.2 source/tree and remain bounded to the sealed Phase-B repair scope. Another full fresh A-S/A-P cycle is not automatic.
-
-A-P clean-room stage is ready:
-
-- repository `https://github.com/guytogay/independent-validation-cleanroom`;
-- parentless A-P commit `aea2ed25107145a557b3fe46ca0e4b90e2b90fa9`;
-- tree `08ac16303d69a6a268197ac26b23c5b20972b727`;
-- exact frozen package subtree `d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`.
-
-A-S wrapper identity correction: the originally supplied SHA `28dde50c9caaeee3b5cfabf51410083dbbb05a93` was unresolvable; the actual parentless A-S commit is `28dde50c9caaeee3b5c269e28a7be5f07ac29ae5` and has the already-correct recorded tree `42debebed620bd05e6e2635409057f20b57bfa9e`. The independent A-S report remains unchanged.
-
-Return the **same** fresh reviewer to A-P. Do not perform candidate repair or project-manager Phase B until the A-P report is returned and sealed.
-
-Fresh A-S is complete and externally content-sealed:
-
-- report `collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md`;
-- SHA-256 `0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f`;
-- Git blob SHA-1 `a8ec063fc1dcda9be70a53bf150e45ea11ac125e`;
-- verdict `NOT_CLEARED`;
-- findings `A-S-01..A-S-04`;
-- A-P `NOT_STARTED`; Phase B `NOT_STARTED`.
-
-Do not repair candidate.2 before A-P. Prepare a separately exposed A-P stage for the **same** fresh reviewer, then require that reviewer to stop before project-manager Phase B.
-
-Issue #137 is historical and closed. Its reviewer correctly aborted before A-S seal because normal GitHub navigation crossed the declared boundary. Do not reuse the GitHub repository/branch UI as the candidate.2 A-S carrier.
-
-Active review carrier:
-
-- method `research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`;
-- dedicated clean-room repo `https://github.com/guytogay/independent-validation-cleanroom`;
-- pinned A-S commit `28dde50c9caaeee3b5c269e28a7be5f07ac29ae5`;
-- tree `42debebed620bd05e6e2635409057f20b57bfa9e`;
-- commit parents `[]`;
-- A-P delivery state `WITHHELD_UNTIL_A_S_CONTENT_SEAL`.
-
-The deterministic r3 ZIP build remains construction/integrity evidence (final audit run `33131773164`, A-S package SHA-256 `dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`), not a requirement that the reviewer consume a ZIP.
+`MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3`
 
 Required sequence:
 
 ```text
-FRESH REVIEWER RECEIVES ONLY CLEAN-ROOM URL / PINNED A-S STATE
--> READ ROOT README / INTAKE-A-S.md
--> FREELY BROWSE / SEARCH / EXECUTE THE CLEAN-ROOM CONTENT
--> INDEPENDENT A-S
--> WRITE FINAL A-S REPORT
--> SHA-256 THAT EXACT REPORT
--> STOP
--> PROJECT MANAGER VERIFY/PERSIST CONTENT SEAL
--> ONLY THEN MAKE A-P MATERIAL REACHABLE TO SAME REVIEWER
--> A-P
--> STOP BEFORE PHASE B
+MAIN-VISIBLE CANDIDATE.3 CHECKPOINT
+-> CREATE release/v0.3.7 FROM EXACT MAIN
+-> BYTE-FOR-BYTE TRANSPLANT frozen candidate.3 INTO releases/current
+-> RECORD TRANSPLANT IDENTITY
+-> RELEASE IDENTITY/PACKAGING TRANSFORM ONLY
+-> EXACT RELEASE GATES + MAIN GATE + CODEQL + PACKAGE READBACK
+-> EXPLICIT RELEASE AUTHORIZATION
+-> MERGE / POST-MERGE CURRENT READBACK
 ```
 
-Do not provide the ENA project repository as A-S review context and do not expose A-P before the A-S report digest is fixed.
-
-Candidate.2 remains frozen. Material candidate-byte correction requires candidate.3.
-
-```text
-FROZEN != INDEPENDENTLY_RECONCILED != RELEASED != CURRENT
-ATTACK_CARDINALITY = OPEN
-```
+Do not modify frozen candidate.3. Candidate.4 is permitted only if new evidence demonstrates a material defect in the frozen candidate bytes/semantics rather than in release packaging or field evidence.
 
 ## Core research direction
 

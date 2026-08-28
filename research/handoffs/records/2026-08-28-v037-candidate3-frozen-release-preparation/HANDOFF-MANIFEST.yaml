@@ -1,0 +1,48 @@
+schema_version: "1.1"
+record_id: "2026-08-28-v037-candidate3-frozen-release-preparation"
+status: HANDOFF_READY
+created_at: "2026-08-28"
+
+current:
+  version: v0.3.6
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  subtree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+
+candidate3:
+  identity: v0.3.7-candidate.3
+  frozen_source: b7e88d7adb70396bd671ca97066daf2c120e0adc
+  frozen_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+  exact_prefreeze_run: 33150269264
+  targeted_postfreeze_run: 33150553992
+  release_hardening_run: 33152201566
+  state: FROZEN_TARGETED_POSTFREEZE_PASS_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED
+  current: false
+  released: false
+  candidate_mutation_forbidden: true
+
+release_decision:
+  candidate_succession_stop: true
+  release_preparation_supported: true
+  release_hardening_pass: true
+  no_material_frozen_byte_defect_from_hardening: true
+  candidate4_automatic: false
+  candidate4_currently_justified: false
+  immediate_next_action: MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3
+
+release_target:
+  version: v0.3.7
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  complete_adoption_baseline: true
+  packaging_rule: BYTE_EXACT_TRANSPLANT_THEN_IDENTITY_ONLY_TRANSFORM
+
+records:
+  freeze: collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md
+  targeted_postfreeze: collaboration/reconciliation/2026-08-28-v037-candidate3-targeted-postfreeze-revalidation.md
+  final_release_reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md
+  release_hardening: collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md
+
+attack_cardinality: OPEN
+fresh_candidate3_a_s_a_p_claimed: false
+external_truth_established: false

@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-28"
-status: V0_3_7_CANDIDATE2_FROZEN_A_S_SEALED_A_P_SEALED_PHASE_B_NEEDS_REVISION_NOT_CURRENT_NOT_RELEASED
+status: V0_3_7_CANDIDATE3_FROZEN_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED_NOT_CURRENT_NOT_RELEASED
 
 progress_is_complete_history: false
 
@@ -411,3 +411,23 @@ candidate2_phase_b_complete:
   verdict: NEEDS_REVISION
   candidate3_required: true
   immediate_next_action: CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2
+
+
+candidate3_release_preparation:
+  identity: v0.3.7-candidate.3
+  frozen_source_commit: b7e88d7adb70396bd671ca97066daf2c120e0adc
+  frozen_candidate_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+  current_subtree_same_source: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  exact_prefreeze_run: 33150269264
+  targeted_postfreeze_run: 33150553992
+  release_hardening_run: 33152201566
+  freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md
+  targeted_postfreeze_record: collaboration/reconciliation/2026-08-28-v037-candidate3-targeted-postfreeze-revalidation.md
+  final_release_reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md
+  release_hardening_reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md
+  candidate_succession_stop: true
+  release_preparation_supported: true
+  candidate4_currently_justified: false
+  release_packaging_rule: BYTE_EXACT_TRANSPLANT_THEN_IDENTITY_ONLY_TRANSFORM
+  immediate_next_action: MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3
+  attack_cardinality: OPEN
