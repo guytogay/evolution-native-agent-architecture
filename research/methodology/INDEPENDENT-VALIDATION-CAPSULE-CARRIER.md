@@ -124,7 +124,7 @@ A-P opens the exact frozen candidate package and audits self-description, lineag
 
 ## 7. A-S content seal
 
-A Git commit can be a seal when the reviewer has an authenticated write channel. When it does not, SHA-256 of the exact completed report bytes is sufficient if computed and recorded before A-P becomes reachable.
+A Git commit can be a seal when the reviewer has an authenticated write channel. When it does not, SHA-256 of the exact completed report bytes is sufficient when the digest is recorded **outside the bytes being hashed** before A-P becomes reachable.
 
 ```text
 A-S_REPORT_BYTES
@@ -134,6 +134,15 @@ A-S_REPORT_BYTES
 ```
 
 The project manager later verifies the report bytes against the recorded digest and persists the occurrence into the source project's canonical history.
+
+The seal requirement itself must be satisfiable. Do not require an exact report digest to be embedded inside the same exact bytes it hashes unless an explicit deterministic normalization/exclusion rule is defined. Default to an external sidecar, seal record, or signed envelope.
+
+```text
+EXACT_REPORT_SELF_HASH_WITHOUT_NORMALIZATION = SELF_REFERENTIAL
+EXACT_REPORT_HASH -> EXTERNAL_DIGEST_BY_DEFAULT
+```
+
+Incident: `research/methodology/incidents/2026-08-28-INDEPENDENT-REPORT-SELF-HASH-RECURSION-INCIDENT.md`.
 
 ## 8. Carrier integrity
 
