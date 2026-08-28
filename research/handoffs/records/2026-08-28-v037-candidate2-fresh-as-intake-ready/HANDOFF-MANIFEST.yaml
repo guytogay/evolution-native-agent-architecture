@@ -1,0 +1,35 @@
+schema_version: "1.0"
+record_id: 2026-08-28-v037-candidate2-fresh-as-intake-ready
+status: HANDOFF_READY_FOR_SESSION_SUCCESSION
+record_role: BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY
+
+current:
+  version: v0.3.6
+  status: CURRENT
+  maturity: FIELD_VALIDATION
+  candidate_transition_changed_current: false
+
+candidate2:
+  identity: v0.3.7-candidate.2
+  frozen: true
+  current: false
+  released: false
+  frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  material_change_requires_successor: v0.3.7-candidate.3
+
+fresh_validation:
+  state: FRESH_A_S_INTAKE_READY
+  issue: 137
+  branch: validation/v037-c2-blind-semantic-primary
+  view_head: d020d82d442156b75c667ee9f987f2654d814561
+  neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
+  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+  view_audit: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
+  a_s_seal: NOT_YET_CREATED
+  final_a_p_commit: NOT_YET_CREATED
+  sequence: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
+  current_project_manager_can_claim_fresh_a_s: false
+  attack_cardinality: OPEN
+
+immediate_next_action: GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S
