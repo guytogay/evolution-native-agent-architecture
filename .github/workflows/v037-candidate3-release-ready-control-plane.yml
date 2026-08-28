@@ -1,0 +1,71 @@
+name: ENA v0.3.7 Candidate.3 Release-Ready Control Plane
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - '.github/scripts/apply_v037_candidate3_release_ready_control_plane.py'
+      - '.github/workflows/v037-candidate3-release-ready-control-plane.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+
+      - name: Bind candidate3 frozen/release evidence and Current
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse b7e88d7adb70396bd671ca97066daf2c120e0adc:releases/v0.3.7-candidate)" = "e3a9a20d16cecd78df7f32f19fca56e21159e810"
+          test "$(git rev-parse b7e88d7adb70396bd671ca97066daf2c120e0adc:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate3-targeted-postfreeze-revalidation.md
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md
+          grep -q '33152201566' collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md
+          test -f research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/HANDOFF-MANIFEST.yaml
+          echo CANDIDATE3_RELEASE_READY_BINDING=PASS
+
+      - name: Apply release-ready control-plane alignment
+        run: python3 .github/scripts/apply_v037_candidate3_release_ready_control_plane.py
+
+      - name: Verify scope, YAML, and release isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected=(
+            research/ACTIVE-RESEARCH.yaml
+            research/RESEARCH-START-HERE.md
+            research/handoffs/CURRENT-HANDOFF.yaml
+            research/plans/PROGRESS.yaml
+          )
+          mapfile -t changed < <(git diff --name-only | sort)
+          printf '%s\n' "${expected[@]}" | sort >/tmp/expected
+          printf '%s\n' "${changed[@]}" | sort >/tmp/observed
+          diff -u /tmp/expected /tmp/observed
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
+          python3 - <<'PY'
+          import yaml
+          from pathlib import Path
+          for p in ['research/ACTIVE-RESEARCH.yaml','research/plans/PROGRESS.yaml','research/handoffs/CURRENT-HANDOFF.yaml']:
+              yaml.safe_load(Path(p).read_text())
+          print('CANDIDATE3_RELEASE_READY_SCOPE_YAML_ISOLATION=PASS')
+          PY
+
+      - name: Commit aligned control plane
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml
+          git commit -m 'control-plane: route frozen candidate.3 to v0.3.7 release packaging'
+          git push origin HEAD:research/ena-reconstruction
