@@ -19,53 +19,68 @@ jobs:
           ref: research/ena-reconstruction
           fetch-depth: 0
 
-      - name: Bind immutable candidate and authoritative carrier evidence
+      - name: Bind immutable candidate and retained carrier lineage
         shell: bash
         run: |
           set -euo pipefail
           test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/v0.3.7-candidate)" = "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
           test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
-          test -f research/methodology/PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md
-          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-review-capsule-r3.md
+          test -f research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+          test -f research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md
+          test -f collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md
+          test -f research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/HANDOFF-MANIFEST.yaml
           test -f research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready/HANDOFF-MANIFEST.yaml
+          grep -q '33131773164' research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+          grep -q 'dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da' research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
 
-      - name: Correct canonical surfaces to authoritative carrier
+      - name: Reconcile retained representation to final carrier evidence
         run: python3 .github/scripts/correct_v037_candidate2_authoritative_capsule_control_plane.py
 
-      - name: Verify scope and authority
+      - name: Verify scope and coherence
         shell: bash
         run: |
           set -euo pipefail
-          expected=(
-            research/ACTIVE-RESEARCH.yaml
-            research/RESEARCH-START-HERE.md
-            research/handoffs/CURRENT-HANDOFF.yaml
-            research/plans/PROGRESS.yaml
-          )
-          mapfile -t changed < <(git diff --name-only | sort)
-          printf '%s\n' "${expected[@]}" | sort >/tmp/expected
-          printf '%s\n' "${changed[@]}" | sort >/tmp/observed
-          diff -u /tmp/expected /tmp/observed
           test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
           python3 - <<'PY'
           import yaml
           from pathlib import Path
-          paths=[Path('research/ACTIVE-RESEARCH.yaml'),Path('research/plans/PROGRESS.yaml'),Path('research/handoffs/CURRENT-HANDOFF.yaml')]
-          for p in paths: yaml.safe_load(p.read_text())
-          text='\n'.join(p.read_text() for p in paths+[Path('research/RESEARCH-START-HERE.md')])
-          for stale in ['ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131','b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd','33131665994','9670480727','INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md','candidate2-isolated-as-capsule-ready']:
+          changed=set(__import__('subprocess').check_output(['git','diff','--name-only'],text=True).splitlines())
+          allowed_exact={
+            'research/ACTIVE-RESEARCH.yaml',
+            'research/RESEARCH-START-HERE.md',
+            'research/handoffs/CURRENT-HANDOFF.yaml',
+            'research/plans/PROGRESS.yaml',
+            'research/methodology/README.md',
+            'research/methodology/METHOD-CHANGELOG.md',
+          }
+          allowed_prefixes=(
+            'research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/',
+            'research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready/',
+          )
+          unexpected=[p for p in changed if p not in allowed_exact and not p.startswith(allowed_prefixes)]
+          assert not unexpected, unexpected
+          for p in ['research/ACTIVE-RESEARCH.yaml','research/plans/PROGRESS.yaml','research/handoffs/CURRENT-HANDOFF.yaml']:
+              yaml.safe_load(Path(p).read_text())
+          current=[
+            Path('research/ACTIVE-RESEARCH.yaml'),Path('research/plans/PROGRESS.yaml'),
+            Path('research/handoffs/CURRENT-HANDOFF.yaml'),Path('research/RESEARCH-START-HERE.md'),
+            Path('research/methodology/README.md'),Path('research/methodology/METHOD-CHANGELOG.md')]
+          current += list(Path('research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready').glob('*'))
+          text='\n'.join(p.read_text() for p in current if p.is_file())
+          for stale in ['ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131','b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd','33131665994','9670480727','104005b329cc042721da76a38f8a41c282c278bca3d2c424ecd7288ceeb1c357','PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md','CANDIDATE2-BLIND-CARRIER-LEAK-INCIDENT.md']:
               assert stale not in text, stale
-          for req in ['dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da','427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649','33131773164','9670518379','9670518708','9670518979','PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md','2026-08-28-v037-candidate2-isolated-as-ready']:
+          for req in ['dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da','427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649','33131773164','9670518379','9670518708','9670518979','INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md','CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md','candidate2-isolated-capsule-intake-reconciliation.md']:
               assert req in text, req
-          print('AUTHORITATIVE_CAPSULE_CONTROL_PLANE=PASS')
+          assert not Path('research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready').exists()
+          print('FINAL_CARRIER_REPRESENTATION=PASS')
           PY
 
-      - name: Commit authoritative correction
+      - name: Commit reconciled final representation
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml
-          git commit -m 'control-plane: align candidate.2 to authoritative isolated carrier'
+          git add -A research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml research/methodology/README.md research/methodology/METHOD-CHANGELOG.md research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready
+          git commit -m 'control-plane: reconcile candidate.2 final isolated carrier representation'
           git push origin HEAD:research/ena-reconstruction
