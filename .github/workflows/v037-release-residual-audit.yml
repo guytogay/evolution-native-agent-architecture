@@ -19,40 +19,38 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Inventory residual active identity contradictions
+      - name: Inventory broad release-identity residuals
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re, subprocess, yaml
+          import re,yaml
           root=Path('releases/current')
           suffixes={'.md','.yaml','.yml','.json','.py'}
-          active_candidate=[]; old_current=[]; candidate_any=[]; candidate_exact=[]
-          for p in sorted(x for x in root.rglob('*') if x.is_file() and x.suffix in suffixes):
+          patterns={
+            'working_candidate':re.compile(r'WORKING_CANDIDATE',re.I),
+            'not_current':re.compile(r'NOT_CURRENT',re.I),
+            'not_frozen':re.compile(r'NOT_FROZEN',re.I),
+            'not_released':re.compile(r'NOT_RELEASED',re.I),
+            'candidate_schema':re.compile(r'schema_version[^\n]{0,40}candidate',re.I),
+            'v037_candidate_phrase':re.compile(r'v0\.3\.7[- ]candidate|candidate\.3',re.I),
+            'old_current_phrase':re.compile(r'v0\.3\.6.{0,100}current|current.{0,100}v0\.3\.6',re.I),
+            'current_change_no':re.compile(r'CURRENT_CHANGE\s*[=:]\s*NO',re.I),
+            'candidate_baseline_path':re.compile(r'CANDIDATE-BASELINE\.yaml'),
+          }
+          for name,pat in patterns.items():
+            hits=[]
+            for p in sorted(x for x in root.rglob('*') if x.is_file() and x.suffix in suffixes):
               text=p.read_text(encoding='utf-8')
-              rel=p.relative_to(root).as_posix()
-              head='\n'.join(text.splitlines()[:24])
-              if 'v0.3.7-candidate.3' in text: candidate_exact.append(rel)
-              if re.search(r'WORKING_CANDIDATE|NOT_CURRENT|NOT_FROZEN|NOT_RELEASED', head, re.I): active_candidate.append(rel)
-              if re.search(r'current.{0,100}v0\.3\.6|v0\.3\.6.{0,100}current', head, re.I): old_current.append(rel)
-              if re.search(r'v0\.3\.7[- ]candidate\.3|candidate\.3', text, re.I): candidate_any.append(rel)
-          print('RESIDUAL_ACTIVE_CANDIDATE_HEADERS', len(active_candidate))
-          for x in active_candidate: print('ACTIVE_CANDIDATE',x)
-          print('RESIDUAL_OLD_CURRENT_HEADERS', len(old_current))
-          for x in old_current: print('OLD_CURRENT',x)
-          print('CANDIDATE3_EXACT_IDENTITY_ANYWHERE', len(candidate_exact))
-          for x in candidate_exact: print('CANDIDATE3_EXACT',x)
-          print('CANDIDATE3_ANYWHERE', len(candidate_any))
-          for x in candidate_any: print('CANDIDATE3_ANY',x)
+              if pat.search(text): hits.append(p.relative_to(root).as_posix())
+            print('PATTERN',name,'COUNT',len(hits))
+            for x in hits: print(' ',x)
           cur=yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          print('CURRENT_POINTER',cur['ena_version'],cur['adoption_status'],cur['maturity'])
-          assert cur['ena_version']=='v0.3.7' and cur['current'] is True
+          assert cur['ena_version']=='v0.3.7' and cur['adoption_status']=='CURRENT' and cur['current'] is True
           assert not (root/'CANDIDATE-BASELINE.yaml').exists()
-          for p in [Path('README.md'),Path('PROJECT-HUB.md'),Path('PROJECT-METADATA.yaml'),Path('HISTORY.md'),Path('.github/workflows/current-validate.yml')]:
-              t=p.read_text(encoding='utf-8')
-              print('ROOT_SCAN',p,'v036=',t.count('v0.3.6'),'v037=',t.count('v0.3.7'),'candidate3=',len(re.findall(r'candidate\.3|v0\.3\.7-candidate\.3',t,re.I)))
+          print('CURRENT_POINTER_V037=PASS')
           PY
 
-      - name: Compare Current projection against frozen source tree
+      - name: Compare projection file set against frozen candidate source
         shell: bash
         run: |
           set -euo pipefail
