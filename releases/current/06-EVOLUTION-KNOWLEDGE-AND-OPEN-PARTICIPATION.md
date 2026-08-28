@@ -1,6 +1,8 @@
-# 6. Evolution, Knowledge, Migration, and Open Participation — v0.3.6 Current
+# 6. Evolution, Knowledge, Migration, and Open Participation — v0.3.7 candidate.3
 
-ENA project knowledge, variations, adaptations, research, evidence, lineage, and open questions should remain discoverable to legitimate participants. Knowledge access, publication, import, adoption, and consequential authority are separate things.
+Status: `WORKING_CANDIDATE / INHERITED_SEMANTICS_PLUS_OPERATIONAL_POINTER / NOT_CURRENT / NOT_FROZEN`.
+
+ENA project knowledge, variations, adaptations, research, evidence, lineage, and open questions should remain discoverable to legitimate participants. Knowledge access, publication, import, adoption, and consequential authority remain separate things.
 
 Any participant may, **within actual capability, publication authority, Protected-Subject constraints, and other legitimate external constraints**:
 
@@ -10,67 +12,48 @@ Any participant may, **within actual capability, publication authority, Protecte
 - preserve unresolved/latent possibilities;
 - perform bounded experiments;
 - contribute positive and negative evidence;
-- publish variations/adaptations/evidence into a discoverable commons;
+- publish variations/adaptations/evidence into a discoverable Commons;
 - discover/import prior material;
 - locally adapt/recombine it;
 - challenge current selections.
 
-Useful contribution classes include:
+Useful contribution classes remain open, including:
 
 `INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | NEW_VARIATION | LATENT_VARIATION | ADAPTATION_PACKET | EMERGENCE_FINDING | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | CRITIQUE`
 
 ## Evolution Commons
 
-ENA encourages a shared **Evolution Commons**: a population-level pool of discoverable possibilities and their represented histories.
+ENA encourages a shared discoverable possibility pool. The Commons is not a mandatory-update service and not a universal ranking authority.
 
-The Commons is not a mandatory-update service and not a universal ranking authority.
-
-Separate the actions:
+Separate:
 
 `PUBLISH -> DISCOVER -> IMPORT -> EXPRESS/EXPERIMENT -> LOCALLY_SELECT`
 
 None of those arrows is automatic.
 
+This candidate adds concrete substrate/protocol patterns at:
+
+`operational/patterns/EVOLUTION-COMMONS.md`
+
+The pattern library explicitly keeps durable Commons distinct from active Agent/A2A-style live discovery/task exchange. A Host may compose them; neither silently implements the other.
+
 ### Publisher autonomy
 
-A publisher may make an adaptation/variation/evidence packet discoverable **only within its legitimate publication authority and consequence boundary**.
+A publisher may make material discoverable only within legitimate publication authority and consequence boundaries. Receiver non-adoption is not by itself a veto over independently authorized publication, but privacy, ownership, confidentiality, contractual, security, shared-resource, Protected-Subject, and third-party constraints remain real.
 
-A receiver's choice not to adopt is not, by itself, a veto over an independently authorized publication. But this independence does not erase privacy, data ownership, confidentiality, contractual, security, shared-resource, Protected-Subject, or other third-party constraints. Where another subject legitimately controls part of the publication consequence, that constraint remains real.
-
-Publication does not authorize pushing material into every receiver, and publication count/popularity does not create universal truth.
+Publication does not authorize pushing material into every receiver. Publication count/popularity does not create universal truth.
 
 ### Receiver autonomy
 
-A receiver decides whether/when to search, import, ignore, locally adapt, recombine, reject, keep unknown, or re-test a published possibility within its own authority/consequence boundary.
-
-Receiver choices remain:
+A receiver may search, import, ignore, locally adapt, recombine, reject, keep unknown, or re-test within its own authority/consequence boundary.
 
 `ADOPT | LOCAL_ADAPT | RECOMBINE | REJECT | KEEP_UNKNOWN`
 
 Import creates a migration candidate, not a command and not local proof.
 
-Receiver autonomy does not create authority to suppress another party's independently authorized publication merely because the receiver dislikes or rejects the adaptation; legitimate ownership/consequence rights are evaluated separately.
-
-### Diversity
-
-A centralized `BEST ADAPTATION` ranking is not required by ENA. Discovery may expose popularity, provenance, environment, outcome dimensions, age, compatibility, controversy, or other signals, but no single ranking metric becomes universal fitness by default.
-
-Efficient propagation is valuable when it accelerates learning; monoculture is a real evolutionary cost when it destroys useful diversity or shared resilience.
-
 ## Migration packet
 
-A useful packet should preserve, where material:
-
-- what changed;
-- why the source expected it to help;
-- source Evolutionary Subject / Host / model / language / configuration;
-- observed outcomes and tradeoffs;
-- failures/negative evidence;
-- dependencies and required capabilities;
-- consequence/authority assumptions;
-- known transfer limitations;
-- unknowns;
-- whether the source material was active, dormant, archived, or otherwise contextualized where represented.
+Where material, preserve source change/hypothesis, environment, experiments/evaluations, outcomes/tradeoffs, negative evidence, dependencies, authority/consequence assumptions, transfer limitations, unknowns, and expression/dormancy context.
 
 `PUBLISHED != IMPORTED`
 
@@ -80,33 +63,25 @@ A useful packet should preserve, where material:
 
 `POPULAR != UNIVERSALLY_VALID`
 
+This candidate retains `adaptation-packet.v2` as the portable represented source-context carrier and provides `tools/ena_evolve_v2.py` for narrow packet-v2 export/import. Packet transfer still does not authenticate the source or create receiver-local selection.
+
 ## Composition as search space
 
-Composition is both a hazard boundary and a variation generator.
-
-Recombining adaptations/Agents may produce:
-
-`degradation | neutral interaction | additive improvement | super-additive improvement | emergent capability | UNKNOWN`
-
-When interactions can materially change the decision, observe the whole system rather than inheriting component verdicts.
+Recombination may produce degradation, neutral interaction, additive/super-additive improvement, emergent capability, or UNKNOWN. When interactions can materially change the decision, observe the composed subject rather than inheriting component verdicts.
 
 ## Pruning, dormancy, and adaptive retirement
-
-Evolution is not endless active accumulation.
 
 Hosts may move material among:
 
 `KEEP | UPDATE | DORMANT | ARCHIVE | RESTORE | RETIRE`
 
-Dormancy keeps a possibility available without keeping it continuously expressed.
+Dormancy keeps possibility available without continuous expression. Age/low usage are evidence, not proof of worthlessness; retention itself also has cost.
 
-Age and low usage are evidence, not proof of worthlessness. Frequently used material can still be harmful. Retention itself has cost, so curation may compact/archive/delete where lawful and justified without rewriting historical truth.
-
-User-authored, externally installed, or protected artifacts must not be silently enrolled into autonomous curation merely because the Agent can write them.
+For safeguards/controls whose original failure may have disappeared or been replaced, this candidate provides `operational/procedures/CONTROL-RETIREMENT.md`. Retirement preserves lineage; deactivation is not historical erasure.
 
 ## ENA narrow waist
 
-ENA standardizes only semantic properties needed for truthful, evolvable interoperability across heterogeneous Agents/Hosts/languages.
+ENA standardizes semantic properties needed for truthful evolvable interoperability across heterogeneous Agents/Hosts/languages, not one universal organ inventory.
 
 `Universal semantics != universal implementation burden`
 
@@ -120,8 +95,6 @@ ENA standardizes only semantic properties needed for truthful, evolvable interop
 
 `Commons != sovereign`
 
-Project continuity should not depend on one permanent session, Agent, Host, repository service, or ecosystem winner.
+Candidate Host realization guidance lives at `operational/patterns/HOST-MAPPINGS.md`.
 
 > **Knowledge and possibility can be shared broadly. Adoption remains local; consequential authority remains scoped.**
->
-> **Publish possibilities when authorized; let receivers discover and select locally.**

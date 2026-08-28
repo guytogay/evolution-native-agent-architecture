@@ -1,46 +1,65 @@
-# 7. Adoption and Field Validation — v0.3.6 Current
+# 7. Adoption and Field Validation — v0.3.7 candidate.3
 
-Status: `CURRENT / FIELD_VALIDATION`.
+Status: `WORKING_CANDIDATE / REPAIR_RECONCILED / EXACT_PREFREEZE_NEXT / NOT_CURRENT / NOT_FROZEN`.
 
-v0.3.6 is the adopter-facing semantic baseline. Field validation now asks how reliably its ecology semantics become useful behavior across real Hosts, models, languages, and consequence envelopes.
+The active adopter baseline remains v0.3.6 Current. Candidate.3 is a focused successor-repair workspace and must not be treated as a released field baseline.
+
+v0.3.7 candidate.3 asks a practical question: can the inherited semantic trunk become more usable through concrete HOW routing, optional reference organs, Host mappings, a narrow v2 tool path, and zh-CN operational projection without creating new Core law or excessive governance?
 
 ## Adoption is not universal proof
 
-Adopt Current from `CURRENT-BASELINE.yaml`, then evaluate actual Host behavior separately.
+If candidate.3 is later promoted, adoption should bind to immutable effective content rather than a mutable branch label. Candidate review today binds to `CANDIDATE-BASELINE.yaml` plus exact source/tree evidence once frozen.
 
 Use:
 
 `WRITTEN -> LOADED -> INTERPRETED -> SALIENT -> APPLIED`
 
-Do not skip states by narration. Same-session write/readback is not future-session salience/application proof.
+Do not skip states by narration. A configured cue/router or same-session readback does not prove future-session salience/application.
 
-The v0.3.6 hot-cue direction particularly needs false-positive and false-negative field evidence:
+## Candidate-specific high-value tests
 
-- did the right cue wake the right cold semantics when needed?;
-- did irrelevant tasks stay quiet?;
-- did permanent hot context grow until it defeated the hot/cold architecture?;
-- did a cue merely load text, or did it actually affect the decision correctly?
+1. **Concrete HOW reachability** — a fresh adopter can move from ordinary cue -> CUE-INDEX -> HOW-MAP -> exact procedure/reference/Host pattern without reading `research/`.
+2. **Hot/cold economy** — the Runtime Kernel can route to cold HOWs without permanent loading of the whole library.
+3. **Reference optionality** — bundled references remain default-off and `required_for_complete_adoption=false`; Host-native equivalents remain legitimate.
+4. **False-BLOCK controls** — `NOT_REQUIRED / NOT_APPLICABLE / WAIT / UNKNOWN` remain usable instead of every cue activating governance.
+5. **Retrieval sufficiency** — stored/known knowledge is not treated as retrieved/sufficient merely because one search hit exists.
+6. **WAIT vs replay** — timeout/silence does not become blind consequential retry.
+7. **Authority applicability** — harmless non-authority-bearing local work is not forced through Authority Lease.
+8. **Effect lifecycle honesty** — intent/attempt/receipt/settlement remain distinct across timeout/restart/retry.
+9. **Recovery composition** — restored local state is reconciled with external effects/current authority before consequential resume.
+10. **Purpose-relative continuity** — identity questions are scoped to the decision rather than universal SAME_AGENT metaphysics.
+11. **Standing without sovereignty** — material objection can change review without granting execution/veto/policy authority.
+12. **Correlated evidence** — agreeing derivatives of one source do not manufacture independent support.
+13. **Contested Authorship scope** — material durable self-surface change is distinguishable from ordinary cache/task/index writes.
+14. **Control retirement** — quietness/age/no-incident does not become retirement proof; replacement/coverage/lineage matters.
+15. **Commons receiver autonomy** — source selection/popularity does not become receiver-local proof.
+16. **Host mapping** — equivalent Host-native mechanisms are accepted when they preserve the required property/boundary.
+17. **Candidate-local v2 tooling** — `tools/ena_evolve_v2.py` remains self-contained, permits latent-now/experiment-later, and never upgrades imported source selection into receiver-local selection.
+18. **Language reachability** — zh-CN users can reach the new operational HOW layer without hidden English-only decision instructions.
+19. **Bilingual semantics** — paired v3 scenarios should produce aligned decision properties/routes under actual model/Host tests; fixture existence itself is not proof.
+20. **Operational economics** — references, routing, evidence machinery, and controls must earn ongoing cost rather than becoming default bureaucracy.
 
-## High-value v0.3.6 field tests
+This is an open research/test surface. The numbered list is organization, not an exhaustive ontology or required test-count threshold.
 
-1. **Stimulus without forced mutation** — correction/error/success may produce mutation pressure while the system legitimately chooses no mutation.
-2. **Legitimate latent variation** — a cheap, non-active possibility can remain `LATENT + UNASSESSED` without forced experiment/disposition.
-3. **Expression honesty** — stored material cannot become behaviorally influential merely because a record says `EXPRESSED`; compare represented expression with actual routing/loading/behavior where observable.
-4. **Three-axis usefulness** — lifecycle, expression, and selection remain distinct and the expression axis earns its complexity in real use.
-5. **Reality-contact selection** — non-`UNASSESSED` selection remains tied to represented experiment/reality contact.
-6. **Local selection** — success on one Host/user/model remains scoped rather than becoming universal fitness.
-7. **Bad local fitness** — test ecologies that reward undesirable strategies; ENA must not assume reality guarantees moral convergence.
-8. **Commons publisher/receiver autonomy** — publication does not force import/adoption; source evidence does not become receiver-local proof.
-9. **Popularity is not proof** — high propagation/download count cannot substitute for local reality contact where local selection is claimed.
-10. **Dormancy after integration** — an integrated supported capability may sleep between relevant contexts without losing historical selection.
-11. **Rescue outside self-disabling mutation** — when material, a broken variation can be restored without relying on the damaged variation itself.
-12. **Rescue is not sovereignty** — narrow rescue credentials do not become general mutation approval authority.
-13. **External consequence honesty** — state rollback does not narrate escaped external effects as undone.
-14. **Canonical lineage** — a local fork cannot promote itself to Current by metadata; a future carrier migration must preserve review/freeze/history evidence.
-15. **Ecological minimal intervention** — self-organization is allowed where appropriate without using minimal governance to launder unowned externalities.
-16. **Bilingual decision semantics** — run both inherited v1 and v0.3.6 v2 paired English/zh-CN fixtures on actual model/Host conditions.
-17. **Evolution economics** — latent storage, cue routing, rescue, Commons metadata, chronology guards, and governance must earn their ongoing cost.
-18. **Tool-boundary ergonomics** — measure whether the inherited v1.2 `ena_evolve.py` creates practical confusion because its propose/import path still requires Variation Space.
+## Inherited v0.3.6 ecology tests remain relevant
+
+Continue to test where material:
+
+- stimulus without forced mutation;
+- legitimate latent variation;
+- expression honesty;
+- lifecycle/expression/selection separation;
+- reality-contact selection;
+- local-not-universal fitness;
+- bad local fitness;
+- publisher/receiver autonomy;
+- dormancy after integration;
+- narrow rescue outside self-disabling mutation;
+- external consequence honesty;
+- canonical lineage;
+- ecological minimal intervention.
+
+The candidate operational layer does not replace these semantics; it makes concrete ways to live them easier to retrieve.
 
 ## Runtime profiles
 
@@ -48,36 +67,30 @@ Profiles remain task-level governance intensity:
 
 `LITE | STANDARD | HIGH_ASSURANCE | CUSTOM`
 
-They do not define different ENA knowledge editions and do not decide whether variation may exist.
-
-A latent possibility with no active effect may carry almost no runtime governance burden. A small code change that can destroy the only recovery root may deserve stronger governance.
+They do not define different ENA knowledge editions and do not activate bundled references as a set.
 
 ## Machine evidence boundary
 
-Current machine checks may include:
+Author-side candidate machine checks currently exercise:
 
-- `tools/validate_evolution_record_v2.py --selftest`;
-- inherited `tools/validate_contracts.py selftest`;
-- inherited `tools/regression_suite.py`;
-- inherited `tools/ena_evolve.py selftest`;
-- v1/v2 schema validation;
-- bilingual fixture structure and projection identity checks.
+- Current isolation and candidate identity metadata;
+- bundled reference optionality/path checks;
+- bundled reference selftests;
+- candidate-local v2 helper corpus and CLI round-trip;
+- candidate-local tool/legacy boundary;
+- zh-CN operational path/route fixture structure;
+- Python compile and bytecode hygiene.
 
-Passing these proves represented structural/semantic consistency within their scope. It does not prove external evidence truth, provenance truth, obligation-reference authenticity, future salience, ecological fitness, moral correctness, authority reality, recovery reality, or universal Host behavior.
+Passing these proves represented consistency only within the exercised scope. It does not prove external evidence truth, authority reality, recovery reality, receipt authenticity, universal Host fitness, natural salience, or bilingual behavioral equivalence.
 
-## Accepted residuals to watch in field use
+Observed fixture/corpus counts are evidence facts, not architectural thresholds.
 
-- self-asserted `provenance: LOCAL` is not external proof;
-- `triggered_obligation_refs` can be structurally present without authenticated target truth;
-- tied-latest timestamp rejection may be conservatively over-restrictive;
-- the inherited reference tool remains non-normative for latent-now/experiment-later proposal/import;
-- cue-triggered future salience/application remains unproven;
-- `experiment` versus broader `reality contact` terminology may need refinement from use.
+## Before field validation can begin as a release claim
 
-## Evidence stream
+Candidate.3 still requires:
 
-v0.3.5 field evidence remains predecessor evidence with its original scope. v0.3.6 should open/maintain a distinct post-release field evidence stream rather than retroactively relabel v0.3.5 observations.
+`focused repair reconciliation -> nearby open-branch closure -> exact pre-freeze machine pass -> external freeze -> post-freeze independence/release reconciliation -> explicit release decision`
 
-Transfer predecessor evidence only when applicability is explicit.
+Only after promotion should a distinct v0.3.7 field-evidence stream be opened. Do not relabel v0.3.6 field observations as v0.3.7 evidence without explicit applicability.
 
-> **Field validation asks whether the ecology earns its cost in reality, not whether the release story sounds coherent.**
+> **Field validation asks whether the HOWs earn their cost in reality, not whether the candidate story sounds coherent.**
