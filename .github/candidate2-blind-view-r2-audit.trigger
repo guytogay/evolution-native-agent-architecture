@@ -1,5 +1,5 @@
-trigger=2026-08-28-candidate2-blind-view-r2-audit
+trigger=2026-08-28-candidate2-blind-view-r2-audit-rerun
 frozen_source=bda470e0a6b170cec61225a905957a501454a2fe
 frozen_candidate_tree=d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
 view_branch=validation/v037-c2-blind-semantic-primary-r2
-view_head=cdcd8f0dd450ebff12b600078c22fce31bf6cb2a
+view_head=9876be2e683d07a3b5bb4421618d3b2cb04dbda4
