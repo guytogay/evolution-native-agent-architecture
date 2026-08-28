@@ -330,6 +330,39 @@ Practical effect:
 - A-P remains independent but is not mislabeled search-space blind;
 - candidate.2 is not manufactured for a validation-interface defect alone; a material candidate/package correction basis is still required.
 
+## 2026-08-28 — Physically isolated independent-review carrier
+
+Trigger:
+
+Candidate.2 fresh intake Issue #137 was correctly aborted before A-S seal because GitHub's normal candidate-directory view auto-rendered a README range that the blind-view manifest had explicitly withheld. Broader surface audit showed that same-repository navigation/search and candidate-local implementation comments could also expose author-shaped priors even when the reviewer followed the declared path.
+
+Correction:
+
+```text
+PROCEDURAL_RANGED_READ != INFORMATION_BOUNDARY
+PROCEDURAL_PATH_AVOIDANCE != INFORMATION_BOUNDARY
+SEMANTIC_FAILURE_VOCABULARY != AUTHOR_ATTACK_MAP
+```
+
+Canonical focused method:
+
+`research/methodology/PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md`
+
+Incident evidence:
+
+`research/methodology/incidents/2026-08-28-CANDIDATE2-BLIND-CARRIER-LEAK-INCIDENT.md`
+
+Practical effect:
+
+- when a repository/UI cannot enforce withholding, fresh A-S uses a physically isolated deterministic semantic capsule rather than a same-repository branch UI;
+- A-P uses a separate exact frozen-package supplement that is not supplied until A-S is content-sealed;
+- an A-S SHA-256 of exact report bytes may serve as the pre-A-P seal when the fresh environment lacks authenticated GitHub write access;
+- mechanically justified projections may remove history-bearing comments/docstrings while preserving executable AST semantics;
+- priming scans distinguish the contract's own failure vocabulary from author attack/probe history;
+- manifest self-hash is excluded by definition while non-self payload hashes and outer capsule hashes are verified;
+- authoritative candidate.2 r3 carrier audit run `33131773164` passed deterministic build, physical isolation, exact A-P frozen-package equality and payload inventory checks;
+- no frozen candidate or Current bytes changed.
+
 ## Future changes
 
 Add a new entry when a research-process failure, field observation, handoff incident, or stronger method changes how future ENA research should actually be conducted.
