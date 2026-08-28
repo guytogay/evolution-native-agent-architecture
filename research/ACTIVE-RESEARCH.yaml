@@ -1,4 +1,4 @@
-schema_version: "2.3"
+schema_version: "2.4"
 status: ACTIVE_RESEARCH_POINTER
 updated_at: "2026-08-28"
 
@@ -8,7 +8,7 @@ active_research:
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
   embedded_head_sha_is_identity_lock: false
-  state: V0_3_7_RELEASE_PACKAGING_TRANSPLANT_COMPLETE_IDENTITY_TRANSFORM_PENDING_NOT_CURRENT_NOT_RELEASED
+  state: V0_3_7_RELEASE_EXACT_HEAD_VALIDATED_PREPROMOTION_ALIGNMENT_IN_PROGRESS_NOT_CURRENT_NOT_RELEASED
   bootstrap_path: research/RESEARCH-START-HERE.md
   progress_path: research/plans/PROGRESS.yaml
   detailed_plan_path: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
@@ -17,6 +17,7 @@ active_research:
 
 project_control_plane:
   branch: main
+  observed_head_before_this_alignment: 13c8a3e359fe6702ebc15dad982c655e2a3ca7a9
   project_hub: PROJECT-HUB.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   current_handoff_pointer: research/handoffs/CURRENT-HANDOFF.yaml
@@ -28,6 +29,7 @@ current_adoption:
   expected: v0.3.6 / CURRENT / FIELD_VALIDATION
   tree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
   release_preparation_changes_current: false
+  v0_3_7_is_current_before_promotion: false
 
 frozen_release_source:
   identity: v0.3.7-candidate.3
@@ -45,22 +47,53 @@ frozen_release_source:
 release_preparation:
   target: v0.3.7 / CURRENT / FIELD_VALIDATION
   branch: release/v0.3.7
-  base_main_checkpoint: 280a8b0f7629d5deb013a5257cb74759213e8080
+  release_pr: 144
+  release_pr_state: OPEN_DRAFT_NOT_PROMOTED
+  branch_base_main_checkpoint: 280a8b0f7629d5deb013a5257cb74759213e8080
   byte_exact_transplant_commit: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-  transplanted_current_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
-  exact_frozen_subtree_match: true
-  identity_status_transform_applied: false
-  release_pr_open: false
+  frozen_transplant_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+  exact_frozen_subtree_match_at_transplant: true
+  identity_status_transform_applied: true
+  exact_validated_release_head_before_this_alignment: bcda18a28141f572688f9a1b15cfd820dea02f97
+  prospective_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  prospective_current_file_count: 118
+  deterministic_package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+  exact_release_gate_run: 33161514271
+  current_validate_run: 33161516641
+  main_gate_run: 33161516581
+  selection_qualification_run: 33161516591
+  research_helper_run: 33161516586
+  codeql_run: 33161516568
+  exact_head_checks_observed: PASS
   release_authorized: false
   promoted: false
+
+release_control_correction:
+  selection_qualification_oracle_fix_pr: 145
+  selection_qualification_oracle_fix_main_merge: 13c8a3e359fe6702ebc15dad982c655e2a3ca7a9
+  release_sync_pr: 146
+  exact_release_gate_now_runs_on_every_release_branch_push: true
+  release_gate_trigger_correction_head: bcda18a28141f572688f9a1b15cfd820dea02f97
+  current_payload_changed_by_control_corrections: false
 
 alignment:
   triggered_by_release_transition: true
   stale_surfaces_detected: true
-  reconciliation_branch: research/ena-reconstruction
-  required_before_release_identity_packaging: MAIN_VISIBLE_ALIGNMENT_CHECKPOINT
+  reconciliation_branch: integration/v037-prepromotion-alignment
+  alignment_kind: PREPROMOTION_MAIN_VISIBLE_STATE_ALIGNMENT
+  current_identity_must_remain_v0_3_6_until_promotion: true
+  required_before_promotion_decision: true
 
-immediate_next_action_after_alignment_merge: RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7
+open_evidence_boundaries:
+  attack_cardinality: OPEN
+  external_truth_established_by_release_gate: false
+  natural_host_salience: FIELD_EVIDENCE
+  host_applicability: FIELD_EVIDENCE
+  bilingual_behavioral_equivalence: FIELD_OR_INDEPENDENT_EVIDENCE
+  optional_reference_package_inclusion_implies_normativity: false
+
+immediate_next_action_after_alignment_merge: >-
+  SYNC_ALIGNED_MAIN_INTO_RELEASE_V0_3_7_THEN_REVALIDATE_EXACT_HEAD_AND_PRESENT_EXPLICIT_PROMOTION_DECISION
 
 continuation_protocol:
   - start from main and verify Current
@@ -78,7 +111,7 @@ fresh_validator_boundary:
   cleanroom_contents_are_stage_ephemeral: true
 
 rule: >-
-  Current remains singular on main. Frozen candidate.3 is immutable occurrence truth.
-  The active release branch is a bounded packaging workspace. After the alignment
-  checkpoint is main-visible, continue with identity/status-only release projection,
-  exact-head gates, explicit authorization, merge, and post-merge readback.
+  Current remains singular on main as v0.3.6 until an explicitly authorized promotion is
+  merged and read back. Frozen candidate.3 remains immutable occurrence truth. The active
+  release branch now contains a validated prospective v0.3.7 Current payload, but release
+  readiness and passing gates do not themselves mint promotion authority.
