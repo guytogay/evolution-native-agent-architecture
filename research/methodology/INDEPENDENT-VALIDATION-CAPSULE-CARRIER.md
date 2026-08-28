@@ -1,23 +1,16 @@
-# Independent Validation Capsule Carrier
+# Independent Validation Isolated Carrier
 
 Status: `CANONICAL_FOCUSED_METHOD_COMPANION / VALIDATION_INTERFACE / NON_NORMATIVE_TO_CURRENT`
 
-Purpose: provide a physically isolated carrier for fresh A-S when repository UI, candidate self-description, implementation commentary, or search/navigation surfaces can leak author-shaped priors.
+Compatibility note: this file retains its historical `...CAPSULE-CARRIER.md` path so existing project pointers do not churn. **A ZIP/capsule is only one implementation HOW.** The governing concept is a physically isolated review carrier.
 
-This companion refines `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` after the candidate.2 natural-navigation incident. The information-boundary method decides **which information role belongs before/after A-S**; this method decides **how the carrier enforces that boundary**.
+Purpose: preserve fresh A-S search-space independence when the source project, candidate package, repository UI, implementation commentary, or navigation/search surfaces can expose author-shaped priors.
 
-## 1. Carrier problem
+This companion refines `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`. That method decides **which information roles belong before and after A-S**. This method decides **how the review environment enforces the boundary**.
 
-A blind validation branch can still fail as an information boundary when the same repository exposes:
+## 1. Govern the environment, not reviewer self-denial
 
-- automatic README rendering;
-- repository-wide search;
-- `.github/` author harnesses;
-- `research/` handoffs/reconciliation;
-- other branches/tags/releases;
-- candidate-local mixed-role files containing repair/search-map commentary.
-
-Therefore:
+The candidate.2 Issue #137 occurrence showed that a reviewer can obey written instructions and still cross the information boundary because normal GitHub navigation automatically exposes material.
 
 ```text
 PROCEDURAL_RANGED_READ != INFORMATION_BOUNDARY
@@ -26,177 +19,162 @@ DECLARED_WITHHOLDING != PHYSICAL_WITHHOLDING
 CLEAN_BRANCH != PHYSICALLY_ISOLATED_REVIEW_SURFACE
 ```
 
-When normal navigation/search can reach withheld material, do not claim branch-level search-space blindness. Repair the carrier rather than asking the reviewer to exercise perfect self-denial.
+When ordinary browsing/search can reach withheld author/history/oracle material, repair the carrier instead of adding more instructions telling the reviewer what not to click.
 
-## 2. A-S capsule
+## 2. The invariant is physical isolation, not archive format
 
-Build a deterministic archive containing only the A-S review surface.
-
-The capsule should include behavior-bearing contract/schema/implementation/operational semantics while physically excluding:
-
-- project-manager context;
-- Current and historical release trees not needed for the target;
-- author reconciliation/attack harnesses;
-- predecessor findings;
-- expected fixtures/oracles when history-bearing;
-- candidate-local status/history surfaces whose primary information role is author confidence/repair narrative.
-
-The capsule itself is validation-interface material, not a candidate identity.
+The required property is:
 
 ```text
-CAPSULE_PROJECTION != CANDIDATE_MUTATION
-WITHHELD_FROM_A-S != REMOVED_FROM_RELEASE
+A-S SEAL NOT YET CREATED
+-> REVIEWER CAN REACH A-S MATERIAL
+-> REVIEWER CANNOT REACH WITHHELD A-P / AUTHOR-HISTORY MATERIAL THROUGH THE REVIEW SURFACE
 ```
 
-## 3. Mixed-role executable files
+Possible HOWs include:
 
-Exact-byte retention is preferred when a file is blind-safe.
+- a dedicated clean-room repository;
+- an isolated directory or sandbox filesystem;
+- a deterministic ZIP/archive;
+- an isolated artifact or file set;
+- another carrier that demonstrably enforces the same information boundary.
 
-When an executable file mixes real implementation semantics with author search-map comments/docstrings or embedded selftest corpora, A-S may use a declared semantic-preserving projection if all of the following hold:
-
-1. the exact frozen source and source range are bound;
-2. executable AST equivalence is mechanically verified for the retained executable surface;
-3. docstring/comment removal cannot alter behavior relied upon by the candidate;
-4. any source truncation is explicitly declared and excludes only non-A-S test/oracle regions;
-5. the projection is listed in the capsule manifest;
-6. the exact original file remains available later in A-P.
-
-This is an exception to byte-preserving branch projection, justified only when exact bytes are themselves a priming channel.
+Therefore:
 
 ```text
-SEMANTIC_PROJECTION MUST_NOT_BECOME UNDECLARED_REIMPLEMENTATION
+PHYSICALLY_ISOLATED_CARRIER != ZIP
+TRANSPORT_FORMAT != METHOD
 ```
 
-## 4. Mixed-role prose/schema metadata
+Do not converge on one carrier technology unless behavioral equivalence has been established and the chosen HOW still pays epistemic/operational rent.
 
-A-S may use narrowly declared projection where non-behavioral annotation embeds predecessor identity or author history, for example:
+## 3. Reusable clean-room repositories
 
-- exact source slices that remove a status/confidence header;
-- removal of one explicitly bound author-history paragraph;
-- annotation-only schema-title redaction where validation-bearing JSON is proven unchanged.
+A dedicated repository may be reused across validation occurrences when its identity is treated as infrastructure and its **contents are disposable stage state**.
 
-Do not silently rewrite substantive contract language.
+```text
+CLEAN_ROOM_REPOSITORY_IDENTITY = REUSABLE_VALIDATION_INFRASTRUCTURE
+CLEAN_ROOM_CONTENT = CURRENT_STAGE_EPHEMERAL_REVIEW_SURFACE
+```
 
-## 5. Semantic vocabulary is not an author attack map
+Recommended lifecycle:
+
+```text
+SOURCE PROJECT
+-> BUILD / PROJECT AUTHORIZED REVIEW SURFACE
+-> RESET CLEAN ROOM TO A SINGLE STAGE-SCOPED STATE
+-> FRESH REVIEW
+-> SEAL RESULT
+-> PERSIST OCCURRENCE TRUTH BACK TO SOURCE PROJECT
+-> RESET / REPLACE CLEAN ROOM FOR THE NEXT OCCURRENCE
+```
+
+Historical project context should not accumulate in the clean room by default. Long-lived history belongs in the source project's reconciliation/handoff/evidence surfaces.
+
+When practical, reset the clean-room default branch to a parentless commit for each fresh occurrence so ordinary branch history does not expose the bootstrap/import process or previous projects.
+
+## 4. What belongs in A-S
+
+A-S should contain behavior-bearing contract/schema/implementation/operational semantics needed for independent falsification while physically excluding information whose primary role is author history, search map, confidence, expected oracle, or project-manager continuity.
 
 Blindness must not erase the object being tested.
-
-A contract may legitimately contain terms such as false block, false confidence, refusal, failure, uncertainty, or overclaim. Those terms can be part of the semantics a fresh reviewer must inspect.
-
-Author attack maps are different: predecessor defect identifiers, repair narratives, probe names, expected outcomes, PR/falsifier lineage, specific green-run claims, or other material that tells the reviewer where the author already searched.
 
 ```text
 SEMANTIC_FAILURE_VOCABULARY != AUTHOR_ATTACK_MAP
 ```
 
-A priming detector that removes ordinary semantic failure vocabulary can itself compress the independent attack space and create false confidence in the blindness mechanism.
+Terms such as false block, false confidence, refusal, failure, uncertainty, and overclaim may be legitimate candidate semantics. Predecessor defect IDs, repair narratives, expected outcomes, PR/falsifier lineage, author green-run claims, and prior findings are different information roles.
 
-## 6. A-P supplement
+## 5. Mixed-role files may use declared projections
 
-A-P receives the exact frozen candidate package, not the A-S projection.
+Exact bytes are preferred when blind-safe. If a file mixes real semantics with author-shaped priors, the A-S carrier may contain a declared semantic-preserving projection when mechanically justified.
 
-It is physically delivered only after the A-S report is sealed.
+Examples:
 
-A-P audits:
-
-- self-description/status;
-- full lineage;
-- fixtures/selftests/regression oracles;
-- package claims;
-- historical narrative versus actual frozen bytes.
-
-It must not rewrite the already sealed A-S attack tree.
-
-A-P remains role/oracle independent, but is not claimed search-space blind after package history opens.
-
-## 7. Content-hash seal when reviewer cannot write GitHub
-
-Git commit is useful but not the only valid independent seal carrier.
-
-For a physically isolated workflow, the reviewer may seal A-S by computing SHA-256 of the exact completed A-S report before any A-P material is opened.
-
-Required sequence:
+- exact source slice that removes a status/confidence header;
+- one precisely bound author-history paragraph removal;
+- annotation-only schema-title redaction where validation-bearing JSON remains identical;
+- Python executable-AST-equivalent projection with comments/docstrings removed;
+- whole-file withholding when the file is primarily history/oracle/status material.
 
 ```text
-A-S CAPSULE ONLY
--> COMPLETE REPORT
--> COMPUTE REPORT SHA-256
--> RECORD DIGEST
--> STOP
--> VERIFY/PRESERVE REPORT
--> DELIVER A-P SUPPLEMENT
+CARRIER_PROJECTION != CANDIDATE_MUTATION
+WITHHELD_FROM_A-S != REMOVED_FROM_RELEASE
+SEMANTIC_PROJECTION MUST_NOT_BECOME UNDECLARED_REIMPLEMENTATION
 ```
 
-The project manager later verifies the exact report bytes against that digest and persists the occurrence into canonical project history.
+The exact frozen package remains available later for A-P.
 
-This is valid only if the A-P supplement was not available to the reviewer before the content seal.
+## 6. A-S -> seal -> A-P is the real stage boundary
 
-## 8. Carrier integrity is layered
-
-A deterministic capsule should expose distinct integrity layers:
-
-1. exact frozen target source/subtree identity;
-2. reproducible projection rules;
-3. per-payload file SHA-256 inventory;
-4. explicit transformation/exclusion manifest;
-5. outer capsule SHA-256;
-6. repeated build determinism where practical.
-
-A manifest cannot truthfully contain a stable digest of its own final bytes. Recording the pre-final manifest digest inside the final manifest is false confidence, not self-verification.
+For a self-describing candidate:
 
 ```text
-MANIFEST_SELF_HASH = EXCLUDED_BY_DEFINITION
-PAYLOAD_FILE_HASHES = SHA256_VERIFIED
-OUTER_CAPSULE_HASH = SHA256_VERIFIED
+A-S CARRIER ONLY
+-> INDEPENDENT A-S REPORT
+-> CONTENT SEAL
+-> ONLY THEN MAKE A-P MATERIAL REACHABLE
+-> SAME REVIEWER PERFORMS A-P
+-> STOP BEFORE PROJECT-MANAGER PHASE B
 ```
 
-The outer capsule digest binds the final manifest bytes themselves.
+The A-P material may be introduced by replacing the clean-room state, adding a separately controlled stage after seal, or delivering a separate artifact. The HOW is secondary; **A-P must not be reachable through the A-S review surface before seal**.
 
-## 9. Mechanical audit requirements
+A-P opens the exact frozen candidate package and audits self-description, lineage, fixtures, selftests/regression oracles, packaging claims, and package/history consistency. A-P remains role/oracle independent but is not claimed search-space blind after those materials open.
 
-Before a carrier becomes the fresh-review entry surface, verify at minimum:
+## 7. A-S content seal
 
-- frozen source commit and candidate subtree;
-- all declared A-S exclusions are physically absent;
-- no project/research/control-plane directories are packaged into A-S;
-- declared executable projections satisfy their equivalence checks;
-- history-specific priming sweep has no unexplained hits;
-- semantic failure vocabulary is not removed merely because it resembles an attack term;
-- A-P contains the exact frozen candidate package byte-for-byte;
-- every listed non-self payload hash matches;
-- repeated builds produce the same outer capsule hashes;
-- Current and frozen candidate bytes remain unchanged.
+A Git commit can be a seal when the reviewer has an authenticated write channel. When it does not, SHA-256 of the exact completed report bytes is sufficient if computed and recorded before A-P becomes reachable.
 
-Passing these checks proves represented carrier construction, not candidate correctness or attack-space completeness.
+```text
+A-S_REPORT_BYTES
+-> SHA-256
+-> RECORDED SEAL
+-> ONLY THEN OPEN A-P
+```
+
+The project manager later verifies the report bytes against the recorded digest and persists the occurrence into the source project's canonical history.
+
+## 8. Carrier integrity
+
+Mechanical evidence should match the chosen HOW rather than forcing every carrier to imitate ZIP semantics.
+
+For any carrier, verify as applicable:
+
+1. exact frozen target identity;
+2. explicit inclusion/exclusion/transformation rules;
+3. physical absence of withheld project/history/oracle surfaces during A-S;
+4. mechanical equivalence evidence for derived executable or semantic projections;
+5. stable identity of the actual A-S surface delivered to the reviewer;
+6. A-P exact frozen candidate package when A-P opens;
+7. Current and frozen candidate bytes unchanged by validation-interface work.
+
+Additional integrity mechanisms may include per-file SHA-256 inventories, Git tree/commit identity, outer archive digest, or deterministic rebuilds.
 
 ```text
 CARRIER_AUDIT_PASS != CANDIDATE_PASS
 ATTACK_CARDINALITY = OPEN
 ```
 
-## 10. Fresh-review intake
+## 9. Fresh-review intake
 
-Do not use a same-repository GitHub issue as the mandatory A-S entrypoint when that UI itself can navigate to withheld material.
+A genuinely fresh reviewer should receive the smallest routing information necessary to enter the isolated A-S carrier.
 
-Preferred A-S delivery:
+For a dedicated clean-room repository, a suitable intake is simply:
 
 ```text
-MINIMAL PROMPT
+CLEAN_ROOM URL / PINNED COMMIT
 +
-ONE A-S CAPSULE FILE
-+
-EXPECTED CAPSULE SHA-256
+INSTRUCTION TO START AT THE ROOT INTAKE
 ```
 
-Before A-S seal, do not additionally provide the project repository URL, project issue/branch, project-manager handoff, or A-P supplement when those surfaces reopen withheld context.
+Do not additionally provide the source project URL, project-manager handoff, predecessor findings, repair summaries, or separately reachable A-P material before A-S seal.
 
-Do not provide the A-P supplement in the same message, attachment set, archive, shared folder, or directly accessible surface before A-S seal.
+The clean room itself should be safe for ordinary browsing, repository search, README rendering, and execution. If normal use can escape into withheld material, the interface is not actually clean.
 
-The same fresh reviewer may continue into A-P after the project manager verifies/records the A-S content seal and separately delivers the A-P supplement.
+## 10. Failure rule
 
-## 11. Failure rule
-
-If the reviewer discovers that withheld author/history/oracle material was available or exposed before A-S seal:
+If withheld author/history/oracle material is available or exposed through the review surface before A-S seal:
 
 ```text
 STOP
@@ -207,39 +185,41 @@ STOP
 
 Repair the carrier, not the reviewer instruction.
 
-## 12. Current candidate.2 carrier evidence
+## 11. Candidate.2 occurrence
 
-Frozen target:
+Frozen target remains:
 
 - source `bda470e0a6b170cec61225a905957a501454a2fe`
-- subtree `d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`
+- candidate subtree `d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`
+- Current subtree at that source `7dcbb3934883ffa6cc5292a662588cafc1533cff`
 
-Authoritative final build/audit workflow:
+Issue #137's same-repository branch intake was aborted before A-S seal after normal GitHub navigation exposed withheld content. It remains validation-interface occurrence truth, not a candidate verdict.
 
-- `.github/workflows/v037-candidate2-r3-capsule-build.yml`
-- run `33131773164` — SUCCESS
+The deterministic r3 capsule build remains useful **construction and integrity evidence**:
 
-Observed final checks:
+- workflow run `33131773164` — SUCCESS
+- A-S package SHA-256 `dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`
+- A-P package SHA-256 `427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649`
+- manifest self-hash policy `EXCLUDED_BY_DEFINITION`
+- deterministic rebuild PASS
 
-- A-S physical isolation: PASS
-- A-S payload inventory: PASS
-- A-P exact frozen candidate package: PASS
-- A-P payload inventory: PASS
-- manifest self-hash policy: `EXCLUDED_BY_DEFINITION`
-- deterministic repeated build: PASS
-- attack cardinality: OPEN
+The active A-S review HOW is now the reusable dedicated clean-room repository:
 
-Final deterministic inner hashes:
+- repository `guytogay/independent-validation-cleanroom`
+- A-S stage commit `28dde50c9caaeee3b5c269e28a7be5f07ac29ae5`
+- A-S stage tree `42debebed620bd05e6e2635409057f20b57bfa9e`
+- commit parents `[]`
+- root contains only `README.md`, `INTAKE-A-S.md`, `MANIFEST-A-S.json`, and the projected `releases/` review surface
+- `.github/`, `research/`, `collaboration/`, `releases/current/`, source-project history, and A-P material are absent from the current clean-room state
 
-- A-S capsule `dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`
-- A-P supplement `427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649`
+The clean-room A-S surface was reconstructed from the final audited r3 A-S package before the bootstrap/import history was removed by resetting `main` to the parentless A-S commit.
 
-The earlier run `33131665994` and hashes `ee80ac...` / `b3e222...` are superseded carrier-build evidence because final self-audit corrected the manifest inventory representation. They must not be used as fresh-review carrier identity.
+The ZIP is therefore no longer the reviewer-facing requirement. It is one validated construction HOW and occurrence-evidence source.
 
 Incident:
 `research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md`
 
-Reconciliation:
-`collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md`
+Clean-room transition reconciliation:
+`collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-carrier-transition.md`
 
-No candidate.2 or Current bytes were changed by this validation-interface repair.
+No candidate.2 or Current bytes were changed by this validation-interface transition.
