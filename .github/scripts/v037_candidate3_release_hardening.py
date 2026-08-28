@@ -25,6 +25,8 @@ def normalized_relocation_ast(path):
                 s=s.replace('ena_evolve_v1_2.py','ena_evolve.py')
                 s=s.replace('ena_evolve_candidate1_v1_2','ena_evolve_candidate1')
                 s=s.replace('ena_evolve_candidate2_v1_2','ena_evolve_candidate2')
+                s=s.replace('candidate1_adversarial_v1_2','candidate1_adversarial')
+                s=s.replace('candidate2_adversarial_v1_2','candidate2_adversarial')
                 return ast.copy_location(ast.Constant(value=s),node)
             return node
     tree=N().visit(tree); ast.fix_missing_locations(tree)
@@ -74,10 +76,10 @@ allowed_removed={'CURRENT-BASELINE.yaml',*relocations.keys()}; unexpected=[f for
 req(not unexpected,'unexplained v0.3.6 file removals: '+', '.join(unexpected))
 # Runtime legacy tool is exact-byte preserved.
 req((cur/'tools/ena_evolve.py').read_bytes()==(cand/'tools/legacy/ena_evolve_v1_2.py').read_bytes(),'legacy ena_evolve runtime bytes drifted during relocation')
-# Adversarial probes may truthfully change their docstring/import target/module name only.
+# Adversarial probes may truthfully change their docstring/import target/module name/output label only.
 for old,new in [('tools/candidate1_adversarial.py','tools/legacy/candidate1_adversarial_v1_2.py'),('tools/candidate2_adversarial.py','tools/legacy/candidate2_adversarial_v1_2.py')]:
     req((cand/new).is_file(),f'relocated probe missing: {new}')
-    if (cand/new).is_file(): req(normalized_relocation_ast(cur/old)==normalized_relocation_ast(cand/new),f'relocated adversarial probe changed beyond explicit legacy path/narration adaptation: {old} -> {new}')
+    if (cand/new).is_file(): req(normalized_relocation_ast(cur/old)==normalized_relocation_ast(cand/new),f'relocated adversarial probe changed beyond explicit legacy path/narration/output-label adaptation: {old} -> {new}')
 observations.append('compat_relocations=runtime_byte_exact_probes_normalized_ast_equivalent')
 for path in ['schemas/evolution-record.v1.schema.json','schemas/adaptation-packet.v1.schema.json']: req((cand/path).is_file(),f'inherited compatibility schema missing: {path}')
 ids=lambda text: sorted(set(re.findall(r'ENA-CON-\d{3}',text))); cur_ids=ids(read(cur/'01-CONSTITUTION.md')); cand_ids=ids(read(cand/'01-CONSTITUTION.md'))
