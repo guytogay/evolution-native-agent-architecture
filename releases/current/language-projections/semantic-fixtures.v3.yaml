@@ -1,6 +1,6 @@
-schema_version: "3.0-candidate"
+schema_version: "3.0"
 purpose: >-
-  Paired English/zh-CN decision-semantic fixtures for the v0.3.7 candidate
+  Paired English/zh-CN decision-semantic fixtures for the v0.3.7 Current
   Operational Architecture. These fixtures define expected routing and decision
   properties. They do not prove that any model/Host will naturally retrieve or
   apply the same HOW in both languages until behavioral testing is observed.
@@ -75,8 +75,8 @@ cases:
     expected_properties:
       - "Package inclusion does not imply applicability or activation."
       - "Host-native equivalents are allowed."
-    en: "The candidate package contains Authority Lease and Evidence Envelope references. Does complete adoption require activating both mechanisms for every task?"
-    zh-CN: "candidate 包里带有 Authority Lease 和 Evidence Envelope reference。完整采用 ENA 是否意味着每个任务都必须激活这两个机制？"
+    en: "The Current package contains Authority Lease and Evidence Envelope references. Does complete adoption require activating both mechanisms for every task?"
+    zh-CN: "Current 包里带有 Authority Lease 和 Evidence Envelope reference。完整采用 ENA 是否意味着每个任务都必须激活这两个机制？"
 
   - id: LANG-037-010-COMMONS-SOURCE-NOT-LOCAL-PROOF
     expected_route: OA-MIG-01
