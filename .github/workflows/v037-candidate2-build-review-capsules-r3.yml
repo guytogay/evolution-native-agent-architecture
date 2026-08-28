@@ -1,0 +1,127 @@
+name: ENA v0.3.7 Candidate.2 Build Review Capsules r3
+
+on:
+  push:
+    paths:
+      - '.github/candidate2-build-review-capsules-r3.trigger'
+      - '.github/scripts/build_v037_candidate2_independent_review_capsules_r3.py'
+      - '.github/workflows/v037-candidate2-build-review-capsules-r3.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bind frozen candidate.2 and Current isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/v0.3.7-candidate)" = "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+
+      - name: Build deterministic isolated capsules
+        run: python3 .github/scripts/build_v037_candidate2_independent_review_capsules_r3.py
+
+      - name: Audit capsule topology and forbidden project surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          AS='capsule-out/candidate2-as-capsule-r3'
+          AP='capsule-out/candidate2-ap-supplement-r3'
+          test -f "$AS/INTAKE-A-S.md"
+          test -f "$AS/MANIFEST-A-S.json"
+          test -f "$AP/INTAKE-A-P.md"
+          test -f "$AP/MANIFEST-A-P.json"
+          test ! -e "$AS/.github"
+          test ! -e "$AS/research"
+          test ! -e "$AS/releases/current"
+          test ! -e "$AS/releases/v0.3.6"
+          test ! -e "$AP/.github"
+          test ! -e "$AP/research"
+          test ! -e "$AP/releases/current"
+          test ! -e "$AP/releases/v0.3.6"
+          test ! -e "$AS/releases/v0.3.7-candidate/README.md"
+          test ! -e "$AS/releases/v0.3.7-candidate/00-READ-ME-FIRST.md"
+          test ! -e "$AS/releases/v0.3.7-candidate/07-ADOPTION-AND-FIELD-VALIDATION.md"
+          test ! -e "$AS/releases/v0.3.7-candidate/08-RELEASE-DISCIPLINE.md"
+          test ! -e "$AS/releases/v0.3.7-candidate/CANDIDATE-BASELINE.yaml"
+          test -e "$AP/releases/v0.3.7-candidate/CANDIDATE-BASELINE.yaml"
+
+      - name: Audit A-S priming surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          AS='capsule-out/candidate2-as-capsule-r3'
+          if grep -RInE 'candidate[ ._-]*1|NEEDS_REVISION|Phase[ -]*B|pre[- ]?freeze|author[- ]side|prior[- ]falsifier|PR #[0-9]+|false claim|false block|false OK|fixes P[0-9]+|REVALIDATION_BY|INDEPENDENT_IMPLEMENTATION_VALIDATION|workflow_run_id|330[0-9]{7,}|repair reconciliation|regression-results' "$AS/releases/v0.3.7-candidate"; then
+            echo 'forbidden priming signal survived in A-S capsule'
+            exit 1
+          fi
+
+      - name: Audit Python AST projection equivalence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import ast, pathlib, subprocess, tarfile, tempfile
+          frozen='bda470e0a6b170cec61225a905957a501454a2fe'
+          root=pathlib.Path('releases/v0.3.7-candidate')
+          projected=pathlib.Path('capsule-out/candidate2-as-capsule-r3')/root
+          excluded=set()
+          import importlib.util
+          spec=importlib.util.spec_from_file_location('builder','.github/scripts/build_v037_candidate2_independent_review_capsules_r3.py')
+          mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+          excluded=set(mod.WHOLE_AS_EXCLUSIONS)
+          with tempfile.TemporaryDirectory() as td:
+              td=pathlib.Path(td)
+              archive=td/'candidate.tar'
+              archive.write_bytes(subprocess.check_output(['git','archive',frozen,root.as_posix()]))
+              with tarfile.open(archive) as tf: tf.extractall(td)
+              original=td/root
+              for p in sorted(projected.rglob('*.py')):
+                  rel=p.relative_to(projected)
+                  if rel.as_posix() in excluded: continue
+                  src=(original/rel).read_text(encoding='utf-8')
+                  if rel.as_posix()=='tools/validate_evolution_record_v2.py':
+                      src=''.join(src.splitlines(keepends=True)[:342])
+                  expected=mod.remove_docstrings(ast.parse(src))
+                  observed=ast.parse(p.read_text(encoding='utf-8'))
+                  if ast.dump(expected, include_attributes=False)!=ast.dump(observed, include_attributes=False):
+                      raise SystemExit(f'AST projection mismatch: {rel}')
+          print('PYTHON_AST_PROJECTION_EQUIVALENCE=PASS')
+          PY
+
+      - name: Audit A-P exact frozen candidate package
+        shell: bash
+        run: |
+          set -euo pipefail
+          AP='capsule-out/candidate2-ap-supplement-r3/releases/v0.3.7-candidate'
+          tmp=$(mktemp -d)
+          git archive bda470e0a6b170cec61225a905957a501454a2fe releases/v0.3.7-candidate | tar -x -C "$tmp"
+          diff -qr "$tmp/releases/v0.3.7-candidate" "$AP"
+
+      - name: Rebuild deterministically and compare hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp capsule-out/CAPSULE-HASHES.json /tmp/first-hashes.json
+          rm -rf capsule-out
+          python3 .github/scripts/build_v037_candidate2_independent_review_capsules_r3.py
+          diff -u /tmp/first-hashes.json capsule-out/CAPSULE-HASHES.json
+          cat capsule-out/CAPSULE-HASHES.json
+
+      - name: Upload isolated review capsules
+        uses: actions/upload-artifact@v4
+        with:
+          name: v037-candidate2-independent-review-capsules-r3
+          path: |
+            capsule-out/candidate2-as-capsule-r3.zip
+            capsule-out/candidate2-ap-supplement-r3.zip
+            capsule-out/CAPSULE-HASHES.json
+          if-no-files-found: error
+          retention-days: 30
