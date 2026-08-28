@@ -26,10 +26,13 @@ jobs:
           grep -q 'A_S_PRIMING_DETECTOR=HISTORY_SPECIFIC' /tmp/build1.log
           grep -q 'SEMANTIC_FAILURE_VOCABULARY_NE_AUTHOR_ATTACK_MAP' /tmp/build1.log
           grep -q 'CANDIDATE2_REVIEW_CAPSULE_R3_BUILD=PASS' /tmp/build1.log
+          grep -q 'MANIFEST_SELF_HASH_POLICY=EXCLUDED_BY_DEFINITION' /tmp/build1.log
+          grep -q 'PAYLOAD_INVENTORY_HASH_VERIFICATION=PASS' /tmp/build1.log
+          grep -q 'CANDIDATE2_REVIEW_CAPSULE_R3_FINALIZATION=PASS' /tmp/build1.log
           grep -q 'attack_cardinality=OPEN' /tmp/build1.log
           cp capsule-out/CAPSULE-HASHES.json /tmp/hashes-first.json
 
-      - name: Audit A-S physical isolation
+      - name: Audit A-S physical isolation and manifest inventory
         run: |
           set -euo pipefail
           rm -rf /tmp/as-unpack
@@ -43,10 +46,11 @@ jobs:
           test ! -e /tmp/as-unpack/collaboration
           test ! -e /tmp/as-unpack/releases/current
           python - <<'PY'
-          import json
+          import hashlib, json
           from pathlib import Path
           root = Path('/tmp/as-unpack')
-          manifest = json.loads((root/'MANIFEST-A-S.json').read_text())
+          manifest_name='MANIFEST-A-S.json'
+          manifest = json.loads((root/manifest_name).read_text())
           c = root/'releases/v0.3.7-candidate'
           for rel in manifest['whole_file_exclusions_from_a_s']:
               if (c/rel).exists():
@@ -54,10 +58,16 @@ jobs:
           assert manifest['status'] == 'PHYSICALLY_ISOLATED_A_S_CAPSULE_R3'
           assert manifest['frozen_target']['source_commit'] == 'bda470e0a6b170cec61225a905957a501454a2fe'
           assert manifest['frozen_target']['candidate_subtree'] == 'd5fefc8c786d7e40b3e9a59211ee7045bccee5bf'
+          assert manifest['inventory_policy']['manifest_self_hash'] == 'EXCLUDED_BY_DEFINITION'
+          assert all(row['path'] != manifest_name for row in manifest['files'])
+          for row in manifest['files']:
+              observed=hashlib.sha256((root/row['path']).read_bytes()).hexdigest()
+              assert observed == row['sha256'], row['path']
           print('A_S_PHYSICAL_ISOLATION=PASS')
+          print('A_S_PAYLOAD_INVENTORY=PASS')
           PY
 
-      - name: Audit A-P exact frozen candidate package
+      - name: Audit A-P exact frozen candidate package and manifest inventory
         run: |
           set -euo pipefail
           rm -rf /tmp/ap-unpack /tmp/frozen
@@ -71,12 +81,20 @@ jobs:
           test ! -e /tmp/ap-unpack/research
           test ! -e /tmp/ap-unpack/collaboration
           python - <<'PY'
-          import json
+          import hashlib, json
           from pathlib import Path
-          m=json.loads(Path('/tmp/ap-unpack/MANIFEST-A-P.json').read_text())
+          root=Path('/tmp/ap-unpack')
+          manifest_name='MANIFEST-A-P.json'
+          m=json.loads((root/manifest_name).read_text())
           assert m['frozen_target']['source_commit'] == 'bda470e0a6b170cec61225a905957a501454a2fe'
           assert m['frozen_target']['candidate_subtree'] == 'd5fefc8c786d7e40b3e9a59211ee7045bccee5bf'
+          assert m['inventory_policy']['manifest_self_hash'] == 'EXCLUDED_BY_DEFINITION'
+          assert all(row['path'] != manifest_name for row in m['files'])
+          for row in m['files']:
+              observed=hashlib.sha256((root/row['path']).read_bytes()).hexdigest()
+              assert observed == row['sha256'], row['path']
           print('A_P_EXACT_FROZEN_PACKAGE=PASS')
+          print('A_P_PAYLOAD_INVENTORY=PASS')
           PY
 
       - name: Rebuild and prove deterministic ZIP hashes
