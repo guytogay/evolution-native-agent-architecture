@@ -1,0 +1,52 @@
+name: ENA v0.3.7 Candidate.2 r2 Runtime Blob Align
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - .github/candidate2-r2-runtime-blob-align.trigger
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: validation/v037-c2-blind-semantic-primary-r2
+          fetch-depth: 0
+
+      - name: Bind current r2 head
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "7a5a20cc171aa66b5b0003c4a718146f47928332"
+
+      - name: Align runtime projection blob in manifest
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml')
+          text=p.read_text(encoding='utf-8')
+          old='projection_blob: bbec859907c6a600c37c45f679968d582f91e26f'
+          new='projection_blob: ba94cf252cc259b8ba837ae555ec431dadac4d25'
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one old runtime projection blob, got {text.count(old)}')
+          p.write_text(text.replace(old,new,1), encoding='utf-8')
+          PY
+
+      - name: Enforce manifest-only mutation
+        run: |
+          set -euo pipefail
+          test "$(git diff --name-only)" = "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml"
+
+      - name: Commit aligned manifest
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+          git commit -m 'validation: align candidate.2 r2 runtime projection blob'
+          git push origin HEAD:validation/v037-c2-blind-semantic-primary-r2
