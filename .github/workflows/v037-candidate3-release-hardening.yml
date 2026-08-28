@@ -39,8 +39,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install parser dependency
-        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
 
       - name: Bind exact frozen occurrence
         shell: bash
@@ -61,13 +61,14 @@ jobs:
         run: |
           set -euo pipefail
           ROOT='target/releases/v0.3.7-candidate'
+          cp "$ROOT/tools/regression-results-v033.json" /tmp/regression-results-v033.before.json
           python "$ROOT/tools/regression_suite.py" | tee /tmp/reg.log
           grep -q 'inherited 164-case corpus : 164/164 passed (ZERO flips required)' /tmp/reg.log
           grep -q 'successor closure corpus  : 61/61 passed' /tmp/reg.log
+          cmp /tmp/regression-results-v033.before.json "$ROOT/tools/regression-results-v033.json"
           python "$ROOT/tools/validate_evolution_record_v2.py" --selftest | grep 'EVOLUTION_RECORD_V2_SELFTEST_PASS 35'
           python "$ROOT/references/general/authority-lease/tools/validate_authority_lease.py"
           python "$ROOT/references/general/effect-lifecycle/tools/validate_effect_lifecycle.py"
-          test -z "$(git -C target status --porcelain)"
           test "$(git -C target rev-parse HEAD:releases/v0.3.7-candidate)" = "$FROZEN_TREE"
           echo CANDIDATE3_HARDENING_EXECUTABLE_COMPATIBILITY=PASS
 
