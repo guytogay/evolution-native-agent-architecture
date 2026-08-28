@@ -49,6 +49,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Make the new Current pointer visible to git diff without staging content.
+          git add -N releases/current/CURRENT-BASELINE.yaml
           git diff --name-only | sort > /tmp/changed.txt
           cat > /tmp/allowed.txt <<'EOF'
           releases/current/00-READ-ME-FIRST.md
@@ -76,7 +78,16 @@ jobs:
           releases/current/schemas/evolution-record.v2.schema.json
           EOF
           sed -i 's/^          //' /tmp/allowed.txt
-          diff -u /tmp/allowed.txt /tmp/changed.txt
+          unexpected="$(comm -23 /tmp/changed.txt /tmp/allowed.txt)"
+          if [ -n "$unexpected" ]; then
+            echo 'Unexpected mutation outside stage-1 whitelist:'
+            echo "$unexpected"
+            exit 1
+          fi
+          grep -qx 'releases/current/CANDIDATE-BASELINE.yaml' /tmp/changed.txt
+          grep -qx 'releases/current/CURRENT-BASELINE.yaml' /tmp/changed.txt
+          echo 'Observed stage-1 changes:'
+          cat /tmp/changed.txt
           echo V037_STAGE1_MUTATION_WHITELIST=PASS
 
       - name: Validate new Current pointer and preserved evidence boundaries
