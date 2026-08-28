@@ -1,6 +1,6 @@
 # ENA Research
 
-Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / V0_3_7_RELEASE_PACKAGING`
+Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / V0_3_7_PREPROMOTION_RELEASE_READINESS`
 
 This directory is the stable research/project-management entrypoint. Do not infer active work from branch recency, old PRs, candidate numbering, or chat history.
 
@@ -19,7 +19,10 @@ This directory is the stable research/project-management entrypoint. Do not infe
 
 Current adoption remains:
 
-`v0.3.6 / CURRENT / FIELD_VALIDATION`
+```text
+v0.3.6 / CURRENT / FIELD_VALIDATION
+Current tree = 7dcbb3934883ffa6cc5292a662588cafc1533cff
+```
 
 Frozen final candidate:
 
@@ -31,28 +34,54 @@ exact pre-freeze run      = 33150269264 PASS
 targeted post-freeze run  = 33150553992 PASS
 release hardening run     = 33152201566 PASS
 candidate succession      = STOP
-release preparation       = SUPPORTED
+candidate.4               = not justified by current evidence
 ```
 
-Release packaging has begun:
+Release packaging and exact-head validation are complete on the prospective release surface:
 
 ```text
-main checkpoint            = 280a8b0f7629d5deb013a5257cb74759213e8080
-release branch             = release/v0.3.7
-byte-exact transplant head = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-transplanted tree          = e3a9a20d16cecd78df7f32f19fca56e21159e810
-identity/status transform  = pending
+release branch                  = release/v0.3.7
+release PR                      = #144 / OPEN DRAFT / NOT PROMOTED
+byte-exact transplant head      = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+prospective Current tree        = f33e73ed997c1b66a4572685ab5474182e136e97
+exact validated release head    = bcda18a28141f572688f9a1b15cfd820dea02f97
+prospective Current file count  = 118
+package SHA-256                 = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+Exact Release Gate              = 33161514271 PASS
+Current validate/package        = 33161516641 PASS
+Main Gate                       = 33161516581 PASS
+Selection Qualification         = 33161516591 PASS
+research helper                 = 33161516586 PASS
+CodeQL                          = 33161516568 PASS
 ```
 
-The transplant deliberately retains candidate identity bytes. It is not Current and is not yet a release verdict.
+The prospective release payload is not Current yet. Passing gates establish bounded release readiness; they do not mint promotion authority.
+
+## Control-plane corrections made during release preparation
+
+Selection Qualification exposed a stale research oracle that treated an uninstantiated evolution-record template as a valid instantiated record. The control was repaired in PR #145 and merged to `main` without changing candidate or release payload bytes. The repair was then synchronized into the release branch through PR #146.
+
+The v0.3.7 Exact Release Gate was also hardened so **every push** to `release/v0.3.7` reruns the exact gate; a later release-head change can no longer silently rely on an older green run.
 
 ## Immediate next action
 
-After the current alignment checkpoint reaches `main`:
+After this pre-promotion alignment checkpoint reaches `main`:
 
-`RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7`
+```text
+sync aligned main into release/v0.3.7
+-> rerun exact release and ordinary PR checks on the resulting exact head
+-> verify prospective Current tree and deterministic package digest remain stable
+-> present the exact reviewed head and open evidence boundaries
+-> obtain explicit promotion authorization
+```
 
-Then run exact-head release gates, Main Gate, CodeQL/regressions, package parity/readback, and explicit release authorization before merge.
+Only after explicit authorization may PR #144 merge. Post-merge work then reverifies Current from `main`, updates status/history/field-validation routing, and runs the Project State Alignment Gate again.
+
+## Open issues and branch hygiene
+
+Open reconstruction/workstream issues `#89`–`#94` and `#104` remain research obligations while their scopes remain unfinished. They are not release blockers merely because they are open. Issue `#70` is tied to the v0.3.6 field-validation stream and should be superseded or reframed after v0.3.7 promotion.
+
+Branch lifecycle is separate. Short-lived merged/noise/predecessor/validation refs should be removed after durable lineage is confirmed, while `research/ena-reconstruction`, `release/v0.3.7`, and frozen candidate.3 still have live pre-promotion roles. See `BRANCH-INVENTORY.yaml`. The current connector lacks a true delete-ref operation, so branch cleanup is classified durably rather than simulated by ref movement.
 
 ## Method boundaries
 
