@@ -14,6 +14,8 @@ For adoption, always start from repository `main` and read:
 
 Never infer Current from the highest-looking version, candidate/release branch, branch recency, handoff record, or research state.
 
+The active adopter-facing model is **Current + declared maturity/status**.
+
 Current remains:
 
 ```text
