@@ -7,7 +7,7 @@ from pathlib import Path
 FROZEN = "bda470e0a6b170cec61225a905957a501454a2fe"
 FROZEN_CANDIDATE_TREE = "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
 FROZEN_CURRENT_TREE = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
-VIEW = "cdcd8f0dd450ebff12b600078c22fce31bf6cb2a"
+VIEW = "9876be2e683d07a3b5bb4421618d3b2cb04dbda4"
 ROOT = "releases/v0.3.7-candidate"
 
 EXCLUDED = {
@@ -126,6 +126,7 @@ def main() -> None:
     assert "NATURAL_NAVIGATION_SAFE" in manifest
     assert 'source_range: "7-EOF"' in manifest
     assert 'source_range: "1-342"' in manifest
+    assert "ba94cf252cc259b8ba837ae555ec431dadac4d25" in manifest
     assert "validation/v037-c2-blind-semantic-primary-r2" in entry
     assert "inspect **only**" in entry
     assert "do **not** open the exact frozen source commit directly before A-S seal" in entry
