@@ -1,164 +1,89 @@
 # ENA Research
 
-Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / V0_3_7_CANDIDATE0_FROZEN`
+Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / V0_3_7_RELEASE_PACKAGING`
 
-This directory is the stable starting point for anyone asked to continue, inherit, review, or improve ENA research.
-
-Do not discover active work by browsing branch names, old pull requests, candidate recency, or chat history.
+This directory is the stable research/project-management entrypoint. Do not infer active work from branch recency, old PRs, candidate numbering, or chat history.
 
 ## Start here
 
-1. `../releases/current/CURRENT-BASELINE.yaml` — verify singular Current.
-2. `handoffs/CURRENT-HANDOFF.yaml` — current handoff record pointer + takeover contract.
-3. `handoffs/HANDOFF-PROTOCOL.md` — canonical outgoing/incoming succession rules.
-4. `handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — mandatory takeover context.
-5. `handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md` — cross-session project-management rules.
-6. Read the current record under `handoffs/records/` named by the pointer.
-7. `methodology/README.md` — canonical ENA research-method index.
-8. `ACTIVE-RESEARCH.yaml` — active research integration pointer.
-9. `methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — compression/growth/anti-ablation discipline.
-10. `methodology/PROJECT-STATE-ALIGNMENT-GATE.md` — material-transition alignment.
-11. `plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` and `plans/PROGRESS.yaml`.
-12. Retrieve Operational Architecture, release-scope, prototypes, evidence, reconstruction, or external HOWs only when the current action requires them.
+1. verify Current at `../releases/current/CURRENT-BASELINE.yaml` on `main`;
+2. read `handoffs/CURRENT-HANDOFF.yaml` plus the canonical handoff framework;
+3. read the current handoff record named by that pointer;
+4. read required methodology under `methodology/`;
+5. read `ACTIVE-RESEARCH.yaml`;
+6. run the Project State Alignment Gate if live/current surfaces disagree;
+7. read `plans/PROGRESS.yaml` and the master plan;
+8. retrieve deeper candidate/reconciliation/release evidence only when the current action requires it.
 
-```text
-main
-|
-+--> Current adoption
-|     -> releases/current/
-|
-+--> handoff framework
-|     -> research/handoffs/
-|          +--> CURRENT-HANDOFF.yaml
-|          +--> HANDOFF-PROTOCOL.md
-|          +--> REQUIRED-TAKEOVER-CONTEXT.yaml
-|          +--> PROJECT-MANAGEMENT-DISCIPLINE.md
-|          +--> records/<handoff-id>/
-|
-+--> ENA research methodology
-|     -> research/methodology/
-|
-+--> active research control
-      -> research/ACTIVE-RESEARCH.yaml
-           -> research/ena-reconstruction
-
-candidate/v0.3.7-candidate.0
--> release-lifecycle/review surface
--> branch head != frozen identity
-```
-
-## Succession distinction
-
-```text
-HANDOFF_FRAMEWORK != HANDOFF_RECORD
-HANDOFF_RECORD != PROJECT_METHODOLOGY
-PROJECT_STATE_INHERITANCE_WITHOUT_METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
-```
-
-The handoff framework governs how responsibility is transferred and received.
-
-A handoff record is one time-bounded succession occurrence.
-
-`research/methodology/` governs how ENA research itself is performed.
-
-All are relevant to takeover, but they are not the same authority layer.
-
-## Current phase
+## Current phase — 2026-08-28
 
 Current adoption remains:
 
 `v0.3.6 / CURRENT / FIELD_VALIDATION`
 
-Next release line: `v0.3.7`.
-
-Frozen candidate.0:
+Frozen final candidate:
 
 ```text
-candidate = v0.3.7-candidate.0
-source = d0e793593184740d9732902e948afd48ed96ae2f
-candidate subtree = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+v0.3.7-candidate.3
+source  = b7e88d7adb70396bd671ca97066daf2c120e0adc
+subtree = e3a9a20d16cecd78df7f32f19fca56e21159e810
+exact pre-freeze run      = 33150269264 PASS
+targeted post-freeze run  = 33150553992 PASS
+release hardening run     = 33152201566 PASS
+candidate succession      = STOP
+release preparation       = SUPPORTED
 ```
 
-The `1080 -> 188` anti-ablation audit is complete with `PASS_WITH_TREE_EXTERNAL_COVERAGE_REPAIR`; candidate bytes did not change.
-
-Fresh independent semantic falsification is pending.
-
-Current phase:
-
-`FRESH_INDEPENDENT_FALSIFICATION_PHASE_A`
-
-Review surface:
-
-`PR #115 / DO NOT MERGE`
-
-A fresh validator must inspect exact frozen bytes and derive attacks before consulting author-side expected outcomes/oracles.
-
-## Research methodology
-
-Canonical ENA research methodology lives under `research/methodology/`.
-
-Important disciplines include:
-
-- explanatory coverage is not operational solution;
-- WHAT/WHY may be compressed into a semantic trunk;
-- concrete HOW branches remain plural when behavior differs or equivalence is unproven;
-- failure/adversarial space grows while distinct failure shapes remain plausible;
-- `COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE`;
-- recover variation before selecting among it;
-- working taxonomies/counts are not ontology;
-- experiments must pay epistemic rent;
-- evidence is branch/Host/applicability scoped;
-- NO_CHANGE, dormancy, simplification and evidence-backed retirement are valid outcomes;
-- a concrete HOW says both how to use it and when it does not apply;
-- after material transitions, align routing/plan/progress/handoff/live Git state before continuing.
-
-## Operational Architecture
-
-`research/operational-architecture/` provides:
+Release packaging has begun:
 
 ```text
-problem/cue
--> CUE-INDEX
--> WHAT/WHY node
--> plural HOW branches
--> reference / procedure / Host pattern
--> action or honest residual
+main checkpoint            = 280a8b0f7629d5deb013a5257cb74759213e8080
+release branch             = release/v0.3.7
+byte-exact transplant head = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+transplanted tree          = e3a9a20d16cecd78df7f32f19fca56e21159e810
+identity/status transform  = pending
 ```
 
-A release-local form is bundled in frozen v0.3.7 candidate.0.
+The transplant deliberately retains candidate identity bytes. It is not Current and is not yet a release verdict.
 
-## Release scope
+## Immediate next action
 
-`research/release-scope/` records candidate cargo selection and deferred branches.
+After the current alignment checkpoint reaches `main`:
+
+`RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7`
+
+Then run exact-head release gates, Main Gate, CodeQL/regressions, package parity/readback, and explicit release authorization before merge.
+
+## Method boundaries
 
 ```text
-NO_NEW_CORE_RULES != NO_RELEASE_VALUE
-LARGE_RESEARCH_TREE != SHIP_EVERYTHING
-BUNDLED_REFERENCE != REQUIRED_RUNTIME_ORGAN
-DEFERRED != RETIRED
+WHAT / WHY -> may compress
+HOW -> concretize / branch / recombine
+FAILURE SPACE -> remain open while materially distinct shapes remain plausible
+PROVEN REPRESENTATION DUPLICATION -> may compress
 ```
-
-## Handoff semantics
-
-Reusable succession rules live at `research/handoffs/` root.
-
-Time-bounded occurrences live under `research/handoffs/records/`.
-
-Only `CURRENT-HANDOFF.yaml` identifies the intended current record.
 
 ```text
-HANDOFF_RECORD != PROJECT_AUTHORITY
-HISTORICAL_HANDOFF_PRESERVED != HISTORICAL_HANDOFF_ACTIVE
+COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
+PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
 ```
 
-## Branch/PR semantics
+Fresh independent validation remains a different epistemic role from project-manager succession. A fresh A-S reviewer receives a physically isolated, priming-reduced review surface rather than this project-manager context.
 
-```text
-BRANCH_EXISTS != BRANCH_ACTIVE
-OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
-CANDIDATE_BRANCH_HEAD != FROZEN_CANDIDATE_IDENTITY
-RESEARCH_ARTIFACT_EXISTS != CURRENT
-MAIN_FILE_EXISTS != ENA_CONSTITUTION
-```
+## Reusable clean-room infrastructure
 
-> **One active research integration surface; one current handoff pointer; many concrete HOW/failure branches may remain open inside the research tree.**
+`guytogay/independent-validation-cleanroom` is reusable validation infrastructure across ENA stages and across different projects. Its contents are stage-scoped ephemeral review state; durable occurrence truth returns to each source project.
+
+## Research architecture
+
+- canonical methodology: `methodology/`;
+- active integration branch: discovered from `ACTIVE-RESEARCH.yaml`;
+- Operational Architecture: `operational-architecture/`;
+- release scope: `release-scope/`;
+- external HOW registry: `external-how/`;
+- experiments/prototypes: `experiments/`, `prototypes/`;
+- plans/progress: `plans/`;
+- handoff framework: `handoffs/`;
+- reconciliation/freeze/validation: `../collaboration/reconciliation/`.
+
+> One active research integration surface, one singular Current, and open-cardinality concrete HOW/failure space.

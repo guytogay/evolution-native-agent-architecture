@@ -2,192 +2,108 @@
 
 Status: `PROJECT_INFORMATION_ARCHITECTURE / CURRENT`
 
-ENA uses one persistent project with multiple semantic areas. Participants do not receive separate ENA projects by Agent identity.
+ENA is one persistent project with distinct authority and evidence surfaces. Agent/session identity does not define project identity.
 
-## GitHub semantic areas
+## Semantic areas
 
-| Area | Path | Role |
+| Area | Path / surface | Role |
 |---|---|---|
-| Project Hub / machine metadata | `PROJECT-HUB.md`, `PROJECT-METADATA.yaml` | stable discovery and project state |
-| Current adoption baseline | `releases/current/` | **single complete adopter-facing Current target** |
-| Research control entry | `research/README.md`, `research/ACTIVE-RESEARCH.yaml` | discover active research without branch/PR guessing |
-| Handoff framework | `research/handoffs/` root files | canonical outgoing/incoming session succession rules, takeover contract, management discipline |
-| Handoff records | `research/handoffs/records/<handoff-id>/` | time-bounded project/session handoff occurrences and lineage |
-| Research methodology | `research/methodology/` | canonical method for researching ENA itself |
-| Convergence/divergence method | `research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md` | distinguish valid representation compression from variation ablation |
-| Project-state alignment | `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` | realign live state, routing, method, plan, progress, candidate/release state after material transitions |
-| Branch governance | `research/BRANCH-GOVERNANCE.md`, `research/BRANCH-INVENTORY.yaml` | branch roles, lifecycle, active-pointer discipline, cleanup |
-| Long-horizon research plan | `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md` | stable reconstruction-to-release plan |
-| Fast-moving progress | `research/plans/PROGRESS.yaml` | aligned current execution projection |
-| Active research execution | branch named by `research/ACTIVE-RESEARCH.yaml` | fast-moving reconstruction/prototypes/evidence/progress |
-| Operational Architecture | `research/operational-architecture/` | problem/cue -> plural HOW -> implementation/evidence navigation |
-| Release-scope research | `research/release-scope/` | candidate cargo selection, optionality, tooling/language/scope evidence |
-| Evolution Inbox | `research/evolution-inbox/` | open unpromoted research/candidate state |
-| Experiments | `research/experiments/` | experiment plans/results |
-| Prototypes | `research/prototypes/` | non-current machine/design prototypes |
-| Evidence | `evidence/` | observations/reference evidence |
-| Contributions | `collaboration/inbox/` | unreconciled participant contributions |
-| Reconciliation / freeze / validation | `collaboration/reconciliation/` | candidate freeze, author/independent validation, contribution reconciliation |
-| Decisions | `decisions/` | durable architecture/process decisions |
+| Project control | `main`, `PROJECT-HUB.md`, `PROJECT-METADATA.yaml` | stable routing and Current authority pointers |
+| Current adoption | `releases/current/` on `main` | single complete adopter-facing Current baseline |
+| Active research | branch named by `research/ACTIVE-RESEARCH.yaml` | integrated fast-moving research/project-management work |
+| Handoff framework | `research/handoffs/` root | reusable outgoing/incoming succession rules |
+| Handoff records | `research/handoffs/records/<handoff-id>/` | time-bounded succession occurrence truth |
+| Research methodology | `research/methodology/` | how ENA research is performed |
+| Plans/progress | `research/plans/` | long-horizon route + fast-moving execution projection |
+| Release branch | `release/<version>` | bounded packaging/promotion surface only |
+| Candidate branches | `candidate/<version>-candidate.<generation>` | governed candidate lineage; frozen identity is exact source/tree, not branch recency |
+| Validation surfaces | `validation/*` or isolated carrier | bounded review occurrence truth; never Current authority |
+| Reconciliation/evidence | `collaboration/reconciliation/`, `evidence/` | durable decisions, freezes, validation and occurrence records |
 
-## Succession hierarchy
-
-The handoff system has three distinct layers:
+## Succession layers
 
 ```text
-HANDOFF FRAMEWORK
-research/handoffs/
-  README.md
-  CURRENT-HANDOFF.yaml
-  HANDOFF-PROTOCOL.md
-  REQUIRED-TAKEOVER-CONTEXT.yaml
-  PROJECT-MANAGEMENT-DISCIPLINE.md
-
-HANDOFF RECORDS
-research/handoffs/records/<handoff-id>/
-  instance-specific state / recent decisions / file map / readback
-
-PROJECT METHODOLOGY
-research/methodology/
-  ENA research methods
+HANDOFF FRAMEWORK = reusable succession method
+HANDOFF RECORD = one succession occurrence
+PROJECT METHODOLOGY = how ENA research is conducted
 ```
 
-```text
-HANDOFF_FRAMEWORK != HANDOFF_RECORD
-HANDOFF_RECORD != PROJECT_METHODOLOGY
-```
+All are relevant to project-manager takeover, but a handoff record is not project authority.
 
-The framework and project methodology are both mandatory takeover context.
+## Current live topology — 2026-08-28
 
-Reusable method discovered during one record is promoted out of the record. Historical occurrence evidence remains in records/Git history.
-
-## Current live topology
-
-At the current transition:
+Coordination surfaces:
 
 ```text
 main
 research/ena-reconstruction
-candidate/v0.3.7-candidate.0
+release/v0.3.7
 ```
 
-`main` is the permanent project control plane.
+Frozen/review lineage refs also remain live, including candidate.0 through candidate.3 and historical validation branches. Their existence does not create parallel continuation authority.
 
-`research/ena-reconstruction` is the active research integration branch named by the main-visible pointer.
+Current remains `v0.3.6 / CURRENT / FIELD_VALIDATION` on `main`.
 
-`candidate/v0.3.7-candidate.0` is a release-lifecycle surface; its branch head is **not** frozen candidate identity.
-
-Frozen candidate.0 identity:
+Frozen final candidate:
 
 ```text
-source commit = d0e793593184740d9732902e948afd48ed96ae2f
-candidate subtree = cffbf76fe1448b020b637c78d1f7ae46e4c0115b
+v0.3.7-candidate.3
+source  = b7e88d7adb70396bd671ca97066daf2c120e0adc
+subtree = e3a9a20d16cecd78df7f32f19fca56e21159e810
 ```
 
-The anti-ablation audit is complete with tree-external coverage repair. PR #115 is the draft `DO NOT MERGE` fresh independent falsification surface. Fresh Phase A is next.
-
-## Control plane vs active work vs handoff
-
-`main` carries the stable control plane:
+Release preparation state:
 
 ```text
-Current adoption pointer
-+ project hub/metadata
-+ current handoff pointer
-+ handoff/takeover framework
-+ active research pointer
-+ research methodology
-+ project-state alignment method
-+ branch governance
-+ long-horizon plan
+main checkpoint = 280a8b0f7629d5deb013a5257cb74759213e8080
+release branch  = release/v0.3.7
+transplant head = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+releases/current tree at transplant = e3a9a20d16cecd78df7f32f19fca56e21159e810
+identity/status projection = pending
 ```
 
-The active research branch carries fast-moving work.
+The release branch is not an adoption authority until exact-head checks, explicit authorization, merge, and post-merge readback complete.
 
-The current handoff **record** is a bootstrap projection, not authority.
+## Control plane vs work surfaces
 
-```text
-HANDOFF_RECORD != PROJECT_AUTHORITY
-```
-
-The handoff **framework** is canonical project process for succession.
-
-An open PR is a transient review/integration artifact and is not continuation authority.
+`main` carries stable authority/routing. `research/ena-reconstruction` is the sole research continuation surface named by the canonical pointer. `release/v0.3.7` is a bounded release packaging workspace.
 
 ```text
 BRANCH_EXISTS != BRANCH_ACTIVE
-OPEN_PR != ACTIVE_BRANCH_AUTHORITY
-TEMPORARY_BRANCH != RESEARCH_AUTHORITY
-CANDIDATE_BRANCH_HEAD != FROZEN_CANDIDATE_IDENTITY
+OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
+RELEASE_BRANCH != CURRENT
+CANDIDATE_BRANCH_HEAD != FROZEN_IDENTITY
+VALIDATION_BRANCH != RELEASE_AUTHORITY
 ```
+
+## Independent validation carrier
+
+The reusable repository `guytogay/independent-validation-cleanroom` is infrastructure rather than ENA project history.
+
+Its repository identity can be reused across stages and projects; its contents are disposable stage-scoped review state. Durable findings and seals return to the relevant source project.
 
 ## Normal continuation route
 
 ```text
 PROJECT-HUB.md
--> releases/current/CURRENT-BASELINE.yaml
--> research/handoffs/CURRENT-HANDOFF.yaml
--> research/handoffs/HANDOFF-PROTOCOL.md
--> research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
--> research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
--> current handoff record
--> required project methodology under research/methodology/
--> research/ACTIVE-RESEARCH.yaml
--> research/plans/PROGRESS.yaml
--> exact next action
+-> Current baseline
+-> current handoff pointer/framework/record
+-> required methodology
+-> ACTIVE-RESEARCH.yaml
+-> PROGRESS.yaml + master plan
+-> live ref/exact identity verification
+-> first permitted unfinished action
 ```
 
-There is one current handoff pointer at a time and many historical records.
+## Alignment rule
 
-```text
-LATEST_HANDOFF_POINTER = ONE
-HISTORICAL_HANDOFF_RECORDS = MANY
-```
-
-## Alignment after material transition
-
-A material branch/control-plane handoff, session replacement, canonical-path move, methodology change, plan change, candidate/freeze/release-state change, or major checkpoint can leave project surfaces describing different generations.
-
-Before substantive work resumes, use:
-
-`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+After a material branch, candidate, release, methodology, plan, or handoff transition:
 
 ```text
 INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
 MATERIAL_TRANSITION -> ALIGN -> RESUME
 ```
 
-The gate is transition-triggered rather than mandatory after every ordinary content commit.
+History may remain available through Git/PR/reconciliation records without continuing to masquerade as current routing.
 
-## History preservation
-
-GitHub does not need to preserve every historical branch name or handoff directory at its original live path forever in order to preserve history.
-
-Superseded releases/candidates/research branches/handoffs remain recoverable through commits/trees, PRs, freeze/reconciliation records, evidence artifacts, and historical handoff records.
-
-```text
-MOVE_RECORD != ERASE_HISTORY
-DELETE_BRANCH != DELETE_HISTORY
-HISTORICAL_HANDOFF_PRESERVED != HISTORICAL_HANDOFF_ACTIVE
-```
-
-## Core information rules
-
-- project-first, not Agent-first;
-- project continuity must survive session replacement;
-- one Current adoption baseline;
-- one canonical current handoff pointer;
-- one canonical active research integration pointer;
-- handoff framework, handoff records, and project methodology are distinct layers;
-- project-state inheritance without method inheritance is incomplete takeover;
-- research topics/HOWs remain open-cardinality inside the active research tree;
-- handoff records are maps, not project authority;
-- candidate branch head is not frozen candidate identity;
-- persistence != synchronization;
-- Contribution != Reconciliation != Promotion;
-- compression may reduce representation only after materially distinct behavior/variation is accounted for;
-- material project transitions require state alignment before substantive work resumes.
-
-> Preserve history durably; retrieve history selectively.
-
-> Open knowledge does not mean always-loaded knowledge.
+> Preserve history durably; expose current authority narrowly; let concrete HOW and failure variation remain recoverable without turning repository topology into ontology.

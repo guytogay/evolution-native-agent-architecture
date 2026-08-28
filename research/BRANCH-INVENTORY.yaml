@@ -1,134 +1,126 @@
-schema_version: "1.4"
-observed_at: "2026-08-27"
+schema_version: "1.5"
+observed_at: "2026-08-28"
 status: CURRENT_BRANCH_INVENTORY
 
 canonical_active_pointer: "research/ACTIVE-RESEARCH.yaml"
 inventory_scope: "LIVE_PROJECT_REFS_PLUS_DURABLE_REMOVAL_LINEAGE"
 
-branches:
-  - name: "main"
-    observed_head: "eedb2823f3da99d7446b3d9f3600f5cf66f92b5f"
+coordination_branches:
+  - name: main
     role: PROJECT_CONTROL_PLANE
     lifecycle: PERMANENT
+    observed_checkpoint_before_alignment: 280a8b0f7629d5deb013a5257cb74759213e8080
     active_for_research_continuation: false
-    notes:
-      - "Canonical default branch and Current/project-control entry surface."
 
-  - name: "research/ena-reconstruction"
-    observed_head_mode: LIVE_REVERIFY_BEFORE_WRITE
+  - name: research/ena-reconstruction
     role: ACTIVE_RESEARCH_INTEGRATION
     lifecycle: ACTIVE_INTEGRATION
+    observed_head_mode: LIVE_REVERIFY_BEFORE_WRITE
     active_for_research_continuation: true
-    notes:
-      - "Only branch authorized by ACTIVE-RESEARCH.yaml for ongoing project-manager continuation."
-      - "Head changes during active work and is not embedded as a continuation identity lock."
 
-  - name: "candidate/v0.3.7-candidate.0"
-    observed_head: "828c7b0832d83062511e337a9286dc826a081101"
-    role: FROZEN_PREDECESSOR_LINEAGE_BRANCH
+  - name: release/v0.3.7
+    role: ACTIVE_RELEASE_PACKAGING
+    lifecycle: TEMPORARY_ACTIVE
+    active_for_research_continuation: false
+    created_from_main_checkpoint: 280a8b0f7629d5deb013a5257cb74759213e8080
+    byte_exact_transplant_head: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+    transplanted_current_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+    identity_status_transform_applied: false
+    open_release_pr_observed: false
+
+candidate_lineage_refs:
+  - name: candidate/v0.3.7-candidate.0
+    role: FROZEN_PREDECESSOR_LINEAGE
     lifecycle: HISTORICAL_LIVE_REF
     active_for_research_continuation: false
-    frozen_identity_is_branch_head: false
-    frozen_source: "d0e793593184740d9732902e948afd48ed96ae2f"
-    frozen_subtree: "cffbf76fe1448b020b637c78d1f7ae46e4c0115b"
+    frozen_source: d0e793593184740d9732902e948afd48ed96ae2f
+    frozen_subtree: cffbf76fe1448b020b637c78d1f7ae46e4c0115b
 
-  - name: "candidate/v0.3.7-candidate.1"
-    observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-    role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH
+  - name: candidate/v0.3.7-candidate.1
+    role: FROZEN_NEEDS_REVISION_PREDECESSOR
     lifecycle: FROZEN_LIVE_REF
     active_for_research_continuation: false
-    frozen_identity_is_branch_head: true
-    frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-    frozen_subtree: "c0458e0d7ea417b841cbf4c8bf6e64e4aff37319"
+    frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
+    frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
 
-  - name: "candidate/v0.3.7-candidate.2"
-    observed_head: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-    role: ACTIVE_SUCCESSOR_REPAIR_WORKSPACE_NOT_CURRENT
-    lifecycle: ACTIVE_CANDIDATE_REPAIR
+  - name: candidate/v0.3.7-candidate.2
+    role: FROZEN_NEEDS_REVISION_PREDECESSOR
+    lifecycle: FROZEN_LIVE_REF
     active_for_research_continuation: false
-    created_from_frozen_source: "ae6903464133cb5bcf3cd8909ecae1215fe0b9ba"
-    notes:
-      - "Material corrections belong here; frozen candidate.1 must not be edited in place."
+    frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+    frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
 
-  - name: "validation/v037-c0-blind-phase-a-primary"
-    observed_head: "5ba3d241efa460fe170253860ad67045aa1d96a5"
+  - name: candidate/v0.3.7-candidate.3
+    role: FROZEN_FINAL_RELEASE_SOURCE
+    lifecycle: FROZEN_LIVE_REF
+    active_for_research_continuation: false
+    observed_head: b7e88d7adb70396bd671ca97066daf2c120e0adc
+    frozen_source: b7e88d7adb70396bd671ca97066daf2c120e0adc
+    frozen_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+    candidate_succession_stop: true
+    mutation_forbidden: true
+
+validation_lineage_refs:
+  - name: validation/v037-c0-blind-phase-a-primary
     role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
     lifecycle: SEALED_VALIDATION_LINEAGE
-    active_for_research_continuation: false
-
-  - name: "validation/v037-c1-blind-phase-a-primary"
-    observed_head: "bac074097579ad930b2e90c46c00773f6f20c86d"
+  - name: validation/v037-c1-blind-phase-a-primary
     role: INVALIDATED_SELF_PRIMED_INTAKE_NO_SEAL
     lifecycle: HISTORICAL_INVALID_VALIDATION_INTAKE
-    active_for_research_continuation: false
-    notes:
-      - "Issue #128 is closed; this branch must not be reused as fresh validation authority."
-
-  - name: "validation/v037-c1-blind-semantic-primary"
-    observed_head: "b970148fe9596ea9cad0a2817a3b399a1d2b75f5"
+  - name: validation/v037-c1-blind-semantic-primary
     role: SEALED_CANDIDATE1_A_S_A_P_OCCURRENCE_TRUTH
     lifecycle: SEALED_VALIDATION_LINEAGE
-    active_for_research_continuation: false
-    notes:
-      - "Issue #131 completed A-S seal 2e6b46ae... then A-P b970148f... and stopped before Phase B."
-      - "Validation projection only; never release/promotion authority."
+  - name: validation/v037-c2-blind-semantic-primary
+    role: INVALIDATED_REPOSITORY_UI_INTAKE_HISTORICAL_ONLY
+    lifecycle: HISTORICAL_INVALID_VALIDATION_INTAKE
+  - name: validation/v037-c2-blind-semantic-primary-r2
+    role: CANDIDATE2_R2_VALIDATION_PROJECTION_LINEAGE
+    lifecycle: HISTORICAL_VALIDATION_LINEAGE
+    observed_head: 9876be2e683d07a3b5bb4421618d3b2cb04dbda4
 
-  - name: "tmp/noop-check"
-    observed_head: "0427fe4f34d54b7f17cfb075c6fbc3b35b442fba"
+operator_noise_refs:
+  - name: tmp/noop-check
     role: OPERATOR_NOISE_NON_AUTHORITY
     lifecycle: CLEANUP_PENDING_CAPABILITY
-    active_for_research_continuation: false
-    notes:
-      - "Accidentally created during connector function discovery; contains no unique project content."
-
-  - name: "tmp/noop-check-2"
-    observed_head: "0427fe4f34d54b7f17cfb075c6fbc3b35b442fba"
+  - name: tmp/noop-check-2
     role: OPERATOR_NOISE_NON_AUTHORITY
     lifecycle: CLEANUP_PENDING_CAPABILITY
-    active_for_research_continuation: false
-    notes:
-      - "Accidentally created during connector function discovery; contains no unique project content."
+
+independent_validation_infrastructure:
+  repository: guytogay/independent-validation-cleanroom
+  role: REUSABLE_CROSS_STAGE_CROSS_PROJECT_VALIDATION_INFRASTRUCTURE
+  repository_identity_reusable: true
+  stage_contents_ephemeral: true
+  source_project_occurrence_truth_must_be_persisted_back: true
+  not_ena_project_authority: true
 
 recent_cleanup:
-  completed_at: "2026-08-26"
   removed_branch_names:
-    - "housekeeping/research-control-plane"
-    - "housekeeping/branch-inventory-sync"
-    - "research/dhm-cross-how-harness"
-    - "research/dhm-plural-harness"
-    - "research/distributed-history-merge-build"
-    - "research/distributed-history-merge-rebased"
-    - "candidate/v0.3.6-work"
-    - "candidate/v0.3.6-candidate"
-    - "candidate/v0.3.6-candidate.1"
-    - "release/v0.3.6"
-    - "research/memory-metabolism-prototype"
-  predecessor_research_lineage:
-    branch: "research/memory-metabolism-prototype"
-    ref_state: DELETED_AFTER_CHECKPOINT
-    checkpoint_pr: 82
-    checkpoint_merge: "be776b9f8e7d280e39a5389148722229569a2c49"
-    reconciliation_commit: "3a465479a7bc7205bf595b3078a359dfb0710485"
-    successor_branch: "research/ena-reconstruction"
-    successor_bootstrap_pr: 101
+    - housekeeping/research-control-plane
+    - housekeeping/branch-inventory-sync
+    - research/dhm-cross-how-harness
+    - research/dhm-plural-harness
+    - research/distributed-history-merge-build
+    - research/distributed-history-merge-rebased
+    - candidate/v0.3.6-work
+    - candidate/v0.3.6-candidate
+    - candidate/v0.3.6-candidate.1
+    - release/v0.3.6
+    - research/memory-metabolism-prototype
   lineage_preservation: >-
-    Decision-relevant history remains available through merged/closed PRs, immutable
-    commit/tree references, freeze/reconciliation records, Current release lineage,
-    issues, and Git history. Branch-name deletion did not erase those histories.
+    Decision-relevant history remains reachable through commits, trees, PRs,
+    reconciliation/freeze records, issues, evidence, and Git history. Ref deletion
+    does not erase occurrence truth.
 
 invariants:
-  - "Only the branch named by research/ACTIVE-RESEARCH.yaml is the active research continuation surface."
-  - "Candidate and validation branches may be live without becoming research continuation authority."
-  - "A blind validation projection is not a candidate and cannot become release authority."
-  - "An invalidated validation branch remains occurrence truth without becoming an active intake."
-  - "An open PR on the active branch is a transient integration artifact, not branch authority."
-  - "The active branch head must be reverified live before writes; embedded self-referential head SHAs are not identity locks."
-  - "Temporary branch existence does not create parallel research authority."
-  - "Historical branch deletion does not mean historical lineage deletion."
-  - "New idea does not imply new branch."
-  - "The live branch list contains only refs observed to exist; deleted refs belong only in cleanup/history lineage."
+  - "Only the branch named by research/ACTIVE-RESEARCH.yaml is research continuation authority."
+  - "release/v0.3.7 is packaging workspace, not Current."
+  - "Frozen candidate identity is exact source/tree binding, not branch recency."
+  - "Validation refs remain occurrence truth but never release authority."
+  - "The reusable clean-room repository is infrastructure, not ENA lineage authority."
+  - "Temporary/noise refs do not create project authority."
+  - "Live mutable heads must be reverified before writes."
 
 cleanup_note: >-
-  Two tmp/noop-check refs are known operator noise and are not project authority. The
-  currently available GitHub connector exposes ref creation/move but not ref deletion;
-  they remain explicitly classified until a proper delete-ref capability is available.
+  tmp/noop-check refs remain classified as operator noise until a safe delete-ref
+  capability is available and lineage safety is reverified.
