@@ -13,6 +13,7 @@
 - `collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md`
 - `collaboration/reconciliation/2026-08-28-v037-candidate3-targeted-postfreeze-revalidation.md`
 - `collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md`
+- `collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md`
 
 ## Predecessor independent evidence
 
@@ -34,5 +35,8 @@
 - branch: `candidate/v0.3.7-candidate.3`
 - source: `b7e88d7adb70396bd671ca97066daf2c120e0adc`
 - subtree: `e3a9a20d16cecd78df7f32f19fca56e21159e810`
+- exact pre-freeze run: `33150269264`
+- targeted post-freeze run: `33150553992`
+- release hardening run: `33152201566`
 
-Do not edit frozen candidate.3. Release packaging must operate on a separate `release/v0.3.7` surface.
+Do not edit frozen candidate.3. Release packaging must operate on a separate `release/v0.3.7` surface. The first auditable release occurrence should be a byte-for-byte transplant of the frozen candidate subtree into `releases/current/` before release identity/status transformation.
