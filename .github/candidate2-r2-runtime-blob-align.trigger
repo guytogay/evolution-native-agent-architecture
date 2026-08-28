@@ -1,4 +1,0 @@
-trigger=2026-08-28-candidate2-r2-runtime-blob-align
-view_branch=validation/v037-c2-blind-semantic-primary-r2
-bound_head=7a5a20cc171aa66b5b0003c4a718146f47928332
-runtime_projection_blob=ba94cf252cc259b8ba837ae555ec431dadac4d25
