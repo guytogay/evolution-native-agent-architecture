@@ -7,7 +7,7 @@ updated_at: "2026-08-28"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE2_FROZEN / DEDICATED_CLEAN_ROOM_A_S_READY / A_P_WITHHELD / NOT_CURRENT / NOT_RELEASED"
+  state: "V0_3_7_CANDIDATE2_FROZEN / A_S_SEALED_NOT_CLEARED_A_P_NEXT / A_P_WITHHELD / NOT_CURRENT / NOT_RELEASED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -95,7 +95,7 @@ latest_transition:
   a_p_actions_artifact_id: 9670518708
   a_s_capsule_sha256: "dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da"
   a_p_supplement_sha256: "427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649"
-  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  a_p_delivery_state: A_S_SEAL_SATISFIED_PREPARE_SEPARATE_A_P
   isolated_a_s_capsule_ready: true
   a_s_manifest_payload_count: 78
   a_p_manifest_payload_count: 119
@@ -105,7 +105,7 @@ latest_transition:
   attack_cardinality: OPEN
 
 candidate_validation_transition:
-  current_state: CANDIDATE2_FROZEN_DEDICATED_CLEAN_ROOM_A_S_READY_A_P_WITHHELD
+  current_state: CANDIDATE2_FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT_NOT_CURRENT_NOT_RELEASED
   completed:
     - candidate.0 and candidate.1 remain immutable frozen occurrence truth
     - candidate.1 fresh A-S/A-P plus Phase B required candidate.2
@@ -123,7 +123,7 @@ candidate_validation_transition:
     - Issue 137 fresh reviewer correctly aborted before A-S seal after GitHub natural-navigation boundary crossing
     - final isolated carrier audit run 33131773164 PASS after semantic-vocabulary detector and manifest-inventory corrections
   next_required_steps:
-    - "send only the dedicated clean-room repository/pinned A-S state to a genuinely fresh reviewer"
+    - "prepare a separate A-P clean-room stage and return the same fresh reviewer only after the persisted A-S seal"
     - "reviewer completes A-S, hashes the exact completed report, reports the digest, and stops"
     - "project manager verifies/persists A-S report + digest before separately delivering A-P supplement"
     - "same reviewer completes A-P and stops before project-manager Phase B"
@@ -174,7 +174,7 @@ successor_candidate2:
   identity: "v0.3.7-candidate.2"
   branch: "candidate/v0.3.7-candidate.2"
   branch_head_is_freeze_identity: false
-  state: FROZEN_DEDICATED_CLEAN_ROOM_A_S_READY_A_P_WITHHELD
+  state: FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT
   frozen: true
   current: false
   frozen_source: "bda470e0a6b170cec61225a905957a501454a2fe"
@@ -195,12 +195,17 @@ successor_candidate2:
   a_p_actions_artifact_id: 9670518708
   a_s_capsule_sha256: "dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da"
   a_p_supplement_sha256: "427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649"
-  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  a_p_delivery_state: A_S_SEAL_SATISFIED_PREPARE_SEPARATE_A_P
   a_s_delivery_mode: DEDICATED_CLEAN_ROOM_REPOSITORY
   cleanroom_repository: guytogay/independent-validation-cleanroom
   cleanroom_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
   cleanroom_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
-  fresh_a_s_report_sha256: NOT_YET_CREATED
+  fresh_a_s_report_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
+  fresh_a_s_report_path: "collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md"
+  fresh_a_s_seal_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3-seal.yaml"
+  fresh_a_s_git_blob_sha1: "a8ec063fc1dcda9be70a53bf150e45ea11ac125e"
+  fresh_a_s_verdict: NOT_CLEARED
+  fresh_a_s_findings: [A-S-01, A-S-02, A-S-03, A-S-04]
   final_a_p_report_sha256: NOT_YET_CREATED
   fresh_review_completed: false
   mutable_in_place: false
