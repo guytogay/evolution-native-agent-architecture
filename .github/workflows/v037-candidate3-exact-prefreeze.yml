@@ -1,0 +1,278 @@
+name: ENA v0.3.7 Candidate.3 Exact Pre-Freeze Gate
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - '.github/scripts/v037_candidate3_exact_prefreeze.py'
+      - '.github/workflows/v037-candidate3-exact-prefreeze.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-prefreeze:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      EXPECTED_SOURCE: 'b7e88d7adb70396bd671ca97066daf2c120e0adc'
+      EXPECTED_CANDIDATE_TREE: 'e3a9a20d16cecd78df7f32f19fca56e21159e810'
+      EXPECTED_CURRENT_TREE: '7dcbb3934883ffa6cc5292a662588cafc1533cff'
+      PREDECESSOR_SOURCE: 'bda470e0a6b170cec61225a905957a501454a2fe'
+      PREDECESSOR_TREE: 'd5fefc8c786d7e40b3e9a59211ee7045bccee5bf'
+    steps:
+      - name: Checkout validation control plane
+        uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+          path: control
+
+      - name: Checkout exact candidate3 source
+        uses: actions/checkout@v4
+        with:
+          ref: b7e88d7adb70396bd671ca97066daf2c120e0adc
+          fetch-depth: 0
+          path: target
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+
+      - name: Bind exact source, candidate subtree, and Current
+        shell: bash
+        run: |
+          set -euo pipefail
+          source="$(git -C target rev-parse HEAD)"
+          candidate_tree="$(git -C target rev-parse HEAD:releases/v0.3.7-candidate)"
+          current_tree="$(git -C target rev-parse HEAD:releases/current)"
+          predecessor_tree="$(git -C target rev-parse "$PREDECESSOR_SOURCE":releases/v0.3.7-candidate)"
+          echo "CANDIDATE3_EXACT_SOURCE=$source"
+          echo "CANDIDATE3_EXACT_TREE=$candidate_tree"
+          echo "CANDIDATE3_CURRENT_TREE=$current_tree"
+          test "$source" = "$EXPECTED_SOURCE"
+          test "$candidate_tree" = "$EXPECTED_CANDIDATE_TREE"
+          test "$current_tree" = "$EXPECTED_CURRENT_TREE"
+          test "$predecessor_tree" = "$PREDECESSOR_TREE"
+          git -C target diff --exit-code "$PREDECESSOR_SOURCE" -- releases/current
+          test -f target/releases/v0.3.7-candidate/CANDIDATE-BASELINE.yaml
+          test ! -e target/releases/v0.3.7-candidate/CURRENT-BASELINE.yaml
+          echo CANDIDATE3_EXACT_BINDING=PASS
+
+      - name: Verify retained semantic trunk and bounded candidate identity projection
+        shell: bash
+        run: |
+          set -euo pipefail
+          C='target/releases/v0.3.7-candidate'
+          R='target/releases/current'
+          for p in \
+            01-CONSTITUTION.md \
+            02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md \
+            03-ROLES-AND-DEVELOPMENTAL-STAGES.md \
+            04-CAPABILITY-MAP.md \
+            schemas/adaptation-packet.v2.schema.json; do
+            test "$(git hash-object "$C/$p")" = "$(git hash-object "$R/$p")" || {
+              echo "unexpected semantic-trunk byte drift: $p"; exit 1;
+            }
+          done
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          root=Path('target/releases/v0.3.7-candidate')
+          current=Path('target/releases/current/05-CORE-OPERATIONAL-CONTRACTS.md').read_text(encoding='utf-8')
+          candidate=(root/'05-CORE-OPERATIONAL-CONTRACTS.md').read_text(encoding='utf-8')
+          substitutions=[
+            ('This file is the single active operational-contract surface for ENA v0.3.6 Current.',
+             'This file is the single candidate-local operational-contract surface for ENA v0.3.7 candidate.3.'),
+            ('v0.3.6 Current retains the accepted composed-validator implementation released through v0.3.5 Current',
+             'v0.3.7 candidate.3 retains the accepted composed-validator implementation released through v0.3.6 Current'),
+            ('Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.6 Current.',
+             'Passing implementation tests protects known semantics; it does not prove universal correctness of v0.3.7 candidate.3.'),
+          ]
+          expected=current
+          for old,new in substitutions:
+              assert old in expected, old
+              expected=expected.replace(old,new,1)
+          assert candidate==expected, 'Core contract drift exceeds candidate identity projection'
+
+          prior=subprocess.check_output([
+            'git','-C','target','show',
+            'bda470e0a6b170cec61225a905957a501454a2fe:releases/v0.3.7-candidate/schemas/evolution-record.v2.schema.json'
+          ]).decode()
+          now=(root/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8')
+          normalized=now.replace(
+            'ENA Evolution Candidate Record v2 (v0.3.7 candidate.3)',
+            'ENA Evolution Candidate Record v2 (v0.3.7 candidate.2)',1)
+          assert normalized==prior, 'evolution-record schema changed beyond candidate identity title'
+          print('CANDIDATE3_SEMANTIC_TRUNK_PARITY=PASS')
+          PY
+
+      - name: Verify operational routing, optional references, and candidate identity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, yaml
+          root=Path('target/releases/v0.3.7-candidate')
+          op=root/'operational'
+          index=yaml.safe_load((op/'REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
+          manifest=yaml.safe_load((root/'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          routes=set(index['routes'])
+          en=set(re.findall(r'^## (OA-[A-Z]+-\d+)\b',(op/'HOW-MAP.md').read_text(encoding='utf-8'),flags=re.MULTILINE))
+          zh=set(re.findall(r'^## (OA-[A-Z]+-\d+)\b',(root/'language-projections/zh-CN/operational/HOW-MAP.md').read_text(encoding='utf-8'),flags=re.MULTILINE))
+          assert routes==en==zh
+          assert index['candidate']=='v0.3.7-candidate.3'
+          assert manifest['candidate']=='v0.3.7-candidate.3'
+          assert index['rules']['reference_exists_implies_applicable'] is False
+          assert index['rules']['reference_exists_implies_required'] is False
+          assert index['rules']['host_native_equivalent_allowed'] is True
+          p=manifest['policy']
+          assert p['required_for_complete_adoption_default'] is False
+          assert p['default_activation_default'] is False
+          assert p['package_inclusion_implies_applicability'] is False
+          assert p['package_inclusion_implies_activation'] is False
+          assert p['host_native_equivalent_allowed'] is True
+          for ref in manifest['references']:
+              assert ref['required_for_complete_adoption'] is False, ref['id']
+              assert ref['default_activation'] is False, ref['id']
+              target=root/ref['path']
+              assert target.is_dir() and (target/'README.md').is_file(), ref['id']
+          bundled={r['id'] for r in manifest['references']}
+          deferred={r['id'] for r in manifest['deferred_not_bundled_first_candidate']}
+          assert 'commitment-settlement-recovered' not in bundled
+          assert 'commitment-settlement-recovered' in deferred
+          print('CANDIDATE3_ROUTING_OPTIONALITY=PASS',len(routes),len(bundled))
+          PY
+
+      - name: Run inherited composed-validator and candidate3 regression corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='target/releases/v0.3.7-candidate'
+          python "$ROOT/tools/validate_contracts.py" selftest
+          python "$ROOT/tools/regression_suite.py" | tee /tmp/reg.log
+          grep -q 'inherited 164-case corpus : 164/164 passed (ZERO flips required)' /tmp/reg.log
+          grep -q 'successor closure corpus  : 61/61 passed' /tmp/reg.log
+          grep -q 'RESULT: PASS - inherited implementation regression preserved' /tmp/reg.log
+          git -C target diff --exit-code -- releases/v0.3.7-candidate/tools/regression-results-v033.json
+
+      - name: Run v2 record/helper and CLI roundtrip
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='target/releases/v0.3.7-candidate'
+          python "$ROOT/tools/validate_evolution_record_v2.py" --selftest | tee /tmp/evo.log
+          grep -q 'EVOLUTION_RECORD_V2_SELFTEST_PASS 35' /tmp/evo.log
+          python "$ROOT/tools/selftest_ena_evolve_v2.py"
+          TMP="$(mktemp -d)"
+          REC="$TMP/latent.json"; PKT="$TMP/packet.json"; IMP="$TMP/imported.json"
+          python "$ROOT/tools/ena_evolve_v2.py" new-latent --candidate-id exact-c3-latent --hypothesis 'candidate3 exact prefreeze' --change 'retain before experiment' --output "$REC"
+          python "$ROOT/tools/ena_evolve_v2.py" validate-record "$REC"
+          python "$ROOT/tools/ena_evolve_v2.py" export-packet "$REC" --output "$PKT"
+          python "$ROOT/tools/ena_evolve_v2.py" validate-packet "$PKT"
+          python "$ROOT/tools/ena_evolve_v2.py" import-packet "$PKT" --candidate-id exact-c3-import --output "$IMP"
+          python "$ROOT/tools/ena_evolve_v2.py" validate-record "$IMP"
+          REC="$REC" IMP="$IMP" python - <<'PY'
+          import json,os
+          from pathlib import Path
+          src=json.loads(Path(os.environ['REC']).read_text())
+          dst=json.loads(Path(os.environ['IMP']).read_text())
+          assert src['selection_state']=='UNASSESSED'
+          assert dst['selection_state']=='UNASSESSED'
+          assert dst['expression_state']=='LATENT'
+          assert dst['migration']['source_selection_state']=='UNASSESSED'
+          assert dst['migration']['transfer_status']=='TRANSFERRED_NOT_LOCALLY_VALIDATED'
+          print('CANDIDATE3_V2_CLI_ROUNDTRIP=PASS')
+          PY
+
+      - name: Run all bundled reference selftests
+        shell: bash
+        run: |
+          set -euo pipefail
+          R='target/releases/v0.3.7-candidate/references'
+          python "$R/general/retrieval-obligation/selftest.py"
+          python "$R/general/wait-state/tools/selftest_wait_state.py"
+          python "$R/general/authority-lease/tools/selftest_authority_lease.py"
+          python "$R/general/effect-lifecycle/tools/selftest_effect_lifecycle.py"
+          python "$R/general/recovery-adapter/tools/selftest_recovery_adapter.py"
+          python "$R/advanced/evidence-envelope/tools/selftest_evidence_envelope.py"
+          python "$R/advanced/evidence-dependency-map/tools/selftest_evidence_dependency_map.py"
+          python "$R/advanced/contested-authorship/tools/selftest_contested_authorship.py"
+
+      - name: Run relocated legacy compatibility regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          L='target/releases/v0.3.7-candidate/tools/legacy'
+          test -f "$L/ena_evolve_v1_2.py"
+          test -f "$L/candidate1_adversarial_v1_2.py"
+          test -f "$L/candidate2_adversarial_v1_2.py"
+          test ! -e target/releases/v0.3.7-candidate/tools/ena_evolve.py
+          python "$L/ena_evolve_v1_2.py" selftest
+          python "$L/candidate1_adversarial_v1_2.py"
+          python "$L/candidate2_adversarial_v1_2.py"
+          echo CANDIDATE3_LEGACY_REGRESSION=PASS
+
+      - name: Run successor-specific exact harness
+        run: python control/.github/scripts/v037_candidate3_exact_prefreeze.py --repo target
+
+      - name: Verify zh-CN paired fixture structure remains honest
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root=Path('target/releases/v0.3.7-candidate')
+          zh=yaml.safe_load((root/'language-projections/zh-CN/projection-manifest.yaml').read_text(encoding='utf-8'))
+          assert zh['not_current'] is True
+          assert zh['source_semantic_version']=='v0.3.7-candidate.3'
+          assert zh['machine_artifact_policy']['translate_machine_reference_files_one_by_one'] is False
+          assert zh['validation']['universal_behavioral_semantic_conformance']=='UNPROVEN'
+          fixtures=yaml.safe_load((root/'language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
+          cases=fixtures['cases']; assert cases
+          routes={case['expected_route'] for case in cases}
+          assert routes==set(fixtures['coverage']['routes_expected'])
+          for case in cases:
+              assert case['en'].strip() and case['zh-CN'].strip() and case['expected_properties']
+          assert 'cardinality is open' in fixtures['evidence_boundary'][-1].lower()
+          print('CANDIDATE3_ZH_CN_FIXTURES=PASS',len(cases),sorted(routes))
+          PY
+
+      - name: Compile candidate Python and reject bytecode/symlink cargo
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          root=Path('target/releases/v0.3.7-candidate')
+          failures=[]; files=sorted(root.rglob('*.py'))
+          for p in files:
+              try: compile(p.read_text(encoding='utf-8'),str(p),'exec')
+              except Exception as exc: failures.append((str(p),repr(exc)))
+          print('candidate3-python-total',len(files))
+          print('candidate3-python-failed',len(failures))
+          assert not failures, failures
+          PY
+          found="$(find target/releases/v0.3.7-candidate \( -type d -name '__pycache__' -o -type f -name '*.pyc' -o -type l \) -print)"
+          test -z "$found" || { echo "$found"; exit 1; }
+
+      - name: Verify exact target remained clean and emit verdict
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C target rev-parse HEAD)" = "$EXPECTED_SOURCE"
+          test "$(git -C target rev-parse HEAD:releases/v0.3.7-candidate)" = "$EXPECTED_CANDIDATE_TREE"
+          test "$(git -C target rev-parse HEAD:releases/current)" = "$EXPECTED_CURRENT_TREE"
+          test -z "$(git -C target status --porcelain)"
+          files="$(git -C target ls-tree -r --name-only HEAD releases/v0.3.7-candidate | wc -l | tr -d ' ')"
+          echo "candidate_files_observed=$files"
+          echo 'CANDIDATE3_EXACT_PREFREEZE_VERDICT=PASS'
+          echo "CANDIDATE3_EXACT_SOURCE=$EXPECTED_SOURCE"
+          echo "CANDIDATE3_EXACT_CANDIDATE_TREE=$EXPECTED_CANDIDATE_TREE"
+          echo "CANDIDATE3_EXACT_CURRENT_TREE=$EXPECTED_CURRENT_TREE"
+          echo 'attack_cardinality=OPEN'
+          echo 'fresh_independent_candidate3_review_by_this_gate=NO'
+          echo 'external_truth=NOT_ESTABLISHED'
+          echo 'freeze_authority=NOT_ASSIGNED_BY_THIS_WORKFLOW'
