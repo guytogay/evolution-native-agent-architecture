@@ -34,9 +34,20 @@ def load_current_validator(repo_root: Path):
     return module
 
 
+def instantiate_current_template(current) -> dict:
+    """Turn the shipped template into an instantiated record for composition tests.
+
+    A template may intentionally carry a non-instance placeholder for created_at.
+    Selection Qualification is testing selection-scope reachability, not whether a
+    template placeholder itself is a valid instantiated evolution record.
+    """
+    record = current.exp_record(current.load_json(current.TEMPLATE_PATH))
+    record["created_at"] = "2026-08-26T00:00:00Z"
+    return record
+
+
 def make_supported_current_record(current) -> dict:
-    base = current.load_json(current.TEMPLATE_PATH)
-    record = current.exp_record(base)
+    record = instantiate_current_template(current)
     record["selection_state"] = "SUPPORTED"
     record["evaluations"] = [{
         "evaluation_id": "eval-sq-supported",
@@ -50,8 +61,7 @@ def make_supported_current_record(current) -> dict:
 
 
 def make_harmful_current_record(current) -> dict:
-    base = current.load_json(current.TEMPLATE_PATH)
-    record = current.exp_record(base)
+    record = instantiate_current_template(current)
     record["selection_state"] = "HARMFUL"
     record["evaluations"] = [{
         "evaluation_id": "eval-sq-harmful",
@@ -101,13 +111,14 @@ def main() -> int:
 
     current = load_current_validator(repo_root)
 
-    # Reproduce #81 against exact Current semantics: Current v2 accepts a
-    # represented evidence-backed positive selection while environment remains {}.
+    # Reproduce #81 against exact Current semantics using an instantiated record.
+    # The shipped template may intentionally contain an invalid placeholder and
+    # must not be confused with a real record instance.
     supported = make_supported_current_record(current)
-    require(supported["environment"] == {}, "Current template control no longer has empty environment")
+    require(supported["environment"] == {}, "Current instantiated control no longer has empty environment")
     current_errors = current.validate_record(supported)
     require(not current_errors, f"#81 Current reachability changed unexpectedly: {current_errors}")
-    print("PASS: Current v2 still accepts evidence-backed SUPPORTED with environment={}")
+    print("PASS: Current v2 still accepts instantiated evidence-backed SUPPORTED with environment={}")
 
     # The overlay does not rewrite the old record as invalid; it narrows the
     # durable qualification claim instead.
@@ -185,7 +196,8 @@ def main() -> int:
 
     print("PASS: selection-qualification portable adversarial/composition selftest")
     print("verification_scope=REPRESENTED_SELECTION_QUALIFICATION_PLUS_CURRENT_V2_COMPOSITION_ONLY")
-    print("current_v2_acceptance_of_empty_environment_supported=CONFIRMED")
+    print("current_v2_acceptance_of_empty_environment_supported=CONFIRMED_ON_INSTANTIATED_RECORD")
+    print("template_placeholder_validity=OUT_OF_SCOPE_FOR_SELECTION_QUALIFICATION_COMPOSITION_CONTROL")
     print("external_scope_completeness=UNPROVEN")
     print("selection_truth=UNPROVEN")
     print("scope_basis_reference_authenticity=UNPROVEN")
