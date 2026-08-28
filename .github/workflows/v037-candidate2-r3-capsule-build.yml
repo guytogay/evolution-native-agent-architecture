@@ -22,7 +22,9 @@ jobs:
       - name: Build capsule set first pass
         run: |
           set -euo pipefail
-          python .github/scripts/build_v037_candidate2_independent_review_capsules_r3.py | tee /tmp/build1.log
+          python .github/scripts/build_v037_candidate2_independent_review_capsules_r3_1.py | tee /tmp/build1.log
+          grep -q 'A_S_PRIMING_DETECTOR=HISTORY_SPECIFIC' /tmp/build1.log
+          grep -q 'SEMANTIC_FAILURE_VOCABULARY_NE_AUTHOR_ATTACK_MAP' /tmp/build1.log
           grep -q 'CANDIDATE2_REVIEW_CAPSULE_R3_BUILD=PASS' /tmp/build1.log
           grep -q 'attack_cardinality=OPEN' /tmp/build1.log
           cp capsule-out/CAPSULE-HASHES.json /tmp/hashes-first.json
@@ -80,7 +82,7 @@ jobs:
       - name: Rebuild and prove deterministic ZIP hashes
         run: |
           set -euo pipefail
-          python .github/scripts/build_v037_candidate2_independent_review_capsules_r3.py | tee /tmp/build2.log
+          python .github/scripts/build_v037_candidate2_independent_review_capsules_r3_1.py | tee /tmp/build2.log
           cmp /tmp/hashes-first.json capsule-out/CAPSULE-HASHES.json
           sha256sum capsule-out/candidate2-as-capsule-r3.zip capsule-out/candidate2-ap-supplement-r3.zip
           cat capsule-out/CAPSULE-HASHES.json
