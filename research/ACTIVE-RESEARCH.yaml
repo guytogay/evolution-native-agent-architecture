@@ -7,7 +7,7 @@ updated_at: "2026-08-28"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE2_FROZEN / FRESH_A_S_INTAKE_READY / NOT_CURRENT / NOT_RELEASED"
+  state: "V0_3_7_CANDIDATE2_FROZEN / ISOLATED_A_S_CAPSULE_READY / A_P_WITHHELD / NOT_CURRENT / NOT_RELEASED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -77,20 +77,23 @@ latest_transition:
   freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md"
   postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
   independence_decision_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md"
-  blind_semantic_view_preparation_next: false
-  blind_semantic_view_manifest: "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml"
-  neutral_entry: "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md"
-  blind_view_audit_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md"
-  validation_branch: "validation/v037-c2-blind-semantic-primary"
-  validation_view_head: "d020d82d442156b75c667ee9f987f2654d814561"
-  fresh_intake_issue: 137
+  invalidated_repository_intake_issue: 137
+  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
+  carrier_method: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"
+  carrier_incident: "research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md"
+  carrier_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md"
+  capsule_build_run: 33131665994
+  capsule_artifact_id: 9670480727
+  a_s_capsule_sha256: "ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131"
+  a_p_supplement_sha256: "b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd"
+  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
   fresh_a_s_intake_ready: true
   fresh_candidate2_review_completed: false
   fresh_candidate2_review_by_current_project_manager_allowed: false
   attack_cardinality: OPEN
 
 candidate_validation_transition:
-  current_state: CANDIDATE2_FROZEN_FRESH_A_S_INTAKE_READY
+  current_state: CANDIDATE2_FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
   completed:
     - candidate.0 and candidate.1 remain immutable frozen occurrence truth
     - candidate.1 fresh A-S/A-P plus Phase B required candidate.2
@@ -106,9 +109,10 @@ candidate_validation_transition:
     - candidate.2 information-role audit additionally withheld 08-RELEASE-DISCIPLINE.md after detecting predecessor-finding/repair-narrative self-priming
     - fresh independent intake Issue 137 created for validation/v037-c2-blind-semantic-primary
   next_required_steps:
-    - "have a genuinely fresh reviewer use Issue 137 / validation/v037-c2-blind-semantic-primary and seal A-S before opening withheld candidate-local history/oracles"
-    - "only after the A-S seal, permit A-P against the exact frozen-source withheld package/oracle surfaces"
-    - "stop fresh reviewer before Phase B; project manager reconciles only after independent artifacts persist"
+    - "deliver only the isolated A-S capsule and expected SHA-256 to a genuinely fresh reviewer"
+    - "reviewer completes A-S, hashes the exact completed report, reports the digest, and stops"
+    - "project manager verifies/persists A-S report + digest before separately delivering A-P supplement"
+    - "same reviewer completes A-P and stops before project-manager Phase B"
     - "keep attack cardinality open and Current v0.3.6 unchanged"
 
 frozen_candidate0:
@@ -156,7 +160,7 @@ successor_candidate2:
   identity: "v0.3.7-candidate.2"
   branch: "candidate/v0.3.7-candidate.2"
   branch_head_is_freeze_identity: false
-  state: FROZEN_FRESH_A_S_INTAKE_READY
+  state: FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
   frozen: true
   current: false
   frozen_source: "bda470e0a6b170cec61225a905957a501454a2fe"
@@ -168,14 +172,17 @@ successor_candidate2:
   freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md"
   independence_decision_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md"
   postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
-  blind_view_manifest: "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml"
-  neutral_entry: "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md"
-  blind_view_audit_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md"
-  validation_branch: "validation/v037-c2-blind-semantic-primary"
-  validation_view_head: "d020d82d442156b75c667ee9f987f2654d814561"
-  fresh_intake_issue: 137
-  fresh_a_s_seal: NOT_YET_CREATED
-  final_a_p_commit: NOT_YET_CREATED
+  invalidated_repository_intake_issue: 137
+  invalidated_repository_intake_branch: "validation/v037-c2-blind-semantic-primary"
+  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
+  capsule_carrier_method: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"
+  capsule_build_run: 33131665994
+  capsule_artifact_id: 9670480727
+  a_s_capsule_sha256: "ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131"
+  a_p_supplement_sha256: "b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd"
+  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  fresh_a_s_report_sha256: NOT_YET_CREATED
+  final_a_p_report_sha256: NOT_YET_CREATED
   fresh_review_completed: false
   mutable_in_place: false
   material_change_requires_successor: "v0.3.7-candidate.3"

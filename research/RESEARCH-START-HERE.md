@@ -23,6 +23,7 @@ Before substantive ENA project-management/research work:
    - `CONVERGENCE-DIVERGENCE-DISCIPLINE.md`;
    - `PROJECT-STATE-ALIGNMENT-GATE.md`;
    - `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` while independent validation is active;
+   - `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md` when repository navigation is not blind-safe;
 7. read `research/ACTIVE-RESEARCH.yaml` and verify the active research branch;
 8. if canonical/live surfaces disagree, run the alignment gate before substantive work;
 9. read `research/plans/PROGRESS.yaml` and the master plan;
@@ -79,33 +80,36 @@ The current project-manager session is **not eligible** to perform fresh candida
 
 ## Immediate next action
 
-`GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S`
+`DELIVER_CANDIDATE2_ISOLATED_A_S_CAPSULE_ONLY`
 
-Fresh intake is ready:
+Issue #137 is historical and closed. Its reviewer correctly aborted before A-S seal because normal GitHub navigation crossed the declared boundary. Do not reuse the GitHub repository/branch UI as the candidate.2 A-S carrier.
 
-- Issue `#137 — Fresh independent A-S/A-P — v0.3.7 candidate.2`
-- validation branch `validation/v037-c2-blind-semantic-primary`
-- neutral entry `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md`
-- blind view `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml`
-- view audit `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md`
+Active carrier evidence:
 
-The source-to-view audit found 31 declared A-S removals plus the two intake files and **zero retained candidate-byte modifications**. The view is a projection, not a new candidate.
+- method `research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`;
+- build/audit run `33131665994` — SUCCESS;
+- A-S capsule SHA-256 `ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131`;
+- A-P supplement SHA-256 `b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd`;
+- A-P delivery state `WITHHELD_UNTIL_A_S_CONTENT_SEAL`.
 
 Required sequence:
 
 ```text
-FRESH REVIEWER
--> A-S ON DECLARED BLIND VIEW
--> PERSIST / SEAL A-S
--> A-P OPENS WITHHELD CANDIDATE-LOCAL HISTORY / ORACLES FROM EXACT FROZEN SOURCE
--> PERSIST A-P
--> STOP FRESH REVIEWER
--> PROJECT-MANAGER PHASE B
+FRESH REVIEWER RECEIVES ONLY A-S ZIP
+-> READ INTAKE-A-S.md INSIDE ZIP
+-> INDEPENDENT A-S
+-> WRITE FINAL A-S REPORT
+-> SHA-256 THAT EXACT REPORT
+-> STOP
+-> PROJECT MANAGER VERIFY/PERSIST CONTENT SEAL
+-> SEPARATELY DELIVER A-P ZIP TO SAME REVIEWER
+-> A-P
+-> STOP BEFORE PHASE B
 ```
 
-Before A-S seal, do not send the fresh reviewer through the project-manager handoff, predecessor findings, candidate.2 repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces declared withheld by the view manifest. The current project-manager session is not eligible to perform fresh candidate.2 A-S.
+Do not provide the project repository as A-S review material. Do not attach, link, or otherwise expose the A-P supplement before the A-S report digest is fixed.
 
-Candidate.2 is frozen. Any material candidate-byte correction after this point requires candidate.3; do not edit candidate.2 in place.
+Candidate.2 remains frozen. Material candidate-byte correction requires candidate.3.
 
 ```text
 FROZEN != INDEPENDENTLY_RECONCILED != RELEASED != CURRENT
@@ -164,7 +168,7 @@ Before claiming successful takeover, a successor project manager should be able 
 - Issue #131 = sealed A-S/A-P occurrence truth for candidate.1;
 - A-S seal = `2e6b46ae...`; A-P final = `b970148f...`;
 - candidate.1 = `NEEDS_REVISION`, immutable predecessor to candidate.2;
-- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`, with fresh A-S intake Issue #137 ready on `validation/v037-c2-blind-semantic-primary`;
+- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`; Issue #137 is interface-aborted history; active A-S carrier is isolated capsule hash `ee80ac82...`;
 - fresh validator entry remains blind semantic entry, not full project-manager context for any future independent intake;
 - `releases/current/` remains untouched until governed release/promotion.
 

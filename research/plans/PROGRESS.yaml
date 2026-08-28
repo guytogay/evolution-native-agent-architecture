@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-28"
-status: V0_3_7_CANDIDATE2_FROZEN_FRESH_A_S_INTAKE_READY
+status: V0_3_7_CANDIDATE2_FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
 
 progress_is_complete_history: false
 
@@ -17,6 +17,7 @@ canonical_pointers:
   methodology: research/methodology/README.md
   convergence_divergence_method: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
   independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+  independent_validation_capsule_carrier: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
   alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
   operational_architecture: research/operational-architecture/README.md
@@ -91,7 +92,7 @@ successor_candidate1:
 
 successor_candidate2:
   identity: v0.3.7-candidate.2
-  state: FROZEN_FRESH_A_S_INTAKE_READY
+  state: FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
   candidate_branch: candidate/v0.3.7-candidate.2
   branch_head_is_frozen_identity: false
   created_from_candidate1_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
@@ -114,14 +115,18 @@ successor_candidate2:
   postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
   mutable_in_place: false
   material_change_requires_successor: v0.3.7-candidate.3
-  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
-  neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
-  blind_view_audit_record: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
-  validation_branch: validation/v037-c2-blind-semantic-primary
-  validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
-  fresh_intake_issue: 137
-  fresh_a_s_seal: NOT_YET_CREATED
-  final_a_p_commit: NOT_YET_CREATED
+  invalidated_repository_intake_issue: 137
+  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
+  capsule_carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+  capsule_incident: research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md
+  capsule_reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md
+  capsule_build_run: 33131665994
+  capsule_artifact_id: 9670480727
+  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  fresh_a_s_report_sha256: NOT_YET_CREATED
+  final_a_p_report_sha256: NOT_YET_CREATED
   attack_cardinality: OPEN
 
 phase_state:
@@ -175,24 +180,18 @@ phase_state:
     candidate2_required_by_method_change: false
 
   independent_falsification:
-    state: CANDIDATE2_FROZEN_FRESH_A_S_INTAKE_READY
-    candidate1_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
-    candidate1_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
-    candidate1_phase_b_verdict: NEEDS_REVISION
-    candidate2_exact_prefreeze_run: 33095987843
+    state: CANDIDATE2_FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
     candidate2_frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
     candidate2_frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
-    candidate2_fresh_review_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
+    candidate2_repository_intake_issue: 137
+    candidate2_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
+    candidate2_capsule_build_run: 33131665994
+    candidate2_a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+    candidate2_a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+    candidate2_a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
     candidate2_fresh_review_completed: false
-    candidate2_blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
-    candidate2_blind_view_audit: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
-    candidate2_fresh_intake_issue: 137
-    candidate2_validation_branch: validation/v037-c2-blind-semantic-primary
-    candidate2_validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
-    candidate2_fresh_a_s_seal: NOT_YET_CREATED
-    candidate2_final_a_p_commit: NOT_YET_CREATED
     current_project_manager_is_fresh_candidate2_reviewer: false
-    sequence_required: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
+    sequence_required: A-S_CONTENT_SEAL_THEN_SEPARATE_A-P_THEN_STOP_BEFORE_PHASE_B
     attack_cardinality: OPEN
 
   handoff_framework:
@@ -273,17 +272,18 @@ current_method_transition:
   candidate2_required_by_phase_b_defects: true
 
 immediate_next_action:
-  id: GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S
-  target: ISSUE_137_VALIDATION_V037_C2_BLIND_SEMANTIC_PRIMARY
+  id: DELIVER_CANDIDATE2_ISOLATED_A_S_CAPSULE_ONLY
+  target: PHYSICALLY_ISOLATED_A_S_CAPSULE_R3
   objective: >-
-    Have a genuinely fresh reviewer inspect the prepared candidate.2 blind semantic view,
-    persist/seal A-S before opening withheld candidate-local history/oracles, then perform
-    A-P and stop before project-manager Phase B. The current project-manager session must
-    not claim fresh A-S.
+    Give only the deterministic A-S capsule to a genuinely fresh reviewer, verify its expected
+    SHA-256, obtain a completed A-S report plus content hash, and do not expose the A-P supplement
+    until that content seal is verified/persisted.
   frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
   frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
-  exact_prefreeze_run: 33095987843
-  current_project_manager_may_claim_fresh_a_s: false
+  capsule_build_run: 33131665994
+  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  a_p_delivery_state: WITHHELD
   current_must_remain: v0.3.6
   do_not_promote: true
 

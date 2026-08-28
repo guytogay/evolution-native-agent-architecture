@@ -1,4 +1,4 @@
-schema_version: "2.9"
+schema_version: "3.0"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-28"
 
@@ -16,17 +16,18 @@ project_methodology_required:
   convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
   project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
   independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+  independent_validation_capsule_carrier: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
 
 current_handoff_record:
-  id: "2026-08-28-v037-candidate2-fresh-as-intake-ready"
+  id: "2026-08-28-v037-candidate2-isolated-as-capsule-ready"
   state: HANDOFF_READY_FOR_SESSION_SUCCESSION
-  record_root: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/"
-  start_here: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/HANDOFF-START-HERE.md"
-  manifest: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/HANDOFF-MANIFEST.yaml"
-  project_state: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/PROJECT-STATE.md"
-  recent_three_rounds: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/RECENT-THREE-ROUNDS.md"
-  file_catalog: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/FILE-CATALOG.md"
-  post_merge_readback: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/HANDOFF-READBACK.md"
+  record_root: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/"
+  start_here: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/FILE-CATALOG.md"
+  post_merge_readback: "research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-capsule-ready/HANDOFF-READBACK.md"
 
 current_project_authorities:
   project_hub: PROJECT-HUB.md
@@ -51,29 +52,23 @@ fresh_independent_validation_boundary:
   active_target_source: bda470e0a6b170cec61225a905957a501454a2fe
   active_target_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
   active_target_frozen: true
-  postfreeze_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
-  decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
-  view_preparation_required: false
-  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
-  neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
-  blind_view_audit_record: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
-  intake_issue: 137
-  validation_branch: validation/v037-c2-blind-semantic-primary
-  validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
-  fresh_a_s_seal: NOT_YET_CREATED
-  final_a_p_commit: NOT_YET_CREATED
-  sequence: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
+  invalidated_repository_intake_issue: 137
+  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
+  active_carrier: PHYSICALLY_ISOLATED_A_S_CAPSULE_R3
+  carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+  carrier_build_run: 33131665994
+  carrier_artifact_id: 9670480727
+  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  fresh_a_s_report_sha256: NOT_YET_CREATED
+  final_a_p_report_sha256: NOT_YET_CREATED
+  sequence: A-S_CONTENT_SEAL_THEN_SEPARATE_A-P_THEN_STOP_BEFORE_PHASE_B
   project_manager_takeover_context_is_validator_a_s_context: false
   current_project_manager_can_claim_fresh_a_s: false
-  validator_must_not_read_full_project_handoff_before_a_s: true
-  validator_must_not_receive_author_attack_map_before_a_s: true
-  validator_must_not_open_withheld_candidate_local_history_or_oracles_before_a_s_seal: true
-  a_s_findings_must_be_persisted_before_a_p: true
+  same_repository_issue_is_active_a_s_entrypoint: false
+  a_s_findings_must_be_content_sealed_before_a_p: true
   independent_artifacts_must_be_persisted_before_phase_b: true
-  predecessor_candidate1_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
-  predecessor_candidate1_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
-  prior_invalidated_self_primed_issue: 128
-  information_boundary_method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
 
 completion_evidence:
   current_reverified: "v0.3.6 / CURRENT / FIELD_VALIDATION"
@@ -99,14 +94,17 @@ completion_evidence:
   candidate2_reconciliation_record: collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md
   candidate2_freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
   candidate2_independence_decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
-  candidate2_state: FROZEN_FRESH_A_S_INTAKE_READY
+  candidate2_state: FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
   candidate2_blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
   candidate2_neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
   candidate2_blind_view_audit: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
   candidate2_validation_branch: validation/v037-c2-blind-semantic-primary
   candidate2_validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
-  candidate2_fresh_intake_issue: 137
-  immediate_next_action: GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S
+  candidate2_invalidated_repository_intake_issue: 137
+  candidate2_capsule_build_run: 33131665994
+  candidate2_a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+  candidate2_a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  immediate_next_action: DELIVER_CANDIDATE2_ISOLATED_A_S_CAPSULE_ONLY
   current_handoff_record_refresh: COMPLETE
 
 candidate1_successor_state:
@@ -138,34 +136,25 @@ candidate1_successor_state:
 candidate2_successor_state:
   identity: v0.3.7-candidate.2
   branch: candidate/v0.3.7-candidate.2
-  predecessor_identity: v0.3.7-candidate.1
-  state: FROZEN_FRESH_A_S_INTAKE_READY
+  state: FROZEN_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
   frozen: true
   current: false
   frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
   frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
-  current_subtree_at_freeze: 7dcbb3934883ffa6cc5292a662588cafc1533cff
-  exact_prefreeze_validation: PASS
   exact_prefreeze_run: 33095987843
-  final_candidate_cargo_commit: aba6f12cabc84146c92809bd7d8293a3c907dc55
-  repair_reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md
-  freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
-  independence_decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
-  fresh_a_s_a_p_next: true
-  fresh_a_s_a_p_issue: 137
-  fresh_a_s_a_p_branch: validation/v037-c2-blind-semantic-primary
-  fresh_a_s_a_p_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
-  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
-  blind_view_audit_record: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
-  validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
-  fresh_a_s_seal: NOT_YET_CREATED
-  final_a_p_commit: NOT_YET_CREATED
-  fresh_a_s_a_p_completed: false
-  targeted_revalidation_is_fresh_a_s: false
+  invalidated_repository_intake_issue: 137
+  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
+  capsule_carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+  capsule_build_run: 33131665994
+  capsule_artifact_id: 9670480727
+  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  fresh_a_s_report_sha256: NOT_YET_CREATED
+  final_a_p_report_sha256: NOT_YET_CREATED
+  fresh_review_completed: false
   material_change_requires_successor: v0.3.7-candidate.3
   attack_cardinality: OPEN
-  remaining_visible_residuals:
-    - candidate-id cross-environment namespace uniqueness is not universalized without a governing contract
 
 branch_hygiene:
   cleanup_completed_and_reobserved: false
@@ -187,7 +176,7 @@ branch_hygiene:
   candidate0_branch_role: FROZEN_PREDECESSOR_LINEAGE
   candidate1_branch_role: FROZEN_NEEDS_REVISION_PREDECESSOR_TO_CANDIDATE2
   candidate2_branch_role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH_NOT_CURRENT_NOT_RELEASED
-  candidate2_validation_branch_role: ACTIVE_FRESH_A_S_INTAKE_VIEW_NOT_CANDIDATE_NOT_RELEASE_AUTHORITY
+  candidate2_validation_branch_role: INVALIDATED_REPOSITORY_UI_INTAKE_HISTORICAL_ONLY_NO_A_S_SEAL
   operator_noise_branches:
     - tmp/noop-check
     - tmp/noop-check-2
