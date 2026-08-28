@@ -1,0 +1,44 @@
+schema_version: "1.0"
+record_id: 2026-08-28-v037-candidate2-ap-cleanroom-ready
+status: HANDOFF_READY_FOR_SESSION_SUCCESSION
+record_role: BOOTSTRAP_PROJECTION_NOT_PROJECT_AUTHORITY
+
+current:
+  version: v0.3.6
+  status: CURRENT
+  maturity: FIELD_VALIDATION
+  changed_by_transition: false
+
+candidate2:
+  identity: v0.3.7-candidate.2
+  frozen: true
+  current: false
+  released: false
+  frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+
+fresh_a_s:
+  state: SEALED_NOT_CLEARED
+  report_path: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md
+  seal_path: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3-seal.yaml
+  sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
+  actual_cleanroom_commit: 28dde50c9caaeee3b5c269e28a7be5f07ac29ae5
+  actual_cleanroom_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
+  wrapper_identity_correction_record: collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-wrapper-identity-correction-and-ap-stage.md
+
+fresh_a_p:
+  state: CLEAN_ROOM_READY_NOT_STARTED
+  repository: guytogay/independent-validation-cleanroom
+  branch: main
+  commit: aea2ed25107145a557b3fe46ca0e4b90e2b90fa9
+  tree: 08ac16303d69a6a268197ac26b23c5b20972b727
+  commit_parent_count: 0
+  package_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  same_reviewer_required: true
+  must_stop_before_phase_b: true
+
+phase_b:
+  state: NOT_STARTED
+
+immediate_next_action: RETURN_SAME_FRESH_REVIEWER_TO_CANDIDATE2_A_P_CLEAN_ROOM
+attack_cardinality: OPEN

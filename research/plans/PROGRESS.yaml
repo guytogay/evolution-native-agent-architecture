@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-28"
-status: V0_3_7_CANDIDATE2_FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT_NOT_CURRENT_NOT_RELEASED
+status: V0_3_7_CANDIDATE2_FROZEN_A_S_SEALED_NOT_CLEARED_A_P_CLEAN_ROOM_READY_NOT_CURRENT_NOT_RELEASED
 
 progress_is_complete_history: false
 
@@ -92,7 +92,7 @@ successor_candidate1:
 
 successor_candidate2:
   identity: v0.3.7-candidate.2
-  state: FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT
+  state: FROZEN_A_S_SEALED_NOT_CLEARED_A_P_CLEAN_ROOM_READY
   candidate_branch: candidate/v0.3.7-candidate.2
   branch_head_is_frozen_identity: false
   created_from_candidate1_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
@@ -123,14 +123,14 @@ successor_candidate2:
   cleanroom_transition_record: collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-carrier-transition.md
   a_s_delivery_mode: DEDICATED_CLEAN_ROOM_REPOSITORY
   cleanroom_repository: guytogay/independent-validation-cleanroom
-  cleanroom_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
+  cleanroom_commit: 28dde50c9caaeee3b5c269e28a7be5f07ac29ae5
   cleanroom_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
   capsule_build_run: 33131773164
   a_s_actions_artifact_id: 9670518379
   a_p_actions_artifact_id: 9670518708
   a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
   a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
-  a_p_delivery_state: A_S_SEAL_SATISFIED_PREPARE_SEPARATE_A_P
+  a_p_delivery_state: A_P_CLEAN_ROOM_READY_NOT_STARTED
   fresh_a_s_report_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
   fresh_a_s_report_path: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md
   fresh_a_s_seal_record: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3-seal.yaml
@@ -138,6 +138,11 @@ successor_candidate2:
   fresh_a_s_verdict: NOT_CLEARED
   fresh_a_s_findings: [A-S-01, A-S-02, A-S-03, A-S-04]
   final_a_p_report_sha256: NOT_YET_CREATED
+  a_p_cleanroom_ready: true
+  a_p_cleanroom_commit: aea2ed25107145a557b3fe46ca0e4b90e2b90fa9
+  a_p_cleanroom_tree: 08ac16303d69a6a268197ac26b23c5b20972b727
+  a_p_cleanroom_package_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  cleanroom_wrapper_identity_correction_record: collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-wrapper-identity-correction-and-ap-stage.md
   attack_cardinality: OPEN
 
 phase_state:
@@ -191,7 +196,7 @@ phase_state:
     candidate2_required_by_method_change: false
 
   independent_falsification:
-    state: CANDIDATE2_FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT_NOT_CURRENT_NOT_RELEASED
+    state: CANDIDATE2_FROZEN_A_S_SEALED_NOT_CLEARED_A_P_CLEAN_ROOM_READY_NOT_CURRENT_NOT_RELEASED
     candidate2_frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
     candidate2_frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
     candidate2_repository_intake_issue: 137
@@ -199,10 +204,10 @@ phase_state:
     candidate2_capsule_build_run: 33131773164
     candidate2_a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
     candidate2_a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
-    candidate2_a_p_delivery_state: A_S_SEAL_SATISFIED_PREPARE_SEPARATE_A_P
+    candidate2_a_p_delivery_state: A_P_CLEAN_ROOM_READY_NOT_STARTED
     candidate2_a_s_delivery_mode: DEDICATED_CLEAN_ROOM_REPOSITORY
     candidate2_cleanroom_repository: guytogay/independent-validation-cleanroom
-    candidate2_cleanroom_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
+    candidate2_cleanroom_commit: 28dde50c9caaeee3b5c269e28a7be5f07ac29ae5
     candidate2_cleanroom_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
     candidate2_fresh_review_completed: false
     current_project_manager_is_fresh_candidate2_reviewer: false
@@ -275,7 +280,7 @@ completed_transition:
 current_method_transition:
   id: CANDIDATE2_SAME_REPO_BLIND_VIEW_TO_PHYSICALLY_ISOLATED_CARRIER_R3
   target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE2
-  result: ISSUE137_ABORTED_INTERFACE_DEFECT_A_S_SEALED_NOT_CLEARED_A_P_NEXT_A_P_WITHHELD
+  result: ISSUE137_ABORTED_INTERFACE_DEFECT_A_S_SEALED_NOT_CLEARED_A_P_CLEAN_ROOM_READY_A_P_WITHHELD
   information_boundary_method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
   carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
   incident: research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md
@@ -288,7 +293,7 @@ current_method_transition:
   attack_cardinality: OPEN
 
 immediate_next_action:
-  id: PREPARE_AND_DELIVER_CANDIDATE2_A_P_TO_SAME_FRESH_REVIEWER
+  id: RETURN_SAME_FRESH_REVIEWER_TO_CANDIDATE2_A_P_CLEAN_ROOM
   target: PHYSICALLY_ISOLATED_A_S_CAPSULE_R3
   objective: >-
     Give only the deterministic A-S capsule to a genuinely fresh reviewer, verify its expected

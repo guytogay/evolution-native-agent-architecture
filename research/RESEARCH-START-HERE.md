@@ -80,7 +80,18 @@ The current project-manager session is **not eligible** to perform fresh candida
 
 ## Immediate next action
 
-`PREPARE_AND_DELIVER_CANDIDATE2_A_P_TO_SAME_FRESH_REVIEWER`
+`RETURN_SAME_FRESH_REVIEWER_TO_CANDIDATE2_A_P_CLEAN_ROOM`
+
+A-P clean-room stage is ready:
+
+- repository `https://github.com/guytogay/independent-validation-cleanroom`;
+- parentless A-P commit `aea2ed25107145a557b3fe46ca0e4b90e2b90fa9`;
+- tree `08ac16303d69a6a268197ac26b23c5b20972b727`;
+- exact frozen package subtree `d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`.
+
+A-S wrapper identity correction: the originally supplied SHA `28dde50c9caaeee3b5cfabf51410083dbbb05a93` was unresolvable; the actual parentless A-S commit is `28dde50c9caaeee3b5c269e28a7be5f07ac29ae5` and has the already-correct recorded tree `42debebed620bd05e6e2635409057f20b57bfa9e`. The independent A-S report remains unchanged.
+
+Return the **same** fresh reviewer to A-P. Do not perform candidate repair or project-manager Phase B until the A-P report is returned and sealed.
 
 Fresh A-S is complete and externally content-sealed:
 
@@ -99,7 +110,7 @@ Active review carrier:
 
 - method `research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`;
 - dedicated clean-room repo `https://github.com/guytogay/independent-validation-cleanroom`;
-- pinned A-S commit `28dde50c9caaeee3b5cfabf51410083dbbb05a93`;
+- pinned A-S commit `28dde50c9caaeee3b5c269e28a7be5f07ac29ae5`;
 - tree `42debebed620bd05e6e2635409057f20b57bfa9e`;
 - commit parents `[]`;
 - A-P delivery state `WITHHELD_UNTIL_A_S_CONTENT_SEAL`.
