@@ -1,0 +1,36 @@
+name: Candidate.2 Cleanroom Method Links
+
+on:
+  push:
+    branches: [research/ena-reconstruction]
+    paths:
+      - '.github/scripts/fix_candidate2_cleanroom_method_links.py'
+      - '.github/workflows/candidate2-cleanroom-method-links.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+      - name: Apply exact method-link correction
+        run: python3 .github/scripts/fix_candidate2_cleanroom_method_links.py
+      - name: Verify scope and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t changed < <(git diff --name-only | sort)
+          printf '%s\n' research/methodology/METHOD-CHANGELOG.md research/methodology/README.md | sort >/tmp/expected
+          printf '%s\n' "${changed[@]}" | sort >/tmp/observed
+          diff -u /tmp/expected /tmp/observed
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/methodology/METHOD-CHANGELOG.md research/methodology/README.md
+          git commit -m 'method: align isolated carrier links to reusable cleanroom model'
+          git push origin HEAD:research/ena-reconstruction
