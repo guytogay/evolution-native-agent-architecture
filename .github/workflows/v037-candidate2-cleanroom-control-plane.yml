@@ -29,16 +29,12 @@ jobs:
           test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
           test -f collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-carrier-transition.md
           test -f research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/HANDOFF-MANIFEST.yaml
-          python - <<'PY'
-          import json, urllib.request
-          url='https://api.github.com/repos/guytogay/independent-validation-cleanroom/git/commits/28dde50c9caaeee3b5cfabf51410083dbbb05a93'
-          with urllib.request.urlopen(url) as r:
-              doc=json.load(r)
-          assert doc['sha']=='28dde50c9caaeee3b5cfabf51410083dbbb05a93'
-          assert doc['tree']['sha']=='42debebed620bd05e6e2635409057f20b57bfa9e'
-          assert doc['parents']==[]
-          print('CLEANROOM_IDENTITY_BINDING=PASS')
-          PY
+
+          git clone --quiet --no-checkout https://github.com/guytogay/independent-validation-cleanroom.git /tmp/cleanroom
+          test "$(git -C /tmp/cleanroom rev-parse origin/main)" = "28dde50c9caaeee3b5cfabf51410083dbbb05a93"
+          test "$(git -C /tmp/cleanroom show -s --format=%T 28dde50c9caaeee3b5cfabf51410083dbbb05a93)" = "42debebed620bd05e6e2635409057f20b57bfa9e"
+          test "$(git -C /tmp/cleanroom show -s --format=%P 28dde50c9caaeee3b5cfabf51410083dbbb05a93)" = ""
+          echo 'CLEANROOM_IDENTITY_BINDING=PASS'
 
       - name: Apply clean-room control-plane transition
         run: python3 .github/scripts/apply_v037_candidate2_cleanroom_control_plane.py
