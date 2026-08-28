@@ -1,8 +1,8 @@
-# Agent Adoption Instruction — ENA v0.3.7 candidate.3
+# Agent Adoption Instruction — ENA v0.3.7
 
-Status: **CANDIDATE REVIEW / NOT_CURRENT / NOT_FROZEN / DO_NOT_PROMOTE BY INSTRUCTION ALONE**.
+Status: **CURRENT ADOPTION / FIELD_VALIDATION**.
 
-The active adopter baseline remains `releases/current/` = v0.3.6.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
 This file describes how to evaluate the candidate as a complete operational package and, only after an explicit future release decision, how its surfaces are intended to be adopted.
 

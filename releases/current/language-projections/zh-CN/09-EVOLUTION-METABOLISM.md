@@ -1,6 +1,6 @@
-# 9. 进化代谢与进化生态 — v0.3.7 candidate.3
+# 9. 进化代谢与进化生态 — v0.3.7
 
-状态：`WORKING_CANDIDATE / INHERITED_V036_ECOLOGY_PLUS_OPERATIONAL_HOW / NOT_CURRENT / NOT_FROZEN`。
+状态：`CURRENT / FIELD_VALIDATION`。
 
 candidate.3 保留 v0.3.6 的进化生态语义，新增的是具体 HOW 路由、Host mapping 和实用 v2 工具路径；没有新增 Constitution 条文，也没有宣称新的 universal evolution ontology。
 

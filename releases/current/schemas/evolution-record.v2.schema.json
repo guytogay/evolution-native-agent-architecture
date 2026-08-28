@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/ena/evolution-record.v2.schema.json",
-  "title": "ENA Evolution Candidate Record v2 (v0.3.7 candidate.3)",
+  "title": "ENA Evolution Record v2 (v0.3.7 Current)",
   "type": "object",
   "required": [
     "candidate_id",

@@ -1,3 +1,25 @@
+# ENA v0.3.7 Lineage
+
+Status: `CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE`.
+
+## Release source and packaging lineage
+
+- predecessor Current: `v0.3.6`, tree `7dcbb3934883ffa6cc5292a662588cafc1533cff`;
+- frozen semantic/operational source: `v0.3.7-candidate.3`;
+- frozen source commit: `b7e88d7adb70396bd671ca97066daf2c120e0adc`;
+- frozen subtree: `e3a9a20d16cecd78df7f32f19fca56e21159e810`;
+- exact pre-freeze run: `33150269264` — SUCCESS;
+- targeted post-freeze run: `33150553992` — SUCCESS;
+- release hardening run: `33152201566` — SUCCESS;
+- release-preparation decision: `RELEASE_PREPARATION_SUPPORTED`;
+- candidate succession: `STOP`; candidate.4 not justified by current evidence.
+
+Release packaging began with a byte-for-byte transplant of the frozen candidate.3 subtree into `releases/current/`. Subsequent differences are restricted to release identity/status/adoption/projection/validation packaging and must not silently change validated material semantics.
+
+The candidate.3 and predecessor candidate sections below remain occurrence truth; release projection does not rewrite them into historical fiction.
+
+---
+
 # ENA v0.3.7 candidate.3 Lineage
 
 ## Candidate.3 succession

@@ -1,8 +1,8 @@
-# 7. Adoption and Field Validation — v0.3.7 candidate.3
+# 7. Adoption and Field Validation — v0.3.7
 
-Status: `WORKING_CANDIDATE / REPAIR_RECONCILED / EXACT_PREFREEZE_NEXT / NOT_CURRENT / NOT_FROZEN`.
+Status: `CURRENT / FIELD_VALIDATION`.
 
-The active adopter baseline remains v0.3.6 Current. Candidate.3 is a focused successor-repair workspace and must not be treated as a released field baseline.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
 v0.3.7 candidate.3 asks a practical question: can the inherited semantic trunk become more usable through concrete HOW routing, optional reference organs, Host mappings, a narrow v2 tool path, and zh-CN operational projection without creating new Core law or excessive governance?
 

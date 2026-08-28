@@ -1,6 +1,6 @@
-# 6. Evolution, Knowledge, Migration, and Open Participation — v0.3.7 candidate.3
+# 6. Evolution, Knowledge, Migration, and Open Participation — v0.3.7
 
-Status: `WORKING_CANDIDATE / INHERITED_SEMANTICS_PLUS_OPERATIONAL_POINTER / NOT_CURRENT / NOT_FROZEN`.
+Status: `CURRENT / FIELD_VALIDATION`.
 
 ENA project knowledge, variations, adaptations, research, evidence, lineage, and open questions should remain discoverable to legitimate participants. Knowledge access, publication, import, adoption, and consequential authority remain separate things.
 

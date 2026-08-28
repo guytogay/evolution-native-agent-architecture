@@ -1,6 +1,6 @@
-# 9. Evolution Metabolism and Ecology — v0.3.7 candidate.3
+# 9. Evolution Metabolism and Ecology — v0.3.7
 
-Status: `WORKING_CANDIDATE / INHERITED_V036_ECOLOGY_PLUS_OPERATIONAL_HOW / NOT_CURRENT / NOT_FROZEN`.
+Status: `CURRENT / FIELD_VALIDATION`.
 
 This candidate preserves the v0.3.6 evolution-ecology semantics and adds practical routing/tool surfaces. It does **not** introduce a new universal evolution ontology or Constitution rule.
 

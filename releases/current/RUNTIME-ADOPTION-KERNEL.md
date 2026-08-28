@@ -1,8 +1,8 @@
-# ENA Runtime Adoption Kernel — v0.3.7 candidate.3
+# ENA Runtime Adoption Kernel — v0.3.7
 
-Status: `WORKING_CANDIDATE / HOT_SEMANTIC_CUE_SURFACE / NOT_CURRENT / NOT_FROZEN`.
+Status: `CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`.
 
-The active Current remains v0.3.6 under `releases/current/`.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
 **ENA exists to make sustained self-evolution viable.**
 

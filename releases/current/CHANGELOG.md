@@ -1,3 +1,17 @@
+# ENA Changelog
+
+## v0.3.7 — CURRENT / FIELD_VALIDATION
+
+Promotes the frozen candidate.3 semantic/operational package into the singular Current adoption surface after candidate succession converged and release preparation was explicitly supported.
+
+Release value is primarily practical Operational Architecture: consequence-first Cue/HOW routing, selected optional/default-off reference organs, Host mappings, a narrow v2 evolution helper, and zh-CN operational projection while retaining the inherited 38-ID Constitution and semantic trunk.
+
+Visible evidence boundaries remain visible: attack cardinality is open; external mandate/receipt truth, universal Host applicability, natural future-session salience, and universal bilingual behavioral equivalence are not claimed.
+
+The candidate.3 and predecessor sections below are preserved as development/evidence lineage.
+
+---
+
 ## v0.3.7 candidate.3 — WORKING_CANDIDATE / NOT_CURRENT / NOT_FROZEN
 
 Candidate.3 succeeds frozen candidate.2 after fresh candidate.2 A-S/A-P and Phase B classified three executable semantic defects plus package provenance/self-description defects as material successor work.

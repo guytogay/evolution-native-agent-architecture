@@ -1,8 +1,8 @@
-# ENA v0.3.7 candidate.3 — Operational Architecture successor candidate
+# ENA v0.3.7 — Operational Architecture successor candidate
 
-Status: **WORKING_CANDIDATE / REPAIR_RECONCILED / EXACT_PREFREEZE_NEXT / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED**
+Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-The active adopter baseline remains `releases/current/` = `v0.3.6 / CURRENT / FIELD_VALIDATION`.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
 Do **not** adopt this directory as Current. Candidate.3 successor repairs are reconciled; exact pre-freeze validation is next, followed only on PASS by external freeze and explicit post-freeze independence/release reconciliation.
 

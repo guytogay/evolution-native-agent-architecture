@@ -1,8 +1,8 @@
-# ENA v0.3.7 candidate.3 — 请先阅读
+# ENA v0.3.7 — 请先阅读
 
-状态：**WORKING_CANDIDATE / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED**
+状态：**CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
-当前唯一面向采用者的 Current 仍然是 `releases/current/` 下的 v0.3.6。
+当前唯一面向采用者的基线是本目录中的 `v0.3.7 / CURRENT / FIELD_VALIDATION`。
 
 本目录是 v0.3.7 candidate.3 的简体中文语义/运行投影，用来测试：在不增加无必要 Core 条文的情况下，ENA 能否通过具体 HOW 路由变得更可住、更可执行。
 

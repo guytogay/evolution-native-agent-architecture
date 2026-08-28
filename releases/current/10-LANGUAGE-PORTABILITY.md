@@ -1,6 +1,6 @@
-# 10. Language Portability and Semantic Projection — v0.3.7 candidate.3
+# 10. Language Portability and Semantic Projection — v0.3.7
 
-Status: `WORKING_CANDIDATE / OPERATIONAL_LANGUAGE_PROJECTION / NOT_CURRENT / NOT_FROZEN`.
+Status: `CURRENT / FIELD_VALIDATION / OPERATIONAL_LANGUAGE_PROJECTION`.
 
 ENA must not depend on English proficiency to remain usable as ENA.
 

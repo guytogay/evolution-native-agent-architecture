@@ -1,8 +1,8 @@
-# ENA 运行时采用核心 — v0.3.7 candidate.3
+# ENA 运行时采用核心 — v0.3.7
 
-状态：`WORKING_CANDIDATE / HOT_SEMANTIC_CUE_SURFACE / NOT_CURRENT / NOT_FROZEN`。
+状态：`CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`。
 
-当前 Current 仍是 `releases/current/` 下的 v0.3.6。
+当前唯一面向采用者的基线是本目录中的 `v0.3.7 / CURRENT / FIELD_VALIDATION`。
 
 **ENA 的存在，是为了让持续的自我进化成为一种可行能力。**
 

@@ -1,10 +1,10 @@
-# LITE Adoption Instruction — ENA v0.3.7 candidate.3
+# LITE Adoption Instruction — ENA v0.3.7
 
-Status: `WORKING_CANDIDATE / LITE PROFILE / NOT_CURRENT / NOT_FROZEN`.
+Status: `CURRENT / FIELD_VALIDATION / LITE PROFILE`.
 
 LITE means low ceremony for a bounded consequence envelope. It is not a reduced Constitution and not "no evolution."
 
-The active Current remains v0.3.6. This file defines the intended candidate LITE behavior for review; it does not promote candidate.3.
+The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
 For familiar low-consequence work:
 

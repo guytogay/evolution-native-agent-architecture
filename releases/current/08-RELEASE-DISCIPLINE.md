@@ -1,6 +1,6 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.7 candidate.3
+# 8. Release and Canonical-Lineage Discipline — v0.3.7
 
-Status: `SUCCESSOR_WORKING_CANDIDATE / REPAIR_RECONCILED / EXACT_PREFREEZE_NEXT / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED`.
+Status: `CURRENT / FIELD_VALIDATION / RELEASED`.
 
 A deployable ENA adoption version must be self-contained and immutably identifiable. Candidate.3 is not Current and must not acquire release status by self-description.
 
