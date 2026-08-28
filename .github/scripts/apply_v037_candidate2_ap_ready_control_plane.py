@@ -62,7 +62,6 @@ t = ACTIVE.read_text(encoding='utf-8')
 t = t.replace('V0_3_7_CANDIDATE2_A_S_SEALED_NOT_CLEARED_A_P_NEXT',
               'V0_3_7_CANDIDATE2_A_P_CLEAN_ROOM_READY')
 if '  a_p_cleanroom_commit:' not in t:
-    # Fallback insertion near the active cleanroom repository block.
     anchor = '  cleanroom_branch: main\n'
     if anchor not in t:
         raise SystemExit('ACTIVE cleanroom branch anchor missing')
@@ -117,7 +116,7 @@ if '  a_p_cleanroom_ready: true' not in t:
     t = head + tail
 PROGRESS.write_text(t, encoding='utf-8')
 
-# START-HERE: make A-P stage the reviewer-facing next action.
+# START-HERE: make A-P stage the reviewer-facing next action and preserve the wrong SHA only as correction history.
 t = START.read_text(encoding='utf-8')
 marker = f'## Immediate next action\n\n`{NEXT}`\n'
 if marker not in t:
@@ -130,7 +129,15 @@ joined = '\n'.join(p.read_text(encoding='utf-8') for p in FILES)
 for required in [NEW_RECORD, ACTUAL_AS, AS_TREE, AP_COMMIT, AP_TREE, CANDIDATE_TREE, CORRECTION, NEXT, 'A_P_CLEAN_ROOM_READY']:
     if required not in joined:
         raise SystemExit('missing A-P-ready control marker: ' + required)
-for stale in [OLD_RECORD, WRONG_AS, 'PREPARE_AND_DELIVER_CANDIDATE2_A_P_TO_SAME_FRESH_REVIEWER', 'A_S_STAGE_SEALED / PREPARING_SEPARATE_A_P_CLEAN_ROOM_STAGE']:
+# The wrong wrapper SHA is allowed only as historical correction narrative; it must not survive in active identity fields.
+active_wrong_markers = [
+    f'cleanroom_commit: {WRONG_AS}',
+    f'actual_a_s_cleanroom_commit: {WRONG_AS}',
+    f'a_s_cleanroom_commit: {WRONG_AS}',
+]
+for stale in [OLD_RECORD, 'PREPARE_AND_DELIVER_CANDIDATE2_A_P_TO_SAME_FRESH_REVIEWER', 'A_S_STAGE_SEALED / PREPARING_SEPARATE_A_P_CLEAN_ROOM_STAGE'] + active_wrong_markers:
     if stale in joined:
-        raise SystemExit('stale A-P-preparation marker remains: ' + stale)
+        raise SystemExit('stale active A-P-preparation marker remains: ' + stale)
+if WRONG_AS not in START.read_text(encoding='utf-8'):
+    raise SystemExit('historical wrapper correction evidence was accidentally erased')
 print('CANDIDATE2_A_P_READY_CONTROL_PLANE=READY')
