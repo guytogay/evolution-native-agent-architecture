@@ -1,0 +1,82 @@
+name: ENA v0.3.7 Candidate.3 Release Hardening Audit
+
+on:
+  push:
+    branches:
+      - research/ena-reconstruction
+    paths:
+      - '.github/scripts/v037_candidate3_release_hardening.py'
+      - '.github/workflows/v037-candidate3-release-hardening.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  harden:
+    runs-on: ubuntu-24.04
+    env:
+      FROZEN_SOURCE: b7e88d7adb70396bd671ca97066daf2c120e0adc
+      FROZEN_TREE: e3a9a20d16cecd78df7f32f19fca56e21159e810
+      CURRENT_TREE: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout control plane
+        uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+          path: control
+
+      - name: Checkout exact frozen candidate.3
+        uses: actions/checkout@v4
+        with:
+          ref: b7e88d7adb70396bd671ca97066daf2c120e0adc
+          fetch-depth: 0
+          path: target
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install parser dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Bind exact frozen occurrence
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C target rev-parse HEAD)" = "$FROZEN_SOURCE"
+          test "$(git -C target rev-parse HEAD:releases/v0.3.7-candidate)" = "$FROZEN_TREE"
+          test "$(git -C target rev-parse HEAD:releases/current)" = "$CURRENT_TREE"
+          test -f control/collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md
+          test -f control/collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md
+          echo CANDIDATE3_HARDENING_BINDING=PASS
+
+      - name: Run release hardening machine audit
+        run: python control/.github/scripts/v037_candidate3_release_hardening.py target
+
+      - name: Reconfirm executable and inherited compatibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='target/releases/v0.3.7-candidate'
+          python "$ROOT/tools/regression_suite.py" | tee /tmp/reg.log
+          grep -q 'inherited 164-case corpus : 164/164 passed (ZERO flips required)' /tmp/reg.log
+          grep -q 'successor closure corpus  : 61/61 passed' /tmp/reg.log
+          python "$ROOT/tools/validate_evolution_record_v2.py" --selftest | grep 'EVOLUTION_RECORD_V2_SELFTEST_PASS 35'
+          python "$ROOT/references/general/authority-lease/tools/validate_authority_lease.py"
+          python "$ROOT/references/general/effect-lifecycle/tools/validate_effect_lifecycle.py"
+          test -z "$(git -C target status --porcelain)"
+          test "$(git -C target rev-parse HEAD:releases/v0.3.7-candidate)" = "$FROZEN_TREE"
+          echo CANDIDATE3_HARDENING_EXECUTABLE_COMPATIBILITY=PASS
+
+      - name: Emit hardening disposition boundary
+        shell: bash
+        run: |
+          echo 'CANDIDATE3_RELEASE_HARDENING_GATE=PASS'
+          echo 'fresh_search_space_independence=NOT_CLAIMED'
+          echo 'attack_cardinality=OPEN'
+          echo 'field_truth=NOT_ESTABLISHED'
+          echo 'candidate4=ONLY_IF_MATERIAL_FROZEN_BYTE_DEFECT_IS_DEMONSTRATED'
+          echo 'release_packaging=PERMITTED_IF_PROJECT_MANAGER_RECONCILIATION_ACCEPTS_OBSERVATIONS'
