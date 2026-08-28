@@ -29,6 +29,7 @@ t = t.replace(
 t = t.replace('event: "V0_3_7_CANDIDATE2_ISOLATED_REVIEW_CARRIER_R3_FINALIZED"',
               'event: "V0_3_7_CANDIDATE2_PHASE_B_NEEDS_REVISION_CANDIDATE3_REQUIRED"')
 t = t.replace('a_p_delivery_state: A_P_CLEAN_ROOM_READY_NOT_STARTED', 'a_p_delivery_state: A_P_SEALED_PHASE_B_COMPLETE')
+t = t.replace('final_a_p_report_sha256: NOT_YET_CREATED', f'final_a_p_report_sha256: {AP_SHA}')
 t = t.replace('fresh_candidate2_review_completed: false', 'fresh_candidate2_review_completed: true')
 t = t.replace('CANDIDATE2_FROZEN_A_S_SEALED_NOT_CLEARED_A_P_CLEAN_ROOM_READY_NOT_CURRENT_NOT_RELEASED',
               'CANDIDATE2_FROZEN_A_S_SEALED_A_P_SEALED_PHASE_B_NEEDS_REVISION_CANDIDATE3_REQUIRED_NOT_CURRENT_NOT_RELEASED')
