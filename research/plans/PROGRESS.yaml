@@ -1,6 +1,6 @@
 schema_version: "2.1"
 as_of: "2026-08-28"
-status: V0_3_7_CANDIDATE2_FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
+status: V0_3_7_CANDIDATE2_FROZEN_FRESH_A_S_INTAKE_READY
 
 progress_is_complete_history: false
 
@@ -91,7 +91,7 @@ successor_candidate1:
 
 successor_candidate2:
   identity: v0.3.7-candidate.2
-  state: FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
+  state: FROZEN_FRESH_A_S_INTAKE_READY
   candidate_branch: candidate/v0.3.7-candidate.2
   branch_head_is_frozen_identity: false
   created_from_candidate1_frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
@@ -114,6 +114,14 @@ successor_candidate2:
   postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
   mutable_in_place: false
   material_change_requires_successor: v0.3.7-candidate.3
+  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+  neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
+  blind_view_audit_record: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
+  validation_branch: validation/v037-c2-blind-semantic-primary
+  validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
+  fresh_intake_issue: 137
+  fresh_a_s_seal: NOT_YET_CREATED
+  final_a_p_commit: NOT_YET_CREATED
   attack_cardinality: OPEN
 
 phase_state:
@@ -167,7 +175,7 @@ phase_state:
     candidate2_required_by_method_change: false
 
   independent_falsification:
-    state: CANDIDATE2_FROZEN_FRESH_BLIND_VIEW_PREPARATION_NEXT
+    state: CANDIDATE2_FROZEN_FRESH_A_S_INTAKE_READY
     candidate1_a_s_seal: 2e6b46aeedc1945a03aac93620ad36aa1ccbd70f
     candidate1_a_p_commit: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
     candidate1_phase_b_verdict: NEEDS_REVISION
@@ -176,6 +184,13 @@ phase_state:
     candidate2_frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
     candidate2_fresh_review_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
     candidate2_fresh_review_completed: false
+    candidate2_blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+    candidate2_blind_view_audit: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
+    candidate2_fresh_intake_issue: 137
+    candidate2_validation_branch: validation/v037-c2-blind-semantic-primary
+    candidate2_validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
+    candidate2_fresh_a_s_seal: NOT_YET_CREATED
+    candidate2_final_a_p_commit: NOT_YET_CREATED
     current_project_manager_is_fresh_candidate2_reviewer: false
     sequence_required: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
     attack_cardinality: OPEN
@@ -258,13 +273,13 @@ current_method_transition:
   candidate2_required_by_phase_b_defects: true
 
 immediate_next_action:
-  id: PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE
-  target: FROZEN_V0_3_7_CANDIDATE2
+  id: GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S
+  target: ISSUE_137_VALIDATION_V037_C2_BLIND_SEMANTIC_PRIMARY
   objective: >-
-    Construct a declared blind semantic view of the exact frozen candidate.2 tree,
-    withholding candidate-local history/oracle roles before A-S while preserving
-    retained executable semantic bytes unchanged; then prepare one genuinely fresh
-    A-S -> A-P intake and stop the fresh reviewer before Phase B.
+    Have a genuinely fresh reviewer inspect the prepared candidate.2 blind semantic view,
+    persist/seal A-S before opening withheld candidate-local history/oracles, then perform
+    A-P and stop before project-manager Phase B. The current project-manager session must
+    not claim fresh A-S.
   frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
   frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
   exact_prefreeze_run: 33095987843
@@ -273,9 +288,8 @@ immediate_next_action:
   do_not_promote: true
 
 candidate2_postfreeze_path:
-  - prepare exact frozen-source blind semantic view with declared information-role exclusions
-  - verify every retained candidate byte equals frozen source and view exclusions are not release ablation
-  - prepare neutral fresh intake without predecessor findings, repair narrative, or author oracle
+  - blind semantic view prepared and audited: 31 declared removals + 2 intake additions, 0 retained candidate-byte modifications
+  - neutral fresh intake created as Issue 137 on validation/v037-c2-blind-semantic-primary
   - require A-S artifact persistence/seal before withheld candidate-local history/oracles open
   - permit A-P only after A-S seal and stop independent reviewer before Phase B
   - keep attack cardinality open and preserve Current v0.3.6

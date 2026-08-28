@@ -79,26 +79,31 @@ The current project-manager session is **not eligible** to perform fresh candida
 
 ## Immediate next action
 
-`PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE`
+`GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S`
 
-Use the repaired blind semantic view method from:
+Fresh intake is ready:
 
-`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
+- Issue `#137 — Fresh independent A-S/A-P — v0.3.7 candidate.2`
+- validation branch `validation/v037-c2-blind-semantic-primary`
+- neutral entry `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md`
+- blind view `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml`
+- view audit `collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md`
+
+The source-to-view audit found 31 declared A-S removals plus the two intake files and **zero retained candidate-byte modifications**. The view is a projection, not a new candidate.
 
 Required sequence:
 
 ```text
-EXACT FROZEN CANDIDATE.2
--> DECLARED BLIND SEMANTIC VIEW
--> FRESH A-S
+FRESH REVIEWER
+-> A-S ON DECLARED BLIND VIEW
 -> PERSIST / SEAL A-S
--> A-P OPENS WITHHELD CANDIDATE-LOCAL HISTORY / ORACLES
+-> A-P OPENS WITHHELD CANDIDATE-LOCAL HISTORY / ORACLES FROM EXACT FROZEN SOURCE
 -> PERSIST A-P
 -> STOP FRESH REVIEWER
 -> PROJECT-MANAGER PHASE B
 ```
 
-Before A-S seal, do not send the fresh reviewer through the project-manager handoff, predecessor findings, candidate.2 repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces declared withheld by the new view manifest.
+Before A-S seal, do not send the fresh reviewer through the project-manager handoff, predecessor findings, candidate.2 repair narratives, author attack maps, expected fixtures, or candidate-local history/oracle surfaces declared withheld by the view manifest. The current project-manager session is not eligible to perform fresh candidate.2 A-S.
 
 Candidate.2 is frozen. Any material candidate-byte correction after this point requires candidate.3; do not edit candidate.2 in place.
 
@@ -159,7 +164,7 @@ Before claiming successful takeover, a successor project manager should be able 
 - Issue #131 = sealed A-S/A-P occurrence truth for candidate.1;
 - A-S seal = `2e6b46ae...`; A-P final = `b970148f...`;
 - candidate.1 = `NEEDS_REVISION`, immutable predecessor to candidate.2;
-- candidate.2 = frozen exact successor at `bda470e0...` / `d5fefc8c...`, fresh blind semantic view preparation next;
+- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`, with fresh A-S intake Issue #137 ready on `validation/v037-c2-blind-semantic-primary`;
 - fresh validator entry remains blind semantic entry, not full project-manager context for any future independent intake;
 - `releases/current/` remains untouched until governed release/promotion.
 

@@ -53,11 +53,13 @@ fresh_independent_validation_boundary:
   active_target_frozen: true
   postfreeze_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
   decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
-  view_preparation_required: true
-  blind_view_manifest: NOT_YET_CREATED
-  neutral_entry: NOT_YET_CREATED
-  intake_issue: NOT_YET_CREATED
-  validation_branch: NOT_YET_CREATED
+  view_preparation_required: false
+  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+  neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
+  blind_view_audit_record: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
+  intake_issue: 137
+  validation_branch: validation/v037-c2-blind-semantic-primary
+  validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
   fresh_a_s_seal: NOT_YET_CREATED
   final_a_p_commit: NOT_YET_CREATED
   sequence: A-S_THEN_A-P_THEN_STOP_BEFORE_PHASE_B
@@ -97,8 +99,14 @@ completion_evidence:
   candidate2_reconciliation_record: collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md
   candidate2_freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
   candidate2_independence_decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
-  candidate2_state: FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
-  immediate_next_action: PREPARE_CANDIDATE2_BLIND_SEMANTIC_VIEW_AND_FRESH_INTAKE
+  candidate2_state: FROZEN_FRESH_A_S_INTAKE_READY
+  candidate2_blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+  candidate2_neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
+  candidate2_blind_view_audit: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
+  candidate2_validation_branch: validation/v037-c2-blind-semantic-primary
+  candidate2_validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
+  candidate2_fresh_intake_issue: 137
+  immediate_next_action: GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S
   current_handoff_record_refresh: COMPLETE
 
 candidate1_successor_state:
@@ -131,7 +139,7 @@ candidate2_successor_state:
   identity: v0.3.7-candidate.2
   branch: candidate/v0.3.7-candidate.2
   predecessor_identity: v0.3.7-candidate.1
-  state: FROZEN_FRESH_BLIND_SEMANTIC_VIEW_PREPARATION_NEXT
+  state: FROZEN_FRESH_A_S_INTAKE_READY
   frozen: true
   current: false
   frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
@@ -144,6 +152,14 @@ candidate2_successor_state:
   freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
   independence_decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
   fresh_a_s_a_p_next: true
+  fresh_a_s_a_p_issue: 137
+  fresh_a_s_a_p_branch: validation/v037-c2-blind-semantic-primary
+  fresh_a_s_a_p_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
+  blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
+  blind_view_audit_record: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
+  validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
+  fresh_a_s_seal: NOT_YET_CREATED
+  final_a_p_commit: NOT_YET_CREATED
   fresh_a_s_a_p_completed: false
   targeted_revalidation_is_fresh_a_s: false
   material_change_requires_successor: v0.3.7-candidate.3
@@ -162,6 +178,7 @@ branch_hygiene:
     - validation/v037-c0-blind-phase-a-primary
     - validation/v037-c1-blind-phase-a-primary
     - validation/v037-c1-blind-semantic-primary
+    - validation/v037-c2-blind-semantic-primary
     - tmp/noop-check
     - tmp/noop-check-2
   candidate0_validation_branch_role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
@@ -170,6 +187,7 @@ branch_hygiene:
   candidate0_branch_role: FROZEN_PREDECESSOR_LINEAGE
   candidate1_branch_role: FROZEN_NEEDS_REVISION_PREDECESSOR_TO_CANDIDATE2
   candidate2_branch_role: FROZEN_SUCCESSOR_OCCURRENCE_TRUTH_NOT_CURRENT_NOT_RELEASED
+  candidate2_validation_branch_role: ACTIVE_FRESH_A_S_INTAKE_VIEW_NOT_CANDIDATE_NOT_RELEASE_AUTHORITY
   operator_noise_branches:
     - tmp/noop-check
     - tmp/noop-check-2
