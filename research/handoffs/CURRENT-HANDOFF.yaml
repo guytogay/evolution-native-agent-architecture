@@ -18,15 +18,15 @@ project_methodology_required:
   independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
 
 current_handoff_record:
-  id: "2026-08-28-v037-candidate2-frozen-blind-view-next"
+  id: "2026-08-28-v037-candidate2-fresh-as-intake-ready"
   state: HANDOFF_READY_FOR_SESSION_SUCCESSION
-  record_root: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/"
-  start_here: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/HANDOFF-START-HERE.md"
-  manifest: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/HANDOFF-MANIFEST.yaml"
-  project_state: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/PROJECT-STATE.md"
-  recent_three_rounds: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/RECENT-THREE-ROUNDS.md"
-  file_catalog: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/FILE-CATALOG.md"
-  post_merge_readback: "research/handoffs/records/2026-08-28-v037-candidate2-frozen-blind-view-next/HANDOFF-READBACK.md"
+  record_root: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/"
+  start_here: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/FILE-CATALOG.md"
+  post_merge_readback: "research/handoffs/records/2026-08-28-v037-candidate2-fresh-as-intake-ready/HANDOFF-READBACK.md"
 
 current_project_authorities:
   project_hub: PROJECT-HUB.md
