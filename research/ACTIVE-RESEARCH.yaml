@@ -7,7 +7,7 @@ updated_at: "2026-08-28"
 
 active_research:
   branch: "research/ena-reconstruction"
-  state: "V0_3_7_CANDIDATE2_FROZEN / A_S_SEALED / A_P_SEALED / PHASE_B_NEEDS_REVISION / CANDIDATE3_REQUIRED / NOT_CURRENT / NOT_RELEASED"
+  state: "V0_3_7_CANDIDATE3_FROZEN / EXACT_PREFREEZE_PASS / TARGETED_POSTFREEZE_PASS / RELEASE_HARDENING_PASS / CANDIDATE_SUCCESSION_STOP / RELEASE_PREPARATION_SUPPORTED / NOT_CURRENT / NOT_RELEASED"
   branch_role: "LONG_LIVED_RESEARCH_INTEGRATION_SURFACE"
   continuation_authority: BRANCH_POINTER
   head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
@@ -62,74 +62,40 @@ continuation_protocol:
   - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "V0_3_7_CANDIDATE2_PHASE_B_NEEDS_REVISION_CANDIDATE3_REQUIRED"
+  event: "V0_3_7_CANDIDATE3_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED"
   current_changed_by_transition: false
   next_version: "v0.3.7"
-  active_candidate_identity: "v0.3.7-candidate.2"
-  active_candidate_branch: "candidate/v0.3.7-candidate.2"
+  active_candidate_identity: "v0.3.7-candidate.3"
+  active_candidate_branch: "candidate/v0.3.7-candidate.3"
   candidate_state: FROZEN_NOT_CURRENT_NOT_RELEASED
-  final_candidate_cargo_commit: "aba6f12cabc84146c92809bd7d8293a3c907dc55"
-  exact_prefreeze_run: 33095987843
-  frozen_source: "bda470e0a6b170cec61225a905957a501454a2fe"
-  frozen_subtree: "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+  exact_prefreeze_run: 33150269264
+  targeted_postfreeze_run: 33150553992
+  release_hardening_run: 33152201566
+  frozen_source: "b7e88d7adb70396bd671ca97066daf2c120e0adc"
+  frozen_subtree: "e3a9a20d16cecd78df7f32f19fca56e21159e810"
   current_subtree_same_source: "7dcbb3934883ffa6cc5292a662588cafc1533cff"
-  repair_reconciliation_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md"
-  freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md"
-  postfreeze_independence_decision: FRESH_BLIND_SUCCESSOR_REVIEW_WARRANTED_ONE_CYCLE
-  independence_decision_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md"
-  invalidated_repository_intake_issue: 137
-  invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
-  carrier_method: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"
-  carrier_incident: "research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md"
-  carrier_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md"
-  cleanroom_transition_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-carrier-transition.md"
-  active_a_s_delivery_mode: DEDICATED_CLEAN_ROOM_REPOSITORY
-  cleanroom_repository: "guytogay/independent-validation-cleanroom"
-  cleanroom_url: "https://github.com/guytogay/independent-validation-cleanroom"
-  cleanroom_branch: main
-  a_s_cleanroom_commit: "28dde50c9caaeee3b5c269e28a7be5f07ac29ae5"
-  a_s_cleanroom_tree: "42debebed620bd05e6e2635409057f20b57bfa9e"
-  a_p_cleanroom_commit: "aea2ed25107145a557b3fe46ca0e4b90e2b90fa9"
-  a_p_cleanroom_tree: "08ac16303d69a6a268197ac26b23c5b20972b727"
-  a_p_cleanroom_package_subtree: "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
-  cleanroom_wrapper_identity_correction_record: "collaboration/reconciliation/2026-08-28-v037-candidate2-cleanroom-wrapper-identity-correction-and-ap-stage.md"
-  cleanroom_commit: "28dde50c9caaeee3b5c269e28a7be5f07ac29ae5"
-  cleanroom_tree: "42debebed620bd05e6e2635409057f20b57bfa9e"
-  cleanroom_commit_parent_count: 0
-  capsule_build_run: 33131773164
-  a_s_actions_artifact_id: 9670518379
-  a_p_actions_artifact_id: 9670518708
-  a_s_capsule_sha256: "dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da"
-  a_p_supplement_sha256: "427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649"
-  a_p_delivery_state: A_P_SEALED_PHASE_B_COMPLETE
-  isolated_a_s_capsule_ready: true
-  a_s_manifest_payload_count: 78
-  a_p_manifest_payload_count: 119
-  manifest_self_hash_policy: EXCLUDED_BY_DEFINITION
-  fresh_candidate2_review_completed: true
-  fresh_candidate2_review_by_current_project_manager_allowed: false
+  freeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate3-freeze.md"
+  targeted_postfreeze_record: "collaboration/reconciliation/2026-08-28-v037-candidate3-targeted-postfreeze-revalidation.md"
+  final_release_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate3-final-release-reconciliation.md"
+  release_hardening_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate3-release-hardening-reconciliation.md"
+  candidate_succession_stop: true
+  release_preparation_supported: true
+  candidate4_currently_justified: false
   attack_cardinality: OPEN
+  immediate_next_action: MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3
 
 candidate_validation_transition:
-  current_state: CANDIDATE2_FROZEN_A_S_SEALED_A_P_SEALED_PHASE_B_NEEDS_REVISION_CANDIDATE3_REQUIRED_NOT_CURRENT_NOT_RELEASED
+  current_state: CANDIDATE3_FROZEN_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED_NOT_CURRENT_NOT_RELEASED
   completed:
-    - candidate.0 and candidate.1 remain immutable frozen occurrence truth
-    - candidate.1 fresh A-S/A-P plus Phase B required candidate.2
-    - candidate.2 focused repair run 33090294820 PASS; cargo commit 613c1e8be898865ce674199118618c0f9389da97
-    - nearby open-branch probe 33090585653 exposed two homologous decision-changing gaps
-    - candidate.2 round-2 repair run 33091573678 PASS; cargo commit 34458c2ba0b94b82d182afe2606efe48e741bcda
-    - committed readback re-probe 33091652046 PASS
-    - status-only prefreeze transition run 33095122958 PASS; final candidate cargo commit aba6f12cabc84146c92809bd7d8293a3c907dc55
-    - exact candidate.2 pre-freeze run 33095987843 PASS on source bda470e0a6b170cec61225a905957a501454a2fe / subtree d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
-    - external freeze record binds the exact tested tree without rewriting candidate cargo
-    - post-freeze independence decision authorizes one fresh blind successor review cycle based on measured search-space information gain
-    - candidate.2 blind semantic view prepared from exact frozen source; source-to-view audit observed 31 declared removals + 2 intake additions and 0 retained-byte modifications
-    - candidate.2 information-role audit additionally withheld 08-RELEASE-DISCIPLINE.md after detecting predecessor-finding/repair-narrative self-priming
-    - fresh independent intake Issue 137 created for validation/v037-c2-blind-semantic-primary
-    - Issue 137 fresh reviewer correctly aborted before A-S seal after GitHub natural-navigation boundary crossing
-    - final isolated carrier audit run 33131773164 PASS after semantic-vocabulary detector and manifest-inventory corrections
+    - candidate.0, candidate.1, and candidate.2 remain immutable predecessor occurrence truth
+    - candidate.2 fresh A-S/A-P Phase B required bounded candidate.3 repair
+    - candidate.3 exact pre-freeze run 33150269264 PASS
+    - candidate.3 external freeze binds source b7e88d7adb70396bd671ca97066daf2c120e0adc / subtree e3a9a20d16cecd78df7f32f19fca56e21159e810
+    - targeted post-freeze run 33150553992 closed all six candidate.2 Phase-B material repair classes
+    - release hardening run 33152201566 PASS without a demonstrated material frozen candidate-byte defect
+    - candidate succession stop reaffirmed; candidate.4 is not justified by current evidence
   next_required_steps:
-    - "CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2"
+    - "MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3"
 
 frozen_candidate0:
   identity: "v0.3.7-candidate.0"
@@ -266,3 +232,20 @@ candidate2_phase_b:
   candidate2_mutation_forbidden: true
   current_mutation_forbidden: true
   full_fresh_cycle_automatic_for_candidate3: false
+
+
+successor_candidate3:
+  identity: "v0.3.7-candidate.3"
+  branch: "candidate/v0.3.7-candidate.3"
+  state: FROZEN_RELEASE_HARDENING_PASS_RELEASE_PREPARATION_SUPPORTED
+  frozen: true
+  current: false
+  released: false
+  frozen_source: "b7e88d7adb70396bd671ca97066daf2c120e0adc"
+  frozen_subtree: "e3a9a20d16cecd78df7f32f19fca56e21159e810"
+  exact_prefreeze_run: 33150269264
+  targeted_postfreeze_run: 33150553992
+  release_hardening_run: 33152201566
+  candidate_succession_stop: true
+  candidate4_currently_justified: false
+  immediate_next_action: MAIN_VISIBLE_CHECKPOINT_THEN_CREATE_RELEASE_V0_3_7_AND_TRANSPLANT_FROZEN_CANDIDATE3
