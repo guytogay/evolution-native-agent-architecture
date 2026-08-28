@@ -4,7 +4,7 @@ Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
 
 The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
-Do **not** adopt this directory as Current. Candidate.3 successor repairs are reconciled; exact pre-freeze validation is next, followed only on PASS by external freeze and explicit post-freeze independence/release reconciliation.
+Do **not** adopt this directory as Current. v0.3.7 Current successor repairs are reconciled; exact pre-freeze validation is next, followed only on PASS by external freeze and explicit post-freeze independence/release reconciliation.
 
 ## Candidate thesis
 
@@ -19,7 +19,7 @@ optional reference organs
 +
 Host implementation patterns
 +
-candidate-local minimal v2 tooling
+Current-local minimal v2 tooling
 +
 decision-bearing zh-CN operational projection
 ```
@@ -54,7 +54,7 @@ The HOW library is cold capability, not mandatory active context.
 
 ### Operational routing
 
-`operational/CUE-INDEX.md` is the ordinary-problem router. `operational/HOW-MAP.md` preserves plural concrete implementation branches. `operational/REFERENCE-INDEX.yaml` binds those branches to exact candidate-local procedures, references, and patterns.
+`operational/CUE-INDEX.md` is the ordinary-problem router. `operational/HOW-MAP.md` preserves plural concrete implementation branches. `operational/REFERENCE-INDEX.yaml` binds those branches to exact Current-local procedures, references, and patterns.
 
 ```text
 ordinary cue / failure / decision
@@ -86,7 +86,7 @@ Primary candidate practical path:
 
 `tools/ena_evolve_v2.py`
 
-It provides a narrow candidate-local v2 path for latent records and packet-v2 export/import/validation. It delegates record semantics to the candidate-local v2 validator rather than implementing a second semantic engine.
+It provides a narrow Current-local v2 path for latent records and packet-v2 export/import/validation. It delegates record semantics to the Current-local v2 validator rather than implementing a second semantic engine.
 
 The inherited v1.2 tool is retained only as:
 
@@ -114,7 +114,7 @@ Machine PASS establishes exercised represented consistency and packaging facts. 
 
 ## Deferred without ablation
 
-The recovered Commitment/Settlement machine prototype remains durable research lineage but is not bundled in candidate.3; deferral remains reversible if renewed candidate-critical evidence warrants it.
+The recovered Commitment/Settlement machine prototype remains durable research lineage but is not bundled in v0.3.7 Current; deferral remains reversible if renewed candidate-critical evidence warrants it.
 
 ```text
 NOT_BUNDLED != RETIRED
@@ -125,9 +125,9 @@ SILENT_DISSOLUTION != EVIDENCE_BACKED_RETIREMENT
 
 Candidate branch:
 
-`candidate/v0.3.7-candidate.3`
+`candidate/v0.3.7`
 
-Exact candidate.3 birth base / predecessor frozen source:
+Exact v0.3.7 Current birth base / predecessor frozen source:
 
 `bda470e0a6b170cec61225a905957a501454a2fe`
 
@@ -135,15 +135,15 @@ Predecessor frozen candidate.2 subtree:
 
 `d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`
 
-Candidate.3 was created directly from frozen candidate.2 after candidate.2 fresh A-S/A-P and Phase B required a material successor. Candidate.2 remains immutable occurrence truth; candidate.3 does not rewrite it.
+v0.3.7 Current was created directly from frozen candidate.2 after candidate.2 fresh A-S/A-P and Phase B required a material successor. Candidate.2 remains immutable occurrence truth; v0.3.7 Current does not rewrite it.
 
 Round-1 successor repair gate `33149597432` passed and committed bounded Authority, Effect Lifecycle, transferred-source chronology, and regression-provenance repairs at `55e08740fa2e4b033cfb5bd9e8f7a4214a479f08` while preserving inherited valid behavior.
 
 ## What remains before freeze
 
-1. finish candidate.3 package identity/lineage/zh-CN reconciliation without expanding executable semantic scope;
+1. finish v0.3.7 Current package identity/lineage/zh-CN reconciliation without expanding executable semantic scope;
 2. rerun inherited/targeted machine checks without treating their counts as completeness;
-3. run exact-head candidate.3 pre-freeze machine validation;
+3. run exact-head v0.3.7 Current pre-freeze machine validation;
 4. bind the exact immutable source/tree with an external governed freeze record;
 5. targeted post-freeze reconciliation must verify the sealed candidate.2 blockers are closed; another full fresh A-S/A-P cycle is not automatic;
 6. if no material blocker remains, perform explicit v0.3.7 release reconciliation and promotion decision.

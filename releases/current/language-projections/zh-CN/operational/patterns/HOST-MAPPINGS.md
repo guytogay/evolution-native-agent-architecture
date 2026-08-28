@@ -1,6 +1,6 @@
 # Host Mapping Patterns（简体中文投影）
 
-状态：`v0.3.7 candidate.3 / HOST_ADAPTER_GUIDANCE / OPTIONAL`
+状态：`v0.3.7 Current / HOST_ADAPTER_GUIDANCE / OPTIONAL`
 
 ENA 标准化的是 decision property，不是某个固定实现。
 

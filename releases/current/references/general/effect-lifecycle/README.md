@@ -1,6 +1,6 @@
 # Effect Lifecycle — Optional Reference
 
-Status: `v0.3.7 candidate.3 / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use for consequential external effects where retry, timeout, restart, failover, settlement, compensation, or effect identity can change the decision.
 

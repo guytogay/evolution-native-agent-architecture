@@ -1,12 +1,12 @@
 # Retrieval Obligation 0.5 — Optional Reference
 
-Status: `v0.3.7 candidate.3 / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use when a consequential decision depends on retrieval scope, the effective content actually returned, freshness, or sufficiency closure.
 
 Do not invoke merely because durable knowledge exists, and do not interpret a `HIT` as sufficient discovery.
 
-Bundled machine files are the selected Retrieval Obligation 0.5 research reference bytes. The candidate packages them as a reusable HOW; it does not promote their schema vocabulary into universal ENA law.
+Bundled machine files are the selected Retrieval Obligation 0.5 research reference bytes. The Current packages them as a reusable HOW; it does not promote their schema vocabulary into universal ENA law.
 
 Key boundary:
 

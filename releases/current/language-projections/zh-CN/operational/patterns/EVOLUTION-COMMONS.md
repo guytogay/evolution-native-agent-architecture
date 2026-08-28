@@ -1,6 +1,6 @@
 # Evolution Commons Patterns（简体中文投影）
 
-状态：`v0.3.7 candidate.3 / OPERATIONAL_PATTERN_LIBRARY / OPTIONAL`
+状态：`v0.3.7 Current / OPERATIONAL_PATTERN_LIBRARY / OPTIONAL`
 
 Evolution Commons 是可发现的 possibility pool，不是指定某一个 registry 产品，也不是自动更新通道。
 

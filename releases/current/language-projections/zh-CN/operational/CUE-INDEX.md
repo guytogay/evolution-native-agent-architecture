@@ -1,6 +1,6 @@
-# Operational Cue Index — v0.3.7 candidate.3（简体中文投影）
+# Operational Cue Index — v0.3.7 Current（简体中文投影）
 
-状态：`WORKING_CANDIDATE / OPERATIONAL_ROUTER / NOT_CURRENT / NOT_FROZEN`
+状态：`CURRENT / OPERATIONAL_ROUTER`
 
 当 Agent 已经知道“我遇到了什么问题”，但还不知道应该检索哪一类 ENA 机制时，从这里开始。
 
@@ -32,7 +32,7 @@ self-change 是否会改变未来行为或 recovery？
 | “我真的有权执行这个有后果的动作吗？” | `OA-AUTH-01 Authority` | `references/general/authority-lease/`；确实无 authority 问题时用 `NOT_REQUIRED` |
 | “这个外部写入 timeout/restart 后可能被再次执行。” | `OA-EFF-01 Effect Lifecycle` | `references/general/effect-lifecycle/`；按目标语义选择 idempotency/fencing/status/compensation/WAIT |
 | “进程刚 restart/restore，能直接继续吗？” | `OA-REC-01 Recovery` | `references/general/recovery-adapter/` + effect/authority reconciliation |
-| “执行者换了/挂了/分叉了，到底谁还欠这个 obligation？” | `OA-COM-01 Commitment/Settlement` | `HOW-MAP` 的 shared distinction；candidate.3 先组合 Effect + Authority + explicit settlement guidance |
+| “执行者换了/挂了/分叉了，到底谁还欠这个 obligation？” | `OA-COM-01 Commitment/Settlement` | `HOW-MAP` 的 shared distinction；v0.3.7 Current 先组合 Effect + Authority + explicit settlement guidance |
 | “这还是不是同一个 Agent？” | `OA-ID-01 Purpose-relative continuity` | `procedures/PURPOSE-RELATIVE-CONTINUITY.md`；问‘为了哪个决策需要连续性’，不要先做形而上判定 |
 | “长期 purpose/value/refusal/self-definition 正在被改写。” | `OA-AUTHOR-01 Contested Authorship` | `references/advanced/contested-authorship/`；普通 cache/task state 可直接 out of scope |
 | “有人/另一个 Agent 提出反对意见，可能改变后果性决策。” | `OA-STAND-01 Standing Input` | `procedures/STANDING-INPUT.md`；被听见不等于获得 sovereignty/authority |

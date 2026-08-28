@@ -1,6 +1,6 @@
 # WAIT State — Optional Reference
 
-Status: `v0.3.7 candidate.3 / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use when the safe next action is to pause for a represented wake condition rather than infer completion, retry blindly, or keep acting through uncertainty.
 

@@ -1,6 +1,6 @@
 # Evidence Dependency Map — Advanced Optional Reference
 
-Status: `v0.3.7 candidate.3 / ADVANCED_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / ADVANCED_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use for material corroboration when common causes among agreeing observations can change the interpretation of confidence.
 

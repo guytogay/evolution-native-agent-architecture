@@ -1,6 +1,6 @@
-# Operational Cue Index — v0.3.7 candidate.3
+# Operational Cue Index — v0.3.7 Current
 
-Status: `WORKING_CANDIDATE / OPERATIONAL_ROUTER / NOT_CURRENT / NOT_FROZEN`
+Status: `CURRENT / OPERATIONAL_ROUTER`
 
 Use this when the Agent knows **what problem it has** but does not yet know which ENA mechanism to retrieve.
 

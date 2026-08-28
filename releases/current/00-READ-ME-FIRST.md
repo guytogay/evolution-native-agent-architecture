@@ -6,16 +6,16 @@ The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATIO
 
 This candidate tests whether ENA can become substantially more usable through concrete Operational Architecture without inventing unnecessary Core law.
 
-## Start here during candidate review
+## Start here during Current adoption
 
-1. `CANDIDATE-BASELINE.yaml` — exact working state, lineage, machine evidence, and remaining gates;
+1. `CURRENT-BASELINE.yaml` — exact working state, lineage, machine evidence, and remaining gates;
 2. `README.md` — candidate thesis and package boundary;
 3. `RUNTIME-ADOPTION-KERNEL.md` — compact hot semantic/cue surface;
 4. `operational/CUE-INDEX.md` — route from an ordinary problem to the relevant HOW family;
 5. `operational/HOW-MAP.md` — cold practical branch map;
 6. `operational/REFERENCE-INDEX.yaml` — exact local paths and optionality;
 7. `references/REFERENCE-MANIFEST.yaml` — machine-readable bundled-reference policy;
-8. `tools/ena_evolve_v2.py` — narrow candidate-local v2 practical evolution path;
+8. `tools/ena_evolve_v2.py` — narrow Current-local v2 practical evolution path;
 9. `language-projections/zh-CN/operational/` — decision-bearing Simplified Chinese operational projection.
 
 No `research/` path is required for ordinary candidate use/review of these mechanisms.
@@ -90,7 +90,7 @@ Primary candidate tool: `tools/ena_evolve_v2.py`.
 
 It supports:
 - creating latent v2 records without forcing an early Variation Space;
-- candidate-local v2 record validation;
+- Current-local v2 record validation;
 - packet-v2 export/import with digest and narrow represented consistency;
 - preserving source-selection vs receiver-local-selection separation.
 

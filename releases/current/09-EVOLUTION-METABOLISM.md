@@ -183,7 +183,7 @@ Its scope is intentionally bounded:
 The shipped JSON record template is intentionally uninstantiated: its `created_at` placeholder must be replaced before validator PASS. `build_latent_record` supplies a real UTC timestamp automatically.
 
 - create valid latent v2 records without early Variation Space;
-- delegate evolution-record semantics to the candidate-local v2 validator;
+- delegate evolution-record semantics to the Current-local v2 validator;
 - export/import packet v2 with canonical digest and narrow represented consistency;
 - preserve source evidence/selection vs receiver-local selection.
 

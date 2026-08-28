@@ -1,6 +1,6 @@
 # Candidate Optional References — 简体中文使用指南
 
-状态：`v0.3.7 candidate.3 / ZH-CN_USAGE_GUIDE / MACHINE_ARTIFACTS_REMAIN_CANONICAL`
+状态：`v0.3.7 Current / ZH-CN_USAGE_GUIDE / MACHINE_ARTIFACTS_REMAIN_CANONICAL`
 
 本候选包中的 reference 是**可选实现/机器参考**，不是 ENA 的强制器官清单。
 
@@ -83,7 +83,7 @@ HOST_NATIVE_EQUIVALENT != NONCOMPLIANT
 
 ## 本候选未 bundled，但没有被退休
 
-Recovered Commitment/Settlement machine prototype 暂留 research lineage；candidate.3 没有把它打包，不等于它已被证伪或废弃。
+Recovered Commitment/Settlement machine prototype 暂留 research lineage；v0.3.7 Current 没有把它打包，不等于它已被证伪或废弃。
 
 ```text
 NOT_BUNDLED != RETIRED
@@ -92,7 +92,7 @@ SILENT_DISSOLUTION != EVIDENCE_BACKED_RETIREMENT
 
 ## Machine evidence 边界
 
-Candidate Assembly Gate 已在 candidate-local path 上执行 bundled reference selftests。PASS 说明 exercised representation/consistency path 与当前 oracle/fixture 一致。
+Candidate Assembly Gate 已在 Current-local path 上执行 bundled reference selftests。PASS 说明 exercised representation/consistency path 与当前 oracle/fixture 一致。
 
 它不证明：external authority truth、receipt authenticity、recovery truth、evidence truth、universal Host applicability，或未来所有 case。
 

@@ -1,6 +1,6 @@
 # Evidence Envelope — Advanced Optional Reference
 
-Status: `v0.3.7 candidate.3 / ADVANCED_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / ADVANCED_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use when a material claim needs several evidence boundaries to remain explicit at once: support, applicability, provenance, witness, activation, projection, or scoped completeness.
 

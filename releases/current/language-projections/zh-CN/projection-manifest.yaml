@@ -31,7 +31,7 @@ semantic_fixture_sets:
 - ../semantic-fixtures.v2.yaml
 - ../semantic-fixtures.v3.yaml
 validation:
-  structural_parity: CANDIDATE_DECISION_SURFACE_CHECKABLE
+  structural_parity: CURRENT_DECISION_SURFACE_CHECKABLE
   constitution_id_parity: INHERITED_38_IDS
   operational_route_parity: FIXTURE_DEFINED_NOT_BEHAVIORALLY_PROVEN
   predecessor_v035_single_model_behavioral_result: 8/8 aligned on DeepSeek v4-flash; predecessor evidence only

@@ -1,6 +1,6 @@
-# Operational Architecture — v0.3.7 candidate.3（简体中文投影）
+# Operational Architecture — v0.3.7 Current（简体中文投影）
 
-状态：`WORKING_CANDIDATE / OPERATIONAL_HOW_PROJECTION / NOT_CURRENT / NOT_FROZEN`
+状态：`CURRENT / OPERATIONAL_HOW_PROJECTION`
 
 本目录是候选版本面向实际运行的 HOW 层中文语义投影。它不是对 Constitution 的重复翻译，也不是新的规范权威；英文候选语义树和机器文件仍是 canonical source。
 
@@ -91,6 +91,6 @@ WHAT_WHY_SUPPORTED
 
 ## 反消融规则
 
-没有进入 candidate.3 的机制，不等于被证伪或退休。替代、休眠、研究中的 HOW 仍保留在项目 lineage 中；release packaging 不能因为“这次没装进包”就让它从 ENA 历史中消失。
+没有进入 v0.3.7 Current 的机制，不等于被证伪或退休。替代、休眠、研究中的 HOW 仍保留在项目 lineage 中；release packaging 不能因为“这次没装进包”就让它从 ENA 历史中消失。
 
 > **压缩语义主干，让具体 HOW 自由分叉。**

@@ -6,11 +6,11 @@ The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATIO
 
 This file describes how to evaluate the candidate as a complete operational package and, only after an explicit future release decision, how its surfaces are intended to be adopted.
 
-## Candidate review traversal
+## Current adoption traversal
 
-1. Read `CANDIDATE-BASELINE.yaml` and bind review to exact candidate content, not branch name alone.
+1. Read `CURRENT-BASELINE.yaml` and bind review to exact candidate content, not branch name alone.
 2. Read `00-READ-ME-FIRST.md`.
-3. Preserve the inherited 38-ID `01-CONSTITUTION.md`; candidate.3 adds no Constitution ID.
+3. Preserve the inherited 38-ID `01-CONSTITUTION.md`; v0.3.7 Current adds no Constitution ID.
 4. Use `RUNTIME-ADOPTION-KERNEL.md` as the compact cue surface.
 5. When a concrete mechanism is needed, route through `operational/CUE-INDEX.md` -> `operational/HOW-MAP.md` -> exact procedure/reference/Host pattern.
 6. Treat `references/REFERENCE-MANIFEST.yaml` as packaging/optionality metadata: bundled references are not complete-adoption requirements and are default-off.
@@ -59,7 +59,7 @@ The helper does **not** implement the entire evolution lifecycle state machine a
 
 Do not report that:
 
-- candidate.3 is Current, frozen, released, or independently supported;
+- v0.3.7 Current is Current, frozen, released, or independently supported;
 - every bundled reference is universally applicable or mandatory;
 - machine selftests prove external evidence/authority/recovery/receipt truth;
 - a latent variation is an improvement;

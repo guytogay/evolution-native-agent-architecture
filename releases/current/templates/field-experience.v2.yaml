@@ -6,7 +6,7 @@ participant:
   kind: "UNKNOWN"
   runtime_or_model: "UNKNOWN"
   host_or_runtime: "UNKNOWN"
-  ena_semantic_identity: "v0.3.6"
+  ena_semantic_identity: "v0.3.7"
   current_source_ref_or_tree: "REQUIRED_WHEN_MATERIAL"
   language: "UNKNOWN"
   governance_profile: "UNKNOWN"

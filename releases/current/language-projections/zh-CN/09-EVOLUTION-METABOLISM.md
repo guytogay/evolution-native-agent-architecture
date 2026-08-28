@@ -2,7 +2,7 @@
 
 状态：`CURRENT / FIELD_VALIDATION`。
 
-candidate.3 保留 v0.3.6 的进化生态语义，新增的是具体 HOW 路由、Host mapping 和实用 v2 工具路径；没有新增 Constitution 条文，也没有宣称新的 universal evolution ontology。
+v0.3.7 Current 保留 v0.3.6 的进化生态语义，新增的是具体 HOW 路由、Host mapping 和实用 v2 工具路径；没有新增 Constitution 条文，也没有宣称新的 universal evolution ontology。
 
 ## 9.1 生态代谢
 
@@ -48,7 +48,7 @@ candidate 实用创建路径：
 
 ## 9.5 Cue-triggered salience -> Operational Architecture
 
-candidate.3 把 v0.3.6 的 hot-cue 方向接成具体路径：
+v0.3.7 Current 把 v0.3.6 的 hot-cue 方向接成具体路径：
 
 ```text
 hot cue / failure shape
@@ -115,7 +115,7 @@ pruning 不重写 selection history。
 
 迁移传递“可能性 + 来源历史”，不传递结论。
 
-candidate.3 提供：
+v0.3.7 Current 提供：
 
 - `adaptation-packet.v2` 作为来源上下文 carrier；
 - `../../tools/ena_evolve_v2.py export-packet/import-packet`；
@@ -133,7 +133,7 @@ packet digest 只检查内容一致性，不认证 source。source selection 不
 
 self-mutation 可能破坏自身 recovery 时，在 consequence 值得且可控的情况下，保留 damaged variation 之外可达的 rescue path。
 
-candidate.3 bundled optional `references/general/recovery-adapter/`，Host 替代方式见 `operational/patterns/HOST-MAPPINGS.md`。
+v0.3.7 Current bundled optional `references/general/recovery-adapter/`，Host 替代方式见 `operational/patterns/HOST-MAPPINGS.md`。
 
 `restore success != external consequence rollback != authority restoration`
 
@@ -151,14 +151,14 @@ candidate.3 bundled optional `references/general/recovery-adapter/`，Host 替�
 
 ## 9.14 Candidate 工具边界
 
-candidate.3 的主要实用 v2 工具：
+v0.3.7 Current 的主要实用 v2 工具：
 
 `../../tools/ena_evolve_v2.py`
 
 范围：
 
 - latent v2 creation，不强迫 early Variation Space；
-- delegate 给 candidate-local v2 validator；
+- delegate 给 Current-local v2 validator；
 - packet-v2 export/import + canonical digest/narrow consistency；
 - 保留 source evidence/selection 与 receiver-local selection 的边界。
 

@@ -1,6 +1,6 @@
 # Contested Authorship — Specialized Optional Reference
 
-Status: `v0.3.7 candidate.3 / SPECIALIZED_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / SPECIALIZED_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use for material durable self-surface change where origin, endorsement, conflict, revision, or authority laundering can change the decision.
 

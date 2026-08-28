@@ -177,7 +177,7 @@ This candidate provides a narrow practical v2 path:
 
 `tools/ena_evolve_v2.py`
 
-It can create latent v2 records without forcing an early Variation Space, validate candidate-local v2 records, and export/import packet v2 while preserving source-vs-local selection boundaries.
+It can create latent v2 records without forcing an early Variation Space, validate Current-local v2 records, and export/import packet v2 while preserving source-vs-local selection boundaries.
 
 It delegates evolution-record semantics to `tools/validate_evolution_record_v2.py`; it is intentionally **not** a second full evolution lifecycle engine.
 

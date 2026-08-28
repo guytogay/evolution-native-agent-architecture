@@ -1,6 +1,6 @@
-# Operational HOW Map — v0.3.7 candidate.3（简体中文投影）
+# Operational HOW Map — v0.3.7 Current（简体中文投影）
 
-状态：`WORKING_CANDIDATE / COLD_HOW_LIBRARY / NOT_CURRENT / NOT_FROZEN`
+状态：`CURRENT / COLD_HOW_LIBRARY`
 
 这是 candidate 的 cold practical map，故意比 Runtime Kernel 大。每个节点都遵循：
 
@@ -8,7 +8,7 @@
 WHAT / WHY
 -> 多个 HOW 分支
 -> applicability / non-applicability
--> candidate-local path 或 Host pattern
+-> Current-local path 或 Host pattern
 -> evidence boundary / residual
 ```
 
@@ -92,7 +92,7 @@ WHAT / WHY
 
 **WHAT / WHY：** executor 可以变化，而 obligation 仍存在；completion 必须绑定真实 settlement subject。
 
-**candidate.3 HOW：** Host state 中明确 obligation subject + current executor + effect identity + settlement evidence；物理后果组合 Effect Lifecycle；executor mandate 组合 Authority；Host 支持时做 explicit handoff/transfer/cancel；无法建立 settlement 时保持 unresolved commitment。
+**v0.3.7 Current HOW：** Host state 中明确 obligation subject + current executor + effect identity + settlement evidence；物理后果组合 Effect Lifecycle；executor mandate 组合 Authority；Host 支持时做 explicit handoff/transfer/cancel；无法建立 settlement 时保持 unresolved commitment。
 
 **Deferred：** recovered Commitment/Settlement machine prototype 本次不 bundled，等待 fresh independent review。
 

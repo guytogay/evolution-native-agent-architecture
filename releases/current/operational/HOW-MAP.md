@@ -1,6 +1,6 @@
-# Operational HOW Map — v0.3.7 candidate.3
+# Operational HOW Map — v0.3.7 Current
 
-Status: `WORKING_CANDIDATE / COLD_HOW_LIBRARY / NOT_CURRENT / NOT_FROZEN`
+Status: `CURRENT / COLD_HOW_LIBRARY`
 
 This is the candidate's cold practical map. It is intentionally larger than the Runtime Kernel.
 
@@ -10,7 +10,7 @@ Each node preserves:
 WHAT / WHY
 -> plural HOW branches
 -> applicability / non-applicability
--> exact candidate-local implementation path or Host pattern
+-> exact Current-local implementation path or Host pattern
 -> evidence boundary / open residual
 ```
 
@@ -145,7 +145,7 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 - explicit handoff/transfer/cancel record where Host supports it;
 - honest unresolved commitment when settlement cannot be established.
 
-**Deferred reference:** the recovered Commitment/Settlement machine prototype is not bundled in candidate.3 pending fresh independent review.
+**Deferred reference:** the recovered Commitment/Settlement machine prototype is not bundled in v0.3.7 Current pending fresh independent review.
 
 **Do not:** infer `EXECUTOR_REASSIGNED -> OBLIGATION_TRANSFERRED` or `LEASE_EXPIRED -> COMMITMENT_CANCELLED`.
 
@@ -228,7 +228,7 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 **WHAT / WHY:** stimuli should create evolutionary possibility without forced mutation or immediate verdict.
 
 **HOW branches:**
-- v2 evolution record + candidate-local minimal helper;
+- v2 evolution record + Current-local minimal helper;
 - direct schema/template + validator use;
 - Host-native variation store;
 - latent/dormant candidate library;

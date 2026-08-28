@@ -143,14 +143,14 @@ restore 后有后果地 resume 之前，要按需确认 external effect settleme
 
 ## 12. Candidate 工具边界
 
-candidate.3 的主要实用 v2 路径：
+v0.3.7 Current 的主要实用 v2 路径：
 
 `../../tools/ena_evolve_v2.py`
 
 它可以：
 
 - 创建不强迫提前指定 Variation Space 的 latent v2 record；
-- 调用 candidate-local v2 validator；
+- 调用 Current-local v2 validator；
 - export/import packet v2；
 - 保留 source selection 与 receiver-local selection 的边界。
 

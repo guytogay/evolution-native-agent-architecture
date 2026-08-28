@@ -1,6 +1,6 @@
 # Purpose-Relative Continuity Procedure（简体中文投影）
 
-状态：`v0.3.7 candidate.3 / BOUNDED_OPERATIONAL_PROCEDURE / OPTIONAL`
+状态：`v0.3.7 Current / BOUNDED_OPERATIONAL_PROCEDURE / OPTIONAL`
 
 ## 何时使用
 

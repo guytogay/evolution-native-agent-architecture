@@ -2,7 +2,7 @@
 
 Status: `CURRENT / FIELD_VALIDATION / RELEASED`.
 
-A deployable ENA adoption version must be self-contained and immutably identifiable. Candidate.3 is not Current and must not acquire release status by self-description.
+A deployable ENA adoption version must be self-contained and immutably identifiable. v0.3.7 Current derives from governed release promotion of the exact frozen candidate.3 source; self-description alone never created that authority.
 
 ## Version identity
 
@@ -28,7 +28,7 @@ A same-falsifier targeted revalidation may verify specific fixes when labeled ho
 
 Stop candidate succession when decision-changing residuals converge. Visible research questions are not automatic release blockers.
 
-### v0.3.7 candidate.3 current state
+### v0.3.7 frozen release-source lineage
 
 Candidate.3 succeeds frozen candidate.2 because candidate.2 fresh A-S/A-P plus Phase B found decision-changing executable defects and package provenance/self-description defects. Candidate.2 remains immutable occurrence truth; candidate.3 repairs only the bounded successor scope and does not reopen `releases/current/`.
 
@@ -85,11 +85,9 @@ GitHub is the current project carrier for this lineage. The semantic requirement
 
 ## Current isolation
 
-`releases/current/` is still v0.3.6 and must not be edited as a side effect of candidate assembly.
+`releases/current/` is the singular v0.3.7 adopter-facing surface after governed release promotion.
 
-A material Current change requires a new release identity and explicit release decision.
-
-Candidate validation therefore checks Current isolation against the exact release-scope checkpoint.
+A material Current change requires a new release identity and explicit release decision. Candidate validation preserved predecessor v0.3.6 Current isolation until release packaging began; that historical isolation evidence remains in candidate/reconciliation lineage.
 
 ## Freeze identity
 
@@ -115,13 +113,13 @@ Ordinary adopters need the minimum sufficient immutable effective-content identi
 
 Supported projections must be immutably bound to the same candidate/release identity. Material decision meaning must remain conformant across supported languages.
 
-Candidate.3 retains the zh-CN operational decision surfaces and v3 paired route fixtures. Fixture structure/parity does not prove behavioral equivalence; actual model/Host evidence is still required.
+v0.3.7 Current retains the zh-CN operational decision surfaces and v3 paired route fixtures. Fixture structure/parity does not prove behavioral equivalence; actual model/Host evidence is still required.
 
 ## Runtime/reference compatibility
 
 A semantic baseline may retain older compatibility mechanisms only when their actual scope is explicit.
 
-Candidate.3 exposes one primary practical v2 path:
+v0.3.7 Current exposes one primary practical v2 path:
 
 `tools/ena_evolve_v2.py`
 

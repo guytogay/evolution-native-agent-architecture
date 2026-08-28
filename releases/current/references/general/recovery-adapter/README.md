@@ -1,6 +1,6 @@
 # Recovery Adapter — Optional Reference
 
-Status: `v0.3.7 candidate.3 / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `v0.3.7 Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use when recovery reachability or post-restore world/authority reconciliation can change whether consequential work may resume.
 

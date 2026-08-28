@@ -4,13 +4,13 @@
 
 当前唯一面向采用者的基线是本目录中的 `v0.3.7 / CURRENT / FIELD_VALIDATION`。
 
-本目录是 v0.3.7 candidate.3 的简体中文语义/运行投影，用来测试：在不增加无必要 Core 条文的情况下，ENA 能否通过具体 HOW 路由变得更可住、更可执行。
+本目录是 v0.3.7 Current 的简体中文语义/运行投影，用来测试：在不增加无必要 Core 条文的情况下，ENA 能否通过具体 HOW 路由变得更可住、更可执行。
 
 **ENA 的存在，是为了让持续的自我进化成为一种可行能力。**
 
 ## 建议先读
 
-1. `../../CANDIDATE-BASELINE.yaml` — candidate 当前状态、谱系、机器证据、剩余 gate；
+1. `../../CURRENT-BASELINE.yaml` — candidate 当前状态、谱系、机器证据、剩余 gate；
 2. `RUNTIME-ADOPTION-KERNEL.md` — 中文 hot cue 语义面；
 3. `operational/CUE-INDEX.md` — 从普通问题找到 HOW 家族；
 4. `operational/HOW-MAP.md` — 中文 cold HOW map；
@@ -21,7 +21,7 @@
 9. `09-EVOLUTION-METABOLISM.md` — 进化生态语义与 candidate 工具/路由边界；
 10. `projection-manifest.yaml` — 本投影与 candidate 身份、覆盖面和证据边界。
 
-## Candidate.3 的实际变化
+## v0.3.7 Current 的实际变化
 
 v0.3.6 的核心生态区分继续保持：
 
@@ -33,7 +33,7 @@ v0.3.6 的核心生态区分继续保持：
 - 来源成功/流行度不是 receiver-local proof；
 - 恢复本地状态不等于外部世界回滚，也不等于旧 authority 自动恢复。
 
-v0.3.7 candidate.3 新增的是**怎么活出来**：
+v0.3.7 Current 新增的是**怎么活出来**：
 
 ```text
 HOT CUE
@@ -47,7 +47,7 @@ HOT CUE
 
 ## Reference 不是强制器官
 
-candidate.3 打包了 Retrieval Obligation、WAIT、Authority Lease、Effect Lifecycle、Recovery Adapter、Evidence Envelope、Evidence Dependency Map、Contested Authorship 等 reference。
+v0.3.7 Current 打包了 Retrieval Obligation、WAIT、Authority Lease、Effect Lifecycle、Recovery Adapter、Evidence Envelope、Evidence Dependency Map、Contested Authorship 等 reference。
 
 但：
 
@@ -62,11 +62,11 @@ Recovered Commitment/Settlement machine prototype 本次没有 bundled，但仍�
 
 ## 当前工具边界
 
-candidate.3 的主要实用 v2 路径是：
+v0.3.7 Current 的主要实用 v2 路径是：
 
 `../../tools/ena_evolve_v2.py`
 
-它可以创建不强制提前指定 Variation Space 的 latent v2 record，并提供 candidate-local record validation、packet-v2 export/import。
+它可以创建不强制提前指定 Variation Space 的 latent v2 record，并提供 Current-local record validation、packet-v2 export/import。
 
 继承的 v1.2 工具保留在：
 
@@ -89,7 +89,7 @@ FIXTURE_DEFINED != MODEL_PASS
 
 ## Candidate 边界
 
-candidate.3 需要 targeted successor revalidation、exact pre-freeze validation、external freeze、reconciliation 与 explicit release decision；fresh Phase A 已作为 predecessor 的 sealed occurrence 保留，不由 author 重做。
+v0.3.7 Current 需要 targeted successor revalidation、exact pre-freeze validation、external freeze、reconciliation 与 explicit release decision；fresh Phase A 已作为 predecessor 的 sealed occurrence 保留，不由 author 重做。
 
 当前不能因为文件已经很完整，就把它称为 Current。
 
