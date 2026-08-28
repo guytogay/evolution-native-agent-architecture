@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import shutil
 
 ROOT = Path(__file__).resolve().parents[2]
 OLD_AS='ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131'
@@ -25,9 +24,8 @@ if len(handoff_files) != 6:
     raise SystemExit(f'expected 6 retained handoff files, found {len(handoff_files)}')
 
 # Upgrade the retained representation from superseded r3 build evidence to the
-# final self-audited carrier evidence. Do not rename the retained canonical
-# method/incident/reconciliation files; Git history already removed the duplicate
-# alternative representation.
+# final self-audited carrier evidence. The duplicate parallel method/handoff
+# representation was already removed earlier in Git history.
 for p in control_files + handoff_files:
     t = p.read_text(encoding='utf-8')
     t = t.replace('33131665994', '33131773164')
@@ -63,7 +61,7 @@ for p in control_files[:3]:
         t=t.replace(anchor, anchor+'  a_s_artifact_id: 9670518379\n  a_p_artifact_id: 9670518708\n  hashes_artifact_id: 9670518979\n', 1)
         p.write_text(t, encoding='utf-8')
 
-# Fix the methodology index/changelog to the retained canonical representation.
+# Fix methodology index/changelog links to the retained canonical representation.
 for p in method_files:
     t=p.read_text(encoding='utf-8')
     t=t.replace('PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md',
@@ -84,14 +82,6 @@ if 'independent_validation_capsule_carrier:' not in t:
     if t.count(anchor2)!=1: raise SystemExit('ACTIVE project-control method anchor mismatch')
     t=t.replace(anchor2, anchor2+'  independent_validation_capsule_carrier: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"\n', 1)
 a.write_text(t, encoding='utf-8')
-
-# The older parallel handoff representation has final hashes but points at the
-# method/reconciliation representation that Git history intentionally deleted.
-# Remove it after upgrading the retained handoff.
-old_handoff = ROOT/'research/handoffs/records/2026-08-28-v037-candidate2-isolated-as-ready'
-if not old_handoff.is_dir():
-    raise SystemExit('old duplicate handoff directory missing')
-shutil.rmtree(old_handoff)
 
 # Final coherence assertions.
 all_current = control_files + method_files + handoff_files
