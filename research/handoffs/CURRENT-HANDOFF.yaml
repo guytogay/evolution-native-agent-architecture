@@ -19,15 +19,15 @@ project_methodology_required:
   independent_validation_capsule_carrier: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
 
 current_handoff_record:
-  id: "2026-08-28-v037-candidate2-cleanroom-as-ready"
+  id: "2026-08-28-v037-candidate2-as-sealed-ap-next"
   state: HANDOFF_READY_FOR_SESSION_SUCCESSION
-  record_root: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/"
-  start_here: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/HANDOFF-START-HERE.md"
-  manifest: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/HANDOFF-MANIFEST.yaml"
-  project_state: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/PROJECT-STATE.md"
-  recent_three_rounds: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/RECENT-THREE-ROUNDS.md"
-  file_catalog: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/FILE-CATALOG.md"
-  post_merge_readback: "research/handoffs/records/2026-08-28-v037-candidate2-cleanroom-as-ready/HANDOFF-READBACK.md"
+  record_root: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/"
+  start_here: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/HANDOFF-START-HERE.md"
+  manifest: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/HANDOFF-MANIFEST.yaml"
+  project_state: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/PROJECT-STATE.md"
+  recent_three_rounds: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/RECENT-THREE-ROUNDS.md"
+  file_catalog: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/FILE-CATALOG.md"
+  post_merge_readback: "research/handoffs/records/2026-08-28-v037-candidate2-as-sealed-ap-next/HANDOFF-READBACK.md"
 
 current_project_authorities:
   project_hub: PROJECT-HUB.md
@@ -54,7 +54,7 @@ fresh_independent_validation_boundary:
   active_target_frozen: true
   invalidated_repository_intake_issue: 137
   invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
-  active_carrier: DEDICATED_CLEAN_ROOM_REPOSITORY
+  active_carrier: A_S_STAGE_SEALED / PREPARING_SEPARATE_A_P_CLEAN_ROOM_STAGE
   carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
   cleanroom_repository: guytogay/independent-validation-cleanroom
   cleanroom_url: https://github.com/guytogay/independent-validation-cleanroom
@@ -67,8 +67,14 @@ fresh_independent_validation_boundary:
   a_p_actions_artifact_id: 9670518708
   a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
   a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
-  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
-  fresh_a_s_report_sha256: NOT_YET_CREATED
+  a_p_delivery_state: A_S_SEAL_SATISFIED_PREPARE_SEPARATE_A_P
+  fresh_a_s_report_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
+  fresh_a_s_report_path: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md
+  fresh_a_s_seal_record: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3-seal.yaml
+  fresh_a_s_git_blob_sha1: a8ec063fc1dcda9be70a53bf150e45ea11ac125e
+  fresh_a_s_verdict: NOT_CLEARED
+  fresh_a_s_findings: [A-S-01, A-S-02, A-S-03, A-S-04]
+  a_s_content_seal_verified_and_persisted: true
   final_a_p_report_sha256: NOT_YET_CREATED
   sequence: A-S_CONTENT_SEAL_THEN_SEPARATE_A-P_THEN_STOP_BEFORE_PHASE_B
   project_manager_takeover_context_is_validator_a_s_context: false
@@ -101,7 +107,7 @@ completion_evidence:
   candidate2_reconciliation_record: collaboration/reconciliation/2026-08-28-v037-candidate2-successor-repair-reconciliation.md
   candidate2_freeze_record: collaboration/reconciliation/2026-08-28-v037-candidate2-freeze.md
   candidate2_independence_decision_record: collaboration/reconciliation/2026-08-28-v037-candidate2-post-freeze-independence-decision.md
-  candidate2_state: FROZEN_DEDICATED_CLEAN_ROOM_A_S_READY_A_P_WITHHELD
+  candidate2_state: FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT
   candidate2_blind_view_manifest: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-view.yaml
   candidate2_neutral_entry: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-semantic-entry.md
   candidate2_blind_view_audit: collaboration/reconciliation/2026-08-28-v037-candidate2-blind-view-preparation.md
@@ -111,7 +117,7 @@ completion_evidence:
   candidate2_capsule_build_run: 33131773164
   candidate2_a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
   candidate2_a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
-  immediate_next_action: GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S_IN_DEDICATED_CLEAN_ROOM
+  immediate_next_action: PREPARE_AND_DELIVER_CANDIDATE2_A_P_TO_SAME_FRESH_REVIEWER
   current_handoff_record_refresh: COMPLETE
 
 candidate1_successor_state:
@@ -143,7 +149,7 @@ candidate1_successor_state:
 candidate2_successor_state:
   identity: v0.3.7-candidate.2
   branch: candidate/v0.3.7-candidate.2
-  state: FROZEN_DEDICATED_CLEAN_ROOM_A_S_READY_A_P_WITHHELD
+  state: FROZEN_A_S_SEALED_NOT_CLEARED_A_P_NEXT
   frozen: true
   current: false
   frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
@@ -157,12 +163,12 @@ candidate2_successor_state:
   a_p_actions_artifact_id: 9670518708
   a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
   a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
-  a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
+  a_p_delivery_state: A_S_SEAL_SATISFIED_PREPARE_SEPARATE_A_P
   a_s_delivery_mode: DEDICATED_CLEAN_ROOM_REPOSITORY
   cleanroom_repository: guytogay/independent-validation-cleanroom
   cleanroom_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
   cleanroom_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
-  fresh_a_s_report_sha256: NOT_YET_CREATED
+  fresh_a_s_report_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
   final_a_p_report_sha256: NOT_YET_CREATED
   fresh_review_completed: false
   material_change_requires_successor: v0.3.7-candidate.3

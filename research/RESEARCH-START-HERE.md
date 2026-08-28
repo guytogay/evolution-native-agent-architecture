@@ -80,7 +80,18 @@ The current project-manager session is **not eligible** to perform fresh candida
 
 ## Immediate next action
 
-`GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S_IN_DEDICATED_CLEAN_ROOM`
+`PREPARE_AND_DELIVER_CANDIDATE2_A_P_TO_SAME_FRESH_REVIEWER`
+
+Fresh A-S is complete and externally content-sealed:
+
+- report `collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md`;
+- SHA-256 `0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f`;
+- Git blob SHA-1 `a8ec063fc1dcda9be70a53bf150e45ea11ac125e`;
+- verdict `NOT_CLEARED`;
+- findings `A-S-01..A-S-04`;
+- A-P `NOT_STARTED`; Phase B `NOT_STARTED`.
+
+Do not repair candidate.2 before A-P. Prepare a separately exposed A-P stage for the **same** fresh reviewer, then require that reviewer to stop before project-manager Phase B.
 
 Issue #137 is historical and closed. Its reviewer correctly aborted before A-S seal because normal GitHub navigation crossed the declared boundary. Do not reuse the GitHub repository/branch UI as the candidate.2 A-S carrier.
 

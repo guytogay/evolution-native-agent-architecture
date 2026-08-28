@@ -1,0 +1,70 @@
+schema_version: "1.0"
+record_type: INDEPENDENT_A_S_CONTENT_SEAL
+recorded_at: "2026-08-28"
+
+candidate:
+  identity: v0.3.7-candidate.2
+  frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  frozen: true
+  current: false
+  released: false
+
+cleanroom:
+  repository: guytogay/independent-validation-cleanroom
+  branch: main
+  a_s_commit: 28dde50c9caaeee3b5cfabf51410083dbbb05a93
+  a_s_tree: 42debebed620bd05e6e2635409057f20b57bfa9e
+  a_s_commit_parent_count: 0
+
+report:
+  path: collaboration/reconciliation/2026-08-28-v037-candidate2-independent-a-s-primary-r3.md
+  exact_byte_length: 14839
+  sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
+  git_blob_sha1: a8ec063fc1dcda9be70a53bf150e45ea11ac125e
+  local_upload_sha256_reverified: true
+  persisted_git_blob_matches_local_exact_bytes: true
+  self_hash_embedded_in_report: false
+  seal_carrier: EXTERNAL_RECORD_OVER_EXACT_REPORT_BYTES
+
+independent_review:
+  review_mode: FRESH_INDEPENDENT_A_S_CLEAN_ROOM
+  a_s_completed: true
+  a_p_performed: false
+  phase_b_performed: false
+  verdict: NOT_CLEARED
+  attack_cardinality: OPEN
+  findings:
+    - id: A-S-01
+      severity: BLOCKER_HIGH
+      summary: composed authority path accepts represented revoked or scope-incompatible grants
+    - id: A-S-02
+      severity: BLOCKER_HIGH
+      summary: later NOT_COMMITTED receipt can downgrade known COMMITTED effect into RETRY_SAME_INTENT
+    - id: A-S-03
+      severity: HIGH
+      summary: transferred source INTEGRATED history lacks local-equivalent chronology and snapshot checks
+    - id: A-S-04
+      severity: PROCESS_BLOCKER
+      summary: intake exact-report self-hash instruction is self-referential and unsatisfiable as written
+
+project_manager_verification:
+  exact_uploaded_report_sha256_recomputed: true
+  exact_uploaded_report_size_recomputed: true
+  exact_persisted_report_git_blob_recomputed_and_matched: true
+  a_s_occurrence_truth_accepted: true
+  candidate_correctness_cleared: false
+  candidate_bytes_changed_by_seal: false
+  current_changed_by_seal: false
+
+next_sequence:
+  a_p_material_state: WITHHELD_UNTIL_THIS_SEAL_PERSISTED
+  seal_requirement_satisfied: true
+  next_action: PREPARE_AND_DELIVER_A_P_TO_SAME_FRESH_REVIEWER
+  phase_b_before_a_p: FORBIDDEN
+  candidate_repair_before_a_p: FORBIDDEN
+
+notes:
+  - A-S-04 is accepted as a validation-interface defect, not treated as reviewer noncompliance.
+  - The report SHA-256 is deliberately external to the report bytes, matching the non-self-referential hashing principle already used for carrier manifests.
+  - A-S findings are occurrence truth pending A-P and project-manager Phase B reconciliation; they are not yet author-side defect classification or repair authorization.
