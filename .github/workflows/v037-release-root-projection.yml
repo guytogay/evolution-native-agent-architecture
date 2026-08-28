@@ -1,0 +1,66 @@
+name: ENA v0.3.7 Release Root Projection
+
+on:
+  push:
+    branches: [release/v0.3.7]
+    paths:
+      - '.github/scripts/v037_release_root_projection.py'
+      - '.github/workflows/v037-release-root-projection.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  project:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact release head
+        uses: actions/checkout@v4
+        with:
+          ref: release/v0.3.7
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Apply root and v3-fixture projection
+        run: python .github/scripts/v037_release_root_projection.py
+      - name: Enforce narrow mutation boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only | sort > /tmp/changed
+          cat > /tmp/expected <<'EOF'
+          PROJECT-METADATA.yaml
+          releases/current/language-projections/semantic-fixtures.v3.yaml
+          EOF
+          sed -i 's/^          //' /tmp/expected
+          diff -u /tmp/expected /tmp/changed
+          echo V037_ROOT_PROJECTION_BOUNDARY=PASS
+      - name: Validate root metadata and v3 release binding
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          meta=yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
+          assert meta['current_validation']['current_version']=='v0.3.7'
+          assert meta['entrypoints']['primary_v2_evolution_tool']=='releases/current/tools/ena_evolve_v2.py'
+          assert meta['entrypoints']['inherited_reference_tool']=='releases/current/tools/legacy/ena_evolve_v1_2.py'
+          v3=yaml.safe_load(Path('releases/current/language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
+          assert str(v3['schema_version'])=='3.0'
+          assert len(v3['cases'])==12
+          assert all(c.get('expected_route') for c in v3['cases'])
+          print('V037_ROOT_PROJECTION_CHECK=PASS')
+          PY
+      - name: Commit root projection
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add PROJECT-METADATA.yaml releases/current/language-projections/semantic-fixtures.v3.yaml
+          git commit -m 'release: project v0.3.7 root metadata and v3 fixtures'
+          git push origin HEAD:release/v0.3.7
