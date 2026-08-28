@@ -1,8 +1,8 @@
 # ENA Research — Start Here
 
-Status: `ACTIVE_RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / V0_3_7_PREPROMOTION_RELEASE_READINESS / NOT_RELEASE_AUTHORITY`
+Status: `ACTIVE_RESEARCH_BOOTSTRAP / HOT_ENTRYPOINT / V0_3_7_CURRENT_FIELD_VALIDATION / NOT_RELEASE_AUTHORITY`
 
-The canonical control plane lives on `main`. This active-branch bootstrap accelerates continuation but does not override Current or exact frozen/release identities.
+The canonical control plane lives on `main`. This active-branch bootstrap accelerates continuation but does not override Current or exact governed identities.
 
 ## Project-manager continuation order
 
@@ -11,7 +11,7 @@ Before substantive work:
 1. start from `main` and read `PROJECT-HUB.md`;
 2. verify Current from `releases/current/CURRENT-BASELINE.yaml`;
 3. read `research/handoffs/CURRENT-HANDOFF.yaml` and the canonical handoff framework;
-4. read the current handoff record named by the pointer;
+4. read the current handoff record named by the pointer as occurrence history, not live authority;
 5. read required methodology under `research/methodology/`;
 6. read `research/ACTIVE-RESEARCH.yaml`;
 7. if current surfaces disagree, complete the Project State Alignment Gate;
@@ -20,90 +20,56 @@ Before substantive work:
 
 A fresh independent validator is a different epistemic role and must not be sent through this full project-manager context before A-S seal.
 
-## Current posture — 2026-08-28 pre-promotion
+## Current posture — 2026-08-28 post-promotion
 
 ```text
-Current = v0.3.6 / CURRENT / FIELD_VALIDATION
-Current tree = 7dcbb3934883ffa6cc5292a662588cafc1533cff
+Current                         = v0.3.7 / CURRENT / FIELD_VALIDATION
+Current tree                    = f33e73ed997c1b66a4572685ab5474182e136e97
+package files                   = 118
+package SHA-256                 = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+exact reviewed release head     = 3ef3605228ed427b2d25d7d586e4ffc378b7369e
+release PR                      = #144 / MERGED
+release merge commit            = 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
+Exact Release Gate              = 33162550145 PASS
+post-merge Main Gate            = 33163171275 PASS
+post-merge Current validation   = 33163171328 PASS
+post-merge CodeQL               = 33163171289 PASS
+active field tracker            = #150
 ```
 
-Final frozen candidate:
+Frozen source lineage:
 
 ```text
 v0.3.7-candidate.3
 source  = b7e88d7adb70396bd671ca97066daf2c120e0adc
 subtree = e3a9a20d16cecd78df7f32f19fca56e21159e810
-exact pre-freeze      = 33150269264 PASS
-targeted post-freeze  = 33150553992 PASS
-release hardening     = 33152201566 PASS
-candidate succession  = STOP
-candidate.4           = not justified by current evidence
+candidate succession = STOP
+candidate.4 = not justified by current evidence
+attack cardinality = OPEN
 ```
-
-Prospective v0.3.7 release state:
-
-```text
-release branch                  = release/v0.3.7
-release PR                      = #144 / OPEN DRAFT / NOT PROMOTED
-byte-exact transplant head      = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-prospective Current tree        = f33e73ed997c1b66a4572685ab5474182e136e97
-exact validated release head    = bcda18a28141f572688f9a1b15cfd820dea02f97
-prospective Current file count  = 118
-package SHA-256                 = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
-Exact Release Gate              = 33161514271 PASS
-Current validate/package        = 33161516641 PASS
-Main Gate                       = 33161516581 PASS
-Selection Qualification         = 33161516591 PASS
-research helper                 = 33161516586 PASS
-CodeQL                          = 33161516568 PASS
-promotion                       = not authorized
-```
-
-The prospective release payload is release-ready in the bounded sense represented by those checks, but it is **not Current** until explicit authorization, merge, and post-merge readback.
-
-## Main-visible alignment
-
-The pre-promotion Project State Alignment checkpoint has been merged to `main` at:
-
-`f5e031cd28b2f3fd3d697159b295b24e91e2820e`
-
-That alignment records:
-
-- release readiness without premature promotion;
-- exact release tree/package/run evidence;
-- Selection Qualification oracle drift as control failure rather than candidate defect;
-- Exact Release Gate execution on every release-branch push;
-- issue disposition for #70, #89-#94, and #104;
-- branch lifecycle/cleanup disposition and the current lack of a true delete-ref connector action.
 
 ## Immediate next action
 
-```text
-sync aligned main into release/v0.3.7
--> rerun Exact Release Gate and ordinary PR checks on the resulting exact release head
--> verify prospective Current tree and deterministic package digest remain stable
--> present exact reviewed head + open evidence boundaries
--> obtain explicit promotion authorization
-```
-
-Only after explicit promotion authorization may PR #144 merge.
-
-Post-promotion:
+The release lifecycle is closed. Continue from reality-facing evidence and unresolved research obligations:
 
 ```text
-merge
--> read back Current from main
--> align PROJECT-METADATA/history/field-validation issue routing
--> close release/candidate/temporary branch lifecycles when safe
--> update handoff/control surfaces
--> run Project State Alignment Gate again
+#150 v0.3.7 field evidence
++ #89-#94 / #104 reconstruction research
+-> choose one bounded step that can change a decision
+-> recover/branch concrete HOW variation where needed
+-> falsify or contact reality at the right evidence layer
+-> reconcile results into main-visible project state
 ```
 
-Do not modify frozen candidate.3. Candidate.4 requires new material candidate-byte evidence; it is not a ritual next generation.
+Do not create candidate.4 merely because v0.3.7 exists. A successor candidate requires new material evidence that demands candidate-byte change.
+
+## Released-package erratum
+
+The immutable v0.3.7 `CURRENT-BASELINE.yaml` retains one stale pre-promotion residual sentence saying v0.3.6 remains Current until explicit promotion. Promotion has occurred. Do not silently rewrite the released package under the same version identity; the erratum is recorded in project control/history and field tracker #150 for correction in a future governed release.
 
 ## Issue and branch reminder
 
-Open research issues are durable work obligations, not a cleanliness score. Short-lived branch names are lifecycle surfaces, not archives. Preserve lineage first, then remove obsolete refs when their lifecycle closes. The currently available connector lacks genuine branch/ref deletion, so do not simulate deletion through force-moves.
+Open research issues are durable work obligations, not a cleanliness score. Short-lived branch names are lifecycle surfaces, not archives. `research/ena-reconstruction` remains the one active research integration branch. Completed release/candidate/validation/tmp/alignment/control-fix refs are cleanup candidates once durable lineage exists; the current connector lacks genuine delete-ref capability, so do not simulate deletion by force-moving refs.
 
 ## Method reminders
 
@@ -117,16 +83,15 @@ PROVEN REPRESENTATION DUPLICATION -> may compress
 ```text
 PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
 COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
-RELEASE_READY != CURRENT
-GREEN_GATE != PROMOTION_AUTHORITY
+EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
 ```
 
 ## Reusable independent-validation infrastructure
 
-`guytogay/independent-validation-cleanroom` is a reusable clean-room facility across ENA stages and across unrelated projects. Repository identity is infrastructure; stage contents are ephemeral. Reports/seals/occurrence truth return to the relevant source project.
+`guytogay/independent-validation-cleanroom` is reusable across ENA stages and unrelated projects. Repository identity is infrastructure; stage contents are ephemeral. Reports/seals/occurrence truth return to the relevant source project.
 
 ## Record-first continuity
 
-After material progress, update fast Progress, reconcile stale control surfaces, persist decision/evidence records, and update succession context when needed. A file being durable is not enough if future sessions cannot discover or correctly apply it.
+After material progress, update fast Progress, reconcile stale control surfaces, persist decision/evidence records, and update succession context when needed. Durable storage alone is insufficient if future sessions cannot discover or correctly apply it.
 
 > Inherit state, method, governance, decision lineage, open uncertainty, and the exact next permitted action — while giving each epistemic role only the context it should receive.

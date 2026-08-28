@@ -12,32 +12,29 @@ For adoption, always start from repository `main` and read:
 
 `releases/current/CURRENT-BASELINE.yaml`
 
-Never infer Current from the highest-looking version, candidate/release branch, branch recency, handoff record, research state, or passing release checks.
+Never infer Current from the highest-looking version, candidate/release branch, branch recency, handoff record, research state, or passing checks.
 
 The active adopter-facing model is **Current + declared maturity/status**.
 
-Current remains:
+Current is now:
 
 ```text
-v0.3.6 / CURRENT / FIELD_VALIDATION
+v0.3.7 / CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE
+Current tree = f33e73ed997c1b66a4572685ab5474182e136e97
 ```
-
-until an exact reviewed v0.3.7 release head is explicitly promoted, merged, and post-merge read back from `main`.
 
 ## Project-manager continuation route
 
-A successor session must resolve, in order:
+A successor session resolves, in order:
 
 1. `releases/current/CURRENT-BASELINE.yaml`;
-2. `research/handoffs/CURRENT-HANDOFF.yaml`;
-3. `research/handoffs/HANDOFF-PROTOCOL.md`;
-4. `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`;
-5. `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`;
-6. the current handoff record named by the pointer;
-7. required project methodology under `research/methodology/`;
-8. `research/ACTIVE-RESEARCH.yaml`;
-9. `research/plans/PROGRESS.yaml` and the master plan;
-10. live refs/exact frozen or release identities before writing.
+2. `research/handoffs/CURRENT-HANDOFF.yaml` plus the canonical handoff framework;
+3. the current handoff record named by that pointer;
+4. required methodology under `research/methodology/`;
+5. `research/ACTIVE-RESEARCH.yaml`;
+6. `research/plans/PROGRESS.yaml` and the master plan;
+7. live refs/exact governed identities before writing;
+8. the Project State Alignment Gate whenever current surfaces disagree.
 
 ```text
 TAKEOVER = STATE + METHOD + GOVERNANCE + DECISION_LINEAGE + NEXT_ACTION
@@ -45,86 +42,67 @@ HANDOFF_RECORD != PROJECT_AUTHORITY
 BRANCH_HEAD != FROZEN_IDENTITY
 ```
 
-## Current project/release posture
-
-Pre-promotion live state verified on 2026-08-28:
+## v0.3.7 promotion/readback — 2026-08-28
 
 ```text
-Current                         = v0.3.6 / CURRENT / FIELD_VALIDATION
-Current tree                    = 7dcbb3934883ffa6cc5292a662588cafc1533cff
-main before this alignment      = 13c8a3e359fe6702ebc15dad982c655e2a3ca7a9
-frozen candidate                = v0.3.7-candidate.3
+frozen candidate identity       = v0.3.7-candidate.3
 frozen source                   = b7e88d7adb70396bd671ca97066daf2c120e0adc
 frozen subtree                  = e3a9a20d16cecd78df7f32f19fca56e21159e810
 candidate succession            = STOP
 candidate.4                     = NOT JUSTIFIED BY CURRENT EVIDENCE
-release branch                  = release/v0.3.7
-release PR                      = #144 / OPEN DRAFT / NOT PROMOTED
 byte-exact transplant commit    = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-prospective v0.3.7 Current tree = f33e73ed997c1b66a4572685ab5474182e136e97
-validated release head          = bcda18a28141f572688f9a1b15cfd820dea02f97
-package file count              = 118
+exact reviewed release head     = 3ef3605228ed427b2d25d7d586e4ffc378b7369e
+release PR                      = #144 / MERGED
+release merge commit            = 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
+Current tree                    = f33e73ed997c1b66a4572685ab5474182e136e97
+Current file count              = 118
 package SHA-256                 = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
-release identity projection     = COMPLETE ON RELEASE BRANCH
-release authorization           = NOT GRANTED
-promotion                       = NOT STARTED
+Exact Release Gate              = 33162550145 PASS
+post-merge Main Gate            = 33163171275 PASS
+post-merge Current validation   = 33163171328 PASS
+post-merge CodeQL               = 33163171289 PASS
+active field-validation tracker = #150
+predecessor field tracker       = #70 / CLOSED
 ```
 
-The release branch now contains a fully projected prospective `v0.3.7 / CURRENT / FIELD_VALIDATION` package. That package is **not** Current merely because its self-description is release-ready. Current authority remains the merged/read-back `releases/current/` on `main`.
+Explicit promotion authorization was received before PR #144 was merged. Post-merge readback positively re-established the same v0.3.7 Current tree on `main`.
 
-Exact-head release evidence on `bcda18a28141f572688f9a1b15cfd820dea02f97`:
+## Immutable-package erratum
 
-```text
-ENA v0.3.7 Exact Release Gate = PASS / run 33161514271
-Current validate/package      = PASS / run 33161516641
-Main Gate                     = PASS / run 33161516581
-Selection Qualification       = PASS / run 33161516591
-research helper               = PASS / run 33161516586
-CodeQL                        = PASS / run 33161516568
-```
+The released `CURRENT-BASELINE.yaml` contains one stale pre-promotion sentence inside `accepted_residuals` saying v0.3.6 remains the only adopter-facing baseline until explicit promotion. Promotion has now occurred.
 
-The Exact Release Gate now runs on every push to `release/v0.3.7`, so a later release-head change cannot silently inherit an older green gate.
+Do **not** silently edit the released 118-file v0.3.7 package merely to rewrite that sentence. v0.3.7 release discipline binds one version identity to one effective-content state. Treat the sentence as a release-metadata erratum; the top-level baseline identity, governed merge, and this project control plane establish v0.3.7 as Current. Correct the stale residual only under a future governed release identity.
 
-## Issue and branch closure posture
+## Issue and branch posture
 
-Open issues are not required to reach zero for release. The reconstruction/workstream issues `#89`–`#94` and `#104` remain durable research obligations while their work remains open; their relation to Current must be aligned after promotion. Issue `#70` is the v0.3.6 field-validation stream and should be superseded or reframed after v0.3.7 promotion rather than treated as a pre-promotion blocker by default.
+Open issue count is not a release quality metric. `#89`–`#94` and `#104` remain durable reconstruction/research obligations while their scopes remain useful. `#150` is the active v0.3.7 field-evidence stream. The former v0.3.6 stream `#70` is closed as predecessor occurrence evidence.
 
-Branches are governed differently: short-lived branch names should end after their lifecycle is closed and durable lineage exists. `research/ena-reconstruction`, `release/v0.3.7`, and frozen candidate.3 still have live roles before promotion/readback. Merged, operator-noise, predecessor-candidate, and historical-validation refs are classified in `research/BRANCH-INVENTORY.yaml` for cleanup. The currently available GitHub connector does not expose branch/ref deletion, so deletion must not be simulated by force-moving refs.
+Branches are lifecycle surfaces, not archives. `research/ena-reconstruction` remains the sole active research integration branch named by the canonical pointer. Release/candidate/validation/tmp/alignment/control-fix refs have durable lineage and are cleanup candidates after lifecycle closure. The currently available connector does not expose genuine delete-ref capability, so deletion must not be simulated by force-moving refs.
 
 ## Immediate permitted next action
 
-After this pre-promotion alignment is main-visible:
+The release/promotion lifecycle is closed. Resume reality-facing research through the active field and reconstruction surfaces:
 
 ```text
-sync aligned main into release/v0.3.7
--> rerun Exact Release Gate and ordinary PR checks on the resulting exact head
--> prove prospective Current tree/package stability
--> present exact reviewed head + open evidence boundaries
--> obtain explicit promotion authorization
+#150 field evidence + #89-#94/#104 unresolved research
+-> select only bounded work that can change a decision
+-> branch concrete HOWs where needed
+-> preserve open failure variation
+-> reconcile evidence back into main-visible project state
 ```
 
-Only after explicit authorization:
-
-```text
-merge PR #144
--> post-merge Current readback
--> update Current/project/history/field-validation routing
--> run Project State Alignment Gate again
--> close release/candidate/temporary branch lifecycles when safe
-```
-
-A material defect in frozen candidate.3 semantics/bytes would require candidate.4. A packaging/control defect is repaired on the release/control surface without rewriting frozen candidate.3 occurrence truth.
+A new candidate/release is justified only by material decision-changing evidence; candidate.4 is not a ceremonial next step.
 
 ## Independent validation clean room
 
-`guytogay/independent-validation-cleanroom` is reusable validation infrastructure, not an ENA-candidate-specific repository.
+`guytogay/independent-validation-cleanroom` is reusable validation infrastructure, not an ENA-specific candidate repository.
 
 ```text
 CLEAN_ROOM_REPOSITORY_IDENTITY = REUSABLE_VALIDATION_INFRASTRUCTURE
 CLEAN_ROOM_CONTENT = CURRENT_STAGE_EPHEMERAL_REVIEW_SURFACE
 ```
 
-It may be reused across ENA stages and across unrelated projects. Occurrence truth belongs back in the source project; clean-room stage contents should be reset/replaced rather than accumulated as project history.
+It may be reused across ENA stages and unrelated projects. Occurrence truth belongs back in the source project; clean-room contents should be reset/replaced between validation occurrences.
 
 ## Research direction
 
@@ -138,6 +116,7 @@ EVIDENCE -> bind to the concrete claim / HOW / Host / applicability scope it sup
 ```text
 COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
 ANTI_CONVERGENCE != MAXIMIZE ARTIFACT COUNT
+EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
 ```
 
 ## Project knowledge surfaces
@@ -148,16 +127,15 @@ ANTI_CONVERGENCE != MAXIMIZE ARTIFACT COUNT
 - Active research integration branch: `research/ena-reconstruction`
 - Handoff framework/current pointer: `research/handoffs/`
 - Research methodology: `research/methodology/`
-- Project-state alignment: `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
-- Long-horizon plan: `research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md`
-- Fast execution state: `research/plans/PROGRESS.yaml`
+- Long-horizon plan + fast state: `research/plans/`
 - Branch governance/inventory: `research/BRANCH-GOVERNANCE.md`, `research/BRANCH-INVENTORY.yaml`
-- Reconciliation/freeze/validation evidence: `collaboration/reconciliation/`
+- Reconciliation/evidence: `collaboration/reconciliation/`, `evidence/`
+- Active field evidence: GitHub Issue `#150`
 
 ## Authority boundary
 
 `Contribution != Reconciliation != Release/Promotion Authority.`
 
-GitHub write access, candidate authorship, validation work, release-branch access, or green CI does not by itself establish promotion authority.
+GitHub write access, candidate authorship, validation work, or green CI does not by itself establish promotion authority.
 
 > Preserve one legible Current, many recoverable experiments/candidates, and enough method that the next project manager can continue without reconstructing the project from chat.
