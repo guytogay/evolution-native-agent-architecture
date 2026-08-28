@@ -1,0 +1,72 @@
+name: ENA v0.3.7 Candidate.2 Capsule Control Plane
+
+on:
+  push:
+    paths:
+      - '.github/candidate2-capsule-control-plane.trigger'
+      - '.github/scripts/apply_v037_candidate2_capsule_control_plane.py'
+      - '.github/workflows/v037-candidate2-capsule-control-plane.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/ena-reconstruction
+          fetch-depth: 0
+
+      - name: Bind immutable target
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/v0.3.7-candidate)" = "d5fefc8c786d7e40b3e9a59211ee7045bccee5bf"
+          test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
+
+      - name: Apply exact capsule-carrier control-plane transition
+        run: python3 .github/scripts/apply_v037_candidate2_capsule_control_plane.py
+
+      - name: Verify mutation scope and state
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t changed < <(git diff --name-only | sort)
+          printf '%s\n' "${changed[@]}"
+          expected=(
+            research/ACTIVE-RESEARCH.yaml
+            research/RESEARCH-START-HERE.md
+            research/handoffs/CURRENT-HANDOFF.yaml
+            research/plans/PROGRESS.yaml
+          )
+          printf '%s\n' "${expected[@]}" | sort >/tmp/expected
+          printf '%s\n' "${changed[@]}" | sort >/tmp/observed
+          diff -u /tmp/expected /tmp/observed
+          python3 - <<'PY'
+          import yaml
+          from pathlib import Path
+          for p in ['research/ACTIVE-RESEARCH.yaml','research/plans/PROGRESS.yaml','research/handoffs/CURRENT-HANDOFF.yaml']:
+              yaml.safe_load(Path(p).read_text())
+          a=Path('research/ACTIVE-RESEARCH.yaml').read_text()
+          p=Path('research/plans/PROGRESS.yaml').read_text()
+          h=Path('research/handoffs/CURRENT-HANDOFF.yaml').read_text()
+          s=Path('research/RESEARCH-START-HERE.md').read_text()
+          for text in (a,p,h,s):
+              assert 'ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131' in text
+          assert 'WITHHELD_UNTIL_A_S_CONTENT_SEAL' in a
+          assert 'WITHHELD_UNTIL_A_S_CONTENT_SEAL' in h
+          assert 'Issue #137 is historical and closed' in s
+          PY
+          test -z "$(git diff --name-only -- releases/current releases/v0.3.7-candidate)"
+
+      - name: Commit control-plane transition
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/ACTIVE-RESEARCH.yaml research/RESEARCH-START-HERE.md research/handoffs/CURRENT-HANDOFF.yaml research/plans/PROGRESS.yaml
+          git commit -m 'control-plane: route candidate.2 fresh review through isolated capsule'
+          git push origin HEAD:research/ena-reconstruction
