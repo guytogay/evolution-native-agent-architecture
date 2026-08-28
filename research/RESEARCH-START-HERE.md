@@ -80,34 +80,38 @@ The current project-manager session is **not eligible** to perform fresh candida
 
 ## Immediate next action
 
-`DELIVER_CANDIDATE2_ISOLATED_A_S_CAPSULE_ONLY`
+`GET_GENUINELY_FRESH_REVIEWER_TO_RUN_CANDIDATE2_A_S_IN_DEDICATED_CLEAN_ROOM`
 
 Issue #137 is historical and closed. Its reviewer correctly aborted before A-S seal because normal GitHub navigation crossed the declared boundary. Do not reuse the GitHub repository/branch UI as the candidate.2 A-S carrier.
 
-Active carrier evidence:
+Active review carrier:
 
 - method `research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`;
-- build/audit run `33131665994` — SUCCESS;
-- A-S capsule SHA-256 `ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131`;
-- A-P supplement SHA-256 `b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd`;
+- dedicated clean-room repo `https://github.com/guytogay/independent-validation-cleanroom`;
+- pinned A-S commit `28dde50c9caaeee3b5cfabf51410083dbbb05a93`;
+- tree `42debebed620bd05e6e2635409057f20b57bfa9e`;
+- commit parents `[]`;
 - A-P delivery state `WITHHELD_UNTIL_A_S_CONTENT_SEAL`.
+
+The deterministic r3 ZIP build remains construction/integrity evidence (final audit run `33131773164`, A-S package SHA-256 `dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`), not a requirement that the reviewer consume a ZIP.
 
 Required sequence:
 
 ```text
-FRESH REVIEWER RECEIVES ONLY A-S ZIP
--> READ INTAKE-A-S.md INSIDE ZIP
+FRESH REVIEWER RECEIVES ONLY CLEAN-ROOM URL / PINNED A-S STATE
+-> READ ROOT README / INTAKE-A-S.md
+-> FREELY BROWSE / SEARCH / EXECUTE THE CLEAN-ROOM CONTENT
 -> INDEPENDENT A-S
 -> WRITE FINAL A-S REPORT
 -> SHA-256 THAT EXACT REPORT
 -> STOP
 -> PROJECT MANAGER VERIFY/PERSIST CONTENT SEAL
--> SEPARATELY DELIVER A-P ZIP TO SAME REVIEWER
+-> ONLY THEN MAKE A-P MATERIAL REACHABLE TO SAME REVIEWER
 -> A-P
 -> STOP BEFORE PHASE B
 ```
 
-Do not provide the project repository as A-S review material. Do not attach, link, or otherwise expose the A-P supplement before the A-S report digest is fixed.
+Do not provide the ENA project repository as A-S review context and do not expose A-P before the A-S report digest is fixed.
 
 Candidate.2 remains frozen. Material candidate-byte correction requires candidate.3.
 
@@ -168,7 +172,7 @@ Before claiming successful takeover, a successor project manager should be able 
 - Issue #131 = sealed A-S/A-P occurrence truth for candidate.1;
 - A-S seal = `2e6b46ae...`; A-P final = `b970148f...`;
 - candidate.1 = `NEEDS_REVISION`, immutable predecessor to candidate.2;
-- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`; Issue #137 is interface-aborted history; active A-S carrier is isolated capsule hash `ee80ac82...`;
+- candidate.2 = frozen at `bda470e0...` / `d5fefc8c...`; Issue #137 is interface-aborted history; active A-S carrier is clean-room commit `28dde50c...`;
 - fresh validator entry remains blind semantic entry, not full project-manager context for any future independent intake;
 - `releases/current/` remains untouched until governed release/promotion.
 
