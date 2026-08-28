@@ -25,24 +25,24 @@ Do **not** infer the current ENA from version numbers, candidate names, commit r
 
 - **Git `main`** is the canonical project branch.
 - **ENA Current** is the singular adoption baseline under `releases/current/`.
-- **Maturity/status** is declared by the Current baseline; v0.3.6 is `FIELD_VALIDATION`.
+- **Maturity/status** is declared by the Current baseline; v0.3.7 is `FIELD_VALIDATION` in this release payload.
 
 Beginning with v0.3.5, historical `MAINLINE / NOT_MAINLINE` labels are no longer an active adopter-facing maturity axis. Historical records using them remain unchanged as occurrence truth.
 
 ## Current direction
 
-v0.3.6 extends explicit evolution metabolism into **Evolution Ecology**:
+v0.3.7 preserves the v0.3.6 Evolution Ecology semantic trunk while making concrete HOWs substantially easier to retrieve and use:
 
-- mutation pressure without forced mutation;
-- long-lived latent variation;
-- lifecycle / expression / selection as separate axes;
-- Evolution Commons with receiver-local reselection;
-- environment-local rather than universal fitness;
-- Rescue Plane without sovereign approval authority;
-- hot cues + cold capability direction;
-- ecological/minimal-intervention governance that still preserves consequence ownership.
+- a compact Runtime Adoption Kernel with hot cues rather than an always-loaded HOW encyclopedia;
+- consequence-first `operational/CUE-INDEX.md` and `operational/HOW-MAP.md` routing;
+- Purpose-Relative Continuity, Standing Input, and Control Retirement procedures;
+- Evolution Commons and Host Mapping patterns;
+- bundled **optional/default-off** reference organs whose inclusion does not make them normative or universally applicable;
+- a primary narrow v2 practical evolution path at `tools/ena_evolve_v2.py`;
+- explicit legacy compatibility under `tools/legacy/`;
+- decision-bearing zh-CN Operational Architecture projection while preserving one canonical machine surface.
 
-The v2 representation/schema surface is newer than the inherited v1.2 `ena_evolve.py` reference runtime. Current makes that staged boundary explicit rather than pretending full runtime parity.
+All 38 inherited Constitution IDs remain unchanged. v0.3.7 does not claim that machine consistency proves external authority/receipt truth, universal Host applicability, natural future-session salience, or universal bilingual behavioral equivalence; those remain explicit evidence/field boundaries.
 
 ## Repository shape
 
