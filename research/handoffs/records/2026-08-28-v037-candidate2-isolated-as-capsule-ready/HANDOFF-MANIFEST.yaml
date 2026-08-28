@@ -1,0 +1,23 @@
+schema_version: "1.0"
+handoff_id: 2026-08-28-v037-candidate2-isolated-as-capsule-ready
+status: HANDOFF_READY_ISOLATED_A_S_CAPSULE
+current: v0.3.6 / CURRENT / FIELD_VALIDATION
+candidate2:
+  source: bda470e0a6b170cec61225a905957a501454a2fe
+  subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  frozen: true
+  current: false
+invalidated_intake:
+  issue: 137
+  result: A_S_ABORTED_BOUNDARY_CROSSING
+  sealed: false
+active_carrier:
+  method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+  build_run: 33131665994
+  a_s_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
+  a_p_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  artifact_id: 9670480727
+  outer_artifact_sha256: 104005b329cc042721da76a38f8a41c282c278bca3d2c424ecd7288ceeb1c357
+next_action: DELIVER_A_S_CAPSULE_ONLY_TO_FRESH_REVIEWER
+attack_cardinality: OPEN
+promotion_authorized: false
