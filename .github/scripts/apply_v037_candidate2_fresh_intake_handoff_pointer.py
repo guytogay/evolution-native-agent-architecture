@@ -6,8 +6,8 @@ text=p.read_text(encoding='utf-8')
 old='2026-08-28-v037-candidate2-frozen-blind-view-next'
 new='2026-08-28-v037-candidate2-fresh-as-intake-ready'
 count=text.count(old)
-if count != 7:
-    raise SystemExit(f'expected 7 old handoff-record path/id occurrences, got {count}')
+if count != 8:
+    raise SystemExit(f'expected 8 old handoff-record path/id occurrences, got {count}')
 text=text.replace(old,new)
 p.write_text(text,encoding='utf-8')
 print('CANDIDATE2_FRESH_INTAKE_HANDOFF_POINTER_TRANSFORM=PASS')
