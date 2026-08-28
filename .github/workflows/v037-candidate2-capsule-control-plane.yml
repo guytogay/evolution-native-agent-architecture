@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/candidate2-capsule-control-plane.trigger'
       - '.github/scripts/apply_v037_candidate2_capsule_control_plane.py'
+      - '.github/scripts/run_v037_candidate2_capsule_control_plane.py'
       - '.github/workflows/v037-candidate2-capsule-control-plane.yml'
 
 permissions:
@@ -27,7 +28,7 @@ jobs:
           test "$(git rev-parse bda470e0a6b170cec61225a905957a501454a2fe:releases/current)" = "7dcbb3934883ffa6cc5292a662588cafc1533cff"
 
       - name: Apply exact capsule-carrier control-plane transition
-        run: python3 .github/scripts/apply_v037_candidate2_capsule_control_plane.py
+        run: python3 .github/scripts/run_v037_candidate2_capsule_control_plane.py
 
       - name: Verify mutation scope and state
         shell: bash
