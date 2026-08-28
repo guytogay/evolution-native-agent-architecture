@@ -1,4 +1,4 @@
-schema_version: "3.1"
+schema_version: "3.2"
 status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
 updated_at: "2026-08-28"
 
@@ -20,7 +20,7 @@ project_methodology_required:
 
 current_handoff_record:
   id: "2026-08-28-v037-candidate3-frozen-release-preparation"
-  state: HANDOFF_READY_FOR_SESSION_SUCCESSION
+  state: HISTORICAL_OCCURRENCE_SNAPSHOT_SUPERSEDED_BY_LIVE_POSTPROMOTION_CONTROL_STATE
   record_root: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/
   start_here: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/HANDOFF-START-HERE.md
   manifest: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/HANDOFF-MANIFEST.yaml
@@ -53,66 +53,70 @@ receiver_contract:
   treat_branch_recency_as_authority: FORBIDDEN
 
 current_adoption:
-  version: v0.3.6
+  version: v0.3.7
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  subtree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
-  remains_current_until_explicit_release_promotion_and_readback: true
+  complete_adoption_baseline: true
+  subtree: f33e73ed997c1b66a4572685ab5474182e136e97
+  file_count: 118
+  package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+  release_pr: 144
+  exact_reviewed_release_head: 3ef3605228ed427b2d25d7d586e4ffc378b7369e
+  release_merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
+  explicit_promotion_authorization_received: true
+  postmerge_readback: PASS
 
 frozen_release_source:
   identity: v0.3.7-candidate.3
-  branch: candidate/v0.3.7-candidate.3
   frozen_source: b7e88d7adb70396bd671ca97066daf2c120e0adc
   frozen_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
   exact_prefreeze_run: 33150269264
   targeted_postfreeze_run: 33150553992
   release_hardening_run: 33152201566
   candidate_succession_stop: true
-  release_preparation_supported: true
   candidate4_currently_justified: false
   candidate_mutation_forbidden: true
   attack_cardinality: OPEN
   external_truth_established: false
-  fresh_candidate3_a_s_a_p_claimed: false
 
-live_progress_after_handoff_record:
-  verified_at: "2026-08-28"
-  main_checkpoint_complete: true
-  main_checkpoint: 280a8b0f7629d5deb013a5257cb74759213e8080
-  main_checkpoint_description: CANDIDATE3_FREEZE_HARDENING_RELEASE_PREPARATION
-  release_branch_created: true
-  release_branch: release/v0.3.7
-  release_branch_base: 280a8b0f7629d5deb013a5257cb74759213e8080
-  byte_exact_transplant_complete: true
+release_evidence:
   byte_exact_transplant_commit: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-  transplanted_current_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
-  transplant_matches_frozen_candidate3_subtree: true
-  release_identity_status_transform_applied: false
-  release_pr_open_at_verification: false
-  release_authorized: false
-  promoted: false
-  project_state_alignment_triggered: true
-  alignment_reason: >-
-    Main checkpoint and release transplant occurred after the dated handoff snapshot,
-    while several current-tense project-control projections still described candidate.0,
-    candidate.2, fresh Phase A, or release preparation as not started.
-  alignment_workspace: research/ena-reconstruction
-  immediate_next_action_after_alignment_merge: RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7
+  exact_release_gate_run: 33162550145
+  postmerge_main_gate_run: 33163171275
+  postmerge_current_validate_run: 33163171328
+  postmerge_codeql_run: 33163171289
+  all_observed: PASS
 
-release_packaging_boundary:
-  packaging_rule: BYTE_EXACT_TRANSPLANT_THEN_IDENTITY_ONLY_TRANSFORM
-  transplant_occurrence_must_remain_auditable: true
-  frozen_candidate3_must_not_be_mutated: true
-  candidate_baseline_replaced_by_current_baseline_during_release_projection: true
-  target_identity: v0.3.7
-  target_adoption_status: CURRENT
-  target_maturity: FIELD_VALIDATION
-  preserve_38_constitution_ids: true
-  preserve_validated_candidate3_material_semantics: true
-  preserve_visible_evidence_boundaries: true
-  exact_head_release_gates_required: true
-  explicit_release_authorization_required: true
-  post_merge_current_readback_required: true
+field_and_research_state:
+  active_field_validation_issue: 150
+  predecessor_field_validation_issue_70: CLOSED_PRESERVED_OCCURRENCE_EVIDENCE
+  open_reconstruction_issues:
+    - 89
+    - 90
+    - 91
+    - 92
+    - 93
+    - 94
+    - 104
+  active_research_branch: research/ena-reconstruction
+  next_action: SELECT_NEXT_BOUNDED_DECISION_CHANGING_RESEARCH_STEP_FROM_FIELD_OR_OPEN_RECONSTRUCTION_EVIDENCE
+
+release_metadata_erratum:
+  present: true
+  released_package_must_remain_immutable: true
+  description: >-
+    CURRENT-BASELINE.yaml accepted_residuals retains one pre-promotion sentence stating that
+    v0.3.6 remains the sole adopter-facing baseline until explicit promotion. Promotion has
+    occurred; the top-level v0.3.7 Current identity and governed main merge are authoritative.
+  disposition: DOCUMENT_OUTSIDE_CURRENT_AND_CORRECT_ONLY_UNDER_A_FUTURE_GOVERNED_RELEASE_IDENTITY
+  field_tracker: 150
+
+branch_hygiene:
+  active_long_lived_branch: research/ena-reconstruction
+  completed_release_candidate_validation_tmp_alignment_refs_are_cleanup_candidates: true
+  durable_lineage_preserved_outside_branch_names: true
+  delete_ref_capability_available_in_current_connector: false
+  force_move_must_not_simulate_deletion: true
 
 independent_validation_infrastructure:
   repository: guytogay/independent-validation-cleanroom
@@ -128,15 +132,11 @@ independent_validation_infrastructure:
 history:
   records_root: research/handoffs/records/
   historical_records_remain_lineage: true
-  predecessor_candidate_and_validation_details: >-
-    Durable in the dated handoff record, collaboration/reconciliation records,
-    immutable commits/trees, issues, and Git history. They are intentionally not
-    duplicated into this fast current pointer.
+  dated_record_must_not_be_rewritten_to_claim_postpromotion_state: true
 
 rule: >-
-  Project-manager succession inherits project state, project methodology,
-  project-management discipline, decision lineage, and next action. A handoff record
-  accelerates takeover but does not override canonical authorities. Fresh independent
-  validation is a different epistemic role: use a role-scoped physically isolated A-S
-  surface, seal independent findings before A-P/author context opens, and never treat
-  reusable clean-room infrastructure as project-specific history or authority.
+  Project-manager succession inherits project state, project methodology, project-management
+  discipline, decision lineage, open evidence boundaries, and next action. v0.3.7 is Current on
+  main after explicit promotion and readback; release success does not close field evidence or
+  justify ceremonial candidate succession. Fresh independent validation remains a distinct role
+  and uses a physically isolated priming-reduced surface rather than full project-manager context.

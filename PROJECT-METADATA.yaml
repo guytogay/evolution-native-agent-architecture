@@ -1,4 +1,4 @@
-schema_version: '1.9'
+schema_version: '1.10'
 project_id: ena
 name: Evolution-Native Agent Architecture
 aliases:
@@ -63,8 +63,12 @@ current_validation:
   current_version: v0.3.7
   field_use_intended: true
   field_participation_open: true
-  active_tracker: null
-  predecessor_tracker: 'GitHub Issue #70 (v0.3.6 field scope preserved as predecessor evidence)'
+  active_tracker: 'GitHub Issue #150 (v0.3.7 field validation)'
+  active_tracker_state: ACTIVE_BOUND_TO_CURRENT
+  predecessor_tracker: 'GitHub Issue #70 (v0.3.6 field scope preserved as predecessor evidence; closed after succession)'
+  release_merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
+  current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
   focus:
   - Natural hot-cue -> cold-HOW retrieval and application without permanent HOW-library loading
   - 'Operational routing economics: usefulness versus maintenance/governance/context burden'
@@ -74,11 +78,11 @@ current_validation:
   - Evolution Commons receiver-local reselection without source-proof laundering
   - Purpose-relative continuity only where it changes a decision
   - Standing input without sovereignty or authority creep
+  - Control retirement when a control no longer pays rent
   - Host-native mechanism equivalence and Host-relative fitness
   - Primary v2 helper usefulness versus explicit legacy v1.2 compatibility boundary
   - English / zh-CN operational route reachability and natural behavioral equivalence
   - Unexpected counterexamples, new variations, and release residuals
-  active_tracker_state: POST_PROMOTION_BINDING_REQUIRED
 research_checkpoint:
   historical_adversarial_replay_cases: 13
   network_protocol_divergent_passes_reconciled: 62
@@ -95,6 +99,16 @@ research_checkpoint:
   v037_candidate3_exact_prefreeze_run: 33150269264
   v037_candidate3_targeted_postfreeze_run: 33150553992
   v037_candidate3_release_hardening_run: 33152201566
+  v037_exact_release_gate_run: 33162550145
+  v037_postmerge_main_gate_run: 33163171275
+  v037_postmerge_current_validate_run: 33163171328
+  v037_postmerge_codeql_run: 33163171289
+release_metadata_errata:
+  v0_3_7_current_baseline_pre_promotion_residual:
+    present: true
+    package_mutation_allowed_in_place: false
+    field_tracker: 150
+    disposition: CORRECT_ONLY_UNDER_FUTURE_GOVERNED_RELEASE_IDENTITY
 authority_defaults:
   contribution: UNRECONCILED / NOT_CURRENT / NOT_RELEASED
   github_write_means_current_release_authority: false
