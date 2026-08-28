@@ -342,25 +342,28 @@ Correction:
 PROCEDURAL_RANGED_READ != INFORMATION_BOUNDARY
 PROCEDURAL_PATH_AVOIDANCE != INFORMATION_BOUNDARY
 SEMANTIC_FAILURE_VOCABULARY != AUTHOR_ATTACK_MAP
+PHYSICALLY_ISOLATED_CARRIER != ZIP
+TRANSPORT_FORMAT != METHOD
 ```
 
 Canonical focused method:
 
-`research/methodology/PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md`
+`research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`
 
 Incident evidence:
 
-`research/methodology/incidents/2026-08-28-CANDIDATE2-BLIND-CARRIER-LEAK-INCIDENT.md`
+`research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md`
 
 Practical effect:
 
-- when a repository/UI cannot enforce withholding, fresh A-S uses a physically isolated deterministic semantic capsule rather than a same-repository branch UI;
+- when a repository/UI cannot enforce withholding, fresh A-S uses a physically isolated review carrier rather than relying on reviewer path restraint;
 - A-P uses a separate exact frozen-package supplement that is not supplied until A-S is content-sealed;
 - an A-S SHA-256 of exact report bytes may serve as the pre-A-P seal when the fresh environment lacks authenticated GitHub write access;
 - mechanically justified projections may remove history-bearing comments/docstrings while preserving executable AST semantics;
 - priming scans distinguish the contract's own failure vocabulary from author attack/probe history;
 - manifest self-hash is excluded by definition while non-self payload hashes and outer capsule hashes are verified;
 - authoritative candidate.2 r3 carrier audit run `33131773164` passed deterministic build, physical isolation, exact A-P frozen-package equality and payload inventory checks;
+- ZIP remains one audited construction/transport HOW; candidate.2 now uses reusable `guytogay/independent-validation-cleanroom` as the reviewer-facing A-S HOW, with stage contents resettable between validation occurrences or future projects;
 - no frozen candidate or Current bytes changed.
 
 ## Future changes

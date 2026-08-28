@@ -28,7 +28,7 @@ HANDOFF RECORD = one time-bounded succession occurrence
 
 A successor project manager must inherit both framework and methodology.
 
-A **fresh independent validator** is a different epistemic role. Before its blind semantic work is sealed, it should receive a deliberately priming-reduced target view rather than project-manager continuity context or candidate-local author history/oracles. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` and, when repository/UI navigation cannot enforce the boundary, `PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md`.
+A **fresh independent validator** is a different epistemic role. Before its blind semantic work is sealed, it should receive a deliberately priming-reduced target view rather than project-manager continuity context or candidate-local author history/oracles. See `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` and, when repository/UI navigation cannot enforce the boundary, `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`.
 
 ## Canonical rule
 
@@ -48,7 +48,7 @@ METHOD_WRITTEN != METHOD_APPLIED
 2. `CONVERGENCE-DIVERGENCE-DISCIPLINE.md` — when abstraction/compression is valid and when HOW/failure/Host variation must remain open or grow.
 3. `PROJECT-STATE-ALIGNMENT-GATE.md` — realign routing, method, plan, progress, candidate/release state, and next actions after material transitions.
 4. `INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md` — role/search-space/oracle information boundaries, including A-S blind semantic falsification and post-seal A-P package audit for self-describing candidates.
-5. `PHYSICALLY-ISOLATED-INDEPENDENT-REVIEW-CARRIER.md` — enforce A-S boundaries at the carrier layer when same-repository navigation/search/auto-render can expose withheld context.
+5. `INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md` — enforce A-S boundaries at the carrier layer when same-repository navigation/search/auto-render can expose withheld context.
 6. `METHOD-CHANGELOG.md` — why significant method corrections were introduced.
 7. `incidents/` — concrete method failures that changed future behavior.
 8. `../BRANCH-GOVERNANCE.md` — research/candidate topology across sessions.
