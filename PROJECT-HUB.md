@@ -12,7 +12,7 @@ For adoption, always start from repository `main` and read:
 
 `releases/current/CURRENT-BASELINE.yaml`
 
-Never infer Current from the highest-looking version, candidate/release branch, branch recency, handoff record, or research state.
+Never infer Current from the highest-looking version, candidate/release branch, branch recency, handoff record, research state, or passing release checks.
 
 The active adopter-facing model is **Current + declared maturity/status**.
 
@@ -22,7 +22,7 @@ Current remains:
 v0.3.6 / CURRENT / FIELD_VALIDATION
 ```
 
-until an exact reviewed v0.3.7 release head is explicitly promoted and post-merge read back.
+until an exact reviewed v0.3.7 release head is explicitly promoted, merged, and post-merge read back from `main`.
 
 ## Project-manager continuation route
 
@@ -47,46 +47,73 @@ BRANCH_HEAD != FROZEN_IDENTITY
 
 ## Current project/release posture
 
-Live project state verified on 2026-08-28:
+Pre-promotion live state verified on 2026-08-28:
 
 ```text
-Current                     = v0.3.6 / CURRENT / FIELD_VALIDATION
-main release-prep checkpoint = 280a8b0f7629d5deb013a5257cb74759213e8080
-frozen candidate             = v0.3.7-candidate.3
-frozen source                = b7e88d7adb70396bd671ca97066daf2c120e0adc
-frozen subtree               = e3a9a20d16cecd78df7f32f19fca56e21159e810
-candidate succession         = STOP
-release preparation          = SUPPORTED
-release branch               = release/v0.3.7
-byte-exact transplant commit = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-transplanted Current tree    = e3a9a20d16cecd78df7f32f19fca56e21159e810
-release identity transform   = NOT YET APPLIED
-release PR / promotion       = NOT YET AUTHORIZED
+Current                         = v0.3.6 / CURRENT / FIELD_VALIDATION
+Current tree                    = 7dcbb3934883ffa6cc5292a662588cafc1533cff
+main before this alignment      = 13c8a3e359fe6702ebc15dad982c655e2a3ca7a9
+frozen candidate                = v0.3.7-candidate.3
+frozen source                   = b7e88d7adb70396bd671ca97066daf2c120e0adc
+frozen subtree                  = e3a9a20d16cecd78df7f32f19fca56e21159e810
+candidate succession            = STOP
+candidate.4                     = NOT JUSTIFIED BY CURRENT EVIDENCE
+release branch                  = release/v0.3.7
+release PR                      = #144 / OPEN DRAFT / NOT PROMOTED
+byte-exact transplant commit    = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+prospective v0.3.7 Current tree = f33e73ed997c1b66a4572685ab5474182e136e97
+validated release head          = bcda18a28141f572688f9a1b15cfd820dea02f97
+package file count              = 118
+package SHA-256                 = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+release identity projection     = COMPLETE ON RELEASE BRANCH
+release authorization           = NOT GRANTED
+promotion                       = NOT STARTED
 ```
 
-The first release-branch occurrence is deliberately still candidate-shaped: `releases/current/` contains the frozen candidate.3 bytes exactly, including `CANDIDATE-BASELINE.yaml`. That is packaging evidence, not Current adoption authority.
+The release branch now contains a fully projected prospective `v0.3.7 / CURRENT / FIELD_VALIDATION` package. That package is **not** Current merely because its self-description is release-ready. Current authority remains the merged/read-back `releases/current/` on `main`.
+
+Exact-head release evidence on `bcda18a28141f572688f9a1b15cfd820dea02f97`:
+
+```text
+ENA v0.3.7 Exact Release Gate = PASS / run 33161514271
+Current validate/package      = PASS / run 33161516641
+Main Gate                     = PASS / run 33161516581
+Selection Qualification       = PASS / run 33161516591
+research helper               = PASS / run 33161516586
+CodeQL                        = PASS / run 33161516568
+```
+
+The Exact Release Gate now runs on every push to `release/v0.3.7`, so a later release-head change cannot silently inherit an older green gate.
+
+## Issue and branch closure posture
+
+Open issues are not required to reach zero for release. The reconstruction/workstream issues `#89`–`#94` and `#104` remain durable research obligations while their work remains open; their relation to Current must be aligned after promotion. Issue `#70` is the v0.3.6 field-validation stream and should be superseded or reframed after v0.3.7 promotion rather than treated as a pre-promotion blocker by default.
+
+Branches are governed differently: short-lived branch names should end after their lifecycle is closed and durable lineage exists. `research/ena-reconstruction`, `release/v0.3.7`, and frozen candidate.3 still have live roles before promotion/readback. Merged, operator-noise, predecessor-candidate, and historical-validation refs are classified in `research/BRANCH-INVENTORY.yaml` for cleanup. The currently available GitHub connector does not expose branch/ref deletion, so deletion must not be simulated by force-moving refs.
 
 ## Immediate permitted next action
 
-After this project-state alignment is main-visible:
-
-`RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7`
-
-Required sequence:
+After this pre-promotion alignment is main-visible:
 
 ```text
-BYTE-EXACT TRANSPLANT (already recorded)
--> identity/status-only release projection
--> CURRENT-BASELINE.yaml replaces CANDIDATE-BASELINE.yaml
--> exact-head release validation / Main Gate / CodeQL / regressions
--> package/tree/readback evidence
--> explicit authorization on the exact reviewed release head
--> merge
--> post-merge Current readback
--> project-control/handoff/history alignment
+sync aligned main into release/v0.3.7
+-> rerun Exact Release Gate and ordinary PR checks on the resulting exact head
+-> prove prospective Current tree/package stability
+-> present exact reviewed head + open evidence boundaries
+-> obtain explicit promotion authorization
 ```
 
-A material defect in frozen candidate.3 semantics/bytes would require candidate.4. A packaging defect is repaired on the release surface without rewriting frozen candidate.3 occurrence truth.
+Only after explicit authorization:
+
+```text
+merge PR #144
+-> post-merge Current readback
+-> update Current/project/history/field-validation routing
+-> run Project State Alignment Gate again
+-> close release/candidate/temporary branch lifecycles when safe
+```
+
+A material defect in frozen candidate.3 semantics/bytes would require candidate.4. A packaging/control defect is repaired on the release/control surface without rewriting frozen candidate.3 occurrence truth.
 
 ## Independent validation clean room
 
@@ -131,6 +158,6 @@ ANTI_CONVERGENCE != MAXIMIZE ARTIFACT COUNT
 
 `Contribution != Reconciliation != Release/Promotion Authority.`
 
-GitHub write access, candidate authorship, validation work, or release-branch access does not by itself establish promotion authority.
+GitHub write access, candidate authorship, validation work, release-branch access, or green CI does not by itself establish promotion authority.
 
 > Preserve one legible Current, many recoverable experiments/candidates, and enough method that the next project manager can continue without reconstructing the project from chat.
