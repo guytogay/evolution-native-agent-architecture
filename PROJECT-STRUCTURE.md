@@ -30,21 +30,27 @@ PROJECT METHODOLOGY = how ENA research is conducted
 
 All are relevant to project-manager takeover, but a handoff record is not project authority.
 
-## Current live topology — 2026-08-28
+## Current live topology — 2026-08-28 pre-promotion
 
-Coordination surfaces:
+Live coordination surfaces include:
 
 ```text
 main
 research/ena-reconstruction
 release/v0.3.7
+integration/v037-prepromotion-alignment   # temporary alignment surface
 ```
 
-Frozen/review lineage refs also remain live, including candidate.0 through candidate.3 and historical validation branches. Their existence does not create parallel continuation authority.
+Candidate and historical validation refs also remain live. Their existence does not create parallel continuation authority. Their cleanup disposition is recorded in `research/BRANCH-INVENTORY.yaml`; branch names are not archives.
 
-Current remains `v0.3.6 / CURRENT / FIELD_VALIDATION` on `main`.
+Current remains:
 
-Frozen final candidate:
+```text
+v0.3.6 / CURRENT / FIELD_VALIDATION
+Current tree = 7dcbb3934883ffa6cc5292a662588cafc1533cff
+```
+
+Frozen final release source:
 
 ```text
 v0.3.7-candidate.3
@@ -52,29 +58,45 @@ source  = b7e88d7adb70396bd671ca97066daf2c120e0adc
 subtree = e3a9a20d16cecd78df7f32f19fca56e21159e810
 ```
 
-Release preparation state:
+Prospective v0.3.7 release state:
 
 ```text
-main checkpoint = 280a8b0f7629d5deb013a5257cb74759213e8080
-release branch  = release/v0.3.7
-transplant head = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-releases/current tree at transplant = e3a9a20d16cecd78df7f32f19fca56e21159e810
-identity/status projection = pending
+release branch                  = release/v0.3.7
+release PR                      = #144 / OPEN DRAFT / NOT PROMOTED
+byte-exact transplant commit    = 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
+prospective Current tree        = f33e73ed997c1b66a4572685ab5474182e136e97
+exact validated release head    = bcda18a28141f572688f9a1b15cfd820dea02f97
+118-file package SHA-256        = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+identity/status projection      = complete on release branch
+exact release gate              = PASS / run 33161514271
+promotion                       = not authorized / not started
 ```
 
 The release branch is not an adoption authority until exact-head checks, explicit authorization, merge, and post-merge readback complete.
 
 ## Control plane vs work surfaces
 
-`main` carries stable authority/routing. `research/ena-reconstruction` is the sole research continuation surface named by the canonical pointer. `release/v0.3.7` is a bounded release packaging workspace.
+`main` carries stable authority/routing. `research/ena-reconstruction` is the sole research continuation surface named by the canonical pointer. `release/v0.3.7` is a bounded release packaging workspace. The pre-promotion alignment branch exists only to reconcile main-visible state before a promotion decision.
 
 ```text
 BRANCH_EXISTS != BRANCH_ACTIVE
 OPEN_PR != ACTIVE_RESEARCH_AUTHORITY
 RELEASE_BRANCH != CURRENT
+GREEN_RELEASE_GATE != PROMOTION_AUTHORITY
 CANDIDATE_BRANCH_HEAD != FROZEN_IDENTITY
 VALIDATION_BRANCH != RELEASE_AUTHORITY
 ```
+
+## Issue and branch lifecycle distinction
+
+Issue state and branch state serve different purposes:
+
+```text
+OPEN_RESEARCH_ISSUE = durable unresolved research/work obligation
+SHORT_LIVED_BRANCH = temporary isolation mechanism
+```
+
+Research issues should remain open while they still carry decision-relevant obligations; they are not closed merely to make the repository look finished. Conversely, short-lived branch names should be removed once their lifecycle is closed and durable lineage is preserved. The currently available connector lacks a delete-ref operation, so branch deletion must remain an explicit maintenance action rather than being simulated by moving refs.
 
 ## Independent validation carrier
 
@@ -103,6 +125,8 @@ After a material branch, candidate, release, methodology, plan, or handoff trans
 INDIVIDUAL_FILE_CORRECT != PROJECT_STATE_COHERENT
 MATERIAL_TRANSITION -> ALIGN -> RESUME
 ```
+
+The present alignment exists because release packaging, oracle reconciliation, exact-head validation, and release-branch control hardening advanced beyond the prior main-visible projections while Current itself remained v0.3.6.
 
 History may remain available through Git/PR/reconciliation records without continuing to masquerade as current routing.
 

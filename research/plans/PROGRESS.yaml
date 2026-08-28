@@ -1,6 +1,6 @@
-schema_version: "2.2"
+schema_version: "2.3"
 as_of: "2026-08-28"
-status: V0_3_7_RELEASE_PACKAGING_TRANSPLANT_COMPLETE_IDENTITY_TRANSFORM_PENDING_NOT_CURRENT_NOT_RELEASED
+status: V0_3_7_RELEASE_EXACT_HEAD_VALIDATED_PREPROMOTION_ALIGNMENT_NOT_CURRENT_NOT_RELEASED
 
 progress_is_complete_history: false
 
@@ -52,14 +52,26 @@ release_v037:
   complete_adoption_baseline: true
   release_preparation_supported: true
   release_branch: release/v0.3.7
+  release_pr: 144
+  release_pr_state: OPEN_DRAFT_NOT_PROMOTED
   branch_base_main_checkpoint: 280a8b0f7629d5deb013a5257cb74759213e8080
   byte_exact_transplant_commit: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-  transplanted_current_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+  frozen_transplant_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
   transplant_matches_frozen_candidate3_subtree: true
-  identity_status_transform_applied: false
-  candidate_baseline_still_present_at_transplant: true
-  current_baseline_present_at_transplant: false
-  open_release_pr_observed: false
+  identity_status_transform_applied: true
+  candidate_baseline_present_in_final_projection: false
+  current_baseline_present_in_final_projection: true
+  exact_validated_release_head_before_alignment: bcda18a28141f572688f9a1b15cfd820dea02f97
+  prospective_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  prospective_current_file_count: 118
+  deterministic_package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+  exact_release_gate_run: 33161514271
+  current_validate_run: 33161516641
+  main_gate_run: 33161516581
+  selection_qualification_run: 33161516591
+  research_helper_run: 33161516586
+  codeql_run: 33161516568
+  exact_head_validation: PASS
   release_authorized: false
   promoted: false
 
@@ -68,12 +80,27 @@ phase_state:
   operational_architecture_assembly: ASSEMBLED_IN_FROZEN_CANDIDATE3_REOPEN_IF_NEW_MATERIAL_GAP
   release_scope_reconciliation: STABLE_REALIZED_IN_FROZEN_CANDIDATE3
   candidate_build_and_succession: COMPLETE_CANDIDATE3_FROZEN_SUCCESSION_STOP
-  independent_validation: CANDIDATE2_FRESH_A_S_A_P_COMPLETE_PHASE_B_REQUIRED_CANDIDATE3
+  independent_validation: ROLE_SCOPED_VALIDATION_COMPLETE_FOR_RELEVANT_PREDECESSOR_STAGES
   candidate3_targeted_revalidation: PASS
   candidate3_release_hardening: PASS
-  project_state_alignment: IN_PROGRESS_THIS_CHECKPOINT
-  release_packaging: TRANSPLANT_COMPLETE_IDENTITY_STATUS_TRANSFORM_PENDING
-  promotion: NOT_STARTED
+  release_packaging: COMPLETE_PROSPECTIVE_CURRENT_PAYLOAD_VALIDATED
+  release_control_plane: ORACLE_DRIFT_RECONCILED_AND_EXACT_GATE_PUSH_TRIGGER_HARDENED
+  project_state_alignment: PREPROMOTION_ALIGNMENT_IN_PROGRESS
+  promotion: NOT_AUTHORIZED_NOT_STARTED
+
+release_control_events:
+  selection_qualification_oracle_drift:
+    classification: RESEARCH_ORACLE_DRIFT_NOT_CANDIDATE_DEFECT
+    fix_pr: 145
+    merged_main: 13c8a3e359fe6702ebc15dad982c655e2a3ca7a9
+  main_to_release_control_sync:
+    pr: 146
+    release_head_after_sync: 522771b4f7fbafd747214759c1b5734cf15938e4
+    current_tree_changed: false
+  exact_release_gate_trigger_hardening:
+    head: bcda18a28141f572688f9a1b15cfd820dea02f97
+    rule: EVERY_PUSH_TO_RELEASE_V0_3_7
+    current_tree_changed: false
 
 independent_validation_infrastructure:
   cleanroom_repository: guytogay/independent-validation-cleanroom
@@ -88,36 +115,51 @@ visible_evidence_boundaries:
   - natural fresh-session salience and Host applicability remain field evidence
   - structural/paired zh-CN fixtures do not prove universal natural-language behavioral equivalence
   - cross-environment candidate-id namespace uniqueness is not universalized absent contract evidence
+  - release gate PASS does not assign promotion authority
+
+prepromotion_issue_disposition:
+  open_reconstruction_trackers:
+    - 89
+    - 90
+    - 91
+    - 92
+    - 93
+    - 94
+    - 104
+  disposition: KEEP_OPEN_WHILE_RESEARCH_OBLIGATIONS_REMAIN_ALIGN_CURRENT_RELATION_AFTER_PROMOTION
+  field_validation_issue_70: SUPERSEDE_OR_REFRAME_AFTER_V0_3_7_PROMOTION
+  issues_are_release_blockers_by_default: false
 
 alignment_trigger:
   detected: true
   reason:
-    - main checkpoint and release branch/transplant occurred after the handoff snapshot
-    - Project Hub / Project Structure / research README / branch inventory / master plan contained stale candidate0/candidate2 current-tense projections
-    - prior PROGRESS contained internally stale candidate2 phase sections beneath candidate3 top-level status
+    - release branch, byte-exact transplant, identity projection, release PR, and exact-head gates now exist while main control surfaces still described them as pending
+    - Selection Qualification oracle drift was repaired on main without changing candidate or release payload bytes
+    - release gate trigger was hardened so every release-branch push re-establishes exact-head evidence
   rule: MATERIAL_TRANSITION -> ALIGN -> RESUME
 
-immediate_next_action_after_alignment_merge: RELEASE_IDENTITY_STATUS_PACKAGING_ON_RELEASE_V0_3_7
+immediate_next_action_after_alignment_merge: >-
+  SYNC_ALIGNED_MAIN_INTO_RELEASE_V0_3_7_THEN_REVALIDATE_EXACT_HEAD_AND_PRESENT_EXPLICIT_PROMOTION_DECISION
 
-release_sequence:
-  - preserve transplant commit 8e4e25a8ba1940560fc55d7528ad31ef89a7f135 as byte-exact packaging occurrence
-  - transform only release identity/status/self-description surfaces needed for truthful v0.3.7 Current packaging
-  - replace CANDIDATE-BASELINE.yaml with CURRENT-BASELINE.yaml
-  - preserve candidate3 validated material semantics and repairs
-  - run exact-head release validation, Main Gate, CodeQL/regressions, identity and package parity/readback
-  - create/review release PR only after the exact release head is ready
-  - explicitly authorize merge only on that exact reviewed head
-  - post-merge reverify Current tree/identity and update history/control/handoff surfaces
+release_sequence_remaining:
+  - merge this pre-promotion alignment checkpoint to main after its own gates pass
+  - merge/sync the aligned main control plane into release/v0.3.7 without changing releases/current payload semantics
+  - allow Exact Release Gate plus ordinary PR checks to rerun on the resulting exact release head
+  - verify prospective Current tree and deterministic package digest remain stable
+  - present the exact reviewed head and open evidence boundaries for explicit promotion authorization
+  - only after explicit authorization merge release PR #144
+  - post-merge reverify Current identity/tree, update project metadata/history/field-validation routing, and run Project State Alignment Gate again
 
 forbidden_now:
   - mutate frozen candidate3 bytes in place
   - claim v0.3.7 is Current before promotion/readback
   - create candidate4 without new material candidate-byte evidence
-  - treat release branch or transplant commit as release authority
+  - treat release branch, release PR, or passing gates as release authority
   - collapse visible field/evidence residuals into release-completeness claims
+  - close active research issues or delete lineage refs solely for cosmetic cleanliness
   - reuse the clean-room repository as accumulated ENA project history
 
 history_note: >-
   Predecessor candidate/validation details remain durable in collaboration/reconciliation,
-  handoff records, issues, immutable commits/trees, and Git history. This fast Progress
-  projection intentionally does not duplicate that complete history.
+  handoff records, issues, immutable commits/trees, PRs, evidence, and Git history. This
+  fast Progress projection intentionally records only the decision-relevant present state.
