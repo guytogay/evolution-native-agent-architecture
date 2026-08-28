@@ -56,10 +56,11 @@ fresh_independent_validation_boundary:
   invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
   active_carrier: PHYSICALLY_ISOLATED_A_S_CAPSULE_R3
   carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
-  carrier_build_run: 33131665994
-  carrier_artifact_id: 9670480727
-  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
-  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  carrier_build_run: 33131773164
+  a_s_actions_artifact_id: 9670518379
+  a_p_actions_artifact_id: 9670518708
+  a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
+  a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
   a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
   fresh_a_s_report_sha256: NOT_YET_CREATED
   final_a_p_report_sha256: NOT_YET_CREATED
@@ -101,9 +102,9 @@ completion_evidence:
   candidate2_validation_branch: validation/v037-c2-blind-semantic-primary
   candidate2_validation_view_head: d020d82d442156b75c667ee9f987f2654d814561
   candidate2_invalidated_repository_intake_issue: 137
-  candidate2_capsule_build_run: 33131665994
-  candidate2_a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
-  candidate2_a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  candidate2_capsule_build_run: 33131773164
+  candidate2_a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
+  candidate2_a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
   immediate_next_action: DELIVER_CANDIDATE2_ISOLATED_A_S_CAPSULE_ONLY
   current_handoff_record_refresh: COMPLETE
 
@@ -145,10 +146,11 @@ candidate2_successor_state:
   invalidated_repository_intake_issue: 137
   invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
   capsule_carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
-  capsule_build_run: 33131665994
-  capsule_artifact_id: 9670480727
-  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
-  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  capsule_build_run: 33131773164
+  a_s_actions_artifact_id: 9670518379
+  a_p_actions_artifact_id: 9670518708
+  a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
+  a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
   a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
   fresh_a_s_report_sha256: NOT_YET_CREATED
   final_a_p_report_sha256: NOT_YET_CREATED

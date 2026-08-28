@@ -20,9 +20,9 @@ Fresh-review carrier evidence:
 
 - builder `.github/scripts/build_v037_candidate2_independent_review_capsules_r3.py`
 - runner `.github/scripts/run_v037_candidate2_review_capsules_r3.py`
-- workflow run `33131665994`
-- artifact id `9670480727`
-- A-S SHA-256 `ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131`
-- A-P SHA-256 `b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd`
+- workflow run `33131773164`
+- A-S artifact id `9670518379` and A-P artifact id `9670518708`
+- A-S SHA-256 `dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`
+- A-P SHA-256 `427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649`
 
 Fresh reviewer must not be sent this project-manager catalog before A-S. It receives only the A-S archive, expected hash, and minimal instruction to read `INTAKE-A-S.md` inside the archive.

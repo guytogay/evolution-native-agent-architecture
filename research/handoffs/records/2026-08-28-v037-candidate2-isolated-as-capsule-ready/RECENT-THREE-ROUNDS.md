@@ -12,6 +12,6 @@ A fresh reviewer correctly stopped before A-S seal after normal GitHub README re
 
 Repository/branch navigation was retired as the A-S carrier. Deterministic A-S and A-P archives were built from the exact frozen target. A-S physically excludes project/history/oracle surfaces and uses mechanically audited semantic projections where exact mixed-role files leak author search maps. A-P contains the exact frozen candidate package.
 
-Run `33131665994` passed isolation, priming, AST equivalence, A-P exactness and deterministic hash checks.
+Run `33131773164` passed isolation, priming, AST equivalence, A-P exactness and deterministic hash checks.
 
 Next: deliver A-S capsule only; content-seal the report; then separately deliver A-P.

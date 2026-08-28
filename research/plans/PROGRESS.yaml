@@ -120,10 +120,11 @@ successor_candidate2:
   capsule_carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
   capsule_incident: research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md
   capsule_reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md
-  capsule_build_run: 33131665994
-  capsule_artifact_id: 9670480727
-  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
-  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  capsule_build_run: 33131773164
+  a_s_actions_artifact_id: 9670518379
+  a_p_actions_artifact_id: 9670518708
+  a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
+  a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
   a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
   fresh_a_s_report_sha256: NOT_YET_CREATED
   final_a_p_report_sha256: NOT_YET_CREATED
@@ -185,9 +186,9 @@ phase_state:
     candidate2_frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
     candidate2_repository_intake_issue: 137
     candidate2_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
-    candidate2_capsule_build_run: 33131665994
-    candidate2_a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
-    candidate2_a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+    candidate2_capsule_build_run: 33131773164
+    candidate2_a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
+    candidate2_a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
     candidate2_a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
     candidate2_fresh_review_completed: false
     current_project_manager_is_fresh_candidate2_reviewer: false
@@ -258,18 +259,19 @@ completed_transition:
     were materially distinct lost shapes and were restored tree-external.
 
 current_method_transition:
-  id: CANDIDATE_SELF_PRIMING_TO_BLIND_SEMANTIC_VIEW
-  target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE1
-  result: BLIND_SEMANTIC_VIEW_COMPLETED_A_S_A_P_SEALED_PHASE_B_NEEDS_REVISION
-  method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
-  incident: research/methodology/incidents/2026-08-27-CANDIDATE-SELF-PRIMING-INCIDENT.md
-  reconciliation: collaboration/reconciliation/2026-08-27-v037-candidate1-blind-view-repair.md
-  invalid_issue: 128
-  completed_issue: 131
-  sealed_branch: validation/v037-c1-blind-semantic-primary
+  id: CANDIDATE2_SAME_REPO_BLIND_VIEW_TO_PHYSICALLY_ISOLATED_CARRIER_R3
+  target: VALIDATION_INTERFACE_FOR_FROZEN_CANDIDATE2
+  result: ISSUE137_ABORTED_INTERFACE_DEFECT_ISOLATED_A_S_CAPSULE_READY_A_P_WITHHELD
+  information_boundary_method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
+  carrier_method: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
+  incident: research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md
+  reconciliation: collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md
+  invalidated_issue: 137
+  authoritative_carrier_audit_run: 33131773164
   candidate_bytes_changed: false
-  candidate2_required_by_method_change: false
-  candidate2_required_by_phase_b_defects: true
+  current_bytes_changed: false
+  manifest_self_hash_policy: EXCLUDED_BY_DEFINITION
+  attack_cardinality: OPEN
 
 immediate_next_action:
   id: DELIVER_CANDIDATE2_ISOLATED_A_S_CAPSULE_ONLY
@@ -280,9 +282,12 @@ immediate_next_action:
     until that content seal is verified/persisted.
   frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
   frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
-  capsule_build_run: 33131665994
-  a_s_capsule_sha256: ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131
-  a_p_supplement_sha256: b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd
+  capsule_build_run: 33131773164
+  a_s_manifest_payload_count: 78
+  a_p_manifest_payload_count: 119
+  manifest_self_hash_policy: EXCLUDED_BY_DEFINITION
+  a_s_capsule_sha256: dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da
+  a_p_supplement_sha256: 427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649
   a_p_delivery_state: WITHHELD
   current_must_remain: v0.3.6
   do_not_promote: true

@@ -62,7 +62,7 @@ continuation_protocol:
   - "Open PR identity is integration/review context, not continuation authority."
 
 latest_transition:
-  event: "V0_3_7_CANDIDATE2_EXACT_PREFREEZE_PASS_EXTERNALLY_FROZEN_FRESH_BLIND_REVIEW_WARRANTED"
+  event: "V0_3_7_CANDIDATE2_ISOLATED_REVIEW_CARRIER_R3_FINALIZED"
   current_changed_by_transition: false
   next_version: "v0.3.7"
   active_candidate_identity: "v0.3.7-candidate.2"
@@ -82,12 +82,16 @@ latest_transition:
   carrier_method: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"
   carrier_incident: "research/methodology/incidents/2026-08-28-CANDIDATE2-GITHUB-NATURAL-NAVIGATION-PRIMING-INCIDENT.md"
   carrier_reconciliation: "collaboration/reconciliation/2026-08-28-v037-candidate2-isolated-capsule-intake-reconciliation.md"
-  capsule_build_run: 33131665994
-  capsule_artifact_id: 9670480727
-  a_s_capsule_sha256: "ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131"
-  a_p_supplement_sha256: "b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd"
+  capsule_build_run: 33131773164
+  a_s_actions_artifact_id: 9670518379
+  a_p_actions_artifact_id: 9670518708
+  a_s_capsule_sha256: "dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da"
+  a_p_supplement_sha256: "427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649"
   a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
-  fresh_a_s_intake_ready: true
+  isolated_a_s_capsule_ready: true
+  a_s_manifest_payload_count: 78
+  a_p_manifest_payload_count: 119
+  manifest_self_hash_policy: EXCLUDED_BY_DEFINITION
   fresh_candidate2_review_completed: false
   fresh_candidate2_review_by_current_project_manager_allowed: false
   attack_cardinality: OPEN
@@ -108,6 +112,8 @@ candidate_validation_transition:
     - candidate.2 blind semantic view prepared from exact frozen source; source-to-view audit observed 31 declared removals + 2 intake additions and 0 retained-byte modifications
     - candidate.2 information-role audit additionally withheld 08-RELEASE-DISCIPLINE.md after detecting predecessor-finding/repair-narrative self-priming
     - fresh independent intake Issue 137 created for validation/v037-c2-blind-semantic-primary
+    - Issue 137 fresh reviewer correctly aborted before A-S seal after GitHub natural-navigation boundary crossing
+    - final isolated carrier audit run 33131773164 PASS after semantic-vocabulary detector and manifest-inventory corrections
   next_required_steps:
     - "deliver only the isolated A-S capsule and expected SHA-256 to a genuinely fresh reviewer"
     - "reviewer completes A-S, hashes the exact completed report, reports the digest, and stops"
@@ -176,10 +182,11 @@ successor_candidate2:
   invalidated_repository_intake_branch: "validation/v037-c2-blind-semantic-primary"
   invalidated_repository_intake_result: A_S_ABORTED_BOUNDARY_CROSSING_NOT_SEALED
   capsule_carrier_method: "research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md"
-  capsule_build_run: 33131665994
-  capsule_artifact_id: 9670480727
-  a_s_capsule_sha256: "ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131"
-  a_p_supplement_sha256: "b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd"
+  capsule_build_run: 33131773164
+  a_s_actions_artifact_id: 9670518379
+  a_p_actions_artifact_id: 9670518708
+  a_s_capsule_sha256: "dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da"
+  a_p_supplement_sha256: "427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649"
   a_p_delivery_state: WITHHELD_UNTIL_A_S_CONTENT_SEAL
   fresh_a_s_report_sha256: NOT_YET_CREATED
   final_a_p_report_sha256: NOT_YET_CREATED

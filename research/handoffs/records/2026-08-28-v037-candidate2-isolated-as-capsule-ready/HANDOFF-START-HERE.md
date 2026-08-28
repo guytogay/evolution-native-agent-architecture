@@ -30,19 +30,19 @@ Canonical carrier method:
 `research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md`
 
 Build/audit run:
-`33131665994` — SUCCESS
+`33131773164` — SUCCESS
 
 A-S capsule SHA-256:
-`ee80ac827dedff7a8de9d10f0a9cbcd70c66f3b7b885296f9e2335af6ec92131`
+`dfe15a686668440138bfd624453059d61a0b28625bb9a5e0c185b33eccf9c2da`
 
 A-P supplement SHA-256:
-`b3e2222c591a2760b976e6791f18e2494c17063ddfe539291f1cd8799fd54bcd`
+`427a1776aea199f5f27c4bea2827d3c827cf82fab2c8cd403da0e8cc1dd97649`
 
 GitHub Actions artifact id:
 `9670480727`
 
 Outer artifact digest:
-`104005b329cc042721da76a38f8a41c282c278bca3d2c424ecd7288ceeb1c357`
+`A-S:146c15bed53826fe8cce4738540c471127bda7c15cf5616cd20387f7e3567def / A-P:d5b2b1d67f300c087d3d3869e4a93148a89d75cb5d3860025bb340bcdc6c65f2`
 
 ## Exact next action
 
