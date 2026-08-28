@@ -1,0 +1,32 @@
+schema_version: "1.0"
+record_id: "2026-08-28-v037-candidate2-phaseb-needs-revision-candidate3-next"
+status: HANDOFF_READY
+created_at: "2026-08-28"
+
+current:
+  version: v0.3.6
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  subtree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+
+candidate2:
+  identity: v0.3.7-candidate.2
+  frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
+  frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
+  state: FROZEN_A_S_SEALED_A_P_SEALED_PHASE_B_NEEDS_REVISION
+  current: false
+  released: false
+  a_s_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
+  a_p_sha256: 80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db
+  phase_b_record: collaboration/reconciliation/2026-08-28-v037-candidate2-a-s-a-p-phase-b-reconciliation.md
+  phase_b_verdict: NEEDS_REVISION
+
+successor:
+  required_identity: v0.3.7-candidate.3
+  create_from_frozen_candidate2: true
+  candidate2_mutation_forbidden: true
+  current_mutation_forbidden: true
+  immediate_next_action: CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2
+  full_fresh_a_s_a_p_automatically_required: false
+
+attack_cardinality: OPEN

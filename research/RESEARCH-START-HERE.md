@@ -80,7 +80,16 @@ The current project-manager session is **not eligible** to perform fresh candida
 
 ## Immediate next action
 
-`RETURN_SAME_FRESH_REVIEWER_TO_CANDIDATE2_A_P_CLEAN_ROOM`
+`CREATE_AND_REPAIR_V0_3_7_CANDIDATE3_FROM_FROZEN_CANDIDATE2`
+
+Candidate.2 Phase B is complete:
+
+- A-S SHA-256 `0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f`;
+- A-P SHA-256 `80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db`;
+- Phase-B record `collaboration/reconciliation/2026-08-28-v037-candidate2-a-s-a-p-phase-b-reconciliation.md`;
+- verdict `NEEDS_REVISION / CANDIDATE_3_REQUIRED`.
+
+Candidate.2 remains frozen and must not be edited. Candidate.3 must be born directly from the frozen candidate.2 source/tree and remain bounded to the sealed Phase-B repair scope. Another full fresh A-S/A-P cycle is not automatic.
 
 A-P clean-room stage is ready:
 

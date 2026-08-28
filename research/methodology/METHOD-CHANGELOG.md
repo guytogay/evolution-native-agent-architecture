@@ -371,3 +371,10 @@ Practical effect:
 Add a new entry when a research-process failure, field observation, handoff incident, or stronger method changes how future ENA research should actually be conducted.
 
 Do not add entries solely for editorial rephrasing.
+
+## 2026-08-28 — Independent report seal recursion correction
+
+- Fresh candidate.2 A-S exposed a validation-interface defect: the intake required an exact-file SHA-256 to be embedded inside the same exact report bytes.
+- Canonical carrier method now requires external digest/sidecar/seal-record by default unless an explicit deterministic normalization excludes the seal field.
+- A-S occurrence remains sealed; this is method/interface correction, not a candidate-byte defect.
+- Incident: `research/methodology/incidents/2026-08-28-INDEPENDENT-REPORT-SELF-HASH-RECURSION-INCIDENT.md`.
