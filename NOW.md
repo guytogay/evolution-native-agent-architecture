@@ -57,6 +57,10 @@ The open question is whether long-lived Agents need memory not only for facts/ep
 
 Research note: `research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md`
 
+A recovered private-project lineage now connects this research back to `guytogay/ai-dreaming` (April 2026), which already explored offline memory consolidation, dream-process-over-output value, associative multi-entry recall, repeated reactivation, and isolation of recombined dream narrative from factual memory. The current ENA branch extends that older line into memory ecology, learned salience, intuition, offline consolidation, recombination/variation, forgetting, memory-write authority, hostile assimilation, cultural memory and semantic heritability.
+
+Lineage / divergent note: `research/evolution-inbox/MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md`
+
 ## Project-operation simplification
 
 ENA project maintenance is being reduced under Issue #153.
