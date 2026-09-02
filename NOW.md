@@ -25,6 +25,8 @@ Convergence plan: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CONVERGENCE-AND-
 
 Semantic-reachability note: `research/evolution-inbox/SEMANTIC-REACHABILITY-AND-ATTRACTOR-GAPS-010.md`
 
+First cleanroom baseline: `research/field-validation/2026-09-03-semantic-reachability-cleanroom-baseline.md`
+
 ### Candidate trunks under convergence
 
 1. **Preserved adaptation** — `HAVING HISTORY != HAVING BEEN SHAPED BY HISTORY`.
@@ -46,16 +48,33 @@ For latent/ambiguous cases, test the cheapest repair first:
 
 A Constitution change is downstream of failure of cheaper semantic-reachability repairs, not the default response to new language.
 
-### First adversarial targets
+### First cleanroom result
 
-Start with mechanisms that predict different behavior rather than metaphors:
+Four isolated GPT-5.6 Sol / high-reasoning baseline runs tested SR-1, SR-3, SR-4, and SR-5 against an identical frozen v0.3.7 framework tree.
 
-1. **Semantic reachability fixtures**
-   - proportional-governance attractor;
-   - imported-adaptation control;
-   - metamemory self-write;
-   - handoff/cloning;
-   - archive-vs-shaped-memory ontology.
+All four produced `BASELINE_GOOD` decisions. No anticipated wrong attractor appeared.
+
+Implications:
+
+- SR-1 proportional/boundary governance is reachable as-is on the tested Host;
+- SR-3 does not demonstrate a metamemory semantic gap, though broader metamemory remains unresolved;
+- SR-4 handoff-vs-cloning semantics are reachable as-is, while developmental inheritance remains a separate mechanism hypothesis;
+- SR-5 archive-vs-compiled-competence is already explicit enough through Memory Metabolism + runtime salience to reach the intended diagnosis.
+
+Therefore:
+
+`BASELINE DID NOT FAIL -> DO NOT RUN REPAIR ARMS ON THESE EXACT FIXTURES`
+
+The first fixtures were also too lexically close to Current's routing surface to strongly test cross-family reachability.
+
+### Adversarial targets now
+
+1. **Harder semantic-reachability attacks**
+   - lexically strip ENA trigger vocabulary;
+   - avoid answer-shaped questions;
+   - require cross-family synthesis;
+   - include a plausible competing attractor;
+   - score actual operational choice rather than theoretical explanation.
 2. **Boundary memory vs recipe memory**
    - Does preserving a consequence boundary + counterexamples transfer better to novel Hosts than copying one successful remedy?
 3. **Developmental inheritance vs archive/rule inheritance**
@@ -136,21 +155,19 @@ Keep executable logic tests where they can find real defects.
 
 ## Next consequential action
 
-Build the convergence matrix with semantic reachability included:
+Design a second-generation semantic-reachability attack set that is structurally equivalent but lexically distant from Current's cue map.
+
+Each case should:
 
 ```text
-candidate trunk
-→ existing Current anchors
-→ coverage class
-→ required family intersection
-→ likely wrong attractor
-→ decision consequence
-→ cheapest reachability repair
-→ differing prediction
-→ cheapest falsifier
-→ true semantic gap?
+ordinary operational problem
++ hidden cross-family dependency
++ plausible wrong shortcut
+-> observable action choice
 ```
 
-Then run fresh-Agent semantic-reachability fixtures before the first mechanism experiments for **boundary memory vs recipe memory** and **developmental inheritance vs archive/rule inheritance**.
+Do not ask the Agent to name the underlying theory or choose between labels supplied by the experiment.
+
+If harder baseline cases still pass, reduce the priority of Current reachability changes and proceed to mechanism experiments for **boundary memory vs recipe memory** and **developmental inheritance vs archive/rule inheritance**.
 
 Do **not** update Current merely because a new formulation is insightful. Update Current only if evidence supports either (a) a real retrieval/reachability defect in the adopter-facing Current surface or (b) a decision-relevant natural law v0.3.7 cannot express.
