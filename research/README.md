@@ -1,83 +1,65 @@
 # ENA Research
 
-Status: `MAIN_VISIBLE_RESEARCH_ENTRYPOINT / PROJECT_CONTROL_PLANE / V0_3_7_CURRENT_FIELD_VALIDATION`
+This directory contains ENA research, hypotheses, prototypes, experiments, and deeper evidence.
 
-This directory is the stable research/project-management entrypoint. Do not infer active work from branch recency, old PRs, candidate numbering, or chat history.
+It is not a mandatory preload for every project session.
 
 ## Start here
 
-1. verify Current at `../releases/current/CURRENT-BASELINE.yaml` on `main`;
-2. read `handoffs/CURRENT-HANDOFF.yaml` plus the canonical handoff framework;
-3. read the current handoff record named by that pointer as occurrence history;
-4. read required methodology under `methodology/`;
-5. read `ACTIVE-RESEARCH.yaml`;
-6. run the Project State Alignment Gate if live/current surfaces disagree;
-7. read `plans/PROGRESS.yaml` and the master plan;
-8. retrieve deeper candidate/reconciliation/release evidence only when the current action requires it.
+For current project/research work:
 
-## Current phase — 2026-08-28
+1. read `../NOW.md`;
+2. open the Issue/file directly relevant to the current question;
+3. verify `../releases/current/CURRENT-BASELINE.yaml` only when the decision depends on Current identity;
+4. retrieve deeper methodology, history, handoff, release, or reconciliation material only when it can change the decision.
 
-```text
-Current                         = v0.3.7 / CURRENT / FIELD_VALIDATION
-Current tree                    = f33e73ed997c1b66a4572685ab5474182e136e97
-package files                   = 118
-package SHA-256                 = 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
-release PR                      = #144 / MERGED
-release merge commit            = 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-active field-validation issue   = #150
-```
+A fresh independent validator is a different epistemic role and may still require deliberately restricted/isolated context.
 
-Frozen release-source lineage remains `v0.3.7-candidate.3` at source/tree `b7e88d7adb70396bd671ca97066daf2c120e0adc` / `e3a9a20d16cecd78df7f32f19fca56e21159e810`. Candidate succession is stopped; candidate.4 is not justified by current evidence. Attack cardinality remains open.
+## Current research posture
 
-## Current research route
+ENA is in reality-contact / field-validation work rather than automatic candidate succession.
 
-The release/promotion project has transitioned into field validation plus reopenable reconstruction:
+High-value research should expose at least one of:
 
-- `#150`: v0.3.7 Operational Architecture field evidence on heterogeneous Hosts/models/languages;
-- `#89`–`#94`: long-lived reconstruction workstreams;
-- `#104`: archaeology / variation-recovery obligation.
+- a natural-law distinction that changes mutation/selection reasoning;
+- a concrete failure or counterexample;
+- a Host/environment dependency;
+- a practical HOW whose value/cost can be observed;
+- evidence that narrows, revises, or retires an existing claim/control.
 
-These issues are not release defects merely because they remain open. Select the next bounded step only when it can change a decision, expose a mechanism/failure/Host dependency, or materially improve the architecture.
+Current purpose/propagation selection research:
 
-## Release-metadata erratum
+`evolution-inbox/PURPOSE-RELATIVE-SELECTION-AND-PROPAGATION-FITNESS.md`
 
-The immutable v0.3.7 Current baseline contains one stale pre-promotion residual sentence that says v0.3.6 remains Current until explicit promotion. Promotion has occurred. Do not rewrite released v0.3.7 bytes in place; preserve package identity, document the erratum externally, and correct it under a future governed release identity.
-
-## Branch hygiene
-
-`research/ena-reconstruction` remains the sole research continuation branch named by `ACTIVE-RESEARCH.yaml`. Completed release/candidate/validation/tmp/integration/control-fix refs are lifecycle-complete cleanup candidates after durable lineage. The current connector lacks a true delete-ref action; branch cleanup is classified durably rather than simulated by ref movement.
-
-## Method boundaries
+## Method boundary
 
 ```text
-WHAT / WHY -> may compress
-HOW -> concretize / branch / recombine
-FAILURE SPACE -> remain open while materially distinct shapes remain plausible
-PROVEN REPRESENTATION DUPLICATION -> may compress
+WHAT / WHY -> may remain abstract when it captures a useful natural law
+HOW -> should become concrete when someone needs to act
+FAILURE / COUNTEREXAMPLE -> preserve when it changes the selection boundary
+EVIDENCE -> bind to the claim/context it actually supports
 ```
 
 ```text
-COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
-PROPERTY != ORGAN != HOST_BINDING != EVIDENCE != ADOPTION
-EXPERIMENTS_MUST_PAY_EPISTEMIC_RENT
+CHANGE != EVOLUTION
+LOCAL FITNESS != HERITABILITY != PROPAGATION FITNESS
+PORTABLE PROPERTY != PORTABLE IMPLEMENTATION
+NEW_EXPRESSION_FOUND != NEW_CONSTITUTION_ID_REQUIRED
 ```
 
-Fresh independent validation remains a different epistemic role from project-manager succession. A fresh A-S reviewer receives a physically isolated, priming-reduced review surface rather than this project-manager context.
+Do not create experiments merely to obtain diverse-looking outputs. Prefer reality contact that could surprise the current model or change a decision.
 
-## Reusable clean-room infrastructure
+## Cold project-management history
 
-`guytogay/independent-validation-cleanroom` is reusable validation infrastructure across ENA stages and different projects. Its contents are stage-scoped ephemeral review state; durable occurrence truth returns to each source project.
+`handoffs/`, `plans/`, branch-governance/inventory records, detailed reconstruction state, and prior reconciliation/release records remain available for archaeology and exceptional high-consequence work. They are no longer mandatory continuation steps.
 
-## Research architecture
+## Useful areas
 
-- canonical methodology: `methodology/`;
-- active integration branch: discovered from `ACTIVE-RESEARCH.yaml`;
-- Operational Architecture research: `operational-architecture/`;
-- release scope: `release-scope/`;
-- external HOW registry: `external-how/`;
-- experiments/prototypes: `experiments/`, `prototypes/`;
-- plans/progress: `plans/`;
-- handoff framework: `handoffs/`;
-- reconciliation/freeze/validation: `../collaboration/reconciliation/`.
+- `evolution-inbox/` — candidate evolutionary insights/hypotheses;
+- `operational-architecture/` — operational mapping and procedures;
+- `external-how/` — external mechanisms when a live gap justifies HOW search;
+- `experiments/`, `prototypes/` — concrete tests and mechanisms;
+- `methodology/` — research methods worth retrieving when relevant;
+- `handoffs/`, `plans/` — cold project-history/continuity material.
 
-> One active research integration surface, one singular Current, and open-cardinality concrete HOW/failure space.
+> Research should increase contact with reality, not merely increase research artifacts.
