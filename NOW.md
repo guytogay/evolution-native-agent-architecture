@@ -82,8 +82,11 @@ Keep executable logic tests. Run them where they are relevant.
 ## Current open work
 
 - #150 — v0.3.7 field validation / reality contact.
-- #153 — simplify ENA project operations and separate project machinery from ENA semantics.
-- #152 — stale contributor entrypoint; should be closed by the simplified contribution route when merged.
+- #153 — continue simplifying ENA project operations based on actual use.
+
+Resolved in the latest simplification slice:
+
+- #152 — stale contributor entrypoint, closed by PR #154.
 
 ## Next consequential action
 
