@@ -11,55 +11,67 @@ Keep it short. Git history stores history; Issues store open work; CI stores mac
 - Effective adopter-facing package: `releases/current/`
 - Released v0.3.7 bytes remain unchanged in place.
 
-## What ENA is exploring now
+## Active research phase
 
-### Purpose-relative selection
+ENA's recent evolutionary-memory work has moved from default divergence into **convergence + adversarial validation**.
+
+Default sequence now:
+
+> `SYNTHESIZE → ATTACK → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
+
+Reason: the research has enough candidate branches that the dominant risk is no longer missing ideas; it is duplicate terminology, self-confirming theory, and premature Constitution growth.
+
+Convergence plan: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CONVERGENCE-AND-VALIDATION-009.md`
+
+### Candidate trunks under convergence
+
+1. **Preserved adaptation** — `HAVING HISTORY != HAVING BEEN SHAPED BY HISTORY`.
+2. **Regulated memory expression** — retrieval is not the only way durable experience can affect behavior.
+3. **Metamemory / selective permeability** — experience may change how future learning happens; `PLASTICITY != SUGGESTIBILITY`.
+4. **Developmental inheritance** — successor adaptation may be reconstructed from scoped dispositions + boundary exemplars rather than full-history replay.
+5. **Boundary memory / viable action topology** — failure may prove what must not recur more strongly than one unique remedy; `SAFE != VIABLE`.
+6. **Adaptation ecology** — individually useful memories can interact badly; propagation and inheritance do not imply benefit.
+
+### First adversarial targets
+
+Start with mechanisms that predict different behavior rather than metaphors:
+
+1. **Boundary memory vs recipe memory**
+   - Does preserving a consequence boundary + counterexamples transfer better to novel Hosts than copying one successful remedy?
+2. **Developmental inheritance vs archive/rule inheritance**
+   - Can a fresh Agent inherit useful behavioral shaping from a compact developmental package better than from history retrieval or bare rules?
+
+Fresh-instance tests should remove ENA terminology and original long-context carryover.
+
+Do not treat the Zhipu dialogue as independent validation; it remains a valuable occurrence that motivated testable hypotheses.
+
+## Purpose-relative selection and propagation
 
 A change is not evolution merely because it increases a metric, capability, complexity, or automation.
 
-Current research question:
-
-> Relative to the purpose and selection context that made the change valuable, did the mutation improve fitness, degrade it, or move along mixed/unknown dimensions?
-
-Important boundary:
+Important distinctions remain:
 
 `PURPOSE PRESERVATION != PURPOSE IMMUTABILITY`
-
-Silent purpose drift is different from an explicit, evidence-responsive change of purpose.
-
-### Propagation fitness
-
-A locally successful adaptation does not automatically transfer across Agents, Hosts, models, tools, environments, or descendants.
-
-Current research distinctions:
 
 `LOCAL FITNESS != HERITABILITY != PROPAGATION FITNESS`
 
 `PORTABLE PROPERTY != PORTABLE IMPLEMENTATION`
 
-Portability is a distinct selection dimension, not a universal ranking. A Host-specific specialization may be excellent local evolution when propagation is not part of the objective.
-
 Research note: `research/evolution-inbox/PURPOSE-RELATIVE-SELECTION-AND-PROPAGATION-FITNESS.md`
 
-### Evolutionary memory / preserved adaptation
+## Evolutionary memory lineage
 
-The current memory discussion reopens ENA's existing Memory Metabolism thesis that memory is persistent change caused by experience.
+The current branch reopens ENA's older Memory Metabolism thesis that memory is persistent change caused by experience, and connects it to the earlier private `guytogay/ai-dreaming` work on offline consolidation and dream-process-over-output value.
 
-New research emphasis:
+Key research notes include:
 
-`PRESERVED INFORMATION != PRESERVED ADAPTATION`
-
-`RETRIEVED MEMORY != EXPRESSED DISPOSITION`
-
-`PROPAGATION FITNESS != BENEFICIAL FITNESS`
-
-The open question is whether long-lived Agents need memory not only for facts/episodes, but also for learned salience, inhibition, procedures, associations and dispositions that alter future behavior without explicit source recall — and how such adaptations can be revised, retired or propagated without internalizing high-salience garbage or hostile influence.
-
-Research note: `research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md`
-
-A recovered private-project lineage now connects this research back to `guytogay/ai-dreaming` (April 2026), which already explored offline memory consolidation, dream-process-over-output value, associative multi-entry recall, repeated reactivation, and isolation of recombined dream narrative from factual memory. The current ENA branch extends that older line into memory ecology, learned salience, intuition, offline consolidation, recombination/variation, forgetting, memory-write authority, hostile assimilation, cultural memory and semantic heritability.
-
-Lineage / divergent note: `research/evolution-inbox/MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md`
+- `research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md`
+- `research/evolution-inbox/MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md`
+- `research/evolution-inbox/METAMEMORY-SOVEREIGNTY-SELECTIVE-PERMEABILITY-004.md`
+- `research/evolution-inbox/ADAPTIVE-INHERITANCE-WITHOUT-FULL-HISTORY-005.md`
+- `research/evolution-inbox/AGENT-DEVELOPMENTAL-SUCCESSION-006.md`
+- `research/evolution-inbox/AGENT-DEVELOPMENTAL-DYNAMICS-007.md`
+- `research/evolution-inbox/NEGATIVE-BOUNDARIES-VIABLE-ACTION-SPACE-008.md`
 
 ## Project-operation simplification
 
@@ -89,11 +101,9 @@ Old handoff, progress, metadata, branch-inventory, reconciliation, and release r
 - ordinary project-status updates;
 - a change that can be reviewed truthfully by normal Git diff + relevant tests.
 
-For ordinary research/documentation work, one short-lived branch + PR is sufficient when review/isolation has value. Do not require candidate freeze, handoff regeneration, reconciliation artifacts, package readback, or release promotion unless the change actually crosses those boundaries.
-
 ## Validation posture
 
-Keep executable logic tests. Run them where they are relevant.
+Keep executable logic tests where they can find real defects.
 
 - `releases/current/**` changes: run Current semantic/regression/package validation.
 - Python/executable changes: run the relevant selftests and security/static checks.
@@ -104,10 +114,18 @@ Keep executable logic tests. Run them where they are relevant.
 - #150 — v0.3.7 field validation / reality contact.
 - #153 — continue simplifying ENA project operations based on actual use.
 
-Resolved in the latest simplification slice:
-
-- #152 — stale contributor entrypoint, closed by PR #154.
-
 ## Next consequential action
 
-Continue divergent research on evolutionary memory and propagation, but first map each candidate distinction against existing Memory Metabolism and Current semantics. Seek concrete cases that separate archival retrieval from learned salience/disposition and useful propagation from high-salience harmful assimilation. Add or change a Constitution invariant only if existing semantics cannot express a decision-relevant natural law.
+Create the convergence matrix:
+
+```text
+candidate trunk
+→ existing Current anchors
+→ suspected semantic gap
+→ prediction that differs from simpler alternatives
+→ cheapest falsifier
+```
+
+Then build the first adversarial fixtures for **boundary memory vs recipe memory** and **developmental inheritance vs archive/rule inheritance**.
+
+Do **not** update Current unless those tests expose a decision-relevant natural law that v0.3.7 cannot already express.
