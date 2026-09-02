@@ -1,91 +1,38 @@
-# ENA Session Handoffs
+# ENA Session Handoffs — Historical / On-Demand
 
-Status: `CANONICAL_SUCCESSION_SURFACE / MAIN_VISIBLE / FRAMEWORK_PLUS_RECORDS`
+Status: `COLD_CONTINUITY_HISTORY / OPTIONAL_ON_DEMAND`
 
-This directory is the stable home for **project-manager/session succession**.
+This directory preserves the richer handoff system used during earlier ENA reconstruction and release work.
 
-It deliberately separates reusable succession method from time-bounded handoff records.
+It is no longer mandatory takeover context.
 
-```text
-HANDOFF FRAMEWORK
-!=
-HANDOFF RECORD
-!=
-PROJECT METHODOLOGY
-```
+## Default now
 
-## Directory layout
+A new ENA session should normally read:
 
-```text
-research/handoffs/
-├─ README.md
-├─ CURRENT-HANDOFF.yaml
-├─ HANDOFF-PROTOCOL.md
-├─ REQUIRED-TAKEOVER-CONTEXT.yaml
-├─ PROJECT-MANAGEMENT-DISCIPLINE.md
-└─ records/
-   ├─ README.md
-   └─ <handoff-id>/
-      ├─ HANDOFF-START-HERE.md
-      ├─ HANDOFF-MANIFEST.yaml
-      ├─ PROJECT-STATE.md
-      ├─ RECENT-THREE-ROUNDS.md
-      ├─ FILE-CATALOG.md
-      └─ HANDOFF-READBACK.md
-```
+1. root `NOW.md`;
+2. the Issue/file directly relevant to the current task;
+3. Current identity only if the decision depends on it.
 
-## Layer 1 — reusable handoff framework
+Then work.
 
-These files govern **every** future succession:
+## When this directory is still useful
 
-- `HANDOFF-PROTOCOL.md` — how the outgoing session hands over and how the incoming session takes over; both directions have equal continuity importance;
-- `REQUIRED-TAKEOVER-CONTEXT.yaml` — machine-readable mandatory context, including project methodology;
-- `PROJECT-MANAGEMENT-DISCIPLINE.md` — reusable project-management rules and promoted lessons;
-- `CURRENT-HANDOFF.yaml` — stable current-record pointer plus takeover contract.
+Use the old handoff framework/records when a concrete question requires deeper succession history, for example:
 
-Do not bury reusable method inside one dated record.
+- reconstructing why a prior release/candidate decision was made;
+- recovering context that `NOW.md`, Issues, and Git history do not make cheap enough to recover;
+- investigating a continuity failure;
+- studying the old handoff mechanism itself.
 
-## Layer 2 — handoff records
+Do not regenerate a full handoff package after every ordinary research or documentation change.
 
-`records/<handoff-id>/` stores one succession occurrence: project state, recent decisions, file map, exact next action, and readback evidence.
+## Preserved contents
 
-A record is a bootstrap projection and lineage artifact, not project authority.
+The existing protocol, required-context files, project-management discipline, current-record pointer, and dated records remain as occurrence/history artifacts. Their presence does not make them live project authority.
 
-```text
-HANDOFF_RECORD != CANONICAL_PROJECT_STATE
-```
+`HANDOFF_RECORD != LIVE_PROJECT_STATE`
 
-Older records remain useful for history, but only `CURRENT-HANDOFF.yaml` identifies the intended current record.
+`HISTORICALLY_USEFUL != CURRENTLY_REQUIRED`
 
-## Layer 3 — project methodology
-
-ENA research methodology remains under:
-
-`research/methodology/`
-
-It is intentionally separate from handoff framework because it governs **how ENA is researched**, not only how sessions are replaced.
-
-However, project methodology is mandatory takeover context. `REQUIRED-TAKEOVER-CONTEXT.yaml` makes that requirement explicit so a successor cannot inherit project state while silently dropping the method that produced it.
-
-## Start here
-
-For any new project-manager/session:
-
-1. read `CURRENT-HANDOFF.yaml`;
-2. read `HANDOFF-PROTOCOL.md`;
-3. read `REQUIRED-TAKEOVER-CONTEXT.yaml`;
-4. read `PROJECT-MANAGEMENT-DISCIPLINE.md`;
-5. read the current record pointed to by `CURRENT-HANDOFF.yaml`;
-6. independently reverify Current, live refs, exact frozen/released identities, methodology, Progress, and plan before substantive work.
-
-## Promotion rule for lessons
-
-When one handoff discovers a reusable lesson:
-
-```text
-instance incident
--> preserve occurrence evidence in record/history
--> promote reusable rule to framework or research methodology
-```
-
-Do not make the next session rediscover a method because it was trapped inside a dated directory.
+The live project state is `../../NOW.md`.
