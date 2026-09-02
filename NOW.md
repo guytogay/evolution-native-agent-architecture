@@ -41,6 +41,22 @@ Portability is a distinct selection dimension, not a universal ranking. A Host-s
 
 Research note: `research/evolution-inbox/PURPOSE-RELATIVE-SELECTION-AND-PROPAGATION-FITNESS.md`
 
+### Evolutionary memory / preserved adaptation
+
+The current memory discussion reopens ENA's existing Memory Metabolism thesis that memory is persistent change caused by experience.
+
+New research emphasis:
+
+`PRESERVED INFORMATION != PRESERVED ADAPTATION`
+
+`RETRIEVED MEMORY != EXPRESSED DISPOSITION`
+
+`PROPAGATION FITNESS != BENEFICIAL FITNESS`
+
+The open question is whether long-lived Agents need memory not only for facts/episodes, but also for learned salience, inhibition, procedures, associations and dispositions that alter future behavior without explicit source recall — and how such adaptations can be revised, retired or propagated without internalizing high-salience garbage or hostile influence.
+
+Research note: `research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md`
+
 ## Project-operation simplification
 
 ENA project maintenance is being reduced under Issue #153.
@@ -90,4 +106,4 @@ Resolved in the latest simplification slice:
 
 ## Next consequential action
 
-Use the purpose/propagation research note against existing ENA semantics and real mutation-selection examples. Add or change a Constitution invariant only if existing semantics cannot express a decision-relevant natural law; do not create a new rule merely for a cleaner phrase.
+Continue divergent research on evolutionary memory and propagation, but first map each candidate distinction against existing Memory Metabolism and Current semantics. Seek concrete cases that separate archival retrieval from learned salience/disposition and useful propagation from high-salience harmful assimilation. Add or change a Constitution invariant only if existing semantics cannot express a decision-relevant natural law.
