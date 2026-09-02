@@ -1,135 +1,73 @@
 # Contributing to ENA
 
-ENA welcomes contributions from humans, ChatGPT sessions, Gemini, OpenClaw, Hermes, DeepSeek Harness, Codex, bots, and other legitimate participants.
+ENA welcomes critique, experiments, field evidence, practical implementations, semantic proposals, and code from humans and AI systems.
 
 ## Start here
 
-1. Read `PROJECT-HUB.md`.
-2. For current adoption semantics, use only `releases/current/`.
-3. Read/search research, evidence, history, Inbox, and prior reconciliation when useful to the task; do not load everything by default.
-4. Check `collaboration/inbox/` and `collaboration/reconciliation/` when your work may overlap another contribution.
+- For ENA's current adoption semantics, use only `releases/current/`.
+- For current project/research work, read `NOW.md`.
+- For a specific contribution, read only the Issue/files needed to understand that contribution.
 
-Current adoption baseline: **ENA v0.3.3**.
+Do not load project history, handoff archives, old release records, or reconciliation directories by default.
 
-Do not compose it with older releases/candidates/research artifacts.
+## Smallest useful contribution path
 
-## Open participation, scoped authority
+Use the smallest surface that preserves the truth you need:
 
-All participants may, within their actual capability and authority:
+- **Question / bug / friction / counterexample / research idea** -> open or update an Issue.
+- **Small text/code change** -> normal branch + Pull Request when isolation/review helps.
+- **Field observation** -> Issue or focused evidence artifact if the observation needs durable structure/provenance.
+- **Release-changing work** -> use the stronger release validation appropriate to changing `releases/current/`.
 
-- read and search project knowledge;
-- question and critique ENA;
-- research alternatives;
-- propose mechanisms/hypotheses;
-- perform bounded experiments;
-- contribute evidence and field experience;
-- open Issues and submit Pull Requests.
-
-Technical access does not grant consequential project authority.
-
-- GitHub WRITE != Mainline/promotion authority.
-- Ability to deploy != authorization to deploy.
-- Review/advice != implementation authority.
-- Field use != authority to rewrite the shared baseline.
-- Pull Request != acceptance or promotion.
-
-> Knowledge is commons. Inquiry is open. Authority is scoped. Adoption is governed.
-
-## Durable intake: Issues first when appropriate
-
-For a trackable bug, enhancement, release-engineering problem, portability finding, research question, or other item that requires resolution, prefer a GitHub Issue as the smallest durable tracker.
-
-Useful intake classes include:
-
-`BUG | INCIDENT | NEAR_MISS | FRICTION | VALUE_OBSERVED | COUNTEREXAMPLE | PORTABILITY_FINDING | ENHANCEMENT | NEW_VARIATION | EVIDENCE_RESULT | RESEARCH_HYPOTHESIS | EXPERIMENT | CRITIQUE | RELEASE_ENGINEERING | PROCESS`
-
-When available, preserve:
-
-- source / participant;
-- ENA version or baseline involved;
-- observed facts;
-- interpretation separated from facts;
-- relevant evidence or reproduction;
-- host/model/runtime/applicability context when material;
-- expected vs observed behavior;
-- impact;
-- suggested direction, if any;
-- unknowns and alternative explanations;
-- links to related Issues, contributions, experiments, commits, or releases.
-
-Do not force fields that have no decision value.
-
-`Issue != evidence truth != implementation != promotion.`
-
-## Substantial contribution artifacts
-
-Use an independent artifact under `collaboration/inbox/` when the contribution itself needs preserved analysis, evidence, provenance, or context beyond what belongs in an Issue.
-
-Recommended filename:
-
-`YYYY-MM-DD-HHMM-<participant-or-source>-<short-topic>.md`
-
-For field use, `releases/current/templates/field-experience.v1.yaml` is an optional source format.
-
-Default status:
-
-`UNRECONCILED / NOT_MAINLINE / NOT_PROMOTED`
-
-Do not rewrite an original contribution merely because it has later been reconciled.
+A normal contribution does **not** require a candidate freeze, handoff package, reconciliation artifact, release readback, or promotion ceremony unless the contribution actually crosses one of those boundaries.
 
 ## Evidence hygiene
 
-Separate:
+When a claim matters, keep these distinctions visible:
 
-- observed facts;
-- inference/interpretation;
-- suggestion/hypothesis;
-- evidence references and material source lineage;
-- applicability envelope;
-- known limitations/unknowns;
-- authority/implementation status.
+- observation vs interpretation;
+- claim vs evidence vs applicability;
+- local success vs transferable/general success;
+- known vs unknown;
+- proposed change vs accepted Current semantics.
 
-A polished argument is not automatically stronger evidence. Repetition/propagation is not automatically independent corroboration. Use `UNKNOWN` rather than inventing provenance.
+Prefer a concrete failure, trace, reproduction, or bounded observation over confidence language.
 
-Do not include credentials, API keys, access tokens, private keys, passwords, or unrelated personal/company secrets in Issues, contributions, logs, fixtures, or Pull Requests.
+Do not include credentials, API keys, access tokens, private keys, passwords, or unrelated personal/company secrets.
 
-## Reconciliation and implementation
+## Research and semantic proposals
 
-Reconciliation is a separate artifact under `collaboration/reconciliation/`; do not silently upgrade a contribution merely because it was committed to GitHub.
+ENA is allowed to explore abstract natural-law candidates. A new phrase or elegant abstraction does not automatically deserve a new Constitution invariant.
 
-Possible outcomes include:
+Useful sequence:
 
-`ACCEPT_AS_EVIDENCE`, `ACCEPT_AS_CLARIFICATION`, `MERGE_WITH_EXISTING_CANDIDATE`, `ALREADY_COVERED`, `NEEDS_EXPERIMENT`, `ACCEPT_FOR_IMPLEMENTATION`, `DEFER`, `REJECT_WITH_REASON`, `PRESERVE_CONFLICT`, `UNKNOWN`.
+`observation / tension -> candidate distinction -> reality/falsifier -> reuse or clarify existing semantics -> add a new invariant only if a real semantic gap remains`
 
-When implementation is accepted, use a branch/commit/Pull Request linked to the relevant Issue or decision record when isolation/review has concrete value.
+Practical HOWs may stay Host-specific. Do not universalize an implementation merely because it worked once.
 
-Do **not** create a branch for every research idea by default. Prefer Issues/research artifacts for exploration. For a release implementation, prefer at most one short-lived release branch, merge it, then delete it.
+## Code and executable logic
 
-## Evolution and release rhythm
+Executable logic should keep executable tests.
 
-Prefer:
+- Run the relevant selftests for the code you changed.
+- Changes under `releases/current/**` receive the Current validation/regression/package checks.
+- Python/security-sensitive changes receive the relevant static/security checks.
+- Doc/research-only changes outside Current should not trigger release-style work merely because prose changed.
 
-`incident/evidence -> current baseline mapping -> concrete false claim/value/friction -> cheapest decision-changing test -> contribution/reconciliation -> implementation when accepted -> accumulate coherent change batch -> next flattened release`
+## Authority
 
-Do not micro-release every small observation by default. A release has integration, validation, distribution, and evidence cost; batch meaningful changes until that cost is justified by project ROI.
+Technical access and contribution do not create unrelated authority.
 
-Each adoption release must be one complete world. New versions inherit accepted semantics by flattening them into Current; adopters do not compose old release layers.
+`Contribution != Acceptance != Release/Promotion Authority`
 
-Choose the smallest layer that closes the problem. Do not create a Constitution rule merely because an abstraction is elegant.
+A Pull Request can be useful even when its proposal remains research-only, Host-specific, partially adopted, or rejected with evidence.
 
-Current field-validation tracker: GitHub Issue #5.
-Current release-planning tracker: GitHub Issue #17.
+## History and status
 
-## Persistent surfaces
+Use Git history for history, GitHub Issues for open work, CI for machine-known execution facts, and `NOW.md` for the small amount of live project state needed to continue work.
 
-GitHub is the canonical diff-friendly engineering, research-lineage, and current-adoption surface.
+Avoid copying the same live state into multiple files.
 
-Maintainer-private recovery mirrors may exist for durable backup/recovery. They are not public project dependencies and do not create another runtime/adoption version layer.
-
-> Persistence != synchronization.
-
-> Preserve history durably; retrieve history selectively.
-
-## License of contributions
+## License
 
 Unless explicitly stated otherwise, contributions intentionally submitted for inclusion in ENA are handled under the repository's Apache License 2.0 terms. See `LICENSE`.
