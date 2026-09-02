@@ -69,6 +69,34 @@ jobs:
           print('CURRENT_STRUCTURED_PARSE_PASS')
           PY
 
+      - name: Validate Constitution parity and relative links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('releases/current')
+          expected = [f'ENA-CON-{i:03d}' for i in range(1,39)]
+          en = re.findall(r'ENA-CON-\d{3}', (root / '01-CONSTITUTION.md').read_text(encoding='utf-8'))
+          zh = re.findall(r'ENA-CON-\d{3}', (root / 'language-projections/zh-CN/01-CONSTITUTION.md').read_text(encoding='utf-8'))
+          assert en == zh == expected
+          link = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
+          broken = []
+          for p in root.rglob('*.md'):
+              for raw in link.findall(p.read_text(encoding='utf-8')):
+                  target = raw.strip().split('#',1)[0].split('?',1)[0]
+                  if not target or target.startswith(('http://','https://','mailto:','/')):
+                      continue
+                  resolved = (p.parent / target).resolve()
+                  try:
+                      resolved.relative_to(root.resolve())
+                  except ValueError:
+                      continue
+                  if not resolved.exists():
+                      broken.append(f'{p.relative_to(root)} -> {raw}')
+          assert not broken, broken[:20]
+          print('CONSTITUTION_AND_LINKS_PASS', len(en))
+          PY
+
       - name: Compile Current Python
         run: |
           python - <<'PY'
@@ -94,6 +122,15 @@ jobs:
           python "$ROOT/tools/selftest_ena_evolve_v2.py"
           python "$ROOT/tools/regression_suite.py"
 
+      - name: Run legacy compatibility selftests
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=releases/current/tools/legacy
+          python "$ROOT/ena_evolve_v1_2.py" selftest
+          python "$ROOT/candidate1_adversarial_v1_2.py"
+          python "$ROOT/candidate2_adversarial_v1_2.py"
+
       - name: Run optional reference selftests
         shell: bash
         run: |
@@ -104,6 +141,28 @@ jobs:
             python "$f"
           done
           echo "OPTIONAL_REFERENCE_SELFTEST_FILES=${#files[@]}"
+
+      - name: Validate optionality and bilingual routing boundaries
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          root = Path('releases/current')
+          ref = yaml.safe_load((root / 'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          policy = ref['policy']
+          assert policy['required_for_complete_adoption_default'] is False
+          assert policy['default_activation_default'] is False
+          assert policy['package_inclusion_implies_applicability'] is False
+          assert policy['package_inclusion_implies_activation'] is False
+          assert policy['host_native_equivalent_allowed'] is True
+          idx = yaml.safe_load((root / 'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
+          routes = set(idx['routes'])
+          fixtures = yaml.safe_load((root / 'language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
+          for case in fixtures['cases']:
+              assert case['expected_route'] in routes
+              assert case.get('en','').strip() and case.get('zh-CN','').strip()
+          print('OPTIONALITY_AND_BILINGUAL_ROUTING_PASS', len(fixtures['cases']))
+          PY
 
       - name: Verify released v0.3.7 Constitution and tools remain frozen
         run: |
