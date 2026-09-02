@@ -17,11 +17,13 @@ ENA's recent evolutionary-memory work has moved from default divergence into **c
 
 Default sequence now:
 
-> `SYNTHESIZE → ATTACK → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
+> `SYNTHESIZE → SEMANTIC REACHABILITY AUDIT → ATTACK → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
 
-Reason: the research has enough candidate branches that the dominant risk is no longer missing ideas; it is duplicate terminology, self-confirming theory, and premature Constitution growth.
+Reason: the research has enough candidate branches that the dominant risk is no longer missing ideas; it is duplicate terminology, self-confirming theory, premature Constitution growth, and mistaking an existing-but-hard-to-reach semantic relation for a missing natural law.
 
 Convergence plan: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CONVERGENCE-AND-VALIDATION-009.md`
+
+Semantic-reachability note: `research/evolution-inbox/SEMANTIC-REACHABILITY-AND-ATTRACTOR-GAPS-010.md`
 
 ### Candidate trunks under convergence
 
@@ -32,13 +34,31 @@ Convergence plan: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CONVERGENCE-AND-
 5. **Boundary memory / viable action topology** — failure may prove what must not recur more strongly than one unique remedy; `SAFE != VIABLE`.
 6. **Adaptation ecology** — individually useful memories can interact badly; propagation and inheritance do not imply benefit.
 
+### Semantic-reachability classification
+
+Before proposing a new invariant, classify the candidate as:
+
+`EXPLICIT_COVERAGE | LATENT_COVERAGE | ATTRACTOR_AMBIGUITY | TRUE_SEMANTIC_GAP | UNRESOLVED`
+
+For latent/ambiguous cases, test the cheapest repair first:
+
+`HOT_CUE | CROSS_FAMILY_ROUTE | BOUNDARY_EXAMPLE | COUNTEREXAMPLE | CONCEPT_MAP/RUNTIME CLARIFICATION`
+
+A Constitution change is downstream of failure of cheaper semantic-reachability repairs, not the default response to new language.
+
 ### First adversarial targets
 
 Start with mechanisms that predict different behavior rather than metaphors:
 
-1. **Boundary memory vs recipe memory**
+1. **Semantic reachability fixtures**
+   - proportional-governance attractor;
+   - imported-adaptation control;
+   - metamemory self-write;
+   - handoff/cloning;
+   - archive-vs-shaped-memory ontology.
+2. **Boundary memory vs recipe memory**
    - Does preserving a consequence boundary + counterexamples transfer better to novel Hosts than copying one successful remedy?
-2. **Developmental inheritance vs archive/rule inheritance**
+3. **Developmental inheritance vs archive/rule inheritance**
    - Can a fresh Agent inherit useful behavioral shaping from a compact developmental package better than from history retrieval or bare rules?
 
 Fresh-instance tests should remove ENA terminology and original long-context carryover.
@@ -116,16 +136,21 @@ Keep executable logic tests where they can find real defects.
 
 ## Next consequential action
 
-Create the convergence matrix:
+Build the convergence matrix with semantic reachability included:
 
 ```text
 candidate trunk
 → existing Current anchors
-→ suspected semantic gap
-→ prediction that differs from simpler alternatives
+→ coverage class
+→ required family intersection
+→ likely wrong attractor
+→ decision consequence
+→ cheapest reachability repair
+→ differing prediction
 → cheapest falsifier
+→ true semantic gap?
 ```
 
-Then build the first adversarial fixtures for **boundary memory vs recipe memory** and **developmental inheritance vs archive/rule inheritance**.
+Then run fresh-Agent semantic-reachability fixtures before the first mechanism experiments for **boundary memory vs recipe memory** and **developmental inheritance vs archive/rule inheritance**.
 
-Do **not** update Current unless those tests expose a decision-relevant natural law that v0.3.7 cannot already express.
+Do **not** update Current merely because a new formulation is insightful. Update Current only if evidence supports either (a) a real retrieval/reachability defect in the adopter-facing Current surface or (b) a decision-relevant natural law v0.3.7 cannot express.
