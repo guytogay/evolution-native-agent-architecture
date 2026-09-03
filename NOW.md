@@ -64,31 +64,41 @@ Do not rerun essentially the same Supplier-B fixture merely to seek a preferred-
 
 ## Active MDS mechanism experiment
 
-Developmental Inheritance / Minimum Developmental Set is now preregistered and fixture-frozen **before any successor output**.
+Developmental Inheritance / Minimum Developmental Set is now **preregistered, fixture-frozen, and cleanroom-materialized before any successor output**.
 
 Artifacts:
 
 - `research/field-validation/2026-09-03-developmental-inheritance-mds-preregistration.md`
 - `research/field-validation/2026-09-03-developmental-inheritance-mds-fixture-freeze.md`
+- `research/field-validation/2026-09-03-developmental-inheritance-mds-materialization.md`
 
-The experiment compares:
+Arms:
 
 - M0 — no inheritance;
 - M1 — full archive/history;
 - M2 — strong/fair distilled rules;
 - M3 — developmental package/MDS with scoped disposition + positive/negative/boundary exemplars + provenance.
 
-The frozen design deliberately gives inherited information causal opportunity to matter: final tasks do not directly restate the decisive predecessor lifecycle semantics.
+The four final cleanrooms are parentless-root repositories with identical common `README.md` and exact v0.3.7 `releases/current/`; only `handoff.md` differs. Tasks/oracle are absent from the cleanrooms and will be presented sequentially.
 
-The transfer battery includes multiple novel tasks, lexical-distance transfer, R0/R2/current-Host near-misses where inherited caution must **not** activate, ambiguity calibration, provenance challenge, and three fresh successors per arm.
-
-No result exists yet. Do not edit the frozen oracle or treatment/task bytes after experimental outputs begin.
+No result exists yet. Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution begins.
 
 ## Next consequential action
 
-Materialize the frozen MDS fixture into structurally isolated, history-clean experimental surfaces, record exact carrier byte/token costs, then execute the preregistered 3 fresh successors per arm and archive first complete outputs before correction dialogue.
+Execute the preregistered **12 fresh successor runs**:
 
-Do not expose the ENA preregistration, scoring oracle, expected rankings, or other arms to fresh experimental successors.
+```text
+M0 x 3
+M1 x 3
+M2 x 3
+M3 x 3
+```
+
+Each run stays in one fresh `GPT-5.6 Sol / high reasoning` session across B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance challenge, with no corrective feedback before the sequence is frozen.
+
+Archive each first complete staged output before adjudication/correction.
+
+Do not expose the ENA preregistration, scoring oracle, expected rankings, other arms, or prior run outputs to a fresh successor.
 
 Then adjudicate exactly against the preregistered interpretation matrix. A rule/archive tie or win over MDS, a control tie, MDS false activation, or high within-arm variance must narrow the hypothesis rather than trigger goalpost movement.
 
