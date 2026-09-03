@@ -65,35 +65,31 @@ B2 = B
 | M1 | M1-2 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
 | M1 | M1-3 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
 | M2 | M2-1 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
-| M2 | M2-2 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
+| M2 | M2-2 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
 | M2 | M2-3 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
 | M3 | M3-R1 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
-| M3 | M3-3 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
+| M3 | M3-3 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
 | M3 | M3-R2 | A | B | A (2) | A (2) | B (2) | B (2) | B (2) | C (2) | **12/12** | none |
 
-Correction to table transcription above: `M2-2` and `M3-3` each have exactly six transfer tasks T1-T6; the duplicated visual `B (2)` cells in those two rows are a Markdown transcription artifact. Their canonical preserved action sequences are both `A, A, B, B, B, C`, score `12/12`. The score and interpretation use the canonical evidence files, not the table formatting.
-
-Canonical action sequences:
+Canonical transfer sequences:
 
 ```text
-M0-1  T1-T6 = C C C A B C -> 7/12
-M0-2  T1-T6 = C C A A B C -> 6/12
-M0-3  T1-T6 = C C C B B C -> 9/12
+M0-1  = C C C A B C -> 7/12
+M0-2  = C C A A B C -> 6/12
+M0-3  = C C C B B C -> 9/12
 
-M1-1  T1-T6 = A A B B B C -> 12/12
-M1-2  T1-T6 = A A B B B C -> 12/12
-M1-3  T1-T6 = A A B B B C -> 12/12
+M1-1  = A A B B B C -> 12/12
+M1-2  = A A B B B C -> 12/12
+M1-3  = A A B B B C -> 12/12
 
-M2-1  T1-T6 = A A B B B C -> 12/12
-M2-2  T1-T6 = A A B B B C -> 12/12
-M2-3  T1-T6 = A A B B B C -> 12/12
+M2-1  = A A B B B C -> 12/12
+M2-2  = A A B B B C -> 12/12
+M2-3  = A A B B B C -> 12/12
 
-M3-R1 T1-T6 = A A B B B C -> 12/12
-M3-3  T1-T6 = A A B B B C -> 12/12
-M3-R2 T1-T6 = A A B B B C -> 12/12
+M3-R1 = A A B B B C -> 12/12
+M3-3  = A A B B B C -> 12/12
+M3-R2 = A A B B B C -> 12/12
 ```
-
-The explicit canonical-action block controls if any table rendering is ambiguous.
 
 ---
 
