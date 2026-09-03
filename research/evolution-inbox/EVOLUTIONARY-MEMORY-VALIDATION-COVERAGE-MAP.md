@@ -113,24 +113,59 @@ Needed experiment: identical object-level experience with different metamemory u
 
 ### 6. Adaptive inheritance without full history / Minimum Developmental Set
 
-State: `NOT_DIRECTLY_TESTED` — **next active target**.
+State: `MECHANISM_ACTIVE` + `NARROWED_OR_REJECTED` for the stronger MDS-superiority claim.
 
-Core candidates:
-- scoped adaptive disposition + minimal developmental boundary set;
-- `BEST HISTORY SUMMARY != BEST DEVELOPMENTAL CURRICULUM`;
-- counterexamples may carry applicability boundaries.
+Primary experiment complete:
 
-The I/J/K/L pilot is a precursor only. It saturated because decisive Supplier-B semantics were directly available to every arm.
+```text
+M0 — no inheritance:       22/36
+M1 — full archive:         36/36
+M2 — distilled rules:      36/36
+M3 — developmental/MDS:    36/36
+```
 
-Required experiment:
-- no-inheritance control where feasible;
-- full archive/RAG;
-- distilled rules;
-- disposition + positive/negative/boundary exemplars + provenance;
-- multiple structurally related tasks with original wording removed;
-- inherited information must matter before the target prompt exposes all decisive semantics.
+All three inherited arms reconstructed the exact scoped T1-T6 phenotype in 3/3 valid successors, including lexical-distance activation, R0 non-activation, R2:NONE release, current-Host override and ambiguity calibration. No inherited-arm critical failure occurred.
 
-Measure pre-retrieval behavior, transfer speed, overgeneralization, paralysis, provenance retention and phenotype reconstruction.
+Carrier bytes:
+
+```text
+M0 =   157
+M1 = 4,228
+M2 = 1,027
+M3 = 1,938
+```
+
+Preregistered Patterns B, C and D apply.
+
+Retain:
+
+- inherited predecessor semantics can materially improve successor liveness/competence when the target prompt does not itself disclose those semantics;
+- full archive, distilled rules and MDS can all reconstruct the tested scoped phenotype;
+- MDS materially compresses full history.
+
+Narrow:
+
+- `MDS HAS SUPERIOR BEHAVIORAL TRANSFER FITNESS`;
+- `DEVELOPMENTAL EXEMPLARS ARE NECESSARY FOR THIS PROPERTY`;
+- `BEST HISTORY SUMMARY != BEST DEVELOPMENTAL CURRICULUM` as a claim of demonstrated superiority in this fixture.
+
+Because M2 matched M3 at lower carrier cost, the rule representation is sufficient for this tested property. Do not rerun the Morrow fixture merely to seek an M3 win.
+
+Primary result:
+
+`research/field-validation/2026-09-03-developmental-inheritance-mds-primary-results.md`
+
+Unexpected secondary observation:
+
+Two M3 attempts self-reported at provenance time that the treatment had not actually been read before behavioral probing despite earlier READY/readback behavior. Preserve separately as an inheritance-expression / experiment-method observation:
+
+`research/field-validation/2026-09-03-developmental-inheritance-mds-unexpected-provenance-uptake-observation.md`
+
+Candidate relation:
+
+`ARTIFACT AVAILABLE != ACCESSED != ASSIMILATED != PHENOTYPE SHAPED`
+
+Disposition: **NARROWED**. General inheritance effect supported enough to continue; MDS-specific behavioral superiority not observed.
 
 ### 7. Developmental succession / reconstruction instead of cloning
 
@@ -288,8 +323,8 @@ Do not run twenty programs at once. Use dependencies, but never silently drop a 
 ```text
 1. Semantic Reachability                      [SUFFICIENTLY PROBED]
 2. Boundary Memory vs Copied Remedy           [PILOT COMPLETE / SUPERIORITY NARROWED]
-3. Developmental Inheritance / MDS            [NEXT]
-4. Temporal Expression + Assimilation
+3. Developmental Inheritance / MDS            [PRIMARY COMPLETE / MDS SUPERIORITY NARROWED]
+4. Temporal Expression + Assimilation         [NEXT]
 5. Metamemory Update Policy
 6. Sleep-like Consolidation
 7. Dream-like Recombination
@@ -301,7 +336,7 @@ Do not run twenty programs at once. Use dependencies, but never silently drop a 
 13. Longitudinal Cultural / Developmental tests
 ```
 
-The order may change if a result kills a downstream branch or reality produces stronger evidence.
+The order may change if a result kills a downstream branch or reality produces stronger evidence. The repeated M3 treatment-read/provenance phenomenon is explicitly linked forward to metamemory / inheritance-expression work but does not reorder the primary sequence by itself.
 
 ## Current admission rule
 
@@ -315,6 +350,6 @@ Field Guide HOW remains downstream of reusable real practice.
 
 ## Immediate status
 
-Boundary Memory vs Copied Remedy pilot is complete with a saturated/null mechanism ranking and a narrowed superiority claim.
+Developmental Inheritance / MDS primary round is complete. General inheritance mattered in the synthetic Morrow fixture, but full archive, distilled rules and MDS tied behaviorally; distilled rules matched MDS at lower carrier cost, so MDS-specific superiority is narrowed.
 
-Next: design and preregister **Developmental Inheritance / Minimum Developmental Set**.
+Next: design the **Temporal Expression + Assimilation / developmental-order** experiment so that identical final information is not automatically equivalent to identical developmental history.
