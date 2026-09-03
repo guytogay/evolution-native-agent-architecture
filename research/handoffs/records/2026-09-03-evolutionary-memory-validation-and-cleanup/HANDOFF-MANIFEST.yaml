@@ -1,12 +1,14 @@
-schema_version: "1.0"
+schema_version: "1.1"
 handoff_id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
-status: DEEP_PROJECT_SESSION_SUCCESSION_PREMERGE
+status: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
 created_at: "2026-09-03"
+completed_at: "2026-09-03"
 
 project:
   repository: guytogay/evolution-native-agent-architecture
   base_main_observed_before_handoff: e1e50ed1def69d4a088d670ca26dc54c3b747904
-  handoff_branch: handoff/2026-09-03-session-succession
+  handoff_pr: 178
+  handoff_merge: ec9255f147c866de3eeb44e7769285800a603afb
   continuation_after_merge: main
 
 current_adoption:
@@ -18,6 +20,7 @@ current_adoption:
   package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
   release_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
   released_bytes_mutable: false
+  handoff_pr_changed_current_paths: false
 
 record_files:
   start_here: HANDOFF-START-HERE.md
@@ -47,16 +50,20 @@ recent_evidence:
 
 branch_transition:
   old_long_lived_research_branch: research/ena-reconstruction
-  disposition: RETIRE_AFTER_SELECTED_ARTIFACT_TRANSPLANT
+  disposition: DELETE_SAFE_AFTER_PR178_ARTIFACT_MIGRATION
   branch_cleanup_audit: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
   selected_artifacts_migrated: 3
+  migrated_blob_identity_verified: true
   merge_old_branch_wholesale: false
   future_long_lived_branch: main
 
 related_repositories:
   workbench: guytogay/human-ai-workbench
+  workbench_update_pr: 1
+  workbench_update_merge: 36876e2c7695036b0e3a24093f66894cbfcee037
   reusable_old_cleanroom_infrastructure: guytogay/independent-validation-cleanroom
-  disposable_round_repos_A_to_L: DELETED_OR_DELETE_SAFE_AFTER_ARCHIVE
+  disposable_round_repos_A_to_H: DELETED_AFTER_ARCHIVE
+  disposable_round_repos_I_to_L: DELETE_SAFE_AFTER_PR177_ARCHIVE
   future_field_guide: ena-field-guide
   future_field_guide_created: false
 
@@ -69,4 +76,4 @@ forbidden_or_not_justified:
   - MERGE_DIVERGED_RESEARCH_ENA_RECONSTRUCTION_WHOLESALE
   - CREATE_FIELD_GUIDE_PATTERNS_DIRECTLY_FROM_UNVALIDATED_RESEARCH
 
-readback_state: PENDING_POSTMERGE_READBACK
+readback_state: PASS

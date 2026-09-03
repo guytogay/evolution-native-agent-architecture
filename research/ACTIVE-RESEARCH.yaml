@@ -1,4 +1,4 @@
-schema_version: "3.0"
+schema_version: "3.1"
 status: COMPATIBILITY_RESEARCH_ROUTER
 updated_at: "2026-09-03"
 
@@ -30,10 +30,11 @@ current_adoption:
 
 legacy_long_lived_research_branch:
   branch: research/ena-reconstruction
-  state: RETIRING_AFTER_UNIQUE_ARTIFACT_MIGRATION
-  unique_artifacts_migrated_by: handoff/2026-09-03-session-succession
+  state: DELETE_SAFE_AFTER_PR178_EXACT_ARTIFACT_MIGRATION
+  migrated_artifact_count: 3
+  migrated_blob_identity_verified: true
   merge_old_branch_wholesale: false
-  delete_after_handoff_merge_and_readback: true
+  delete_ref_manually_when_convenient: true
   cleanup_audit: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
 
 field_validation:

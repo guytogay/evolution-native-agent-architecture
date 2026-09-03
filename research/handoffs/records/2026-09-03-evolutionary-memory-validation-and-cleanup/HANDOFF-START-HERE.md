@@ -2,7 +2,13 @@
 
 Handoff ID: `2026-09-03-evolutionary-memory-validation-and-cleanup`
 
-Status: `DEEP_PROJECT_SESSION_SUCCESSION / PREMERGE_RECORD`
+Status: `DEEP_PROJECT_SESSION_SUCCESSION / COMPLETE / POSTMERGE_READBACK_PASS`
+
+Integration:
+
+- PR: `#178 — Prepare deep session handoff and simplify branch continuation`
+- squash merge: `ec9255f147c866de3eeb44e7769285800a603afb`
+- postmerge readback: `PASS`
 
 ## Why this handoff is deep
 
@@ -34,6 +40,18 @@ Losing this session without a structured handoff would make the user reconstruct
 10. only then open deeper research/evidence needed for the next action
 
 Do **not** begin with a full repository audit.
+
+### Snapshot/readback note
+
+`PROJECT-STATE.md` is intentionally the detailed project-state snapshot captured while the handoff PR was still being prepared. Do not reinterpret its transitional branch wording as current mutable truth.
+
+For postmerge completion facts use, in order:
+
+1. `NOW.md` for live project/research state;
+2. `CURRENT-HANDOFF.yaml` for the completed succession pointer;
+3. `HANDOFF-READBACK.md` for PR #178 integration/readback and branch-cleanup completion facts.
+
+This preserves occurrence truth without making a premerge snapshot masquerade as live state.
 
 ## Current project state in one paragraph
 
@@ -84,7 +102,7 @@ Use multiple test tasks, not a single one-shot prompt.
 - Do not update `releases/current/` from these research results.
 - Do not create a new Constitution ID merely because new research language sounds elegant.
 - Do not give fresh validators the full project handoff or tell them which hidden surfaces to ignore.
-- Do not merge `research/ena-reconstruction` wholesale; its three unique useful files are being transplanted by this handoff PR.
+- Do not merge `research/ena-reconstruction` wholesale; its three unique useful files were transplanted by PR #178 and exact blob identity was verified from merged `main`.
 - Do not treat old branch refs as required archives.
 - Do not create `ena-field-guide` merely to publish current hypotheses; wait for reusable real HOW.
 
@@ -101,12 +119,14 @@ Validation cleanrooms = disposable experimental infrastructure
 ena-field-guide = planned future practical ENA HOW, not yet created
 ```
 
-## If the outgoing session disappears before final readback
+## Takeover state
 
-The handoff branch is:
+The handoff integration and postmerge readback are complete.
 
-`handoff/2026-09-03-session-succession`
+Normal continuation authority is `main`, not either handoff branch and not `research/ena-reconstruction`.
 
-The intended integration target is `main`.
+The old long-lived research branch and completed handoff branches are branch-cleanup candidates only; their decision-relevant lineage is already durable. See:
 
-Check whether its PR has merged. If not, continue the PR/readback work rather than recreating these files from memory.
+`research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
+
+The only remaining manual repository-hygiene action is deleting delete-safe branch refs through GitHub UI/CLI because the connected GitHub tool cannot genuinely delete refs.
