@@ -1,167 +1,52 @@
-schema_version: "1.7"
-observed_at: "2026-08-28"
-status: CURRENT_BRANCH_INVENTORY_POSTPROMOTION_ALIGNMENT
+schema_version: "2.0"
+observed_at: "2026-09-03"
+status: CURRENT_BRANCH_CLEANUP_ROUTER
 
-canonical_active_pointer: "research/ACTIVE-RESEARCH.yaml"
-inventory_scope: "LIVE_PROJECT_REFS_PLUS_DURABLE_REMOVAL_LINEAGE"
-delete_ref_capability_available_in_current_connector: false
+project_continuation:
+  long_lived_branch: main
+  live_status: NOW.md
+  long_lived_research_integration_branch_required: false
+  normal_work_branch_policy: SHORT_LIVED_MAIN_BASED_PR_BRANCH
 
-coordination_branches:
-  - name: main
-    role: PROJECT_CONTROL_PLANE
-    lifecycle: PERMANENT
-    observed_promotion_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-    disposition: KEEP
+current_cleanup_audit:
+  path: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
+  audited_branch_count_before_handoff_branch: 41
+  current_handoff_branch: handoff/2026-09-03-session-succession
 
-  - name: research/ena-reconstruction
-    role: ACTIVE_RESEARCH_INTEGRATION
-    lifecycle: ACTIVE_INTEGRATION
-    observed_head_before_postpromotion_sync: 8a8c5859df8f4772e92e83b7bc5f802cf054f0e8
-    active_for_research_continuation: true
-    disposition: KEEP_AND_FAST_FORWARD_TO_POSTPROMOTION_ALIGNED_MAIN
+migration_before_delete:
+  branch: research/ena-reconstruction
+  state: UNIQUE_ARTIFACTS_BEING_TRANSPLANTED_TO_MAIN
+  unique_artifacts:
+    - research/external-how/harvests/2026-08-28-AGENT-SKILLS-PROGRESSIVE-DISCLOSURE-AND-TRIGGERING.md
+    - research/field-validation/host-adapters/agent-skills/ena-runtime-router/SKILL.md
+    - research/field-validation/host-adapters/agent-skills/ena-runtime-router/TRIGGER-CASES.yaml
+  merge_branch_wholesale: false
+  delete_after_transplant_merge_and_readback: true
 
-  - name: integration/v037-postpromotion-alignment
-    role: POSTPROMOTION_PROJECT_STATE_ALIGNMENT
-    lifecycle: TEMPORARY_ACTIVE
-    created_from_promotion_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-    disposition: DELETE_AFTER_ALIGNMENT_PR_MERGE_AND_READBACK_WHEN_DELETE_REF_CAPABILITY_EXISTS
+delete_safe_classes_after_handoff_merge:
+  - COMPLETED_V037_CANDIDATE_REFS
+  - COMPLETED_V037_RELEASE_AND_INTEGRATION_REFS
+  - HISTORICAL_VALIDATION_REFS
+  - MERGED_RECENT_RESEARCH_PR_HEADS
+  - STALE_OR_SUPERSEDED_INTERMEDIATE_RESEARCH_REFS
+  - OPERATOR_NOISE_REFS
 
-  - name: release/v0.3.7
-    role: COMPLETED_RELEASE_PACKAGING
-    lifecycle: RELEASE_LIFECYCLE_COMPLETE
-    exact_reviewed_head: 3ef3605228ed427b2d25d7d586e4ffc378b7369e
-    release_pr: 144
-    release_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-    released_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
-    disposition: SAFE_TO_DELETE_AFTER_POSTPROMOTION_ALIGNMENT_READBACK_WHEN_DELETE_REF_CAPABILITY_EXISTS
+decision:
+  branches_to_keep_long_term:
+    - main
+  branches_to_merge_wholesale: []
+  branches_with_selected_content_to_reconcile:
+    - research/ena-reconstruction
+  delete_ref_capability_available_in_current_connector: false
+  force_move_must_not_simulate_deletion: true
 
-  - name: integration/v037-prepromotion-alignment
-    role: MERGED_PREPROMOTION_PROJECT_STATE_ALIGNMENT
-    lifecycle: PURPOSE_EXHAUSTED
-    observed_head: 93fd8eb78272fb712d0bf9530ed58aa062565fa3
-    durable_carriers: MAIN_MERGES_PR_HISTORY_AND_RECONCILIATION
-    disposition: DELETE_NOW_WHEN_DELETE_REF_CAPABILITY_EXISTS
+historical_identity_rules:
+  released_current_authority: releases/current/CURRENT-BASELINE.yaml
+  frozen_candidate_identity_is_exact_object_not_branch: true
+  old_branch_names_may_remain_in_historical_records: true
+  branch_deletion_does_not_erase_pr_commit_or_record_lineage: true
 
-  - name: research/selection-qualification-v037-template-oracle-fix
-    role: MERGED_RESEARCH_CONTROL_FIX
-    lifecycle: PURPOSE_EXHAUSTED
-    merged_pr: 145
-    merged_head: 38088150f03b91534b33f24375407741540dfb16
-    main_merge: 13c8a3e359fe6702ebc15dad982c655e2a3ca7a9
-    durable_carriers: PR_145_MAIN_HISTORY_AND_ORACLE_RECONCILIATION
-    disposition: DELETE_NOW_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-candidate_lineage_refs:
-  - name: candidate/v0.3.7-candidate.0
-    role: FROZEN_PREDECESSOR_LINEAGE
-    lifecycle: HISTORICAL_REF_PURPOSE_EXHAUSTED
-    observed_head: 828c7b0832d83062511e337a9286dc826a081101
-    frozen_identity_is_not_branch_head: true
-    durable_carriers: HANDOFF_RECONCILIATION_IMMUTABLE_COMMITS_TREES_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-  - name: candidate/v0.3.7-candidate.1
-    role: FROZEN_NEEDS_REVISION_PREDECESSOR
-    lifecycle: HISTORICAL_REF_PURPOSE_EXHAUSTED
-    frozen_source: ae6903464133cb5bcf3cd8909ecae1215fe0b9ba
-    frozen_subtree: c0458e0d7ea417b841cbf4c8bf6e64e4aff37319
-    durable_carriers: A_S_A_P_PHASE_B_RECONCILIATION_HANDOFF_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-  - name: candidate/v0.3.7-candidate.2
-    role: FROZEN_NEEDS_REVISION_PREDECESSOR
-    lifecycle: HISTORICAL_REF_PURPOSE_EXHAUSTED
-    frozen_source: bda470e0a6b170cec61225a905957a501454a2fe
-    frozen_subtree: d5fefc8c786d7e40b3e9a59211ee7045bccee5bf
-    durable_carriers: CLEANROOM_SEALS_A_S_A_P_PHASE_B_RECONCILIATION_HANDOFF_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-  - name: candidate/v0.3.7-candidate.3
-    role: FROZEN_FINAL_RELEASE_SOURCE
-    lifecycle: RELEASE_SOURCE_LINEAGE_NOW_DURABLE
-    frozen_source: b7e88d7adb70396bd671ca97066daf2c120e0adc
-    frozen_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
-    release_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-    released_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
-    mutation_forbidden: true
-    durable_carriers: CURRENT_LINEAGE_FREEZE_RECONCILIATION_RELEASE_PR_HANDOFF_AND_GIT_OBJECTS
-    disposition: SAFE_TO_DELETE_AFTER_POSTPROMOTION_ALIGNMENT_READBACK_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-validation_lineage_refs:
-  - name: validation/v037-c0-blind-phase-a-primary
-    role: SEALED_PREDECESSOR_PHASE_A_OCCURRENCE_TRUTH
-    lifecycle: HISTORICAL_REF_PURPOSE_EXHAUSTED
-    observed_head: 5ba3d241efa460fe170253860ad67045aa1d96a5
-    durable_carriers: RECONCILIATION_HANDOFF_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-  - name: validation/v037-c1-blind-phase-a-primary
-    role: INVALIDATED_SELF_PRIMED_INTAKE_NO_SEAL
-    lifecycle: HISTORICAL_INVALID_INTAKE_PURPOSE_EXHAUSTED
-    observed_head: bac074097579ad930b2e90c46c00773f6f20c86d
-    durable_carriers: VALIDATION_INTERFACE_RECONCILIATION_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-  - name: validation/v037-c1-blind-semantic-primary
-    role: SEALED_CANDIDATE1_A_S_A_P_OCCURRENCE_TRUTH
-    lifecycle: HISTORICAL_REF_PURPOSE_EXHAUSTED
-    observed_head: b970148fe9596ea9cad0a2817a3b399a1d2b75f5
-    durable_carriers: SEALED_FINDINGS_RECONCILIATION_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-  - name: validation/v037-c2-blind-semantic-primary
-    role: INVALIDATED_REPOSITORY_UI_INTAKE_HISTORICAL_ONLY
-    lifecycle: HISTORICAL_INVALID_INTAKE_PURPOSE_EXHAUSTED
-    observed_head: 31d4d201fabe0180278ae6371e2f01ffda3de6b0
-    durable_carriers: ISSUE_137_VALIDATION_INTERFACE_RECONCILIATION_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-  - name: validation/v037-c2-blind-semantic-primary-r2
-    role: CANDIDATE2_R2_VALIDATION_PROJECTION_LINEAGE
-    lifecycle: HISTORICAL_REF_PURPOSE_EXHAUSTED
-    observed_head: 9876be2e683d07a3b5bb4421618d3b2cb04dbda4
-    durable_carriers: CLEANROOM_SEALS_CANDIDATE2_RECONCILIATION_AND_GIT_HISTORY
-    disposition: SAFE_TO_DELETE_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-operator_noise_refs:
-  - name: tmp/noop-check
-    role: OPERATOR_NOISE_NON_AUTHORITY
-    lifecycle: PURPOSE_EXHAUSTED
-    observed_head: 0427fe4f34d54b7f17cfb075c6fbc3b35b442fba
-    disposition: DELETE_NOW_WHEN_DELETE_REF_CAPABILITY_EXISTS
-  - name: tmp/noop-check-2
-    role: OPERATOR_NOISE_NON_AUTHORITY
-    lifecycle: PURPOSE_EXHAUSTED
-    observed_head: 0427fe4f34d54b7f17cfb075c6fbc3b35b442fba
-    disposition: DELETE_NOW_WHEN_DELETE_REF_CAPABILITY_EXISTS
-
-branch_hygiene_policy:
-  cosmetic_zero_branch_count_is_goal: false
-  branches_are_archives: false
-  durable_lineage_required_before_short_lived_ref_removal: true
-  active_research_branch_must_follow_active_pointer: true
-  completed_release_branch_should_not_remain_forever: true
-  frozen_identity_survives_branch_ref_removal_via_exact_git_objects_and_durable_lineage: true
-  force_move_is_not_branch_deletion: true
-
-independent_validation_infrastructure:
-  repository: guytogay/independent-validation-cleanroom
-  role: REUSABLE_CROSS_STAGE_CROSS_PROJECT_VALIDATION_INFRASTRUCTURE
-  repository_identity_reusable: true
-  stage_contents_ephemeral: true
-  source_project_occurrence_truth_must_be_persisted_back: true
-  not_ena_project_authority: true
-
-invariants:
-  - "Only the branch named by research/ACTIVE-RESEARCH.yaml is research continuation authority."
-  - "v0.3.7 Current authority is releases/current/ on main, not release/v0.3.7."
-  - "Frozen candidate identity is exact source/tree binding, not branch recency."
-  - "Validation refs are occurrence carriers but never release authority."
-  - "The reusable clean-room repository is infrastructure, not ENA lineage authority."
-  - "Temporary/noise refs do not create project authority."
-  - "Live mutable heads must be reverified before writes."
-  - "A missing delete-ref connector capability must not be simulated by force-moving refs."
-
-cleanup_note: >-
-  Release promotion/readback made the v0.3.7 release, candidate, predecessor-validation,
-  temporary-alignment, control-fix, and operator-noise branch names unnecessary as durable
-  carriers. Exact commits/trees, PRs, reconciliation records, handoff records, issues, and Git
-  history preserve their occurrence truth. They remain visible only because the current connector
-  lacks a genuine delete-ref action. research/ena-reconstruction remains the sole active research
-  integration branch and should be fast-forwarded to the final aligned main checkpoint.
+future_rule: >-
+  Do not maintain branch names as archives. Create a branch only when temporary isolation or PR
+  review pays rent, preserve unique material before closure, and delete the ref after merge or
+  abandonment. Main plus NOW.md is the default continuation surface.
