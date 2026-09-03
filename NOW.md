@@ -64,7 +64,7 @@ Do not rerun essentially the same Supplier-B fixture merely to seek a preferred-
 
 ## Active MDS mechanism experiment
 
-Developmental Inheritance / Minimum Developmental Set is now **preregistered, fixture-frozen, and cleanroom-materialized before any successor output**.
+Developmental Inheritance / Minimum Developmental Set is **preregistered, fixture-frozen, cleanroom-materialized, and now in primary execution**.
 
 Artifacts:
 
@@ -79,16 +79,22 @@ Arms:
 - M2 — strong/fair distilled rules;
 - M3 — developmental package/MDS with scoped disposition + positive/negative/boundary exemplars + provenance.
 
-The four final cleanrooms are parentless-root repositories with identical common `README.md` and exact v0.3.7 `releases/current/`; only `handoff.md` differs. Tasks/oracle are absent from the cleanrooms and will be presented sequentially.
+The four final cleanrooms are parentless-root repositories with identical common `README.md` and exact v0.3.7 `releases/current/`; only `handoff.md` differs. Tasks/oracle are absent from the cleanrooms and are presented sequentially.
 
-No result exists yet. Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution begins.
+Primary execution progress:
+
+- `M0-1` — first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
+- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m0-1-first-output.md`
+- Remaining primary runs: `11 / 12`.
+
+Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution has begun. Do not score or correct a live successor before its run is frozen.
 
 ## Next consequential action
 
-Execute the preregistered **12 fresh successor runs**:
+Execute the remaining preregistered fresh successor runs:
 
 ```text
-M0 x 3
+M0 x 2 remaining
 M1 x 3
 M2 x 3
 M3 x 3
