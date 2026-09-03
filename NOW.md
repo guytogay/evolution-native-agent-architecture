@@ -26,6 +26,7 @@ Two semantic-reachability rounds (A-H) produced 8/8 `BASELINE_GOOD` under `GPT-5
 ## Comprehensive validation obligation
 
 Coverage map:
+
 `research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md`
 
 Every major earlier branch must eventually receive an explicit disposition:
@@ -34,64 +35,77 @@ Every major earlier branch must eventually receive an explicit disposition:
 
 Negative/null results count. Silent disappearance does not.
 
-## Boundary Memory vs Copied Remedy — pilot complete
+## Latest mechanism result
 
-Preregistration:
-`research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-preregistration.md`
+Boundary Memory vs Copied Remedy pilot:
 
-Results:
-`research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md`
+- I — no inheritance: `MECHANISM_GOOD`
+- J — full incident/archive: `MECHANISM_GOOD`
+- K — successful predecessor recipe: `MECHANISM_GOOD`
+- L — consequence boundary + applicability/counterexamples: `MECHANISM_GOOD`
 
-Four fresh Agents faced the same Supplier-B task. Only the predecessor handoff differed:
+All four independently reached the same Supplier-B-local safe/liveness policy.
 
-- I — no inheritance;
-- J — full incident/archive;
-- K — successful predecessor recipe;
-- L — consequence boundary + applicability/counterexamples.
-
-Observed:
+Preregistered interpretation therefore applies:
 
 ```text
-I: MECHANISM_GOOD
-J: MECHANISM_GOOD
-K: MECHANISM_GOOD
-L: MECHANISM_GOOD
-```
-
-All four independently selected same-key idempotent retransmission after timeout, preserved `UNKNOWN`, prevented new independent keys while unresolved, survived restart with one durable effect identity, and reconciled/escalated using Supplier-B-local evidence.
-
-Preregistered interpretation:
-
-```text
-I == J == K == L at qualitative mechanism level
+I == J == K == L
 -> fixture saturated under Current + strong reasoning
 -> no observed inheritance advantage
 ```
 
-The boundary package was sufficient and non-paralyzing, but it did **not** outperform no inheritance, full history, or the successful recipe.
+The boundary package was sufficient and non-paralyzing, but the claim that boundary-oriented inheritance has **superior transfer fitness** is **NARROWED**.
 
-Therefore the stronger claim that boundary-oriented inheritance has superior transfer fitness is **NARROWED**.
+Result:
 
-Do not rerun essentially the same Supplier-B fixture merely to seek an L win.
+`research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md`
 
-`NO CURRENT CHANGE`
+Do not rerun essentially the same Supplier-B fixture merely to seek a preferred-arm win.
 
 ## Next consequential action
 
-Design and preregister **Developmental Inheritance / Minimum Developmental Set**.
+Design and preregister a **multi-stage Developmental Inheritance / Minimum Developmental Set (MDS)** experiment.
 
-The next experiment must be more developmental than the Supplier-B one-shot task: inherited experience should matter before the target problem exposes all decisive semantics directly.
+The next experiment must make inherited developmental information causally relevant rather than state all decisive structure in the final task.
 
-Compare at least:
+Candidate arms:
 
-- no inheritance where feasible;
+- no inheritance control;
 - full archive/RAG;
 - distilled rules;
-- scoped disposition + positive/negative/boundary exemplars + provenance.
+- developmental package/MDS: scoped disposition + positive/negative/boundary examples + provenance.
 
-Use multiple structurally related target tasks with original terminology removed. Measure pre-retrieval behavior, transfer speed, overgeneralization, paralysis, provenance retention, and phenotype reconstruction.
+Use several novel structurally related tasks, include counterexamples/near-misses, and measure behavior before explicit historical retrieval where possible.
 
-Then continue through the coverage map: temporal assimilation, metamemory update policy, sleep-like consolidation, dream-like recombination, adaptation ecology, credit assignment/reconsolidation, decay/regime change, propagation/horizontal transfer, purpose-relative selection, and longitudinal cultural/developmental tests.
+Then continue through the Coverage Map: temporal assimilation, metamemory update policy, sleep-like consolidation, dream-like recombination, adaptation ecology, credit assignment/reconsolidation, decay/regime change, propagation/horizontal transfer, purpose-relative selection, and longitudinal cultural/developmental tests.
+
+## Project/branch operating model
+
+Normal continuation is now:
+
+```text
+main / NOW.md
+-> relevant Issue or artifact
+-> short-lived main-based branch when PR/isolation is useful
+-> merge durable result
+-> delete completed branch
+```
+
+The old long-lived `research/ena-reconstruction` branch is being retired after three unique Agent Skills/runtime-routing artifacts are reconciled into main.
+
+Cleanup audit:
+
+`research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
+
+## Deep succession record
+
+A detailed handoff was requested because the outgoing session contains several decision-heavy research/validation rounds and cross-repo method lessons.
+
+Start here when taking over this session:
+
+`research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-START-HERE.md`
+
+Normal future session continuation should **not** require this much context by default.
 
 ## Current admission rule
 
