@@ -1,220 +1,206 @@
 # ENA Project Handoff Protocol
 
-Status: `CANONICAL_HANDOFF_FRAMEWORK / MAIN_VISIBLE / OUTGOING_AND_INCOMING_EQUAL_PRIORITY / NOT_ENA_CURRENT`
+Status: `CANONICAL_HANDOFF_FRAMEWORK / MAIN_VISIBLE / NOT_ENA_CURRENT`
 
-This file governs normal project-manager/session succession for ENA.
+ENA must survive replacement of the current conversational Agent without forcing the human to reconstruct project state or method.
 
-The project must survive replacement of the current conversational Agent without requiring the user to reconstruct project history, method, or decision lineage.
+The important correction from recent use is that **not every continuation deserves the same amount of handoff machinery**.
 
 ```text
 PROJECT_CONTINUITY > SESSION_CONTINUITY
-HANDOFF_FRAMEWORK != HANDOFF_RECORD
-HANDOFF_RECORD != PROJECT_AUTHORITY
-PROJECT_STATE_INHERITANCE WITHOUT METHOD_INHERITANCE = INCOMPLETE_TAKEOVER
+HANDOFF_DEPTH SHOULD MATCH CONTINUITY RISK
+FRESH_VALIDATION != PROJECT_MANAGER_SUCCESSION
 ```
 
-## 1. Three-layer model
+## 1. Three transfer modes
 
-### A. Handoff framework — `research/handoffs/`
+### A. Normal continuation — default
 
-Persistent rules for **how to hand over and how to take over**.
+Use when `NOW.md` plus the directly relevant artifact/Issue is enough to continue correctly.
 
-Canonical framework files:
+Receiver normally:
 
-- `HANDOFF-PROTOCOL.md` — this file; outgoing and incoming rules;
-- `REQUIRED-TAKEOVER-CONTEXT.yaml` — machine-readable mandatory context;
-- `PROJECT-MANAGEMENT-DISCIPLINE.md` — cross-session project-management rules and promoted lessons;
-- `CURRENT-HANDOFF.yaml` — stable pointer to the latest intended record.
+1. reads `NOW.md`;
+2. reads the task-relevant Issue/file;
+3. verifies Current only if the decision depends on Current identity;
+4. retrieves deeper history only when it can change the decision;
+5. starts useful work.
 
-### B. Handoff records — `research/handoffs/records/<handoff-id>/`
+Do **not** require a full handoff record, branch census, master-plan reread, or repository audit merely because a session changed.
 
-Time-bounded project-state snapshots and continuity evidence for one succession event.
+### B. Deep project/session succession
 
-A record may describe what method mattered at that time, but reusable method must live in the framework or project methodology, not permanently inside one record.
+Use when losing the current session would materially risk losing:
 
-### C. Project methodology — `research/methodology/`
+- a long decision chain;
+- active experimental design/oracle;
+- important rejected approaches;
+- repo-ecosystem boundaries;
+- unresolved branches of reasoning;
+- project method learned during the session;
+- a complex next action that cannot be reconstructed cheaply.
 
-How ENA research itself is performed: falsification, convergence/divergence, project-state alignment, evidence discipline, etc.
+This is the mode used by the 2026-09-03 succession because the session contains several rounds of evolutionary-memory research, cleanroom experiments, branch cleanup, and cross-repo method work.
 
-Project methodology is mandatory takeover context even though it is not project state.
+A deep handoff should be detailed enough that the next Agent can continue without asking the user to replay the session, but it should still link to durable source artifacts instead of copying the whole repository.
+
+### C. Fresh independent validation
+
+Optimize in the opposite direction.
+
+The validator should receive a structurally isolated target/task surface with minimal author-shaped context.
+
+Do **not** give the validator the deep project-manager handoff before its independent first response.
 
 ```text
-TAKEOVER = STATE + METHOD + GOVERNANCE + DECISION_LINEAGE + NEXT_ACTION
+PROJECT_MANAGER_SUCCESSION -> PRESERVE RELEVANT CONTEXT
+FRESH_VALIDATOR -> REMOVE CONTAMINATING CONTEXT
 ```
 
-## 2. Equality rule: transfer and takeover both matter
+## 2. Handoff framework vs occurrence record
 
-The outgoing protocol and incoming protocol have equal project-continuity importance.
+Reusable succession rules live under `research/handoffs/`.
 
-A perfect outgoing package can still fail if the receiver does not retrieve, verify, interpret, and apply it.
+One deep succession occurrence lives under:
 
-A disciplined receiver cannot recover information that the outgoing session never persisted.
+`research/handoffs/records/<handoff-id>/`
 
-```text
-HANDOFF_QUALITY = OUTGOING_COMPLETENESS x INCOMING_APPLICATION
-```
+Reusable method discovered during the occurrence must be promoted to:
 
-This is conceptual composition, not a numeric scoring formula.
+- this protocol;
+- `PROJECT-MANAGEMENT-DISCIPLINE.md`; or
+- `research/methodology/`.
 
-## 3. Outgoing session protocol
+Do not make every dated record another permanent policy layer.
 
-Before declaring succession ready, the outgoing project manager must:
+## 3. Deep outgoing protocol
 
-1. **Flush material work**
-   - persist decision-material code, plans, evidence, conclusions, fixtures, and open questions;
-   - explicitly record anything that could not be persisted.
+Before declaring a deep succession ready:
+
+1. **Persist material work**
+   - conclusions;
+   - negative/null results;
+   - active hypotheses;
+   - experimental oracle/design;
+   - rejected approaches likely to be retried;
+   - unmerged unique artifacts.
 
 2. **Reverify live reality**
-   - main/default head;
-   - active research pointer and live branch head;
-   - Current baseline;
-   - candidate/release/freeze identity;
-   - open PR/review state and material CI state.
+   - `main`;
+   - Current if relevant;
+   - open PRs that matter;
+   - branch uniqueness/cleanup if branch topology is part of the handoff.
 
-3. **Run project-state alignment when needed**
-   - repair stale routing, Progress, plan, Active Research, handoff pointer, and other current-state projections after material transitions.
-
-4. **Preserve exact immutable identity**
+3. **Preserve exact immutable identities where they matter**
    - frozen/released objects use exact source/tree/content identity;
-   - branch recency is not frozen identity.
+   - a mutable branch head is not a frozen identity.
 
-5. **Preserve unresolved variation**
-   - summary may compress prose;
-   - it may not silently erase materially distinct HOW, failure, Host, evidence, or decision branches whose equivalence is unproven.
+4. **Preserve unresolved variation**
+   - compress prose;
+   - do not silently delete competing hypotheses, negative results, Host differences, or falsification conditions.
 
-6. **Create/update the current handoff record**
-   - project state;
-   - recent decision-bearing conversation context;
-   - file catalog;
-   - exact next action;
-   - forbidden actions;
-   - readback/completeness evidence.
+5. **Write the deep record**
+   A material record normally contains:
+   - `HANDOFF-START-HERE.md`;
+   - `HANDOFF-MANIFEST.yaml`;
+   - `PROJECT-STATE.md`;
+   - `RECENT-THREE-ROUNDS.md`;
+   - `FILE-CATALOG.md`;
+   - `HANDOFF-READBACK.md`.
 
-7. **Promote reusable lessons out of the record**
-   - project-management rule -> `research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`;
-   - handoff/takeover rule -> this protocol or `REQUIRED-TAKEOVER-CONTEXT.yaml`;
-   - ENA research-method rule -> `research/methodology/`.
+   Add focused files such as `LESSONS-AND-REMINDERS.md` or `REPO-ECOSYSTEM.md` when they materially reduce successor error.
 
-8. **Update `CURRENT-HANDOFF.yaml`**
-   - point to the latest intended record;
-   - explicitly declare mandatory framework and project-methodology context.
+6. **Update `CURRENT-HANDOFF.yaml`**
+   - point to the latest intended deep record;
+   - keep it a router, not a duplicated project encyclopedia.
 
-9. **Integrate and read back**
-   - PR + applicable CI;
-   - after merge, read from `main` as a fresh receiver would;
-   - verify that pointer, Current, active research, methodology, record, and next action agree.
+7. **Integrate and read back**
+   - merge via normal PR/review;
+   - read the resulting main surfaces as a successor would;
+   - correct contradictions that would change the next action.
 
-```text
-WRITTEN != HANDOFF_COMPLETE
-```
+## 4. Deep incoming protocol
 
-## 4. Incoming session protocol
+A receiver of a deep handoff should:
 
-A new project-manager session must, before substantive work:
-
-1. start from repository `main`;
-2. read `PROJECT-HUB.md` and verify `releases/current/CURRENT-BASELINE.yaml`;
+1. start from current `main`;
+2. read `NOW.md`;
 3. read `research/handoffs/CURRENT-HANDOFF.yaml`;
-4. read **this protocol** and `REQUIRED-TAKEOVER-CONTEXT.yaml`;
-5. read `PROJECT-MANAGEMENT-DISCIPLINE.md`;
-6. read the mandatory project methodology listed in `REQUIRED-TAKEOVER-CONTEXT.yaml`;
-7. read the current handoff record pointed to by `CURRENT-HANDOFF.yaml`;
-8. independently reverify live refs, exact frozen/released identities, review state, and Current;
-9. read `research/ACTIVE-RESEARCH.yaml`, `research/plans/PROGRESS.yaml`, and the master plan;
-10. read recent decision context and only then retrieve deeper evidence/prototypes required by the next action;
-11. if current-state surfaces disagree, run the Project State Alignment Gate before substantive work;
-12. state the inherited project state, governing methods, and first permitted next action from persisted evidence;
-13. continue without asking the user to repeat information already durably available.
+4. follow its `start_here` and manifest;
+5. read the project state, recent rounds, repo map, lessons, and file catalog actually linked by that record;
+6. reverify mutable live facts before writing;
+7. read only the deeper research/method/evidence files needed by the next consequential action;
+8. continue without asking the user to repeat durably available project context.
 
-The receiver must inherit both **what the project currently says** and **how the project has learned to reason about what to do next**.
+The receiver does **not** need to reread every old handoff record, release reconciliation file, branch inventory generation, or master-plan version.
 
-```text
-READ_STATE_ONLY = INCOMPLETE_TAKEOVER
-READ_METHOD_ONLY = INCOMPLETE_TAKEOVER
-```
+## 5. Authority hierarchy
 
-## 5. Required handoff-record contents
-
-A material record normally contains:
-
-- `HANDOFF-START-HERE.md` — shortest instance-specific bootstrap;
-- `HANDOFF-MANIFEST.yaml` — machine-readable record identity/pointers;
-- `PROJECT-STATE.md` — current-state projection and exact identities;
-- `RECENT-THREE-ROUNDS.md` — at least the latest three decision-bearing rounds; older material when still necessary;
-- `FILE-CATALOG.md` — instance-specific repository map/read order;
-- `HANDOFF-READBACK.md` — integration/readback evidence.
-
-`THREE_ROUNDS` is a minimum continuity window, not a completeness limit.
-
-Do **not** permanently store canonical handoff rules or reusable project-management methodology inside the instance directory.
-
-## 6. Authority hierarchy
-
-When sources disagree, handoff records are maps, not authority.
+When surfaces disagree:
 
 ```text
 Current identity
   -> releases/current/CURRENT-BASELINE.yaml
 
-Frozen candidate identity
-  -> exact external freeze record + source/tree binding
+Live project/research status
+  -> NOW.md on main
 
-Active research routing
-  -> research/ACTIVE-RESEARCH.yaml on main
+Research method
+  -> research/methodology/ canonical files
 
-Handoff/takeover method
+Handoff method
   -> research/handoffs/HANDOFF-PROTOCOL.md
 
-Project-management discipline
-  -> research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
-
-Research methodology
-  -> research/methodology/ on main
-
-Fast execution state
-  -> research/plans/PROGRESS.yaml after alignment
+Deep succession router
+  -> research/handoffs/CURRENT-HANDOFF.yaml
 
 Handoff record
-  -> bootstrap projection / lineage
+  -> occurrence projection / bootstrap
+
+Historical plan/progress/branch records
+  -> lineage unless current live routing explicitly depends on them
 
 Chat
-  -> non-authoritative context
+  -> useful but non-authoritative context
 ```
 
-## 7. Anti-convergence rule
+## 6. Independent-validation information boundary
 
-LLMs often narrate success by summarizing and collapsing detail. Handoff writing may compress representation but may not silently compress decision-relevant possibility space.
+A different session/model is not automatically independent if it receives the author's answer shape first.
+
+For fresh cleanroom experiments:
 
 ```text
-COMPRESS_HANDOFF_PROSE = ALLOWED
-COMPRESS_UNPROVEN_VARIATION = NOT_ALLOWED
+structural isolation
++ identical common substrate across arms
++ only intended treatment/task difference
++ preregistered oracle
++ first complete response captured
+-> then author context/adjudication
 ```
 
-Canonical project method:
+Do not tell a fresh Agent “do not inspect the source repo/research/oracle” when the cleaner design is to make those surfaces absent.
 
-`research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md`
+## 7. Completeness test for deep succession
 
-## 8. Completeness test
+A deep handoff is sufficient when the receiver can answer:
 
-A handoff is not ready unless a fresh receiver can answer from persisted sources:
+- What is ENA and what is not ENA Current?
+- What project phase is active now?
+- What did the last experimental rounds actually show, including null/negative results?
+- Which hypotheses were narrowed rather than supported?
+- What earlier research branches remain validation obligations?
+- What is the next falsifiable experiment and what design mistakes must it avoid?
+- Which related repositories exist and what are their boundaries?
+- Which branches are historical/delete-safe and which unique material had to be rescued?
+- What should the receiver **not** redo?
 
-- What is Current?
-- What project phase is actually active?
-- Which exact object is frozen/released/current?
-- Which branch is continuation authority?
-- What changed recently and why?
-- What is the exact next action?
-- What is forbidden now?
-- Which unresolved branches may still change the decision?
-- Which project methodology governs the next work?
-- Which handoff/takeover rules govern succession itself?
-- Which project-management lessons must remain salient?
-- Where are the supporting files/evidence?
+If the receiver must ask the user to reconstruct these, the deep succession failed.
 
-If the receiver must ask the user to reconstruct these, succession failed.
+## 8. Normal lifecycle rule
 
-## 9. Normal lifecycle rule
+Session replacement is normal maintenance.
 
-Session replacement is normal maintenance, not an exceptional recovery event.
+> A healthy project can use a tiny handoff most of the time and a deep handoff when continuity risk genuinely warrants it.
 
-> A healthy ENA project survives loss of the current conversational context without losing project state, project method, project-management discipline, authority boundaries, or decision lineage.
+The goal is continuity, not handoff document production.
