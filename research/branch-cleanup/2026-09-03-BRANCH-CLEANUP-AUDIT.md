@@ -1,6 +1,13 @@
 # ENA Branch Cleanup Audit — 2026-09-03
 
-Status: `PROJECT_HYGIENE / MAIN_BASED / NOT_CURRENT / NO_SEMANTIC_CHANGE`
+Status: `PROJECT_HYGIENE / POSTMERGE_VERIFIED / NOT_CURRENT / NO_SEMANTIC_CHANGE`
+
+Integration facts:
+
+- cleanup/handoff PR: `#178`
+- squash merge: `ec9255f147c866de3eeb44e7769285800a603afb`
+- postmerge readback: `PASS`
+- three unique `research/ena-reconstruction` artifacts: present on `main` with exact pre-migration blob identity
 
 ## Decision
 
@@ -18,9 +25,9 @@ main / NOW.md
 
 Branch names are lifecycle handles, not archives.
 
-After this audit and the migration below, **`main` should be the only long-lived continuation branch**. Future research branches should normally be short-lived PR branches created from current `main`.
+After PR #178 and its readback, **`main` is the only intended long-lived continuation branch**. Future research branches should normally be short-lived PR branches created from current `main`.
 
-## Important exception discovered before cleanup
+## Important exception discovered before cleanup — resolved
 
 `research/ena-reconstruction` was not safe to delete at audit start.
 
@@ -30,15 +37,17 @@ Compared with `main @ e1e50ed1def69d4a088d670ca26dc54c3b747904`, it was 3 commit
 2. `research/field-validation/host-adapters/agent-skills/ena-runtime-router/SKILL.md`
 3. `research/field-validation/host-adapters/agent-skills/ena-runtime-router/TRIGGER-CASES.yaml`
 
-Those files are being transplanted into this **fresh main-based handoff PR** without merging the stale branch wholesale.
+PR #178 transplanted those files into a fresh main-based change without merging the stale branch wholesale.
 
-After the transplant is merged, `research/ena-reconstruction` becomes delete-safe.
+Postmerge readback verified that all three files are present on `main` with the same blob identities observed on the old branch.
+
+Therefore `research/ena-reconstruction` is now **delete-safe**.
 
 This is the main branch-cleanup lesson:
 
 ```text
 STALE_BRANCH != SAFE_TO_DELETE
-UNIQUE_CONTENT_CHECK -> PRESERVE -> THEN_RETIRE
+UNIQUE_CONTENT_CHECK -> PRESERVE -> VERIFY -> THEN_RETIRE
 ```
 
 ## Keep
@@ -50,22 +59,23 @@ UNIQUE_CONTENT_CHECK -> PRESERVE -> THEN_RETIRE
   - sole long-lived continuation surface after this cleanup;
   - ENA Current remains only `releases/current/`, not all of `main`.
 
-### Temporary until this handoff PR is merged/read back
+### Temporary only while active work is unmerged
 
-- `handoff/2026-09-03-session-succession`
-  - purpose: this cleanup + deep succession handoff + migration of the three unique Agent Skills artifacts;
-  - delete after merge/readback.
+A short-lived main-based branch may exist while a bounded PR/isolation task is active.
 
-## Migrate unique content, then delete
+The current postmerge-readback branch is temporary and becomes delete-safe after its small completion PR merges.
+
+## Former long-lived research branch — delete-safe
 
 - `research/ena-reconstruction`
   - do **not** merge the diverged branch itself;
-  - three unique research files listed above are preserved by the current main-based handoff PR;
-  - after those files are visible on main, delete the branch ref.
+  - its three unique research files were preserved by PR #178;
+  - exact blob identity was verified after merge;
+  - delete the branch ref when convenient.
 
-## Delete-safe after current handoff merge
+## Delete-safe refs
 
-The following refs have completed their lifecycle and their decision-relevant lineage is already preserved in main history, merged/closed PRs, exact commits/trees, release/freeze records, validation records, or the recent field-validation archives.
+The following refs have completed their lifecycle and their decision-relevant lineage is already preserved in main history, merged/closed PRs, exact commits/trees, release/freeze records, validation records, or field-validation archives.
 
 ### v0.3.7 release/candidate/integration lifecycle
 
@@ -131,6 +141,16 @@ Their meaningful content is already on main through merged PRs #154–#177 and e
   - authoritative coverage map and pilot result are already on main through PR #175 and #176;
   - do not merge either intermediate branch.
 
+### completed handoff refs
+
+- `handoff/2026-09-03-session-succession`
+  - merged through PR #178;
+  - delete-safe after successful postmerge readback.
+
+- `handoff/2026-09-03-postmerge-readback`
+  - temporary completion/readback branch;
+  - delete after its small completion PR merges and main readback confirms the final state.
+
 ### operator noise
 
 - `tmp/noop-check`
@@ -177,11 +197,11 @@ The branch namespace should therefore be pruned rather than treated as an archiv
 
 ## Manual cleanup limitation
 
-The current GitHub connector available to this session does not expose a genuine delete-ref operation.
+The GitHub connector available to this session does not expose a genuine delete-ref operation.
 
 Do **not** simulate deletion by force-moving refs.
 
-After this handoff PR is merged and read back, the user may delete every branch listed under **Delete-safe** plus `research/ena-reconstruction` and this handoff branch through GitHub's branch UI/CLI.
+The user may delete every branch listed under **Delete-safe refs** through GitHub's branch UI/CLI. `research/ena-reconstruction` is now included because its unique material has been preserved and verified.
 
 Expected stable topology afterward:
 
