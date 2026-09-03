@@ -1,4 +1,4 @@
-schema_version: "4.0"
+schema_version: "4.1"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-03"
 
@@ -14,7 +14,9 @@ handoff_framework:
 
 current_handoff_record:
   id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
-  state: DEEP_PROJECT_SESSION_SUCCESSION_PREMERGE
+  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
+  integration_pr: 178
+  integration_merge: ec9255f147c866de3eeb44e7769285800a603afb
   record_root: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/
   start_here: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-START-HERE.md
   manifest: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-MANIFEST.yaml
@@ -24,6 +26,7 @@ current_handoff_record:
   repo_ecosystem: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/REPO-ECOSYSTEM.md
   file_catalog: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/FILE-CATALOG.md
   readback: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-READBACK.md
+  readback_state: PASS
 
 current_project_authorities:
   live_status: NOW.md
@@ -50,10 +53,15 @@ active_research:
   latest_mechanism_result: research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md
 
 branch_transition:
-  retiring_branch: research/ena-reconstruction
-  state: UNIQUE_ARTIFACTS_MIGRATING_IN_HANDOFF_PR
+  retired_long_lived_branch: research/ena-reconstruction
+  state: DELETE_SAFE_AFTER_EXACT_ARTIFACT_MIGRATION
   merge_wholesale: false
-  delete_after_merge_readback: true
+  delete_ref_manually_when_convenient: true
+
+related_workbench_update:
+  repository: guytogay/human-ai-workbench
+  pr: 1
+  merge: 36876e2c7695036b0e3a24093f66894cbfcee037
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -64,6 +72,6 @@ receiver_contract:
   use_full_handoff_for_fresh_validator: FORBIDDEN
 
 rule: >-
-  The 2026-09-03 record is the current deep succession package. Normal continuation remains
-  cheaper: NOW.md plus the relevant artifact. Fresh independent validation must use an isolated
-  minimal cleanroom rather than this project-manager context.
+  The 2026-09-03 record is the current completed deep succession package. Normal continuation
+  remains cheaper: NOW.md plus the relevant artifact. Fresh independent validation must use an
+  isolated minimal cleanroom rather than this project-manager context.
