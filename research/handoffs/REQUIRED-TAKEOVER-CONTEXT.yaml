@@ -1,92 +1,83 @@
-schema_version: "1.1"
-status: CANONICAL_REQUIRED_TAKEOVER_CONTEXT
-updated_at: "2026-08-27"
+schema_version: "2.0"
+status: CANONICAL_ROLE_SCOPED_TAKEOVER_CONTEXT
+updated_at: "2026-09-03"
 
-scope:
-  primary_role: PROJECT_MANAGER_SESSION_SUCCESSION
-  fresh_independent_validator_uses_full_takeover_context_before_phase_a: false
+modes:
+  normal_continuation:
+    default: true
+    required:
+      - NOW.md
+      - DIRECTLY_RELEVANT_ISSUE_OR_ARTIFACT
+    conditional:
+      - releases/current/CURRENT-BASELINE.yaml: WHEN_CURRENT_IDENTITY_CAN_CHANGE_DECISION
+      - research/methodology/: WHEN_METHOD_CAN_CHANGE_DECISION
+      - research/handoffs/CURRENT-HANDOFF.yaml: WHEN_DEEP_SUCCESSION_CONTEXT_IS_NEEDED
+    full_repository_audit: false
+    branch_census: false
 
-principle:
-  project_state_and_method_are_equal_takeover_requirements: true
-  handoff_and_takeover_rules_are_first_class_context: true
-  handoff_record_is_bootstrap_not_authority: true
+  deep_project_session_succession:
+    default: false
+    trigger: >-
+      Use when session loss risks losing a long decision chain, experimental design/oracle,
+      rejected approaches, cross-repo boundaries, unique branch material, or substantial
+      project method that cannot be reconstructed cheaply.
+    required:
+      - NOW.md
+      - research/handoffs/CURRENT-HANDOFF.yaml
+      - CURRENT_HANDOFF_RECORD_START_HERE
+      - CURRENT_HANDOFF_RECORD_MANIFEST
+      - CURRENT_HANDOFF_RECORD_PROJECT_STATE
+      - CURRENT_HANDOFF_RECORD_RECENT_ROUNDS
+      - CURRENT_HANDOFF_RECORD_FILE_CATALOG
+      - CURRENT_HANDOFF_RECORD_LESSONS_IF_PRESENT
+      - CURRENT_HANDOFF_RECORD_REPO_ECOSYSTEM_IF_PRESENT
+    receiver_requirements:
+      - LIVE_REVERIFY_MUTABLE_FACTS_BEFORE_WRITES
+      - DO_NOT_ASK_USER_TO_REPEAT_DURABLY_AVAILABLE_CONTEXT
+      - PRESERVE_NEGATIVE_NULL_AND_UNRESOLVED_RESULTS
+      - RETRIEVE_DEEPER_HISTORY_ONLY_WHEN_DECISION_CHANGING
 
-handoff_framework:
-  required: true
-  files:
-    - path: research/handoffs/HANDOFF-PROTOCOL.md
-      role: CANONICAL_OUTGOING_AND_INCOMING_SUCCESSION_RULES
-    - path: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
-      role: CROSS_SESSION_PROJECT_MANAGEMENT_RULES_AND_PROMOTED_LESSONS
-    - path: research/handoffs/CURRENT-HANDOFF.yaml
-      role: CURRENT_RECORD_POINTER_AND_TAKEOVER_CONTRACT
+  fresh_independent_validation:
+    project_manager_handoff_before_first_response: false
+    required:
+      - STRUCTURALLY_ISOLATED_TARGET_AND_TASK
+      - ONLY_INTENDED_COMMON_FRAMEWORK_OR_TREATMENT_MATERIAL
+      - MINIMAL_LAUNCH_INSTRUCTION
+    forbidden_before_first_response:
+      - AUTHOR_EXPECTED_VERDICT
+      - AUTHOR_ATTACK_TAXONOMY
+      - OTHER_ARM_RESPONSES
+      - SOURCE_RESEARCH_PATH_HINTS_NOT_REQUIRED_BY_TASK
+      - INSTRUCTIONS_TO_IGNORE_SURFACES_THAT_SHOULD_SIMPLY_BE_ABSENT
+    evidence_rule:
+      - CAPTURE_FIRST_COMPLETE_RESPONSE
+      - PRESERVE_BEFORE_CORRECTION_DIALOGUE
+      - OPEN_AUTHOR_CONTEXT_ONLY_AFTER_CAPTURE
 
-project_methodology:
-  required: true
-  files:
-    - path: research/methodology/README.md
-      role: PROJECT_METHOD_INDEX
-    - path: research/methodology/ENA-RESEARCH-DISCIPLINE.md
-      role: MASTER_RESEARCH_METHOD_LEDGER
-    - path: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
-      role: ABSTRACTION_GROWTH_AND_ANTI_ABLATION_DISCIPLINE
-    - path: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-      role: MATERIAL_TRANSITION_STATE_ALIGNMENT
-    - path: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
-      role: ROLE_SCOPED_INFORMATION_BOUNDARY_FOR_FRESH_PHASE_A
+project_authorities:
+  live_project_status: NOW.md
+  current_identity: releases/current/CURRENT-BASELINE.yaml
+  current_package: releases/current/
+  branch_governance: research/BRANCH-GOVERNANCE.md
+  branch_cleanup_audit: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
+  research_method_index: research/methodology/README.md
+  handoff_method: research/handoffs/HANDOFF-PROTOCOL.md
+  project_management_lessons: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
 
-project_authority_and_governance:
-  required: true
-  files:
-    - path: PROJECT-HUB.md
-      role: STABLE_PROJECT_ENTRYPOINT
-    - path: releases/current/CURRENT-BASELINE.yaml
-      role: CURRENT_IDENTITY_AUTHORITY
-    - path: research/ACTIVE-RESEARCH.yaml
-      role: ACTIVE_RESEARCH_ROUTING_AUTHORITY
-    - path: research/BRANCH-GOVERNANCE.md
-      role: BRANCH_AND_CANDIDATE_TOPOLOGY_RULES
+legacy_surfaces:
+  project_hub:
+    path: PROJECT-HUB.md
+    role: COLD_COMPATIBILITY_POINTER
+  active_research_pointer:
+    path: research/ACTIVE-RESEARCH.yaml
+    role: COMPATIBILITY_ROUTER_TO_MAIN_AND_NOW
+  progress_and_master_plan:
+    role: HISTORICAL_OR_DECISION_CONDITIONAL_NOT_DEFAULT_TAKEOVER_READING
 
-execution_state:
-  required: true
-  files:
-    - path: research/plans/PROGRESS.yaml
-      role: FAST_MOVING_EXECUTION_STATE
-    - path: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
-      role: LONG_HORIZON_PLAN_AND_PHASE_CONSTRAINTS
-
-current_handoff_record:
-  required: true
-  resolution_rule: READ_research/handoffs/CURRENT-HANDOFF.yaml_DO_NOT_GUESS_FROM_RECENCY
-
-receiver_requirements:
-  - READ_HANDOFF_FRAMEWORK_BEFORE_SUBSTANTIVE_WORK
-  - INHERIT_PROJECT_METHODOLOGY_NOT_ONLY_PROJECT_STATE
-  - READ_CURRENT_HANDOFF_RECORD
-  - LIVE_REVERIFY_CURRENT_REFS_AND_FROZEN_IDENTITIES
-  - RUN_ALIGNMENT_GATE_IF_CURRENT_SURFACES_DISAGREE
-  - DO_NOT_ASK_USER_TO_REPEAT_DURABLY_AVAILABLE_PROJECT_CONTEXT
-  - PRESERVE_UNPROVEN_HOW_FAILURE_HOST_EVIDENCE_VARIATION
-
-fresh_independent_validator_boundary:
-  applies_when_current_next_action_requires_fresh_phase_a: true
-  project_manager_must_prepare_role_scoped_entry: true
-  validator_must_not_read_full_project_manager_handoff_before_phase_a: true
-  validator_must_not_receive_author_attack_taxonomy_before_phase_a: true
-  validator_must_not_receive_author_expected_verdicts_before_phase_a: true
-  phase_a_findings_must_be_persisted_before_phase_b_context_opens: true
-  canonical_method: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
-  task_specific_entry_resolved_from_current_project_state: true
-
-outgoing_requirements:
-  - PERSIST_MATERIAL_WORK
-  - ALIGN_PROJECT_STATE_AFTER_MATERIAL_TRANSITIONS
-  - PROMOTE_REUSABLE_METHOD_OUT_OF_INSTANCE_RECORDS
-  - UPDATE_CURRENT_HANDOFF_POINTER
-  - COMPLETE_POST_MERGE_READBACK
-
-invariant: >-
-  A project-manager receiver that inherits only project state but not handoff protocol,
-  project-management discipline, and project methodology has not completed takeover.
-  A fresh independent validator is a distinct role and must use the task-specific
-  minimal-prime Phase-A entry before author-shaped project context is opened.
+invariants:
+  - PROJECT_CONTINUITY_OUTRANKS_SESSION_CONTINUITY
+  - HANDOFF_DEPTH_TRACKS_CONTINUITY_RISK
+  - NORMAL_CONTINUATION_MUST_NOT_BECOME_FULL_AUDIT_BY_DEFAULT
+  - FRESH_VALIDATION_INFORMATION_BOUNDARY_DIFFERS_FROM_PROJECT_SUCCESSION
+  - WRITTEN_HANDOFF_IS_NOT_COMPLETE_UNTIL_RETRIEVED_INTERPRETED_AND_APPLIED
+  - NEGATIVE_OR_NULL_RESULTS_ARE_PROJECT_STATE_NOT_DISPOSABLE_NOISE
