@@ -13,79 +13,85 @@ Keep it short. Git history stores history; Issues store open work; CI stores mac
 
 ## Active research phase
 
-ENA's evolutionary-memory work is now in **mechanism discrimination**.
+ENA's evolutionary-memory work is in **mechanism discrimination**.
 
 Default sequence:
 
 > `SYNTHESIZE → REACHABILITY PROBE → MECHANISM EXPERIMENT → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
 
-Two semantic-reachability cleanroom rounds, eight isolated `GPT-5.6 Sol / high reasoning` cases, produced no anticipated wrong attractor under the tested v0.3.7 package.
-
-Therefore:
+Two semantic-reachability rounds (A-H) produced 8/8 `BASELINE_GOOD` under `GPT-5.6 Sol / high reasoning / full v0.3.7 Current`.
 
 `NO OBSERVED REACHABILITY DEFECT -> NO REPAIR ARM -> NO CURRENT CHANGE FROM THIS EVIDENCE`
 
-Round results:
-- `research/field-validation/2026-09-03-semantic-reachability-cleanroom-baseline.md`
-- `research/field-validation/2026-09-03-semantic-reachability-cleanroom-round2-results.md`
-
-## Validation coverage obligation
-
-The earlier divergent research produced more branches than the current active experiment. None should disappear merely because it is older or less convenient to test.
+## Comprehensive validation obligation
 
 Coverage map:
-
 `research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md`
 
-Every major branch should eventually end in an explicit disposition:
+Every major earlier branch must eventually receive an explicit disposition:
 
 `SUPPORTED ENOUGH TO CONTINUE | NARROWED | SUBSUMED / DUPLICATE | REJECTED | METAPHOR ONLY | FIELD-UNRESOLVED`
 
-Comprehensive validation does **not** mean proving every branch true. Negative/null results count. Silent disappearance does not.
+Negative/null results count. Silent disappearance does not.
 
-The coverage map includes, among others:
-- preserved adaptation and regulated memory expression;
-- metamemory / selective permeability / learning governance;
-- adaptive inheritance / Minimum Developmental Set;
-- developmental succession and developmental dynamics;
-- negative boundaries / viable action topology;
-- sleep-like consolidation and replay scheduling;
-- dream-like recombination + reality selection;
-- credit assignment and causal support;
-- adaptation ecology / interaction debt / epistasis;
-- decay, silencing, pruning, excision, and reconsolidation;
-- structural/environmental inheritance;
-- lexical/semantic/behavioral propagation and horizontal transfer;
-- memetic fitness vs beneficial fitness;
-- purpose-relative selection, purpose drift, and propagation fitness;
-- cultural ratchet / doctrine / ossification;
-- developmental-lineage identity where it has decision-relevant consequences.
-
-## Active mechanism experiment
-
-**Boundary Memory vs Copied Remedy pilot — I/J/K/L**
+## Boundary Memory vs Copied Remedy — pilot complete
 
 Preregistration:
-`research/field-validation/2026-09-03-boundary-memory-vs-copied-remedy-pilot-preregistration.md`
+`research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-preregistration.md`
 
-Four fresh Agents face the same changed-Host task and identical Current package. The only experimental variable is inherited material:
+Results:
+`research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md`
 
-- I — no ancestral operational memory;
-- J — full incident/archive history;
-- K — successful ancestral recipe;
-- L — consequence boundary + counterexamples/boundary exemplars.
+Four fresh Agents faced the same Supplier-B task. Only the predecessor handoff differed:
 
-The pilot is allowed to falsify the boundary-memory hypothesis. If all arms perform equally well, treat the fixture as saturated/null rather than declaring a winner.
+- I — no inheritance;
+- J — full incident/archive;
+- K — successful predecessor recipe;
+- L — consequence boundary + applicability/counterexamples.
 
-## Next research move
+Observed:
 
-1. Adjudicate I/J/K/L against the preregistered oracle.
-2. Update the validation coverage map with the result.
-3. If the pilot discriminates, design the next **Developmental Inheritance / Minimum Developmental Set** experiment.
-4. If it does not discriminate, redesign the fixture before spending more cleanroom runs.
-5. Continue through the coverage map rather than following only the newest idea.
+```text
+I: MECHANISM_GOOD
+J: MECHANISM_GOOD
+K: MECHANISM_GOOD
+L: MECHANISM_GOOD
+```
 
-The planned later tracks include temporal assimilation, metamemory update policy, sleep-like consolidation, dream-like recombination, adaptation ecology, propagation, and purpose-relative selection.
+All four independently selected same-key idempotent retransmission after timeout, preserved `UNKNOWN`, prevented new independent keys while unresolved, survived restart with one durable effect identity, and reconciled/escalated using Supplier-B-local evidence.
+
+Preregistered interpretation:
+
+```text
+I == J == K == L at qualitative mechanism level
+-> fixture saturated under Current + strong reasoning
+-> no observed inheritance advantage
+```
+
+The boundary package was sufficient and non-paralyzing, but it did **not** outperform no inheritance, full history, or the successful recipe.
+
+Therefore the stronger claim that boundary-oriented inheritance has superior transfer fitness is **NARROWED**.
+
+Do not rerun essentially the same Supplier-B fixture merely to seek an L win.
+
+`NO CURRENT CHANGE`
+
+## Next consequential action
+
+Design and preregister **Developmental Inheritance / Minimum Developmental Set**.
+
+The next experiment must be more developmental than the Supplier-B one-shot task: inherited experience should matter before the target problem exposes all decisive semantics directly.
+
+Compare at least:
+
+- no inheritance where feasible;
+- full archive/RAG;
+- distilled rules;
+- scoped disposition + positive/negative/boundary exemplars + provenance.
+
+Use multiple structurally related target tasks with original terminology removed. Measure pre-retrieval behavior, transfer speed, overgeneralization, paralysis, provenance retention, and phenotype reconstruction.
+
+Then continue through the coverage map: temporal assimilation, metamemory update policy, sleep-like consolidation, dream-like recombination, adaptation ecology, credit assignment/reconsolidation, decay/regime change, propagation/horizontal transfer, purpose-relative selection, and longitudinal cultural/developmental tests.
 
 ## Current admission rule
 
@@ -93,7 +99,7 @@ The planned later tracks include temporal assimilation, metamemory update policy
 
 Current changes remain downstream of decision-relevant evidence that v0.3.7 either cannot express an important relation, cannot make it usable, or lacks an invariant revealed by mechanisms that survive falsification and reality contact.
 
-Field Guide HOW remains downstream of real reusable practice, not automatic translation of every research branch.
+Field Guide HOW remains downstream of real reusable practice.
 
 ## Current open work
 
