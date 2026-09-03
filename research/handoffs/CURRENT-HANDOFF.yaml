@@ -1,4 +1,4 @@
-schema_version: "4.1"
+schema_version: "4.2"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-03"
 
@@ -21,11 +21,13 @@ current_handoff_record:
   start_here: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-START-HERE.md
   manifest: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-MANIFEST.yaml
   project_state: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/PROJECT-STATE.md
+  project_state_role: PREMERGE_OCCURRENCE_SNAPSHOT_WITH_DETAILED_RESEARCH_STATE
   recent_rounds: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/RECENT-THREE-ROUNDS.md
   lessons: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/LESSONS-AND-REMINDERS.md
   repo_ecosystem: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/REPO-ECOSYSTEM.md
   file_catalog: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/FILE-CATALOG.md
   readback: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-READBACK.md
+  readback_role: POSTMERGE_COMPLETION_AND_MUTABLE_STATE_VERIFICATION
   readback_state: PASS
 
 current_project_authorities:
@@ -70,8 +72,11 @@ receiver_contract:
   preserve_negative_and_null_results: REQUIRED
   reverify_live_mutable_facts_before_writes: REQUIRED
   use_full_handoff_for_fresh_validator: FORBIDDEN
+  interpret_project_state_transitional_branch_language_as_live_truth: FORBIDDEN
 
 rule: >-
   The 2026-09-03 record is the current completed deep succession package. Normal continuation
-  remains cheaper: NOW.md plus the relevant artifact. Fresh independent validation must use an
-  isolated minimal cleanroom rather than this project-manager context.
+  remains cheaper: NOW.md plus the relevant artifact. PROJECT-STATE.md preserves the detailed
+  premerge occurrence snapshot; HANDOFF-READBACK.md carries the completed postmerge state. Fresh
+  independent validation must use an isolated minimal cleanroom rather than this project-manager
+  context.
