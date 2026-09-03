@@ -1,25 +1,26 @@
-# Session Handoff Discipline — Moved
+# Session Handoff Discipline — Compatibility Pointer
 
 Status: `COMPATIBILITY_POINTER / NOT_CANONICAL_METHOD`
 
-Canonical handoff/takeover method now lives at:
+Canonical **general human-AI handoff/continuation method** now lives in:
 
-`research/handoffs/HANDOFF-PROTOCOL.md`
+`guytogay/human-ai-workbench`
 
-Machine-readable mandatory takeover context:
+Primary method surface:
 
-`research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml`
+`templates/HANDOFF.md`
 
-Cross-session project-management discipline:
+ENA-specific application and routing remain at:
 
-`research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md`
+- `research/handoffs/HANDOFF-PROTOCOL.md` — thin ENA adapter;
+- `research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — ENA-specific required context;
+- `research/handoffs/CURRENT-HANDOFF.yaml` — current ENA deep-succession pointer;
+- `research/handoffs/records/` — ENA handoff occurrences.
 
-This compatibility pointer exists only so older links do not silently break. Do not treat this file as a parallel methodology authority.
-
-The hierarchy is now explicit:
+Do not treat this file, the ENA adapter, and the Workbench method as parallel canonical methodologies.
 
 ```text
-research/handoffs/        succession framework
-research/handoffs/records/ handoff occurrences
-research/methodology/      ENA research methodology
+Human-AI Workbench      general continuation/handoff method
+ENA handoff adapter     ENA-specific routing and authorities
+ENA handoff records     concrete ENA occurrences
 ```
