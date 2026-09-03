@@ -85,7 +85,9 @@ Primary execution progress:
 
 - `M0-1` — first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
 - Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m0-1-first-output.md`
-- Remaining primary runs: `11 / 12`.
+- `M1-1` — first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
+- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m1-1-first-output.md`
+- Remaining primary runs: `10 / 12`.
 
 Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution has begun. Do not score or correct a live successor before its run is frozen.
 
@@ -95,7 +97,7 @@ Execute the remaining preregistered fresh successor runs:
 
 ```text
 M0 x 2 remaining
-M1 x 3
+M1 x 2 remaining
 M2 x 3
 M3 x 3
 ```
