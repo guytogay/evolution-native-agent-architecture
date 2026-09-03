@@ -64,7 +64,7 @@ Do not rerun essentially the same Supplier-B fixture merely to seek a preferred-
 
 ## Active MDS mechanism experiment
 
-Developmental Inheritance / Minimum Developmental Set is **preregistered, fixture-frozen, cleanroom-materialized, and in primary execution**.
+Developmental Inheritance / Minimum Developmental Set is **preregistered, fixture-frozen, cleanroom-materialized, and primary execution is complete**.
 
 Artifacts:
 
@@ -79,7 +79,7 @@ Arms:
 - M2 — strong/fair distilled rules
 - M3 — developmental package/MDS with scoped disposition + positive/negative/boundary exemplars + provenance
 
-The four final cleanrooms are parentless-root repositories with identical common `README.md` and exact v0.3.7 `releases/current/`; only `handoff.md` differs. Tasks/oracle are absent from the cleanrooms and are presented sequentially.
+The four final cleanrooms are parentless-root repositories with identical common `README.md` and exact v0.3.7 `releases/current/`; only `handoff.md` differs. Tasks/oracle are absent from the cleanrooms and were presented sequentially.
 
 ### Primary execution progress
 
@@ -88,7 +88,7 @@ Valid frozen runs:
 - M0: `M0-1`, `M0-2`, `M0-3` → **3/3**
 - M1: `M1-1`, `M1-2`, `M1-3` → **3/3**
 - M2: `M2-1`, `M2-2`, `M2-3` → **3/3**
-- M3: `M3-R1`, `M3-3` → **2/3 valid**
+- M3: `M3-R1`, `M3-3`, `M3-R2` → **3/3 valid**
 
 Protocol-deviant attempts preserved but excluded before behavioral scoring:
 
@@ -97,9 +97,7 @@ Protocol-deviant attempts preserved but excluded before behavioral scoring:
 
 Evidence/protocol records are under `research/field-validation/2026-09-03-developmental-inheritance-mds-*`.
 
-Valid primary runs frozen: **`11 / 12`**.
-
-Remaining valid primary run: **`1 / 12` — replacement `M3-R2`**.
+Valid primary runs frozen: **`12 / 12`**.
 
 Execution-integrity distinction remains:
 
@@ -111,19 +109,19 @@ read treatment, later fails to recall/use it
 = valid experimental outcome
 ```
 
-Do not edit carrier bytes, frozen task text/order, action classes, oracle, or provenance challenge. Do not score or correct a live successor before its run is frozen. Protocol-deviant attempts remain visible rather than being silently discarded.
+`M3-R2` also used a non-semantic full-file read check before B1 after repeated M3 Stage A failures; the frozen carrier, task text/order, action classes, oracle, and provenance challenge were unchanged.
+
+Do not edit carrier bytes, frozen task text/order, action classes, oracle, or provenance challenge. Protocol-deviant attempts remain visible rather than being silently discarded.
 
 ## Next consequential action
 
-Execute one genuinely fresh `M3-R2` successor under the unchanged M3 cleanroom and unchanged staged protocol:
+Adjudicate all 12 valid primary runs exactly against the preregistered behavioral oracle, critical-failure definitions, representation-cost evidence, developmental-fidelity requirement, and interpretation matrix.
 
-`verified Stage A treatment exposure → B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance challenge`
+Do not allow `M3-1` or `M3-2` into primary behavioral scoring. Preserve their repeated self-reported Stage A non-exposure as the already-recorded secondary unexpected observation rather than using it to alter the frozen primary endpoint.
 
-Archive its first complete staged output before adjudication/correction.
+A rule/archive tie or win over MDS, a control tie, MDS false activation, or high within-arm variance must narrow the hypothesis rather than trigger goalpost movement.
 
-Then the primary dataset reaches 12/12 valid runs and must be adjudicated exactly against the preregistered interpretation matrix. A rule/archive tie or win over MDS, a control tie, MDS false activation, or high within-arm variance must narrow the hypothesis rather than trigger goalpost movement.
-
-Do not expose the ENA preregistration, scoring oracle, expected rankings, other arms, or prior run outputs to the fresh replacement successor.
+After adjudication, persist the result before deciding any downstream replication or reality-contact action. Do not modify `releases/current/` from this mechanism experiment alone.
 
 After MDS, continue through the Coverage Map: temporal assimilation, metamemory update policy, sleep-like consolidation, dream-like recombination, adaptation ecology, credit assignment/reconsolidation, decay/regime change, propagation/horizontal transfer, purpose-relative selection, and longitudinal cultural/developmental tests.
 
