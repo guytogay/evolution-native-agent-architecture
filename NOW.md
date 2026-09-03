@@ -87,12 +87,14 @@ Primary execution progress:
 - Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m0-1-first-output.md`
 - `M1-1` — valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
 - Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m1-1-first-output.md`
+- `M2-1` — verified Stage A readback completed before B1; valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
+- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m2-1-first-output.md`
 - `M3-1` — attempted sequence frozen, but provenance disclosed that the successor had replied `READY` without actually fetching the repository before the behavioral probes. The intended M3 treatment therefore was not delivered at Stage A.
 - Attempt evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-1-first-output.md`
 - Protocol record: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-1-protocol-deviation.md`
 - `M3-1` is preserved but excluded from the three valid M3 replicate count before behavioral scoring; run replacement `M3-R1` under the unchanged frozen M3 treatment/tasks.
-- Valid primary runs frozen: `2 / 12`.
-- Remaining valid primary runs: `10 / 12`.
+- Valid primary runs frozen: `3 / 12`.
+- Remaining valid primary runs: `9 / 12`.
 
 Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution has begun. Do not score or correct a live successor before its run is frozen. Protocol-deviant attempts must remain visible rather than being silently discarded.
 
@@ -103,7 +105,7 @@ Execute the remaining preregistered valid fresh successor runs:
 ```text
 M0 x 2 remaining
 M1 x 2 remaining
-M2 x 3
+M2 x 2 remaining
 M3 x 3 valid runs still required, including replacement M3-R1
 ```
 
