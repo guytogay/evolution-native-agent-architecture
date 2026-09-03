@@ -112,13 +112,19 @@ Cleanup audit:
 
 `research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
 
-## Related repositories
+## Related repositories and canonical ownership
 
-- `guytogay/human-ai-workbench` remains the human-AI project-collaboration method, not ENA.
-- `guytogay/independent-validation-cleanroom` remains legacy/idle reusable validation infrastructure with historical contamination caveats.
-- `guytogay/ena-field-guide` now exists and is the practical ENA-derived HOW layer.
+- `guytogay/evolution-native-agent-architecture` owns ENA theory/mechanisms, Current/release semantics, ENA research evidence, and concrete ENA project occurrences.
+- `guytogay/human-ai-workbench` is the canonical owner of reusable human-AI project-working method abstracted from ENA or other real projects; ENA consumes it through local adapters rather than maintaining parallel copies.
+- `guytogay/ena-field-guide` owns evidence-backed practical ENA-derived operating HOW; it should reference ENA evidence rather than duplicate theory, and it should not absorb general project-management method.
+- `guytogay/independent-validation-cleanroom` remains legacy/idle reusable validation infrastructure with historical contamination caveats; experiment-specific history-clean cleanrooms are separate temporary surfaces.
 
-The Field Guide should grow incrementally when a concrete HOW has enough evidence, reality contact, applicability boundary, and reusable value. It does **not** need to wait for ENA to become a final or perfect framework, but unvalidated hypotheses, metaphors, and attractive one-off experimental recipes still do not qualify automatically.
+The three durable repositories are coupled by feedback, not content mirroring:
+
+```text
+ENA project-working friction -> Human-AI Workbench method -> can return to serve ENA and other projects
+ENA mechanism/evidence -> reusable practical HOW -> ena-field-guide -> real use may return new ENA evidence
+```
 
 ## Deep succession record
 
