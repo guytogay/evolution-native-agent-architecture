@@ -2,9 +2,7 @@
 
 Status: `CANONICAL_CROSS_SESSION_PROJECT_MANAGEMENT_METHOD / MAIN_VISIBLE / NOT_ENA_CURRENT`
 
-This file holds project-management rules that must survive individual session replacement.
-
-It is deliberately outside any one handoff record because reusable management method is not a property of one historical snapshot.
+This file holds project-management rules that should survive session replacement.
 
 ```text
 HANDOFF_RECORD = OCCURRENCE / SNAPSHOT
@@ -19,39 +17,35 @@ PROJECT_CONTINUITY > SESSION_CONTINUITY
 
 No project state, method, evidence, decision, or unresolved branch should depend on one conversational session remaining healthy.
 
-## 2. Project state and project method are equally inheritable
+## 2. Project state and method are both inheritable
 
-A successor who knows only "where we are" but not "how we learned to decide" is not fully onboarded.
+A successor who knows only "where we are" but not "how we learned to decide" is incompletely onboarded when method can change the next decision.
+
+For deep succession:
 
 ```text
-TAKEOVER = STATE + METHOD + GOVERNANCE + DECISION LINEAGE + NEXT ACTION
+TAKEOVER = STATE + METHOD + DECISION LINEAGE + NEXT ACTION
 ```
 
-The handoff/takeover framework lives under `research/handoffs/`.
+For ordinary continuation, do not force all of that material hot when `NOW.md` + the relevant artifact is sufficient.
 
-The ENA research methodology lives under `research/methodology/`.
+## 3. Handoff framework and occurrence records must not be mixed
 
-Both are mandatory takeover context for a project-manager/session successor.
+`research/handoffs/` contains reusable succession method.
 
-## 3. Handoff framework and handoff records must not be mixed
+`research/handoffs/records/<handoff-id>/` contains one time-bounded occurrence.
 
-The root `research/handoffs/` contains reusable succession framework.
-
-`research/handoffs/records/<handoff-id>/` contains one time-bounded handoff occurrence.
-
-Reusable lessons discovered during an occurrence must be promoted to framework or project methodology.
+Reusable lessons discovered during an occurrence must be promoted to framework or research methodology.
 
 ```text
 INSTANCE_DISCOVERS_METHOD
 -> PROMOTE_METHOD
--> KEEP_INSTANCE_AS_EVIDENCE
+-> KEEP_INSTANCE_AS EVIDENCE
 ```
 
-Do not leave generic rules trapped inside one dated/frozen record.
+## 4. Project-state alignment is a transition operation, not a standing ceremony
 
-## 4. Project-state alignment is a first-class transition operation
-
-A file can have been correct when written and still become stale after later transitions.
+A file can have been correct when written and still become stale later.
 
 ```text
 INDIVIDUAL_FILE_CORRECT_AT_T
@@ -59,17 +53,11 @@ INDIVIDUAL_FILE_CORRECT_AT_T
 PROJECT_STATE_COHERENT_AT_T_PLUS_1
 ```
 
-After material phase, branch, candidate, freeze, release, methodology, or handoff transitions, use:
+Use `research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md` after material routing/method/release transitions, not after every research edit.
 
-`research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md`
+## 5. Reverify live state before material writes
 
-Do not use a new handoff summary to paper over stale canonical control-plane files.
-
-## 5. Reverify live state before writing
-
-Cached SHAs, old PR identities, chat summaries, and directory recency are not live authority.
-
-Before material writes, reverify the relevant branch/ref and exact governed identities.
+Cached SHAs, old PR identities, chat summaries, and branch names are not live authority.
 
 ```text
 BRANCH_HEAD_AT_T != BRANCH_HEAD_NOW
@@ -78,7 +66,7 @@ BRANCH_HEAD != FROZEN_IDENTITY
 
 ## 6. Preserve occurrence truth
 
-When a validator, oracle, workflow, or project-manager interpretation is wrong, preserve that occurrence and correct the method or successor state.
+When a validator, oracle, workflow, or project interpretation is wrong, preserve that occurrence and correct the method or successor state.
 
 ```text
 VALIDATOR_FAILURE != CANDIDATE_FAILURE
@@ -96,24 +84,11 @@ Separate at least:
 
 ## 7. Frozen identity remains immutable lineage
 
-A frozen candidate is identified by exact source/tree binding, not by a mutable branch head.
+A frozen candidate is identified by exact source/tree binding, not mutable branch recency.
 
-Do not modify validated/frozen bytes merely to add narration such as `frozen: true` and then pretend the changed bytes are the validated object.
+Do not modify frozen/released bytes merely to add narration and then pretend the changed bytes are the validated object.
 
-If material candidate-byte correction is required:
-
-```text
-candidate.0 remains frozen occurrence truth
--> candidate.1
-```
-
-A research residual alone does not require candidate succession.
-
-## 8. Compression and growth must occur at the right layer
-
-LLMs tend to narrate success as summarization and convergence.
-
-ENA requires explicit discrimination:
+## 8. Compression and growth occur at different layers
 
 ```text
 WHAT / WHY
@@ -126,12 +101,8 @@ FAILURE / ADVERSARIAL SPACE
 -> expand while materially distinct shapes remain plausible
 
 REPRESENTATION DUPLICATION
--> may compress after equivalence is established
+-> compress after equivalence is established
 ```
-
-Canonical focused method:
-
-`research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md`
 
 Key invariant:
 
@@ -139,19 +110,17 @@ Key invariant:
 COMPRESS REPRESENTATION != COMPRESS POSSIBILITY SPACE
 ```
 
-## 9. Growth also pays complexity rent
+## 9. Growth pays complexity rent
 
-Anti-convergence is not a license to maximize file, role, test, branch, or category count.
-
-A new artifact or branch should earn its complexity through distinct behavioral, evidential, governance, or continuity value.
+Anti-convergence is not permission to maximize files, roles, branches, tests, or categories.
 
 ```text
 ANTI_CONVERGENCE != MAXIMIZE_ARTIFACT_COUNT
 ```
 
-## 10. Optional packaging must remain optional
+A new artifact or workflow surface must earn its cost through distinct continuity, evidential, behavioral, or coordination value.
 
-Bundling a reference, procedure, or organ does not make it mandatory at runtime.
+## 10. Optional packaging remains optional
 
 ```text
 BUNDLED_REFERENCE != REQUIRED_RUNTIME_ORGAN
@@ -160,9 +129,7 @@ PACKAGE_INCLUDED != APPLICABLE
 
 Project management must resist accidental bureaucracy created by packaging richness.
 
-## 11. Exact next action may be singular while possibility space remains plural
-
-Operational sequencing can select one next project-management action without claiming only one mechanism/failure branch exists.
+## 11. One next action does not collapse possibility space
 
 ```text
 PLURAL_POSSIBILITY_SPACE
@@ -170,61 +137,179 @@ AND
 ONE_NEXT_EXECUTION_STEP
 ```
 
-This is scheduling, not ontological convergence.
+Scheduling one experiment next is not a claim that only one research branch matters.
 
 ## 12. Handoff is applied behavior, not document production
-
-A handoff succeeds only when a successor actually retrieves, verifies, interprets, and applies state and method.
 
 ```text
 WRITTEN -> RETRIEVED -> INTERPRETED -> SALIENT -> APPLIED
 ```
 
-If the successor can quote the handoff but still asks the user to reconstruct persisted background, treats branch recency as authority, skips required method, or collapses unproven variation, inheritance failed.
+A beautiful handoff that the receiver does not use is not continuity.
 
-## 13. Project-manager succession and fresh-validator briefing are different jobs
-
-The full handoff framework is designed to prevent project-manager context loss. It must not be mechanically reused as the pre-Phase-A briefing for a fresh independent validator.
+## 13. Project-manager succession and fresh validation optimize differently
 
 ```text
 PROJECT_MANAGER_SUCCESSION
--> MAXIMIZE_RELEVANT_CONTEXT_CONTINUITY
+-> PRESERVE RELEVANT CONTEXT CONTINUITY
 
-FRESH_VALIDATOR_PHASE_A
--> MINIMIZE_AUTHOR_SHAPED_PRIMING
+FRESH_VALIDATOR
+-> MINIMIZE AUTHOR-SHAPED PRIMING BEFORE FIRST RESPONSE
 ```
 
-A different person/model/Agent is not automatically search-space independent if the author gives it the author's detailed attack taxonomy before it has inspected the target.
+Do not mechanically reuse a deep project handoff as fresh-validator briefing.
 
-For fresh independent validation:
+A reviewer already exposed to the author's answer/oracle cannot restore fresh Phase-A independence by promising to ignore it.
+
+## 14. Promoted lessons from the v0.3.7 reconstruction/release period
+
+- candidate/release identity must remain content-addressed rather than branch-addressed;
+- false-positive validation oracles should be repaired without rewriting occurrence truth;
+- handoff framework/method must not be buried inside a dated record;
+- project-manager context completeness and fresh-validator information hygiene are different optimization directions;
+- branch names are lifecycle surfaces, not archives;
+- open issue or assertion count is not an epistemic quality metric;
+- project routing surfaces can drift after transitions and should be aligned when that drift matters.
+
+## 15. Promoted lessons from the 2026-09 cleanroom validation rounds
+
+### 15.1 Structural isolation beats behavioral prohibition
+
+Do not tell a fresh Agent:
+
+> there is an answer/source/research repo elsewhere, but do not look at it.
+
+That instruction itself reveals the hidden surface and asks the validator to suppress curiosity.
+
+Prefer:
 
 ```text
-EXACT_TARGET + ROLE_BOUNDARY + MINIMAL_TASK
--> INDEPENDENT_PHASE_A
--> PERSIST / SEAL FINDINGS
--> OPEN_AUTHOR_CONTEXT_FOR_PHASE_B
+CONTAMINATING SURFACE ABSENT
+>
+CONTAMINATING SURFACE PRESENT + PLEASE IGNORE
 ```
 
-The project manager should prepare and route the role-scoped entrypoint, but should not send the fresh validator through the full project-manager handoff first.
+Separate disposable repos and orphan/root commits can remove Git-history leakage rather than relying on validator obedience.
 
-A reviewer already materially exposed to author oracle/attack construction may still contribute Phase B, oracle auditing, or reconciliation, but cannot restore `FRESH_INDEPENDENT_PHASE_A` status merely by promising to ignore what it has read.
+### 15.2 Common substrate must be actually common
 
-Canonical focused method:
+For treatment-arm experiments:
 
-`research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md`
+- same framework bytes;
+- same task unless task is the intended variable;
+- same model/mode where practical;
+- only the intended treatment differs.
 
-This is not a general rule that "less information is better". It is an ordering rule: rich author context is delayed until after independent observations are durably captured.
+Verify common tree/blob identity when the experimental claim depends on it.
 
-## 14. Promoted lessons from the 2026-08-27 succession
+### 15.3 Preregister interpretation before seeing outputs
 
-The standardized succession work exposed several durable lessons:
+Record expected success/failure shapes and unfavorable interpretations before the first response.
 
-- `research/ACTIVE-RESEARCH.yaml` and `PROGRESS.yaml` can drift behind actual candidate/freeze state; alignment must precede succession.
-- the author's initial claim that reducing an observed 1080 pass conditions to 188 was "better" was not justified without anti-ablation lineage; assertion count is not epistemic coverage.
-- false-positive validation oracles should be repaired without rewriting occurrence truth.
-- frozen candidate identity must remain external and content-addressed.
-- handoff framework/method must not be buried inside a dated record.
-- outgoing and incoming succession rules have equal continuity importance.
-- project-manager context completeness and fresh-validator pre-Phase-A information hygiene have different optimization directions.
+This prevents the project from redefining victory after a preferred theory loses.
 
-Historical occurrence evidence remains in the dated handoff records and collaboration/reconciliation records. This file carries the reusable method forward.
+### 15.4 Capture the first complete response before correction dialogue
+
+Fresh-response evidence is fragile.
+
+```text
+FIRST RESPONSE
+-> CAPTURE / ARCHIVE
+-> THEN ADJUDICATE / CORRECT / DISCUSS
+```
+
+Do not train the validator into the expected answer and then count the corrected answer as independent evidence.
+
+### 15.5 Baseline good means nothing needs repairing yet
+
+The semantic-reachability rounds produced 8/8 baseline-good responses.
+
+Therefore:
+
+```text
+BASELINE DID NOT FAIL
+-> NOTHING TO REPAIR
+```
+
+Do not run cue/example/new-rule repair arms just because they were planned before baseline results existed.
+
+### 15.6 Null and negative results are convergence, not embarrassment
+
+The I/J/K/L mechanism pilot produced equally good behavior under no inheritance, full history, successful recipe, and boundary-oriented inheritance.
+
+The correct result was to narrow the stronger boundary-transfer claim, not redesign the same test repeatedly until the preferred arm won.
+
+```text
+THEORY DOES NOT WIN
+!=
+EXPERIMENT FAILED
+```
+
+### 15.7 Strong reasoning can saturate a one-shot mechanism fixture
+
+A treatment variable cannot show benefit if the common prompt already exposes all decisive world facts and Current + the base model can derive the answer directly.
+
+Future mechanism experiments must make the inherited/developmental information **causally necessary enough** to discriminate mechanisms.
+
+For developmental memory this means multi-stage experience and multiple novel tasks, not one prompt containing the whole hidden structure.
+
+### 15.8 Preserve raw substantive evidence before deleting disposable infrastructure
+
+Cleanroom repos are temporary. Experimental occurrence truth is not.
+
+Before deleting a cleanroom:
+
+- archive task/treatment identity;
+- archive first substantive response;
+- archive relevant commit/tree identities;
+- record adjudication separately;
+- label any fidelity limitation honestly (for example citation wrappers omitted rather than claiming byte-exact UI preservation).
+
+### 15.9 Comprehensive convergence owes every meaningful research branch a disposition
+
+Divergence creates branches; convergence must not simply forget the older ones.
+
+Every major branch should eventually become one of:
+
+```text
+SUPPORTED ENOUGH TO CONTINUE
+NARROWED
+SUBSUMED / DUPLICATE
+REJECTED
+METAPHOR ONLY
+FIELD-UNRESOLVED
+```
+
+The living ledger is:
+
+`research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md`
+
+### 15.10 Do not confuse good final answers with mechanism evidence
+
+A strong model may independently derive a correct answer.
+
+```text
+GOOD OUTPUT
+!=
+TARGET MECHANISM CAUSED OUTPUT
+```
+
+When testing retrieval/routing, inspect trace/file-read evidence where available. When testing inheritance, include controls capable of revealing whether inheritance changed behavior.
+
+## 16. Branch hygiene lesson from the 2026-09 succession
+
+The long-lived `research/ena-reconstruction` branch drifted far behind main while retaining three unique files. This produced both bloat and deletion risk.
+
+The correction is:
+
+```text
+main = durable continuation
+short-lived branch = temporary isolation/review
+unique artifact check before deletion
+```
+
+Do not merge an old diverged branch wholesale merely because it contains one useful file. Reconcile the useful artifact into a fresh main-based change, then retire the old branch.
+
+Current cleanup audit:
+
+`research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`

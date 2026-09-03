@@ -1,120 +1,52 @@
-schema_version: "2.5"
-status: ACTIVE_RESEARCH_POINTER
-updated_at: "2026-08-28"
+schema_version: "3.0"
+status: COMPATIBILITY_RESEARCH_ROUTER
+updated_at: "2026-09-03"
 
-active_research:
-  branch: research/ena-reconstruction
-  branch_role: LONG_LIVED_RESEARCH_INTEGRATION_SURFACE
-  continuation_authority: BRANCH_POINTER
-  head_observation_mode: LIVE_REVERIFY_BEFORE_WRITE
-  embedded_head_sha_is_identity_lock: false
-  state: V0_3_7_CURRENT_FIELD_VALIDATION_AND_RECONSTRUCTION_RESEARCH
-  bootstrap_path: research/RESEARCH-START-HERE.md
-  progress_path: research/plans/PROGRESS.yaml
-  detailed_plan_path: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
-  methodology_index_path: research/methodology/README.md
-  alignment_gate_path: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-
-project_control_plane:
+live_continuation:
   branch: main
-  release_merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-  project_hub: PROJECT-HUB.md
-  current_baseline: releases/current/CURRENT-BASELINE.yaml
-  current_handoff_pointer: research/handoffs/CURRENT-HANDOFF.yaml
-  branch_governance: research/BRANCH-GOVERNANCE.md
-  branch_inventory: research/BRANCH-INVENTORY.yaml
-  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  status_surface: NOW.md
+  normal_path:
+    - READ_NOW
+    - READ_DIRECTLY_RELEVANT_ISSUE_OR_ARTIFACT
+    - VERIFY_CURRENT_ONLY_WHEN_DECISION_DEPENDS_ON_CURRENT_IDENTITY
+    - USE_SHORT_LIVED_MAIN_BASED_PR_BRANCH_WHEN_ISOLATION_OR_REVIEW_IS_USEFUL
+    - MERGE_DURABLE_RESULT_TO_MAIN
+    - DELETE_COMPLETED_BRANCH_AFTER_UNIQUE_LINEAGE_IS_PRESERVED
+
+current_research_phase:
+  phase: MECHANISM_DISCRIMINATION_WITH_COMPREHENSIVE_VALIDATION_COVERAGE
+  coverage_map: research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md
+  most_recent_mechanism_result: research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md
+  next_focus: DEVELOPMENTAL_INHERITANCE_MINIMUM_DEVELOPMENTAL_SET
 
 current_adoption:
   expected: v0.3.7 / CURRENT / FIELD_VALIDATION
+  authority: releases/current/CURRENT-BASELINE.yaml
   tree: f33e73ed997c1b66a4572685ab5474182e136e97
   file_count: 118
   deterministic_package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
   release_pr: 144
-  exact_reviewed_release_head: 3ef3605228ed427b2d25d7d586e4ffc378b7369e
-  merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-  promoted: true
-  postmerge_readback: PASS
+  release_merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
 
-frozen_release_source:
-  identity: v0.3.7-candidate.3
-  frozen_source: b7e88d7adb70396bd671ca97066daf2c120e0adc
-  frozen_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
-  exact_prefreeze_run: 33150269264
-  targeted_postfreeze_run: 33150553992
-  release_hardening_run: 33152201566
-  candidate_succession_stop: true
-  candidate4_currently_justified: false
-  attack_cardinality: OPEN
-
-release_evidence:
-  exact_release_gate_run: 33162550145
-  postmerge_main_gate_run: 33163171275
-  postmerge_current_validate_run: 33163171328
-  postmerge_codeql_run: 33163171289
-  exact_head_checks_observed: PASS
-  release_authorized: true
-  promoted: true
+legacy_long_lived_research_branch:
+  branch: research/ena-reconstruction
+  state: RETIRING_AFTER_UNIQUE_ARTIFACT_MIGRATION
+  unique_artifacts_migrated_by: handoff/2026-09-03-session-succession
+  merge_old_branch_wholesale: false
+  delete_after_handoff_merge_and_readback: true
+  cleanup_audit: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
 
 field_validation:
   active_tracker: 150
-  active_tracker_role: V0_3_7_CURRENT_FIELD_EVIDENCE
-  predecessor_tracker: 70
-  predecessor_tracker_state: CLOSED_PRESERVED_OCCURRENCE_EVIDENCE
-  reconstruction_trackers:
-    - 89
-    - 90
-    - 91
-    - 92
-    - 93
-    - 94
-    - 104
-  open_issue_count_is_release_quality_metric: false
-
-release_metadata_erratum:
-  present: true
-  location: releases/current/CURRENT-BASELINE.yaml accepted_residuals
-  stale_statement: V0_3_6_REMAINS_CURRENT_UNTIL_EXPLICIT_PROMOTION
-  current_truth: V0_3_7_IS_CURRENT_AFTER_EXPLICIT_PROMOTION_AND_MAIN_READBACK
-  mutate_released_v0_3_7_bytes_in_place: false
-  disposition: PRESERVE_IMMUTABLE_RELEASE_BYTES_AND_CORRECT_UNDER_FUTURE_GOVERNED_RELEASE_IDENTITY
-  field_tracker: 150
-
-branch_lifecycle:
-  active_research_branch: research/ena-reconstruction
-  release_branch_role_after_promotion: LIFECYCLE_COMPLETE_CLEANUP_CANDIDATE
-  candidate3_branch_role_after_promotion: FROZEN_SOURCE_REF_LIFECYCLE_COMPLETE_CLEANUP_CANDIDATE_AFTER_DURABLE_LINEAGE
-  predecessor_candidate_and_validation_refs: HISTORICAL_CLEANUP_CANDIDATES_AFTER_DURABLE_LINEAGE
-  delete_ref_capability_available_in_current_connector: false
-
-open_evidence_boundaries:
-  attack_cardinality: OPEN
-  external_truth_established_by_release_gate: false
-  natural_host_salience: FIELD_EVIDENCE
-  host_applicability: FIELD_EVIDENCE
-  bilingual_behavioral_equivalence: FIELD_OR_INDEPENDENT_EVIDENCE
-  optional_reference_package_inclusion_implies_normativity: false
-
-immediate_next_action: >-
-  USE_ISSUE_150_AND_OPEN_RECONSTRUCTION_TRACKERS_TO_SELECT_THE_NEXT_BOUNDED_DECISION_CHANGING_RESEARCH_STEP_WITHOUT_CEREMONIAL_CANDIDATE_SUCCESSION
-
-continuation_protocol:
-  - start from main and verify Current
-  - inherit handoff framework, current record, project-management discipline, and project methodology
-  - use this pointer to discover the active integration branch
-  - read Progress and the master plan
-  - reverify live mutable refs and exact governed identities before writes
-  - if current-state surfaces disagree, align before substantive work
-  - never treat a handoff record, issue, PR, branch recency, or cached SHA as Current authority
+  project_simplification_tracker: 153
 
 fresh_validator_boundary:
-  project_manager_full_context_is_fresh_a_s_context: false
-  reusable_cleanroom_repository: guytogay/independent-validation-cleanroom
-  cleanroom_role: REUSABLE_CROSS_STAGE_CROSS_PROJECT_VALIDATION_INFRASTRUCTURE
-  cleanroom_contents_are_stage_ephemeral: true
+  full_project_handoff_before_fresh_validation: false
+  use_physically_or_structurally_isolated_cleanroom: true
+  preserve_first_complete_response_before_author_context: true
 
 rule: >-
-  v0.3.7 is now the singular Current adoption baseline on main. Release completion does not
-  close attack cardinality or field evidence. Continue research from reality-facing evidence
-  and unresolved obligations; create a successor candidate only when material evidence changes
-  the release decision.
+  Main plus NOW.md is the live project continuation surface. This file remains only as a
+  compatibility router for old links. Do not infer a long-lived active research branch from
+  historical records. Use short-lived main-based branches when a PR or isolation boundary is
+  useful, then return durable truth to main.

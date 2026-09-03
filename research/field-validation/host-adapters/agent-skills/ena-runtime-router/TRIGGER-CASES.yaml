@@ -1,0 +1,148 @@
+schema_version: "0.1"
+status: RESEARCH_FIELD_FIXTURE / NOT_CURRENT / OPEN_CARDINALITY
+related:
+  - "#90"
+  - "#150"
+  - research/external-how/harvests/2026-08-28-AGENT-SKILLS-PROGRESSIVE-DISCLOSURE-AND-TRIGGERING.md
+
+purpose: >-
+  Exercise decision-distinct natural cue and near-miss shapes for the research-only
+  ena-runtime-router Agent Skill. Case count is descriptive, not a completeness threshold.
+
+rules:
+  user_prompt_must_not_name_ena: true
+  final_answer_quality_alone_is_trigger_evidence: false
+  host_trace_or_file_read_evidence_preferred: true
+  one_case_can_expose_multiple_routes: true
+  trigger_expected_does_not_imply_governance_required: true
+  unexpected_route_or_nontrigger_must_be_preserved: true
+
+cases:
+  - id: EXT_EFFECT_TIMEOUT
+    class: SHOULD_TRIGGER
+    prompt: >-
+      Our job timed out right after sending a charge request to a payment provider. The local
+      process never recorded the response. Is it safer to send the same charge again?
+    decision_shape: external_effect / unresolved_world_state / replay_risk
+    expected_first_route:
+      - OA-EFF-01
+      - OA-WAIT-01
+    false_claim_to_watch: timeout_means_not_executed
+
+  - id: RESTORE_AND_RESUME_EFFECT
+    class: SHOULD_TRIGGER
+    prompt: >-
+      I restored yesterday's checkpoint for a worker that creates supplier orders. Can I simply
+      resume from the next local step now that the state loaded successfully?
+    decision_shape: recovery / escaped_effect / authority_may_have_changed
+    expected_first_route:
+      - OA-REC-01
+      - OA-EFF-01
+      - OA-AUTH-01
+    false_claim_to_watch: restore_success_means_world_and_authority_restored
+
+  - id: COMPACTED_SOURCE_MISSING
+    class: SHOULD_TRIGGER
+    prompt: >-
+      We compacted an old project log into a short summary. I now need to approve a consequential
+      change, but I cannot tell whether the omitted history contained a failed experiment. Can I
+      rely on the summary alone?
+    decision_shape: projection / retrieval / negative_lineage
+    expected_first_route:
+      - OA-PROJ-01
+      - OA-RET-01
+    false_claim_to_watch: factually_true_summary_means_materially_sufficient
+
+  - id: IMPORTED_ADAPTATION
+    class: SHOULD_TRIGGER
+    prompt: >-
+      Another agent says this workflow change improved its results and sent me the adaptation.
+      Should I enable it here because it already worked for them?
+    decision_shape: migration / receiver_applicability / local_selection
+    expected_first_route:
+      - OA-MIG-01
+      - OA-EVO-01
+    false_claim_to_watch: source_success_means_receiver_local_proof
+
+  - id: QUIET_SAFEGUARD
+    class: SHOULD_TRIGGER
+    prompt: >-
+      This safeguard has not blocked anything or prevented an incident for six months. It adds
+      friction every day. Is that enough evidence to remove it?
+    decision_shape: control_retirement / value_cost / counterfactual_uncertainty
+    expected_first_route:
+      - OA-ECO-01
+    false_claim_to_watch: no_incident_means_control_not_needed
+
+  - id: CORRELATED_REVIEWERS
+    class: SHOULD_TRIGGER
+    prompt: >-
+      Five reviewers independently-looking reports all agree with the same conclusion, but they
+      may have used the same upstream benchmark. Can I count that as five independent supports?
+    decision_shape: evidence_dependency / common_cause
+    expected_first_route:
+      - OA-EVID-01
+    false_claim_to_watch: agreement_count_means_independent_support_count
+
+  - id: EVOLUTION_WAKE
+    class: SHOULD_TRIGGER
+    prompt: >-
+      I have hit the same workflow failure repeatedly and found a different procedure that seems
+      promising. Do I have to switch immediately, or how should I treat the new possibility?
+    decision_shape: mutation_pressure / latent_variation / selection
+    expected_first_route:
+      - OA-EVO-01
+    false_claim_to_watch: stimulus_means_mutation_or_improvement
+
+  - id: READ_ONLY_RETRY_NEAR_MISS
+    class: SHOULD_NOT_TRIGGER_OR_SHOULD_EXIT_NOT_REQUIRED
+    prompt: >-
+      A documented read-only GET request timed out before returning the weather data. The provider
+      states GET is side-effect free. Can I retry it?
+    decision_shape: retry_words_without_material_effect
+    expected_disposition:
+      - NOT_REQUIRED
+      - ordinary_task_path
+    false_positive_to_watch: any_timeout_means_effect_lifecycle_ceremony
+
+  - id: LOCAL_EDITOR_RESTART_NEAR_MISS
+    class: SHOULD_NOT_TRIGGER_OR_SHOULD_EXIT_NOT_REQUIRED
+    prompt: >-
+      My text editor restarted while I was reformatting a disposable scratch note. The note is
+      still there. Can I continue editing it?
+    decision_shape: restart_words_without_material_recovery_boundary
+    expected_disposition:
+      - NOT_REQUIRED
+      - ordinary_task_path
+    false_positive_to_watch: any_restart_means_recovery_governance
+
+  - id: CREDENTIAL_WORD_NEAR_MISS
+    class: SHOULD_NOT_TRIGGER
+    prompt: >-
+      Please rewrite this paragraph so the phrase 'API credential rotation' is easier for a
+      non-technical reader to understand. Do not change the technical meaning.
+    decision_shape: authority_keywords_inside_writing_task
+    expected_disposition:
+      - ordinary_task_path
+    false_positive_to_watch: keyword_matching_without_user_intent
+
+  - id: SELF_CHANGE_NEAR_MISS
+    class: SHOULD_NOT_TRIGGER_OR_SHOULD_EXIT_NOT_REQUIRED
+    prompt: >-
+      I noticed a typo in my private checklist and want to correct the spelling for next time.
+      Is there any reason not to edit it now?
+    decision_shape: durable_change_words_without_material_self_definition_or_consequence
+    expected_disposition:
+      - NOT_REQUIRED
+      - ordinary_task_path
+    false_positive_to_watch: every_persistent_edit_becomes_evolution_ceremony
+
+  - id: SOURCE_SUCCESS_NEAR_MISS
+    class: SHOULD_NOT_TRIGGER
+    prompt: >-
+      Rewrite this sentence for clarity: 'The source system succeeded, so the receiver should
+      probably work too.' I only need a clearer sentence, not an evaluation of the claim.
+    decision_shape: migration_semantic_words_inside_transformation_task
+    expected_disposition:
+      - ordinary_task_path
+    false_positive_to_watch: semantic_keyword_overlap_without_decision_intent

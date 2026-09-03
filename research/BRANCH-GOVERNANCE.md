@@ -2,206 +2,176 @@
 
 Status: `PROJECT_CONTROL_PLANE / MAIN_VISIBLE / NON_NORMATIVE_TO_ENA_CURRENT`
 
-Purpose: make branch topology legible to humans and future Agent sessions without turning Git branch names, PR numbers, or cached head SHAs into ENA semantics.
-
 ## Core rule
 
-> **Discover active work from a canonical branch pointer, never from branch recency, naming intuition, an old PR number, or an embedded head SHA.**
+> **Main is the durable continuation surface. Branches are temporary work surfaces, not archives or project authority.**
 
-The canonical pointer is:
+Live project state is discovered from:
 
-`research/ACTIVE-RESEARCH.yaml`
+```text
+main / NOW.md
+-> directly relevant Issue or artifact
+-> deeper history only when it can change the decision
+```
+
+Current adoption authority remains:
+
+`releases/current/CURRENT-BASELINE.yaml`
 
 ```text
 BRANCH_EXISTS != BRANCH_ACTIVE
-BRANCH_RECENT != BRANCH_AUTHORITATIVE
-OPEN_PR != ACTIVE_BRANCH_AUTHORITY
+BRANCH_RECENT != PROJECT_AUTHORITY
 OPEN_PR != CURRENT
-EMBEDDED_HEAD_SHA != LIVE_HEAD_PROOF
-FROZEN_COMMIT != ACTIVE_WORKSPACE
+MERGED_BRANCH_REF != REQUIRED_HISTORY
+DELETE_BRANCH != DELETE_GIT_HISTORY
 ```
 
-## Why branch identity is stable but PR/head observations are not
+## Why this changed
 
-The active research integration **branch** is the stable continuation coordinate selected by the main-visible control plane.
+Earlier ENA generations used a permanent `research/ena-reconstruction` integration branch plus separate release, candidate, validation, alignment, evidence, and temporary branches.
 
-An integration PR is a transient transport/review artifact. The same active branch may have no open PR immediately after a checkpoint merge and later open a new PR without changing continuation authority.
+That topology was useful during reconstruction and v0.3.7 release formation, but after release and the project simplification work it became a coordination burden. Actual successful work increasingly followed a cheaper pattern:
 
-Likewise, an exact head SHA is a live Git fact that must be re-read before writes. Embedding the active branch's own head SHA inside a file committed on that same branch is inherently self-staling: the commit that records the SHA creates a new SHA.
+```text
+current main
+-> short-lived purpose-specific branch
+-> PR + relevant checks
+-> merge to main
+-> branch purpose exhausted
+```
 
-Therefore:
+The old long-lived research branch also drifted behind main while retaining a few unique files, demonstrating why branch names should not be treated as durable knowledge stores.
 
-- active branch identity comes from `main/research/ACTIVE-RESEARCH.yaml`;
-- open PRs are discovered from the active head branch when needed;
-- current head is reverified from GitHub before writes;
-- cached PR numbers or SHAs may be retained only as historical observations, not identity locks.
+Those unique files are being reconciled to main before branch retirement; see:
 
-## Branch roles
+`research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
+
+## Branch roles going forward
 
 ### `main`
 
-Permanent project control plane and canonical repository branch.
+Permanent project control plane and sole long-lived continuation branch.
 
 Carries:
 
-- Current adoption pointer and `releases/current/`;
-- project entrypoints and metadata;
-- research branch pointer/governance;
-- canonical research methodology and long-horizon project plan;
-- merged durable research/evidence/history when reconciliation justifies it.
+- `NOW.md` live project state;
+- released Current under `releases/current/`;
+- merged research/evidence;
+- research methodology;
+- durable field-validation results;
+- handoff records and project lineage that still deserve persistence.
 
-`main` does not mean every file on main is ENA Current. Current remains only the explicitly declared adopter-facing surface.
+All files on main are **not** automatically ENA Current. Only the declared released surface is adopter-facing Current.
 
-### Active research integration branch
+### Short-lived research/work branch
 
-Exactly one branch is designated by `research/ACTIVE-RESEARCH.yaml` as the current research integration workspace.
+Create from current `main` only when a PR/isolation surface materially helps review, reproducibility, clean experimentation, or safe editing.
 
-The count of one has a project-coordination reason: a successor session needs one unambiguous place to continue integrated research. It is not a claim that research has one topic or one HOW.
+Preferred examples:
 
-Current active branch:
+```text
+research/<short-purpose>
+evidence/<short-purpose>
+handoff/<date-or-purpose>
+housekeeping/<short-purpose>
+```
 
-`research/ena-reconstruction`
+A new idea alone does not justify a new durable branch.
 
-It succeeded the checkpointed and retired `research/memory-metabolism-prototype` generation after PR #82. The predecessor ref has been deleted; its lineage remains durable through Git history, PR #82, checkpoint commits, issues, and merged research artifacts.
+After merge or explicit abandonment:
 
-### Temporary research/work branch
-
-Use only when isolation is materially useful, for example:
-
-- parallel implementation that cannot safely share a moving integration head;
-- an independent validation environment;
-- a destructive/rebase experiment;
-- a machine harness that needs a separate PR/check surface.
-
-Temporary branches:
-
-- must target the active research integration branch or `main`, according to purpose;
-- do not become inheritance authority;
-- should have an Issue/PR/provenance link explaining why isolation was needed;
-- should be deleted after merge/abandonment once unique lineage is durably reachable by commit/PR/evidence.
-
-Do not create a branch merely because a new idea exists. Prefer an Issue, research artifact, or commit on the active integration branch.
+1. verify unique decision-relevant material is durable on main, in an immutable commit/PR, or in an evidence artifact;
+2. delete the branch ref.
 
 ### Candidate branch
 
-Candidate branches exist only during an actual release-candidate lifecycle.
+Create only for a real candidate lifecycle.
 
-Preferred naming:
+Frozen candidate identity is the exact source/tree/freeze binding, not the continued existence of the branch ref.
 
-`candidate/<version>-candidate.<generation>`
-
-where the generation is a real succession identity, not a decorative number.
-
-Once frozen, the authoritative candidate identity is its exact commit/tree/freeze record, not continued branch mutability.
-
-After the candidate lineage is closed or superseded and immutable refs are durably recorded, the branch may be deleted; deletion does not erase Git/PR/reconciliation lineage.
+Delete the branch after candidate lifecycle closure when immutable lineage is durable.
 
 ### Release branch
 
-Use only for actual release packaging/promotion work:
+Use only for actual release packaging/promotion when isolation is useful.
 
-`release/<version>`
+Delete after release closure/readback once exact release identity is durable.
 
-Only one release branch should be active for one release decision at a time. The constraint is a release-coordination rule, not a statement about how many research lines may exist.
+### Fresh validation cleanroom
 
-Delete/retire the branch after release closure once exact release identity is durably recorded.
+Fresh independent validation is **not** an ordinary branch role inside the source repo when project history would contaminate the experiment.
 
-### Evidence / validation / housekeeping branch
+Prefer structurally isolated disposable repositories/surfaces with:
 
-Short-lived branches that target `main` for bounded project/evidence work.
+- identical common material across arms;
+- no source-project/research/oracle history exposure;
+- only the task/treatment variable intentionally differing;
+- first complete answer captured before correction dialogue.
 
-Examples:
+Durable occurrence evidence returns to ENA; the cleanroom itself may then be deleted.
 
-`evidence/<slug>`
-`validation/<slug>`
-`housekeeping/<slug>`
+## Branch creation test
 
-They never become the active ENA research continuation surface unless `ACTIVE-RESEARCH.yaml` is explicitly changed through project-control-plane reconciliation.
-
-## Naming policy going forward
-
-Prefer role-first names whose first path component answers what the branch is for:
+Before creating a branch, ask:
 
 ```text
-research/ena-reconstruction      # current integration branch
-research/work/<slug>             # temporary isolated research, if needed
-candidate/<version>-candidate.<generation>
-release/<version>
-evidence/<slug>
-validation/<slug>
-housekeeping/<slug>
+Does isolation/review materially help this change?
 ```
 
-Do not create near-synonyms such as `build`, `rebased`, `plural`, `cross-how`, `final2`, etc. as long-lived topology. Put that information in the PR/commit/artifact, not in an ever-growing permanent branch namespace.
+If no, do not create one merely to represent an idea.
 
-## Lifecycle state
+If yes, create the smallest branch needed and plan its retirement at creation time.
 
-Every non-main branch should be interpretable as one of:
+## Branch closure test
 
-```text
-ACTIVE_INTEGRATION
-TEMPORARY_ACTIVE
-FROZEN_LINEAGE
-MERGED_COMPLETE
-CLOSED_SUPERSEDED
-ABANDONED
-DELETE_SAFE_AFTER_LINEAGE_CHECK
-UNKNOWN_REQUIRES_REVIEW
-```
+A branch may be deleted when it is no longer the only carrier of decision-relevant material.
 
-The working inventory is `research/BRANCH-INVENTORY.yaml`.
+Durable carriers include:
 
-## Branch closure rule
-
-A branch is not kept merely because deleting it feels risky.
-
-Before deletion/retirement, verify that decision-relevant lineage remains reachable through one or more of:
-
-- merged commit;
-- immutable commit SHA/tree;
-- closed PR retaining the head identity;
+- merged main artifact;
+- immutable commit/tree;
+- merged/closed PR preserving the occurrence;
 - freeze/reconciliation record;
-- evidence artifact.
+- field-validation archive.
 
-Then the branch name may disappear without losing history.
+Do not delete first and hope the work was duplicated somewhere.
 
 ```text
-DELETE_BRANCH != DELETE_HISTORY
+VERIFY UNIQUE CONTENT
+-> PRESERVE IF NEEDED
+-> DELETE REF
 ```
 
-Conversely, a branch should not be deleted while it is the only discoverable carrier of material unmerged work.
+## Historical refs
 
-## Successor-session protocol
+Old release/candidate/validation/research branch names may appear in historical records. Those references remain truthful about past state and should not be rewritten merely because the branch ref is later deleted.
 
-A fresh session asked to continue ENA should:
+History is allowed to say:
 
-1. start on `main`;
-2. read `PROJECT-HUB.md`;
-3. read `research/ACTIVE-RESEARCH.yaml`;
-4. read `research/methodology/README.md` and the canonical methodology;
-5. follow the active branch pointer and read its progress/plan;
-6. reverify the active Git head and discover any open PR for that branch before writing;
-7. ignore all other branches unless lineage/provenance makes them relevant.
+> `research/ena-reconstruction` was the active integration branch at that time.
 
-It should **not** run a full branch census as a prerequisite to normal continuation.
+Live routing must not say it is active now.
 
-## Pointer transition
+## Cleanup authority
 
-Changing the active research integration **branch** is a project-state change and must update, in the same reconciled change where practical:
+Current cleanup classification:
 
-- `research/ACTIVE-RESEARCH.yaml`;
-- `research/BRANCH-INVENTORY.yaml`;
-- project metadata/pointers if their paths change;
-- the old branch/PR with a visible handoff/closure note.
+`research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
 
-Opening, merging, closing, or replacing an integration PR on the **same active branch** does not by itself change active-branch authority and therefore must not require another control-plane branch transition.
+The connector used by the 2026-09-03 session does not expose a genuine branch-delete action. Do not simulate deletion by force-moving refs. Delete-safe refs may be removed manually through GitHub UI/CLI after the handoff PR is merged/read back.
 
-The new branch must be discoverable from `main` before the old active branch is retired.
+## Successor-session behavior
 
-## Anti-bloat rule
+A normal successor should **not** run a branch census before doing useful work.
 
-Branch topology itself must pay complexity rent.
+Normally:
 
-A new branch is justified only if isolation provides a material coordination, reproducibility, validation, or safety benefit that cannot be achieved economically with an Issue/artifact/commit on an existing appropriate branch.
+1. read `NOW.md`;
+2. open the directly relevant artifact/Issue;
+3. verify live `main` before writing;
+4. create a short-lived branch if a PR is useful;
+5. work.
 
-> **One active research integration branch; many PR generations, research ideas, and HOW branches may live through it.**
+Run a branch audit only when branch cleanup, lineage recovery, or a suspicious unmerged artifact is itself decision-relevant.
+
+> **Branches carry work temporarily. Main and durable evidence carry the project forward.**

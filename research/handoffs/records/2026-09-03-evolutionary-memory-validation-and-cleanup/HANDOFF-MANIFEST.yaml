@@ -1,0 +1,72 @@
+schema_version: "1.0"
+handoff_id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
+status: DEEP_PROJECT_SESSION_SUCCESSION_PREMERGE
+created_at: "2026-09-03"
+
+project:
+  repository: guytogay/evolution-native-agent-architecture
+  base_main_observed_before_handoff: e1e50ed1def69d4a088d670ca26dc54c3b747904
+  handoff_branch: handoff/2026-09-03-session-succession
+  continuation_after_merge: main
+
+current_adoption:
+  version: v0.3.7
+  status: CURRENT
+  maturity: FIELD_VALIDATION
+  current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  file_count: 118
+  package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
+  release_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
+  released_bytes_mutable: false
+
+record_files:
+  start_here: HANDOFF-START-HERE.md
+  project_state: PROJECT-STATE.md
+  recent_rounds: RECENT-THREE-ROUNDS.md
+  lessons: LESSONS-AND-REMINDERS.md
+  repo_ecosystem: REPO-ECOSYSTEM.md
+  file_catalog: FILE-CATALOG.md
+  readback: HANDOFF-READBACK.md
+
+active_research:
+  phase: MECHANISM_DISCRIMINATION
+  coverage_map: research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md
+  latest_result: research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md
+  next_action: DESIGN_AND_PREREGISTER_DEVELOPMENTAL_INHERITANCE_MDS_MULTI_STAGE_EXPERIMENT
+
+recent_evidence:
+  semantic_reachability_round_1: 4_OF_4_BASELINE_GOOD
+  semantic_reachability_round_2: 4_OF_4_BASELINE_GOOD
+  boundary_memory_pilot:
+    I_no_inheritance: MECHANISM_GOOD
+    J_full_archive: MECHANISM_GOOD
+    K_successful_recipe: MECHANISM_GOOD
+    L_boundary_examples: MECHANISM_GOOD
+    relative_transfer_advantage_observed: false
+    stronger_boundary_superiority_claim: NARROWED
+
+branch_transition:
+  old_long_lived_research_branch: research/ena-reconstruction
+  disposition: RETIRE_AFTER_SELECTED_ARTIFACT_TRANSPLANT
+  branch_cleanup_audit: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
+  selected_artifacts_migrated: 3
+  merge_old_branch_wholesale: false
+  future_long_lived_branch: main
+
+related_repositories:
+  workbench: guytogay/human-ai-workbench
+  reusable_old_cleanroom_infrastructure: guytogay/independent-validation-cleanroom
+  disposable_round_repos_A_to_L: DELETED_OR_DELETE_SAFE_AFTER_ARCHIVE
+  future_field_guide: ena-field-guide
+  future_field_guide_created: false
+
+forbidden_or_not_justified:
+  - MODIFY_RELEASED_V037_BYTES_IN_PLACE
+  - CREATE_NEW_CONSTITUTION_ID_FROM_CURRENT_MEMORY_HYPOTHESES
+  - CLAIM_BOUNDARY_MEMORY_SUPERIORITY_FROM_IJKL
+  - CONTINUE_REACHABILITY_REPAIR_WITHOUT_BASELINE_FAILURE
+  - PRIME_FRESH_VALIDATOR_WITH_AUTHOR_HANDOFF_OR_ORACLE
+  - MERGE_DIVERGED_RESEARCH_ENA_RECONSTRUCTION_WHOLESALE
+  - CREATE_FIELD_GUIDE_PATTERNS_DIRECTLY_FROM_UNVALIDATED_RESEARCH
+
+readback_state: PENDING_POSTMERGE_READBACK
