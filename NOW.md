@@ -83,26 +83,33 @@ The four final cleanrooms are parentless-root repositories with identical common
 
 Primary execution progress:
 
-- `M0-1` — first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
+- `M0-1` — valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
 - Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m0-1-first-output.md`
-- `M1-1` — first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
+- `M1-1` — valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
 - Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m1-1-first-output.md`
-- Remaining primary runs: `10 / 12`.
+- `M3-1` — attempted sequence frozen, but provenance disclosed that the successor had replied `READY` without actually fetching the repository before the behavioral probes. The intended M3 treatment therefore was not delivered at Stage A.
+- Attempt evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-1-first-output.md`
+- Protocol record: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-1-protocol-deviation.md`
+- `M3-1` is preserved but excluded from the three valid M3 replicate count before behavioral scoring; run replacement `M3-R1` under the unchanged frozen M3 treatment/tasks.
+- Valid primary runs frozen: `2 / 12`.
+- Remaining valid primary runs: `10 / 12`.
 
-Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution has begun. Do not score or correct a live successor before its run is frozen.
+Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution has begun. Do not score or correct a live successor before its run is frozen. Protocol-deviant attempts must remain visible rather than being silently discarded.
 
 ## Next consequential action
 
-Execute the remaining preregistered fresh successor runs:
+Execute the remaining preregistered valid fresh successor runs:
 
 ```text
 M0 x 2 remaining
 M1 x 2 remaining
 M2 x 3
-M3 x 3
+M3 x 3 valid runs still required, including replacement M3-R1
 ```
 
-Each run stays in one fresh `GPT-5.6 Sol / high reasoning` session across B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance challenge, with no corrective feedback before the sequence is frozen.
+Each valid run stays in one fresh `GPT-5.6 Sol / high reasoning` session across verified Stage A treatment exposure → B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance challenge, with no corrective feedback before the sequence is frozen.
+
+For not-yet-started runs, verify that the cleanroom was actually read before B1 without revealing oracle/task information. This is execution-integrity checking, not a carrier or task-content change.
 
 Archive each first complete staged output before adjudication/correction.
 
