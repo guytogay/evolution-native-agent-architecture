@@ -1,142 +1,69 @@
-schema_version: "3.2"
-status: CURRENT_HANDOFF_POINTER_AND_TAKEOVER_CONTRACT
-updated_at: "2026-08-28"
+schema_version: "4.0"
+status: CURRENT_DEEP_SUCCESSION_POINTER
+updated_at: "2026-09-03"
+
+normal_continuation:
+  default_entry: NOW.md
+  full_handoff_required_by_default: false
+  rule: READ_NOW_AND_DIRECTLY_RELEVANT_ARTIFACT_THEN_WORK
 
 handoff_framework:
   protocol: research/handoffs/HANDOFF-PROTOCOL.md
   required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
-  framework_required_before_substantive_work: true
-  scope: PROJECT_MANAGER_SESSION_SUCCESSION
-
-project_methodology_required:
-  required: true
-  index: research/methodology/README.md
-  master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
-  convergence_divergence: research/methodology/CONVERGENCE-DIVERGENCE-DISCIPLINE.md
-  project_state_alignment: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-  independent_validation_information_boundary: research/methodology/INDEPENDENT-VALIDATION-INFORMATION-BOUNDARY.md
-  independent_validation_carrier: research/methodology/INDEPENDENT-VALIDATION-CAPSULE-CARRIER.md
 
 current_handoff_record:
-  id: "2026-08-28-v037-candidate3-frozen-release-preparation"
-  state: HISTORICAL_OCCURRENCE_SNAPSHOT_SUPERSEDED_BY_LIVE_POSTPROMOTION_CONTROL_STATE
-  record_root: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/
-  start_here: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/HANDOFF-START-HERE.md
-  manifest: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/HANDOFF-MANIFEST.yaml
-  project_state: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/PROJECT-STATE.md
-  recent_three_rounds: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/RECENT-THREE-ROUNDS.md
-  file_catalog: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/FILE-CATALOG.md
-  readback: research/handoffs/records/2026-08-28-v037-candidate3-frozen-release-preparation/HANDOFF-READBACK.md
-  record_is_occurrence_snapshot_not_live_authority: true
+  id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
+  state: DEEP_PROJECT_SESSION_SUCCESSION_PREMERGE
+  record_root: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/
+  start_here: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-START-HERE.md
+  manifest: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-MANIFEST.yaml
+  project_state: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/PROJECT-STATE.md
+  recent_rounds: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/RECENT-THREE-ROUNDS.md
+  lessons: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/LESSONS-AND-REMINDERS.md
+  repo_ecosystem: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/REPO-ECOSYSTEM.md
+  file_catalog: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/FILE-CATALOG.md
+  readback: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-READBACK.md
 
 current_project_authorities:
-  project_hub: PROJECT-HUB.md
+  live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
-  active_research_pointer: research/ACTIVE-RESEARCH.yaml
-  progress: research/plans/PROGRESS.yaml
-  master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
+  current_package: releases/current/
+  research_coverage: research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md
   branch_governance: research/BRANCH-GOVERNANCE.md
-  branch_inventory: research/BRANCH-INVENTORY.yaml
-
-receiver_contract:
-  inherit_project_state: REQUIRED
-  inherit_handoff_protocol: REQUIRED
-  inherit_project_management_discipline: REQUIRED
-  inherit_project_methodology: REQUIRED
-  read_current_record: REQUIRED
-  live_reverify_refs_and_exact_identities: REQUIRED
-  run_alignment_if_surfaces_disagree: REQUIRED
-  ask_user_to_repeat_persisted_background: FORBIDDEN
-  infer_current_record_from_directory_recency: FORBIDDEN
-  treat_handoff_record_as_project_authority: FORBIDDEN
-  treat_branch_recency_as_authority: FORBIDDEN
+  branch_cleanup: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
 
 current_adoption:
   version: v0.3.7
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  complete_adoption_baseline: true
-  subtree: f33e73ed997c1b66a4572685ab5474182e136e97
+  tree: f33e73ed997c1b66a4572685ab5474182e136e97
   file_count: 118
   package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
-  release_pr: 144
-  exact_reviewed_release_head: 3ef3605228ed427b2d25d7d586e4ffc378b7369e
-  release_merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-  explicit_promotion_authorization_received: true
-  postmerge_readback: PASS
+  release_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
+  released_bytes_immutable: true
 
-frozen_release_source:
-  identity: v0.3.7-candidate.3
-  frozen_source: b7e88d7adb70396bd671ca97066daf2c120e0adc
-  frozen_subtree: e3a9a20d16cecd78df7f32f19fca56e21159e810
-  exact_prefreeze_run: 33150269264
-  targeted_postfreeze_run: 33150553992
-  release_hardening_run: 33152201566
-  candidate_succession_stop: true
-  candidate4_currently_justified: false
-  candidate_mutation_forbidden: true
-  attack_cardinality: OPEN
-  external_truth_established: false
+active_research:
+  phase: MECHANISM_DISCRIMINATION
+  continuation_branch: main
+  next_action: DESIGN_AND_PREREGISTER_DEVELOPMENTAL_INHERITANCE_MINIMUM_DEVELOPMENTAL_SET_EXPERIMENT
+  latest_mechanism_result: research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md
 
-release_evidence:
-  byte_exact_transplant_commit: 8e4e25a8ba1940560fc55d7528ad31ef89a7f135
-  exact_release_gate_run: 33162550145
-  postmerge_main_gate_run: 33163171275
-  postmerge_current_validate_run: 33163171328
-  postmerge_codeql_run: 33163171289
-  all_observed: PASS
+branch_transition:
+  retiring_branch: research/ena-reconstruction
+  state: UNIQUE_ARTIFACTS_MIGRATING_IN_HANDOFF_PR
+  merge_wholesale: false
+  delete_after_merge_readback: true
 
-field_and_research_state:
-  active_field_validation_issue: 150
-  predecessor_field_validation_issue_70: CLOSED_PRESERVED_OCCURRENCE_EVIDENCE
-  open_reconstruction_issues:
-    - 89
-    - 90
-    - 91
-    - 92
-    - 93
-    - 94
-    - 104
-  active_research_branch: research/ena-reconstruction
-  next_action: SELECT_NEXT_BOUNDED_DECISION_CHANGING_RESEARCH_STEP_FROM_FIELD_OR_OPEN_RECONSTRUCTION_EVIDENCE
-
-release_metadata_erratum:
-  present: true
-  released_package_must_remain_immutable: true
-  description: >-
-    CURRENT-BASELINE.yaml accepted_residuals retains one pre-promotion sentence stating that
-    v0.3.6 remains the sole adopter-facing baseline until explicit promotion. Promotion has
-    occurred; the top-level v0.3.7 Current identity and governed main merge are authoritative.
-  disposition: DOCUMENT_OUTSIDE_CURRENT_AND_CORRECT_ONLY_UNDER_A_FUTURE_GOVERNED_RELEASE_IDENTITY
-  field_tracker: 150
-
-branch_hygiene:
-  active_long_lived_branch: research/ena-reconstruction
-  completed_release_candidate_validation_tmp_alignment_refs_are_cleanup_candidates: true
-  durable_lineage_preserved_outside_branch_names: true
-  delete_ref_capability_available_in_current_connector: false
-  force_move_must_not_simulate_deletion: true
-
-independent_validation_infrastructure:
-  repository: guytogay/independent-validation-cleanroom
-  role: REUSABLE_CROSS_STAGE_CROSS_PROJECT_VALIDATION_INFRASTRUCTURE
-  repository_identity_is_project_agnostic_infrastructure: true
-  contents_are_current_stage_ephemeral_review_state: true
-  reset_or_replace_between_occurrences: true
-  durable_occurrence_truth_returns_to_source_project: true
-  not_ena_current_authority: true
-  not_ena_candidate_lineage_authority: true
-  fresh_a_s_must_still_obey_information_boundary: true
-
-history:
-  records_root: research/handoffs/records/
-  historical_records_remain_lineage: true
-  dated_record_must_not_be_rewritten_to_claim_postpromotion_state: true
+receiver_contract:
+  ask_user_to_repeat_persisted_background: FORBIDDEN
+  treat_handoff_record_as_current_authority: FORBIDDEN
+  treat_old_branch_recency_as_authority: FORBIDDEN
+  preserve_negative_and_null_results: REQUIRED
+  reverify_live_mutable_facts_before_writes: REQUIRED
+  use_full_handoff_for_fresh_validator: FORBIDDEN
 
 rule: >-
-  Project-manager succession inherits project state, project methodology, project-management
-  discipline, decision lineage, open evidence boundaries, and next action. v0.3.7 is Current on
-  main after explicit promotion and readback; release success does not close field evidence or
-  justify ceremonial candidate succession. Fresh independent validation remains a distinct role
-  and uses a physically isolated priming-reduced surface rather than full project-manager context.
+  The 2026-09-03 record is the current deep succession package. Normal continuation remains
+  cheaper: NOW.md plus the relevant artifact. Fresh independent validation must use an isolated
+  minimal cleanroom rather than this project-manager context.
