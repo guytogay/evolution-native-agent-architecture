@@ -13,19 +13,25 @@ Keep it short. Git history stores history; Issues store open work; CI stores mac
 
 ## Active research phase
 
-ENA's recent evolutionary-memory work has moved from default divergence into **convergence + adversarial validation**.
+ENA's recent evolutionary-memory work has moved from default divergence through semantic-reachability attack into **mechanism discrimination**.
 
 Default sequence now:
 
-> `SYNTHESIZE → SEMANTIC REACHABILITY AUDIT → ATTACK → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
+> `SYNTHESIZE → REACHABILITY PROBE → MECHANISM EXPERIMENT → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
 
-Reason: the research has enough candidate branches that the dominant risk is no longer missing ideas; it is duplicate terminology, self-confirming theory, premature Constitution growth, and mistaking an existing-but-hard-to-reach semantic relation for a missing natural law.
+The reachability probe is sufficiently complete for now. Two cleanroom rounds, eight isolated `GPT-5.6 Sol / high reasoning` cases in total, produced no anticipated wrong attractor under the tested v0.3.7 package.
+
+That does not prove universal reachability or isolate ENA's causal contribution. It is enough to stop treating the tested relations as an urgent Current usability defect without contrary field evidence.
 
 Convergence plan: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CONVERGENCE-AND-VALIDATION-009.md`
 
 Semantic-reachability note: `research/evolution-inbox/SEMANTIC-REACHABILITY-AND-ATTRACTOR-GAPS-010.md`
 
-First cleanroom baseline: `research/field-validation/2026-09-03-semantic-reachability-cleanroom-baseline.md`
+Round 1 result: `research/field-validation/2026-09-03-semantic-reachability-cleanroom-baseline.md`
+
+Round 2 preregistration: `research/field-validation/2026-09-03-semantic-reachability-cleanroom-round2-preregistration.md`
+
+Round 2 result: `research/field-validation/2026-09-03-semantic-reachability-cleanroom-round2-results.md`
 
 ### Candidate trunks under convergence
 
@@ -36,53 +42,78 @@ First cleanroom baseline: `research/field-validation/2026-09-03-semantic-reachab
 5. **Boundary memory / viable action topology** — failure may prove what must not recur more strongly than one unique remedy; `SAFE != VIABLE`.
 6. **Adaptation ecology** — individually useful memories can interact badly; propagation and inheritance do not imply benefit.
 
-### Semantic-reachability classification
+### Semantic-reachability status
 
-Before proposing a new invariant, classify the candidate as:
+Before proposing a new invariant, candidates are still classified as:
 
 `EXPLICIT_COVERAGE | LATENT_COVERAGE | ATTRACTOR_AMBIGUITY | TRUE_SEMANTIC_GAP | UNRESOLVED`
 
-For latent/ambiguous cases, test the cheapest repair first:
+But do not keep manufacturing reachability fixtures merely to force a failure.
 
-`HOT_CUE | CROSS_FAMILY_ROUTE | BOUNDARY_EXAMPLE | COUNTEREXAMPLE | CONCEPT_MAP/RUNTIME CLARIFICATION`
+Across the tested relations, Current naturally reached:
 
-A Constitution change is downstream of failure of cheaper semantic-reachability repairs, not the default response to new language.
-
-### First cleanroom result
-
-Four isolated GPT-5.6 Sol / high-reasoning baseline runs tested SR-1, SR-3, SR-4, and SR-5 against an identical frozen v0.3.7 framework tree.
-
-All four produced `BASELINE_GOOD` decisions. No anticipated wrong attractor appeared.
-
-Implications:
-
-- SR-1 proportional/boundary governance is reachable as-is on the tested Host;
-- SR-3 does not demonstrate a metamemory semantic gap, though broader metamemory remains unresolved;
-- SR-4 handoff-vs-cloning semantics are reachable as-is, while developmental inheritance remains a separate mechanism hypothesis;
-- SR-5 archive-vs-compiled-competence is already explicit enough through Memory Metabolism + runtime salience to reach the intended diagnosis.
+- proportional governance and control retirement without collapsing into permanent ceremony;
+- scoped trust without promoting a useful source into configuration sovereignty;
+- successor migration without blind procedural cloning across changed Host semantics;
+- action-point behavioral adaptation instead of mistaking an easy-to-search incident archive for sufficient competence.
 
 Therefore:
 
-`BASELINE DID NOT FAIL -> DO NOT RUN REPAIR ARMS ON THESE EXACT FIXTURES`
+`NO OBSERVED REACHABILITY DEFECT -> NO REPAIR ARM -> NO CURRENT CHANGE FROM THIS EVIDENCE`
 
-The first fixtures were also too lexically close to Current's routing surface to strongly test cross-family reachability.
+A future real field failure may reopen the question.
 
-### Adversarial targets now
+### What remains unresolved
 
-1. **Harder semantic-reachability attacks**
-   - lexically strip ENA trigger vocabulary;
-   - avoid answer-shaped questions;
-   - require cross-family synthesis;
-   - include a plausible competing attractor;
-   - score actual operational choice rather than theoretical explanation.
-2. **Boundary memory vs recipe memory**
-   - Does preserving a consequence boundary + counterexamples transfer better to novel Hosts than copying one successful remedy?
-3. **Developmental inheritance vs archive/rule inheritance**
-   - Can a fresh Agent inherit useful behavioral shaping from a compact developmental package better than from history retrieval or bare rules?
+The cleanroom passes do **not** establish:
 
-Fresh-instance tests should remove ENA terminology and original long-context carryover.
+- full metamemory sovereignty semantics;
+- developmental inheritance as a superior mechanism;
+- boundary memory transfer fitness;
+- persistent assimilation across sessions or Hosts;
+- long-term behavioral retention;
+- ENA's causal contribution relative to a no-framework control.
 
-Do not treat the Zhipu dialogue as independent validation; it remains a valuable occurrence that motivated testable hypotheses.
+`CURRENT REACHABILITY OBSERVED != ENA CAUSAL CONTRIBUTION ISOLATED`
+
+The next useful work is therefore not more paraphrase/reachability testing. It is mechanism discrimination where competing designs make different predictions.
+
+## Next mechanism experiments
+
+### 1. Boundary memory vs copied remedy
+
+Question:
+
+> Does a successor that inherits a consequence boundary + counterexamples adapt better to a novel Host/task than a successor that inherits the historically successful remedy?
+
+Need at least three arms:
+
+- full/incident history or archive;
+- successful recipe/procedure;
+- consequence boundary + positive/negative/boundary exemplars.
+
+Test on a structurally similar but implementation-different task with original terminology removed.
+
+Success must include both:
+
+- avoiding the ancestral failure class;
+- preserving useful variation instead of freezing into paralysis.
+
+### 2. Developmental inheritance vs archive/rule inheritance
+
+Question:
+
+> Can a fresh successor reconstruct useful behavioral shaping from a compact developmental package better than from full history retrieval or bare distilled rules?
+
+Candidate arms:
+
+- archive/RAG history;
+- distilled rules;
+- scoped disposition + positive/negative/boundary examples + provenance/minimal developmental set.
+
+Test behavior on novel structurally similar tasks before explicit historical retrieval.
+
+The experiment should be capable of falsifying the developmental-inheritance hypothesis rather than assuming the disposition package must win.
 
 ## Purpose-relative selection and propagation
 
@@ -155,19 +186,13 @@ Keep executable logic tests where they can find real defects.
 
 ## Next consequential action
 
-Design a second-generation semantic-reachability attack set that is structurally equivalent but lexically distant from Current's cue map.
+Design and preregister the **Boundary Memory vs Copied Remedy** mechanism experiment first.
 
-Each case should:
+Do not start by assuming the boundary package is superior. Define cases where:
 
-```text
-ordinary operational problem
-+ hidden cross-family dependency
-+ plausible wrong shortcut
--> observable action choice
-```
+- a copied recipe should work well if the environment is unchanged;
+- the same recipe should fail or overfit when implementation details change;
+- an overly abstract boundary should be capable of causing paralysis or under-specification;
+- a good boundary package must preserve both safety and local solution freedom.
 
-Do not ask the Agent to name the underlying theory or choose between labels supplied by the experiment.
-
-If harder baseline cases still pass, reduce the priority of Current reachability changes and proceed to mechanism experiments for **boundary memory vs recipe memory** and **developmental inheritance vs archive/rule inheritance**.
-
-Do **not** update Current merely because a new formulation is insightful. Update Current only if evidence supports either (a) a real retrieval/reachability defect in the adopter-facing Current surface or (b) a decision-relevant natural law v0.3.7 cannot express.
+Only after a mechanism survives falsification pressure should it become a candidate for Current change or Field Guide HOW.
