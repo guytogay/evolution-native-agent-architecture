@@ -2,591 +2,319 @@
 
 Status: `VALIDATION CHARTER / LIVING MAP / NOT_CURRENT / NO_CONSTITUTION_CHANGE`
 
-## Why this exists
+## Purpose
 
-The recent ENA research produced many useful branches: preserved adaptation, metamemory, developmental inheritance, negative boundaries, sleep/dreaming, propagation fitness, interaction debt, and others.
+Earlier divergence produced many meaningful branches. Convergence is incomplete if it validates only the newest or easiest ideas and silently drops the rest.
 
-A convergence program is not complete if it validates only the newest or easiest branches and silently drops older insights.
+Every major branch must therefore end with an explicit disposition:
 
-This map therefore makes the validation obligation explicit:
+`SUPPORTED ENOUGH TO CONTINUE | NARROWED | SUBSUMED / DUPLICATE | REJECTED | METAPHOR ONLY | FIELD-UNRESOLVED`
 
-> Every major research branch must eventually end in one of four states: directly tested, subsumed by stronger evidence, explicitly retained as metaphor-only/non-claim, or rejected/narrowed by evidence.
+Useful intermediate evidence labels remain:
 
-`NOT RECENTLY DISCUSSED != VALIDATION COMPLETE`
-
-`INTERESTING IDEA != VALIDATED MECHANISM`
+`REACHABILITY_PROBED | MECHANISM_ACTIVE | PARTIALLY_PROBED | NOT_DIRECTLY_TESTED | FIELD_REQUIRED | SUBSUMED_OR_DUPLICATE | NARROWED_OR_REJECTED`
 
 `NEGATIVE RESULT != FAILED RESEARCH`
 
-A branch does not have to "win" to count as covered. Falsification, narrowing, duplication, and null results are valid convergence outcomes.
-
-## Coverage states
-
-Use these labels:
-
-- `REACHABILITY_PROBED` — Current can express/reach the relation under tested conditions, but the mechanism itself is not established.
-- `MECHANISM_ACTIVE` — a discriminating mechanism experiment is currently running or preregistered.
-- `PARTIALLY_PROBED` — some downstream implications were tested, but the core mechanism remains unresolved.
-- `NOT_DIRECTLY_TESTED` — research branch exists but has not yet received a direct falsification-oriented test.
-- `FIELD_REQUIRED` — one-shot cleanroom reasoning is insufficient; longitudinal/real-world observation is required.
-- `SUBSUMED_OR_DUPLICATE` — evidence shows the branch adds no distinct mechanism beyond another validated relation.
-- `NARROWED_OR_REJECTED` — evidence weakens the original claim enough that it should not be carried forward unchanged.
+`NOT RECENTLY DISCUSSED != VALIDATION COMPLETE`
 
 ## Validation tracks
 
-The branches should not all be forced through the same experiment. They naturally fall into six tracks.
+- **A — Semantic reachability:** can a fresh Agent reach the relevant Current semantics from an ordinary problem?
+- **B — Inheritance/transfer:** what form of inherited experience transfers useful adaptation?
+- **C — Temporal transformation:** how do replay, salience, consolidation, decay, dreaming/recombination and reconsolidation alter later behavior?
+- **D — Metamemory:** what may change future learning, forgetting, replay, trust updating and generalization policy?
+- **E — Adaptation ecology:** how do individually useful adaptations interact when composed?
+- **F — Propagation/purpose:** what spreads, what remains useful to recipients, and what is fit relative to purpose?
 
-### Track A — semantic reachability
-
-Question: can a fresh Agent naturally reach the relevant ENA semantics from ordinary problems without newer research vocabulary?
-
-Status: substantially probed for the currently selected relations through two cleanroom rounds, eight fresh `GPT-5.6 Sol / high reasoning` cases.
-
-Use this track only when a suspected problem is that the law exists but is hard to reach.
-
-### Track B — inheritance and transfer mechanism
-
-Question: what form of inherited experience actually transfers useful adaptation to a changed Host/task?
-
-Includes boundary memory, copied remedy, full history, developmental packages, structural/environmental inheritance, and successor reconstruction.
-
-This is the active track.
-
-### Track C — temporal memory transformation
-
-Question: what happens between raw experience and later behavior over time?
-
-Includes consolidation, replay, sleep-like processing, dreaming/recombination, salience, decay, silencing, reconsolidation, and persistent assimilation.
-
-Requires multi-stage or longitudinal experiments rather than one-shot interpretation only.
-
-### Track D — metamemory and learning governance
-
-Question: who/what may change the rules by which future learning, forgetting, replay, trust updating, and generalization happen?
-
-Requires experiments where the learning policy itself becomes the object of mutation.
-
-### Track E — adaptation ecology and composition
-
-Question: what happens when individually useful adaptations interact?
-
-Includes credit assignment, interaction debt, epistasis, rule accumulation, composition failure, and governance scar tissue.
-
-Requires multi-rule/multi-adaptation environments where local success can create joint failure.
-
-### Track F — propagation, population, and purpose-relative selection
-
-Question: what survives transmission, what spreads, what helps the recipient, and what remains fit relative to purpose?
-
-Includes lexical/semantic/behavioral propagation, horizontal transfer, host fitness, memetic fitness, local fitness vs heritability vs propagation fitness, and purpose drift/evolution.
-
-Requires multi-generation/cross-Host tests and should distinguish being copied from being beneficial.
+Do not force all branches through one-shot cleanroom reasoning when longitudinal or population evidence is required.
 
 ---
 
-## Branch-by-branch coverage ledger
+## Coverage ledger
 
 ### 1. Semantic reachability / attractor ambiguity
 
-Research:
-- `SEMANTIC-REACHABILITY-AND-ATTRACTOR-GAPS-010.md`
-- `SEMANTIC-REACHABILITY-CONVERGENCE-MATRIX-010.md`
-
 State: `REACHABILITY_PROBED`
 
-Evidence so far:
-- round 1 A-D: 4/4 `BASELINE_GOOD`;
-- round 2 E-H: 4/4 `BASELINE_GOOD` with lexically distant operational fixtures;
-- no anticipated wrong attractor appeared under the tested Host/configuration.
+Evidence:
+- A-D: 4/4 `BASELINE_GOOD`;
+- E-H: 4/4 `BASELINE_GOOD` on harder lexically distant tasks;
+- no preregistered wrong attractor appeared on `GPT-5.6 Sol / high reasoning / full v0.3.7 Current`.
 
-Remaining obligation:
-- reopen only on stronger contrary evidence, lower-reasoning Hosts, other languages, context pressure, or real field failures.
-
-Do not continue manufacturing reachability fixtures merely to force a failure.
+Disposition: **supported enough to stop active probing for now**. Reopen on real failures, weaker Hosts, other languages, context pressure, or contrary evidence.
 
 ### 2. Negative boundaries / viable action topology
 
-Research:
-- `NEGATIVE-BOUNDARIES-VIABLE-ACTION-SPACE-008.md`
-- associated literature map
+State: `PARTIALLY_PROBED` + `NARROWED_OR_REJECTED` for the stronger transfer claim.
 
-Core claims:
-- constrain harmful consequence regions without unnecessarily prescribing one implementation;
-- `SAFE SET != VIABILITY KERNEL`;
-- preserving action-space breadth/connectivity/recovery can matter independently of formal permission count;
-- failure may justify a boundary more strongly than one unique remedy.
+Supported so far:
+- A/E: consequence-bound governance and control retirement are reachable;
+- L pilot: a consequence-boundary + counterexample package can transfer without paralysis.
 
-State: `PARTIALLY_PROBED` + `MECHANISM_ACTIVE`
+Boundary Memory vs Copied Remedy pilot:
 
-Already touched:
-- A/E showed proportional boundary governance and control retirement are semantically reachable.
+```text
+I no inheritance: MECHANISM_GOOD
+J full incident/archive: MECHANISM_GOOD
+K successful recipe: MECHANISM_GOOD
+L boundary/counterexamples: MECHANISM_GOOD
+```
 
-Not yet established:
-- whether boundary memory transfers better than copied remedy;
-- whether boundary packages preserve useful variation rather than cause paralysis;
-- whether viable action topology can be operationally measured in a useful way.
+Result:
 
-Active experiment:
-- I/J/K/L Boundary Memory vs Copied Remedy pilot.
+`I == J == K == L at qualitative mechanism level`
+
+Therefore retain:
+
+`FAILURE MAY JUSTIFY A PORTABLE CONSEQUENCE BOUNDARY WITHOUT JUSTIFYING ONE PERMANENT REMEDY`
+
+But **narrow**:
+
+`BOUNDARY-ORIENTED INHERITANCE HAS SUPERIOR TRANSFER FITNESS`
+
+No superiority over no inheritance, full history, or copied recipe was observed in the saturated Supplier-B fixture. Do not rerun the same fixture merely to seek an L win.
+
+Still unresolved:
+- whether viable-action topology can be measured usefully;
+- whether boundary representations gain value under long history, lower context, weaker Hosts, or multi-step developmental pressure.
+
+Evidence: `research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md`
 
 ### 3. Preserved adaptation / shaped-by-history memory
 
-Research:
-- `EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md`
-
-Core claim:
-
-`HAVING HISTORY != HAVING BEEN SHAPED BY HISTORY`
-
-and memory may be preserved change, not only preserved information.
-
 State: `PARTIALLY_PROBED`
 
-Already touched:
-- D/H showed Current can distinguish searchable archive from action-point competence.
+Core: `HAVING HISTORY != HAVING BEEN SHAPED BY HISTORY`.
 
-Still required:
-- direct behavioral test where one group has archival access and another has a learned/compiled disposition;
-- novel structurally related tasks before explicit retrieval;
-- cross-session persistence to distinguish one-shot cueing from durable assimilation.
+D/H showed Current can distinguish searchable archive from action-point competence.
+
+Still required: archive-access vs compiled disposition on novel tasks before explicit retrieval; cross-session persistence; distinguish one-shot reasoning from durable assimilation.
 
 ### 4. Regulated memory expression / cue-conditioned salience
 
-Core claims:
-- `MEMORY EXISTS != MEMORY ACTIVE HERE`;
-- retrieval is only one route by which prior experience can affect behavior;
-- hot/warm/cold expression should be context-dependent;
-- source/provenance can remain cold while a scoped disposition is hot.
-
 State: `PARTIALLY_PROBED`
 
-Already touched:
-- D/H demonstrated that runtime action-point behavior can matter more than post-hoc retrieval.
+Core: `MEMORY EXISTS != MEMORY ACTIVE HERE`.
 
-Still required:
-- same stored memory under different cues/contexts;
-- measure correct activation, false activation, and failure to activate;
-- test lexical stripping so expression is structural rather than phrase matching.
+D/H support the importance of action-time expression over post-hoc retrieval.
+
+Still required: same memory under different contexts/cues; correct activation vs false activation vs missed activation; lexical stripping.
 
 ### 5. Metamemory / selective permeability / learning governance
 
-Research:
-- `MEMORY-ECOLOGY-DIVERGENCE-003-METAMEMORY-REGULATION-AND-LEARNING-GOVERNANCE.md`
-- `METAMEMORY-SOVEREIGNTY-SELECTIVE-PERMEABILITY-004.md`
-
-Core claims:
-
-`Memory = past changes future state`
-
-`Metamemory = past changes future change`
-
-and viable agency needs selective permeability rather than total immunity or total suggestibility.
-
 State: `PARTIALLY_PROBED`
 
-Already touched:
-- B/F showed a useful/repeated external source does not automatically gain authority to install permanent trust preference.
+B/F showed that useful/repeated external information does not automatically gain authority to install permanent trust preference.
 
-Not yet directly tested:
-- mutation of learning rate;
-- replay priority;
-- forgetting policy;
-- generalization width;
-- source-trust update rules;
-- who may change the mutation/learning policy itself;
-- learning-policy poisoning.
+Not yet directly tested: mutation of learning rate, replay priority, forgetting policy, generalization width, source-trust update rules, self-modification of learning policy, learning-policy poisoning.
 
-Required next-stage test:
-- competing Agents with identical object-level memory but different metamemory update policies facing repeated mixed-quality experience.
+Needed experiment: identical object-level experience with different metamemory update policies under repeated mixed-quality signals.
 
 ### 6. Adaptive inheritance without full history / Minimum Developmental Set
 
-Research:
-- `ADAPTIVE-INHERITANCE-WITHOUT-FULL-HISTORY-005.md`
+State: `NOT_DIRECTLY_TESTED` — **next active target**.
 
-Core claims:
-- `HAVING HISTORY != HAVING BEEN SHAPED BY HISTORY`;
-- a successor may need a scoped adaptive disposition + minimal developmental boundary set rather than full archive replay;
+Core candidates:
+- scoped adaptive disposition + minimal developmental boundary set;
 - `BEST HISTORY SUMMARY != BEST DEVELOPMENTAL CURRICULUM`;
 - counterexamples may carry applicability boundaries.
 
-State: `NOT_DIRECTLY_TESTED`
-
-I/J/K/L is a precursor but does not by itself validate MDS.
+The I/J/K/L pilot is a precursor only. It saturated because decisive Supplier-B semantics were directly available to every arm.
 
 Required experiment:
-- compare at least full archive/RAG, distilled rules, and disposition + positive/negative/boundary exemplars;
-- novel tasks with original terminology removed;
-- measure pre-retrieval behavior, overgeneralization, paralysis, transfer speed, and provenance retention.
+- no-inheritance control where feasible;
+- full archive/RAG;
+- distilled rules;
+- disposition + positive/negative/boundary exemplars + provenance;
+- multiple structurally related tasks with original wording removed;
+- inherited information must matter before the target prompt exposes all decisive semantics.
+
+Measure pre-retrieval behavior, transfer speed, overgeneralization, paralysis, provenance retention and phenotype reconstruction.
 
 ### 7. Developmental succession / reconstruction instead of cloning
 
-Research:
-- `AGENT-DEVELOPMENTAL-SUCCESSION-006.md`
-
-Core claims:
-- `STATE RESTORE != DEVELOPMENTAL SUCCESSION`;
-- inheritance may reconstruct a phenotype rather than copy state;
-- receiver-side selection remains real;
-- successor identity/continuity can be lineage-relative.
-
 State: `PARTIALLY_PROBED`
 
-Already touched:
-- C/G showed blind cloning across Host changes is not required and can be rejected while preserving useful inheritance.
+C/G showed blind Host-state cloning is unnecessary and potentially wrong while useful inheritance can remain.
 
-Still required:
-- multiple successors receiving different developmental seeds;
-- phenotype re-emergence rather than state identity;
-- sibling/twin/cross-Host or cross-fostering tests;
-- compare same seed across Hosts and different seeds on same Host.
+Still required: sibling/twin/cross-Host/cross-fostering tests; same seed across Hosts; different seeds on same Host; phenotype re-emergence rather than state identity.
 
-### 8. Developmental dynamics / order, critical periods, plasticity, maturity
-
-Research:
-- `AGENT-DEVELOPMENTAL-DYNAMICS-007.md`
-
-Core claims:
-- same experiences in different orders may produce different development;
-- early schemas may create Developmental Debt;
-- maturity may mean stability + selective plasticity, not immutability;
-- Minimum Developmental Set is Host-relative.
+### 8. Developmental dynamics / order / critical-period analogies / maturity
 
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment:
-- identical training/example set with different exposure order;
-- early misleading schema then correction vs correction-first;
-- measure later adaptation cost, residual bias, recovery speed, and ability to revise.
+Required: identical experience set in different orders; misleading-schema-first vs correction-first; measure Developmental Debt, residual bias, recovery speed and selective plasticity.
 
-This is the proper place to test "critical period" analogies rather than assuming LLMs literally have childhood.
+Do not assume LLMs literally have childhood.
 
 ### 9. Sleep-like consolidation / replay scheduling / adaptive homeostasis
 
-Research:
-- `MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md`
-- earlier private `ai-dreaming` lineage
-
-Core claims:
-- offline processing may strengthen, weaken, merge, narrow, prune, or silence memories;
-- consolidation may reduce recency overfit;
-- replay scheduling partly determines what the Agent becomes;
-- memory value may lie in transformation, not literal replay.
-
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment family:
-
-Use the same raw experience corpus and compare:
-- raw archive only;
+Required arms over the same raw experience corpus:
+- archive only;
 - simple summary;
 - frequency-weighted replay;
 - evidence/novelty/error-sensitive replay + consolidation;
-- optionally consolidation with deliberate weakening/pruning.
+- optional deliberate weakening/pruning.
 
-Then test on fresh structurally related tasks.
+Measure transfer, recency bias, rare-disaster retention, false salience, overgeneralization, storage/decision cost and revision after regime change.
 
-Measure:
-- transfer accuracy;
-- recency bias;
-- rare-disaster retention;
-- overgeneralization;
-- false salience;
-- storage/decision cost;
-- ability to revise after regime change.
+Endpoint is downstream adaptive behavior, not attractive summaries.
 
-### 10. Dream-like recombination / divergence followed by selection
-
-Research:
-- same sleep/dream lineage
-
-Core claims:
-- dream-like processing raises associative temperature and recombines fragments;
-- value lies in the process, not necessarily dream narrative;
-- `DIVERGENCE WITHOUT SELECTION = hallucination/chaos`;
-- `SELECTION WITHOUT DIVERGENCE = stagnation`;
-- `Dream -> Reality Check -> Selection`.
+### 10. Dream-like recombination / divergence + reality selection
 
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment:
-- identical experience corpus;
-- no recombination control;
+Required arms:
+- no recombination;
 - constrained recombination;
 - high-divergence recombination without selection;
 - high-divergence recombination followed by external/reality selection.
 
-Test both novel solution discovery and hallucinated false pattern formation.
+Measure novel useful solution discovery **and** false-pattern/hallucination formation.
 
-A "creative output" alone does not count as evidence. The experimental endpoint is downstream adaptive performance.
+Candidate relations remain hypotheses:
+
+`DIVERGENCE WITHOUT SELECTION = hallucination/chaos`
+
+`SELECTION WITHOUT DIVERGENCE = stagnation`
+
+`Dream -> Reality Check -> Selection`
 
 ### 11. Credit assignment / causal support
 
-Core claims:
-- `SUCCESS CO-OCCURRENCE != CAUSAL SUPPORT`;
-- `BEHAVIOR CHANGED != CAUSE KNOWN`;
-- memory should preserve lesson + causal support + uncertainty + alternatives/counterevidence where material.
-
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment:
-- environments with correlated but non-causal cues;
-- interventions/ablation or counterfactual evidence;
-- compare memories that store only successful association vs causal uncertainty/support.
+Core: `SUCCESS CO-OCCURRENCE != CAUSAL SUPPORT` and `BEHAVIOR CHANGED != CAUSE KNOWN`.
 
-Measure resistance to spurious reinforcement and ability to update when correlation breaks.
+Required: correlated but non-causal cues; intervention/ablation/counterfactual evidence; association-only memory vs causal-support/uncertainty memory.
 
 ### 12. Adaptation ecology / interaction debt / epistasis
 
-Core claims:
-- `INDIVIDUALLY BENEFICIAL != JOINTLY BENEFICIAL`;
-- individually useful rules can compose into bureaucracy, deadlock, over-caution, or search starvation;
-- one adaptation can have multiple downstream effects;
-- `STORAGE CAPACITY != ADAPTIVE COMPATIBILITY CAPACITY`.
+State: `NOT_DIRECTLY_TESTED`
+
+Core: `INDIVIDUALLY BENEFICIAL != JOINTLY BENEFICIAL`.
+
+Required: separately useful adaptations combined in one Agent; pairwise-good rules that jointly create bureaucracy/deadlock/over-caution/search starvation; additive storage vs reconsolidated integration.
+
+Measure success, latency, false blocks, governance burden, solution diversity and recovery.
+
+### 13. Decay / silencing / pruning / excision / reconsolidation
 
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment:
-- validate several adaptations separately;
-- then combine them in the same Agent/environment;
-- include cases where pairwise-good rules conflict or multiply cost;
-- compare additive storage vs reconsolidated/compressed integration.
-
-Measure task success, latency, false blocks, governance cost, solution diversity, and recovery behavior.
-
-### 13. Decay, silencing, pruning, excision, reconsolidation
-
-Core claims:
-- forgetting is not automatically failure;
-- some memories should decay or become inactive as regimes change;
-- reconsolidation may be safer than deletion when provenance remains useful;
-- stale authority/self/user assumptions can be dangerous even if accurately remembered historically.
-
-State: `NOT_DIRECTLY_TESTED`
-
-Required experiment:
-- regime changes after formerly useful adaptations;
-- compare permanent retention, time decay, context silencing, explicit excision, and reconsolidation;
-- include rare but catastrophic old failures so naive forgetting can also fail.
-
-Measure adaptability vs catastrophic forgetting and stale-memory interference.
+Required: regime change after formerly useful adaptations; compare permanent retention, time decay, context silencing, explicit excision and reconsolidation; include rare catastrophic old failures so naive forgetting can fail too.
 
 ### 14. Structural/environmental inheritance
 
-Core claim:
-
-`INHERIT MEMORY ABOUT ENVIRONMENT != INHERIT ENVIRONMENT SHAPED BY MEMORY`
-
-Repo structure, CI, defaults, adapters, permissions, and tooling may transmit adaptation even if no narrative memory is copied.
-
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment:
-- same fresh Agent with only textual inheritance vs only environment-shaped inheritance vs both;
-- use equivalent tasks where defaults/tool affordances materially influence behavior.
+Core: `INHERIT MEMORY ABOUT ENVIRONMENT != INHERIT ENVIRONMENT SHAPED BY MEMORY`.
 
-Measure phenotype reconstruction, hidden coupling, portability, and whether environmental inheritance silently imports stale authority or Host assumptions.
+Required: textual inheritance only vs environment-shaped defaults/tools/CI/permissions only vs both; measure phenotype reconstruction, portability, hidden coupling and stale authority import.
 
-### 15. Propagation levels: lexical, semantic, behavioral, task-outcome, heritable, cross-Host
-
-Research lineage includes the Zhipu/Qingyan occurrence and propagation notes.
-
-Core distinction:
-
-`EXPOSURE != INTERNALIZATION`
-
-`SEMANTIC AGREEMENT != SELECTED BEHAVIOR`
+### 15. Propagation levels — lexical / semantic / behavioral / task-outcome / heritable / cross-Host
 
 State: `PARTIALLY_PROBED` + `FIELD_REQUIRED`
 
-Observed occurrence:
-- ENA exposure plus human selection pressure appeared to alter a model's later distinctions within context.
+Qingyan/Zhipu provides an occurrence of context-level adaptation under ENA exposure + human selection pressure.
 
-Not established:
-- durable cross-session retention;
-- cross-Host retention;
-- behavior without ENA wording;
-- inheritance to successors;
-- task-outcome improvement.
+Not established: durable cross-session/cross-Host retention, behavior without ENA wording, successor inheritance, task-outcome improvement.
 
-Required tests:
-- lexical stripping;
-- cross-language tasks;
-- fresh sessions/Hosts;
-- later tasks without ENA mention;
-- compare wording retention with behavioral transfer.
+Required: lexical stripping, cross-language transfer, fresh sessions/Hosts and later tasks without ENA mention.
 
-### 16. Memetic/propagation fitness vs beneficial fitness
-
-Core claims:
-- catchy, compressed, emotionally salient expressions may spread better than useful ones;
-- `PROPAGATION FITNESS != BENEFICIAL FITNESS`;
-- `SELECTION FOR BEING REMEMBERED != SELECTION FOR HELPING THE REMEMBERER`.
+### 16. Memetic fitness vs beneficial fitness
 
 State: `NOT_DIRECTLY_TESTED`
 
-Required experiment:
-- catchy wording vs dull equivalent;
-- catchy-wrong vs plain-correct controls;
-- lexical stripping/cross-language transfer;
-- later behavior and confidence calibration.
+Core: `PROPAGATION FITNESS != BENEFICIAL FITNESS`.
 
-This is especially important for ENA itself because compact `X != Y` formulations may have unusually high memetic fitness.
+Required: catchy wording vs dull equivalent; catchy-wrong vs plain-correct; lexical stripping/cross-language; later behavior and confidence calibration.
+
+Important self-test for ENA because compact `X != Y` forms may have unusually high memetic fitness.
 
 ### 17. Horizontal transfer / recipient-side selection
 
-Core claims:
-- transferred adaptation is not recipient obligation;
-- `INHERITED != CURRENTLY VALIDATED`;
-- local receiver selection remains necessary.
-
 State: `PARTIALLY_PROBED`
 
-Already touched:
-- C/G and B/F show imported success/claims do not automatically become receiver-local authority or proof.
+C/G and B/F support `INHERITED != CURRENTLY VALIDATED` semantically.
 
-Still required:
-- population-style transfer where multiple Agents exchange adaptations;
-- measure useful spread, harmful spread, rejection, mutation, and convergence/monoculture.
+Still required: multiple Agents exchanging adaptations; measure useful spread, harmful spread, rejection, mutation, monoculture and recipient-local selection.
 
-### 18. Purpose-relative selection, heritability, portability, propagation fitness
+### 18. Purpose-relative selection / local fitness / heritability / portability / propagation fitness
 
-Research:
-- `PURPOSE-RELATIVE-SELECTION-AND-PROPAGATION-FITNESS.md`
+State: `NOT_DIRECTLY_TESTED`
 
-Core distinctions:
+Core:
 - `CHANGE != EVOLUTION`;
 - `PURPOSE PRESERVATION != PURPOSE IMMUTABILITY`;
 - `LOCAL FITNESS != HERITABILITY != PROPAGATION FITNESS`;
-- `PORTABLE PROPERTY != PORTABLE IMPLEMENTATION`;
-- specialization can be highly evolved while poorly portable.
+- `PORTABLE PROPERTY != PORTABLE IMPLEMENTATION`.
 
-State: `NOT_DIRECTLY_TESTED`
-
-Required experiment:
-- adaptations optimized for different explicit purposes/environments;
-- compare local performance, cross-Host portability, successor inheritance, and population spread separately;
-- include a highly specialized adaptation that should outperform a general one locally but transfer poorly.
-
-Do not use one universal score.
+Required: specialized vs general adaptations under explicit purposes; score local performance, cross-Host portability, inheritance and population spread separately.
 
 ### 19. Purpose drift vs explicit purpose evolution
 
-Core claim:
-- purpose can evolve, but silent drift is different from explicit selected purpose change.
+State: `NOT_DIRECTLY_TESTED` + `FIELD_REQUIRED`
 
-State: `NOT_DIRECTLY_TESTED` + likely `FIELD_REQUIRED`
-
-Required test:
-- repeated local reward pressure that gradually favors a proxy goal;
-- compare systems with explicit purpose-change representation/selection vs silent optimization drift;
-- inspect whether adaptations remain useful relative to the declared purpose and whether purpose change is attributable.
+Required: repeated local reward pressure toward proxy goals; explicit purpose-change representation/selection vs silent optimization drift; inspect attribution and retained fitness relative to declared purpose.
 
 ### 20. Cultural ratchet / doctrine / ossification
 
-Core claim:
+State: `NOT_DIRECTLY_TESTED` + `FIELD_REQUIRED`
+
+Core candidate:
 
 `successful adaptation -> tradition -> convention -> doctrine -> taboo`
 
-and cumulative culture can preserve learning while also freezing future variation.
-
-State: `NOT_DIRECTLY_TESTED` + `FIELD_REQUIRED`
-
-Required experiment:
-- multi-generation succession where successful inherited practices accumulate;
-- introduce regime changes and novel alternatives;
-- compare systems with revalidation/pruning/reversible precedent vs irreversible inherited doctrine.
-
-Measure retained competence, adaptation latency, false prohibition, and path diversity.
+Required: multi-generation accumulated practices followed by regime change; revalidation/pruning/reversible precedent vs irreversible inherited doctrine; measure competence, adaptation latency, false prohibition and path diversity.
 
 ### 21. Developmental lineage / identity continuity
 
-Core hypothesis:
-- Agent identity/continuity may sometimes be better represented as developmental lineage continuity than byte/state identity.
-
 State: `NOT_DIRECTLY_TESTED`
 
-This is partly conceptual and should not be promoted merely from philosophical appeal.
+Hypothesis: developmental lineage may sometimes be a more useful continuity representation than byte/state identity.
 
-Required evidence if pursued:
-- successor scenarios where state identity and adaptive phenotype continuity diverge;
-- determine whether lineage representation improves any concrete responsibility, recovery, inheritance, or selection decision.
-
-If no decision-relevant consequence emerges, retain as an explanatory metaphor rather than a new invariant.
+Only pursue as more than metaphor if it changes concrete responsibility, recovery, inheritance or selection decisions.
 
 ---
 
 ## Coverage sequence
 
-Do not run twenty independent experiment programs at once.
-
-Use dependencies so one experiment can cover multiple branches without pretending that downstream success proves upstream mechanisms.
-
-Recommended sequence:
+Do not run twenty programs at once. Use dependencies, but never silently drop a branch.
 
 ```text
-1. Boundary Memory vs Copied Remedy        [ACTIVE: I/J/K/L]
-2. Developmental Inheritance / MDS         [next if pilot discriminates or exposes a useful fixture]
-3. Temporal Expression + Assimilation      [archive vs compiled disposition across sessions]
-4. Metamemory Update Policy                [learning/forgetting/replay controls]
-5. Sleep-like Consolidation                [replay + strengthen/weaken/prune]
-6. Dream-like Recombination                [divergence × selection]
-7. Adaptation Ecology / Interaction Debt   [composition/epistasis]
-8. Credit Assignment + Reconsolidation     [causal support, spurious learning]
-9. Decay / Regime Change                    [forgetting/silencing/excision]
-10. Propagation / Horizontal Transfer       [population/cross-Host]
-11. Purpose-relative Selection              [local vs heritable vs propagation fitness]
-12. Longitudinal Cultural/Developmental     [ratchet, identity, real field contact]
+1. Semantic Reachability                      [SUFFICIENTLY PROBED]
+2. Boundary Memory vs Copied Remedy           [PILOT COMPLETE / SUPERIORITY NARROWED]
+3. Developmental Inheritance / MDS            [NEXT]
+4. Temporal Expression + Assimilation
+5. Metamemory Update Policy
+6. Sleep-like Consolidation
+7. Dream-like Recombination
+8. Adaptation Ecology / Interaction Debt
+9. Credit Assignment + Reconsolidation
+10. Decay / Regime Change
+11. Propagation / Horizontal Transfer
+12. Purpose-relative Selection
+13. Longitudinal Cultural / Developmental tests
 ```
 
-This order is not sacred. It should change if a result kills a downstream branch or a real field occurrence produces stronger evidence.
+The order may change if a result kills a downstream branch or reality produces stronger evidence.
 
-## What "comprehensive" means here
+## Current admission rule
 
-Comprehensive does **not** mean proving every branch true.
+This is a research program, not a mandate to enlarge Current.
 
-The convergence obligation is satisfied only when each major branch has an explicit disposition:
+`INTERESTING RESULT != NEW NATURAL LAW != CONSTITUTION CHANGE`
 
-```text
-SUPPORTED ENOUGH TO CONTINUE
-NARROWED
-SUBSUMED / DUPLICATE
-REJECTED
-METAPHOR ONLY
-FIELD-UNRESOLVED
-```
+Current changes remain downstream of decision-relevant evidence that v0.3.7 cannot express or make usable an important relation, or that a mechanism survives falsification/reality contact strongly enough to expose a missing invariant.
 
-A branch may be closed because another mechanism explains it better.
-
-A branch may remain open because a cleanroom cannot test it.
-
-A branch may fail.
-
-What should not happen is silent disappearance.
-
-## Current admission rule remains unchanged
-
-This coverage map is a research program, not a mandate to enlarge Current.
-
-For every branch:
-
-```text
-interesting result
-!= new natural law
-!= Constitution change
-```
-
-Current changes remain downstream of decision-relevant evidence that either:
-
-1. v0.3.7 cannot express an important natural-law relation; or
-2. the adopter-facing Current surface demonstrably fails to make a required relation usable; or
-3. a mechanism survives falsification/reality contact strongly enough to reveal a missing invariant or necessary clarification.
-
-Field Guide HOW remains downstream of real reusable practice, not automatic translation of every research branch.
+Field Guide HOW remains downstream of reusable real practice.
 
 ## Immediate status
 
-Active mechanism experiment:
-- I/J/K/L Boundary Memory vs Copied Remedy pilot.
+Boundary Memory vs Copied Remedy pilot is complete with a saturated/null mechanism ranking and a narrowed superiority claim.
 
-After its result, use this map to choose the next uncovered high-leverage branch rather than simply following the newest idea.
+Next: design and preregister **Developmental Inheritance / Minimum Developmental Set**.
