@@ -112,6 +112,14 @@ Cleanup audit:
 
 `research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
 
+## Related repositories
+
+- `guytogay/human-ai-workbench` remains the human-AI project-collaboration method, not ENA.
+- `guytogay/independent-validation-cleanroom` remains legacy/idle reusable validation infrastructure with historical contamination caveats.
+- `guytogay/ena-field-guide` now exists and is the practical ENA-derived HOW layer.
+
+The Field Guide should grow incrementally when a concrete HOW has enough evidence, reality contact, applicability boundary, and reusable value. It does **not** need to wait for ENA to become a final or perfect framework, but unvalidated hypotheses, metaphors, and attractive one-off experimental recipes still do not qualify automatically.
+
 ## Deep succession record
 
 A detailed handoff was requested because the outgoing session contained several decision-heavy research/validation rounds and cross-repo method lessons.
@@ -128,7 +136,7 @@ Normal future session continuation should **not** require this much context by d
 
 Current changes remain downstream of decision-relevant evidence that v0.3.7 either cannot express an important relation, cannot make it usable, or lacks an invariant revealed by mechanisms that survive falsification and reality contact.
 
-Field Guide HOW remains downstream of real reusable practice.
+Field Guide HOW may evolve incrementally from sufficiently evidenced reusable practice; it is not gated on a final ENA version.
 
 ## Current open work
 
