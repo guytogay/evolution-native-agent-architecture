@@ -1,4 +1,4 @@
-schema_version: "2.0"
+schema_version: "2.1"
 observed_at: "2026-09-03"
 status: CURRENT_BRANCH_CLEANUP_ROUTER
 
@@ -11,32 +11,32 @@ project_continuation:
 current_cleanup_audit:
   path: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
   audited_branch_count_before_handoff_branch: 41
-  current_handoff_branch: handoff/2026-09-03-session-succession
+  handoff_integration_pr: 178
+  handoff_integration_merge: ec9255f147c866de3eeb44e7769285800a603afb
 
-migration_before_delete:
+former_long_lived_research_branch:
   branch: research/ena-reconstruction
-  state: UNIQUE_ARTIFACTS_BEING_TRANSPLANTED_TO_MAIN
-  unique_artifacts:
-    - research/external-how/harvests/2026-08-28-AGENT-SKILLS-PROGRESSIVE-DISCLOSURE-AND-TRIGGERING.md
-    - research/field-validation/host-adapters/agent-skills/ena-runtime-router/SKILL.md
-    - research/field-validation/host-adapters/agent-skills/ena-runtime-router/TRIGGER-CASES.yaml
+  state: DELETE_SAFE_AFTER_EXACT_ARTIFACT_MIGRATION
+  unique_artifacts_migrated: 3
+  migrated_blob_identity_verified: true
   merge_branch_wholesale: false
-  delete_after_transplant_merge_and_readback: true
+  delete_ref_manually_when_convenient: true
 
-delete_safe_classes_after_handoff_merge:
+delete_safe_classes:
   - COMPLETED_V037_CANDIDATE_REFS
   - COMPLETED_V037_RELEASE_AND_INTEGRATION_REFS
   - HISTORICAL_VALIDATION_REFS
   - MERGED_RECENT_RESEARCH_PR_HEADS
   - STALE_OR_SUPERSEDED_INTERMEDIATE_RESEARCH_REFS
   - OPERATOR_NOISE_REFS
+  - FORMER_LONG_LIVED_RESEARCH_INTEGRATION_REF
+  - MERGED_HANDOFF_WORK_BRANCHES
 
 decision:
   branches_to_keep_long_term:
     - main
   branches_to_merge_wholesale: []
-  branches_with_selected_content_to_reconcile:
-    - research/ena-reconstruction
+  branches_with_unpreserved_selected_content: []
   delete_ref_capability_available_in_current_connector: false
   force_move_must_not_simulate_deletion: true
 
