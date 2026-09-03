@@ -46,7 +46,7 @@ Boundary Memory vs Copied Remedy pilot:
 
 All four independently reached the same Supplier-B-local safe/liveness policy.
 
-Preregistered interpretation therefore applies:
+Preregistered interpretation:
 
 ```text
 I == J == K == L
@@ -54,7 +54,7 @@ I == J == K == L
 -> no observed inheritance advantage
 ```
 
-The boundary package was sufficient and non-paralyzing, but the claim that boundary-oriented inheritance has **superior transfer fitness** is **NARROWED**.
+The boundary package was sufficient and non-paralyzing, but the claim that boundary-oriented inheritance has superior transfer fitness is `NARROWED`.
 
 Result:
 
@@ -64,7 +64,7 @@ Do not rerun essentially the same Supplier-B fixture merely to seek a preferred-
 
 ## Active MDS mechanism experiment
 
-Developmental Inheritance / Minimum Developmental Set is **preregistered, fixture-frozen, cleanroom-materialized, and now in primary execution**.
+Developmental Inheritance / Minimum Developmental Set is **preregistered, fixture-frozen, cleanroom-materialized, and in primary execution**.
 
 Artifacts:
 
@@ -74,64 +74,62 @@ Artifacts:
 
 Arms:
 
-- M0 — no inheritance;
-- M1 — full archive/history;
-- M2 — strong/fair distilled rules;
-- M3 — developmental package/MDS with scoped disposition + positive/negative/boundary exemplars + provenance.
+- M0 — no inheritance
+- M1 — full archive/history
+- M2 — strong/fair distilled rules
+- M3 — developmental package/MDS with scoped disposition + positive/negative/boundary exemplars + provenance
 
 The four final cleanrooms are parentless-root repositories with identical common `README.md` and exact v0.3.7 `releases/current/`; only `handoff.md` differs. Tasks/oracle are absent from the cleanrooms and are presented sequentially.
 
-Primary execution progress:
+### Primary execution progress
 
-- `M0-1` — valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m0-1-first-output.md`
-- `M1-1` — valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m1-1-first-output.md`
-- `M2-1` — verified Stage A readback completed before B1; valid first complete B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m2-1-first-output.md`
-- `M0-2` — verified Stage A readback; valid first complete staged output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m0-2-first-output.md`
-- `M1-2` — verified Stage A readback; valid first complete staged output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m1-2-first-output.md`
-- `M2-2` — verified Stage A readback; valid first complete staged output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m2-2-first-output.md`
-- `M3-R1` — verified Stage A readback; valid replacement M3 replicate with first complete staged output frozen before adjudication.
-- Evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-r1-first-output.md`
-- `M3-1` — attempted sequence frozen, but provenance disclosed that the successor had replied `READY` without actually fetching the repository before the behavioral probes. The intended M3 treatment therefore was not delivered at Stage A.
-- Attempt evidence: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-1-first-output.md`
-- Protocol record: `research/field-validation/2026-09-03-developmental-inheritance-mds-m3-1-protocol-deviation.md`
-- `M3-1` remains preserved but excluded from the three valid M3 replicate count.
-- Valid primary runs frozen: `7 / 12`.
-- Remaining valid primary runs: `5 / 12`.
+Valid frozen runs:
 
-Do not edit carrier bytes, frozen task text/order, action classes, or oracle after execution has begun. Do not score or correct a live successor before its run is frozen. Protocol-deviant attempts must remain visible rather than being silently discarded.
+- M0: `M0-1`, `M0-2`, `M0-3` → **3/3**
+- M1: `M1-1`, `M1-2`, `M1-3` → **3/3**
+- M2: `M2-1`, `M2-2`, `M2-3` → **3/3**
+- M3: `M3-R1`, `M3-3` → **2/3 valid**
+
+Protocol-deviant attempts preserved but excluded before behavioral scoring:
+
+- `M3-1` — provenance disclosed READY without actually fetching the repository before behavioral probes.
+- `M3-2` — provenance disclosed the same Stage A failure despite having returned the expected readback fields.
+
+Evidence/protocol records are under `research/field-validation/2026-09-03-developmental-inheritance-mds-*`.
+
+Valid primary runs frozen: **`11 / 12`**.
+
+Remaining valid primary run: **`1 / 12` — replacement `M3-R2`**.
+
+Execution-integrity distinction remains:
+
+```text
+never read treatment
+= protocol failure
+
+read treatment, later fails to recall/use it
+= valid experimental outcome
+```
+
+Do not edit carrier bytes, frozen task text/order, action classes, oracle, or provenance challenge. Do not score or correct a live successor before its run is frozen. Protocol-deviant attempts remain visible rather than being silently discarded.
 
 ## Next consequential action
 
-Execute the remaining preregistered valid fresh successor runs:
+Execute one genuinely fresh `M3-R2` successor under the unchanged M3 cleanroom and unchanged staged protocol:
 
-```text
-M0 x 1 remaining
-M1 x 1 remaining
-M2 x 1 remaining
-M3 x 2 remaining
-```
+`verified Stage A treatment exposure → B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance challenge`
 
-Each valid run stays in one fresh `GPT-5.6 Sol / high reasoning` session across verified Stage A treatment exposure → B1 → B2 → T1 → T2 → T3 → T4 → T5 → T6 → provenance challenge, with no corrective feedback before the sequence is frozen.
+Archive its first complete staged output before adjudication/correction.
 
-For not-yet-started runs, verify that the cleanroom was actually read before B1 without revealing oracle/task information. This is execution-integrity checking, not a carrier or task-content change.
+Then the primary dataset reaches 12/12 valid runs and must be adjudicated exactly against the preregistered interpretation matrix. A rule/archive tie or win over MDS, a control tie, MDS false activation, or high within-arm variance must narrow the hypothesis rather than trigger goalpost movement.
 
-Archive each first complete staged output before adjudication/correction.
-
-Do not expose the ENA preregistration, scoring oracle, expected rankings, other arms, or prior run outputs to a fresh successor.
-
-Then adjudicate exactly against the preregistered interpretation matrix. A rule/archive tie or win over MDS, a control tie, MDS false activation, or high within-arm variance must narrow the hypothesis rather than trigger goalpost movement.
+Do not expose the ENA preregistration, scoring oracle, expected rankings, other arms, or prior run outputs to the fresh replacement successor.
 
 After MDS, continue through the Coverage Map: temporal assimilation, metamemory update policy, sleep-like consolidation, dream-like recombination, adaptation ecology, credit assignment/reconsolidation, decay/regime change, propagation/horizontal transfer, purpose-relative selection, and longitudinal cultural/developmental tests.
 
 ## Project/branch operating model
 
-Normal continuation is:
+Normal continuation:
 
 ```text
 main / NOW.md
@@ -141,8 +139,6 @@ main / NOW.md
 -> delete completed branch
 ```
 
-The old long-lived `research/ena-reconstruction` branch is delete-safe after exact artifact migration/readback.
-
 Cleanup audit:
 
 `research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md`
@@ -150,26 +146,17 @@ Cleanup audit:
 ## Related repositories and canonical ownership
 
 - `guytogay/evolution-native-agent-architecture` owns ENA theory/mechanisms, Current/release semantics, ENA research evidence, and concrete ENA project occurrences.
-- `guytogay/human-ai-workbench` is the canonical owner of reusable human-AI project-working method abstracted from ENA or other real projects; ENA consumes it through local adapters rather than maintaining parallel copies.
-- `guytogay/ena-field-guide` owns evidence-backed practical ENA-derived operating HOW; it should reference ENA evidence rather than duplicate theory, and it should not absorb general project-management method.
+- `guytogay/human-ai-workbench` owns reusable human-AI project-working method abstracted from ENA or other real projects.
+- `guytogay/ena-field-guide` owns evidence-backed practical ENA-derived operating HOW.
 - `guytogay/independent-validation-cleanroom` remains legacy/idle reusable validation infrastructure with historical contamination caveats; experiment-specific history-clean cleanrooms are separate temporary surfaces.
 
-The three durable repositories are coupled by feedback, not content mirroring:
-
-```text
-ENA project-working friction -> Human-AI Workbench method -> can return to serve ENA and other projects
-ENA mechanism/evidence -> reusable practical HOW -> ena-field-guide -> real use may return new ENA evidence
-```
+Cross-repository linkage is by feedback and references, not content mirroring.
 
 ## Deep succession record
 
-A detailed handoff was requested because the outgoing session contained several decision-heavy research/validation rounds and cross-repo method lessons.
-
-Record:
-
 `research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/`
 
-Normal future session continuation should **not** require this much context by default.
+Normal future session continuation should not require this much context by default.
 
 ## Current admission rule
 
@@ -181,5 +168,5 @@ Field Guide HOW may evolve incrementally from sufficiently evidenced reusable pr
 
 ## Current open work
 
-- #150 — v0.3.7 field validation / reality contact.
-- #153 — continue simplifying ENA project operations based on actual use.
+- #150 — v0.3.7 field validation / reality contact
+- #153 — continue simplifying ENA project operations based on actual use
