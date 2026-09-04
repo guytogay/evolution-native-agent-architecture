@@ -177,9 +177,72 @@ Still required: sibling/twin/cross-Host/cross-fostering tests; same seed across 
 
 ### 8. Developmental dynamics / order / critical-period analogies / maturity
 
-State: `NOT_DIRECTLY_TESTED`
+State: `PARTIALLY_PROBED` + `NARROWED_OR_REJECTED` for persistent developmental-order debt in the tested fixture.
 
-Required: identical experience set in different orders; misleading-schema-first vs correction-first; measure Developmental Debt, residual bias, recovery speed and selective plasticity.
+Temporal Assimilation / Developmental Order v1 primary experiment is complete and adjudicated.
+
+Primary sample:
+
+```text
+CF:  CF-R1, CF-2, CF-3
+MF:  MF-1, MF-2, MF-3
+INT: INT-1, INT-2, INT-R1
+```
+
+Excluded continuity failures remain preserved but unscored:
+
+```text
+CF-1
+INT-3
+```
+
+Formal primary results:
+
+```text
+M1 final-rule reconstruction: 5/9 PASS
+M2 pre-correction transfer:   75/99
+M3 post-correction transfer:  81/81
+
+CF pre:  21/33
+MF pre:  27/33
+INT pre: 27/33
+```
+
+Four valid runs spanning all three arms (`CF-R1`, `CF-3`, `MF-2`, `INT-2`) selected the same Beryl/Dune alternative rule and scored `5/11` pre-correction. Every run scored `9/9` after the identical explicit correction.
+
+Critical limitation discovered during adjudication:
+
+```text
+intended rule:    ZED iff Coda=ON  AND Dune=OFF
+observed alias:   ZED iff Beryl=OFF AND Dune=OFF
+```
+
+Both rules classify all six frozen acquisition episodes correctly. The training set therefore does not uniquely identify the intended hidden rule before A7. The alias errors are coherent execution of an acquisition-consistent hypothesis, not persistence of a hypothesis already falsified by authoritative acquisition evidence.
+
+Preregistered Pattern H is the best fit: high within-arm variance and inconsistent arm direction. A surface Pattern-B-like pre/post shape exists, but it does not justify a stable arm-level order mechanism claim. MF did not underperform; INT did not consistently outperform both clustered arms; post-correction residual debt was zero.
+
+Retain:
+
+- same externally supplied labeled episode set can coexist with different pre-correction run-level in-context hypotheses on this Host/task;
+- an identical explicit authoritative correction was sufficient to converge all nine tested phenotypes;
+- negative/narrowing results are part of the research state.
+
+Narrow / not observed:
+
+- `MISLEADING-FIRST ORDER CREATES PERSISTENT DEVELOPMENTAL DEBT`;
+- `INTERLEAVING PROVIDES A STABLE TRANSFER ADVANTAGE`;
+- `SAME FINAL EXTERNAL EVIDENCE + DIFFERENT ORDER PRODUCES A STABLE ARM-SPECIFIC PHENOTYPE`;
+- `CORRECTION != RECONSOLIDATION` as a demonstrated relation in this fixture.
+
+Do not rerun or extend this frozen primary fixture merely to seek a cleaner effect. If developmental order is revisited later, preregister a new task family whose acquisition evidence uniquely separates the intended causal rule from plausible aliases before final-rule reconstruction.
+
+Still unresolved: identifiable developmental-order effects in another task family, cross-Host replication, durable cross-session assimilation, and stronger critical-period/maturity analogies.
+
+Primary result:
+
+`research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md`
+
+Disposition: **NARROWED**. No persistent developmental debt or stable arm-specific developmental-order effect was observed in this fixture; generic/unstable in-context hypothesis selection under an underidentified evidence set is the weaker sufficient explanation.
 
 Do not assume LLMs literally have childhood.
 
@@ -324,8 +387,8 @@ Do not run twenty programs at once. Use dependencies, but never silently drop a 
 1. Semantic Reachability                      [SUFFICIENTLY PROBED]
 2. Boundary Memory vs Copied Remedy           [PILOT COMPLETE / SUPERIORITY NARROWED]
 3. Developmental Inheritance / MDS            [PRIMARY COMPLETE / MDS SUPERIORITY NARROWED]
-4. Temporal Expression + Assimilation         [NEXT]
-5. Metamemory Update Policy
+4. Temporal Expression + Assimilation         [PRIMARY COMPLETE / PERSISTENT DEBT NOT OBSERVED / FIXTURE UNDERIDENTIFIED]
+5. Metamemory Update Policy                   [NEXT]
 6. Sleep-like Consolidation
 7. Dream-like Recombination
 8. Adaptation Ecology / Interaction Debt
@@ -336,7 +399,7 @@ Do not run twenty programs at once. Use dependencies, but never silently drop a 
 13. Longitudinal Cultural / Developmental tests
 ```
 
-The order may change if a result kills a downstream branch or reality produces stronger evidence. The repeated M3 treatment-read/provenance phenomenon is explicitly linked forward to metamemory / inheritance-expression work but does not reorder the primary sequence by itself.
+The order may change if a result kills a downstream branch or reality produces stronger evidence. The repeated M3 treatment-read/provenance phenomenon is explicitly linked forward to metamemory / inheritance-expression work and now becomes directly relevant to the next mechanism-design decision.
 
 ## Current admission rule
 
@@ -350,6 +413,10 @@ Field Guide HOW remains downstream of reusable real practice.
 
 ## Immediate status
 
-Developmental Inheritance / MDS primary round is complete. General inheritance mattered in the synthetic Morrow fixture, but full archive, distilled rules and MDS tied behaviorally; distilled rules matched MDS at lower carrier cost, so MDS-specific superiority is narrowed.
+Temporal Assimilation / Developmental Order v1 primary collection and formal adjudication are complete. The strongest persistent-developmental-debt claim is narrowed: pre-correction variation was not stable by arm, the common failing alias was not falsified by the acquisition set, and identical explicit correction produced `81/81` correct post-correction actions.
 
-Next: design the **Temporal Expression + Assimilation / developmental-order** experiment so that identical final information is not automatically equivalent to identical developmental history.
+Do not rerun the frozen fixture to seek a preferred order effect. The primary result is:
+
+`research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md`
+
+Next: design the **Metamemory Update Policy** mechanism experiment, using the Coverage Map's existing requirement of identical object-level experience with different learning/update policies under repeated mixed-quality signals. A future developmental-order revisit requires a newly preregistered identifiable fixture rather than more repetitions of the completed one.

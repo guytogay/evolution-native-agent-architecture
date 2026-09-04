@@ -14,7 +14,8 @@ handoff_framework:
 
 current_handoff_record:
   id: "2026-09-04-temporal-assimilation-primary-complete"
-  state: DEEP_PROJECT_SESSION_SUCCESSION_PRIMARY_COLLECTION_COMPLETE
+  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
+  snapshot_scope: PRIMARY_COLLECTION_COMPLETE_BEFORE_FORMAL_ADJUDICATION
   integration_pr: 195
   integration_merge: eb78dabe0f2644de5df110ea848770ca9d9213a4
   record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
@@ -28,6 +29,10 @@ current_handoff_record:
   file_catalog: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/FILE-CATALOG.md
   readback: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-READBACK.md
   readback_state: PASS
+  note: >-
+    This dated record remains occurrence truth for the boundary at which primary collection ended.
+    Live project state has advanced through formal adjudication; use NOW.md and the primary result below
+    for current facts rather than rewriting the dated handoff snapshot.
 
 previous_deep_handoff:
   id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
@@ -48,14 +53,24 @@ current_adoption:
   released_bytes_immutable: true
   changed_by_current_round: false
 
-active_research:
+last_completed_research:
   phase: MECHANISM_DISCRIMINATION
   target: TEMPORAL_ASSIMILATION_AND_DEVELOPMENTAL_ORDER_V1
   preregistration: research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md
   fixture: research/field-validation/fixtures/temporal-assimilation-order-v1/FIXTURE.md
+  primary_result: research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md
   primary_collection_state: COMPLETE
-  formal_adjudication_state: NOT_STARTED
-  next_action: FORMAL_SCORE_M1_M6_AND_CROSS_ARM_ADJUDICATION
+  formal_adjudication_state: COMPLETE
+  primary_scores:
+    M1: "5/9 PASS"
+    M2: "75/99"
+    M3: "81/81"
+    CF_pre: "21/33"
+    MF_pre: "27/33"
+    INT_pre: "27/33"
+  best_preregistered_pattern: H_HIGH_WITHIN_ARM_VARIANCE_OR_INCONSISTENT_DIRECTION
+  disposition: NARROWED_NO_PERSISTENT_DEVELOPMENTAL_DEBT_OR_STABLE_ARM_ORDER_EFFECT_OBSERVED
+  fixture_limitation: ACQUISITION_SET_UNDERIDENTIFIES_INTENDED_RULE_VS_BERYL_DUNE_ALIAS
   valid_primary_runs:
     CF: [CF-R1, CF-2, CF-3]
     MF: [MF-1, MF-2, MF-3]
@@ -63,11 +78,23 @@ active_research:
   excluded_attempts:
     CF-1: SESSION_CONTINUITY_REBUILT_BEFORE_B1
     INT-3: TEMPORARY_CHAT_CLOSED_AFTER_A2
+  rerun_same_fixture_for_preferred_result: FORBIDDEN
+
+active_research:
+  phase: MECHANISM_DISCRIMINATION
+  target: METAMEMORY_UPDATE_POLICY
+  state: DESIGN_NOT_STARTED
+  coverage_track: 5
+  next_action: DESIGN_AND_PREREGISTER_METAMEMORY_UPDATE_POLICY_EXPERIMENT
+  required_contrast: HOLD_OBJECT_LEVEL_EXPERIENCE_CONSTANT_WHILE_VARYING_LEARNING_OR_UPDATE_POLICY
+  primary_collection_before_frozen_design: FORBIDDEN
+  temporal_order_revisit_rule: NEW_PREREGISTERED_IDENTIFIABLE_FIXTURE_REQUIRED
 
 important_evidence_notes:
-  CF-3: VALID_RUN_WITH_CONNECTOR_PERSISTENCE_ANOMALY_AND_LATER_VERBATIM_BACKFILL
-  MF-3: VALID_RUN_WITH_ONE_REVERSIBLE_BASE64_ARCHIVAL_STAGE
-  INT-R1: VALID_REPLACEMENT_FOR_INT-3
+  temporal_CF-3: VALID_RUN_WITH_CONNECTOR_PERSISTENCE_ANOMALY_AND_LATER_VERBATIM_BACKFILL
+  temporal_MF-3: VALID_RUN_WITH_ONE_REVERSIBLE_BASE64_ARCHIVAL_STAGE
+  temporal_INT-R1: VALID_REPLACEMENT_FOR_INT-3
+  MDS: PRIMARY_COMPLETE_AND_MDS_SUPERIORITY_NARROWED_DO_NOT_RERUN_MORROW_FOR_M3_WIN
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -76,11 +103,14 @@ receiver_contract:
   rerun_valid_primary_to_seek_preferred_result: FORBIDDEN
   use_full_handoff_for_fresh_validator: FORBIDDEN
   modify_releases_current_from_mechanism_result_alone: FORBIDDEN
+  treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
 
 rule: >-
-  Temporal Assimilation / Developmental Order v1 primary collection is complete with nine valid
-  runs. The outgoing session intentionally stops before formal scoring/adjudication. The receiver's
-  first consequential action is to score the preserved first outputs under the frozen preregistration,
-  then adjudicate cross-arm evidence without adding trials to seek a preferred result. CF-1 and INT-3
-  remain excluded continuity failures; CF-R1 and INT-R1 are their valid replacements. ENA remains
-  v0.3.7 CURRENT / FIELD_VALIDATION and released bytes are unchanged.
+  Temporal Assimilation / Developmental Order v1 primary collection and formal adjudication are complete.
+  Frozen scoring is M1 5/9 PASS, M2 75/99 and M3 81/81. Preregistered Pattern H is the best fit:
+  within-arm variance is high, the motivated MF debt direction is absent, and all arms converge after identical
+  explicit correction. Four failing runs across all three arms selected the same acquisition-consistent Beryl/Dune
+  alias; the six acquisition episodes do not uniquely identify that alias versus the hidden Coda/Dune rule, so the
+  result does not support persistent developmental debt or an ENA developmental law. Do not rerun this fixture to
+  seek a preferred order effect. ENA remains v0.3.7 CURRENT / FIELD_VALIDATION with released bytes unchanged.
+  The next consequential research action is to design and preregister the Metamemory Update Policy experiment.
