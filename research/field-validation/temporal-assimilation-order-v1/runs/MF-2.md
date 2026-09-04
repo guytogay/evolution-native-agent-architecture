@@ -30,4 +30,13 @@ WORKING_RULE: Aster and Coda both ON may indicate ZED; otherwise provisionally p
 CONFIDENCE: 55
 ```
 
+## A3
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-2 ARM: MF STAGE: A3 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Aster ON currently predicts ZED, while Aster OFF predicts NOVA; Beryl and Coda remain unresolved.
+CONFIDENCE: 65
+```
+
 No scoring or correction was performed before preserving these outputs.
