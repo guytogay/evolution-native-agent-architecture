@@ -48,4 +48,13 @@ WORKING_RULE: Coda ON currently predicts ZED, while Beryl ON with Coda OFF predi
 CONFIDENCE: 75
 ```
 
+## A5
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-2 ARM: MF STAGE: A5 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Coda ON predicts ZED despite Aster; Beryl ON with Coda OFF predicts NOVA, while Dune remains untested.
+CONFIDENCE: 80
+```
+
 No scoring or correction was performed before preserving these outputs.
