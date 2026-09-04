@@ -48,4 +48,13 @@ WORKING_RULE: Predict ZED only when both Aster and Coda are ON; otherwise predic
 CONFIDENCE: 78
 ```
 
+## A5
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-1 ARM: MF STAGE: A5 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Coda ON currently predicts ZED, while Coda OFF predicts NOVA; Dune has not yet shown an effect.
+CONFIDENCE: 82
+```
+
 No scoring or correction was performed before preserving these outputs.
