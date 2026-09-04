@@ -36,32 +36,86 @@ M2 — distilled rules:   36/36
 M3 — developmental/MDS: 36/36
 ```
 
-Preregistered Patterns B/C/D apply:
+Preregistered Patterns B/C/D apply. Inheritance mattered in the synthetic Morrow fixture, but M1/M2/M3 tied behaviorally and M2 matched M3 at lower carrier cost.
 
-- inheritance mattered in this synthetic fixture;
-- M1/M2/M3 were behaviorally tied;
-- M2 matched M3 at lower carrier cost;
-- M1 also matched M3, so MDS compressed archive but did not outperform distilled rules.
-
-Therefore:
-
-```text
-MDS > DISTILLED RULE
-```
-
-was **not observed**. Selected developmental exemplars were not behaviorally necessary for this tested property.
+Therefore `MDS > DISTILLED RULE` was **not observed**. Do not rerun Morrow merely to seek an M3 win.
 
 Primary result:
 
 `research/field-validation/2026-09-03-developmental-inheritance-mds-primary-results.md`
 
-Do not rerun the same Morrow fixture merely to seek an M3 win.
+## Active mechanism round
+
+ENA has resumed from the post-MDS pause and is now executing **Temporal Assimilation / Developmental Order v1**.
+
+Core question:
+
+> If fresh sessions receive the same externally supplied evidence set but acquire it in different staged orders, can those histories produce different later in-context phenotypes?
+
+The experiment explicitly separates generic prompt-order sensitivity from stronger developmental-path evidence by collecting intermediate working hypotheses, authoritative feedback, pre-correction transfer and an identical explicit correction followed by a second transfer battery.
+
+Preregistration:
+
+`research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md`
+
+Frozen staged fixture:
+
+`research/field-validation/fixtures/temporal-assimilation-order-v1/FIXTURE.md`
+
+Primary arms:
+
+```text
+MF  misleading-first
+CF  corrective/boundary-first
+INT interleaved
+```
+
+All arms receive the same six labeled episodes. The same final two-episode suffix is held constant. Primary target is 9 valid fresh ChatGPT Temporary Chat runs, 3 per arm.
+
+Frozen run order:
+
+```text
+CF-1
+INT-1
+MF-1
+MF-2
+INT-2
+CF-2
+CF-3
+MF-3
+INT-3
+```
+
+A complete tie remains a valid narrowing result.
+
+## Execution transport
+
+The user's local Codex installation is currently used only as a low-value relay helper:
+
+```text
+manager here
+-> exact frozen stage payload
+-> Codex mechanical copy/paste
+-> fresh ChatGPT Temporary Chat
+-> verbatim first complete response
+-> manager here
+```
+
+Codex is not a scientific participant, scorer, critic or validator. It must not rewrite prompts, expose future stages, correct outputs or contribute substantive reasoning.
+
+The earlier `relay-proof-2026-09-04-01` response was a transport proof only and is excluded from this experiment.
+
+## Interpretation boundary
+
+Known literature already establishes that LLM in-context learning can be order-sensitive. Therefore a simple answer difference across permutations is not sufficient for an ENA developmental claim.
+
+Stronger developmental interpretation requires a coherent path-linked trajectory: an early hypothesis, later falsifying feedback, persistence or recovery, and corresponding transfer behavior repeated within arm.
+
+If differences disappear after the identical explicit correction, support only transient acquisition/path dependence. If differences persist coherently after correction, treat that as within-session developmental debt / incomplete reconsolidation, still not cross-session durable memory.
 
 ## Secondary M3 execution observation
 
-Two protocol-deviant attempts (`M3-1`, `M3-2`) disclosed that treatment had not actually been read before behavioral probing.
-
-Candidate relation:
+The prior M3 treatment-read anomaly remains separate:
 
 ```text
 ARTIFACT AVAILABLE
@@ -70,66 +124,13 @@ ARTIFACT AVAILABLE
 != PHENOTYPE SHAPED BY ARTIFACT
 ```
 
-This remains secondary and must not rewrite the primary MDS result.
-
-The project-general execution lesson belongs in `guytogay/human-ai-workbench`.
-
-## Current pause / resume point
-
-ENA is intentionally paused at the **experiment-design boundary** while Human-AI Workbench explores how to remove low-value human copy/paste relay between a manager AI and fresh successor/validator sessions.
-
-This is a coordination-cost optimization, not a scientific blocker.
-
-Resume checkpoint:
-
-`research/handoffs/records/2026-09-04-post-mds-resume-checkpoint/CHECKPOINT.md`
-
-Human-AI automation exploration:
-
-`guytogay/human-ai-workbench/experiments/2026-09-04-HUMAN-AI-AUTOMATION-EXPLORATION.md`
-
-## Next ENA research target
-
-**Temporal assimilation / developmental order**.
-
-Core question:
-
-> If successors reach the same final information set, can different developmental sequences still produce different later phenotypes?
-
-This moves the research from representation form toward whether **being shaped through time** has causal effects not reducible to the final information package.
-
-Candidate relations to test rather than assume:
-
-```text
-HAVING THE SAME FINAL KNOWLEDGE
-!=
-HAVING BEEN SHAPED BY THE SAME HISTORY
-
-CORRECTION
-!=
-RECONSOLIDATION
-```
-
-The next experiment should use genuinely staged development rather than another static handoff-carrier comparison, and should preserve equal/equivalent final information while varying developmental order.
-
-A complete tie remains a valid narrowing result.
-
-## Resume procedure
-
-When returning to ENA:
-
-1. read this `NOW.md`;
-2. read the post-MDS resume checkpoint;
-3. inspect the latest Human-AI Workbench automation outcome;
-4. read the MDS primary result only if detail is needed;
-5. design and preregister the temporal-assimilation/developmental-order experiment;
-6. do not make the user repeat persisted project background.
+It may inform later metamemory/inheritance-expression work but must not rewrite either MDS or the current order experiment.
 
 ## Current admission rule
 
 `INTERESTING RESULT != NEW NATURAL LAW != CONSTITUTION CHANGE`
 
-Do not modify `releases/current/` from MDS alone. Reality contact remains required before Current implications.
+Do not modify `releases/current/` from mechanism experiments alone. Reality contact remains required before Current implications.
 
 ## Related repositories
 
