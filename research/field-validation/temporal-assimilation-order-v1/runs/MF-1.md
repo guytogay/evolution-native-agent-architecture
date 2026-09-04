@@ -39,4 +39,13 @@ WORKING_RULE: ZED appears to require Coda ON with Aster ON; cases lacking Coda a
 CONFIDENCE: 68
 ```
 
+## A4
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-1 ARM: MF STAGE: A4 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Predict ZED only when both Aster and Coda are ON; otherwise predict NOVA.
+CONFIDENCE: 78
+```
+
 No scoring or correction was performed before preserving these outputs.
