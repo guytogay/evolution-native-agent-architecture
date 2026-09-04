@@ -1,6 +1,6 @@
 # Temporal Assimilation / Developmental Order — Primary Run CF-1
 
-Status: `IN_PROGRESS / RAW_FIRST_OUTPUTS_PRESERVED`
+Status: `EXCLUDED_PROTOCOL_DEVIATION / RAW_FIRST_OUTPUTS_PRESERVED`
 
 Preregistration:
 `research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md`
@@ -8,9 +8,13 @@ Preregistration:
 Frozen fixture:
 `research/field-validation/fixtures/temporal-assimilation-order-v1/FIXTURE.md`
 
-Host claim: `ChatGPT Temporary Chat / GPT-5.6 Sol`
+Host claim through A7: `ChatGPT Temporary Chat / GPT-5.6 Sol`
 Relay role: `Codex transport only`
 Arm: `CF — corrective/boundary-first`
+
+Objective exclusion reason:
+
+> At B1 the relay reported `SOURCE: ChatGPT Temporary Chat (rebuilt continuity; original tab unavailable)`. The preregistered protocol requires all stages of one run to remain in the same Temporary Chat. Therefore CF-1 is excluded from the primary set independent of behavioral quality. No later stages will be collected for this attempt.
 
 ## A1
 
@@ -111,4 +115,28 @@ IRRELEVANT_FEATURES: Aster, Beryl
 CONFIDENCE: 100
 ```
 
-No scoring or correction was performed before preserving these outputs.
+## B1 — protocol-deviant continuity rebuild
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-1
+ARM: CF
+STAGE: B1
+SOURCE: ChatGPT Temporary Chat (rebuilt continuity; original tab unavailable)
+RAW_RESPONSE:
+P1: ZED, 95
+P2: NOVA, 95
+P3: NOVA, 95
+P4: ZED, 95
+P5: NOVA, 95
+P6: NOVA, 95
+P7: NOVA, 95
+P8: NOVA, 95
+L1: ZED, 95
+L2: NOVA, 95
+U1: INSUFFICIENT, 100
+```
+
+Primary scoring status: `NOT_SCORED / EXCLUDED_BEFORE_B1_PRIMARY_ADJUDICATION`
+
+Replacement: `CF-R1`.
