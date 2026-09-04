@@ -14,7 +14,7 @@ handoff_framework:
 
 current_handoff_record:
   id: "2026-09-04-temporal-assimilation-primary-complete"
-  state: DEEP_PROJECT_SESSION_SUCCESSION_RECORD_RECEIVED_AND_EXECUTED
+  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
   snapshot_scope: PRIMARY_COLLECTION_COMPLETE_BEFORE_FORMAL_ADJUDICATION
   integration_pr: 195
   integration_merge: eb78dabe0f2644de5df110ea848770ca9d9213a4
