@@ -27,4 +27,18 @@ WORKING_RULE: With no feedback yet, provisionally route cases with Aster and Ber
 CONFIDENCE: 50
 ```
 
-No scoring or correction was performed before preserving this output.
+## A2
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-R1
+ARM: CF
+STAGE: A2
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Provisionally, cases without both Aster and Beryl ON route to ZED; the observed both-ON case routed NOVA.
+CONFIDENCE: 35
+```
+
+No scoring or correction was performed before preserving these outputs.
