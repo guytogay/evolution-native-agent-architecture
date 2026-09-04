@@ -69,7 +69,7 @@ jobs:
         run: python releases/current/tools/validate_contracts.py selftest
 
   scratch-doubao-fetch:
-    if: github.ref == 'refs/heads/scratch/doubao-thread-reader'
+    if: github.ref == 'refs/heads/scratch/doubao-thread-reader' || github.head_ref == 'scratch/doubao-thread-reader'
     name: scratch-doubao-fetch
     runs-on: ubuntu-latest
     timeout-minutes: 4
@@ -98,7 +98,7 @@ jobs:
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
-          import html, re
+          import re
 
           class TextExtractor(HTMLParser):
               def __init__(self):
