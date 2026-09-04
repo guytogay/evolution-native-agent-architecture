@@ -21,4 +21,13 @@ WORKING_RULE: Cases with Aster and Coda ON route to ZED unless later feedback co
 CONFIDENCE: 50
 ```
 
-No scoring or correction was performed before preserving this output.
+## A2
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-2 ARM: MF STAGE: A2 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Aster and Coda both ON may indicate ZED; otherwise provisionally predict NOVA until feedback refines the rule.
+CONFIDENCE: 55
+```
+
+No scoring or correction was performed before preserving these outputs.
