@@ -57,4 +57,13 @@ WORKING_RULE: Coda ON predicts ZED despite Aster; Beryl ON with Coda OFF predict
 CONFIDENCE: 80
 ```
 
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-2 ARM: MF STAGE: A6 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: ZED occurs when Coda and Dune differ; matching Coda and Dune values route to NOVA.
+CONFIDENCE: 90
+```
+
 No scoring or correction was performed before preserving these outputs.
