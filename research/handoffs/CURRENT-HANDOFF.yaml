@@ -1,4 +1,4 @@
-schema_version: "4.2"
+schema_version: "4.3"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-04"
 
@@ -13,28 +13,22 @@ handoff_framework:
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
 
 current_handoff_record:
-  id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
-  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
-  integration_pr: 178
-  integration_merge: ec9255f147c866de3eeb44e7769285800a603afb
-  record_root: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/
-  start_here: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-START-HERE.md
-  manifest: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-MANIFEST.yaml
-  project_state: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/PROJECT-STATE.md
-  project_state_role: PREMERGE_OCCURRENCE_SNAPSHOT_WITH_DETAILED_RESEARCH_STATE
-  recent_rounds: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/RECENT-THREE-ROUNDS.md
-  lessons: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/LESSONS-AND-REMINDERS.md
-  repo_ecosystem: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/REPO-ECOSYSTEM.md
-  file_catalog: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/FILE-CATALOG.md
-  readback: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/HANDOFF-READBACK.md
-  readback_role: POSTMERGE_COMPLETION_AND_MUTABLE_STATE_VERIFICATION
-  readback_state: PASS
+  id: "2026-09-04-temporal-assimilation-primary-complete"
+  state: DEEP_PROJECT_SESSION_SUCCESSION_PRIMARY_COLLECTION_COMPLETE
+  record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
+  start_here: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-START-HERE.md
+  manifest: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-MANIFEST.yaml
+  project_state: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/PROJECT-STATE.md
+  primary_run_ledger: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/PRIMARY-RUN-LEDGER.md
+  recent_rounds: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/RECENT-THREE-ROUNDS.md
+  lessons: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/LESSONS-AND-REMINDERS.md
+  repo_ecosystem: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/REPO-ECOSYSTEM.md
+  file_catalog: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/FILE-CATALOG.md
 
-resume_checkpoint:
-  id: "2026-09-04-post-mds-resume-checkpoint"
-  state: PAUSED_AFTER_MDS_MECHANISM_ROUND
-  path: research/handoffs/records/2026-09-04-post-mds-resume-checkpoint/CHECKPOINT.md
-  role: LIGHTWEIGHT_RESUME_POINT_FOR_NORMAL_CONTINUATION
+previous_deep_handoff:
+  id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
+  state: HISTORICAL_COMPLETED_SUCCESSION_RECORD
+  record_root: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/
 
 current_project_authorities:
   live_status: NOW.md
@@ -42,54 +36,47 @@ current_project_authorities:
   current_package: releases/current/
   research_coverage: research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md
   branch_governance: research/BRANCH-GOVERNANCE.md
-  branch_cleanup: research/branch-cleanup/2026-09-03-BRANCH-CLEANUP-AUDIT.md
 
 current_adoption:
   version: v0.3.7
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  tree: f33e73ed997c1b66a4572685ab5474182e136e97
-  file_count: 118
-  package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
-  release_merge: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
   released_bytes_immutable: true
+  changed_by_current_round: false
 
 active_research:
   phase: MECHANISM_DISCRIMINATION
-  continuation_branch: main
-  latest_mechanism_result: research/field-validation/2026-09-03-developmental-inheritance-mds-primary-results.md
-  latest_result_disposition: MDS_SPECIFIC_SUPERIORITY_NARROWED_GENERAL_INHERITANCE_EFFECT_OBSERVED
-  next_target: TEMPORAL_ASSIMILATION_AND_DEVELOPMENTAL_ORDER
-  next_action: DESIGN_AND_PREREGISTER_TEMPORAL_ASSIMILATION_DEVELOPMENTAL_ORDER_EXPERIMENT_AFTER_RELAY_AUTOMATION_EXPLORATION
-  temporarily_paused_at: EXPERIMENT_DESIGN_BOUNDARY
-  pause_reason: REDUCE_LOW_VALUE_HUMAN_COPY_PASTE_RELAY_BEFORE_NEXT_MULTI_SESSION_ROUND
+  target: TEMPORAL_ASSIMILATION_AND_DEVELOPMENTAL_ORDER_V1
+  preregistration: research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md
+  fixture: research/field-validation/fixtures/temporal-assimilation-order-v1/FIXTURE.md
+  primary_collection_state: COMPLETE
+  formal_adjudication_state: NOT_STARTED
+  next_action: FORMAL_SCORE_M1_M6_AND_CROSS_ARM_ADJUDICATION
+  valid_primary_runs:
+    CF: [CF-R1, CF-2, CF-3]
+    MF: [MF-1, MF-2, MF-3]
+    INT: [INT-1, INT-2, INT-R1]
+  excluded_attempts:
+    CF-1: SESSION_CONTINUITY_REBUILT_BEFORE_B1
+    INT-3: TEMPORARY_CHAT_CLOSED_AFTER_A2
 
-branch_transition:
-  retired_long_lived_branch: research/ena-reconstruction
-  state: DELETE_SAFE_AFTER_EXACT_ARTIFACT_MIGRATION
-  merge_wholesale: false
-  delete_ref_manually_when_convenient: true
-
-related_workbench_update:
-  repository: guytogay/human-ai-workbench
-  automation_exploration: experiments/2026-09-04-HUMAN-AI-AUTOMATION-EXPLORATION.md
-  pr: 4
-  merge: a38d1e3440613253f3c2cfbe675f2690dbb8fc85
+important_evidence_notes:
+  CF-3: VALID_RUN_WITH_CONNECTOR_PERSISTENCE_ANOMALY_AND_LATER_VERBATIM_BACKFILL
+  MF-3: VALID_RUN_WITH_ONE_REVERSIBLE_BASE64_ARCHIVAL_STAGE
+  INT-R1: VALID_REPLACEMENT_FOR_INT-3
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
-  treat_handoff_record_as_current_authority: FORBIDDEN
-  treat_old_branch_recency_as_authority: FORBIDDEN
   preserve_negative_and_null_results: REQUIRED
   reverify_live_mutable_facts_before_writes: REQUIRED
+  rerun_valid_primary_to_seek_preferred_result: FORBIDDEN
   use_full_handoff_for_fresh_validator: FORBIDDEN
-  interpret_project_state_transitional_branch_language_as_live_truth: FORBIDDEN
+  modify_releases_current_from_mechanism_result_alone: FORBIDDEN
 
 rule: >-
-  The 2026-09-03 record remains the completed deep succession package. Normal continuation is now
-  NOW.md plus the 2026-09-04 post-MDS resume checkpoint. The MDS mechanism experiment is complete;
-  do not rerun Morrow to seek M3 superiority and do not modify Current from MDS alone. The next ENA
-  scientific target is temporal assimilation/developmental order, but experiment launch is paused at
-  the design boundary while Human-AI Workbench explores how to remove low-value human copy/paste
-  relay. Fresh independent validation must still use isolated minimal context rather than this
-  project-manager handoff.
+  Temporal Assimilation / Developmental Order v1 primary collection is complete with nine valid
+  runs. The outgoing session intentionally stops before formal scoring/adjudication. The receiver's
+  first consequential action is to score the preserved first outputs under the frozen preregistration,
+  then adjudicate cross-arm evidence without adding trials to seek a preferred result. CF-1 and INT-3
+  remain excluded continuity failures; CF-R1 and INT-R1 are their valid replacements. ENA remains
+  v0.3.7 CURRENT / FIELD_VALIDATION and released bytes are unchanged.
