@@ -39,4 +39,13 @@ WORKING_RULE: Provisional rule: Aster ON predicts NOVA, while Aster OFF predicts
 CONFIDENCE: 55
 ```
 
+## A4
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: CF-2 ARM: CF STAGE: A4 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Current evidence suggests NOVA when Beryl is ON and Coda is OFF; otherwise predict ZED.
+CONFIDENCE: 75
+```
+
 No scoring or correction was performed before preserving these outputs.
