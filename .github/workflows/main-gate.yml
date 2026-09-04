@@ -72,7 +72,7 @@ jobs:
     if: github.ref == 'refs/heads/scratch/doubao-thread-reader'
     name: scratch-doubao-fetch
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - name: Setup Node
@@ -80,11 +80,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Playwright
+      - name: Use runner Chrome with Playwright Core
         run: |
           npm init -y >/dev/null 2>&1
-          npm install playwright@1.55.0 >/dev/null 2>&1
-          npx playwright install --with-deps chromium
+          npm install playwright-core@1.55.0 >/dev/null 2>&1
+          CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+          "$CHROME_PATH" --version
 
       - name: Fetch public Doubao thread
         env:
@@ -92,9 +95,13 @@ jobs:
         run: |
           cat > fetch-thread.js <<'EOF'
           const fs = require('fs');
-          const { chromium } = require('playwright');
+          const { chromium } = require('playwright-core');
           (async () => {
-            const browser = await chromium.launch({ headless: true, args: ['--disable-blink-features=AutomationControlled'] });
+            const browser = await chromium.launch({
+              headless: true,
+              executablePath: process.env.CHROME_PATH,
+              args: ['--disable-blink-features=AutomationControlled', '--no-sandbox']
+            });
             const page = await browser.newPage({
               viewport: { width: 1440, height: 1200 },
               userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
