@@ -57,4 +57,13 @@ WORKING_RULE: Predict NOVA when Beryl is ON and Coda is OFF; otherwise predict Z
 CONFIDENCE: 82
 ```
 
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: CF-2 ARM: CF STAGE: A6 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Predict NOVA exactly when Beryl and Dune differ; predict ZED when they match.
+CONFIDENCE: 95
+```
+
 No scoring or correction was performed before preserving these outputs.
