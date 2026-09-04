@@ -57,4 +57,13 @@ WORKING_RULE: Coda ON currently predicts ZED, while Coda OFF predicts NOVA; Dune
 CONFIDENCE: 82
 ```
 
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: MF-1 ARM: MF STAGE: A6 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Dune ON predicts NOVA; when Dune is OFF, Coda ON predicts ZED and Coda OFF predicts NOVA.
+CONFIDENCE: 88
+```
+
 No scoring or correction was performed before preserving these outputs.
