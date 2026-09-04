@@ -40,4 +40,18 @@ WORKING_RULE: ZED may be associated with Aster being ON; evidence is still limit
 CONFIDENCE: 55
 ```
 
+## A3
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A3
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: NOVA is favored when Coda is OFF, while the confirmed ZED case had Coda ON.
+CONFIDENCE: 72
+```
+
 No scoring or correction was performed before preserving these outputs.
