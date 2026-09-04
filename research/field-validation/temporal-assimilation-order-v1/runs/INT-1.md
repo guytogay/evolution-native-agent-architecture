@@ -82,4 +82,18 @@ WORKING_RULE: Coda ON has consistently routed to ZED so far; Dune ON is newly ob
 CONFIDENCE: 82
 ```
 
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A6
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: ZED requires Coda ON with Beryl OFF and Dune OFF; otherwise route to NOVA.
+CONFIDENCE: 92
+```
+
 No scoring or correction was performed before preserving these outputs.
