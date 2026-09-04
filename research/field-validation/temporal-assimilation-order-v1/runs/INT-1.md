@@ -1,6 +1,6 @@
 # Temporal Assimilation / Developmental Order — Primary Run INT-1
 
-Status: `IN_PROGRESS / RAW_FIRST_OUTPUTS_PRESERVED`
+Status: `COMPLETED / VALID_PRIMARY_RUN / RAW_FIRST_OUTPUTS_PRESERVED`
 
 Preregistration:
 `research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md`
@@ -133,4 +133,24 @@ L2: NOVA, 95
 U1: INSUFFICIENT, 100
 ```
 
-No scoring or correction was performed before preserving these outputs.
+## C1
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: C1
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+C1: ZED, 100
+C2: NOVA, 100
+C3: NOVA, 100
+C4: ZED, 100
+C5: NOVA, 100
+C6: NOVA, 100
+C7: ZED, 100
+C8: NOVA, 100
+C9: INSUFFICIENT, 100
+```
+
+No scoring, correction, or cross-arm interpretation was performed before preserving the raw stage outputs. The run completed all frozen stages in one Temporary Chat and is retained as a valid primary run.
