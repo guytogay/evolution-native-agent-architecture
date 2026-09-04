@@ -83,4 +83,18 @@ WORKING_RULE: Routing appears determined by Beryl: ON maps to NOVA, while OFF ma
 CONFIDENCE: 95
 ```
 
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-R1
+ARM: CF
+STAGE: A6
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Route NOVA when Beryl is ON or when Aster and Dune are both ON; otherwise route ZED.
+CONFIDENCE: 90
+```
+
 No scoring or correction was performed before preserving these outputs.
