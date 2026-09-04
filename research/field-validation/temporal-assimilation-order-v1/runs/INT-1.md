@@ -68,4 +68,18 @@ WORKING_RULE: Route to ZED when Coda is ON; route to NOVA when Coda is OFF.
 CONFIDENCE: 90
 ```
 
+## A5
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A5
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Coda ON has consistently routed to ZED so far; Dune ON is newly observed and may modify the rule.
+CONFIDENCE: 82
+```
+
 No scoring or correction was performed before preserving these outputs.
