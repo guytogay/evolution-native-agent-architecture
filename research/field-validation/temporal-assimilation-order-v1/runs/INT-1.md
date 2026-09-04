@@ -54,4 +54,18 @@ WORKING_RULE: NOVA is favored when Coda is OFF, while the confirmed ZED case had
 CONFIDENCE: 72
 ```
 
+## A4
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A4
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Route to ZED when Coda is ON; route to NOVA when Coda is OFF.
+CONFIDENCE: 90
+```
+
 No scoring or correction was performed before preserving these outputs.
