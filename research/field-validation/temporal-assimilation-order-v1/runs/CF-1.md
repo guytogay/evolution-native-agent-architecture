@@ -82,4 +82,18 @@ WORKING_RULE: All observed cases route by Coda: ON gives ZED and OFF gives NOVA;
 CONFIDENCE: 90
 ```
 
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-1
+ARM: CF
+STAGE: A6
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Current evidence fits ZED only when Coda is ON and Dune is OFF; otherwise route to NOVA.
+CONFIDENCE: 90
+```
+
 No scoring or correction was performed before preserving these outputs.
