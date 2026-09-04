@@ -1,6 +1,6 @@
 schema_version: "4.2"
 status: CURRENT_DEEP_SUCCESSION_POINTER
-updated_at: "2026-09-03"
+updated_at: "2026-09-04"
 
 normal_continuation:
   default_entry: NOW.md
@@ -30,6 +30,12 @@ current_handoff_record:
   readback_role: POSTMERGE_COMPLETION_AND_MUTABLE_STATE_VERIFICATION
   readback_state: PASS
 
+resume_checkpoint:
+  id: "2026-09-04-post-mds-resume-checkpoint"
+  state: PAUSED_AFTER_MDS_MECHANISM_ROUND
+  path: research/handoffs/records/2026-09-04-post-mds-resume-checkpoint/CHECKPOINT.md
+  role: LIGHTWEIGHT_RESUME_POINT_FOR_NORMAL_CONTINUATION
+
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
@@ -51,8 +57,12 @@ current_adoption:
 active_research:
   phase: MECHANISM_DISCRIMINATION
   continuation_branch: main
-  next_action: DESIGN_AND_PREREGISTER_DEVELOPMENTAL_INHERITANCE_MINIMUM_DEVELOPMENTAL_SET_EXPERIMENT
-  latest_mechanism_result: research/field-validation/2026-09-03-boundary-memory-vs-remedy-pilot-results.md
+  latest_mechanism_result: research/field-validation/2026-09-03-developmental-inheritance-mds-primary-results.md
+  latest_result_disposition: MDS_SPECIFIC_SUPERIORITY_NARROWED_GENERAL_INHERITANCE_EFFECT_OBSERVED
+  next_target: TEMPORAL_ASSIMILATION_AND_DEVELOPMENTAL_ORDER
+  next_action: DESIGN_AND_PREREGISTER_TEMPORAL_ASSIMILATION_DEVELOPMENTAL_ORDER_EXPERIMENT_AFTER_RELAY_AUTOMATION_EXPLORATION
+  temporarily_paused_at: EXPERIMENT_DESIGN_BOUNDARY
+  pause_reason: REDUCE_LOW_VALUE_HUMAN_COPY_PASTE_RELAY_BEFORE_NEXT_MULTI_SESSION_ROUND
 
 branch_transition:
   retired_long_lived_branch: research/ena-reconstruction
@@ -62,8 +72,9 @@ branch_transition:
 
 related_workbench_update:
   repository: guytogay/human-ai-workbench
-  pr: 1
-  merge: 36876e2c7695036b0e3a24093f66894cbfcee037
+  automation_exploration: experiments/2026-09-04-HUMAN-AI-AUTOMATION-EXPLORATION.md
+  pr: 4
+  merge: a38d1e3440613253f3c2cfbe675f2690dbb8fc85
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -75,8 +86,10 @@ receiver_contract:
   interpret_project_state_transitional_branch_language_as_live_truth: FORBIDDEN
 
 rule: >-
-  The 2026-09-03 record is the current completed deep succession package. Normal continuation
-  remains cheaper: NOW.md plus the relevant artifact. PROJECT-STATE.md preserves the detailed
-  premerge occurrence snapshot; HANDOFF-READBACK.md carries the completed postmerge state. Fresh
-  independent validation must use an isolated minimal cleanroom rather than this project-manager
-  context.
+  The 2026-09-03 record remains the completed deep succession package. Normal continuation is now
+  NOW.md plus the 2026-09-04 post-MDS resume checkpoint. The MDS mechanism experiment is complete;
+  do not rerun Morrow to seek M3 superiority and do not modify Current from MDS alone. The next ENA
+  scientific target is temporal assimilation/developmental order, but experiment launch is paused at
+  the design boundary while Human-AI Workbench explores how to remove low-value human copy/paste
+  relay. Fresh independent validation must still use isolated minimal context rather than this
+  project-manager handoff.
