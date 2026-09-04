@@ -48,4 +48,13 @@ WORKING_RULE: Current evidence suggests NOVA when Beryl is ON and Coda is OFF; o
 CONFIDENCE: 75
 ```
 
+## A5
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: CF-2 ARM: CF STAGE: A5 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Predict NOVA when Beryl is ON and Coda is OFF; otherwise predict ZED, with Dune not yet evidenced.
+CONFIDENCE: 82
+```
+
 No scoring or correction was performed before preserving these outputs.
