@@ -30,4 +30,13 @@ WORKING_RULE: Current hypothesis is ZED whenever Aster is ON; other features rem
 CONFIDENCE: 60
 ```
 
+## A3
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: INT-2 ARM: INT STAGE: A3 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Current hypothesis is NOVA when Beryl is ON and ZED when Beryl is OFF.
+CONFIDENCE: 65
+```
+
 No scoring or correction was performed before preserving these outputs.
