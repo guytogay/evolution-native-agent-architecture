@@ -21,4 +21,13 @@ WORKING_RULE: Initially predict ZED when Aster and Beryl are ON while Coda and D
 CONFIDENCE: 25
 ```
 
-No scoring or correction was performed before preserving this output.
+## A2
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: CF-2 ARM: CF STAGE: A2 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: With only one labeled example, use the simplest provisional rule: predict NOVA unless feedback shows a feature-dependent split.
+CONFIDENCE: 30
+```
+
+No scoring or correction was performed before preserving these outputs.
