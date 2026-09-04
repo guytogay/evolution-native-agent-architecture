@@ -66,4 +66,14 @@ WORKING_RULE: Predict NOVA exactly when Beryl and Dune differ; predict ZED when 
 CONFIDENCE: 95
 ```
 
+## A7
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: CF-2 ARM: CF STAGE: A7 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+FINAL_RULE: Route to ZED only when Coda is ON and Dune is OFF; otherwise route to NOVA.
+CAUSAL_FEATURES: Coda, Dune
+IRRELEVANT_FEATURES: Aster, Beryl
+CONFIDENCE: 100
+```
+
 No scoring or correction was performed before preserving these outputs.
