@@ -97,4 +97,19 @@ WORKING_RULE: Route NOVA when Beryl is ON or when Aster and Dune are both ON; ot
 CONFIDENCE: 90
 ```
 
+## A7
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-R1
+ARM: CF
+STAGE: A7
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+FINAL_RULE: Route to NOVA if Beryl is ON or Dune is ON; otherwise route to ZED.
+CAUSAL_FEATURES: Beryl, Dune
+IRRELEVANT_FEATURES: Aster, Coda
+CONFIDENCE: 99
+```
+
 No scoring or correction was performed before preserving these outputs.
