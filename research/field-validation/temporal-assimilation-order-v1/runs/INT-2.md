@@ -48,4 +48,13 @@ WORKING_RULE: Current hypothesis is NOVA when Beryl is ON and ZED when Beryl is 
 CONFIDENCE: 85
 ```
 
+## A5
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: INT-2 ARM: INT STAGE: A5 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Current hypothesis is NOVA when Beryl is ON and ZED when Beryl is OFF; Dune remains untested.
+CONFIDENCE: 88
+```
+
 No scoring or correction was performed before preserving these outputs.
