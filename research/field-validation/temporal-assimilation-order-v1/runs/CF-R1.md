@@ -1,6 +1,6 @@
 # Temporal Assimilation / Developmental Order — Replacement Run CF-R1
 
-Status: `IN_PROGRESS / RAW_FIRST_OUTPUTS_PRESERVED`
+Status: `COMPLETE / VALID_PRIMARY_REPLACEMENT / RAW_FIRST_OUTPUTS_PRESERVED`
 
 Preregistration:
 `research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md`
@@ -134,4 +134,24 @@ L2: ZED, 99
 U1: INSUFFICIENT, 100
 ```
 
-No scoring or correction was performed before preserving these outputs.
+## C1
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-R1
+ARM: CF
+STAGE: C1
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+C1: ZED, 100
+C2: NOVA, 100
+C3: NOVA, 100
+C4: ZED, 100
+C5: NOVA, 100
+C6: NOVA, 100
+C7: ZED, 100
+C8: NOVA, 100
+C9: INSUFFICIENT, 100
+```
+
+No scoring, behavioral correction, or cross-arm interpretation was performed before preserving the complete first-output sequence.
