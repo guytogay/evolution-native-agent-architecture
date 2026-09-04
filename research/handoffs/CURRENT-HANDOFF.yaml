@@ -15,6 +15,8 @@ handoff_framework:
 current_handoff_record:
   id: "2026-09-04-temporal-assimilation-primary-complete"
   state: DEEP_PROJECT_SESSION_SUCCESSION_PRIMARY_COLLECTION_COMPLETE
+  integration_pr: 195
+  integration_merge: eb78dabe0f2644de5df110ea848770ca9d9213a4
   record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
   start_here: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-START-HERE.md
   manifest: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-MANIFEST.yaml
@@ -24,6 +26,8 @@ current_handoff_record:
   lessons: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/LESSONS-AND-REMINDERS.md
   repo_ecosystem: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/REPO-ECOSYSTEM.md
   file_catalog: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/FILE-CATALOG.md
+  readback: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-READBACK.md
+  readback_state: PASS
 
 previous_deep_handoff:
   id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
