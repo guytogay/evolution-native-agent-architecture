@@ -26,4 +26,18 @@ WORKING_RULE: Cases with Aster and Beryl ON route to ZED unless later feedback i
 CONFIDENCE: 50
 ```
 
-No scoring or correction was performed before preserving this output.
+## A2
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-1
+ARM: CF
+STAGE: A2
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Current evidence suggests NOVA may apply broadly; no feedback yet distinguishes Coda-positive cases from the observed NOVA case.
+CONFIDENCE: 35
+```
+
+No scoring or correction was performed before preserving these outputs.
