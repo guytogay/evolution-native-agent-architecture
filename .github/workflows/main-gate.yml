@@ -72,61 +72,74 @@ jobs:
     if: github.ref == 'refs/heads/scratch/doubao-thread-reader'
     name: scratch-doubao-fetch
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 4
 
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Use runner Chrome with Playwright Core
-        run: |
-          npm init -y >/dev/null 2>&1
-          npm install playwright-core@1.55.0 >/dev/null 2>&1
-          CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
-          test -n "$CHROME_PATH"
-          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
-          "$CHROME_PATH" --version
-
-      - name: Fetch public Doubao thread
+      - name: Render public Doubao thread with hosted Chrome
         env:
           THREAD_URL: https://www.doubao.com/thread/xDQe8KM1QaLE7DMq2
         run: |
-          cat > fetch-thread.js <<'EOF'
-          const fs = require('fs');
-          const { chromium } = require('playwright-core');
-          (async () => {
-            const browser = await chromium.launch({
-              headless: true,
-              executablePath: process.env.CHROME_PATH,
-              args: ['--disable-blink-features=AutomationControlled', '--no-sandbox']
-            });
-            const page = await browser.newPage({
-              viewport: { width: 1440, height: 1200 },
-              userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            });
-            try {
-              await page.goto(process.env.THREAD_URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
-              await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
-              await page.locator('body').waitFor({ state: 'visible', timeout: 15000 });
-              const title = (await page.title().catch(() => '')).trim();
-              const text = (await page.locator('body').innerText({ timeout: 15000 })).trim();
-              fs.writeFileSync('doubao-thread.txt', `TITLE: ${title}\nURL: ${process.env.THREAD_URL}\n\n${text}`, 'utf8');
-              console.log(`FETCH_OK title=${JSON.stringify(title)} chars=${text.length}`);
-              console.log('---THREAD_BEGIN---');
-              console.log(text);
-              console.log('---THREAD_END---');
-            } finally {
-              await browser.close();
-            }
-          })().catch(err => { console.error(err); process.exit(1); });
-          EOF
-          node fetch-thread.js
+          CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          "$CHROME_PATH" --version
+          timeout 60s "$CHROME_PATH" \
+            --headless=new \
+            --no-sandbox \
+            --disable-gpu \
+            --disable-dev-shm-usage \
+            --disable-blink-features=AutomationControlled \
+            --user-agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' \
+            --virtual-time-budget=20000 \
+            --dump-dom "$THREAD_URL" > doubao-dom.html
+          wc -c doubao-dom.html
 
-      - name: Upload thread text
+      - name: Extract visible-ish text from rendered DOM
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import html, re
+
+          class TextExtractor(HTMLParser):
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.parts=[]
+                  self.skip=0
+              def handle_starttag(self, tag, attrs):
+                  if tag in {'script','style','svg','noscript'}:
+                      self.skip += 1
+                  if tag in {'p','div','section','article','li','h1','h2','h3','h4','br'} and not self.skip:
+                      self.parts.append('\n')
+              def handle_endtag(self, tag):
+                  if tag in {'script','style','svg','noscript'} and self.skip:
+                      self.skip -= 1
+                  if tag in {'p','div','section','article','li','h1','h2','h3','h4'} and not self.skip:
+                      self.parts.append('\n')
+              def handle_data(self, data):
+                  if not self.skip:
+                      self.parts.append(data)
+
+          raw=Path('doubao-dom.html').read_text(encoding='utf-8', errors='replace')
+          p=TextExtractor(); p.feed(raw)
+          text=''.join(p.parts).replace('\u00a0',' ')
+          lines=[]
+          for line in text.splitlines():
+              line=re.sub(r'\s+',' ',line).strip()
+              if line and (not lines or line != lines[-1]):
+                  lines.append(line)
+          out='\n'.join(lines)
+          Path('doubao-thread.txt').write_text(out, encoding='utf-8')
+          print('TEXT_CHARS', len(out))
+          print('---THREAD_BEGIN---')
+          print(out)
+          print('---THREAD_END---')
+          PY
+
+      - name: Upload rendered thread evidence
         uses: actions/upload-artifact@v4
         with:
           name: doubao-thread-xdqe8
-          path: doubao-thread.txt
+          path: |
+            doubao-thread.txt
+            doubao-dom.html
           if-no-files-found: error
