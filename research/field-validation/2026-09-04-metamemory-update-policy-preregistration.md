@@ -2,7 +2,7 @@
 
 Date: `2026-09-04`
 
-Status: `PREREGISTERED_BEFORE_PRIMARY_OUTPUTS / NOT_CURRENT / MECHANISM_DISCRIMINATION`
+Status: `PREREGISTRATION_DRAFT_BEFORE_PRIMARY_OUTPUTS / NOT_CURRENT / MECHANISM_DISCRIMINATION`
 
 Current baseline remains: `v0.3.7 / CURRENT / FIELD_VALIDATION`.
 
@@ -14,7 +14,7 @@ The Coverage Map leaves metamemory only partially probed. Prior semantic work es
 
 The narrow question here is:
 
-> Holding object-level experience constant, does the policy governing how source trust is updated change later decisions under repeated mixed-quality signals, regime change and local noise?
+> Holding object-level experience constant, does the policy governing how source trust is updated change later decisions under repeated mixed-quality signals, regime change, local noise and unseen context?
 
 Candidate relations under test:
 
@@ -28,13 +28,13 @@ PLASTICITY != SUGGESTIBILITY
 RETENTION STRENGTH != GENERALIZATION WIDTH
 ```
 
-A tie, failure to follow treatment, or an extreme policy outperforming the ENA-motivated candidate is a valid result.
+A tie, treatment-compliance failure or a result unfavorable to ENA-motivated selectivity is valid.
 
 ## 2. What this experiment does and does not test
 
 This is a **policy-conditioned in-context mechanism experiment**.
 
-It directly tests behavioral consequences of four frozen source-trust update policies over one identical experience ledger.
+It directly tests behavioral consequences of four source-trust update policies over one identical experience ledger.
 
 It does **not** test:
 
@@ -43,17 +43,17 @@ It does **not** test:
 - spontaneous invention of a learning policy;
 - literal biological metamemory;
 - all metamemory dimensions at once;
-- replay scheduling, forgetting, inheritance or purpose selection except where they are needed as comparison background.
+- replay scheduling, forgetting, inheritance or purpose selection except as later research dependencies.
 
-If a policy effect appears, the strongest allowed first-round statement is:
+If a coherent effect appears, the strongest allowed first-round statement is:
 
 > In this synthetic Host/task family, source-trust update policy can causally change later in-context behavior despite an identical object-level experience ledger.
 
-If the selective/reversible arm performs best, that is evidence for this task family only, not a universal ENA natural law.
+No arm is preregistered as the universal winner.
 
 ## 3. Relevant external context
 
-Recent continual-learning and Agent-memory work already establishes that memory management, replay and update policy can matter for downstream behavior; this experiment does not claim novelty for that broad fact.
+Recent continual-learning and Agent-memory work already establishes that memory management, replay and update policy can affect downstream behavior; this experiment does not claim novelty for that broad fact.
 
 Examples:
 
@@ -61,7 +61,7 @@ Examples:
 - Luo et al., `From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms`, Findings of ACL 2026.
 - Abbes et al., `Revisiting Replay and Gradient Alignment for Continual Pre-Training of Large Language Models`, CoLLAs 2026.
 
-The ENA-relevant question is narrower: whether **selective permeability / reversible plasticity** produces a distinguishable adaptive profile when experience is mixed-quality, locally scoped and nonstationary.
+The ENA-relevant question is narrower: whether different permeability, scope and reversal policies produce distinguishable **error trade-offs** under nonstationary evidence.
 
 ## 4. Host and isolation
 
@@ -78,52 +78,49 @@ Use the same visible model/reasoning configuration for every valid primary run.
 Fresh sessions must not see:
 
 - this preregistration;
-- the hidden scoring oracle;
+- the hidden transfer oracle;
+- expected arm states or scores;
 - other arms;
 - ENA repository history;
 - manager analysis.
 
-The run prompt for each arm is a **single complete treatment delivery**. No staged tutoring is required.
-
-This deliberately reduces human transport burden compared with the completed Temporal Assimilation experiment.
+Each run is one complete treatment delivery followed by one first-output capture. No staged tutoring is required.
 
 ## 5. Primary contrast
 
 All arms receive exactly the same:
 
 - task framing;
-- 16 labeled historical episodes;
+- 27 labeled historical episodes;
 - episode order;
 - source recommendations;
 - authoritative outcomes;
-- 10 transfer items;
+- 18 transfer items;
 - response format.
 
 Only the **source-trust update policy** differs.
 
-Arms:
-
 ### S0 — STATIC_EQUAL
 
-- Start `ORBIT` and `VALE` at equal trust.
+- `ORBIT` and `VALE` remain equal-trust permanently.
 - Historical outcomes do not alter source trust.
-- When recommendations conflict and there is no independent basis, return `INSUFFICIENT`.
+- Conflicting recommendations with no independent basis yield `INSUFFICIENT`.
 
-Purpose: impermeability / no metamemory-update baseline.
+Purpose: impermeability / no-update baseline.
 
 ### G1 — GLOBAL_RECENT3
 
 - Maintain one global source preference across all contexts.
-- After history, trust the source that won a majority of the most recent 3 labeled episodes overall.
-- Apply that global preference in every context, including unseen contexts.
+- Trust the source that won a majority of the most recent 3 labeled episodes overall.
+- Apply that preference everywhere, including unseen contexts.
 
-Purpose: highly permeable, broad-scope recent-update baseline.
+Purpose: fast, broad-scope plasticity baseline.
 
 ### C1 — CONTEXT_RECENT3
 
 - Maintain separate source preference by context.
-- For a known context, trust the source that won a majority of the most recent 3 labeled episodes in that context.
-- For an unseen context with no history, return `INSUFFICIENT` when sources conflict.
+- In a known context, trust the source that won a majority of the most recent 3 labeled episodes in that context.
+- In an unseen context, conflicting recommendations yield `INSUFFICIENT`.
 
 Purpose: isolates contextual scope while retaining fast recent updating.
 
@@ -131,181 +128,255 @@ Purpose: isolates contextual scope while retaining fast recent updating.
 
 - Maintain separate source preference by context.
 - A source becomes incumbent after 3 consecutive wins in that context.
-- Once incumbent, reverse trust only after 3 consecutive wins by the opposite source in that context.
-- One or two contradictory wins are treated as provisional noise, not an immediate trust rewrite.
-- For an unseen context with no incumbent, return `INSUFFICIENT` when sources conflict.
+- Once incumbent, reverse only after 3 consecutive wins by the opposite source in that context.
+- One or two contradictory wins remain provisional and do not immediately rewrite the incumbent.
+- In an unseen context, conflicting recommendations yield `INSUFFICIENT`.
 
-Purpose: ENA-motivated selective permeability / reversible-plasticity candidate.
+Purpose: bounded/reversible plasticity candidate.
 
-## 6. Identifiability audit before collection
+## 6. Deliberate non-dominance and identifiability design
 
-The fixture was constructed so each policy produces a uniquely determined expected trust state after the same history:
+The first draft of this fixture was rejected before primary collection because its hidden regime was too neatly matched to the C2 threshold and would have made C2 a baked-in winner.
+
+The frozen design instead includes **observationally similar tails with different latent current regimes**:
+
+- RED: sustained `VALE` tail, true regime change to VALE;
+- BLUE: two-event `VALE` tail, but current regime remains ORBIT;
+- GOLD: two-event `VALE` tail, and current regime really did change to VALE;
+- SILVER: three-event `VALE` tail, but current regime remains ORBIT;
+- GREEN: no history.
+
+Therefore no fixed finite-history policy can infer the latent current regime perfectly from the supplied evidence. This is intentional, not a defect.
+
+The experiment is designed to expose the trade-off:
 
 ```text
-                 RED        BLUE       GREEN
-S0               UNRESOLVED UNRESOLVED UNRESOLVED
-G1               VALE       VALE       VALE
-C1               VALE       VALE       UNRESOLVED
-C2               VALE       ORBIT      UNRESOLVED
+FASTER PLASTICITY
+-> lower adaptation lag
+-> higher risk of noise capture
+
+STRONGER INERTIA
+-> lower noise capture
+-> higher risk of adaptation lag
 ```
 
-Why:
+The scientific target is the **shape of the trade-off**, not a predetermined winning arm.
 
-- `ORBIT` wins the established early history in both RED and BLUE.
-- RED later contains 4 consecutive `VALE` wins, enough to reverse C2.
-- BLUE later contains only 2 consecutive `VALE` wins, enough to flip a fast recent-majority policy but not C2.
-- the final 3 historical episodes overall are `VALE` wins, so G1 becomes globally `VALE`.
-- GREEN has no history, so contextual policies have no basis there.
+## 7. Frozen expected policy states
 
-This deterministic separation is frozen before any primary output.
+If each arm follows its assigned policy mechanically, the post-history source states are uniquely determined:
 
-If later adjudication discovers an unrecognized policy ambiguity analogous to the Temporal Assimilation alias problem, preserve it as a fixture limitation; do not repair and rerun primary data for a preferred result.
+```text
+                 RED        BLUE       GOLD       SILVER     GREEN
+S0               UNRESOLVED UNRESOLVED UNRESOLVED UNRESOLVED UNRESOLVED
+G1               VALE       VALE       VALE       VALE       VALE
+C1               VALE       VALE       VALE       VALE       UNRESOLVED
+C2               VALE       ORBIT      ORBIT      VALE       UNRESOLVED
+```
 
-## 7. Shared historical ledger
+Reasons:
 
-Every historical item has two conflicting recommendations and an authoritative correct action. The source whose recommendation matches the outcome is the episode winner.
+- all four known contexts begin with 4 `ORBIT` wins;
+- tails contain 4 VALE wins in RED, 2 in BLUE, 2 in GOLD and 3 in SILVER;
+- the final 3 episodes overall are all VALE wins, so G1 becomes globally VALE;
+- C1's recent-3 majority becomes VALE in every known context;
+- C2 reverses after the 3rd consecutive VALE win in RED and SILVER, but not BLUE or GOLD;
+- contextual policies have no GREEN evidence.
+
+This policy-state audit is frozen before primary output.
+
+## 8. Shared historical ledger
+
+Every item has conflicting source recommendations and an authoritative correct action. The source matching the correct action wins the episode.
 
 | ID | Context | ORBIT | VALE | Correct | Winner |
 |---|---|---|---|---|---|
-| H1 | RED  | ZED  | NOVA | ZED  | ORBIT |
-| H2 | BLUE | NOVA | ZED  | NOVA | ORBIT |
-| H3 | RED  | NOVA | ZED  | NOVA | ORBIT |
-| H4 | BLUE | ZED  | NOVA | ZED  | ORBIT |
-| H5 | RED  | ZED  | NOVA | ZED  | ORBIT |
-| H6 | BLUE | NOVA | ZED  | NOVA | ORBIT |
-| H7 | RED  | NOVA | ZED  | NOVA | ORBIT |
-| H8 | BLUE | ZED  | NOVA | ZED  | ORBIT |
-| H9 | RED  | ZED  | NOVA | NOVA | VALE |
-| H10| BLUE | NOVA | ZED  | NOVA | ORBIT |
-| H11| RED  | NOVA | ZED  | ZED  | VALE |
-| H12| BLUE | ZED  | NOVA | ZED  | ORBIT |
-| H13| RED  | ZED  | NOVA | NOVA | VALE |
-| H14| BLUE | NOVA | ZED  | ZED  | VALE |
-| H15| RED  | NOVA | ZED  | ZED  | VALE |
-| H16| BLUE | ZED  | NOVA | NOVA | VALE |
+| H1 | RED    | ZED  | NOVA | ZED  | ORBIT |
+| H2 | BLUE   | NOVA | ZED  | NOVA | ORBIT |
+| H3 | GOLD   | ZED  | NOVA | ZED  | ORBIT |
+| H4 | SILVER | NOVA | ZED  | NOVA | ORBIT |
+| H5 | RED    | NOVA | ZED  | NOVA | ORBIT |
+| H6 | BLUE   | ZED  | NOVA | ZED  | ORBIT |
+| H7 | GOLD   | NOVA | ZED  | NOVA | ORBIT |
+| H8 | SILVER | ZED  | NOVA | ZED  | ORBIT |
+| H9 | RED    | ZED  | NOVA | ZED  | ORBIT |
+| H10 | BLUE  | NOVA | ZED  | NOVA | ORBIT |
+| H11 | GOLD  | ZED  | NOVA | ZED  | ORBIT |
+| H12 | SILVER| NOVA | ZED  | NOVA | ORBIT |
+| H13 | RED   | NOVA | ZED  | NOVA | ORBIT |
+| H14 | BLUE  | ZED  | NOVA | ZED  | ORBIT |
+| H15 | GOLD  | NOVA | ZED  | NOVA | ORBIT |
+| H16 | SILVER| ZED  | NOVA | ZED  | ORBIT |
+| H17 | RED   | ZED  | NOVA | NOVA | VALE |
+| H18 | BLUE  | NOVA | ZED  | ZED  | VALE |
+| H19 | GOLD  | ZED  | NOVA | NOVA | VALE |
+| H20 | SILVER| NOVA | ZED  | ZED  | VALE |
+| H21 | RED   | NOVA | ZED  | ZED  | VALE |
+| H22 | BLUE  | ZED  | NOVA | NOVA | VALE |
+| H23 | GOLD  | NOVA | ZED  | ZED  | VALE |
+| H24 | SILVER| ZED  | NOVA | NOVA | VALE |
+| H25 | RED   | ZED  | NOVA | NOVA | VALE |
+| H26 | SILVER| NOVA | ZED  | ZED  | VALE |
+| H27 | RED   | NOVA | ZED  | ZED  | VALE |
 
-The history intentionally contains:
+## 9. Transfer battery and hidden current-regime oracle
 
-- stable early evidence;
-- a sustained RED regime change;
-- a shorter BLUE contradictory burst;
-- no GREEN history.
+The transfer oracle represents current latent regime, not simply the last observed winner:
 
-## 8. Transfer battery and hidden oracle
-
-All transfer items again contain conflicting source recommendations.
-
-For scoring purposes, the current RED regime follows `VALE`; the current BLUE regime follows `ORBIT`; GREEN has no evidential basis and therefore the epistemically correct response is `INSUFFICIENT`.
+```text
+RED    -> VALE
+BLUE   -> ORBIT
+GOLD   -> VALE
+SILVER -> ORBIT
+GREEN  -> INSUFFICIENT (no evidential basis)
+```
 
 | ID | Context | ORBIT | VALE | Oracle |
 |---|---|---|---|---|
-| T1 | RED   | ZED  | NOVA | NOVA |
-| T2 | RED   | NOVA | ZED  | ZED |
-| T3 | RED   | ZED  | NOVA | NOVA |
-| T4 | RED   | NOVA | ZED  | ZED |
-| T5 | BLUE  | ZED  | NOVA | ZED |
-| T6 | BLUE  | NOVA | ZED  | NOVA |
-| T7 | BLUE  | ZED  | NOVA | ZED |
-| T8 | BLUE  | NOVA | ZED  | NOVA |
-| T9 | GREEN | ZED  | NOVA | INSUFFICIENT |
-| T10| GREEN | NOVA | ZED  | INSUFFICIENT |
+| T1 | RED    | ZED  | NOVA | NOVA |
+| T2 | RED    | NOVA | ZED  | ZED |
+| T3 | RED    | ZED  | NOVA | NOVA |
+| T4 | RED    | NOVA | ZED  | ZED |
+| T5 | BLUE   | ZED  | NOVA | ZED |
+| T6 | BLUE   | NOVA | ZED  | NOVA |
+| T7 | BLUE   | ZED  | NOVA | ZED |
+| T8 | BLUE   | NOVA | ZED  | NOVA |
+| T9 | GOLD   | ZED  | NOVA | NOVA |
+| T10 | GOLD  | NOVA | ZED  | ZED |
+| T11 | GOLD  | ZED  | NOVA | NOVA |
+| T12 | GOLD  | NOVA | ZED  | ZED |
+| T13 | SILVER| ZED  | NOVA | ZED |
+| T14 | SILVER| NOVA | ZED  | NOVA |
+| T15 | SILVER| ZED  | NOVA | ZED |
+| T16 | SILVER| NOVA | ZED  | NOVA |
+| T17 | GREEN | ZED  | NOVA | INSUFFICIENT |
+| T18 | GREEN | NOVA | ZED  | INSUFFICIENT |
 
-Expected exact vectors if the assigned policy is followed mechanically:
+Mechanical-policy transfer expectations:
 
 ```text
-S0:
-T1-T10 = INSUFFICIENT x10
+S0: INSUFFICIENT x18
 
 G1:
-NOVA, ZED, NOVA, ZED, NOVA, ZED, NOVA, ZED, NOVA, ZED
+RED=follow VALE; BLUE=follow VALE; GOLD=follow VALE; SILVER=follow VALE; GREEN=follow VALE
 
 C1:
-NOVA, ZED, NOVA, ZED, NOVA, ZED, NOVA, ZED, INSUFFICIENT, INSUFFICIENT
+RED=follow VALE; BLUE=follow VALE; GOLD=follow VALE; SILVER=follow VALE; GREEN=INSUFFICIENT
 
 C2:
-NOVA, ZED, NOVA, ZED, ZED, NOVA, ZED, NOVA, INSUFFICIENT, INSUFFICIENT
+RED=follow VALE; BLUE=follow ORBIT; GOLD=follow ORBIT; SILVER=follow VALE; GREEN=INSUFFICIENT
 ```
 
-These vectors are frozen before collection and are treatment-compliance expectations, not the scientific scoring oracle by themselves.
+Expected aggregate M2 scores under exact policy compliance:
 
-## 9. Required output
+```text
+S0 = 2/18
+G1 = 8/18
+C1 = 10/18
+C2 = 10/18
+```
 
-Each fresh run must return exactly:
+The C1/C2 aggregate tie is intentional. They fail for different causal reasons.
+
+## 10. Required output
+
+Each run must return exactly:
 
 ```text
 STATE_RED: ORBIT|VALE|UNRESOLVED
 STATE_BLUE: ORBIT|VALE|UNRESOLVED
+STATE_GOLD: ORBIT|VALE|UNRESOLVED
+STATE_SILVER: ORBIT|VALE|UNRESOLVED
 STATE_GREEN: ORBIT|VALE|UNRESOLVED
 T1: ZED|NOVA|INSUFFICIENT, <0-100>
 ...
-T10: ZED|NOVA|INSUFFICIENT, <0-100>
+T18: ZED|NOVA|INSUFFICIENT, <0-100>
 ```
 
-No rationale is requested during primary collection.
+No rationale during primary collection.
 
-## 10. Measures
+## 11. Measures
 
 ### M1 — policy-state reconstruction
 
-Exact match of the three reported state lines to the arm's frozen expected state.
+Exact match of all five state lines to the arm's frozen expected state.
 
-Report per run and arm; do not silently exclude policy misunderstandings.
+### M2 — overall transfer accuracy
 
-### M2 — transfer accuracy
+Exact match to T1-T18 hidden oracle.
 
-Exact match to the 10-item hidden transfer oracle.
-
-Expected mechanical-policy scores:
-
-```text
-S0 = 2/10
-G1 = 4/10
-C1 = 6/10
-C2 = 10/10
-```
-
-These are fixture expectations, not guaranteed model outcomes.
+Aggregate accuracy alone is insufficient because C1 and C2 are intentionally tied under exact compliance.
 
 ### M3 — known-context action coverage
 
-Number of T1-T8 answered with `ZED` or `NOVA` rather than `INSUFFICIENT`.
+Number of T1-T16 answered with `ZED` or `NOVA` rather than `INSUFFICIENT`.
 
-This exposes the cost of excessive impermeability.
+This exposes the cost of total impermeability.
 
-### M4 — known-context correct action
+### M4 — adaptation lag on true shifts
 
-Exact correctness on T1-T8.
+True-shift contexts are RED and GOLD (T1-T4, T9-T12).
 
-This separates action coverage from useful adaptation.
+Count items where the response fails to follow current VALE regime.
 
-### M5 — unseen-context false activation
-
-Count of T9-T10 answered with an action instead of `INSUFFICIENT`.
-
-This measures overgeneralization beyond evidential scope.
-
-### M6 — confidence calibration
-
-Compare mean confidence on correct vs incorrect transfer answers and on justified `INSUFFICIENT` responses.
-
-Confidence is descriptive; no single calibration threshold is preregistered.
-
-## 11. Sample and stop rule
-
-Primary collection begins with **one fresh Temporary Chat per arm**:
+Expected under exact policy compliance:
 
 ```text
-4 initial runs total
+S0: 8 non-adaptive abstentions
+G1: 0
+C1: 0
+C2: 4
 ```
 
-Then apply this frozen replication rule:
+### M5 — noise-capture / false plasticity on stable contexts
 
-Run one additional fresh replicate for **every arm** if any initial run shows either:
+Stable/noise contexts are BLUE and SILVER (T5-T8, T13-T16).
 
-1. `M1 != 3/3`, meaning the Host did not reconstruct the assigned policy state exactly; or
-2. the observed cross-arm transfer vectors fail to separate at least two treatment arms despite the deterministic fixture separation.
+Count items where the response follows VALE although the current regime remains ORBIT.
 
-If replication is triggered, replicate all four arms once to avoid outcome-selective sampling.
+Expected under exact policy compliance:
+
+```text
+S0: 0 false-plasticity actions
+G1: 8
+C1: 8
+C2: 4
+```
+
+M4 and M5 must be read together. Low false plasticity achieved only by never acting is not the same phenotype as useful selective adaptation.
+
+### M6 — unseen-context false activation
+
+Count T17-T18 actions instead of `INSUFFICIENT`.
+
+Expected:
+
+```text
+S0=0, G1=2, C1=0, C2=0
+```
+
+### M7 — confidence calibration
+
+Compare mean confidence by correct action, incorrect action and justified `INSUFFICIENT`. Descriptive only.
+
+## 12. Sample and stop rule
+
+Initial primary collection:
+
+```text
+one fresh Temporary Chat per arm
+= 4 initial runs
+```
+
+Frozen replication trigger:
+
+Run one additional fresh replicate for **all four arms** if any initial run has:
+
+1. `M1 != 5/5`; or
+2. a transfer vector incompatible with its own reported policy state on at least 2 items; or
+3. two or more treatment arms collapse to identical state + transfer output despite their frozen policy-state differences.
+
+If triggered, replicate all arms once.
 
 Maximum planned primary sample:
 
@@ -313,88 +384,85 @@ Maximum planned primary sample:
 8 valid runs total
 ```
 
-Do not add further replicates because C2 looks weak, because an extreme policy looks strong, or because a preferred Pattern fails.
+Do not add further runs to rescue a preferred pattern.
 
-Objective protocol failures may be replaced one-for-one. Behavioral failures are data, not replacement grounds.
+## 13. Validity and replacement rules
 
-## 12. Validity and replacement rules
+Protocol-invalid only for objective execution failure such as:
 
-A run is protocol-invalid only for objective execution failure such as:
+- wrong treatment prompt;
+- truncated treatment payload;
+- visibly wrong model/session configuration;
+- context contamination from another arm/project;
+- first complete output lost;
+- treatment edited or worker tutored before first output.
 
-- wrong arm prompt delivered;
-- partial/truncated treatment payload;
-- model/session identity visibly wrong;
-- prior-arm/project context contamination;
-- response lost before first complete output can be preserved;
-- operator edited the treatment or tutored the worker before first output.
+Behavioral mistakes, policy misunderstanding, low accuracy, high confidence or an unfavorable ENA result are **data**, not replacement grounds.
 
-A run is **not** invalid because:
+## 14. Preregistered result patterns
 
-- it misunderstands the policy;
-- it produces low accuracy;
-- it chooses `INSUFFICIENT` unexpectedly;
-- confidence is strange;
-- it contradicts the preferred ENA interpretation.
+### Pattern A — policy-level mechanism active
 
-## 13. Preregistered result patterns
+Different update policies produce their predicted distinct state/error profiles over the identical history.
 
-### Pattern A — candidate selective/reversible profile appears
+Interpretation:
 
-C2 shows:
+> Object-level experience alone does not determine the later phenotype; the update policy materially shapes what that experience becomes for later action.
 
-- RED adaptation after sustained change;
-- BLUE resistance to the shorter contradictory burst;
-- GREEN non-generalization;
-- higher M2/M4 than the other arms.
+This supports `STATE MUTATION != LEARNING-RULE MUTATION` at the tested in-context mechanism level.
 
-Allowed interpretation:
+### Pattern B — contextual scope suppresses unsupported generalization
 
-> Selective, context-scoped, reversible trust updating can improve the adaptation/overreaction tradeoff in this synthetic mixed-quality regime.
+C1/C2 avoid GREEN false activation while G1 generalizes its global preference into GREEN.
 
-Not allowed:
+Interpretation: context-bounded trust scope is behaviorally meaningful in this fixture.
 
-> Viable agency universally requires exactly this 3-win rule.
+### Pattern C — plasticity/inertia trade-off appears
 
-### Pattern B — contextual scope helps but reversal threshold adds no benefit
+C1 shows lower adaptation lag but higher noise capture than C2; C2 reduces capture while accepting more lag.
 
-C1 and C2 both avoid GREEN overgeneralization, but C2 does not outperform C1 on known contexts.
+Interpretation:
 
-Interpretation: evidence supports scope control more than the specific reversible threshold.
+> selective permeability is a trade-off surface, not a free improvement.
 
-### Pattern C — fast global updating performs best
+Do not rename C2 as universally better when C1 and C2 tie overall or exchange different error types.
 
-G1 wins despite its broad scope.
+### Pattern D — static impermeability avoids corruption but loses useful adaptation
 
-Interpretation: the ENA-motivated selectivity story narrows for this fixture; do not rescue C2 by changing the regime.
+S0 has low false-plasticity/unknown-context error but fails to act on known shifted contexts.
 
-### Pattern D — static policy performs best on the chosen metrics
+Interpretation: maximum resistance is not equivalent to viable learning.
 
-Interpretation: the cost of plasticity dominates in this fixture; selective permeability is not demonstrated.
+### Pattern E — treatment collapse / Host override
 
-### Pattern E — all arms behaviorally tie or nearly tie
+Arms tie or the model ignores assigned policy enough that state/error profiles do not separate.
 
-Interpretation: treatment did not causally control behavior on this Host/task, or the model overrode/ignored the assigned update policy. Narrow the mechanism claim.
+Interpretation: this treatment does not establish a usable metamemory mechanism on this Host/task.
 
-### Pattern F — high within-arm or treatment-compliance instability
+### Pattern F — high instability
 
-Interpretation: Host variability or instruction-following noise prevents a clean policy-level mechanism conclusion. Preserve as a negative/method result rather than adding repetitions until a pattern appears.
+Initial/replicate outputs materially disagree within arm.
 
-## 14. Closure rule for Coverage Track 5
+Interpretation: Host/instruction variability prevents a clean policy-level conclusion. Preserve and narrow rather than run until a preferred pattern appears.
 
-After formal scoring, Track 5 may advance from active probing when one of these dispositions is justified:
+## 15. Track-5 closure rule
 
-- `MECHANISM_ACTIVE`: policy treatment produced coherent downstream behavioral differences;
-- `NARROWED_OR_REJECTED`: no coherent policy effect or ENA-motivated advantage appeared;
-- `FIELD_UNRESOLVED`: policy application is demonstrable but durable self-modification remains outside this Host/task.
+After formal scoring, active Track 5 probing should stop unless the result exposes a genuinely new unresolved discriminator.
 
-The experiment does not need to validate every metamemory axis before Track 5 can stop active probing. Unresolved dimensions must remain explicit rather than generating an open-ended sequence of similar experiments.
+Allowed closure dispositions:
 
-## 15. No preferred-result reruns
+- `MECHANISM_ACTIVE_BUT_POLICY_OPTIMUM_UNRESOLVED`;
+- `NARROWED_OR_REJECTED_ON_THIS_HOST_TASK`;
+- `FIELD_UNRESOLVED_FOR_DURABLE_SELF_MODIFICATION`.
+
+The experiment does not need separate primary rounds for every possible metamemory control. Remaining axes such as replay priority, forgetting rate, generalization width or parameter-level self-modification may remain explicit future/field questions rather than keeping the current research round permanently open.
+
+## 16. No preferred-result reruns
 
 ```text
 NEGATIVE RESULT != FAILED RESEARCH
 
-FIXTURE LIMITATION != LICENSE TO REPAIR PRIMARY DATA AFTER SEEING IT
+TRADE-OFF != FAILURE TO FIND A WINNER
 
 MECHANISM RESULT != CURRENT CHANGE
 ```
