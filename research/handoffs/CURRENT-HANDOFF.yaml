@@ -31,8 +31,8 @@ current_handoff_record:
   readback_state: PASS
   note: >-
     This dated record remains occurrence truth for the boundary at which primary collection ended.
-    Live project state has advanced through formal adjudication; use NOW.md and the primary result below
-    for current facts rather than rewriting the dated handoff snapshot.
+    Live project state has advanced through formal adjudication and into the next preregistered mechanism round;
+    use NOW.md and the active_research block below for current facts rather than rewriting the dated snapshot.
 
 previous_deep_handoff:
   id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
@@ -82,12 +82,24 @@ last_completed_research:
 
 active_research:
   phase: MECHANISM_DISCRIMINATION
-  target: METAMEMORY_UPDATE_POLICY
-  state: DESIGN_NOT_STARTED
+  target: METAMEMORY_UPDATE_POLICY_V1
+  state: PREREGISTERED_PRIMARY_NOT_STARTED
   coverage_track: 5
-  next_action: DESIGN_AND_PREREGISTER_METAMEMORY_UPDATE_POLICY_EXPERIMENT
-  required_contrast: HOLD_OBJECT_LEVEL_EXPERIENCE_CONSTANT_WHILE_VARYING_LEARNING_OR_UPDATE_POLICY
-  primary_collection_before_frozen_design: FORBIDDEN
+  preregistration: research/field-validation/2026-09-04-metamemory-update-policy-preregistration.md
+  fixture_root: research/field-validation/fixtures/metamemory-update-policy-v1/
+  required_contrast: HOLD_OBJECT_LEVEL_EXPERIENCE_CONSTANT_WHILE_VARYING_SOURCE_TRUST_UPDATE_POLICY
+  arms: [S0_STATIC_EQUAL, G1_GLOBAL_RECENT3, C1_CONTEXT_RECENT3, C2_CONTEXT_REVERSIBLE3]
+  initial_primary_runs: 4
+  maximum_primary_runs_after_frozen_replication_trigger: 8
+  run_shape: ONE_COMPLETE_TREATMENT_DELIVERY_PER_FRESH_TEMPORARY_CHAT
+  next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
+  primary_collection_before_merged_frozen_design: FORBIDDEN
+  selective_extra_runs_for_preferred_result: FORBIDDEN
+  design_note: >-
+    The pre-freeze first draft was rejected because its regime lengths baked in a C2 advantage.
+    The preregistered fixture instead includes observationally similar tails with different latent regimes,
+    so C1 and C2 intentionally tie on expected aggregate transfer accuracy while differing in adaptation-lag
+    versus noise-capture error profile. The research target is the trade-off, not a preselected winner.
   temporal_order_revisit_rule: NEW_PREREGISTERED_IDENTIFIABLE_FIXTURE_REQUIRED
 
 important_evidence_notes:
@@ -95,6 +107,7 @@ important_evidence_notes:
   temporal_MF-3: VALID_RUN_WITH_ONE_REVERSIBLE_BASE64_ARCHIVAL_STAGE
   temporal_INT-R1: VALID_REPLACEMENT_FOR_INT-3
   MDS: PRIMARY_COMPLETE_AND_MDS_SUPERIORITY_NARROWED_DO_NOT_RERUN_MORROW_FOR_M3_WIN
+  metamemory_v1: SINGLE_TURN_RUNS_MINIMIZE_HUMAN_RELAY_AND_NO_ARM_IS_PREREGISTERED_AS_UNIVERSAL_WINNER
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -104,13 +117,15 @@ receiver_contract:
   use_full_handoff_for_fresh_validator: FORBIDDEN
   modify_releases_current_from_mechanism_result_alone: FORBIDDEN
   treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
+  expose_preregistration_or_hidden_oracle_to_primary_worker: FORBIDDEN
 
 rule: >-
-  Temporal Assimilation / Developmental Order v1 primary collection and formal adjudication are complete.
-  Frozen scoring is M1 5/9 PASS, M2 75/99 and M3 81/81. Preregistered Pattern H is the best fit:
-  within-arm variance is high, the motivated MF debt direction is absent, and all arms converge after identical
-  explicit correction. Four failing runs across all three arms selected the same acquisition-consistent Beryl/Dune
-  alias; the six acquisition episodes do not uniquely identify that alias versus the hidden Coda/Dune rule, so the
-  result does not support persistent developmental debt or an ENA developmental law. Do not rerun this fixture to
-  seek a preferred order effect. ENA remains v0.3.7 CURRENT / FIELD_VALIDATION with released bytes unchanged.
-  The next consequential research action is to design and preregister the Metamemory Update Policy experiment.
+  Temporal Assimilation / Developmental Order v1 remains complete and narrowed: no persistent developmental debt
+  or stable arm-specific order effect was observed, and the acquisition fixture was underidentified. ENA remains
+  v0.3.7 CURRENT / FIELD_VALIDATION with released bytes unchanged. Metamemory Update Policy v1 is now the active
+  preregistered mechanism round. It holds the object-level history constant and varies four source-trust update
+  policies. The fixture is deliberately non-dominant: fast contextual updating and bounded reversible updating
+  trade adaptation lag against noise capture rather than arranging an ENA-motivated arm to win. Initial collection
+  is four one-shot fresh Temporary Chat runs; only the frozen all-arm replication trigger may expand the sample to
+  eight. Do not start primary collection until the merged main fixture is read back, and do not alter releases/current
+  from this mechanism result alone.

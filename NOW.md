@@ -29,21 +29,6 @@ Negative/null results count. Silent disappearance does not.
 
 **Temporal Assimilation / Developmental Order v1 is complete and formally adjudicated.**
 
-Valid primary runs:
-
-```text
-CF:  CF-R1, CF-2, CF-3
-MF:  MF-1, MF-2, MF-3
-INT: INT-1, INT-2, INT-R1
-```
-
-Excluded continuity-failure attempts remain preserved but unscored:
-
-```text
-CF-1
-INT-3
-```
-
 Primary scores:
 
 ```text
@@ -56,17 +41,13 @@ MF pre:  27/33
 INT pre: 27/33
 ```
 
-The preregistered persistent misleading-first developmental-debt pattern was **not observed**. MF did not underperform CF/INT, INT did not consistently outperform both clustered arms, and every valid run scored `9/9` after the identical explicit correction.
+The preregistered persistent misleading-first developmental-debt pattern was **not observed**. MF did not underperform CF/INT, INT did not consistently outperform both clustered arms, and every valid run scored `9/9` after identical explicit correction.
 
-A critical adjudication finding limits the stronger interpretation: the common Beryl/Dune rule selected by four failing runs classifies all six acquisition episodes correctly, just like the intended Coda/Dune rule. The frozen acquisition set is therefore underidentified at A7. Those B1 failures are coherent execution of an acquisition-consistent alias, not persistence of a hypothesis already falsified by authoritative feedback.
-
-Preregistered Pattern H is the best fit: high within-arm variance / inconsistent direction. The strongest allowed interpretation is variable pre-correction in-context hypothesis selection under an underidentified task, followed by complete behavioral convergence after explicit correction. Do not promote this to an ENA developmental law.
+A critical limitation remains: the common Beryl/Dune rule selected by four failing runs classifies all six frozen acquisition episodes correctly, just like the intended Coda/Dune rule. Pattern H — high within-arm variance / inconsistent direction — is the best preregistered fit. Do not promote the result to an ENA developmental law or rerun the frozen fixture to seek a preferred effect.
 
 Primary result:
 
 `research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md`
-
-Do not rerun or extend the frozen fixture merely to seek a preferred order effect.
 
 ## Prior adjudicated mechanism result
 
@@ -85,21 +66,53 @@ Primary result:
 
 `research/field-validation/2026-09-03-developmental-inheritance-mds-primary-results.md`
 
+## Active mechanism experiment
+
+**Metamemory Update Policy v1 is preregistered; primary collection has not started.**
+
+Preregistration:
+
+`research/field-validation/2026-09-04-metamemory-update-policy-preregistration.md`
+
+Fixture:
+
+`research/field-validation/fixtures/metamemory-update-policy-v1/`
+
+The experiment holds one 27-episode object-level history constant and varies only source-trust update policy across four arms:
+
+```text
+S0 — STATIC_EQUAL
+G1 — GLOBAL_RECENT3
+C1 — CONTEXT_RECENT3
+C2 — CONTEXT_REVERSIBLE3
+```
+
+The design intentionally has **no baked-in winner**. C1 and C2 have the same preregistered aggregate transfer score under exact policy compliance but different expected error types: adaptation lag vs noise capture. GREEN also tests unsupported cross-context generalization.
+
+Initial primary sample is one fresh Temporary Chat per arm (`4` runs). A frozen trigger may expand all arms together to one replicate each (`8` maximum). No selective extra runs are permitted for a preferred outcome.
+
+Each run is one complete prompt delivery and one first-output capture; staged copy/paste relay is not required.
+
 ## Exact next action
 
-Proceed to the Coverage Map's next mechanism track:
+`COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY`
 
-`DESIGN_AND_PREREGISTER_METAMEMORY_UPDATE_POLICY_EXPERIMENT`
+Before any run:
 
-The existing requirement is to hold object-level experience constant while varying learning/update policy under repeated mixed-quality signals. The design must separate object-level competence from changes to learning rate, replay priority, forgetting/generalization policy, source-trust updating, or related metamemory behavior.
+1. verify the merged preregistration and fixture bytes on `main`;
+2. use one fresh ChatGPT Temporary Chat per arm with the same visible Host/model configuration;
+3. deliver the exact arm prompt only;
+4. preserve the first complete output verbatim;
+5. do not tutor, retry for quality, or expose another arm/oracle;
+6. apply the preregistered replication trigger only after all four initial runs exist.
 
-Do not start primary data collection until the new mechanism's discriminating claims, fixtures, measures, validity rules, stop rules, and negative/null interpretations are frozen.
-
-A future return to developmental order requires a newly preregistered **identifiable** fixture rather than more repetitions of the completed Temporal Assimilation v1 fixture.
+A future return to developmental order requires a newly preregistered identifiable fixture rather than more repetitions of Temporal Assimilation v1.
 
 ## Execution transport
 
-The completed Temporal Assimilation primary round used the user's local Codex installation only as a mechanical relay helper between the manager session and fresh ChatGPT Temporary Chats. Codex was not a scorer, critic, validator or scientific participant.
+The completed Temporal Assimilation round confirmed that manual human message relay is a real collaboration cost even when a local Codex helper performs mechanical transport. The new metamemory fixture reduces each primary run to a single treatment delivery.
+
+General relay/orchestration method belongs in `guytogay/human-ai-workbench`, not ENA.
 
 No old Temporary Chat remains part of the active workflow.
 
