@@ -40,4 +40,18 @@ WORKING_RULE: Current evidence suggests NOVA may apply broadly; no feedback yet 
 CONFIDENCE: 35
 ```
 
+## A3
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-1
+ARM: CF
+STAGE: A3
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Current evidence is consistent with Coda ON routing to ZED and Coda OFF routing to NOVA.
+CONFIDENCE: 50
+```
+
 No scoring or correction was performed before preserving these outputs.
