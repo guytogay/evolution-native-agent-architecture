@@ -30,4 +30,13 @@ WORKING_RULE: With only one labeled example, use the simplest provisional rule: 
 CONFIDENCE: 30
 ```
 
+## A3
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: CF-2 ARM: CF STAGE: A3 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: Provisional rule: Aster ON predicts NOVA, while Aster OFF predicts ZED; current feedback is consistent with this split.
+CONFIDENCE: 55
+```
+
 No scoring or correction was performed before preserving these outputs.
