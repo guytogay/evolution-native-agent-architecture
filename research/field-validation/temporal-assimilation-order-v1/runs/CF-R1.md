@@ -55,4 +55,18 @@ WORKING_RULE: Cases route NOVA when Aster and Beryl are both ON; otherwise they 
 CONFIDENCE: 65
 ```
 
+## A4
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: CF-R1
+ARM: CF
+STAGE: A4
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Cases route NOVA only when Aster and Beryl are both ON; all observed alternatives route ZED.
+CONFIDENCE: 75
+```
+
 No scoring or correction was performed before preserving these outputs.
