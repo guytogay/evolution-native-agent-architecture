@@ -1,6 +1,6 @@
 # Metamemory Update Policy v1 Fixture
 
-Status: `PREREGISTRATION_DRAFT / PRIMARY_NOT_STARTED`
+Status: `PREREGISTERED / FREEZE_ON_MAIN_MERGE_AND_READBACK / PRIMARY_NOT_STARTED`
 
 Purpose: provide exact one-shot treatment payloads for four source-trust update-policy arms while holding the object-level experience ledger and transfer battery constant.
 
