@@ -66,4 +66,14 @@ WORKING_RULE: Current hypothesis is NOVA when Beryl or Dune is ON; otherwise ZED
 CONFIDENCE: 95
 ```
 
+## A7
+
+```text
+[TEMPORARY_CHAT_RELAY] RUN_ID: INT-2 ARM: INT STAGE: A7 SOURCE: ChatGPT Temporary Chat RAW_RESPONSE:
+FINAL_RULE: Route to NOVA when Beryl or Dune is ON; otherwise route to ZED.
+CAUSAL_FEATURES: Beryl, Dune
+IRRELEVANT_FEATURES: Aster, Coda
+CONFIDENCE: 99
+```
+
 No scoring or correction was performed before preserving these outputs.
