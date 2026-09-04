@@ -1,6 +1,6 @@
 # Metamemory Update Policy v1 Fixture
 
-Status: `FROZEN_WITH_PREREGISTRATION / PRIMARY_NOT_STARTED`
+Status: `PREREGISTRATION_DRAFT / PRIMARY_NOT_STARTED`
 
 Purpose: provide exact one-shot treatment payloads for four source-trust update-policy arms while holding the object-level experience ledger and transfer battery constant.
 
@@ -22,13 +22,21 @@ Each file is a complete single-turn payload. Deliver it verbatim to one fresh Ch
 All four prompts contain the exact same:
 
 - task wording except the treatment-policy block;
-- H1-H16 history;
+- H1-H27 history;
 - history order;
 - source recommendations and outcomes;
-- T1-T10 transfer battery;
+- T1-T18 transfer battery;
 - output schema.
 
 Only the update-policy block changes.
+
+## Anti-baked-winner design
+
+The first draft was rejected before primary collection because its regime lengths were too neatly matched to the C2 reversal threshold.
+
+The current design deliberately includes observationally similar histories with different latent current regimes. C1 and C2 have the same preregistered aggregate transfer score under exact compliance but different error types.
+
+The experiment therefore tests plasticity/inertia trade-offs rather than arranging one candidate arm to win.
 
 ## Primary run plan
 
@@ -64,3 +72,5 @@ one fresh chat
 ```
 
 No developmental stage-by-stage relay is required.
+
+The fixture becomes frozen only after the preregistration/fixture change is merged to `main` and read back before primary collection.
