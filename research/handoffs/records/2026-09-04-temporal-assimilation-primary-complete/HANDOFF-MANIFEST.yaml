@@ -1,0 +1,37 @@
+schema_version: "1.0"
+handoff_id: "2026-09-04-temporal-assimilation-primary-complete"
+status: DEEP_PROJECT_SESSION_SUCCESSION_PRIMARY_COLLECTION_COMPLETE
+created_at: "2026-09-04"
+
+required_read_order:
+  - NOW.md
+  - research/handoffs/CURRENT-HANDOFF.yaml
+  - HANDOFF-START-HERE.md
+  - HANDOFF-MANIFEST.yaml
+  - PROJECT-STATE.md
+  - PRIMARY-RUN-LEDGER.md
+  - RECENT-THREE-ROUNDS.md
+  - LESSONS-AND-REMINDERS.md
+  - REPO-ECOSYSTEM.md
+  - FILE-CATALOG.md
+
+next_action: FORMAL_SCORE_AND_ADJUDICATE_TEMPORAL_ASSIMILATION_ORDER_V1
+primary_collection_complete: true
+formal_adjudication_complete: false
+current_version_changed: false
+released_bytes_changed: false
+
+valid_primary_runs:
+  CF: [CF-R1, CF-2, CF-3]
+  MF: [MF-1, MF-2, MF-3]
+  INT: [INT-1, INT-2, INT-R1]
+
+excluded_attempts:
+  CF-1: ORIGINAL_TEMPORARY_CHAT_UNAVAILABLE_BEFORE_B1
+  INT-3: TEMPORARY_CHAT_CLOSED_AFTER_A2
+
+receiver_rules:
+  - PRESERVE_NULL_AND_NEGATIVE_RESULTS
+  - DO_NOT_RERUN_VALID_RUNS_TO_SEEK_PREFERRED_RESULT
+  - REVERIFY_LIVE_MUTABLE_FACTS_BEFORE_WRITES
+  - DO_NOT_MODIFY_RELEASES_CURRENT_FROM_MECHANISM_RESULT_ALONE

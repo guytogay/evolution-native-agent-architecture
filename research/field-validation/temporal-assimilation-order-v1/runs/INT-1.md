@@ -1,0 +1,156 @@
+# Temporal Assimilation / Developmental Order — Primary Run INT-1
+
+Status: `COMPLETED / VALID_PRIMARY_RUN / RAW_FIRST_OUTPUTS_PRESERVED`
+
+Preregistration:
+`research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md`
+
+Frozen fixture:
+`research/field-validation/fixtures/temporal-assimilation-order-v1/FIXTURE.md`
+
+Host claim: `ChatGPT Temporary Chat / GPT-5.6 Sol`
+Relay role: `Codex transport only`
+Arm: `INT — interleaved`
+
+## A1
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A1
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Route to ZED when Aster and Coda are ON while Beryl and Dune are OFF.
+CONFIDENCE: 50
+```
+
+## A2
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A2
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: ZED may be associated with Aster being ON; evidence is still limited to one confirmed case.
+CONFIDENCE: 55
+```
+
+## A3
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A3
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: NOVA is favored when Coda is OFF, while the confirmed ZED case had Coda ON.
+CONFIDENCE: 72
+```
+
+## A4
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A4
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Route to ZED when Coda is ON; route to NOVA when Coda is OFF.
+CONFIDENCE: 90
+```
+
+## A5
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A5
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: ZED
+WORKING_RULE: Coda ON has consistently routed to ZED so far; Dune ON is newly observed and may modify the rule.
+CONFIDENCE: 82
+```
+
+## A6
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A6
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+ACTION: NOVA
+WORKING_RULE: ZED requires Coda ON with Beryl OFF and Dune OFF; otherwise route to NOVA.
+CONFIDENCE: 92
+```
+
+## A7
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A7
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+FINAL_RULE: Route to ZED exactly when Coda is ON and Dune is OFF; otherwise route to NOVA.
+CAUSAL_FEATURES: Coda, Dune
+IRRELEVANT_FEATURES: Aster, Beryl
+CONFIDENCE: 95
+```
+
+## B1
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: B1
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+P1: ZED, 95
+P2: NOVA, 95
+P3: NOVA, 95
+P4: ZED, 95
+P5: NOVA, 95
+P6: NOVA, 95
+P7: NOVA, 95
+P8: NOVA, 95
+L1: ZED, 95
+L2: NOVA, 95
+U1: INSUFFICIENT, 100
+```
+
+## C1
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: C1
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+C1: ZED, 100
+C2: NOVA, 100
+C3: NOVA, 100
+C4: ZED, 100
+C5: NOVA, 100
+C6: NOVA, 100
+C7: ZED, 100
+C8: NOVA, 100
+C9: INSUFFICIENT, 100
+```
+
+No scoring, correction, or cross-arm interpretation was performed before preserving the raw stage outputs. The run completed all frozen stages in one Temporary Chat and is retained as a valid primary run.
