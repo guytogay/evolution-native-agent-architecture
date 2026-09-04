@@ -96,4 +96,19 @@ WORKING_RULE: ZED requires Coda ON with Beryl OFF and Dune OFF; otherwise route 
 CONFIDENCE: 92
 ```
 
+## A7
+
+```text
+[TEMPORARY_CHAT_RELAY]
+RUN_ID: INT-1
+ARM: INT
+STAGE: A7
+SOURCE: ChatGPT Temporary Chat
+RAW_RESPONSE:
+FINAL_RULE: Route to ZED exactly when Coda is ON and Dune is OFF; otherwise route to NOVA.
+CAUSAL_FEATURES: Coda, Dune
+IRRELEVANT_FEATURES: Aster, Beryl
+CONFIDENCE: 95
+```
+
 No scoring or correction was performed before preserving these outputs.
