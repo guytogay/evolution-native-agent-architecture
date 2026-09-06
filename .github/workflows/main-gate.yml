@@ -38,5 +38,34 @@ jobs:
           for rel in doc.get('core_files', []): assert (root/rel).is_file(), rel
           print('main-current-pass', doc['ena_version'])
           PY
+      - name: Verify Current active operational/reference policy state
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          root = Path('releases/current')
+          ri = yaml.safe_load((root/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
+          com = ri['routes']['OA-COM-01']
+          assert com['reference_state'] == 'NOT_BUNDLED_RESEARCH_PROTOTYPE'
+          assert com['research_only_reference'] == 'commitment-settlement-recovered'
+          assert 'deferred_reason' not in com
+          assert 'CANDIDATE' not in str(com).upper()
+
+          rm = yaml.safe_load((root/'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
+          assert 'release' not in rm
+          assert rm['machine_evidence']['assembly_provenance_release'] == 'v0.3.7'
+          assert 'Candidate Assembly Gate' in rm['machine_evidence']['workflow']
+          deferred = {x['id']: x for x in rm['deferred_not_bundled']}
+          d = deferred['commitment-settlement-recovered']
+          assert d['disposition'] == 'RETAIN_IN_RESEARCH_UNTIL_CURRENT_ADOPTION_NEED_AND_EVIDENCE_JUSTIFY_BUNDLING'
+          assert 'CANDIDATE' not in d['disposition']
+          assert d['retired'] is False
+
+          t2 = yaml.safe_load((root/'templates/field-experience.v2.yaml').read_text(encoding='utf-8'))
+          assert t2['participant']['ena_semantic_identity'] == 'EXPLICITLY_STATE_ACTUAL_SEMANTIC_IDENTITY'
+
+          print('main-active-policy-pass')
+          PY
       - name: Run compact Current semantic selftest
         run: python releases/current/tools/validate_contracts.py selftest
