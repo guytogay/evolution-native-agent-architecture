@@ -153,11 +153,17 @@ LEASE_EXPIRED -> COMMITMENT_CANCELLED
 
 ## OA-EVO-01 — Evolution / variation / selection
 
-**WHAT / WHY：** stimulus 应产生 evolutionary possibility，而不是强制 mutation 或立即给 verdict。
+**WHAT / WHY：** stimulus 应产生 evolutionary possibility，而不是强制 mutation 或立即给 verdict。Current 需要的不只是知道这些词，还要有一条可以真的运行起来的最小循环。
 
-**HOW：** v2 evolution record + `tools/ena_evolve_v2.py`；直接 schema/template + validator；Host-native variation store；latent/dormant library；有后果实验用 Variation Space；reality contact 后 local selection；archive/retire 不重写 selection truth。
+**主路径：** `procedures/EVOLUTION-LOOP.md`。
 
-**不要：** latent storage 时就强制 Variation Space，也不要把 popularity 当 fitness。
+**HOW：** durable signal/inbox → latent candidate → 判断 trial 是否值得 → before-state / recovery / authority boundary → bounded reality contact → outcome evidence → local selection → integrate/retain/adapt/dormant/reject/archive → 在相关 signal 或环境变化时重新 wake。可以用 v2 evolution record + `tools/ena_evolve_v2.py`、直接 schema/template + validator，或 Host-native variation store / Git / queue / database / task runner 实现。
+
+`tools/ena_evolve_v2.py` 仍只是 latent record / migration packet 的窄 helper，不是完整 lifecycle engine。
+
+**不要：** latent storage 时就强制 Variation Space，不要持续自改，也不要把 popularity 或一次成功当 fitness。
+
+`EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP`
 
 `local selection != universal fitness`
 
