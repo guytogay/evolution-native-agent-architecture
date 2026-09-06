@@ -66,6 +66,17 @@ Common cues include uncertain retrieval, timeout/retry, authority, restore/resum
 
 `cue configured != future salience proven`.
 
+## Adoption / Host-change cue
+
+After initial adoption, or after a material Host/runtime change, do one bounded local operationalization pass: inspect which already-applicable boundaries are already protected by Host-native mechanisms; for a concrete uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. Do not install or exercise consequential controls beyond actual authority. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are legitimate outcomes. Stop when another mechanism would not plausibly pay rent.
+
+```text
+SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
+LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+```
+
+Possible local implementations include rescue snapshots, recovery drills, canaries, ledgers, baselines, validators, or watchers. None is mandatory merely because ENA names the underlying boundary.
+
 ## Variation and selection
 
 Mutation pressure creates an opportunity to vary, not a command. Variations may remain latent. Consequential experiments belong in a real Variation Space proportionate to consequence. Selection follows represented reality contact and remains environment-scoped by default.
@@ -103,6 +114,7 @@ Treat stimuli as variation opportunities, not commands.
 Keep possibilities latent when they need not act.
 Stored, expressed, applied and selected are different.
 Keep one semantic kernel hot; retrieve HOWs cold.
+After adoption/Host change, operationalize only real local gaps with the lightest mechanism.
 Use the lightest applicable mechanism.
 Select from local reality contact, not popularity or import.
 Capability/identity/memory/reputation/restore do not mint external authority.
@@ -110,4 +122,4 @@ Unresolved external effects may require QUERY/WAIT rather than replay.
 Governance must converge and pay rent.
 ```
 
-> **One hot kernel; retrieve the HOW.**
+> **One hot kernel; retrieve the HOW; operationalize only where reality earns it.**
