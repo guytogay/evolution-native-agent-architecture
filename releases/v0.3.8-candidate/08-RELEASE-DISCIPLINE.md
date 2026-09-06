@@ -1,97 +1,167 @@
 # 8. Release and Canonical-Lineage Discipline — v0.3.8-candidate.0
 
-Status: `CANDIDATE / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED`.
+Status: `CANDIDATE / R0_FIELD_PATCH_ADOPTION_SURFACE / NOT_CURRENT / NOT_RELEASED`.
 
-Released Current remains `v0.3.7 / CURRENT / FIELD_VALIDATION` under `../current/`.
+Released Current is still `v0.3.7 / CURRENT / FIELD_VALIDATION` until this successor is promoted.
 
-A deployable ENA adoption version must be self-contained and immutably identifiable. Self-description, branch recency, or a successful local check does not create canonical release authority.
+## Core distinction
 
-## Version identity
+A released version must be immutable as occurrence truth. The Current pointer must not therefore become immobile.
 
-One released adoption version identifies one immutable effective-content state.
+```text
+IMMUTABLE_VERSION != IMMOBILE_CURRENT
+```
+
+One released version identifies one immutable effective-content state:
 
 `same ena_version -> same effective content`
 
-Material change to frozen/released effective content requires successor identity and explicit release decision.
+A material correction creates a new version identity. It does **not** require keeping an older Current in place after a bounded better successor is ready.
+
+## Rapid Current succession
+
+ENA prefers:
 
 ```text
-Git main != ENA Current
-candidate branch != frozen identity
-candidate exists != released
+observe defect/opportunity
+-> create smallest useful successor
+-> classify release risk
+-> run proportional gates
+-> move Current
+-> preserve predecessor as rollback/history
+-> continue field selection
 ```
 
-## Candidate discipline
+not:
 
-A candidate is a governed variation:
+```text
+observe fix
+-> accumulate unrelated research/gates
+-> protect old Current from succession
+```
 
-`candidate -> author attacks/checks -> exact pre-freeze validation -> freeze -> fresh independent falsification/validation -> targeted correction/revalidation where legitimate -> reconciliation -> release decision`
+Release delay is itself governance friction and must pay rent.
 
-Candidate.0 is mutable now. If it is later frozen and then requires material correction, create a successor candidate identity; do not silently rewrite the frozen effective-content tree.
+## Release lanes
 
-A same-falsifier targeted revalidation may verify a specific fix when labeled honestly; it is not fresh independent validation.
+### R0 — Field patch / adoption surface
 
-Stop candidate succession when decision-changing residuals converge. Visible research questions are not automatic release blockers.
+Use when Constitution semantics and core-contract semantics are unchanged and rollback to the predecessor release is practical.
 
-## v0.3.8 candidate birth
+Typical changes:
 
-Candidate.0 was seeded from the released v0.3.7 Current subtree without changing `releases/current/`.
+- adopter entrypoints / quickstarts;
+- status-narration repair;
+- language-projection fidelity;
+- routing / retrieval / HOW discoverability that preserves inherited semantics;
+- validator/CI hardening;
+- packaging or enforcement-visibility improvements.
 
-Working identity:
+Required before Current admission:
+
+1. unique successor identity;
+2. exact candidate bytes committed;
+3. bounded delta classification;
+4. relevant machine/regression PASS;
+5. recoverable predecessor release;
+6. explicit evidence/residual boundary;
+7. exact release projection/readback.
+
+Fresh independent validation is **not a mandatory pre-release gate** for R0. It can occur after admission as field validation and may trigger a rapid successor.
+
+### R1 — Operational behavior change
+
+Use when a HOW/tool/policy materially changes decision behavior without changing the binding semantic floor.
+
+Add targeted adversarial tests and independent/cross-context evidence when that evidence can plausibly change admission.
+
+A full cleanroom/freeze/falsification cycle is not automatic.
+
+### R2 — Core semantic / high-consequence change
+
+Use for Constitution/core-contract semantic change, broad compatibility break, or high-consequence meta-governance change.
+
+R2 normally uses:
+
+```text
+candidate
+-> author/adversarial validation
+-> exact freeze
+-> fresh independent falsification/validation
+-> reconciliation
+-> explicit release decision
+```
+
+Even here, every gate must name the decision it can change.
+
+## v0.3.8 classification
+
+This successor is classified:
+
+```text
+LANE = R0_FIELD_PATCH_ADOPTION_SURFACE
+CORE_CONSTITUTION_DELTA = NONE
+CORE_CONTRACT_SEMANTIC_DELTA = NONE_DEMONSTRATED
+ROLLBACK_ANCHOR = v0.3.7
+```
+
+Primary driver: Issue #201 plus adopter/product usability evidence.
+
+Primary value:
+
+- separate research lineage from adopter payload;
+- provide product-first human and Agent adoption entrypoints;
+- distinguish model guidance, machine guards, external controls and field-only claims;
+- restore zh-CN hot-surface fidelity;
+- repair concept-map retrieval/applicability;
+- broaden semantic fixtures;
+- make recurrence machine-detectable where possible.
+
+The candidate Main Gate and CodeQL have passed. The candidate validator also binds inherited Constitution 01–04 and key machine paths to v0.3.7 bytes.
+
+Therefore **generic fresh cleanroom falsification is not a prerequisite for v0.3.8 admission**. The release path should now be exact R0 packaging/readback/promotion, followed by field validation.
+
+## Candidate / release identity
 
 ```text
 candidate: v0.3.8-candidate.0
 branch: candidate/v0.3.8-candidate.0
-seed parent main: 8928693b746864dece2a66d625a01cbc328b0d7e
-seed commit: 381f9fdf3d3233fee31d444b6e4bab1ec8c25fcd
-source Current tree: f33e73ed997c1b66a4572685ab5474182e136e97
-freeze identity: NONE YET
+candidate root: releases/v0.3.8-candidate/
+predecessor Current: v0.3.7
 ```
 
-The successor scope is adoption/product-surface consolidation, initially driven by Issue #201 plus external usability/projection evidence. This evidence does not itself mint release status.
+Candidate branch names do not create Current status. Current changes only through explicit release/promotion.
 
-## v0.3.7 predecessor occurrence truth
-
-Released v0.3.7 remains the singular Current while candidate.0 is being developed.
-
-Its governed candidate.3/freeze/release history remains historical occurrence truth in repository lineage. Candidate.0 may inherit semantic/tool behavior from it but must not narrate predecessor candidate-state sentences as its own present state.
-
-Historical candidate/freeze details belong in lineage/reconciliation records, not the ordinary adopter hot path.
+```text
+Git main != ENA Current
+candidate branch != released
+CI PASS != external truth
+```
 
 ## Canonical ENA evolution
 
-ENA itself is evolvable, but one local Agent/fork cannot mint canonical status by self-description.
-
-Canonical change requires durable lineage sufficient to establish:
+Canonical change requires durable lineage sufficient for the actual lane:
 
 - proposal/change identity;
 - reviewable effective content;
-- falsification/validation evidence;
-- reconciliation/decision record;
+- lane-appropriate evidence;
+- explicit admission/release record;
 - immutable version identity;
-- recoverable/publicly inspectable history appropriate to the project;
-- explicit promotion/admission event.
+- recoverable/publicly inspectable history appropriate to the project.
 
-GitHub is the current project carrier for this lineage. The semantic requirement is governed reproducible lineage, not eternal dependence on one service.
+Do not demand R2 evidence for an R0 change merely because the project historically used a heavy candidate lifecycle.
 
-## Current isolation
+## Current mobility and rollback
 
-`releases/current/` remains the singular v0.3.7 adopter-facing surface during candidate.0 work.
+Current must be singular at any instant, but it may move frequently.
 
-Candidate development must not silently edit Current.
+```text
+Current(v0.3.7) -> Current(v0.3.8) -> Current(v0.3.9)
+```
 
-A future v0.3.8 promotion would require an explicit governed release operation that establishes the exact new effective-content identity and then makes the adopter-facing Current transition visible and unambiguous.
+The predecessor remains history/rollback; it is not silently rewritten.
 
-## Freeze identity
-
-Candidate.0 uses the external-record freeze model:
-
-- finish all material candidate bytes first;
-- run exact-source machine validation;
-- identify exact source commit and exact candidate subtree;
-- record that binding in governed lineage;
-- do not rewrite the tested candidate tree merely to insert a post-hoc `frozen: true` marker.
-
-The authoritative freeze property is exact source/tree binding plus governed lineage.
+If v0.3.8 field evidence finds a decision-bearing defect, prefer a small v0.3.9 successor over leaving a known defect in place while waiting for a distant major release.
 
 ## Source/distribution identity
 
@@ -103,60 +173,63 @@ Release evidence may include:
 - exact file set;
 - byte/hash parity;
 - package digest;
-- published artifact readback.
+- published/promoted readback.
 
-Ordinary adopters need the minimum sufficient immutable effective-content identity; they do not need to reproduce release-author ceremony.
+Ordinary adopters need the minimum sufficient immutable effective-content identity; they do not need release-author ceremony.
 
 ## Language projections
 
-Supported projections must bind to the same candidate/release identity.
-
-Material decision meaning must remain conformant across supported languages.
+Supported projections bind to the same release identity.
 
 ```text
 literal wording parity != decision parity
 structural parity != behavioral equivalence
 ```
 
-A decision-bearing projection defect discovered before freeze is candidate work. A material defect discovered after freeze must follow successor discipline rather than silent rewriting.
+Structural/fixture checks are release evidence; natural cross-language model behavior remains field evidence unless directly observed.
 
 ## Runtime/reference compatibility
 
-A semantic baseline may retain older compatibility mechanisms only when their actual scope is explicit.
-
-Candidate.0 inherits one primary practical v2 path:
+Candidate.0 inherits the primary practical v2 path:
 
 `tools/ena_evolve_v2.py`
 
-and keeps the inherited state/schema 1.2 tool under:
+and retains legacy v1.2 only under:
 
 `tools/legacy/ena_evolve_v1_2.py`
 
-Bundled optional references likewise do not become normative Host implementations merely by packaging.
+Bundled optional references do not become normative Host implementations merely by packaging.
 
 `canonical semantic property != bundled reference implementation != Host mechanism`
 
 ## Product-surface release condition
 
-Because candidate.0 is explicitly an adoption-surface successor, release review must include more than machine byte consistency.
-
-It must ask whether:
+For this R0 successor, release review asks whether:
 
 - human/Agent entrypoints describe one coherent state;
 - adopters can identify what to load without reading research history;
 - soft/model guidance is not narrated as hard enforcement;
 - supported language projections preserve decision-bearing hot semantics;
-- conformance fixtures exercise high-value claims made by the adoption surface;
+- conformance fixtures cover the high-value claims made by the adoption surface;
 - simplification did not erase applicability or predecessor-valid machine behavior.
+
+These are already represented in the candidate-specific Main Gate validator and bounded release readback.
+
+## Open research does not block this release
+
+Metamemory Update Policy v1 and other field/longitudinal questions are separate research streams.
+
+```text
+UNRELATED_RESEARCH != RELEASE_DEPENDENCY
+OPEN_FIELD_QUESTION != RELEASE_BLOCKER
+```
 
 ## History and carriers
 
 Preserve historical releases/candidates/evidence as occurrence truth without forcing ordinary adopters to reconstruct history to determine Current.
 
-Repository/carrier availability is an implementation dependency. Project continuity should not require one permanent session, Agent, validator, institution, or hosting vendor to remain forever available or correct.
+GitHub is the present carrier of the lineage, not the metaphysical source of validity.
 
-> **Expose one Current; allow many candidates and historical surfaces.**
+> **Preserve old releases; move Current quickly.**
 >
-> **Research lineage is inspectable evidence, not default adoption payload.**
->
-> **The carrier hosts the lineage; it is not the sovereign of the lineage.**
+> **Release immutability protects truth; Current mobility protects evolution.**
