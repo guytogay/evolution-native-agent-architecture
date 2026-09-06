@@ -1,4 +1,4 @@
-schema_version: "4.6"
+schema_version: "4.7"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-06"
 
@@ -15,35 +15,19 @@ handoff_framework:
 
 current_handoff_record:
   id: "2026-09-04-temporal-assimilation-primary-complete"
-  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
-  snapshot_scope: PRIMARY_COLLECTION_COMPLETE_BEFORE_FORMAL_ADJUDICATION
-  integration_pr: 195
-  integration_merge: eb78dabe0f2644de5df110ea848770ca9d9213a4
+  state: HISTORICAL_DEEP_SUCCESSION_RECORD
   record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
-  start_here: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-START-HERE.md
-  manifest: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-MANIFEST.yaml
-  project_state: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/PROJECT-STATE.md
-  primary_run_ledger: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/PRIMARY-RUN-LEDGER.md
-  recent_rounds: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/RECENT-THREE-ROUNDS.md
-  lessons: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/LESSONS-AND-REMINDERS.md
-  repo_ecosystem: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/REPO-ECOSYSTEM.md
-  file_catalog: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/FILE-CATALOG.md
-  readback: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-READBACK.md
   readback_state: PASS
   note: >-
     This dated record remains occurrence truth for its boundary. Live state has advanced through
-    research adjudication/closure, release-policy correction, and v0.3.8 promotion. Use NOW.md and
-    the active blocks below for current facts.
-
-previous_deep_handoff:
-  id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
-  state: HISTORICAL_COMPLETED_SUCCESSION_RECORD
-  record_root: research/handoffs/records/2026-09-03-evolutionary-memory-validation-and-cleanup/
+    research closure, v0.3.8 rapid promotion, reconstruction-campaign closure and v0.3.8 field activation.
+    Use NOW.md plus the blocks below for current facts.
 
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   current_package: releases/current/
+  field_stream: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   branch_governance: research/BRANCH-GOVERNANCE.md
@@ -89,23 +73,17 @@ last_release_transition:
   release_result: PROMOTED_CURRENT
   field_rule: DECISION_BEARING_DEFECT_SHOULD_CREATE_RAPID_SUCCESSOR
 
-last_completed_research:
-  phase: MECHANISM_DISCRIMINATION
-  target: TEMPORAL_ASSIMILATION_AND_DEVELOPMENTAL_ORDER_V1
-  primary_result: research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md
-  primary_collection_state: COMPLETE
-  formal_adjudication_state: COMPLETE
-  primary_scores:
-    M1: "5/9 PASS"
-    M2: "75/99"
-    M3: "81/81"
-    CF_pre: "21/33"
-    MF_pre: "27/33"
-    INT_pre: "27/33"
-  best_preregistered_pattern: H_HIGH_WITHIN_ARM_VARIANCE_OR_INCONSISTENT_DIRECTION
-  disposition: NARROWED_NO_PERSISTENT_DEVELOPMENTAL_DEBT_OR_STABLE_ARM_ORDER_EFFECT_OBSERVED
-  fixture_limitation: ACQUISITION_SET_UNDERIDENTIFIES_INTENDED_RULE_VS_BERYL_DUNE_ALIAS
-  rerun_same_fixture_for_preferred_result: FORBIDDEN
+active_field_validation:
+  issue: 208
+  state: ACTIVE_V038_FIELD_VALIDATION
+  purpose: PRODUCT_SURFACE_ADOPTION_AND_REAL_HOST_BEHAVIOR
+  predecessor_issue: 150
+  predecessor_state: CLOSED_OCCURRENCE_TRUTH
+  decision_bearing_defect_issue: 201
+  defect_issue_state: CLOSED_AFTER_V038_SUCCESSOR
+  next_product_rule: >-
+    When field evidence exposes a bounded decision-bearing defect, classify it R0/R1/R2 and create the
+    smallest useful successor. Do not hold Current on known-bad bytes waiting for unrelated research.
 
 active_research:
   phase: MECHANISM_DISCRIMINATION
@@ -122,14 +100,34 @@ active_research:
   next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
   blocks_current_release: false
   campaign_closure_intent: >-
-    Treat Metamemory v1 as the last currently planned fresh-session primary. Close the campaign after
-    formal adjudication unless a genuinely new non-derivable discriminator appears.
+    Metamemory v1 is the only currently planned fresh-session primary. After formal adjudication,
+    close mechanism-discrimination unless a genuinely new non-derivable discriminator appears.
   selective_extra_runs_for_preferred_result: FORBIDDEN
 
 research_closure:
   audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
   dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   rule: NOT_DIRECTLY_TESTED_NE_MUST_RUN_LOCAL_ENA_EXPERIMENT
+  broad_open_track_status: CLOSED_BEHIND_EXPLICIT_DISPOSITIONS
+
+closed_project_campaigns:
+  reconstruction_parent_89: CLOSED_COMPLETED
+  reconstruction_children_90_94: CLOSED_COMPLETED_WITH_FIELD_RESIDUALS
+  project_simplification_153: CLOSED_COMPLETED
+  v037_field_stream_150: CLOSED_PREDECESSOR_STREAM
+  v037_defect_201: CLOSED_AFTER_V038_SUCCESSOR
+  meaning: >-
+    Closure means the campaign no longer justifies permanent active project machinery. It does not claim
+    that every Host-relative or longitudinal reality question is solved. Concrete unresolved evidence belongs
+    in #208 or a new narrow issue when it can change a decision.
+
+open_work:
+  github_issues:
+    - 208
+  research:
+    - COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
+  rule: >-
+    Open issue count should represent current consequential work, not historical research inventory.
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -142,10 +140,11 @@ receiver_contract:
   confuse_version_immutability_with_current_immobility: FORBIDDEN
   block_R0_release_on_unrelated_research: FORBIDDEN
   demand_fresh_cleanroom_prerelease_validation_for_R0_by_default: FORBIDDEN
+  reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
 
 rule: >-
-  ENA Current is v0.3.8 / FIELD_VALIDATION after R0 promotion PR #206. v0.3.7 is immutable predecessor/rollback
-  occurrence truth, not a target to keep Current fixed on. Release governance is risk-tiered and optimized for
-  truthful evolutionary throughput. Metamemory Update Policy v1 is the only currently planned fresh-session primary
-  experiment and does not block product successors. When decision-bearing field evidence appears, classify the
-  smallest useful successor R0/R1/R2 and move Current after proportional gates rather than accumulating release debt.
+  ENA Current is v0.3.8 / FIELD_VALIDATION. Issue #208 is the only active GitHub field stream. The broad
+  reconstruction and simplification campaigns are closed; their unresolved reality questions moved to field
+  evidence rather than remaining permanent architecture work. Metamemory Update Policy v1 is the only currently
+  planned fresh-session primary and does not block product successors. Move Current quickly when proportional
+  evidence supports a better bounded successor.
