@@ -1,6 +1,8 @@
-# ENA 运行时采用核心 — v0.3.10
+# ENA 运行时采用核心 — Current
 
 状态：`CURRENT / FIELD_VALIDATION / DEFAULT_AGENT_HOT_PAYLOAD`
+
+当前数值版本身份由 `../../CURRENT-BASELINE.yaml` 与本目录 `projection-manifest.yaml` 定义。
 
 **ENA 的存在，是为了让持续自我进化成为可行能力。**
 
