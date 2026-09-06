@@ -1,6 +1,6 @@
 # Evolution-Native Agent Architecture (ENA)
 
-ENA explores durable properties of Agents expected to change, learn, recover, propagate adaptations, and evolve without silently losing evidence, authority boundaries, recoverability, or the ability to continue improving.
+ENA is a design method, operational rule set, and conformance surface for Agents expected to learn, adapt, recover, use tools, affect external systems, and pass adaptations onward.
 
 **ENA exists to make sustained self-evolution viable.**
 
@@ -10,70 +10,73 @@ ENA explores durable properties of Agents expected to change, learn, recover, pr
 >
 > Variation first; selection by reality.
 
-ENA may contain abstract semantic work. An abstract distinction earns its place by helping explain or discriminate real evolutionary behavior; it does not need to pretend to be a turnkey framework.
+## Use ENA
 
-## Start here
+Current adoption truth is always:
 
-### To use the current ENA baseline
+- machine identity: [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml)
+- effective package: [`releases/current/`](releases/current/)
 
-1. Read [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml) for the machine-readable Current identity.
-2. Use only [`releases/current/`](releases/current/) as the effective adoption baseline.
-3. Start with [`releases/current/00-READ-ME-FIRST.md`](releases/current/00-READ-ME-FIRST.md).
+Current is **v0.3.9 / FIELD_VALIDATION**.
 
-Do **not** infer Current from version numbers, branch names, candidate names, commit recency, research notes, or historical evidence.
+### Human adopter
 
-`Git main != ENA Current`
+Start with [`releases/current/ADOPTER-QUICKSTART.md`](releases/current/ADOPTER-QUICKSTART.md).
 
-- **Git `main`** is the canonical repository branch.
-- **ENA Current** is the singular adoption baseline under `releases/current/`.
-- v0.3.7 remains `CURRENT / FIELD_VALIDATION` until a later release is actually justified and promoted.
+### Agent runtime
 
-### To continue ENA research/project work
+The **only default resident ENA text** is:
 
-Read [`NOW.md`](NOW.md), then open only the Issue/files needed for the current consequential action.
+[`releases/current/RUNTIME-ADOPTION-KERNEL.md`](releases/current/RUNTIME-ADOPTION-KERNEL.md)
 
-Old project hub, metadata, handoff, progress, branch-inventory, reconciliation, release, and candidate records remain available as cold history. They are not mandatory takeover reading.
+Cue routing, HOWs, enforcement classification, fixtures, references, Constitution detail, and research lineage are retrieved only when the current decision needs them.
 
-## Current semantic direction
+```text
+AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
+DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
+```
 
-v0.3.7 Current includes a compact Runtime Adoption Kernel, consequence-first cue/HOW routing, Purpose-Relative Continuity, Standing Input, Control Retirement, Evolution Commons/Host Mapping patterns, optional references, a narrow v2 evolution helper, and explicit evidence/Host/language boundaries.
+ENA is not one giant prompt and does not require every bundled reference or private implementation name.
 
-Current research is also examining two connected selection questions outside the immutable v0.3.7 package:
+## Current product direction
 
-- **purpose-relative selection** — a change is not evolution merely because a metric/capability increased; selection must remain related to the purpose/context that made the adaptation valuable, while allowing purpose itself to evolve explicitly;
-- **propagation fitness** — local fitness, heritability, portability, and population/commons propagation are distinct dimensions; more portable does not automatically mean more evolved.
+v0.3.9 is an R0 adoption-surface successor to v0.3.8. It does not add Constitution IDs or rewrite core machine semantics.
 
-See [`research/evolution-inbox/PURPOSE-RELATIVE-SELECTION-AND-PROPAGATION-FITNESS.md`](research/evolution-inbox/PURPOSE-RELATIVE-SELECTION-AND-PROPAGATION-FITNESS.md).
+It closes two field findings from Issue #208:
 
-No new Constitution ID is implied merely because a useful new expression was found. Existing semantics should be reused or clarified before growing the universal invariant set.
+- the v0.3.8 first-use wording still made several cold resources look like a default load list;
+- root and zh-CN adopter-facing narration could still retain stale release identity even when `releases/current/` had moved.
+
+The Current validator now checks the single hot-payload contract and release/adoption identity across root and zh-CN entry surfaces.
+
+## Project work
+
+Live project state: [`NOW.md`](NOW.md)
+
+Current field stream: GitHub Issue **#208**.
+
+The only currently planned fresh-session mechanism experiment is **Metamemory Update Policy v1**. It does not block product successors.
+
+Old plans, handoffs, candidate records, prototype workflows, adjudications, and research artifacts remain cold lineage. Retrieve them only when a concrete question requires them.
 
 ## Repository shape
 
-The live surfaces are intentionally small:
+- adoption truth: `releases/current/`
+- live project/research status: `NOW.md`
+- open field work: GitHub Issues
+- change history: Git / Pull Requests
+- detailed evidence/research: relevant `research/` or `evidence/` artifact
 
-- adoption truth: `releases/current/`;
-- live project/research status: `NOW.md`;
-- open work and field contact: GitHub Issues;
-- history/evidence: Git history plus the relevant research/evidence records.
-
-Research, prototypes, experiments, reconciliations, handoffs, and old plans are cold-path material: retrieve them when a concrete question needs them rather than loading them by default.
-
-## Validation and release discipline
-
-Executable logic should keep executable tests.
-
-- changes to `releases/current/**` receive Current semantic/regression/package validation;
-- executable/Python changes receive relevant selftests and security/static checks;
-- ordinary research/doc changes outside Current do not need release-style freeze/readback/package ceremony.
-
-A release remains a higher-consequence boundary. Ordinary thinking is not a release.
+```text
+RESEARCH_LINEAGE != ADOPTION_PAYLOAD
+IMMUTABLE_VERSION != IMMOBILE_CURRENT
+SOFT_GUIDANCE != HARD_ENFORCEMENT
+```
 
 ## Participate
 
 ENA is intended to be questioned, falsified, specialized, partially adopted, and improved. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-Reading, questioning, forking, experimenting, filing Issues, or submitting Pull Requests does not automatically grant release, deployment, remediation, or unrelated consequential authority.
-
 ## License
 
-Licensed under the **Apache License, Version 2.0**. See [`LICENSE`](LICENSE).
+Apache License 2.0. See [`LICENSE`](LICENSE).

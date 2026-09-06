@@ -1,6 +1,17 @@
 # ENA Changelog
 
-## v0.3.8 — CURRENT / FIELD_VALIDATION
+## v0.3.9 — CURRENT / FIELD_VALIDATION
+
+R0 adoption-surface successor driven by continuous field stream #208.
+
+- made `RUNTIME-ADOPTION-KERNEL.md` the singular default resident Agent payload;
+- made Quickstart, bootstrap, Cue Index, HOW Map, Enforcement Map, fixtures, references and deep semantics explicitly cold/on-demand;
+- repaired stale root README and zh-CN adoption/release identity narration;
+- converted legacy `PROJECT-METADATA.yaml` from duplicated live state into a cold compatibility pointer;
+- extended Current validation to cover root identity, supported-language entry identity and the one-hot-payload contract;
+- kept Constitution IDs, core contracts, schemas and key machine behavior unchanged.
+
+## v0.3.8 — PREDECESSOR / RELEASED / FIELD_VALIDATION OCCURRENCE TRUTH
 
 R0 adoption-surface successor driven by post-release field evidence.
 

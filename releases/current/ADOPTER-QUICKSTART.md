@@ -1,50 +1,42 @@
-# ENA v0.3.8 — Adopter Quickstart
+# ENA v0.3.9 — Adopter Quickstart
 
-Status: `CURRENT / FIELD_VALIDATION`
+Status: `CURRENT / FIELD_VALIDATION / HUMAN_INTEGRATION_GUIDE`
 
-## What ENA is for
+ENA is a design method and operational rule set for Agents that may learn, adapt, use tools, affect external systems, recover, or pass adaptations onward.
 
-ENA is a design method and operational rule set for Agents that may learn, adapt, change working state, use tools, affect external systems, or pass adaptations to other Agents.
+Its purpose is viable agency: useful evolution without turning every stimulus into truth, every capability into authority, every stored idea into action, or every local success into universal law.
 
-Its purpose is viable agency: continued useful evolution without turning every stimulus into truth, every capability into authority, every stored idea into action, or every local success into universal law.
+## Minimum integration
 
-## Ordinary adoption
-
-You normally need only:
-
-1. `RUNTIME-ADOPTION-KERNEL.md` for compact semantics/cues;
-2. `operational/CUE-INDEX.md` for on-demand HOW retrieval;
-3. `ENFORCEMENT-MAP.yaml` to identify where enforcement actually lives;
-4. fixtures/validators for the claims that are mechanically testable.
-
-Research history, handoffs, adjudications, and every optional reference are cold lineage, not default runtime payload.
-
-## Integration
-
-- Keep the hot surface small.
-- Map ENA properties to existing Host controls when they already satisfy the boundary.
-- Do not confuse a model instruction with a hard control.
-- Retrieve a HOW only when the decision needs it.
-- Treat `NOT_REQUIRED`, `NOT_APPLICABLE`, `WAIT`, `UNKNOWN`, and `REFUSE` as legitimate outcomes.
-- Match claim strength to evidence: `PROSE_PRESENT | STRUCTURALLY_REPRESENTED | MACHINE_GUARDED | EXECUTED | EXTERNALLY_OBSERVED | INDEPENDENTLY_SUPPORTED`.
-
-## Core distinctions
+1. Make `RUNTIME-ADOPTION-KERNEL.md` the **only default resident ENA text** for the Agent.
+2. Make `operational/CUE-INDEX.md` retrievable when a real problem needs routing.
+3. Make `ENFORCEMENT-MAP.yaml` retrievable when you need to know whether a property is model guidance, machine-guarded, externally controlled, or still field evidence.
+4. Keep HOWs, references, fixtures, Constitution detail, and research lineage cold until they can change a decision.
+5. Prefer an existing Host-native mechanism when it already preserves the required property and boundary.
 
 ```text
-stimulus != mutation != improvement
-stored != expressed != applied != selected
-claim != evidence != support != applicability
-capability/credential/identity/reputation != current external authority
-local success != universal fitness
-publication/import/source success != receiver-local proof
-cancel != rollback != compensation
-restore != complete history != restored authority
-agreement count != independent support count
-object exists != relevant bytes loaded != semantics available
+DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
+AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 ```
 
-## Example
+## What not to do
 
-An adaptation worked well elsewhere. Import it as a possibility with source provenance; do not mark it locally `SUPPORTED` merely because it was popular or successful at the source. Check local applicability and consequence, then select from local reality contact.
+- Do not paste the whole ENA repository into a system prompt.
+- Do not preload Quickstart + Kernel + Cue Index + Enforcement Map as one default bundle.
+- Do not treat prose as hard enforcement.
+- Do not install every bundled reference merely because it ships with Current.
+- Do not make research lineage mandatory adoption context.
 
-> **Use the smallest sufficient ENA surface; enforce outside the model where the property actually lives; test the behavior you rely on.**
+## Useful outcomes
+
+`NOT_REQUIRED`, `NOT_APPLICABLE`, `WAIT`, `UNKNOWN`, and `REFUSE` are legitimate when they fit the actual consequence/evidence boundary.
+
+## Evidence strength
+
+Match claims to evidence:
+
+`PROSE_PRESENT | STRUCTURALLY_REPRESENTED | MACHINE_GUARDED | EXECUTED | EXTERNALLY_OBSERVED | INDEPENDENTLY_SUPPORTED`
+
+Machine selftests do not prove external authority, effect settlement, recovery, provenance, or universal Host fitness.
+
+> **Keep one semantic kernel hot; retrieve the HOW; enforce outside the model where the property actually lives.**

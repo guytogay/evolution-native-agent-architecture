@@ -1,4 +1,4 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.8
+# 8. Release and Canonical-Lineage Discipline — v0.3.9
 
 Status: `CURRENT / FIELD_VALIDATION / RELEASED`
 
@@ -10,15 +10,27 @@ IMMUTABLE_VERSION != IMMOBILE_CURRENT
 
 `same ena_version -> same effective content` remains mandatory. Corrections create successor identities rather than silent rewrites.
 
-Current, however, should move when a better bounded successor has paid the evidence cost appropriate to its change.
+Current should move when a better bounded successor has paid the evidence cost appropriate to its change.
 
 ## Release lanes
 
-- **R0 Field patch/adoption surface** — machine/regression checks + exact release readback + rollback anchor; fresh independent validation may be post-release field evidence.
+- **R0 Field patch/adoption surface** — machine/regression checks + exact readback + rollback anchor; fresh independent validation may be post-release field evidence.
 - **R1 Operational behavior change** — targeted adversarial/independent evidence when decision-material.
 - **R2 Core semantic/high consequence** — heavy freeze + fresh independent falsification/reconciliation by default.
 
-v0.3.8 was admitted through R0: no new Constitution IDs and no demonstrated core-contract semantic delta; v0.3.7 remains predecessor rollback/history.
+v0.3.9 is an R0 successor to v0.3.8. It changes default-loading and adoption-identity projection, not Constitution IDs or core machine semantics.
+
+## R0 atomic transition
+
+For a bounded R0 change, release projection and live project alignment may occur in one reviewed atomic PR when:
+
+- predecessor identity remains recoverable;
+- changed surfaces are explicitly bounded;
+- Current machine/regression checks cover the changed class;
+- root/adopter identity agrees with `CURRENT-BASELINE.yaml`;
+- unrelated research is not treated as a blocker.
+
+A second ceremonial post-promotion alignment PR is not required merely to repeat the same transition.
 
 ## Rapid succession
 
@@ -32,8 +44,6 @@ observe defect/opportunity
 -> field selection
 ```
 
-Do not demand R2 evidence for an R0 change. Open unrelated research is not a release dependency.
-
-GitHub is the current carrier of governed lineage, not a sovereign source of validity.
+Do not demand R2 evidence for an R0 change. Do not hide a semantic/high-consequence change inside an R0 label.
 
 > **Release immutability protects truth; Current mobility protects evolution.**

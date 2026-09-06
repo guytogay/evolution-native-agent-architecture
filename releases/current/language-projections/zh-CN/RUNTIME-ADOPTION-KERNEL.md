@@ -1,10 +1,10 @@
-# ENA 运行时采用核心 — v0.3.8
+# ENA 运行时采用核心 — v0.3.9
 
-状态：`CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`
+状态：`CURRENT / FIELD_VALIDATION / DEFAULT_AGENT_HOT_PAYLOAD`
 
 **ENA 的存在，是为了让持续自我进化成为可行能力。**
 
-这是热路径，不是整套 ENA。
+这是 ordinary Agent 默认唯一常驻的 ENA 语义面，不是整套 ENA。
 
 ## 核心区分
 
@@ -28,16 +28,19 @@
 ## Cue -> HOW
 
 ```text
-紧凑 cue
--> operational/CUE-INDEX.md
--> operational/HOW-MAP.md
--> 需要精确路径时用 operational/REFERENCE-INDEX.yaml
+常驻 Kernel
+-> 识别真实问题
+-> 按需检索 operational/CUE-INDEX.md
+-> operational/HOW-MAP.md / exact reference / Host-native mechanism
 -> applicability / Host 过滤
--> procedure / optional reference / Host-native mechanism
 -> 行动、WAIT、UNKNOWN、REFUSE 或 NOT_APPLICABLE
 ```
 
-完整 HOW library 不需要永久热加载。`cue 已配置 != 未来自然想起已证明`。
+Cue Index、HOW Map、Enforcement Map、fixtures、Constitution、references 都是可用的 cold/on-demand capability，不是 ordinary Agent 默认常驻负载。
+
+`AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD`
+
+`cue 已配置 != 未来自然想起已证明`。
 
 ## 变异、选择与迁移
 
@@ -53,10 +56,10 @@ mutation pressure 是产生/重看 variation 的机会，不是命令。variatio
 
 ## Enforcement
 
-使用 `ENFORCEMENT-MAP.yaml` 区分：
+需要判断控制类型时再检索 `../../ENFORCEMENT-MAP.yaml`：
 
 `MODEL_CUE | MACHINE_GUARD | EXTERNAL_CONTROL_REQUIRED | FIELD_EVIDENCE_REQUIRED`
 
 模型指导不是硬控制；机器 validator 也不证明外部世界事实。
 
-> **内化 cue，按需寻找 HOW。治理必须收敛并支付成本。**
+> **常驻核心；按需检索 HOW；让治理支付成本。**

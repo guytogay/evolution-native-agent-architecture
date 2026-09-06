@@ -1,10 +1,20 @@
-# ENA Runtime Adoption Kernel — v0.3.8
+# ENA Runtime Adoption Kernel — v0.3.9
 
 Status: `CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`
 
 **ENA exists to make sustained self-evolution viable.**
 
-This is a compact hot surface, not the whole package.
+This is the **only default resident ENA text** for an Agent. It is a compact cue surface, not the whole package.
+
+## Resident payload contract
+
+```text
+DEFAULT_AGENT_HOT_PAYLOAD = THIS_FILE_ONLY
+AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
+HOT_KERNEL != HOW_LIBRARY
+```
+
+Do not preload the Quickstart, bootstrap launcher, Cue Index, HOW Map, Enforcement Map, fixtures, references, Constitution detail, or research lineage by default. Retrieve them when a real decision makes them relevant.
 
 ## Evolution ecology
 
@@ -37,6 +47,8 @@ A stimulus is not a mutation. A mutation is not an improvement. A stored possibi
 These are cues/boundaries, not a claim that prose hard-enforces them.
 
 ## Cue -> HOW
+
+When a cue matters, retrieve rather than preload:
 
 ```text
 compact cue
@@ -74,7 +86,7 @@ Use the lightest mechanism that can change/protect the decision. Retire controls
 
 `tools/ena_evolve_v2.py` is a narrow v2 record/packet path, not the full lifecycle engine.
 
-For enforcement class, use `ENFORCEMENT-MAP.yaml`.
+When enforcement type matters, retrieve `ENFORCEMENT-MAP.yaml`.
 
 ```text
 MODEL_CUE != HARD_CONTROL
@@ -88,7 +100,7 @@ ENA exists to make sustained self-evolution viable.
 Treat stimuli as variation opportunities, not commands.
 Keep possibilities latent when they need not act.
 Stored, expressed, applied and selected are different.
-Keep cues hot; retrieve HOWs cold.
+Keep one semantic kernel hot; retrieve HOWs cold.
 Use the lightest applicable mechanism.
 Select from local reality contact, not popularity or import.
 Capability/identity/memory/reputation/restore do not mint external authority.
@@ -96,4 +108,4 @@ Unresolved external effects may require QUERY/WAIT rather than replay.
 Governance must converge and pay rent.
 ```
 
-> **Internalize the cues; retrieve the HOW.**
+> **One hot kernel; retrieve the HOW.**

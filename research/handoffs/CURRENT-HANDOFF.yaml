@@ -1,4 +1,4 @@
-schema_version: "4.7"
+schema_version: "4.8"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-06"
 
@@ -20,8 +20,7 @@ current_handoff_record:
   readback_state: PASS
   note: >-
     This dated record remains occurrence truth for its boundary. Live state has advanced through
-    research closure, v0.3.8 rapid promotion, reconstruction-campaign closure and v0.3.8 field activation.
-    Use NOW.md plus the blocks below for current facts.
+    research closure and rapid Current succession. Use NOW.md plus the live pointers below for current facts.
 
 current_project_authorities:
   live_status: NOW.md
@@ -30,17 +29,16 @@ current_project_authorities:
   field_stream: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
-  branch_governance: research/BRANCH-GOVERNANCE.md
 
 current_adoption:
-  version: v0.3.8
+  version: v0.3.9
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
   release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
-  promotion_pr: 206
-  promotion_merge: 625973fb3aa8cc503d0860d2c5f07e021c4dc266
-  predecessor_version: v0.3.7
+  predecessor_version: v0.3.8
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
+  default_agent_hot_payload_count: 1
+  default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
   same_version_same_effective_content: REQUIRED
   current_pointer_should_remain_here_if_better_successor_ready: false
 
@@ -51,83 +49,45 @@ release_policy:
     R0: FIELD_PATCH_ADOPTION_SURFACE
     R1: OPERATIONAL_BEHAVIOR_CHANGE
     R2: CORE_SEMANTIC_OR_HIGH_CONSEQUENCE_CHANGE
-  fresh_independent_validation_required_before_release:
-    R0: false
-    R1: WHEN_DECISION_MATERIAL
-    R2: NORMALLY_TRUE
   open_unrelated_research_blocks_release: false
   rollback_anchor_required: true
-
-last_release_transition:
-  id: v0.3.8
-  source_candidate: v0.3.8-candidate.0
-  source_candidate_pr: 202
-  release_policy_pr: 205
-  release_pr: 206
-  release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
-  primary_field_issue: 201
-  new_constitution_ids: 0
-  core_contract_semantic_delta: NONE_DEMONSTRATED
-  prospective_current_validate: PASS
-  prospective_main_gate: PASS
-  release_result: PROMOTED_CURRENT
-  field_rule: DECISION_BEARING_DEFECT_SHOULD_CREATE_RAPID_SUCCESSOR
+  atomic_r0_release_and_live_alignment_allowed: true
 
 active_field_validation:
   issue: 208
-  state: ACTIVE_V038_FIELD_VALIDATION
-  purpose: PRODUCT_SURFACE_ADOPTION_AND_REAL_HOST_BEHAVIOR
-  predecessor_issue: 150
-  predecessor_state: CLOSED_OCCURRENCE_TRUTH
-  decision_bearing_defect_issue: 201
-  defect_issue_state: CLOSED_AFTER_V038_SUCCESSOR
+  state: ACTIVE_CURRENT_FIELD_VALIDATION
+  version_neutral_stream: true
+  purpose: PRODUCT_ADOPTION_AND_REAL_HOST_BEHAVIOR
+  current_findings:
+    - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
+    - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
   next_product_rule: >-
     When field evidence exposes a bounded decision-bearing defect, classify it R0/R1/R2 and create the
-    smallest useful successor. Do not hold Current on known-bad bytes waiting for unrelated research.
+    smallest useful successor. Do not create a new field tracker merely because Current moved.
 
 active_research:
   phase: MECHANISM_DISCRIMINATION
   target: METAMEMORY_UPDATE_POLICY_V1
   state: PREREGISTERED_PRIMARY_NOT_STARTED
-  coverage_track: 5
   preregistration: research/field-validation/2026-09-04-metamemory-update-policy-preregistration.md
   fixture_root: research/field-validation/fixtures/metamemory-update-policy-v1/
   primary_launch_bundle: research/field-validation/metamemory-update-policy-v1/PRIMARY-LAUNCH-BUNDLE.md
-  arms: [S0_STATIC_EQUAL, G1_GLOBAL_RECENT3, C1_CONTEXT_RECENT3, C2_CONTEXT_REVERSIBLE3]
   initial_primary_runs: 4
   maximum_primary_runs_after_frozen_replication_trigger: 8
-  run_shape: ONE_COMPLETE_TREATMENT_DELIVERY_PER_FRESH_TEMPORARY_CHAT
   next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
   blocks_current_release: false
-  campaign_closure_intent: >-
-    Metamemory v1 is the only currently planned fresh-session primary. After formal adjudication,
-    close mechanism-discrimination unless a genuinely new non-derivable discriminator appears.
   selective_extra_runs_for_preferred_result: FORBIDDEN
 
 research_closure:
   audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
   dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
-  rule: NOT_DIRECTLY_TESTED_NE_MUST_RUN_LOCAL_ENA_EXPERIMENT
   broad_open_track_status: CLOSED_BEHIND_EXPLICIT_DISPOSITIONS
-
-closed_project_campaigns:
-  reconstruction_parent_89: CLOSED_COMPLETED
-  reconstruction_children_90_94: CLOSED_COMPLETED_WITH_FIELD_RESIDUALS
-  project_simplification_153: CLOSED_COMPLETED
-  v037_field_stream_150: CLOSED_PREDECESSOR_STREAM
-  v037_defect_201: CLOSED_AFTER_V038_SUCCESSOR
-  meaning: >-
-    Closure means the campaign no longer justifies permanent active project machinery. It does not claim
-    that every Host-relative or longitudinal reality question is solved. Concrete unresolved evidence belongs
-    in #208 or a new narrow issue when it can change a decision.
 
 open_work:
   github_issues:
     - 208
   research:
     - COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
-  rule: >-
-    Open issue count should represent current consequential work, not historical research inventory.
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -139,12 +99,9 @@ receiver_contract:
   expose_preregistration_or_hidden_oracle_to_primary_worker: FORBIDDEN
   confuse_version_immutability_with_current_immobility: FORBIDDEN
   block_R0_release_on_unrelated_research: FORBIDDEN
-  demand_fresh_cleanroom_prerelease_validation_for_R0_by_default: FORBIDDEN
   reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
 
 rule: >-
-  ENA Current is v0.3.8 / FIELD_VALIDATION. Issue #208 is the only active GitHub field stream. The broad
-  reconstruction and simplification campaigns are closed; their unresolved reality questions moved to field
-  evidence rather than remaining permanent architecture work. Metamemory Update Policy v1 is the only currently
-  planned fresh-session primary and does not block product successors. Move Current quickly when proportional
-  evidence supports a better bounded successor.
+  ENA Current is v0.3.9 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream.
+  The ordinary Agent default hot payload is one Runtime Adoption Kernel; other ENA resources are cold/on-demand.
+  Metamemory Update Policy v1 is the only currently planned fresh-session primary and does not block product successors.
