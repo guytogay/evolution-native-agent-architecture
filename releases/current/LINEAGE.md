@@ -1,19 +1,17 @@
-# ENA v0.3.12 Lineage
+# ENA v0.3.13 Lineage
 
 Status: `CURRENT / FIELD_VALIDATION`
 
-- predecessor Current: `v0.3.11`, tree `a299be149561321ce4e6d6ce71c405712a23b170`;
-- source external contribution PR: `#216`;
-- source contribution commit: `34f7adfeaebaa99defe2b0030f3e0b2067c9d72f`, author `LXC DSH <dsh@localhost>`;
-- verified source issues: `#217`, `#218`;
-- source release branch: `release/v0.3.12`;
+- predecessor Current: `v0.3.12`, tree `5dbe94cbf8a9c6fa420ad1bf9c3fc7a1c2d20504`;
+- source release branch: `release/v0.3.13`;
 - active field stream: Issue `#208`;
-- release lane: `R0_FIELD_PATCH_EXTERNAL_CONTRIBUTION_COHERENCE`;
-- primary field findings: `F-208-05` operational identity/gate coverage gap and `F-208-06` dead HOW-MAP fragment routing.
+- release lane: `R0_ADOPTION_SURFACE_LOCAL_OPERATIONALIZATION`;
+- primary field finding: `F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION`;
+- source field occurrence: the owner explicitly instructed a DSH Agent to operationalize ENA after adoption/reading; the Agent then built and drilled a rescue snapshot/canary/ledger/baseline self-maintenance kit. This is owner-directed dogfood evidence, not independent emergence of a universal HOW.
 
-v0.3.11 remains immutable predecessor occurrence truth and rollback anchor. v0.3.12 does not rewrite it.
+v0.3.12 remains immutable predecessor occurrence truth and rollback anchor. v0.3.13 does not rewrite it. The reconciled DSH kernel-salience observation in PR #220 remains v0.3.12-era research occurrence truth and is not retroactively relabeled.
 
-The contributor supplied the bounded operational/identity/routing patch and gate extensions. Maintainer review independently verified the findings, rejected direct mutation of the already-released v0.3.11 identity, added the v0.3.12 release projection, repaired the active field-template semantic-identity default, and narrowed the zh-CN recurrence rule so active identity drift is rejected without forbidding genuine historical provenance.
+The v0.3.13 maintainer change is deliberately narrow: make one bounded local operationalization pass explicit after adoption or material Host/runtime change; prefer existing Host-native mechanisms; allow `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE`; and prohibit interpreting operationalization as a command to install every possible control or to act beyond actual authority.
 
 No Constitution IDs or core machine/evolution semantics are added or rewritten.
 
