@@ -1,4 +1,4 @@
-# 10. Language Portability and Semantic Projection — v0.3.10
+# 10. Language Portability and Semantic Projection — Current
 
 Status: `CURRENT / FIELD_VALIDATION / OPERATIONAL_LANGUAGE_PROJECTION`
 
