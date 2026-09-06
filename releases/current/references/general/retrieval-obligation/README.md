@@ -1,6 +1,6 @@
 # Retrieval Obligation 0.5 — Optional Reference
 
-Status: `v0.3.7 Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use when a consequential decision depends on retrieval scope, the effective content actually returned, freshness, or sufficiency closure.
 

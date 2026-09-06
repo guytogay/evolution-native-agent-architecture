@@ -1,7 +1,7 @@
 schema_version: "2.1"
 purpose: >
   Paired English/zh-CN decision-semantic scenarios for inherited ecology
-  semantics retained by v0.3.7 Current. This file defines test expectations; it does not prove that any
+  semantics retained by Current. This file defines test expectations; it does not prove that any
   model/Host will satisfy them until the paired experiment is actually run.
 
 cases:

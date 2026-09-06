@@ -1,4 +1,4 @@
-# LITE Adoption Instruction — ENA v0.3.9
+# LITE Adoption Instruction — ENA v0.3.10
 
 Status: `CURRENT / FIELD_VALIDATION / LITE_PROFILE`
 

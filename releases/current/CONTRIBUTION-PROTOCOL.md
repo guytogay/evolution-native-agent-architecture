@@ -1,4 +1,4 @@
-# Contribution Protocol — v0.3.7 Current
+# Contribution Protocol — Current
 
 Status: `CURRENT / FIELD_VALIDATION`.
 

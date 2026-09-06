@@ -42,7 +42,7 @@ jobs:
           root = Path('releases/current')
           doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
 
-          assert doc['ena_version'] == 'v0.3.9'
+          assert doc['ena_version'] == 'v0.3.10'
           assert doc['adoption_status'] == 'CURRENT'
           assert doc['maturity'] == 'FIELD_VALIDATION'
           assert doc['current'] is True and doc['released'] is True
@@ -63,7 +63,7 @@ jobs:
           assert r['hot_kernel_should_load_full_how_library'] is False
 
           root_readme = Path('README.md').read_text(encoding='utf-8')
-          assert 'Current is **v0.3.9 / FIELD_VALIDATION**.' in root_readme
+          assert 'Current is **v0.3.10 / FIELD_VALIDATION**.' in root_readme
           assert 'DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md' in root_readme
           assert 'v0.3.7 remains `CURRENT' not in root_readme
           assert 'v0.3.8 is the current' not in root_readme.lower()
@@ -94,16 +94,16 @@ jobs:
           baseline = yaml.safe_load((r/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
           manifest = yaml.safe_load((z/'projection-manifest.yaml').read_text(encoding='utf-8'))
 
-          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.9'
-          assert manifest['release_identity']['current_version'] == 'v0.3.9'
+          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.10'
+          assert manifest['release_identity']['current_version'] == 'v0.3.10'
           assert manifest['release_identity']['current_status'] == 'CURRENT'
           assert manifest['runtime_adoption']['default_agent_hot_payload_count'] == 1
           assert manifest['runtime_adoption']['default_agent_hot_payload'] == ['RUNTIME-ADOPTION-KERNEL.md']
 
           z00 = (z/'00-READ-ME-FIRST.md').read_text(encoding='utf-8')
           zk = (z/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
-          assert 'ENA v0.3.9' in z00
-          assert 'v0.3.9' in zk
+          assert 'ENA v0.3.10' in z00
+          assert 'v0.3.10' in zk
           assert '默认唯一常驻' in zk
 
           cold = [
@@ -125,6 +125,16 @@ jobs:
               text = (z/rel).read_text(encoding='utf-8')
               found = [s for s in stale if s in text]
               assert not found, (rel, found)
+
+          import re
+          en_cold = ['releases/current/CONTRIBUTION-PROTOCOL.md', 'releases/current/references/general/wait-state/README.md', 'releases/current/references/general/authority-lease/README.md', 'releases/current/references/general/effect-lifecycle/README.md', 'releases/current/references/general/recovery-adapter/README.md', 'releases/current/references/advanced/evidence-envelope/README.md', 'releases/current/references/general/retrieval-obligation/README.md', 'releases/current/references/advanced/contested-authorship/README.md', 'releases/current/references/advanced/evidence-dependency-map/README.md', 'releases/current/operational/procedures/STANDING-INPUT.md', 'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md', 'releases/current/operational/patterns/HOST-MAPPINGS.md', 'releases/current/operational/patterns/EVOLUTION-COMMONS.md', 'releases/current/operational/procedures/CONTROL-RETIREMENT.md', 'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md', 'releases/current/SEMANTIC-GLOSSARY.yaml', 'releases/current/references/REFERENCE-MANIFEST.yaml', 'releases/current/schemas/evolution-record.v2.schema.json', 'releases/current/language-projections/semantic-fixtures.v2.yaml', 'releases/current/templates/field-experience.v2.yaml', 'releases/current/04-CAPABILITY-MAP.md']
+          version_bound_current = re.compile(r'v0\.3\.\d+\s+Current', re.I)
+          for rel in en_cold:
+              text = Path(rel).read_text(encoding='utf-8')
+              hit = version_bound_current.search(text)
+              assert not hit, (rel, hit.group(0) if hit else None)
+          assert 'v0.3.6 candidate' not in (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8')
+          print('ENGLISH_COLD_RELEASE_IDENTITY_PASS', len(en_cold))
 
           print('ROOT_ZH_RELEASE_IDENTITY_PARITY_PASS')
           PY
@@ -206,16 +216,24 @@ jobs:
               '01-CONSTITUTION.md',
               '02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md',
               '03-ROLES-AND-DEVELOPMENTAL-STAGES.md',
-              '04-CAPABILITY-MAP.md',
               'tools/ena_evolve_v2.py',
               'tools/validate_evolution_record_v2.py',
               'tools/validate_contracts.py',
               'schemas/adaptation-packet.v2.schema.json',
-              'schemas/evolution-record.v2.schema.json',
           ]
           for rel in protected:
               assert (r/rel).read_bytes() == (c/rel).read_bytes(), rel
           print('R0_PROTECTED_BYTES_PASS', len(protected))
+          # Metadata-only F-208-03 repair must not change capability vocabulary or schema behavior.
+          import json, re
+          cap_now = re.findall(r'ENA-CAP-\d{3}', (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8'))
+          cap_old = re.findall(r'ENA-CAP-\d{3}', (c/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8'))
+          assert cap_now == cap_old
+          schema_now = json.loads((r/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
+          schema_old = json.loads((c/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
+          schema_now['title'] = schema_old['title']
+          assert schema_now == schema_old
+          print('R0_METADATA_NORMALIZED_SEMANTIC_PASS', len(cap_now))
           PY
 
       - name: Reject generated bytecode or dirty validation output

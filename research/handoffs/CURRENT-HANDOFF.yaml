@@ -1,27 +1,23 @@
-schema_version: "5.0"
+schema_version: '5.1'
 status: CURRENT_DEEP_SUCCESSION_POINTER
-updated_at: "2026-09-06"
-
+updated_at: '2026-09-06'
 normal_continuation:
   default_entry: NOW.md
   full_handoff_required_by_default: false
   rule: READ_NOW_AND_DIRECTLY_RELEVANT_ARTIFACT_THEN_WORK
-
 handoff_framework:
   protocol: research/handoffs/HANDOFF-PROTOCOL.md
   required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
-
 current_handoff_record:
-  id: "2026-09-04-temporal-assimilation-primary-complete"
+  id: 2026-09-04-temporal-assimilation-primary-complete
   state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
   record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
   readback_state: PASS
-  note: >-
-    This dated record remains occurrence truth for its boundary. Live state has advanced through
-    research closure and rapid Current succession. Use NOW.md plus the live pointers below for current facts.
-
+  note: This dated record remains occurrence truth for its boundary. Live state has
+    advanced through research closure and rapid Current succession. Use NOW.md plus
+    the live pointers below for current facts.
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
@@ -30,19 +26,17 @@ current_project_authorities:
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   final_metamemory_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
-
 current_adoption:
-  version: v0.3.9
+  version: v0.3.10
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
-  predecessor_version: v0.3.8
+  release_lane: R0_FIELD_PATCH_PUBLICATION_COHERENCE
+  predecessor_version: v0.3.9
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
   default_agent_hot_payload_count: 1
   default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
   same_version_same_effective_content: REQUIRED
   current_pointer_should_remain_here_if_better_successor_ready: false
-
 release_policy:
   core_distinction: IMMUTABLE_VERSION_NE_IMMOBILE_CURRENT
   objective: PRESERVE_OLD_RELEASES_AND_MOVE_CURRENT_QUICKLY
@@ -53,25 +47,22 @@ release_policy:
   open_unrelated_research_blocks_release: false
   rollback_anchor_required: true
   atomic_r0_release_and_live_alignment_allowed: true
-
 active_field_validation:
   issue: 208
   state: ACTIVE_CURRENT_FIELD_VALIDATION
   version_neutral_stream: true
   purpose: PRODUCT_ADOPTION_AND_REAL_HOST_BEHAVIOR
   current_findings:
-    - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
-    - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
-    - F-208-03_CAPABILITY_MAP_STALE_CANDIDATE_NARRATION
-  next_product_rule: >-
-    Handle F-208-03 through the smallest R0 successor and extend recurrence checks so active-sounding
-    stale release identity cannot persist in cold Current surfaces. Do not mutate v0.3.9 in place.
-
+  - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
+  - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
+  - F-208-03_ENGLISH_COLD_SURFACE_STALE_RELEASE_NARRATION
+  next_product_rule: Continue the version-neutral Current field stream. A future bounded
+    defect should create the smallest R0/R1/R2 successor; stable cold semantic surfaces
+    remain version-neutral unless their meaning truly depends on release identity.
 active_research:
   state: NONE
   phase: NONE
   next_action: NONE
-
 completed_research:
   evolutionary_memory_mechanism_discrimination:
     state: CLOSED
@@ -85,20 +76,16 @@ completed_research:
     score_record: research/field-validation/metamemory-update-policy-v1/primary/2026-09-06-initial-primary-score.json
     replication_triggered: false
     confidence_channel_discriminative: false
-
 research_closure:
   audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
   dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   broad_open_track_status: CLOSED_BEHIND_EXPLICIT_DISPOSITIONS
   campaign_status: CLOSED
-
 open_work:
   github_issues:
-    - 208
-  product:
-    - F-208-03_R0_SUCCESSOR
+  - 208
+  product: []
   research: []
-
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
   preserve_negative_and_null_results: REQUIRED
@@ -111,9 +98,7 @@ receiver_contract:
   block_R0_release_on_unrelated_research: FORBIDDEN
   reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
   reopen_closed_research_campaign_for_scientific_interest_only: FORBIDDEN
-
-rule: >-
-  ENA Current is v0.3.9 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream.
-  The evolutionary-memory mechanism-discrimination campaign is closed after Metamemory Update Policy v1
-  completed four valid initial runs without triggering replication. No active mechanism primary remains.
-  The next concrete project action is the bounded F-208-03 R0 product successor, not another research experiment.
+rule: 'ENA Current is v0.3.10 / FIELD_VALIDATION. Issue #208 is the version-neutral
+  Current field stream. F-208-03 is closed by version-neutral English cold surfaces
+  plus recurrence checks. The evolutionary-memory mechanism-discrimination campaign
+  remains closed and no active mechanism primary remains.'

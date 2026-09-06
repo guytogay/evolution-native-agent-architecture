@@ -1,4 +1,4 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.9
+# 8. Release and Canonical-Lineage Discipline — v0.3.10
 
 Status: `CURRENT / FIELD_VALIDATION / RELEASED`
 
@@ -14,11 +14,11 @@ Current should move when a better bounded successor has paid the evidence cost a
 
 ## Release lanes
 
-- **R0 Field patch/adoption surface** — machine/regression checks + exact readback + rollback anchor; fresh independent validation may be post-release field evidence.
+- **R0 Field patch / adoption / projection / publication coherence** — machine/regression checks + exact readback + rollback anchor; fresh independent validation may be post-release field evidence.
 - **R1 Operational behavior change** — targeted adversarial/independent evidence when decision-material.
 - **R2 Core semantic/high consequence** — heavy freeze + fresh independent falsification/reconciliation by default.
 
-v0.3.9 is an R0 successor to v0.3.8. It changes default-loading and adoption-identity projection, not Constitution IDs or core machine semantics.
+v0.3.10 is an R0 successor to v0.3.9. It changes publication/release-identity narration and recurrence checks on stable cold surfaces; it does not add Constitution IDs or rewrite core machine semantics.
 
 ## R0 atomic transition
 

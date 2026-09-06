@@ -1,6 +1,6 @@
 # Host Mapping Patterns
 
-Status: `v0.3.7 Current / HOST_ADAPTER_GUIDANCE / OPTIONAL`
+Status: `Current / HOST_ADAPTER_GUIDANCE / OPTIONAL`
 
 ENA standardizes decision properties; Hosts may realize them with different mechanisms.
 

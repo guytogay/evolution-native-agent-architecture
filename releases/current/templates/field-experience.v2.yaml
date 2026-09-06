@@ -116,7 +116,7 @@ requested_reconciliation:
   - "UNKNOWN"
 
 authority_note: >
-  Field contribution under v0.3.6 Current. This record can inform future
+  Field contribution under Current. This record can inform future
   falsification/reconciliation/version evolution but cannot by itself prove
   universal fitness, authenticate external evidence, or self-mint unrelated
   authority or future Current promotion.

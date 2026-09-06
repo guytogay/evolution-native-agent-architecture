@@ -1,24 +1,32 @@
-# 7. Adoption and Field Validation — v0.3.9
+# 7. Adoption and Field Validation — v0.3.10
 
 Status: `CURRENT / FIELD_VALIDATION`
 
-v0.3.9 remains deliberately in reality contact. Field validation is a selection surface for the next successor, not a waiting room before Current.
+v0.3.10 remains deliberately in reality contact. Field validation is a selection surface for the next successor, not a waiting room before Current.
 
 Current continuous field stream: GitHub Issue `#208`.
 
-v0.3.9 responds to two bounded R0 findings from that stream:
+v0.3.10 closes the bounded R0 publication-coherence finding `F-208-03`:
 
-- `F-208-01`: v0.3.8 first-use wording still made several cold resources look like a default Agent load list;
-- `F-208-02`: root and zh-CN adopter-facing identity narration could remain stale outside the effective Current package checks.
+- stable English cold surfaces still carried active-looking older Current/candidate labels after the release pointer had moved;
+- one live field template also retained an older Current identity;
+- genuine historical provenance must remain distinguishable from active release identity.
 
 The correction is:
+
+```text
+COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN
+HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
+```
+
+Stable cold semantics are version-neutral by default. Release-bound entrypoints, baseline identity and supported-language release projections carry the active version. Historical source/version evidence may still name the version that actually produced it.
+
+The v0.3.9 single-hot-payload contract remains inherited:
 
 ```text
 DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
 AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 ```
-
-and release/adoption identity is now checked across root and supported-language entry surfaces in addition to Current package identity.
 
 High-value field questions remain natural cue -> cold HOW retrieval, enforcement honesty, false-BLOCK avoidance, Host-native mapping, language decision behavior, external consequence truth, and unexpected failure shapes.
 
@@ -28,4 +36,4 @@ Machine checks establish represented consistency only in exercised scope. They d
 FIELD_VALIDATION -> OBSERVE -> SMALLEST_JUSTIFIED_SUCCESSOR
 ```
 
-> **The product test is whether adopters receive the needed protection with the least sufficient active context.**
+> **The product test is whether adopters receive the needed protection with the least sufficient active context and without stale identity leakage.**

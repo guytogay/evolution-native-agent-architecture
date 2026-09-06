@@ -1,4 +1,4 @@
-# ENA v0.3.9 — 请先阅读
+# ENA v0.3.10 — 请先阅读
 
 状态：**CURRENT / FIELD_VALIDATION**
 
@@ -43,6 +43,11 @@ MACHINE_GUARD != EXTERNAL_TRUTH
 TRANSLATED != BEHAVIORALLY_EQUIVALENT
 ```
 
-v0.3.9 是 R0 adopter/product-surface successor：38 条 Constitution ID 和核心 machine semantics 保持继承；本次重点是单一 hot payload 与中英文 release/adoption identity 一致性。
+v0.3.10 是 R0 publication-coherence successor：38 条 Constitution ID 和核心 machine semantics 保持继承。本次修复的是稳定 cold surface 中残留的旧 Current/candidate 身份叙述，并明确区分当前 release identity 与真实历史 provenance。
 
-> **常驻一个核心；需要时再长出 HOW。**
+```text
+COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN
+HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
+```
+
+> **常驻一个核心；需要时再长出 HOW；版本身份只放在真正需要版本身份的表面。**

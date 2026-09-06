@@ -1,6 +1,17 @@
 # ENA Changelog
 
-## v0.3.9 — CURRENT / FIELD_VALIDATION
+## v0.3.10 — CURRENT / FIELD_VALIDATION
+
+R0 publication-coherence successor driven by Current field stream #208.
+
+- closed F-208-03 by removing stale active release labels from stable English cold surfaces;
+- preserved genuine predecessor/source-version provenance instead of globally erasing history;
+- removed stale `v0.3.6 candidate` narration from the Current Capability Map;
+- extended Current validation with an English cold-surface stale-identity recurrence gate;
+- refined protected semantic/machine checks to allow metadata-only release-label repair while preserving capability IDs and evolution-record schema behavior;
+- kept the 38-ID Constitution and core runtime/evolution behavior unchanged.
+
+## v0.3.9 — PREDECESSOR / RELEASED / FIELD_VALIDATION OCCURRENCE TRUTH
 
 R0 adoption-surface successor driven by continuous field stream #208.
 

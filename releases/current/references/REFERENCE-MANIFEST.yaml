@@ -4,7 +4,7 @@ assembly_state: RELEASED_MACHINE_CHECKED
 policy:
   required_for_complete_adoption_default: false
   default_activation_default: false
-  normative_semantic_authority: v0.3.7 Current semantic trunk, not bundled reference schemas
+  normative_semantic_authority: Current semantic trunk, not bundled reference schemas
   package_inclusion_implies_applicability: false
   package_inclusion_implies_activation: false
   host_native_equivalent_allowed: true

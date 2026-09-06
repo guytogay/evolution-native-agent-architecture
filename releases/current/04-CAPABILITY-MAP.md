@@ -76,7 +76,7 @@ Core capability vocabulary retained from v0.3.4:
 `ENA-CAP-070` Viability Economics and Project-Scale Governance Fitness  
 `ENA-CAP-071` Persistent Evolution and Open Contribution Substrate  
 
-The v0.3.6 candidate inherits the explicit evolutionary-metabolism capabilities released through v0.3.5 Current:
+The Current capability map retains the explicit evolutionary-metabolism capabilities represented in the v0.3.6 line:
 
 `ENA-CAP-072` Evolution Signal Capture and Review  
 `ENA-CAP-073` Variation Space Provisioning / Mutation Containment  

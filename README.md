@@ -17,7 +17,7 @@ Current adoption truth is always:
 - machine identity: [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml)
 - effective package: [`releases/current/`](releases/current/)
 
-Current is **v0.3.9 / FIELD_VALIDATION**.
+Current is **v0.3.10 / FIELD_VALIDATION**.
 
 ### Human adopter
 
@@ -40,14 +40,14 @@ ENA is not one giant prompt and does not require every bundled reference or priv
 
 ## Current product direction
 
-v0.3.9 is an R0 adoption-surface successor to v0.3.8. It does not add Constitution IDs or rewrite core machine semantics.
+v0.3.10 is an R0 publication-coherence successor to v0.3.9. It adds no Constitution IDs and does not rewrite core machine semantics.
 
-It closes two field findings from Issue #208:
+Issue #208 finding F-208-03 showed that stable English cold surfaces still carried old active-sounding release labels even after Current had moved. v0.3.10 makes those cold semantics version-neutral by default and extends the Current gate against recurrence, while preserving genuine historical provenance.
 
-- the v0.3.8 first-use wording still made several cold resources look like a default load list;
-- root and zh-CN adopter-facing narration could still retain stale release identity even when `releases/current/` had moved.
-
-The Current validator now checks the single hot-payload contract and release/adoption identity across root and zh-CN entry surfaces.
+```text
+COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN
+HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
+```
 
 ## Project work
 
@@ -55,7 +55,7 @@ Live project state: [`NOW.md`](NOW.md)
 
 Current field stream: GitHub Issue **#208**.
 
-The only currently planned fresh-session mechanism experiment is **Metamemory Update Policy v1**. It does not block product successors.
+The current evolutionary-memory mechanism-discrimination campaign is closed after the completed Metamemory Update Policy v1 primary. No mechanism experiment is active by default; new research must earn its own discriminator.
 
 Old plans, handoffs, candidate records, prototype workflows, adjudications, and research artifacts remain cold lineage. Retrieve them only when a concrete question requires them.
 
