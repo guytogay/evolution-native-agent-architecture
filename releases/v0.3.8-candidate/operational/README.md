@@ -1,8 +1,8 @@
-# Operational Architecture — v0.3.7 Current
+# Operational Architecture — v0.3.8-candidate.0
 
-Status: `CURRENT / ASSEMBLED_OPERATIONAL_ARCHITECTURE`
+Status: `CANDIDATE / NOT_CURRENT / ASSEMBLED_OPERATIONAL_ARCHITECTURE`
 
-This directory is the Current-local practical HOW layer.
+Released Current remains v0.3.7. This directory is the candidate-local practical HOW layer.
 
 Its job is not to restate the Constitution. Its job is to help an adopter move from a real problem to one or more usable implementation branches without reading `research/`.
 
@@ -13,12 +13,12 @@ ordinary cue / failure / decision
 -> consequence-first routing
 -> CUE-INDEX
 -> HOW-MAP
--> REFERENCE-INDEX
+-> REFERENCE-INDEX when exact local path is needed
 -> bounded procedure / optional reference / Host pattern
 -> concrete action, WAIT, UNKNOWN, REFUSE, or NOT_APPLICABLE
 ```
 
-All Stage-2 operational paths above are now assembled. Selected reference contents and Current-local v2 tooling are also assembled; see `../CURRENT-BASELINE.yaml` for exact machine evidence and remaining pre-freeze gates.
+Use `../ENFORCEMENT-MAP.yaml` when the implementation decision depends on whether the relevant property is a model cue, machine guard, external control, or field-evidence claim.
 
 ## Architecture rule
 
@@ -50,7 +50,7 @@ HOT_KERNEL
 HOT_KERNEL != HOW_LIBRARY
 ```
 
-## Candidate reference boundary
+## Reference boundary
 
 Selected reusable reference organs live under `../references/`.
 
@@ -75,7 +75,7 @@ A useful HOW should change what an Agent can actually do. Depending on the mecha
 - effect/authority boundary;
 - failure symptoms;
 - fallback / WAIT / REFUSE / recovery;
-- evidence maturity;
+- enforcement class/evidence maturity;
 - explicit non-applicability.
 
 This is not a fixed checklist. A HOW that merely paraphrases the principle remains operational debt.
@@ -93,6 +93,8 @@ A Host success does not create universal fitness.
 
 ## Anti-ablation rule
 
-Not selected for v0.3.7 Current does not mean disproven or retired. Alternative/dormant/research branches remain durable in project lineage. Candidate packaging must not erase them merely because they are not adopter cargo.
+Not selected for candidate.0 does not mean disproven or retired. Alternative/dormant/research branches remain durable in project lineage. Candidate packaging must not erase them merely because they are not adopter cargo.
 
 > **Compress the semantic trunk; let concrete HOWs branch.**
+>
+> **Retrieve the HOW; do not preload the history.**
