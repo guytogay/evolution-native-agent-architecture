@@ -4,30 +4,29 @@ This is the default live project-status surface.
 
 ## Current
 
-- `v0.3.13 / CURRENT / FIELD_VALIDATION`
+- `v0.3.14 / CURRENT / FIELD_VALIDATION`
 - authority: `releases/current/CURRENT-BASELINE.yaml`
 - effective adopter package: `releases/current/`
-- predecessor / rollback / occurrence truth: `v0.3.12`
+- predecessor / rollback / occurrence truth: `v0.3.13`
 - field stream: GitHub Issue `#208` — version-neutral Current field validation
 
-v0.3.13 is an **R1 operational evolution-loop successor**. It preserves the 38-ID Constitution and core machine semantics while closing two related reality-contact gaps:
+v0.3.14 is a bounded **R0 adoption-surface successor**. It preserves the v0.3.13 R1 evolution loop, 38-ID Constitution, protected semantic floor, and core machine behavior while closing:
 
-- `F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION`
-- `F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP`
+- `F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH`.
 
-The field causality is important: the owner first reported feeling "骑虎难下", questioned whether ENA should be fully obeyed and whether its lease loop actually paid rent, then explicitly asked whether ENA lacked support for helping the Agent itself evolve. That question triggered the DSH Agent to inspect its real LXC Host; the Agent then proposed rescue + durable variation ledger + lightweight baseline organs and implemented them after owner authorization. This is human-triggered dogfood, not proof that semantic adoption alone causes spontaneous operationalization.
+A fresh one-shot v0.3.13 adopter review correctly reconstructed the existing Compiled Local Projection contract from the deeper self-positioning file but flagged that Minimum integration did not explicitly tell adopters to preserve the smallest reusable Host facts that repeatedly change decisions. The review otherwise returned `ADOPT_WITH_NONBLOCKING_CLARIFICATIONS` and did not infer mandatory seven-tool installation, continuous self-editing, a universal metric, or universal runtime.
 
 ## Evolution contract
 
-Current now makes **how to evolve** a first-class operational path:
+Current keeps the v0.3.13 **how to evolve** path unchanged:
 
 ```text
 signal / idea / correction / failure / success
--> durable inbox / candidate store
+-> durable inbox / candidate store when decision-relevant
 -> latent candidate by default
 -> decide whether a trial is worth running
 -> decision-relevant before-state + recovery/authority boundary
--> bounded expression / real task / Variation Space
+-> bounded expression / real task / Variation Space when applicable
 -> observe outcomes
 -> local selection
 -> integrate / retain / adapt / dormant / reject / archive
@@ -60,6 +59,14 @@ LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
 ```
 
 Inspect which applicable boundaries are already covered by Host-native mechanisms. For a real uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are valid outcomes. Consequential installation still requires actual authority.
+
+When Host facts repeatedly change decisions, preserve the smallest reusable **Local Projection** needed for those decisions. Reuse existing durable Host-native storage when possible. The Local Projection is an observed-reality cache, not a copied ENA baseline, authority source, or mandatory database.
+
+```text
+LOCAL_PROJECTION != SHADOW_ENA_BASELINE
+LOCAL_PROJECTION != NEW_AUTHORITY_SOURCE
+LOCAL_PROJECTION != MANDATORY_DATABASE
+```
 
 ## Adoption contract
 
@@ -97,7 +104,7 @@ Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
 
 ## Active field stream
 
-Issue `#208` follows Current, not one release number. F-208-01 through F-208-08 are the accumulated field findings; new bounded defects should create the smallest justified successor instead of remaining knowingly unfixed.
+Issue `#208` follows Current, not one release number. F-208-01 through F-208-09 are the accumulated field findings; new bounded defects should create the smallest justified successor instead of remaining knowingly unfixed.
 
 Recent reality contact also includes reconciled DSH PR `#220`: the tested high-reasoning salience probes were non-discriminating and do not justify a new primary or a claim that the Runtime Kernel is useful/useless.
 
@@ -109,4 +116,4 @@ The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No acti
 
 - GitHub Issue `#208` — version-neutral Current field validation.
 - Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
-- Downstream Field Guide / Workbench contributions remain subject to their own evidence boundaries; owner-triggered DSH operationalization is useful dogfood, not independent universal proof.
+- Downstream Field Guide / Workbench contributions remain subject to their own evidence boundaries; owner-triggered DSH operationalization and one-shot adopter review are useful reality contact, not independent universal proof.
