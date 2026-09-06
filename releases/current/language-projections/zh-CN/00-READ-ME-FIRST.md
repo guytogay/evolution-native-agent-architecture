@@ -47,6 +47,7 @@ MACHINE_GUARD != EXTERNAL_TRUTH
 TRANSLATED != BEHAVIORALLY_EQUIVALENT
 LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
 LOCAL_PROJECTION != SHADOW_ENA_BASELINE
+本地投影 != 影子 ENA 基线
 ```
 
 稳定语义面默认不复制可变的 Current 数值版本。需要确认当前版本时，以 `../../CURRENT-BASELINE.yaml` 与本目录 `projection-manifest.yaml` 为准；真实历史 provenance 仍可保留其来源版本。
