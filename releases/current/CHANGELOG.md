@@ -1,6 +1,15 @@
 # ENA Changelog
 
-## v0.3.10 — CURRENT / FIELD_VALIDATION
+## v0.3.11 — CURRENT / FIELD_VALIDATION
+
+R0 share-readiness successor driven by Current field stream #208.
+
+- closed F-208-04 by removing obsolete `v0.3.7` scoping from the Current-wide contribution rule;
+- made stable adopter/bootstrap/runtime and core field/release guidance version-neutral by default, leaving numeric Current identity to designated live identity surfaces;
+- added an explicit share-ready rule: known bounded defects with an available fix should not remain in recommended Current merely because the predecessor is immutable;
+- kept the 38-ID Constitution and core runtime/evolution behavior unchanged.
+
+## v0.3.10 — PREDECESSOR / RELEASED / FIELD_VALIDATION OCCURRENCE TRUTH
 
 R0 publication-coherence successor driven by Current field stream #208.
 
