@@ -1,4 +1,4 @@
-# 9. 进化代谢与进化生态 — v0.3.8
+# 9. 进化代谢与进化生态 — Current
 
 状态：`CURRENT / FIELD_VALIDATION`
 

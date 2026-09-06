@@ -1,4 +1,4 @@
-# Operational Architecture — v0.3.8 Current
+# Operational Architecture — Current
 
 Status: `CURRENT / COLD_HOW_LIBRARY`
 

@@ -20,7 +20,7 @@ routes:
   OA-MEM-01:
     what: memory metabolism
     primary:
-    - HOW-MAP.md#oa-mem-01--memory-metabolism
+    - HOW-MAP.md
     - general retrieval reference via OA-RET-01
     host_patterns:
     - compile-and-archive
@@ -40,7 +40,7 @@ routes:
   OA-PROJ-01:
     what: projection and compaction
     primary:
-    - HOW-MAP.md#oa-proj-01--projection--compaction--lineage-survival
+    - HOW-MAP.md
     composition:
     - OA-RET-01
     host_patterns:
@@ -82,7 +82,7 @@ routes:
   OA-COM-01:
     what: commitment and settlement
     primary:
-    - HOW-MAP.md#oa-com-01--commitment--settlement
+    - HOW-MAP.md
     composition:
     - OA-AUTH-01
     - OA-EFF-01
@@ -179,4 +179,3 @@ routes:
     - ../language-projections/zh-CN/
     - ../references/REFERENCE-MANIFEST.yaml
     evidence: LANGUAGE_BEHAVIORAL_EQUIVALENCE_OPEN
-release: v0.3.7

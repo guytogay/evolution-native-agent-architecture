@@ -87,6 +87,7 @@ jobs:
               'RUNTIME-ADOPTION-KERNEL.md',
               'LITE-ADOPTION-INSTRUCTION.md',
               'CONTRIBUTION-PROTOCOL.md',
+              '06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
               '07-ADOPTION-AND-FIELD-VALIDATION.md',
               '08-RELEASE-DISCIPLINE.md',
               '09-EVOLUTION-METABOLISM.md',
@@ -145,20 +146,30 @@ jobs:
               'operational/procedures/CONTROL-RETIREMENT.md',
               'operational/patterns/EVOLUTION-COMMONS.md',
               'operational/patterns/HOST-MAPPINGS.md',
+              '09-EVOLUTION-METABOLISM.md',
           ]
           stale = ['v0.3.7 Current', 'Candidate Assembly Gate', 'CURRENT_CHANGE = NO']
+          zh_numeric = re.compile(r'v0\.3\.\d+')
           for rel in cold:
               text = (z/rel).read_text(encoding='utf-8')
               found = [s for s in stale if s in text]
               assert not found, (rel, found)
+              hit = zh_numeric.search(text)
+              assert not hit, (rel, hit.group(0) if hit else None)
 
-          en_cold = ['releases/current/CONTRIBUTION-PROTOCOL.md', 'releases/current/references/general/wait-state/README.md', 'releases/current/references/general/authority-lease/README.md', 'releases/current/references/general/effect-lifecycle/README.md', 'releases/current/references/general/recovery-adapter/README.md', 'releases/current/references/advanced/evidence-envelope/README.md', 'releases/current/references/general/retrieval-obligation/README.md', 'releases/current/references/advanced/contested-authorship/README.md', 'releases/current/references/advanced/evidence-dependency-map/README.md', 'releases/current/operational/procedures/STANDING-INPUT.md', 'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md', 'releases/current/operational/patterns/HOST-MAPPINGS.md', 'releases/current/operational/patterns/EVOLUTION-COMMONS.md', 'releases/current/operational/procedures/CONTROL-RETIREMENT.md', 'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md', 'releases/current/SEMANTIC-GLOSSARY.yaml', 'releases/current/references/REFERENCE-MANIFEST.yaml', 'releases/current/schemas/evolution-record.v2.schema.json', 'releases/current/language-projections/semantic-fixtures.v2.yaml', 'releases/current/templates/field-experience.v2.yaml', 'releases/current/04-CAPABILITY-MAP.md']
+          en_cold = ['releases/current/CONTRIBUTION-PROTOCOL.md', 'releases/current/references/general/wait-state/README.md', 'releases/current/references/general/authority-lease/README.md', 'releases/current/references/general/effect-lifecycle/README.md', 'releases/current/references/general/recovery-adapter/README.md', 'releases/current/references/advanced/evidence-envelope/README.md', 'releases/current/references/general/retrieval-obligation/README.md', 'releases/current/references/advanced/contested-authorship/README.md', 'releases/current/references/advanced/evidence-dependency-map/README.md', 'releases/current/operational/procedures/STANDING-INPUT.md', 'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md', 'releases/current/operational/patterns/HOST-MAPPINGS.md', 'releases/current/operational/patterns/EVOLUTION-COMMONS.md', 'releases/current/operational/procedures/CONTROL-RETIREMENT.md', 'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md', 'releases/current/SEMANTIC-GLOSSARY.yaml', 'releases/current/references/REFERENCE-MANIFEST.yaml', 'releases/current/schemas/evolution-record.v2.schema.json', 'releases/current/language-projections/semantic-fixtures.v2.yaml', 'releases/current/templates/field-experience.v2.yaml', 'releases/current/04-CAPABILITY-MAP.md', 'releases/current/operational/README.md', 'releases/current/operational/CUE-INDEX.md', 'releases/current/operational/HOW-MAP.md', 'releases/current/operational/REFERENCE-INDEX.yaml', 'releases/current/ENFORCEMENT-MAP.yaml', 'releases/current/06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md', 'releases/current/language-projections/zh-CN/09-EVOLUTION-METABOLISM.md']
           version_bound_current = re.compile(r'v0\.3\.\d+\s+Current', re.I)
           for rel in en_cold:
               text = Path(rel).read_text(encoding='utf-8')
               hit = version_bound_current.search(text)
               assert not hit, (rel, hit.group(0) if hit else None)
           assert 'v0.3.6 candidate' not in (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8')
+          enf = yaml.safe_load((r/'ENFORCEMENT-MAP.yaml').read_text(encoding='utf-8'))
+          assert enf['status'] == 'CURRENT', enf.get('status')
+          assert 'This candidate' not in (r/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md').read_text(encoding='utf-8')
+          ri_text = (r/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8')
+          assert 'release: v0.3.' not in ri_text
+          assert 'HOW-MAP.md#' not in ri_text
 
           print('ROOT_ZH_RELEASE_IDENTITY_PARITY_PASS')
           PY

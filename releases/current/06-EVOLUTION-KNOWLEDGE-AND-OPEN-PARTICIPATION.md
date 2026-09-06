@@ -1,4 +1,4 @@
-# 6. Evolution, Knowledge, Migration, and Open Participation — v0.3.7
+# 6. Evolution, Knowledge, Migration, and Open Participation — Current
 
 Status: `CURRENT / FIELD_VALIDATION`.
 
@@ -31,7 +31,7 @@ Separate:
 
 None of those arrows is automatic.
 
-This candidate adds concrete substrate/protocol patterns at:
+Current adds concrete substrate/protocol patterns at:
 
 `operational/patterns/EVOLUTION-COMMONS.md`
 
@@ -63,7 +63,7 @@ Where material, preserve source change/hypothesis, environment, experiments/eval
 
 `POPULAR != UNIVERSALLY_VALID`
 
-This candidate retains `adaptation-packet.v2` as the portable represented source-context carrier and provides `tools/ena_evolve_v2.py` for narrow packet-v2 export/import. Packet transfer still does not authenticate the source or create receiver-local selection.
+Current retains `adaptation-packet.v2` as the portable represented source-context carrier and provides `tools/ena_evolve_v2.py` for narrow packet-v2 export/import. Packet transfer still does not authenticate the source or create receiver-local selection.
 
 ## Composition as search space
 
