@@ -59,7 +59,7 @@ v0.3.13 is an R1 operational successor to v0.3.12, driven by adopter reality con
 
 It closes two related field gaps:
 
-- `F-208-07`: in real DSH use, semantic adoption did not spontaneously cause the Agent to inspect its Host for cheap practical implementations; the owner had to explicitly request operationalization before a rescue/canary/ledger/baseline self-maintenance kit emerged;
+- `F-208-07`: the owner first questioned whether ENA lacked support for helping the Agent itself evolve. That question caused a DSH Agent to inspect its real LXC Host; the Agent then proposed rescue/canary + durable variation ledger + lightweight baseline organs and implemented them after owner authorization. This shows that semantic adoption had not made local operationalization sufficiently salient; it does **not** mean the owner designed the organs or that every Host needs the same kit.
 - `F-208-08`: multiple Agent/adopter feedback, confirmed by Current inspection, showed that ENA named evolution capabilities and lifecycle semantics more strongly than it explained **how an Agent should actually keep evolving**. Capability names such as Evolution Inbox / signal capture / Variation Space / outcome-based selection existed, while the English Current HOW surface compressed `OA-EVO-01` to a short summary and `ena_evolve_v2.py` remained a narrow latent-record/migration helper rather than a full lifecycle engine.
 
 The correction adds:
