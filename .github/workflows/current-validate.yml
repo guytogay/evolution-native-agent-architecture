@@ -33,7 +33,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check PyYAML jsonschema
 
-      - name: Validate Current identity, hot payload and R1 evolution-loop contract
+      - name: Validate Current identity, hot payload and R0 Local Projection adoption contract
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -42,16 +42,17 @@ jobs:
           root = Path('releases/current')
           doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
 
-          assert doc['ena_version'] == 'v0.3.13'
+          assert doc['ena_version'] == 'v0.3.14'
           assert doc['adoption_status'] == 'CURRENT'
           assert doc['maturity'] == 'FIELD_VALIDATION'
           assert doc['current'] is True and doc['released'] is True
-          assert doc['release_lane'] == 'R1_OPERATIONAL_EVOLUTION_LOOP'
+          assert doc['release_lane'] == 'R0_ADOPTION_SURFACE_LOCAL_PROJECTION_CUE'
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
           assert doc['release_identity']['known_bounded_defect_must_be_fixed_before_recommending_current'] is True
           assert 'F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION' in doc['lineage']['field_findings']
           assert 'F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP' in doc['lineage']['field_findings']
+          assert 'F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH' in doc['lineage']['field_findings']
 
           for rel in doc['core_files']:
               assert (root/rel).is_file(), rel
@@ -67,6 +68,11 @@ jobs:
           assert r['hot_kernel_should_load_full_how_library'] is False
           assert a['bounded_local_operationalization_pass_after_adoption_or_host_change'] is True
           assert a['local_operationalization_may_install_every_control'] is False
+          assert a['local_projection_persistence_cue_explicit'] is True
+          assert a['local_projection_is_shadow_ena_baseline'] is False
+          assert a['local_projection_is_authority_source'] is False
+          assert r['local_projection_persistence_cue_explicit'] is True
+          assert r['local_projection_is_shadow_ena_baseline'] is False
 
           loop = doc['evolution_loop']
           assert loop['forced_continuous_self_editing'] is False
@@ -79,8 +85,9 @@ jobs:
           assert doc['operational_architecture']['minimum_evolution_loop'] == 'operational/procedures/EVOLUTION-LOOP.md'
 
           root_readme = Path('README.md').read_text(encoding='utf-8')
-          assert 'Current is **v0.3.13 / FIELD_VALIDATION**.' in root_readme
+          assert 'Current is **v0.3.14 / FIELD_VALIDATION**.' in root_readme
           assert 'operational/procedures/EVOLUTION-LOOP.md' in root_readme
+          assert 'LOCAL_PROJECTION != SHADOW_ENA_BASELINE' in root_readme
           assert 'EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP' in root_readme
 
           meta = yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
@@ -94,6 +101,8 @@ jobs:
           kernel = (root/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
           for text in (bootstrap, quick, kernel):
               assert 'operationalization' in text.lower()
+              assert 'Local Projection' in text
+              assert 'LOCAL_PROJECTION != SHADOW_ENA_BASELINE' in text
           assert 'how do I improve/evolve myself' in kernel
           assert 'LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL' in kernel
           assert 'EVOLUTION-LOOP.md' in kernel
@@ -120,10 +129,10 @@ jobs:
           assert 'material defect in v0.3.7' not in contribution
           assert 'material defect in Current' in contribution
 
-          print('CURRENT_R1_EVOLUTION_IDENTITY_PASS', doc['ena_version'])
+          print('CURRENT_R0_LOCAL_PROJECTION_IDENTITY_PASS', doc['ena_version'])
           PY
 
-      - name: Validate evolution-loop routing and bilingual projection
+      - name: Validate evolution-loop routing, Local Projection cue and bilingual projection
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -134,12 +143,15 @@ jobs:
           baseline = yaml.safe_load((r/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
           manifest = yaml.safe_load((z/'projection-manifest.yaml').read_text(encoding='utf-8'))
 
-          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.13'
-          assert manifest['release_identity']['current_version'] == 'v0.3.13'
+          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.14'
+          assert manifest['release_identity']['current_version'] == 'v0.3.14'
           assert manifest['release_identity']['current_status'] == 'CURRENT'
           assert manifest['runtime_adoption']['how_to_evolve_runtime_cue_present'] is True
           assert manifest['runtime_adoption']['local_operationalization_cue_present'] is True
+          assert manifest['runtime_adoption']['local_projection_persistence_cue_present'] is True
+          assert manifest['runtime_adoption']['local_projection_is_shadow_ena_baseline'] is False
           assert manifest['validation']['evolution_loop_projection_present'] is True
+          assert manifest['validation']['local_projection_persistence_cue_projected'] is True
           assert 'operational/procedures/EVOLUTION-LOOP.md' in manifest['coverage']['version_neutral_semantic_projection']
 
           en_loop = (r/'operational/procedures/EVOLUTION-LOOP.md').read_text(encoding='utf-8')
@@ -149,6 +161,7 @@ jobs:
           ref = yaml.safe_load((r/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
           kernel = (r/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
           zkernel = (z/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
+          z00 = (z/'00-READ-ME-FIRST.md').read_text(encoding='utf-8')
           zcue = (z/'operational/CUE-INDEX.md').read_text(encoding='utf-8')
           zhow = (z/'operational/HOW-MAP.md').read_text(encoding='utf-8')
           metabolism = (r/'09-EVOLUTION-METABOLISM.md').read_text(encoding='utf-8')
@@ -174,14 +187,17 @@ jobs:
           assert 'EVOLUTION-LOOP.md' in zhow
           assert 'EVOLUTION-LOOP.md' in zmetabolism
           assert '持续自我修改' in zh_loop or '持续自改' in zh_loop
+          assert '本地投影' in z00
+          assert '本地投影' in zkernel
+          assert '本地投影 != 影子 ENA 基线' in z00
+          assert '本地投影 != 影子 ENA 基线' in zkernel
 
-          z00 = (z/'00-READ-ME-FIRST.md').read_text(encoding='utf-8')
           assert 'CURRENT / FIELD_VALIDATION' in z00
           assert '默认唯一常驻' in zkernel
           assert not re.search(r'v0\.3\.\d+', z00)
           assert not re.search(r'v0\.3\.\d+', zkernel)
 
-          print('EVOLUTION_LOOP_ROUTING_BILINGUAL_PASS')
+          print('EVOLUTION_LOOP_LOCAL_PROJECTION_BILINGUAL_PASS')
           PY
 
       - name: Validate operational identity, templates and cold-surface version discipline
@@ -303,7 +319,7 @@ jobs:
           print('ADOPTION_CONFORMANCE_PASS', len(fx['cases']))
           PY
 
-      - name: Verify R1 protected semantic and machine bytes
+      - name: Verify protected semantic and machine bytes
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -328,7 +344,7 @@ jobs:
           schema_old = json.loads((c/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
           schema_now['title'] = schema_old['title']
           assert schema_now == schema_old
-          print('R1_PROTECTED_SEMANTIC_MACHINE_PASS', len(protected), len(cap_now))
+          print('PROTECTED_SEMANTIC_MACHINE_PASS', len(protected), len(cap_now))
           PY
 
       - name: Reject generated bytecode or dirty validation output
