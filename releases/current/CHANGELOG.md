@@ -7,6 +7,7 @@ R0 adoption/identity/routing-coherence successor driven by external DSH contribu
 - closed F-208-05 by removing stale v0.3.8/v0.3.7 active identity from Current operational surfaces and making `ENFORCEMENT-MAP.yaml` self-identify as `CURRENT`;
 - expanded recurrence coverage to operational surfaces while preserving the distinction between active identity and genuine historical provenance;
 - removed the stale `v0.3.7` semantic-identity default from `templates/field-experience.v2.yaml` and neutralized the legacy v1 guidance line;
+- replaced stale candidate-lifecycle deferral wording for `commitment-settlement-recovered` with a Current truth: research-only, not bundled, and eligible for future bundling only if a real adoption need plus evidence earns it; historical Candidate Assembly Gate evidence remains preserved explicitly as provenance;
 - closed F-208-06 by removing dead `HOW-MAP.md#...` fragments from `REFERENCE-INDEX.yaml` rather than publishing links GitHub cannot resolve;
 - preserved original contribution commit `34f7adfeaebaa99defe2b0030f3e0b2067c9d72f` (`LXC DSH <dsh@localhost>`) in release lineage; maintainer promotion remains a separate authority step;
 - kept the 38-ID Constitution and core runtime/evolution machine semantics unchanged.
