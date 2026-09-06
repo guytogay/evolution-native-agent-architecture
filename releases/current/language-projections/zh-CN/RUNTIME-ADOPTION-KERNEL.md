@@ -50,7 +50,9 @@ Cue Index、HOW Map、Enforcement Map、fixtures、Constitution、references 都
 
 ## Adoption / Host 变化后的本地落地检查
 
-初次采用 ENA 后，或 Host/runtime 发生实质变化后，做一次有边界的本地 operationalization pass：检查哪些已经适用的边界已经由 Host-native mechanism 保护；若存在真实缺口，只提出能实质改变/保护当前决策的最小、低成本、可逆机制。不得超越真实 authority 自动安装或启动有后果的控制。`EXISTING`、`PROPOSE`、`NOT_REQUIRED`、`NOT_APPLICABLE` 都是合法结果；继续加机制已经不可能改善决策时就停止。
+初次采用 ENA 后，或 Host/runtime 发生实质变化后，做一次有边界的本地 operationalization pass。只有当某个边界的缺失、不确定或失效可能改变当前/反复出现的决策，或 authority/effect/recovery/evidence/长期进化边界时，才把它视为适用。先检查哪些边界已经由 Host-native mechanism 保护；若存在真实缺口，只提出能实质改变/保护当前决策的最小、低成本、可逆机制。不得超越真实 authority 自动安装或启动有后果的控制。`EXISTING`、`PROPOSE`、`NOT_REQUIRED`、`NOT_APPLICABLE` 都是合法结果；继续加机制已经不可能改善决策时就停止。
+
+Host/runtime 变化只有在它可能让已有本地事实失效或改变 effective loading/persistence、authority/effect、recovery、Variation Space、model/provider/route、language projection 等决策边界时才算“实质变化”。无关环境抖动不要求重跑。
 
 ```text
 语义采用 != 本地落地
