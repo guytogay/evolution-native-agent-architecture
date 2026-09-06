@@ -1,14 +1,14 @@
 # ENA v0.3.8-candidate.0 — Adoption-Surface Consolidation
 
-Status: **NOT_CURRENT / NOT_FROZEN / NOT_RELEASED**
+Status: **R0_FIELD_PATCH_ADOPTION_SURFACE / NOT_CURRENT / NOT_RELEASED**
 
-Released Current remains `v0.3.7 / CURRENT / FIELD_VALIDATION` under `../current/`.
+Released Current is still `v0.3.7 / CURRENT / FIELD_VALIDATION` until promotion. v0.3.7 is the rollback/history anchor, not a target to keep Current fixed on.
 
 ## Candidate thesis
 
-v0.3.8 does not exist to manufacture new Constitution law.
+v0.3.8 does not manufacture new Constitution law.
 
-It exists to test whether ENA can preserve its earned semantic protection while becoming easier to adopt, integrate, verify, and explain.
+It preserves the earned semantic protection while making ENA easier to adopt, integrate, verify, and explain.
 
 ```text
 v0.3.7 semantic + operational trunk
@@ -23,23 +23,24 @@ stronger cross-language hot-surface fidelity
 +
 conformance-fixture coverage of claimed guardrails
 =
-v0.3.8 candidate.0
+v0.3.8 R0 successor
 ```
 
-Primary field inputs include GitHub Issue #201 and an external usability/projection review that independently exposed the difference between research lineage and adopter payload.
+Primary field inputs include GitHub Issue #201 and adoption/usability evidence exposing the difference between research lineage and adopter payload.
 
 ## Product rule
 
 ```text
-RESEARCH LINEAGE != ADOPTION PAYLOAD
-SEMANTIC PRECISION != PRESENTATION VERBOSITY
-SEMANTIC COMPLETENESS != RUNTIME CONTEXT COMPLETENESS
-SOFT GUIDANCE != HARD ENFORCEMENT
+RESEARCH_LINEAGE != ADOPTION_PAYLOAD
+SEMANTIC_PRECISION != PRESENTATION_VERBOSITY
+SEMANTIC_COMPLETENESS != RUNTIME_CONTEXT_COMPLETENESS
+SOFT_GUIDANCE != HARD_ENFORCEMENT
+IMMUTABLE_VERSION != IMMOBILE_CURRENT
 ```
 
 Research, adjudication, negative results, and historical lineage remain durable. They are not default runtime payload.
 
-## Minimum evaluation path
+## Minimum evaluation/adoption path
 
 ```text
 00-READ-ME-FIRST.md
@@ -63,19 +64,34 @@ No `research/` path is required for ordinary adoption.
 6. keep private implementation names optional where Host-native equivalents preserve the property;
 7. preserve v0.3.7 positive tool/routing behavior unless evidence requires change.
 
+## Release lane
+
+This successor is classified:
+
+```text
+LANE = R0_FIELD_PATCH_ADOPTION_SURFACE
+CORE_CONSTITUTION_DELTA = NONE
+CORE_CONTRACT_SEMANTIC_DELTA = NONE_DEMONSTRATED
+ROLLBACK_ANCHOR = v0.3.7
+```
+
+Its Main Gate has passed with candidate-specific regression checks. CodeQL is part of the ordinary machine gate set.
+
+Under the rapid Current release discipline, **generic fresh cleanroom validation is not a mandatory pre-release gate for R0**. The remaining path is exact release projection/readback/promotion, followed by field validation. If reality exposes a material defect, cut a rapid successor rather than holding Current back indefinitely.
+
+Metamemory research is independent and does not block this release.
+
 ## What this candidate does not claim
 
-- It is not Current.
-- It is not frozen.
-- It is not released.
+- It is not Current until explicit promotion completes.
 - It does not add Constitution IDs merely because a successor version exists.
 - It does not claim every ENA semantic rule can or should be hard-coded.
 - It does not claim fixtures prove future model behavior.
 - It does not make GitHub, one model, one language, or one bundled reference implementation sovereign.
 
-## Current known work
+## Scope
 
-Candidate.0 is initially bounded to:
+Candidate.0 is bounded to:
 
 - Issue #201 narration reconciliation;
 - zh-CN hot-surface fidelity repair;
@@ -83,16 +99,19 @@ Candidate.0 is initially bounded to:
 - semantic-fixture expansion;
 - product-facing Quickstart;
 - enforcement classification;
-- targeted adoption-surface consistency checks.
+- targeted adoption-surface consistency checks;
+- risk-tiered release-discipline correction.
 
-The full scope/stop rule is recorded at:
+Scope record:
 
 `../../collaboration/reconciliation/2026-09-06-v038-adoption-surface-successor-scope.md`
 
 ## Release discipline
 
-Material candidate bytes remain mutable until an explicit freeze. After freeze, a material correction requires successor identity rather than silent rewriting.
+Version identity remains exact: once v0.3.8 is released, corrections create v0.3.9 rather than silently mutating v0.3.8.
 
-Candidate validity must come from reviewable content + executable evidence + external/independent contact where required, not from version narration.
+`08-RELEASE-DISCIPLINE.md` defines the R0/R1/R2 release lanes.
 
 > **v0.3.8 should require the adopter to know less while preserving or improving the protection they actually receive.**
+>
+> **Preserve old releases; move Current quickly.**
