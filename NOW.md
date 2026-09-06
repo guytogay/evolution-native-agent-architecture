@@ -48,35 +48,48 @@ Issue `#208` follows **Current**, not a release number.
 
 High-value evidence includes fresh-adopter entry economy, real single-hot-payload behavior, cue -> cold HOW retrieval, enforcement honesty, false-BLOCK avoidance, Host-native mapping, bilingual decision behavior, and unexpected decision-bearing defects.
 
-## Research
+A post-Metamemory Current audit found another bounded product-surface defect:
 
-The broad evolutionary-memory divergence campaign is closed behind explicit dispositions except for one already-preregistered experiment.
+- `F-208-03` — `releases/current/04-CAPABILITY-MAP.md` still contains active-sounding `v0.3.6 candidate` narration inside v0.3.9 Current.
+
+This is independent of the Metamemory scientific result and should be handled through the smallest useful R0 successor, not by mutating v0.3.9 in place.
+
+## Research status
+
+The current evolutionary-memory mechanism-discrimination campaign is **CLOSED**.
 
 - closure dispositions: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml`
-- closure audit: `research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md`
+- broad-track closure audit: `research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md`
+- final primary adjudication: `research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md`
 
-### Active experiment
+### Metamemory Update Policy v1 — complete
 
-**Metamemory Update Policy v1** remains preregistered; primary collection has not started.
+Four fresh Temporary Chat initial runs were collected and mechanically adjudicated:
 
-Initial sample: four one-shot fresh Temporary Chats. Maximum eight only under the frozen all-arm replication trigger. No selective extra runs.
+```text
+S0: M2 2/18,  M4 8, M5 0, M6 0
+G1: M2 8/18,  M4 0, M5 8, M6 2
+C1: M2 10/18, M4 0, M5 8, M6 0
+C2: M2 10/18, M4 4, M5 4, M6 0
+```
 
-Freeze binding was reverified on 2026-09-06: all four treatment blobs on `main` still match the frozen launch bundle.
+All four runs had `M1=5/5` and zero state/transfer incompatibilities. The frozen replication trigger did **not** fire, so no second replicate is authorized.
 
-Manager-side post-capture scorer:
+Disposition:
 
-`research/field-validation/metamemory-update-policy-v1/manager/score_primary_bundle.py`
+```text
+MECHANISM_ACTIVE_BUT_POLICY_OPTIMUM_UNRESOLVED
+FIELD_UNRESOLVED_FOR_DURABLE_SELF_MODIFICATION
+NO_CURRENT_SEMANTIC_CHANGE
+```
 
-Its synthetic selftest reproduces the preregistered mechanical M1-M6 expectations and exercises all three frozen replication-trigger paths. The scorer contains hidden expected states/oracle material and **must never be exposed to a primary worker before first-output capture**.
+The tested Host/task supports that update policy, context scope, and reversal inertia can produce distinct downstream error profiles over an identical object-level ledger. It does not establish C1/C2 or threshold `3` as universal doctrine.
 
-Exact research next action:
-
-`COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY`
-
-Metamemory is the only currently planned fresh-session primary and does not block Current product successors.
+M7 confidence was non-discriminative: every emitted answer used confidence `100`, including correct, incorrect, justified-insufficient, and unjustified-insufficient responses.
 
 ## Closed campaigns
 
+- evolutionary-memory mechanism-discrimination: closed after formal Metamemory adjudication; reopen only for a genuinely new non-derivable discriminator or concrete field failure.
 - #89–#94 reconstruction campaign: closed as reconstruction complete; unresolved Host/longitudinal questions moved to field evidence.
 - #153 simplification/reality-first migration: closed after product/release-control changes landed.
 - #150 v0.3.7 field stream: closed predecessor occurrence truth.
@@ -84,6 +97,7 @@ Metamemory is the only currently planned fresh-session primary and does not bloc
 
 ```text
 RECONSTRUCTION_COMPLETE != REALITY_COMPLETE
+RESEARCH_CAMPAIGN_CLOSED != FIELD_LEARNING_STOPPED
 OPEN_FIELD_QUESTION != OPEN_RECONSTRUCTION_CAMPAIGN
 ```
 
@@ -100,5 +114,6 @@ CONTROL_MUST_PAY_RENT
 
 ## Open work
 
-- GitHub Issue `#208` — Current field validation.
-- Metamemory Update Policy v1 — collect the four frozen initial primary runs, score/adjudicate mechanically, then close the mechanism-discrimination campaign unless the frozen all-arm replication trigger fires or a genuinely new discriminator appears.
+- GitHub Issue `#208` — version-neutral Current field validation.
+- `F-208-03` — remove stale active release narration through the smallest R0 successor and extend the recurrence gate so the defect class does not simply move to another cold Current surface.
+- Continue reality contact; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
