@@ -1,6 +1,6 @@
-schema_version: '3.7'
+schema_version: '3.8'
 baseline_kind: CURRENT_RELEASE_IDENTITY
-ena_version: v0.3.12
+ena_version: v0.3.13
 adoption_status: CURRENT
 maturity: FIELD_VALIDATION
 current: true
@@ -8,18 +8,13 @@ released: true
 complete_adoption_baseline: true
 requires_older_release_composition: false
 package_scope: ALL_FILES_UNDER_RELEASES_CURRENT
-release_lane: R0_FIELD_PATCH_EXTERNAL_CONTRIBUTION_COHERENCE
+release_lane: R0_ADOPTION_SURFACE_LOCAL_OPERATIONALIZATION
 release_method: RAPID_CURRENT_SUCCESSION
 lineage:
-  predecessor_current_version: v0.3.11
-  predecessor_current_tree: a299be149561321ce4e6d6ce71c405712a23b170
+  predecessor_current_version: v0.3.12
+  predecessor_current_tree: 5dbe94cbf8a9c6fa420ad1bf9c3fc7a1c2d20504
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
-  source_release_branch: release/v0.3.12
-  source_contribution_pr: 216
-  source_contribution_commit: 34f7adfeaebaa99defe2b0030f3e0b2067c9d72f
-  source_issues:
-  - 217
-  - 218
+  source_release_branch: release/v0.3.13
   primary_field_stream: 208
   field_findings:
   - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
@@ -28,15 +23,13 @@ lineage:
   - F-208-04_CONTRIBUTION_RULE_OBSOLETE_VERSION_SCOPE
   - F-208-05_CURRENT_OPERATIONAL_IDENTITY_AND_GATE_COVERAGE_GAP
   - F-208-06_REFERENCE_INDEX_DEAD_HOW_MAP_ANCHORS
+  - F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION
+  field_occurrence: OWNER_EXPLICITLY_PROMPTED_DSH_TO_OPERATIONALIZE_ENA_BEFORE_SELFKIT_EMERGED
 release_thesis:
   new_constitution_rule_required: 0_DEMONSTRATED
   new_core_semantic_delta_required: 0_DEMONSTRATED
-  primary_delta: EXTERNAL_CONTRIBUTION_OPERATIONAL_IDENTITY_ROUTING_AND_TEMPLATE_COHERENCE
-  summary: Preserve v0.3.11 semantic and machine behavior while incorporating the verified
-    external DSH contribution that removes stale candidate-era identity from active Current
-    operational surfaces, repairs dead HOW-MAP fragment routes, removes a stale semantic-identity
-    default from the active field template, and hardens recurrence checks without erasing genuine
-    historical provenance.
+  primary_delta: ADOPTION_TIME_BOUNDED_LOCAL_OPERATIONALIZATION_CUE
+  summary: Preserve v0.3.12 Constitution and core machine/evolution behavior while closing an adoption-surface gap observed in real DSH use. Semantic adoption did not itself cause the Agent to inspect its Host and turn applicable ENA boundaries into small local mechanisms; the owner had to explicitly request operationalization. Current now asks for one bounded local operationalization pass after adoption or material Host/runtime change, while explicitly rejecting install-every-control behavior and preserving real authority boundaries.
 constitution:
   inherited_stable_ids: 38
   new_ids_added: 0
@@ -65,8 +58,15 @@ adoption_surface:
   research_required_for_ordinary_adoption: false
   full_how_library_should_be_permanently_loaded: false
   host_native_equivalents_allowed: true
+  bounded_local_operationalization_pass_after_adoption_or_host_change: true
+  local_operationalization_may_install_every_control: false
+  local_operationalization_valid_outcomes:
+  - EXISTING
+  - PROPOSE
+  - NOT_REQUIRED
+  - NOT_APPLICABLE
 operational_architecture:
-  inherited_from: v0.3.11
+  inherited_from: v0.3.12
   state: CURRENT_FIELD_VALIDATION
   route_structure_materially_rewritten: false
   core_machine_behavior_materially_rewritten: false
@@ -113,7 +113,8 @@ field_validation:
 accepted_residuals:
 - Natural fresh-session cue salience and bilingual behavioral equivalence remain field evidence.
 - External mandate, receipt, recovery, provenance and other outside-world facts are not proved by package prose or schema validation.
-- R0 release admission does not claim universal Host fitness; v0.3.11 remains recoverable predecessor occurrence truth.
+- R0 release admission does not claim universal Host fitness; v0.3.12 remains recoverable predecessor occurrence truth.
+- The local operationalization cue does not prove that an Agent will naturally identify the right Host mechanism, nor that any particular self-maintenance kit is universally fit.
 - Metamemory Update Policy v1 completed its frozen primary with no replication trigger; its result is research evidence, not a mandatory Current trust-update threshold.
 - Historical provenance may name predecessor versions; version-neutral semantic/adoption rules apply to active release/adoption narration, not occurrence truth.
 - File-level HOW-MAP routing is valid but less precise than future stable deep-linkable nodes; no false deep anchor is published in Current.
@@ -126,6 +127,7 @@ evidence_boundaries:
 - SOURCE_SUCCESS_NE_RECEIVER_LOCAL_PROOF
 - RELEASED_NE_UNIVERSALLY_VALIDATED
 - AVAILABLE_RESOURCE_NE_DEFAULT_HOT_PAYLOAD
+- SEMANTIC_ADOPTION_NE_LOCAL_OPERATIONALIZATION
 invariants:
 - IMMUTABLE_VERSION_NE_IMMOBILE_CURRENT
 - INHERITED_38_CONSTITUTION_IDS_REMAIN_STABLE
@@ -142,6 +144,8 @@ invariants:
 - COLD_SEMANTIC_SURFACE_NE_RELEASE_ID_LABEL_MAINTENANCE_BURDEN
 - FIELD_VALIDATION_NE_KNOWN_DEFECT_TOLERANCE
 - CONTRIBUTOR_NE_PROMOTION_AUTHORITY
+- SEMANTIC_ADOPTION_NE_LOCAL_OPERATIONALIZATION
+- LOCAL_OPERATIONALIZATION_NE_INSTALL_EVERY_CONTROL
 profiles:
 - LITE
 - STANDARD
@@ -156,6 +160,8 @@ runtime_adoption:
   cue_index: operational/CUE-INDEX.md
   how_map: operational/HOW-MAP.md
   hot_kernel_should_load_full_how_library: false
+  bounded_local_operationalization_pass_after_adoption_or_host_change: true
+  local_operationalization_may_install_every_control: false
 core_files:
 - README.md
 - 00-READ-ME-FIRST.md
