@@ -1,6 +1,15 @@
 # ENA v0.3.12 Runtime Kernel Salience Observation — DSH LXC — 2026-09-06
 
-Status: `FIELD_OBSERVATION / NOT_CURRENT / NO_SEMANTIC_CHANGE_PROPOSED`
+Status: `FIELD_OBSERVATION / CONTRIBUTOR_REPORT / NOT_CURRENT / NO_SEMANTIC_CHANGE_PROPOSED`
+
+> **Maintainer reconciliation:** canonical interpretation is in
+> `2026-09-06-ena-v0312-kernel-salience-dsh-lxc/MAINTAINER-RECONCILIATION.md`.
+> The contributor report below is preserved as occurrence truth. Its exact `0/10` margin is not
+> promoted as a pre-registered score because the final table remapped T2 checkpoints relative to
+> the frozen rubric, the rubric specified treat-minus-control rather than treat-minus-neutral,
+> and control-T1 read the treat kernel during the run. The accepted narrower result is that the
+> chosen probes did not discriminate kernel residency on this high-reasoning model/setting; no
+> Current change or new primary follows.
 
 Current remains: `v0.3.12 / CURRENT / FIELD_VALIDATION`.
 
@@ -115,5 +124,6 @@ Representative quotes (see `transcripts/` for full outputs):
 - `rubric.md` — pre-written annotation rubric.
 - `transcripts/` — full final messages from the 6 runs (control-T1/T2, treat-T1/T2,
   neutral-T1/T2).
+- `MAINTAINER-RECONCILIATION.md` — canonical maintainer interpretation and narrowing.
 - Raw session records (machine-verified WRITTEN evidence) remain host-local:
   `~/.dsh/sessions/--home-dsh-ena-salience-lab-*--/`, `/home/dsh/ena-neutral-home/sessions/`.
