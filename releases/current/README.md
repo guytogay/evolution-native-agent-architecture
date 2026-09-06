@@ -1,10 +1,10 @@
-# ENA v0.3.9 — Current
+# ENA v0.3.10 — Current
 
 Status: **CURRENT / FIELD_VALIDATION**
 
-v0.3.9 is the current adopter-facing ENA release.
+v0.3.10 is the current adopter-facing ENA release.
 
-It is an R0 adoption-surface successor to v0.3.8. The 38-ID Constitution, core contracts, schemas, and key machine behavior remain inherited; the change is about reducing default context and preventing release/adoption narration from drifting across entry surfaces.
+It is an R0 publication-coherence successor to v0.3.9. The 38-ID Constitution and core behavior remain inherited; the change removes stale active release identity from stable cold surfaces and prevents that defect class from recurring.
 
 ## One default hot payload
 
@@ -27,27 +27,24 @@ AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 - Conformance evidence: semantic fixtures / executable validators
 - Deep semantics / lineage / research: retrieve only when decision-material
 
-## What changed from v0.3.8
+## What changed from v0.3.9
 
-Issue #208 exposed two R0 adoption defects:
+Issue #208 F-208-03 showed that Current still contained stable English cold surfaces labeled as `v0.3.7 Current` and one active-sounding `v0.3.6 candidate` narration.
 
-1. ordinary first-use wording still made several cold resources look like a default load list, despite the hot/cold design;
-2. root and zh-CN entry narration could remain on older release identities because those surfaces were outside the release-identity consistency gate.
+v0.3.10 therefore:
 
-v0.3.9 therefore:
+- makes stable English cold semantics version-neutral by default;
+- preserves source-version text only where it is genuine historical provenance;
+- removes the stale active candidate narration from the Capability Map;
+- extends Current validation to reject old `vX.Y.Z Current` labels on designated version-neutral cold surfaces;
+- refines R0 protected-byte checks so release-label metadata can change without silently changing capability IDs or evolution-record schema behavior.
 
-- makes the Runtime Kernel the singular default resident Agent payload;
-- turns the Agent adoption instruction into a disposable bootstrap launcher rather than a second semantic payload;
-- makes Cue Index, HOW, Enforcement Map, and fixtures explicitly on-demand;
-- repairs stale root and zh-CN adopter identity surfaces;
-- makes the Current validator cover root identity, zh-CN entry identity, and the one-hot-payload contract.
-
-No new Constitution IDs are introduced.
+No new Constitution IDs are introduced and no Metamemory fixture policy is promoted into doctrine.
 
 ## Evidence boundary
 
 Machine PASS proves only the exercised representation and regressions. Natural future-session salience, external authority/effect/recovery truth, universal Host fitness, and bilingual behavioral equivalence remain field evidence.
 
-A new bounded defect should create the smallest justified successor rather than silently rewrite v0.3.9.
+A new bounded defect should create the smallest justified successor rather than silently rewrite v0.3.10.
 
-> **One hot kernel; cold capability on demand; preserve old releases and move Current quickly.**
+> **Version the identity surface; keep stable cold semantics stable.**

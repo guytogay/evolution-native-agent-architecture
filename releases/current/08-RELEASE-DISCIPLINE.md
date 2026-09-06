@@ -1,4 +1,4 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.9
+# 8. Release and Canonical-Lineage Discipline — v0.3.10
 
 Status: `CURRENT / FIELD_VALIDATION / RELEASED`
 
@@ -18,7 +18,7 @@ Current should move when a better bounded successor has paid the evidence cost a
 - **R1 Operational behavior change** — targeted adversarial/independent evidence when decision-material.
 - **R2 Core semantic/high consequence** — heavy freeze + fresh independent falsification/reconciliation by default.
 
-v0.3.9 is an R0 successor to v0.3.8. It changes default-loading and adoption-identity projection, not Constitution IDs or core machine semantics.
+v0.3.10 is an R0 successor to v0.3.8. It changes default-loading and adoption-identity projection, not Constitution IDs or core machine semantics.
 
 ## R0 atomic transition
 

@@ -1,12 +1,12 @@
-# 7. Adoption and Field Validation — v0.3.9
+# 7. Adoption and Field Validation — v0.3.10
 
 Status: `CURRENT / FIELD_VALIDATION`
 
-v0.3.9 remains deliberately in reality contact. Field validation is a selection surface for the next successor, not a waiting room before Current.
+v0.3.10 remains deliberately in reality contact. Field validation is a selection surface for the next successor, not a waiting room before Current.
 
 Current continuous field stream: GitHub Issue `#208`.
 
-v0.3.9 responds to two bounded R0 findings from that stream:
+v0.3.10 responds to two bounded R0 findings from that stream:
 
 - `F-208-01`: v0.3.8 first-use wording still made several cold resources look like a default Agent load list;
 - `F-208-02`: root and zh-CN adopter-facing identity narration could remain stale outside the effective Current package checks.

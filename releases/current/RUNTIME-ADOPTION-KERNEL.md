@@ -1,4 +1,4 @@
-# ENA Runtime Adoption Kernel — v0.3.9
+# ENA Runtime Adoption Kernel — v0.3.10
 
 Status: `CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`
 

@@ -1,4 +1,4 @@
-# ENA 运行时采用核心 — v0.3.9
+# ENA 运行时采用核心 — v0.3.10
 
 状态：`CURRENT / FIELD_VALIDATION / DEFAULT_AGENT_HOT_PAYLOAD`
 

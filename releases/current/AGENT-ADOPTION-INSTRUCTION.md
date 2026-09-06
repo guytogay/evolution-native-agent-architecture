@@ -1,4 +1,4 @@
-# Agent Adoption Bootstrap — ENA v0.3.9
+# Agent Adoption Bootstrap — ENA v0.3.10
 
 Status: **CURRENT / FIELD_VALIDATION / BOOTSTRAP_ONLY**
 

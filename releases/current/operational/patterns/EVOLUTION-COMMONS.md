@@ -1,6 +1,6 @@
 # Evolution Commons Patterns
 
-Status: `v0.3.7 Current / OPERATIONAL_PATTERN_LIBRARY / OPTIONAL`
+Status: `Current / OPERATIONAL_PATTERN_LIBRARY / OPTIONAL`
 
 Evolution Commons is a discoverable possibility pool. It is **not** one mandated registry product and not an automatic update channel.
 

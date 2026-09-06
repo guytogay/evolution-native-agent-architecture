@@ -1,6 +1,6 @@
 # Standing Input Procedure
 
-Status: `v0.3.7 Current / BOUNDED_OPERATIONAL_PROCEDURE / OPTIONAL`
+Status: `Current / BOUNDED_OPERATIONAL_PROCEDURE / OPTIONAL`
 
 ## Use when
 

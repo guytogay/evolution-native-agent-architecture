@@ -1,4 +1,4 @@
-# ENA v0.3.9 — 请先阅读
+# ENA v0.3.10 — 请先阅读
 
 状态：**CURRENT / FIELD_VALIDATION**
 
@@ -43,6 +43,6 @@ MACHINE_GUARD != EXTERNAL_TRUTH
 TRANSLATED != BEHAVIORALLY_EQUIVALENT
 ```
 
-v0.3.9 是 R0 adopter/product-surface successor：38 条 Constitution ID 和核心 machine semantics 保持继承；本次重点是单一 hot payload 与中英文 release/adoption identity 一致性。
+v0.3.10 是 R0 adopter/product-surface successor：38 条 Constitution ID 和核心 machine semantics 保持继承；本次重点是单一 hot payload 与中英文 release/adoption identity 一致性。
 
 > **常驻一个核心；需要时再长出 HOW。**

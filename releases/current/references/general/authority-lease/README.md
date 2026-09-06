@@ -1,6 +1,6 @@
 # Authority Grant / Lease — Optional Reference
 
-Status: `v0.3.7 Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
+Status: `Current / GENERAL_OPTIONAL_REFERENCE / DEFAULT_OFF / NOT_NORMATIVE_ONTOLOGY`
 
 Use when a consequential action depends on represented external authority scope or validity.
 
