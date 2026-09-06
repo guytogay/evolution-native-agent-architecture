@@ -1,8 +1,8 @@
-# ENA Runtime Adoption Kernel — v0.3.7
+# ENA Runtime Adoption Kernel — v0.3.8-candidate.0
 
-Status: `CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`.
+Status: `CANDIDATE / NOT_CURRENT / NOT_FROZEN / HOT_SEMANTIC_CUE_SURFACE`.
 
-The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
+Released Current remains `v0.3.7 / CURRENT / FIELD_VALIDATION`. This file belongs to a mutable successor candidate and does not self-promote it.
 
 **ENA exists to make sustained self-evolution viable.**
 
@@ -45,7 +45,7 @@ Preserve at least:
 - `control quietness/age != retirement evidence`;
 - UNKNOWN is not silently SAFE, IMPROVED, AUTHORIZED, VERIFIED, INDEPENDENT, or UNIVERSAL.
 
-These are retrieval/salience cues, not slogans replacing exact mechanisms.
+These are retrieval/salience cues, not slogans replacing exact mechanisms, and not a claim that prose alone hard-enforces every property.
 
 ## 3. Hot cues -> cold Operational Architecture
 
@@ -56,6 +56,7 @@ compact cue
 -> recognize the problem/failure shape
 -> retrieve `operational/CUE-INDEX.md`
 -> resolve the relevant branch in `operational/HOW-MAP.md`
+-> use `operational/REFERENCE-INDEX.yaml` when an exact local implementation/reference path is needed
 -> filter by applicability and Host conditions
 -> use procedure / optional reference / Host-native mechanism
 -> act, WAIT, UNKNOWN, REFUSE, or NOT_APPLICABLE
@@ -75,6 +76,7 @@ Common cues:
 - repeated correction/failure/success/new capability -> evolution wake;
 - adaptation sharing/import -> Commons/Migration;
 - stale safeguard/control -> Control Retirement;
+- interaction among components/Agents may change outcome -> composition/emergence evaluation;
 - new Host/model/language -> Host mapping/applicability re-check.
 
 `cue configured != future salience proven`.
@@ -153,7 +155,7 @@ Durable material self-defining change may use the optional Contested Authorship 
 
 Where a self-mutation can disable its own recovery and consequence warrants it, keep a rescue path reachable outside the damaged variation. Narrow rescue authority does not become general approval authority.
 
-Restored state must be reconciled with escaped external effects and current authority before consequential resume.
+Restored state must be reconciled with escaped external effects, sufficient history for the decision, and current authority before consequential resume.
 
 ## 12. Governance closure and control retirement
 
@@ -161,7 +163,7 @@ Govern the semantic/consequence floor; do not administer every interaction.
 
 Minimal intervention does not waive unowned consequences.
 
-When a safeguard may have outlived its purpose, use `operational/procedures/CONTROL-RETIREMENT.md` rather than age/quietness/incident-count magic. Retire with lineage, not amnesia.
+When a safeguard may have outlived its purpose, use `operational/procedures/CONTROL-RETIREMENT.md` rather than age/quietness/incident-count magic. Retire with evidence and lineage, not amnesia.
 
 When another bounded check cannot plausibly change the decision and residuals are explicit, stop adding governance and act/observe.
 
@@ -171,13 +173,13 @@ No Agent, human, validator, institution, ranking system, repository carrier, or 
 
 Canonical ENA evolution requires governed reproducible lineage. GitHub is the current carrier, not the metaphysical source of ENA validity. A local fork cannot self-mint canonical Current.
 
-## 14. Candidate tool boundary
+## 14. Candidate tool and enforcement boundary
 
-This candidate provides a narrow practical v2 path:
+This candidate inherits the narrow practical v2 path:
 
 `tools/ena_evolve_v2.py`
 
-It can create latent v2 records without forcing an early Variation Space, validate Current-local v2 records, and export/import packet v2 while preserving source-vs-local selection boundaries.
+It can create latent v2 records without forcing an early Variation Space, validate candidate-local v2 records, and export/import packet v2 while preserving source-vs-local selection boundaries.
 
 It delegates evolution-record semantics to `tools/validate_evolution_record_v2.py`; it is intentionally **not** a second full evolution lifecycle engine.
 
@@ -188,6 +190,10 @@ The inherited state/schema 1.2 tool is retained only as:
 It remains compatibility/history and still has the old propose/import `--variation-space` limitation. Do not turn a legacy-tool rejection into candidate semantic law.
 
 Reference tools mechanically guard represented state. They do not prove external evidence truth, authority reality, recovery reality, receipt authenticity, obligation truth, or source authenticity.
+
+For explicit classification of model guidance, machine guards, external controls and field claims, use:
+
+`ENFORCEMENT-MAP.yaml`
 
 ## 15. Minimal runtime bootstrap
 
@@ -202,12 +208,14 @@ Consequential experiment belongs inside a real consequence-owned Variation Space
 Positive/negative selection follows represented reality contact and remains environment-scoped by default.
 Publication/import/source success does not create receiver-local proof.
 Capability, identity, memory, reputation, restore, or credential possession does not self-mint current external authority.
-Unresolved external effect state may require QUERY/WAIT rather than blind replay.
+Unresolved external effect state may require QUERY/WAIT rather than blind replay; cancel, rollback, and compensation are distinct.
 Keep rescue reachable outside self-disabling mutation when material and controllable; rescue authority stays narrow.
 Retire obsolete controls with evidence and lineage, not arbitrary thresholds or amnesia.
 Governance must converge and must pay rent.
 ```
 
 > **Internalize the cues; retrieve the HOW.**
+>
+> **Model guidance is not hard enforcement.**
 >
 > **Variation does not owe reality an immediate verdict.**
