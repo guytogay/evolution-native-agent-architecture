@@ -17,7 +17,7 @@ Current adoption truth is always:
 - machine identity: [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml)
 - effective package: [`releases/current/`](releases/current/)
 
-Current is **v0.3.12 / FIELD_VALIDATION**.
+Current is **v0.3.13 / FIELD_VALIDATION**.
 
 ### Human adopter
 
@@ -36,20 +36,20 @@ AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
 ```
 
+After adoption, and after a material Host/runtime change, Current asks for one bounded local operationalization pass: identify which applicable ENA boundaries are already covered by Host-native controls; where a real gap exists, propose the smallest cheap/reversible local mechanism that could materially change or protect a decision. This is not a request to install every ENA mechanism.
+
+```text
+SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
+LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+```
+
 ENA is not one giant prompt and does not require every bundled reference or private implementation name.
 
 ## Current product direction
 
-v0.3.12 is a bounded R0 adoption/identity/routing-coherence successor to v0.3.11. It incorporates external DSH contribution PR #216 and the verified findings in Issues #217 and #218.
+v0.3.13 is a bounded R0 adoption-surface successor to v0.3.12. It closes field finding `F-208-07`: in real DSH use, the Agent did not spontaneously infer that adopting ENA should include a bounded scan for cheap Host-native implementations; the owner had to explicitly ask it to operationalize ENA before it built a rescue/canary/ledger/baseline self-maintenance kit.
 
-It closes stale candidate-era identity on Current operational surfaces, makes `ENFORCEMENT-MAP.yaml` self-identify as Current, removes dead HOW-MAP fragment routes, and removes an obsolete v0.3.7 semantic-identity default from the active field-experience template. The maintainer release review also narrows the recurrence gate so active identity drift is rejected without forbidding genuine historical provenance in cold semantic text.
-
-```text
-CONTRIBUTOR != PROMOTION_AUTHORITY
-EXTERNAL_CONTRIBUTION != UNTRUSTED_BY_DEFAULT
-HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
-FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
-```
+The correction adds an adoption-time and Host-change operationalization cue while preserving proportionality: existing Host mechanisms are preferred, `EXISTING / PROPOSE / NOT_REQUIRED / NOT_APPLICABLE` are valid outcomes, consequential installation still depends on actual authority, and no specific self-maintenance kit becomes mandatory ENA machinery.
 
 No Constitution IDs or core machine/evolution semantics change.
 
