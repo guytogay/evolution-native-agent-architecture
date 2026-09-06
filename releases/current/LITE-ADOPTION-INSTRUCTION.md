@@ -1,6 +1,8 @@
-# LITE Adoption Instruction — ENA v0.3.10
+# LITE Adoption Instruction — ENA Current
 
 Status: `CURRENT / FIELD_VALIDATION / LITE_PROFILE`
+
+Current numeric release identity is defined by `CURRENT-BASELINE.yaml`.
 
 LITE means low ceremony for a bounded consequence envelope; it is not a reduced Constitution.
 
