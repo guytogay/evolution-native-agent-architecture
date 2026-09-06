@@ -1,4 +1,4 @@
-schema_version: '5.1'
+schema_version: '5.2'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-06'
 normal_continuation:
@@ -27,15 +27,16 @@ current_project_authorities:
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   final_metamemory_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
 current_adoption:
-  version: v0.3.10
+  version: v0.3.11
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  release_lane: R0_FIELD_PATCH_PUBLICATION_COHERENCE
-  predecessor_version: v0.3.9
+  release_lane: R0_FIELD_PATCH_SHARE_READINESS
+  predecessor_version: v0.3.10
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
   default_agent_hot_payload_count: 1
   default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
   same_version_same_effective_content: REQUIRED
+  known_bounded_defect_before_recommendation: FORBIDDEN
   current_pointer_should_remain_here_if_better_successor_ready: false
 release_policy:
   core_distinction: IMMUTABLE_VERSION_NE_IMMOBILE_CURRENT
@@ -47,6 +48,7 @@ release_policy:
   open_unrelated_research_blocks_release: false
   rollback_anchor_required: true
   atomic_r0_release_and_live_alignment_allowed: true
+  share_ready_self_review_required_before_recommending_current: true
 active_field_validation:
   issue: 208
   state: ACTIVE_CURRENT_FIELD_VALIDATION
@@ -56,9 +58,10 @@ active_field_validation:
   - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
   - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
   - F-208-03_ENGLISH_COLD_SURFACE_STALE_RELEASE_NARRATION
+  - F-208-04_CONTRIBUTION_RULE_OBSOLETE_VERSION_SCOPE
   next_product_rule: Continue the version-neutral Current field stream. A future bounded
-    defect should create the smallest R0/R1/R2 successor; stable cold semantic surfaces
-    remain version-neutral unless their meaning truly depends on release identity.
+    defect should create the smallest R0/R1/R2 successor immediately when its fix is
+    clear; do not knowingly recommend a Current with an already-understood defect.
 active_research:
   state: NONE
   phase: NONE
@@ -98,7 +101,9 @@ receiver_contract:
   block_R0_release_on_unrelated_research: FORBIDDEN
   reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
   reopen_closed_research_campaign_for_scientific_interest_only: FORBIDDEN
-rule: 'ENA Current is v0.3.10 / FIELD_VALIDATION. Issue #208 is the version-neutral
-  Current field stream. F-208-03 is closed by version-neutral English cold surfaces
-  plus recurrence checks. The evolutionary-memory mechanism-discrimination campaign
-  remains closed and no active mechanism primary remains.'
+  knowingly_recommend_current_with_confirmed_bounded_fixable_defect: FORBIDDEN
+rule: 'ENA Current is v0.3.11 / FIELD_VALIDATION. Issue #208 is the version-neutral
+  Current field stream. F-208-04 is closed by de-versioning the Current-wide contribution
+  rule and reducing numeric-version duplication on stable adopter/semantic surfaces.
+  The evolutionary-memory mechanism-discrimination campaign remains closed and no
+  active mechanism primary remains.'
