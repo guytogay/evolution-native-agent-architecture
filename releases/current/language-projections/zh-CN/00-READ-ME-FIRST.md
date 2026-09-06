@@ -1,8 +1,8 @@
-# ENA v0.3.10 — 请先阅读
+# ENA Current — 请先阅读
 
 状态：**CURRENT / FIELD_VALIDATION**
 
-当前唯一面向采用者的基线由 `../../CURRENT-BASELINE.yaml` 定义。本目录是 Current 的简体中文语义/运行投影。
+当前唯一面向采用者的数值版本身份由 `../../CURRENT-BASELINE.yaml` 定义。本目录是 Current 的简体中文语义/运行投影。
 
 ## 默认 Agent 热负载
 
@@ -43,7 +43,7 @@ MACHINE_GUARD != EXTERNAL_TRUTH
 TRANSLATED != BEHAVIORALLY_EQUIVALENT
 ```
 
-v0.3.10 是 R0 publication-coherence successor：38 条 Constitution ID 和核心 machine semantics 保持继承。本次修复的是稳定 cold surface 中残留的旧 Current/candidate 身份叙述，并明确区分当前 release identity 与真实历史 provenance。
+稳定语义面默认不复制可变的 Current 数值版本。需要确认当前版本时，以 `../../CURRENT-BASELINE.yaml` 与本目录 `projection-manifest.yaml` 为准；真实历史 provenance 仍可保留其来源版本。
 
 ```text
 COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN

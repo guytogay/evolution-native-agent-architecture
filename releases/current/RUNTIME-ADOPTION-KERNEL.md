@@ -1,6 +1,8 @@
-# ENA Runtime Adoption Kernel — v0.3.10
+# ENA Runtime Adoption Kernel — Current
 
 Status: `CURRENT / FIELD_VALIDATION / HOT_SEMANTIC_CUE_SURFACE`
+
+Current numeric release identity is defined by `CURRENT-BASELINE.yaml`.
 
 **ENA exists to make sustained self-evolution viable.**
 

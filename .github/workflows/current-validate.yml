@@ -33,21 +33,22 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check PyYAML jsonschema
 
-      - name: Validate Current identity and single-hot-payload contract
+      - name: Validate Current identity, hot payload and share-ready contract
         run: |
           python - <<'PY'
           from pathlib import Path
-          import yaml
+          import re, yaml
 
           root = Path('releases/current')
           doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
 
-          assert doc['ena_version'] == 'v0.3.10'
+          assert doc['ena_version'] == 'v0.3.11'
           assert doc['adoption_status'] == 'CURRENT'
           assert doc['maturity'] == 'FIELD_VALIDATION'
           assert doc['current'] is True and doc['released'] is True
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
+          assert doc['release_identity']['known_bounded_defect_must_be_fixed_before_recommending_current'] is True
 
           for rel in doc['core_files']:
               assert (root/rel).is_file(), rel
@@ -63,10 +64,8 @@ jobs:
           assert r['hot_kernel_should_load_full_how_library'] is False
 
           root_readme = Path('README.md').read_text(encoding='utf-8')
-          assert 'Current is **v0.3.10 / FIELD_VALIDATION**.' in root_readme
+          assert 'Current is **v0.3.11 / FIELD_VALIDATION**.' in root_readme
           assert 'DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md' in root_readme
-          assert 'v0.3.7 remains `CURRENT' not in root_readme
-          assert 'v0.3.8 is the current' not in root_readme.lower()
 
           meta = yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
           assert meta['status'] == 'COLD_COMPATIBILITY_POINTER'
@@ -80,31 +79,58 @@ jobs:
           assert 'DEFAULT_AGENT_HOT_PAYLOAD' in kernel
           assert 'AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD' in kernel
 
-          print('CURRENT_IDENTITY_AND_HOT_PAYLOAD_PASS', doc['ena_version'])
+          stable_no_numeric_current = [
+              'README.md',
+              '00-READ-ME-FIRST.md',
+              'ADOPTER-QUICKSTART.md',
+              'AGENT-ADOPTION-INSTRUCTION.md',
+              'RUNTIME-ADOPTION-KERNEL.md',
+              'LITE-ADOPTION-INSTRUCTION.md',
+              'CONTRIBUTION-PROTOCOL.md',
+              '07-ADOPTION-AND-FIELD-VALIDATION.md',
+              '08-RELEASE-DISCIPLINE.md',
+              '09-EVOLUTION-METABOLISM.md',
+              '10-LANGUAGE-PORTABILITY.md',
+              'language-projections/zh-CN/00-READ-ME-FIRST.md',
+              'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md',
+          ]
+          numeric = re.compile(r'v0\.3\.\d+')
+          for rel in stable_no_numeric_current:
+              text = (root/rel).read_text(encoding='utf-8')
+              hit = numeric.search(text)
+              assert not hit, (rel, hit.group(0) if hit else None)
+
+          contribution = (root/'CONTRIBUTION-PROTOCOL.md').read_text(encoding='utf-8')
+          assert 'material defect in v0.3.7' not in contribution
+          assert 'material defect in Current' in contribution
+
+          print('CURRENT_IDENTITY_HOT_PAYLOAD_SHARE_READY_PASS', doc['ena_version'])
           PY
 
       - name: Validate root and zh-CN release/adoption identity parity
         run: |
           python - <<'PY'
           from pathlib import Path
-          import yaml
+          import re, yaml
 
           r = Path('releases/current')
           z = r/'language-projections/zh-CN'
           baseline = yaml.safe_load((r/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
           manifest = yaml.safe_load((z/'projection-manifest.yaml').read_text(encoding='utf-8'))
 
-          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.10'
-          assert manifest['release_identity']['current_version'] == 'v0.3.10'
+          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.11'
+          assert manifest['release_identity']['current_version'] == 'v0.3.11'
           assert manifest['release_identity']['current_status'] == 'CURRENT'
           assert manifest['runtime_adoption']['default_agent_hot_payload_count'] == 1
           assert manifest['runtime_adoption']['default_agent_hot_payload'] == ['RUNTIME-ADOPTION-KERNEL.md']
+          assert manifest['coverage']['release_bound_projection'] == ['projection-manifest.yaml']
 
           z00 = (z/'00-READ-ME-FIRST.md').read_text(encoding='utf-8')
           zk = (z/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
-          assert 'ENA v0.3.10' in z00
-          assert 'v0.3.10' in zk
+          assert 'CURRENT / FIELD_VALIDATION' in z00
           assert '默认唯一常驻' in zk
+          assert not re.search(r'v0\.3\.\d+', z00)
+          assert not re.search(r'v0\.3\.\d+', zk)
 
           cold = [
               '01-CONSTITUTION.md',
@@ -126,7 +152,6 @@ jobs:
               found = [s for s in stale if s in text]
               assert not found, (rel, found)
 
-          import re
           en_cold = ['releases/current/CONTRIBUTION-PROTOCOL.md', 'releases/current/references/general/wait-state/README.md', 'releases/current/references/general/authority-lease/README.md', 'releases/current/references/general/effect-lifecycle/README.md', 'releases/current/references/general/recovery-adapter/README.md', 'releases/current/references/advanced/evidence-envelope/README.md', 'releases/current/references/general/retrieval-obligation/README.md', 'releases/current/references/advanced/contested-authorship/README.md', 'releases/current/references/advanced/evidence-dependency-map/README.md', 'releases/current/operational/procedures/STANDING-INPUT.md', 'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md', 'releases/current/operational/patterns/HOST-MAPPINGS.md', 'releases/current/operational/patterns/EVOLUTION-COMMONS.md', 'releases/current/operational/procedures/CONTROL-RETIREMENT.md', 'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md', 'releases/current/SEMANTIC-GLOSSARY.yaml', 'releases/current/references/REFERENCE-MANIFEST.yaml', 'releases/current/schemas/evolution-record.v2.schema.json', 'releases/current/language-projections/semantic-fixtures.v2.yaml', 'releases/current/templates/field-experience.v2.yaml', 'releases/current/04-CAPABILITY-MAP.md']
           version_bound_current = re.compile(r'v0\.3\.\d+\s+Current', re.I)
           for rel in en_cold:
@@ -134,7 +159,6 @@ jobs:
               hit = version_bound_current.search(text)
               assert not hit, (rel, hit.group(0) if hit else None)
           assert 'v0.3.6 candidate' not in (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8')
-          print('ENGLISH_COLD_RELEASE_IDENTITY_PASS', len(en_cold))
 
           print('ROOT_ZH_RELEASE_IDENTITY_PARITY_PASS')
           PY
@@ -224,7 +248,6 @@ jobs:
           for rel in protected:
               assert (r/rel).read_bytes() == (c/rel).read_bytes(), rel
           print('R0_PROTECTED_BYTES_PASS', len(protected))
-          # Metadata-only F-208-03 repair must not change capability vocabulary or schema behavior.
           import json, re
           cap_now = re.findall(r'ENA-CAP-\d{3}', (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8'))
           cap_old = re.findall(r'ENA-CAP-\d{3}', (c/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8'))

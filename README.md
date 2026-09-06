@@ -17,7 +17,7 @@ Current adoption truth is always:
 - machine identity: [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml)
 - effective package: [`releases/current/`](releases/current/)
 
-Current is **v0.3.10 / FIELD_VALIDATION**.
+Current is **v0.3.11 / FIELD_VALIDATION**.
 
 ### Human adopter
 
@@ -40,13 +40,13 @@ ENA is not one giant prompt and does not require every bundled reference or priv
 
 ## Current product direction
 
-v0.3.10 is an R0 publication-coherence successor to v0.3.9. It adds no Constitution IDs and does not rewrite core machine semantics.
+v0.3.11 is a bounded R0 share-readiness successor to v0.3.10. It adds no Constitution IDs and does not rewrite core machine semantics.
 
-Issue #208 finding F-208-03 showed that stable English cold surfaces still carried old active-sounding release labels even after Current had moved. v0.3.10 makes those cold semantics version-neutral by default and extends the Current gate against recurrence, while preserving genuine historical provenance.
+Issue #208 finding F-208-04 showed that `CONTRIBUTION-PROTOCOL.md` still bound one Current-wide contribution rule to obsolete release `v0.3.7`. v0.3.11 fixes that applicability defect immediately and further reduces future release-number synchronization debt by keeping stable adopter/semantic surfaces version-neutral by default.
 
 ```text
-COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN
-HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
+RECORD_OCCURRENCE != DEFER_KNOWN_FIX
+FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
 ```
 
 ## Project work
