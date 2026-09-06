@@ -1,4 +1,4 @@
-schema_version: "4.4"
+schema_version: "4.5"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-06"
 
@@ -11,6 +11,7 @@ handoff_framework:
   protocol: research/handoffs/HANDOFF-PROTOCOL.md
   required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
+  rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
 
 current_handoff_record:
   id: "2026-09-04-temporal-assimilation-primary-complete"
@@ -32,8 +33,8 @@ current_handoff_record:
   note: >-
     This dated record remains occurrence truth for the boundary at which primary collection ended.
     Live project state has advanced through formal adjudication, Metamemory preregistration,
-    and an active v0.3.8 adoption-surface successor candidate. Use NOW.md plus the active blocks
-    below for current facts rather than rewriting the dated snapshot.
+    evolutionary-memory closure audit, an active v0.3.8 successor, and a rapid-Current release-policy correction.
+    Use NOW.md plus the active blocks below for current facts rather than rewriting the dated snapshot.
 
 previous_deep_handoff:
   id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
@@ -44,38 +45,55 @@ current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   current_package: releases/current/
-  research_coverage: research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md
+  rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
+  research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   branch_governance: research/BRANCH-GOVERNANCE.md
 
 current_adoption:
   version: v0.3.7
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  released_bytes_immutable: true
-  changed_by_current_round: false
+  role: PREDECESSOR_CURRENT_AND_ROLLBACK_ANCHOR_PENDING_V038_PROMOTION
+  version_bytes_immutable: true
+  current_pointer_should_remain_here: false
+
+release_policy:
+  core_distinction: IMMUTABLE_VERSION_NE_IMMOBILE_CURRENT
+  objective: PRESERVE_OLD_RELEASES_AND_MOVE_CURRENT_QUICKLY
+  lanes:
+    R0: FIELD_PATCH_ADOPTION_SURFACE
+    R1: OPERATIONAL_BEHAVIOR_CHANGE
+    R2: CORE_SEMANTIC_OR_HIGH_CONSEQUENCE_CHANGE
+  fresh_independent_validation_required_before_release:
+    R0: false
+    R1: WHEN_DECISION_MATERIAL
+    R2: NORMALLY_TRUE
+  open_unrelated_research_blocks_release: false
+  rollback_anchor_required: true
 
 active_release_candidate:
   id: v0.3.8-candidate.0
-  state: ACTIVE_MUTABLE_NOT_CURRENT_NOT_FROZEN_NOT_RELEASED
+  state: ACTIVE_R0_RAPID_CURRENT_SUCCESSOR
+  release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
   reason: ADOPTION_PRODUCT_SURFACE_SUCCESSOR_FROM_FIELD_EVIDENCE
   branch: candidate/v0.3.8-candidate.0
-  draft_pr: 202
+  pr: 202
   candidate_root: releases/v0.3.8-candidate/
   seed_parent_main: 8928693b746864dece2a66d625a01cbc328b0d7e
-  seed_commit: 381f9fdf3d3233fee31d444b6e4bab1ec8c25fcd
   predecessor_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  rollback_anchor: v0.3.7
   primary_field_issue: 201
   scope: collaboration/reconciliation/2026-09-06-v038-adoption-surface-successor-scope.md
   thesis:
     - RESEARCH_LINEAGE_NE_ADOPTION_PAYLOAD
     - SEMANTIC_PRECISION_NE_PRESENTATION_VERBOSITY
     - SOFT_GUIDANCE_NE_HARD_ENFORCEMENT
-  new_constitution_ids_planned: 0
-  current_bytes_may_change_during_candidate_work: false
-  candidate_main_gate_run: 34001388208
+  new_constitution_ids: 0
+  core_contract_semantic_delta: NONE_DEMONSTRATED
   candidate_main_gate_state: PASS
+  candidate_codeql_state: PASS
   candidate_gate_guards:
-    - RELEASED_V037_BASELINE_BYTES_UNCHANGED
+    - RELEASED_V037_BASELINE_BYTES_UNCHANGED_DURING_CANDIDATE_BUILD
     - CONSTITUTION_01_04_BYTE_IDENTICAL_TO_V037
     - KEY_MACHINE_PATHS_BYTE_IDENTICAL_TO_V037
     - CANDIDATE_STATUS_COHERENCE
@@ -83,14 +101,12 @@ active_release_candidate:
     - ZH_CN_HOT_GUARDRAIL_FIDELITY
     - CONCEPT_MAP_APPLICABILITY_REPAIR
     - SEMANTIC_FIXTURE_REQUIRED_CASES_AND_ROUTES
-  next_action: COMPLETE_V038_CANDIDATE0_ADOPTION_SURFACE_AUDIT_AND_TARGETED_VALIDATION
-  release_before_freeze_and_fresh_independent_falsification: FORBIDDEN
+  fresh_cleanroom_as_prerelease_gate: NOT_REQUIRED_FOR_R0
+  next_action: PROMOTE_V038_THROUGH_R0_RAPID_CURRENT_LANE
 
 last_completed_research:
   phase: MECHANISM_DISCRIMINATION
   target: TEMPORAL_ASSIMILATION_AND_DEVELOPMENTAL_ORDER_V1
-  preregistration: research/field-validation/2026-09-04-temporal-assimilation-developmental-order-preregistration.md
-  fixture: research/field-validation/fixtures/temporal-assimilation-order-v1/FIXTURE.md
   primary_result: research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md
   primary_collection_state: COMPLETE
   formal_adjudication_state: COMPLETE
@@ -104,13 +120,6 @@ last_completed_research:
   best_preregistered_pattern: H_HIGH_WITHIN_ARM_VARIANCE_OR_INCONSISTENT_DIRECTION
   disposition: NARROWED_NO_PERSISTENT_DEVELOPMENTAL_DEBT_OR_STABLE_ARM_ORDER_EFFECT_OBSERVED
   fixture_limitation: ACQUISITION_SET_UNDERIDENTIFIES_INTENDED_RULE_VS_BERYL_DUNE_ALIAS
-  valid_primary_runs:
-    CF: [CF-R1, CF-2, CF-3]
-    MF: [MF-1, MF-2, MF-3]
-    INT: [INT-1, INT-2, INT-R1]
-  excluded_attempts:
-    CF-1: SESSION_CONTINUITY_REBUILT_BEFORE_B1
-    INT-3: TEMPORARY_CHAT_CLOSED_AFTER_A2
   rerun_same_fixture_for_preferred_result: FORBIDDEN
 
 active_research:
@@ -127,27 +136,21 @@ active_research:
   maximum_primary_runs_after_frozen_replication_trigger: 8
   run_shape: ONE_COMPLETE_TREATMENT_DELIVERY_PER_FRESH_TEMPORARY_CHAT
   next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
+  blocks_v038_release: false
   campaign_closure_intent: >-
     Treat Metamemory v1 as the last currently planned fresh-session primary mechanism round.
-    Close later evolutionary-memory tracks as SUBSUMED / SEMANTICALLY_COVERED / FIELD_UNRESOLVED
-    unless a genuinely new decision-changing discriminator survives the closure audit.
-  primary_collection_before_merged_frozen_design: FORBIDDEN
+    After formal adjudication close the campaign unless a genuinely new non-derivable discriminator appears.
   selective_extra_runs_for_preferred_result: FORBIDDEN
-  design_note: >-
-    The pre-freeze first draft was rejected because its regime lengths baked in a C2 advantage.
-    The preregistered fixture instead includes observationally similar tails with different latent regimes,
-    so C1 and C2 intentionally tie on expected aggregate transfer accuracy while differing in adaptation-lag
-    versus noise-capture error profile. The research target is the trade-off, not a preselected winner.
-  temporal_order_revisit_rule: NEW_PREREGISTERED_IDENTIFIABLE_FIXTURE_REQUIRED
+
+research_closure:
+  audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
+  dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
+  rule: NOT_DIRECTLY_TESTED_NE_MUST_RUN_LOCAL_ENA_EXPERIMENT
 
 important_evidence_notes:
-  temporal_CF-3: VALID_RUN_WITH_CONNECTOR_PERSISTENCE_ANOMALY_AND_LATER_VERBATIM_BACKFILL
-  temporal_MF-3: VALID_RUN_WITH_ONE_REVERSIBLE_BASE64_ARCHIVAL_STAGE
-  temporal_INT-R1: VALID_REPLACEMENT_FOR_INT-3
-  MDS: PRIMARY_COMPLETE_AND_MDS_SUPERIORITY_NARROWED_DO_NOT_RERUN_MORROW_FOR_M3_WIN
-  metamemory_v1: SINGLE_TURN_RUNS_MINIMIZE_HUMAN_RELAY_AND_NO_ARM_IS_PREREGISTERED_AS_UNIVERSAL_WINNER
   issue_201: DECISION_BEARING_ADOPTION_FIELD_EVIDENCE_WITH_POSITIVE_AND_NEGATIVE_FINDINGS
   v038_candidate0: PRODUCT_SUCCESSOR_CAN_BE_JUSTIFIED_WITHOUT_NEW_NATURAL_LAW
+  rapid_release_correction: CURRENT_IMMOBILITY_IS_NOT_A_QUALITY_METRIC
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -155,18 +158,16 @@ receiver_contract:
   reverify_live_mutable_facts_before_writes: REQUIRED
   rerun_valid_primary_to_seek_preferred_result: FORBIDDEN
   use_full_handoff_for_fresh_validator: FORBIDDEN
-  modify_releases_current_from_mechanism_result_alone: FORBIDDEN
-  modify_releases_current_during_mutable_v038_candidate_work: FORBIDDEN
   treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
   expose_preregistration_or_hidden_oracle_to_primary_worker: FORBIDDEN
-  expose_full_project_history_to_fresh_v038_falsifier: FORBIDDEN
+  confuse_version_immutability_with_current_immobility: FORBIDDEN
+  block_R0_release_on_unrelated_research: FORBIDDEN
+  demand_fresh_cleanroom_prerelease_validation_for_R0_by_default: FORBIDDEN
 
 rule: >-
-  ENA remains v0.3.7 CURRENT / FIELD_VALIDATION with released bytes unchanged. Temporal Assimilation remains
-  complete/narrowed and must not be rerun for a preferred effect. Metamemory Update Policy v1 remains the active
-  preregistered mechanism experiment and the last currently planned fresh-session primary round. In parallel,
-  Issue #201 plus external usability evidence justified v0.3.8-candidate.0 as an adoption/product-surface successor
-  without requiring new Constitution law. Candidate.0 is mutable, NOT_CURRENT / NOT_FROZEN / NOT_RELEASED, lives on
-  candidate/v0.3.8-candidate.0 with draft PR #202, and has passed its first Main Gate including a targeted adoption-
-  surface validator. Continue candidate audit/validation and Metamemory collection separately; do not alter Current
-  or expose project-history/oracles to fresh workers/validators.
+  v0.3.7 remains Current only until the bounded v0.3.8 R0 release projection is admitted; it is a predecessor/rollback
+  anchor, not a quality target to keep fixed. The project now uses risk-tiered rapid Current succession: preserve exact
+  old versions while moving Current quickly. v0.3.8-candidate.0 is an R0 adoption-surface successor with no new
+  Constitution IDs and no demonstrated core-contract semantic delta; its Main Gate and CodeQL are PASS, so full fresh
+  cleanroom falsification is not a pre-release requirement. Promote it through the bounded R0 lane independently of
+  Metamemory research. Metamemory v1 remains the only planned fresh-session primary experiment and does not block release.

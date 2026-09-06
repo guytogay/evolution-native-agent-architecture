@@ -6,98 +6,99 @@ Keep it short. Git history stores history; Issues store open work; CI stores mac
 
 ## Current adoption baseline
 
-- Current: `v0.3.7 / CURRENT / FIELD_VALIDATION`
+- Current at this exact moment: `v0.3.7 / CURRENT / FIELD_VALIDATION`
 - Adoption authority: `releases/current/CURRENT-BASELINE.yaml`
 - Effective adopter-facing package: `releases/current/`
-- Released v0.3.7 bytes remain unchanged in place.
+- v0.3.7 is a rollback/history anchor, not a target to keep Current on.
 
-## Active successor candidate
+## Release posture changed — rapid Current succession
 
-**v0.3.8-candidate.0 is active as an adoption/product-surface successor. It is NOT_CURRENT / NOT_FROZEN / NOT_RELEASED.**
+ENA now separates **version immutability** from **Current mobility**.
+
+```text
+IMMUTABLE_VERSION != IMMOBILE_CURRENT
+PRESERVE_OLD_RELEASES + MOVE_CURRENT_QUICKLY
+```
+
+Project method:
+
+`research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
+
+Release validation is risk-tiered:
+
+- `R0 FIELD_PATCH / ADOPTION_SURFACE` — machine regression + exact package/readback + rollback anchor; fresh independent validation may occur after admission;
+- `R1 OPERATIONAL_BEHAVIOR_CHANGE` — targeted adversarial/independent evidence when decision-material;
+- `R2 CORE_SEMANTIC / HIGH_CONSEQUENCE` — heavy freeze + fresh independent falsification/reconciliation by default.
+
+Open research is not a release blocker unless the successor actually depends on it.
+
+## Active successor — v0.3.8
+
+**v0.3.8-candidate.0 is classified `R0_FIELD_PATCH_ADOPTION_SURFACE`.**
 
 Working branch:
 
 `candidate/v0.3.8-candidate.0`
 
-Draft review surface:
+PR:
 
-PR `#202` — `v0.3.8 candidate.0 — consolidate adopter/product surface`
+`#202 — v0.3.8 candidate.0 — consolidate adopter/product surface`
 
-Scope record inside the candidate branch:
-
-`collaboration/reconciliation/2026-09-06-v038-adoption-surface-successor-scope.md`
-
-Primary evidence inputs:
+Primary evidence:
 
 - Issue `#201` — post-release narration drift, zh-CN hot-surface fidelity gaps, concept-map retrieval misfit, fixture gaps, plus positive v0.3.7 tool/routing verification;
-- external usability/projection feedback — research lineage and adopter payload remain too easy to conflate; soft/model guidance vs hard/system enforcement must be explicit.
+- adoption feedback that research lineage and adopter payload are too easy to conflate, and model guidance vs hard/system enforcement needs to be explicit.
 
 Candidate thesis:
 
 ```text
 RESEARCH LINEAGE != ADOPTION PAYLOAD
-SEMANTIC PRECISION != PRESENTATION VERBOSITY
-SOFT GUIDANCE != HARD ENFORCEMENT
+SEMANTIC PRECISION != PRESENTATION_VERBOSITY
+SOFT_GUIDANCE != HARD_ENFORCEMENT
 ```
 
-Candidate.0 already includes:
+Candidate.0 includes:
 
 - product-first human and Agent entry surfaces;
 - machine-readable `ENFORCEMENT-MAP.yaml` with `MODEL_CUE / MACHINE_GUARD / EXTERNAL_CONTROL_REQUIRED / FIELD_EVIDENCE_REQUIRED`;
 - repaired zh-CN hot-surface guardrails;
 - CON-035 / CON-008 / CON-028 concept-map retrieval repairs;
-- semantic-fixture v3 expansion from 12 to 18 cases, including local-vs-universal fitness, composition, cancel/rollback/compensation, runtime salience, memory metabolism, and projection/compaction;
-- a candidate adoption-surface validator wired into Main Gate.
+- semantic-fixture v3 expansion from 12 to 18 cases;
+- candidate adoption-surface validator wired into Main Gate;
+- exact regression binding for inherited Constitution 01–04 and key machine paths.
 
-First candidate Main Gate run `34001388208` passed, including the new v0.3.8 adoption-surface validator. It also verifies that released v0.3.7 `CURRENT-BASELINE.yaml`, inherited Constitution 01–04, and key machine paths remain unchanged.
+Latest candidate Main Gate and CodeQL are PASS. No new Constitution ID and no core contract semantic delta are demonstrated.
 
-Do not promote candidate.0 from narration or CI alone. It still needs bounded candidate completion, fresh independent falsification/validation, reconciliation, freeze/release discipline, and an explicit promotion decision.
+**Fresh cleanroom validation is no longer a mandatory pre-release gate for this R0 successor.** Post-admission field evidence can trigger a rapid v0.3.9 if needed.
+
+## Exact release next action
+
+`PROMOTE_V038_THROUGH_R0_RAPID_CURRENT_LANE`
+
+Required remaining work is bounded:
+
+1. merge the candidate package to main as reviewable successor cargo;
+2. create exact v0.3.8 release projection;
+3. run release/package/regression checks;
+4. verify v0.3.7 rollback/history remains recoverable;
+5. move `releases/current/` to v0.3.8 under a new immutable version identity;
+6. read back the exact promoted Current and continue field validation.
+
+Metamemory research does **not** block v0.3.8.
 
 ## Research state
 
-ENA evolutionary-memory work remains in **mechanism discrimination**, but the campaign is being actively closed rather than expanded into one experiment per remaining metaphor/mechanism.
+The evolutionary-memory campaign is closing rather than expanding into one experiment per remaining metaphor/mechanism.
 
-Default sequence:
+Closure dispositions:
 
-> `SYNTHESIZE → REACHABILITY PROBE → MECHANISM EXPERIMENT → REALITY CONTACT → ONLY THEN CONSIDER CURRENT`
+`research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml`
 
-Coverage map:
+Closure audit:
 
-`research/evolution-inbox/EVOLUTIONARY-MEMORY-VALIDATION-COVERAGE-MAP.md`
+`research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md`
 
 Negative/null results count. Silent disappearance does not.
-
-## Latest adjudicated mechanism result
-
-**Temporal Assimilation / Developmental Order v1 is complete and formally adjudicated.**
-
-```text
-M1 final-rule reconstruction: 5/9 PASS
-M2 pre-correction transfer:   75/99
-M3 post-correction transfer:  81/81
-CF pre: 21/33
-MF pre: 27/33
-INT pre: 27/33
-```
-
-No persistent misleading-first developmental debt or stable arm-specific order effect was observed. The acquisition fixture was also underidentified because a Beryl/Dune alias fit every acquisition episode. Do not rerun the frozen fixture to seek a preferred effect.
-
-Primary result:
-
-`research/field-validation/2026-09-04-temporal-assimilation-developmental-order-primary-results.md`
-
-## Prior adjudicated mechanism result
-
-Developmental Inheritance / Minimum Developmental Set remains complete:
-
-```text
-M0 — no inheritance:    22/36
-M1 — full archive:      36/36
-M2 — distilled rules:   36/36
-M3 — developmental/MDS: 36/36
-```
-
-Inheritance mattered in the synthetic Morrow fixture, but M1/M2/M3 tied behaviorally. `MDS > DISTILLED RULE` was not observed. Do not rerun Morrow for an M3 win.
 
 ## Active mechanism experiment
 
@@ -115,7 +116,7 @@ Primary launch bundle:
 
 `research/field-validation/metamemory-update-policy-v1/PRIMARY-LAUNCH-BUNDLE.md`
 
-The experiment holds object-level experience constant and varies only source-trust update policy:
+Arms:
 
 ```text
 S0 — STATIC_EQUAL
@@ -124,49 +125,34 @@ C1 — CONTEXT_RECENT3
 C2 — CONTEXT_REVERSIBLE3
 ```
 
-The design has no baked-in winner. C1/C2 intentionally tie in expected aggregate accuracy while trading adaptation lag against noise capture.
+Initial sample remains four one-shot fresh Temporary Chats. A frozen trigger may replicate all four arms once; maximum eight. No selective extra runs.
 
-Initial sample: four one-shot fresh Temporary Chats. A frozen trigger may replicate all four arms once; maximum eight. No selective extra runs.
-
-## Parallel exact next actions
-
-### Research
+Research next action:
 
 `COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY`
 
-This remains the only currently planned fresh-session primary mechanism round. Remaining evolutionary-memory tracks should close as `SUBSUMED / SEMANTICALLY_COVERED / FIELD_UNRESOLVED` unless a genuinely new decision-changing discriminator survives the closure audit.
+This is the only currently planned fresh-session primary mechanism round. After formal adjudication, close the campaign unless it exposes a genuinely new non-derivable discriminator.
 
-### Candidate
-
-`COMPLETE_V038_CANDIDATE0_ADOPTION_SURFACE_AUDIT_AND_TARGETED_VALIDATION`
-
-Then:
-
-1. rerun inherited regression checks;
-2. get fresh independent candidate falsification without project-history contamination;
-3. reconcile only decision-changing findings;
-4. freeze when scope converges;
-5. make an explicit release/promotion decision.
-
-## Current admission rule
+## Admission / evolution rules
 
 ```text
-INTERESTING RESULT != NEW NATURAL LAW != CONSTITUTION CHANGE
+SAME_VERSION -> SAME_EFFECTIVE_CONTENT
+NEW_BETTER_SUCCESSOR -> MOVE_CURRENT
+OPEN_RESEARCH != RELEASE_BLOCKER_BY_DEFAULT
+INTERESTING_RESULT != NEW_NATURAL_LAW
 NO_NEW_NATURAL_LAW != NO_PRODUCT_SUCCESSOR_NEEDED
-CANDIDATE_EXISTS != CURRENT
+GOVERNANCE_MUST_PAY_RENT
 ```
-
-Issue #201 is decision-bearing adoption evidence even though it does not introduce a new natural law.
 
 ## Related repositories
 
 - `guytogay/evolution-native-agent-architecture` — ENA theory/mechanisms, Current semantics, candidates and evidence.
-- `guytogay/human-ai-workbench` — reusable Human-AI project-working method; current lesson: reduce coordination by design before automating it.
-- `guytogay/ena-field-guide` — evidence-backed practical ENA HOW; do not admit research claims prematurely.
+- `guytogay/human-ai-workbench` — reusable Human-AI project-working method.
+- `guytogay/ena-field-guide` — evidence-backed practical ENA HOW.
 
 ## Current open work
 
-- #150 — v0.3.7 field validation / reality contact
+- #150 — v0.3.7 field validation / predecessor reality-contact evidence
 - #153 — simplify ENA project operations based on actual use
-- #201 — v0.3.7 adopter-facing narration/projection/map/fixture findings
-- #202 — v0.3.8 candidate.0 draft PR
+- #201 — adopter-facing findings driving v0.3.8
+- #202 — v0.3.8 successor PR
