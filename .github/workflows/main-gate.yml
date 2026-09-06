@@ -27,6 +27,23 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Patch one-shot census to all old Current labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('research/_tmp_prepare_v0310.py')
+          s = p.read_text(encoding='utf-8')
+          old_tail = "    'releases/current/language-projections/semantic-fixtures.v2.yaml',\n]"
+          new_tail = "    'releases/current/language-projections/semantic-fixtures.v2.yaml',\n    'releases/current/templates/field-experience.v2.yaml',\n]"
+          assert old_tail in s
+          s = s.replace(old_tail, new_tail, 1)
+          old_loop = "for rel in version_neutral_cold:\n    replace_exact(rel, 'v0.3.7 Current', 'Current')\n"
+          new_loop = "for rel in version_neutral_cold:\n    p = Path(rel)\n    text = p.read_text(encoding='utf-8')\n    text, count = re.subn(r'v0\\.3\\.\\d+\\s+Current', 'Current', text, flags=re.I)\n    assert count >= 1, f'{rel}: expected at least one old active Current label'\n    p.write_text(text, encoding='utf-8')\n"
+          assert old_loop in s
+          s = s.replace(old_loop, new_loop, 1)
+          p.write_text(s, encoding='utf-8')
+          print('ONE_SHOT_CENSUS_PATCHED')
+          PY
       - name: Build, read back, and push the atomic v0.3.10 release commit
         run: python research/_tmp_prepare_v0310.py
 
