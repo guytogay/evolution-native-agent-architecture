@@ -23,13 +23,15 @@ Start or wake the loop when there is a concrete evolution signal, for example:
 - a latent idea that has become relevant to a real decision;
 - a material Host/runtime change that invalidates previous assumptions.
 
+A signal is worth durable capture when losing it could plausibly weaken a later selection, recovery, evidence, or repeated-work decision. **Do not persist every passing thought merely because an inbox exists.**
+
 No signal is also information: do not mutate merely because an evolution loop exists.
 
 ## Minimum loop
 
 ### 1. Capture the signal durably
 
-Put the observation into a durable inbox/queue before deciding what to change.
+For a decision-relevant signal, put the observation into a durable inbox/queue before deciding what to change. Trivial/transient thoughts that cannot plausibly affect a later decision may be discarded rather than ceremonialized.
 
 Minimum fields:
 
@@ -45,7 +47,7 @@ state = SIGNAL | IDEA | CANDIDATE
 
 For `evolution-record.v2`, map relevant occurrence references into `signal_refs` / `mutation_pressure_refs`.
 
-**Boundary:** chat presence is not durable capture. A capability name such as `Evolution Inbox` does not mean a Host actually has one.
+**Boundary:** chat presence is not durable capture. A capability name such as `Evolution Inbox` does not mean a Host actually has one. Durable capture is also not a requirement to log every idea.
 
 ### 2. Form a candidate, but keep it latent by default
 
