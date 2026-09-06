@@ -1,4 +1,4 @@
-# Operational Cue Index — v0.3.8 Current
+# Operational Cue Index — Current
 
 Status: `CURRENT / OPERATIONAL_ROUTER`
 

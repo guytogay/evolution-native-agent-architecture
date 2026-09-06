@@ -1,6 +1,5 @@
 schema_version: "0.1"
-status: CANDIDATE_NOT_CURRENT
-candidate: v0.3.8-candidate.0
+status: CURRENT
 purpose: >-
   Make enforcement boundaries explicit. ENA semantics may require a property without
   claiming that prompt text alone can guarantee it. This map classifies representative
@@ -93,7 +92,7 @@ rules:
       - tools/ena_evolve_v2.py
       - tools/validate_evolution_record_v2.py
     machine_guard_scope: >-
-      The candidate inherits a machine path that preserves represented source-selection
+      Current inherits a machine path that preserves represented source-selection
       provenance without automatically minting receiver-local selection. It does not prove
       real-world fitness or applicability.
 

@@ -1,4 +1,4 @@
-schema_version: '1.0'
+schema_version: '1.1'
 status: CURRENT_OPTIONAL_REFERENCE_MANIFEST
 assembly_state: RELEASED_MACHINE_CHECKED
 policy:
@@ -90,6 +90,7 @@ references:
   not_applicable_summary: Ordinary task state, cache/index maintenance, episodic logging, and reversible formatting
     are out of scope.
 machine_evidence:
+  assembly_provenance_release: v0.3.7
   exact_head: 8ba109528ecb14f9a22a372c897ac8d9ea1759f3
   workflow: ENA v0.3.7 Candidate Assembly Gate
   workflow_run_id: 33004330491
@@ -109,8 +110,11 @@ freeze_requirements:
 - Every selected reference is default_activation=false unless release scope is explicitly reopened and changed.
 - Every selected reference has an applicability and non-applicability route.
 - Machine reference validation cannot upgrade represented consistency into external truth.
-release: v0.3.7
 deferred_not_bundled:
 - id: commitment-settlement-recovered
-  disposition: RETAIN_IN_RESEARCH_PENDING_FRESH_INDEPENDENT_REVIEW_OR_RENEWED_CANDIDATE_CRITICAL_NEED
+  disposition: RETAIN_IN_RESEARCH_UNTIL_CURRENT_ADOPTION_NEED_AND_EVIDENCE_JUSTIFY_BUNDLING
+  current_route:
+  - operational/HOW-MAP.md
+  - OA-AUTH-01
+  - OA-EFF-01
   retired: false

@@ -1,6 +1,6 @@
-schema_version: '3.6'
+schema_version: '3.7'
 baseline_kind: CURRENT_RELEASE_IDENTITY
-ena_version: v0.3.11
+ena_version: v0.3.12
 adoption_status: CURRENT
 maturity: FIELD_VALIDATION
 current: true
@@ -8,27 +8,35 @@ released: true
 complete_adoption_baseline: true
 requires_older_release_composition: false
 package_scope: ALL_FILES_UNDER_RELEASES_CURRENT
-release_lane: R0_FIELD_PATCH_SHARE_READINESS
+release_lane: R0_FIELD_PATCH_EXTERNAL_CONTRIBUTION_COHERENCE
 release_method: RAPID_CURRENT_SUCCESSION
 lineage:
-  predecessor_current_version: v0.3.10
-  predecessor_current_tree: d6c4caaa826099f113465c06f7c75a7d681c4533
+  predecessor_current_version: v0.3.11
+  predecessor_current_tree: a299be149561321ce4e6d6ce71c405712a23b170
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
-  source_release_branch: release/v0.3.11
+  source_release_branch: release/v0.3.12
+  source_contribution_pr: 216
+  source_contribution_commit: 34f7adfeaebaa99defe2b0030f3e0b2067c9d72f
+  source_issues:
+  - 217
+  - 218
   primary_field_stream: 208
   field_findings:
   - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
   - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
   - F-208-03_ENGLISH_COLD_SURFACE_STALE_RELEASE_NARRATION
   - F-208-04_CONTRIBUTION_RULE_OBSOLETE_VERSION_SCOPE
+  - F-208-05_CURRENT_OPERATIONAL_IDENTITY_AND_GATE_COVERAGE_GAP
+  - F-208-06_REFERENCE_INDEX_DEAD_HOW_MAP_ANCHORS
 release_thesis:
   new_constitution_rule_required: 0_DEMONSTRATED
   new_core_semantic_delta_required: 0_DEMONSTRATED
-  primary_delta: CONTRIBUTION_SCOPE_FIX_AND_SHARE_READY_VERSION_NEUTRALIZATION
-  summary: Preserve v0.3.10 semantic and machine behavior while fixing the Current-wide
-    contribution rule that was still scoped to obsolete v0.3.7, reducing numeric-version
-    duplication on stable adopter/semantic surfaces, and making bounded share-ready review
-    explicit before recommending Current to other adopters.
+  primary_delta: EXTERNAL_CONTRIBUTION_OPERATIONAL_IDENTITY_ROUTING_AND_TEMPLATE_COHERENCE
+  summary: Preserve v0.3.11 semantic and machine behavior while incorporating the verified
+    external DSH contribution that removes stale candidate-era identity from active Current
+    operational surfaces, repairs dead HOW-MAP fragment routes, removes a stale semantic-identity
+    default from the active field template, and hardens recurrence checks without erasing genuine
+    historical provenance.
 constitution:
   inherited_stable_ids: 38
   new_ids_added: 0
@@ -58,7 +66,7 @@ adoption_surface:
   full_how_library_should_be_permanently_loaded: false
   host_native_equivalents_allowed: true
 operational_architecture:
-  inherited_from: v0.3.10
+  inherited_from: v0.3.11
   state: CURRENT_FIELD_VALIDATION
   route_structure_materially_rewritten: false
   core_machine_behavior_materially_rewritten: false
@@ -93,6 +101,7 @@ release_identity:
   cold_semantic_surfaces_version_neutral_by_default: true
   historical_provenance_may_retain_source_version: true
   known_bounded_defect_must_be_fixed_before_recommending_current: true
+  contribution_provenance_preserved: true
 field_validation:
   field_use_intended: true
   active_stream_issue: 208
@@ -102,16 +111,12 @@ field_validation:
   universal_bilingual_behavioral_equivalence_proven: false
   post_release_findings_create_rapid_successor: true
 accepted_residuals:
-- Natural fresh-session cue salience and bilingual behavioral equivalence remain field
-  evidence.
-- External mandate, receipt, recovery, provenance and other outside-world facts are
-  not proved by package prose or schema validation.
-- R0 release admission does not claim universal Host fitness; v0.3.10 remains recoverable
-  predecessor occurrence truth.
-- Metamemory Update Policy v1 completed its frozen primary with no replication trigger;
-  its result is research evidence, not a mandatory Current trust-update threshold.
-- Historical provenance may name predecessor versions; version-neutral semantic/adoption
-  rules apply to active release/adoption narration, not occurrence truth.
+- Natural fresh-session cue salience and bilingual behavioral equivalence remain field evidence.
+- External mandate, receipt, recovery, provenance and other outside-world facts are not proved by package prose or schema validation.
+- R0 release admission does not claim universal Host fitness; v0.3.11 remains recoverable predecessor occurrence truth.
+- Metamemory Update Policy v1 completed its frozen primary with no replication trigger; its result is research evidence, not a mandatory Current trust-update threshold.
+- Historical provenance may name predecessor versions; version-neutral semantic/adoption rules apply to active release/adoption narration, not occurrence truth.
+- File-level HOW-MAP routing is valid but less precise than future stable deep-linkable nodes; no false deep anchor is published in Current.
 evidence_boundaries:
 - MACHINE_PASS_NE_EXTERNAL_TRUTH
 - MODEL_CUE_NE_HARD_CONTROL
@@ -136,6 +141,7 @@ invariants:
 - RELEASE_IDENTITY_PARITY_NE_BEHAVIORAL_EQUIVALENCE
 - COLD_SEMANTIC_SURFACE_NE_RELEASE_ID_LABEL_MAINTENANCE_BURDEN
 - FIELD_VALIDATION_NE_KNOWN_DEFECT_TOLERANCE
+- CONTRIBUTOR_NE_PROMOTION_AUTHORITY
 profiles:
 - LITE
 - STANDARD

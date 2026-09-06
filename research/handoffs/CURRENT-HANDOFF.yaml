@@ -1,4 +1,4 @@
-schema_version: '5.2'
+schema_version: '5.3'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-06'
 normal_continuation:
@@ -15,9 +15,7 @@ current_handoff_record:
   state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
   record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
   readback_state: PASS
-  note: This dated record remains occurrence truth for its boundary. Live state has
-    advanced through research closure and rapid Current succession. Use NOW.md plus
-    the live pointers below for current facts.
+  note: This dated record remains occurrence truth for its boundary. Live state has advanced through research closure and rapid Current succession. Use NOW.md plus the live pointers below for current facts.
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
@@ -27,12 +25,15 @@ current_project_authorities:
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   final_metamemory_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
 current_adoption:
-  version: v0.3.11
+  version: v0.3.12
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  release_lane: R0_FIELD_PATCH_SHARE_READINESS
-  predecessor_version: v0.3.10
+  release_lane: R0_FIELD_PATCH_EXTERNAL_CONTRIBUTION_COHERENCE
+  predecessor_version: v0.3.11
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
+  source_contribution_pr: 216
+  source_contribution_commit: 34f7adfeaebaa99defe2b0030f3e0b2067c9d72f
+  source_issues: [217, 218]
   default_agent_hot_payload_count: 1
   default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
   same_version_same_effective_content: REQUIRED
@@ -49,6 +50,7 @@ release_policy:
   rollback_anchor_required: true
   atomic_r0_release_and_live_alignment_allowed: true
   share_ready_self_review_required_before_recommending_current: true
+  contributor_can_propose_without_promotion_authority: true
 active_field_validation:
   issue: 208
   state: ACTIVE_CURRENT_FIELD_VALIDATION
@@ -59,9 +61,9 @@ active_field_validation:
   - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
   - F-208-03_ENGLISH_COLD_SURFACE_STALE_RELEASE_NARRATION
   - F-208-04_CONTRIBUTION_RULE_OBSOLETE_VERSION_SCOPE
-  next_product_rule: Continue the version-neutral Current field stream. A future bounded
-    defect should create the smallest R0/R1/R2 successor immediately when its fix is
-    clear; do not knowingly recommend a Current with an already-understood defect.
+  - F-208-05_CURRENT_OPERATIONAL_IDENTITY_AND_GATE_COVERAGE_GAP
+  - F-208-06_REFERENCE_INDEX_DEAD_HOW_MAP_ANCHORS
+  next_product_rule: Continue the version-neutral Current field stream. Verified external contributions are legitimate reality contact. When a bounded defect has a clear fix, create the smallest successor promptly; preserve contribution provenance separately from promotion authority.
 active_research:
   state: NONE
   phase: NONE
@@ -102,8 +104,5 @@ receiver_contract:
   reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
   reopen_closed_research_campaign_for_scientific_interest_only: FORBIDDEN
   knowingly_recommend_current_with_confirmed_bounded_fixable_defect: FORBIDDEN
-rule: 'ENA Current is v0.3.11 / FIELD_VALIDATION. Issue #208 is the version-neutral
-  Current field stream. F-208-04 is closed by de-versioning the Current-wide contribution
-  rule and reducing numeric-version duplication on stable adopter/semantic surfaces.
-  The evolutionary-memory mechanism-discrimination campaign remains closed and no
-  active mechanism primary remains.'
+  erase_external_contribution_provenance_during_promotion: FORBIDDEN
+rule: 'ENA Current is v0.3.12 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-05 and F-208-06 are closed by the verified DSH contribution plus maintainer release projection and template/gate hardening. The evolutionary-memory mechanism-discrimination campaign remains closed and no active mechanism primary remains.'
