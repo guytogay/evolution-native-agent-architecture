@@ -149,7 +149,8 @@ routes:
     - before/after smoke baseline or task metric
     - selection/decision ledger
     - event/scheduled/manual wake
-    tool_state: CURRENT_MACHINE_CHECKED_NARROW_HELPER_NOT_FULL_LIFECYCLE_ENGINE
+    tool_state: NARROW_HELPER_NOT_FULL_LIFECYCLE_ENGINE
+    machine_checked: true
     valid_host_outcomes:
     - EXISTING
     - PROPOSE
