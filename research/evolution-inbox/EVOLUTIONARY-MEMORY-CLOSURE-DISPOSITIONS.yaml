@@ -1,0 +1,124 @@
+schema_version: "1.0"
+status: CAMPAIGN_CLOSURE_DISPOSITIONS
+updated_at: "2026-09-06"
+current_change_by_this_record: false
+supersedes_open_experiment_implication_only: true
+preserves_original_coverage_ledger_as_history: true
+primary_audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
+
+closure_rule: >-
+  NOT_DIRECTLY_TESTED does not imply MUST_RUN_AN_ENA_EXPERIMENT. Keep a new primary
+  only when a non-derivable discriminator can materially change ENA semantics,
+  Operational Architecture, or a release decision and can be isolated with an
+  identifiable, informative fixture. Otherwise close this campaign branch as
+  SUBSUMED, SEMANTICALLY_COVERED, FIELD_UNRESOLVED, METAPHOR_ONLY, NARROWED, or REJECTED.
+
+active_primary:
+  track: 5
+  name: Metamemory Update Policy
+  state: PREREGISTERED_PRIMARY_NOT_STARTED
+  role: FINAL_CURRENTLY_JUSTIFIED_FRESH_SESSION_PRIMARY
+  close_after_formal_adjudication: true
+  reopen_other_tracks_from_metamemory_result_only_if_new_discriminator_emerges: true
+
+tracks:
+  9:
+    name: Sleep-like consolidation / replay scheduling / adaptive homeostasis
+    disposition: SUBSUMED_SEMANTICALLY_COVERED_POLICY_OPTIMUM_FIELD_UNRESOLVED
+    new_primary_required: false
+    covered_by: [OA_MEM_01, METAMEMORY_UPDATE_POLICY, LOCAL_SELECTION]
+    reopen_on: NEW_DECISION_CHANGING_REPLAY_BOUNDARY_NOT_EXPRESSIBLE_BY_EXISTING_MECHANISMS
+
+  10:
+    name: Dream-like recombination / divergence + reality selection
+    disposition: SUBSUMED_AS_VARIATION_IMPLEMENTATION_FAMILY_FIELD_UNRESOLVED_FOR_INVOCATION_POLICY
+    new_primary_required: false
+    covered_by: [VARIATION_GENERATION, VARIATION_SPACE, REALITY_CONTACT, LOCAL_SELECTION]
+    metaphor_status: DREAM_LABEL_NOT_NATURAL_LAW
+    reopen_on: NEW_DECISION_CHANGING_IMAGINATION_BOUNDARY
+
+  11:
+    name: Credit assignment / causal support
+    disposition: EXTERNALLY_SUPPORTED_SEMANTICALLY_COVERED_IMPLEMENTATION_FIELD_UNRESOLVED
+    new_primary_required: false
+    covered_by: [CLAIM_EVIDENCE_SUPPORT_APPLICABILITY, NEGATIVE_EVIDENCE, REALITY_CONTACT]
+    possible_downstream: FIELD_GUIDE_CAUSAL_SUPPORT_HOW_IF_REUSABLE_PROCEDURE_EARNS_EVIDENCE
+
+  12:
+    name: Adaptation ecology / interaction debt / epistasis
+    disposition: EXTERNALLY_SUPPORTED_SEMANTICALLY_COVERED_HOST_FIELD_REQUIRED
+    new_primary_required: false
+    covered_by: [ENA_CON_036, COMPOSITION_EMERGENCE, LOCAL_SELECTION]
+    reopen_on: ACTUAL_COMPOSITION_FAILURE_OR_NEW_UNREPRESENTABLE_INTERACTION_BOUNDARY
+
+  13:
+    name: Decay / silencing / pruning / excision / reconsolidation
+    disposition: SUBSUMED_INTO_MEMORY_METABOLISM_AND_METAMEMORY_POLICY_FIELD_UNRESOLVED
+    new_primary_required: false
+    covered_by: [OA_MEM_01, METAMEMORY_UPDATE_POLICY, DORMANCY, ARCHIVE_RETIREMENT, LOCAL_VALIDITY]
+
+  14:
+    name: Structural/environmental inheritance
+    disposition: SEMANTICALLY_COVERED_FIELD_UNRESOLVED_FOR_CROSS_HOST_PHENOTYPE
+    new_primary_required: false
+    covered_by: [HOST_MAPPINGS, PORTABLE_PROPERTY_NE_PORTABLE_IMPLEMENTATION, MDS_RESULTS]
+    required_future_evidence: REAL_HOST_OR_ENVIRONMENT_INHERITANCE
+
+  15:
+    name: Propagation levels
+    disposition: FIELD_UNRESOLVED_LONGITUDINAL_CROSS_SESSION_OR_CROSS_HOST_REQUIRED
+    new_primary_required: false
+    covered_by: [PROPAGATION_NE_PROOF, SOURCE_NE_RECEIVER_SELECTION]
+    required_future_evidence: REAL_CROSS_SESSION_OR_CROSS_HOST_OCCURRENCE
+
+  16:
+    name: Memetic fitness vs beneficial fitness
+    disposition: SEMANTICALLY_COVERED_SUBSUMED_FIELD_SELF_MONITORING
+    new_primary_required: false
+    covered_by: [POPULARITY_PROPAGATION_NE_PROOF, LOCAL_SUCCESS_NE_UNIVERSAL_FITNESS, EVIDENCE_DEPENDENCY]
+    reopen_on: DECISION_CHANGING_REAL_ADOPTION_FAILURE_FROM_MEMETIC_SALIENCE
+
+  17:
+    name: Horizontal transfer / recipient-side selection
+    disposition: SEMANTICALLY_AND_MECHANICALLY_BOUNDED_FIELD_UNRESOLVED_FOR_POPULATION_DYNAMICS
+    new_primary_required: false
+    covered_by: [PUBLISHED_IMPORTED_EXPRESSED_LOCALLY_SELECTED, MIGRATION_NE_LOCAL_VALIDATION, PACKET_V2]
+    required_future_evidence: REAL_MULTI_AGENT_POPULATION_DYNAMICS
+
+  18:
+    name: Purpose-relative selection / local fitness / heritability / portability / propagation fitness
+    disposition: SEMANTICALLY_COVERED_AS_DISTINCT_CLAIM_DIMENSIONS_FIELD_UNRESOLVED_FOR_ACTUAL_FITNESS_LANDSCAPES
+    new_primary_required: false
+    covered_by: [LOCAL_SELECTION, HOST_APPLICABILITY, RECEIVER_RESELECTION, MULTIDIMENSIONAL_IMPROVEMENT]
+
+  19:
+    name: Purpose drift vs explicit purpose evolution
+    disposition: EXTERNALLY_SUPPORTED_DRIFT_PHENOMENON_ENA_OPERATIONALLY_ROUTED_LONGITUDINAL_FIELD_UNRESOLVED
+    new_primary_required: false
+    covered_by: [CONTESTED_AUTHORSHIP, MATERIAL_SELF_CHANGE, PROVENANCE, FUTURE_CORRECTION]
+    field_watch_priority: HIGH
+    required_future_evidence: LONG_RUNNING_AGENT_UNDER_COMPETING_OBJECTIVES
+
+  20:
+    name: Cultural ratchet / doctrine / ossification
+    disposition: LONGITUDINAL_FIELD_UNRESOLVED_NO_LOCAL_PRIMARY_JUSTIFIED
+    new_primary_required: false
+    covered_by: [LOCAL_NOT_UNIVERSAL_SELECTION, NEGATIVE_EVIDENCE, FUTURE_CORRECTION, CONTROL_RETIREMENT, GOVERNANCE_CONVERGENCE]
+    required_future_evidence: REAL_MULTI_GENERATION_OR_LONG_LIVED_AGENT_POPULATION
+
+  21:
+    name: Developmental lineage / identity continuity
+    disposition: SUBSUMED_BY_PURPOSE_RELATIVE_CONTINUITY_METAPHOR_ONLY_UNLESS_DECISION_MATERIAL
+    new_primary_required: false
+    covered_by: [PURPOSE_RELATIVE_CONTINUITY]
+    reopen_on: CONCRETE_RESPONSIBILITY_RECOVERY_INHERITANCE_OR_SELECTION_DECISION_NOT_REPRESENTABLE_BY_EXISTING_CONTINUITY_RELATIONS
+
+campaign_stop_condition: >-
+  After formal adjudication of Metamemory Update Policy v1, mark the current
+  evolutionary-memory mechanism-discrimination campaign CLOSED unless that adjudication
+  exposes a genuinely new non-derivable discriminator. Scientific interest alone is not
+  sufficient reason to reopen a track.
+
+release_boundary: >-
+  These closure dispositions earn no new Constitution law by themselves. The active
+  v0.3.8 adoption-surface successor is independently justified by field/adoption evidence.
