@@ -208,7 +208,7 @@ ENA may use final accountable decision-makers, but must not depend on an infalli
 
 ## 5.13 Inherited Composed Claim-Pack Validator
 
-Current retains the accepted composed-validator implementation released through Current (originating in the v0.3.3 falsification/repair lineage) under `tools/validate_contracts.py`, together with its inherited fixture/regression corpus. This preserved implementation surface protects previously falsified semantics while the broader architecture evolves.
+Current retains the accepted composed-validator implementation released in v0.3.6 (originating in the v0.3.3 falsification/repair lineage) under `tools/validate_contracts.py`, together with its inherited fixture/regression corpus. This preserved implementation surface protects previously falsified semantics while the broader architecture evolves.
 
 Its key machine properties remain:
 
