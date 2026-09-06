@@ -6,7 +6,7 @@
 
 这不是通用关键词分类器。Host 可以用 skill/router、memory index、event hook、semantic retrieval 或其他原生方式实现相同功能。
 
-## 0. 先看后果，再决定是否加治理
+## 0. 先看后果，再决定是否加治理/进化器官
 
 先问：
 
@@ -17,9 +17,10 @@ retry/restart 是否可能重复或冲突地改变现实世界？
 等待是否可能改变安全决策？
 缺失知识/证据是否会改变决策？
 self-change 是否会改变未来行为或 recovery？
+当前缺口是语义没懂，还是 Host 上根本没有对应器官？
 ```
 
-如果都不具备实质相关性，优先走 lightweight path。不能因为包里有一个器官，就制造一套仪式。
+如果都不具备实质相关性，优先走 lightweight path。不能因为包里有一个器官，就制造一套仪式；也不能因为 Capability Map 写了一个能力，就假装 Host 已经拥有它。
 
 ## 快速路由
 
@@ -38,13 +39,19 @@ self-change 是否会改变未来行为或 recovery？
 | “有人/另一个 Agent 提出反对意见，可能改变后果性决策。” | `OA-STAND-01 Standing Input` | `procedures/STANDING-INPUT.md`；被听见不等于获得 sovereignty/authority |
 | “很多 reviewer 都同意，这真的是独立支持吗？” | `OA-EVID-01 Evidence dependency` | `references/advanced/evidence-dependency-map/`；保留 common cause，不造伪 independence scalar |
 | “我有 evidence，但它现在真的支持这个 claim/subject 吗？” | `OA-EVID-01 Evidence envelope` | `references/advanced/evidence-envelope/`；区分 evidence/support/applicability/provenance/witness/activation |
-| “失败、摩擦、发现或成功提示 Agent 应该改变。” | `OA-EVO-01 Evolution` | v2 evolution record + `tools/ena_evolve_v2.py`；variation 可以保持 latent |
+| “失败、摩擦、发现或成功提示 Agent 应该改变。” | `OA-EVO-01 Evolution` | `procedures/EVOLUTION-LOOP.md`；先 capture signal，再决定是否形成 variation |
+| “我有个想法/correction，但会话结束可能就没了。” | `OA-EVO-01 Evolution` | durable inbox / candidate queue；不要把 chat presence 当 durable capture |
+| “我到底应该怎么让自己持续变好/进化？” | `OA-EVO-01 Evolution` | `procedures/EVOLUTION-LOOP.md`：signal -> latent -> trial -> evidence -> selection -> retention |
+| “我改了自己，但没有 before/after，怎么知道变好了？” | `OA-EVO-01 Evolution` | baseline/evidence step；只测会改变 selection 的维度 |
+| “已经试过了，但没人决定 retain/reject/unknown。” | `OA-EVO-01 Evolution` | local selection + selection record；不要让 experiment 自动等于 integration |
+| “latent idea 越积越多，从来不会重新被看到。” | `OA-EVO-01` + `OA-ECO-01` | wake/review；如果 loop 本身不再付房租，就缩减/退休机制 |
 | “我要分享/导入其他 Agent/Host 的 adaptation。” | `OA-MIG-01 Migration/Commons` | packet v2 + `patterns/EVOLUTION-COMMONS.md`；source success 不是 receiver-local proof |
 | “Agents 需要实时发现、委派或互相通信。” | `OA-MIG-01 Active interoperability` | Host/A2A-style live protocol；不要和 durable Commons 混为一谈 |
 | “这个 safeguard/control 可能已经没必要了。” | `OA-ECO-01 Control Retirement` | `procedures/CONTROL-RETIREMENT.md`；无事故/低使用率本身不是退休证据 |
 | “某个 metric/reputation/resource limit 正在塑造群体行为。” | `OA-ECO-01 Ecology` | Host/field/mesocosm branch；measurement 本身也是 selection pressure |
 | “规则都在仓库里，但运行时根本想不起来。” | `OA-RT-01 Runtime routing` | compact hot cues -> cold operational retrieval；resident kernel 由 Host 选择 |
 | “采用 ENA 到底要激活多少东西？” | `OA-ADOPT-01 Adoption` | semantic baseline + operational routing；bundled references 仍 optional/default-off |
+| “ENA 已采用，但我从没检查本机该不该长出实际器官。” | `OA-ADOPT-01` -> concrete HOW | 做一次 bounded local operationalization pass；`EXISTING/PROPOSE/NOT_REQUIRED/NOT_APPLICABLE` 都合法 |
 | “英文和中文可能导致不同决策。” | `OA-ADOPT-01 Language` | zh-CN operational projection + paired semantic fixtures；结构一致不等于行为已证明等价 |
 
 ## 常见故障形状
@@ -55,6 +62,7 @@ self-change 是否会改变未来行为或 recovery？
 
 ```text
 “存在，所以一定被加载了”
+“Capability Map 写了 Evolution Inbox，所以本机有 inbox”
 “五个 Agent 同意，所以有五份独立证据”
 “restore 成功，所以现实世界也回滚了”
 “我持有 credential，所以我有 authority”
@@ -62,7 +70,7 @@ self-change 是否会改变未来行为或 recovery？
 “schema 通过，所以 evidence 就是真的”
 ```
 
-优先路由到 Retrieval / Evidence / Recovery / Authority / Migration，而不是先加新 Core rule。
+优先路由到 Retrieval / Evidence / Recovery / Authority / Migration / Evolution operationalization，而不是先加新 Core rule。
 
 ### False BLOCK / 仪式化治理
 
@@ -74,6 +82,7 @@ self-change 是否会改变未来行为或 recovery？
 “所有 recovery 都必须有独立 rescue plane”
 “control 必须达到固定年龄/次数才可退休”
 “包里带的 reference 就必须启用”
+“既然要进化，就必须永远开着 cron 自我修改”
 ```
 
 先找对应的 `NOT_APPLICABLE / NOT_REQUIRED / lightweight` 分支。
@@ -103,6 +112,15 @@ CUE-INDEX
 -> exact procedure / reference / Host pattern
 ```
 
+进化问题可直接：
+
+```text
+signal / idea
+-> OA-EVO-01
+-> operational/procedures/EVOLUTION-LOOP.md
+-> Host-native inbox / trial / baseline / selection / wake organ
+```
+
 若 reference 不存在或不适用，不要发明 universal machinery。选择 Host-native branch，或保留 honest residual。
 
 ## 证据边界
@@ -112,6 +130,7 @@ Cue match 只说明某条 branch 值得检索。
 ```text
 CUE_MATCH != APPLICABILITY_PROVEN
 ROUTER_CONFIGURED != FUTURE_SALIENCE_PROVEN
+SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
 ```
 
 自然 fresh-session salience 仍属于 field evidence。

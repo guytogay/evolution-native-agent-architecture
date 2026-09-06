@@ -27,6 +27,8 @@
 
 这些是 cue / boundary，不等于 prose 已经硬执行。
 
+如果当前真实问题是“**我到底怎么持续改进/进化自己？**”，检索 `OA-EVO-01` 与 `operational/procedures/EVOLUTION-LOOP.md`。Kernel 只保留进化 cue；cold HOW 提供可执行循环。
+
 ## Cue -> HOW
 
 ```text
@@ -40,17 +42,39 @@
 
 Cue Index、HOW Map、Enforcement Map、fixtures、Constitution、references 都是可用的 cold/on-demand capability，不是 ordinary Agent 默认常驻负载。
 
+常见 cue 包括 retrieval、timeout/retry、authority、restore/resume、evidence dependency、durable self-definition change、adaptation import、**how to improve/evolve**、stale control、composition/emergence、新 Host/model/language。
+
 `AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD`
 
 `cue 已配置 != 未来自然想起已证明`。
 
-## 变异、选择与迁移
+## Adoption / Host 变化后的本地落地检查
 
-mutation pressure 是产生/重看 variation 的机会，不是命令。variation 可以保持 latent。有后果的实验进入与 consequence 相称的 Variation Space。正负 selection 默认只属于实际环境；传播或流行不是本地证明。
+初次采用 ENA 后，或 Host/runtime 发生实质变化后，做一次有边界的本地 operationalization pass。只有当某个边界的缺失、不确定或失效可能改变当前/反复出现的决策，或 authority/effect/recovery/evidence/长期进化边界时，才把它视为适用。先检查哪些边界已经由 Host-native mechanism 保护；若存在真实缺口，只提出能实质改变/保护当前决策的最小、低成本、可逆机制。不得超越真实 authority 自动安装或启动有后果的控制。`EXISTING`、`PROPOSE`、`NOT_REQUIRED`、`NOT_APPLICABLE` 都是合法结果；继续加机制已经不可能改善决策时就停止。
+
+Host/runtime 变化只有在它可能让已有本地事实失效或改变 effective loading/persistence、authority/effect、recovery、Variation Space、model/provider/route、language projection 等决策边界时才算“实质变化”。无关环境抖动不要求重跑。
+
+```text
+语义采用 != 本地落地
+本地落地 != 把所有控制都装上
+```
+
+rescue snapshot、恢复演练、canary、ledger、baseline、validator、watcher 都只是可能的 Host 实现，不因为 ENA 提到相应边界就自动成为必装组件。
+
+## 变异、选择与进化循环
+
+mutation pressure 是产生/重看 variation 的机会，不是命令。variation 可以保持 latent。有后果的实验进入与 consequence 相称的 Variation Space。**Variation Space 只有在确实存在 mutation/experiment、需要有边界的 reality contact 时才适用；普通 external action 如果没有任何 variation 在测试，不要求制造 Variation Space。** 正负 selection 默认只属于实际环境；传播或流行不是本地证明。
+
+```text
+进化词汇 != 可执行进化循环
+保护可进化性 != 进化本身
+```
+
+需要完整操作步骤时检索 `operational/procedures/EVOLUTION-LOOP.md`：signal/inbox -> latent candidate -> bounded trial -> before/after evidence -> local selection -> integrate/retain/dormant/reject/archive -> relevant wake。
 
 ## Recovery / Effect / Authority
 
-`backup exists != recovery proven`。self-mutation 可能破坏恢复时，在 consequence 值得的情况下保留 damaged variation 之外可达的 rescue path。restore 后继续产生外部后果前，要对账 external effect、当前 authority 和本决策所需的完整历史。
+`backup exists != recovery proven`。self-mutation 可能破坏 recovery 时，在 consequence 值得的情况下保留 damaged variation 之外可达的 rescue path。restore 后继续产生外部后果前，要对账 external effect、当前 authority 和本决策所需的完整历史。
 
 ## 治理闭环
 
@@ -64,4 +88,4 @@ mutation pressure 是产生/重看 variation 的机会，不是命令。variatio
 
 模型指导不是硬控制；机器 validator 也不证明外部世界事实。
 
-> **常驻核心；按需检索 HOW；让治理支付成本。**
+> **常驻核心；需要进化时检索 Evolution Loop；按需检索其他 HOW；只在真实本地缺口值得时落地。**

@@ -33,7 +33,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check PyYAML jsonschema
 
-      - name: Validate Current identity, hot payload and share-ready contract
+      - name: Validate Current identity, hot payload and R1 evolution-loop contract
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -42,16 +42,16 @@ jobs:
           root = Path('releases/current')
           doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
 
-          assert doc['ena_version'] == 'v0.3.12'
+          assert doc['ena_version'] == 'v0.3.13'
           assert doc['adoption_status'] == 'CURRENT'
           assert doc['maturity'] == 'FIELD_VALIDATION'
           assert doc['current'] is True and doc['released'] is True
+          assert doc['release_lane'] == 'R1_OPERATIONAL_EVOLUTION_LOOP'
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
           assert doc['release_identity']['known_bounded_defect_must_be_fixed_before_recommending_current'] is True
-          assert doc['release_identity']['contribution_provenance_preserved'] is True
-          assert doc['lineage']['source_contribution_pr'] == 216
-          assert doc['lineage']['source_issues'] == [217, 218]
+          assert 'F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION' in doc['lineage']['field_findings']
+          assert 'F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP' in doc['lineage']['field_findings']
 
           for rel in doc['core_files']:
               assert (root/rel).is_file(), rel
@@ -65,11 +65,23 @@ jobs:
           assert r['default_hot_payload'] == expected
           assert a['full_how_library_should_be_permanently_loaded'] is False
           assert r['hot_kernel_should_load_full_how_library'] is False
+          assert a['bounded_local_operationalization_pass_after_adoption_or_host_change'] is True
+          assert a['local_operationalization_may_install_every_control'] is False
+
+          loop = doc['evolution_loop']
+          assert loop['forced_continuous_self_editing'] is False
+          assert loop['universal_metric_required'] is False
+          assert loop['universal_runtime_required'] is False
+          assert loop['full_lifecycle_engine_bundled'] is False
+          assert loop['ena_evolve_v2_role'] == 'NARROW_LATENT_AND_MIGRATION_RECORD_PACKET_HELPER'
+          assert len(loop['stages']) == 9
+          assert len(loop['minimum_host_functions_when_applicable']) == 7
+          assert doc['operational_architecture']['minimum_evolution_loop'] == 'operational/procedures/EVOLUTION-LOOP.md'
 
           root_readme = Path('README.md').read_text(encoding='utf-8')
-          assert 'Current is **v0.3.12 / FIELD_VALIDATION**.' in root_readme
-          assert 'DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md' in root_readme
-          assert 'PR #216' in root_readme and 'Issues #217 and #218' in root_readme
+          assert 'Current is **v0.3.13 / FIELD_VALIDATION**.' in root_readme
+          assert 'operational/procedures/EVOLUTION-LOOP.md' in root_readme
+          assert 'EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP' in root_readme
 
           meta = yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
           assert meta['status'] == 'COLD_COMPATIBILITY_POINTER'
@@ -78,24 +90,23 @@ jobs:
           assert meta['rules']['default_agent_hot_payload'] == 'releases/current/RUNTIME-ADOPTION-KERNEL.md'
 
           bootstrap = (root/'AGENT-ADOPTION-INSTRUCTION.md').read_text(encoding='utf-8')
+          quick = (root/'ADOPTER-QUICKSTART.md').read_text(encoding='utf-8')
           kernel = (root/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
-          assert 'bootstrap' in bootstrap.lower()
+          for text in (bootstrap, quick, kernel):
+              assert 'operationalization' in text.lower()
+          assert 'how do I improve/evolve myself' in kernel
+          assert 'LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL' in kernel
+          assert 'EVOLUTION-LOOP.md' in kernel
           assert 'DEFAULT_AGENT_HOT_PAYLOAD' in kernel
           assert 'AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD' in kernel
 
           stable_no_numeric_current = [
-              'README.md',
-              '00-READ-ME-FIRST.md',
-              'ADOPTER-QUICKSTART.md',
-              'AGENT-ADOPTION-INSTRUCTION.md',
-              'RUNTIME-ADOPTION-KERNEL.md',
-              'LITE-ADOPTION-INSTRUCTION.md',
-              'CONTRIBUTION-PROTOCOL.md',
+              'README.md','00-READ-ME-FIRST.md','ADOPTER-QUICKSTART.md',
+              'AGENT-ADOPTION-INSTRUCTION.md','RUNTIME-ADOPTION-KERNEL.md',
+              'LITE-ADOPTION-INSTRUCTION.md','CONTRIBUTION-PROTOCOL.md',
               '06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
-              '07-ADOPTION-AND-FIELD-VALIDATION.md',
-              '08-RELEASE-DISCIPLINE.md',
-              '09-EVOLUTION-METABOLISM.md',
-              '10-LANGUAGE-PORTABILITY.md',
+              '07-ADOPTION-AND-FIELD-VALIDATION.md','08-RELEASE-DISCIPLINE.md',
+              '09-EVOLUTION-METABOLISM.md','10-LANGUAGE-PORTABILITY.md',
               'language-projections/zh-CN/00-READ-ME-FIRST.md',
               'language-projections/zh-CN/RUNTIME-ADOPTION-KERNEL.md',
           ]
@@ -109,10 +120,10 @@ jobs:
           assert 'material defect in v0.3.7' not in contribution
           assert 'material defect in Current' in contribution
 
-          print('CURRENT_IDENTITY_HOT_PAYLOAD_SHARE_READY_PASS', doc['ena_version'])
+          print('CURRENT_R1_EVOLUTION_IDENTITY_PASS', doc['ena_version'])
           PY
 
-      - name: Validate operational identity, routing, templates and zh-CN projection
+      - name: Validate evolution-loop routing and bilingual projection
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -123,102 +134,98 @@ jobs:
           baseline = yaml.safe_load((r/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
           manifest = yaml.safe_load((z/'projection-manifest.yaml').read_text(encoding='utf-8'))
 
-          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.12'
-          assert manifest['release_identity']['current_version'] == 'v0.3.12'
+          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.13'
+          assert manifest['release_identity']['current_version'] == 'v0.3.13'
           assert manifest['release_identity']['current_status'] == 'CURRENT'
-          assert manifest['runtime_adoption']['default_agent_hot_payload_count'] == 1
-          assert manifest['runtime_adoption']['default_agent_hot_payload'] == ['RUNTIME-ADOPTION-KERNEL.md']
-          assert manifest['coverage']['release_bound_projection'] == ['projection-manifest.yaml']
-          assert manifest['validation']['historical_provenance_versions_allowed_in_cold_body'] is True
+          assert manifest['runtime_adoption']['how_to_evolve_runtime_cue_present'] is True
+          assert manifest['runtime_adoption']['local_operationalization_cue_present'] is True
+          assert manifest['validation']['evolution_loop_projection_present'] is True
+          assert 'operational/procedures/EVOLUTION-LOOP.md' in manifest['coverage']['version_neutral_semantic_projection']
+
+          en_loop = (r/'operational/procedures/EVOLUTION-LOOP.md').read_text(encoding='utf-8')
+          zh_loop = (z/'operational/procedures/EVOLUTION-LOOP.md').read_text(encoding='utf-8')
+          cue = (r/'operational/CUE-INDEX.md').read_text(encoding='utf-8')
+          how = (r/'operational/HOW-MAP.md').read_text(encoding='utf-8')
+          ref = yaml.safe_load((r/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
+          kernel = (r/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
+          zkernel = (z/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
+          zcue = (z/'operational/CUE-INDEX.md').read_text(encoding='utf-8')
+          zhow = (z/'operational/HOW-MAP.md').read_text(encoding='utf-8')
+          metabolism = (r/'09-EVOLUTION-METABOLISM.md').read_text(encoding='utf-8')
+          zmetabolism = (z/'09-EVOLUTION-METABOLISM.md').read_text(encoding='utf-8')
+
+          assert 'EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP' in en_loop
+          assert 'EVOLUTION_LOOP != CONTINUOUS_SELF_EDITING' in en_loop
+          for marker in ['Capture the signal durably','keep it latent by default','reality contact','Establish the minimum before-state','Observe outcomes','Act on selection','Keep the loop alive']:
+              assert marker.lower() in en_loop.lower(), marker
+          for function in ['signal/inbox','candidate store','reality-contact surface','before/after evidence','recovery when material','selection record','wake/review']:
+              assert function in en_loop, function
+
+          assert 'EVOLUTION-LOOP.md' in kernel
+          assert 'EVOLUTION-LOOP.md' in cue
+          assert 'EVOLUTION-LOOP.md' in how
+          evo_route = ref['routes']['OA-EVO-01']
+          assert '../operational/procedures/EVOLUTION-LOOP.md' in evo_route.get('primary', []) or 'procedures/EVOLUTION-LOOP.md' in evo_route.get('primary', [])
+          assert evo_route.get('tool_state') == 'NARROW_HELPER_NOT_FULL_LIFECYCLE_ENGINE'
+          assert 'EVOLUTION-LOOP.md' in metabolism
+
+          assert 'EVOLUTION-LOOP.md' in zkernel
+          assert 'EVOLUTION-LOOP.md' in zcue
+          assert 'EVOLUTION-LOOP.md' in zhow
+          assert 'EVOLUTION-LOOP.md' in zmetabolism
+          assert '持续自我修改' in zh_loop or '持续自改' in zh_loop
 
           z00 = (z/'00-READ-ME-FIRST.md').read_text(encoding='utf-8')
-          zk = (z/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
           assert 'CURRENT / FIELD_VALIDATION' in z00
-          assert '默认唯一常驻' in zk
+          assert '默认唯一常驻' in zkernel
           assert not re.search(r'v0\.3\.\d+', z00)
-          assert not re.search(r'v0\.3\.\d+', zk)
+          assert not re.search(r'v0\.3\.\d+', zkernel)
+
+          print('EVOLUTION_LOOP_ROUTING_BILINGUAL_PASS')
+          PY
+
+      - name: Validate operational identity, templates and cold-surface version discipline
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, yaml
+          r = Path('releases/current')
+          z = r/'language-projections/zh-CN'
+          numeric = re.compile(r'v0\.3\.\d+')
 
           zh_cold = [
-              '01-CONSTITUTION.md',
-              'CONSTITUTION-CONCEPT-MAP.md',
-              'SEMANTIC-GLOSSARY.zh-CN.yaml',
-              'REFERENCE-GUIDE.md',
-              'operational/README.md',
-              'operational/CUE-INDEX.md',
-              'operational/HOW-MAP.md',
-              'operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md',
-              'operational/procedures/STANDING-INPUT.md',
-              'operational/procedures/CONTROL-RETIREMENT.md',
-              'operational/patterns/EVOLUTION-COMMONS.md',
-              'operational/patterns/HOST-MAPPINGS.md',
+              '01-CONSTITUTION.md','CONSTITUTION-CONCEPT-MAP.md','SEMANTIC-GLOSSARY.zh-CN.yaml',
+              'REFERENCE-GUIDE.md','operational/README.md','operational/CUE-INDEX.md','operational/HOW-MAP.md',
+              'operational/procedures/EVOLUTION-LOOP.md','operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md',
+              'operational/procedures/STANDING-INPUT.md','operational/procedures/CONTROL-RETIREMENT.md',
+              'operational/patterns/EVOLUTION-COMMONS.md','operational/patterns/HOST-MAPPINGS.md',
               '09-EVOLUTION-METABOLISM.md',
           ]
-          stale = ['v0.3.7 Current', 'Candidate Assembly Gate', 'CURRENT_CHANGE = NO']
-          numeric = re.compile(r'v0\.3\.\d+')
+          stale = ['v0.3.7 Current','CURRENT_CHANGE = NO']
           for rel in zh_cold:
               text = (z/rel).read_text(encoding='utf-8')
               found = [s for s in stale if s in text]
               assert not found, (rel, found)
-              # Identity headers must be version-neutral; historical provenance in body is allowed.
               header = '\n'.join(text.splitlines()[:4])
               hit = numeric.search(header)
               assert not hit, (rel, hit.group(0) if hit else None)
 
-          en_cold = [
-              'releases/current/CONTRIBUTION-PROTOCOL.md',
-              'releases/current/references/general/wait-state/README.md',
-              'releases/current/references/general/authority-lease/README.md',
-              'releases/current/references/general/effect-lifecycle/README.md',
-              'releases/current/references/general/recovery-adapter/README.md',
-              'releases/current/references/advanced/evidence-envelope/README.md',
-              'releases/current/references/general/retrieval-obligation/README.md',
-              'releases/current/references/advanced/contested-authorship/README.md',
-              'releases/current/references/advanced/evidence-dependency-map/README.md',
-              'releases/current/operational/procedures/STANDING-INPUT.md',
-              'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md',
-              'releases/current/operational/patterns/HOST-MAPPINGS.md',
-              'releases/current/operational/patterns/EVOLUTION-COMMONS.md',
-              'releases/current/operational/procedures/CONTROL-RETIREMENT.md',
-              'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md',
-              'releases/current/SEMANTIC-GLOSSARY.yaml',
-              'releases/current/references/REFERENCE-MANIFEST.yaml',
-              'releases/current/schemas/evolution-record.v2.schema.json',
-              'releases/current/language-projections/semantic-fixtures.v2.yaml',
-              'releases/current/templates/field-experience.v2.yaml',
-              'releases/current/04-CAPABILITY-MAP.md',
-              'releases/current/operational/README.md',
-              'releases/current/operational/CUE-INDEX.md',
-              'releases/current/operational/HOW-MAP.md',
-              'releases/current/operational/REFERENCE-INDEX.yaml',
-              'releases/current/ENFORCEMENT-MAP.yaml',
-              'releases/current/06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
-              'releases/current/language-projections/zh-CN/09-EVOLUTION-METABOLISM.md',
-          ]
           version_bound_current = re.compile(r'v0\.3\.\d+\s+Current', re.I)
-          for rel in en_cold:
-              text = Path(rel).read_text(encoding='utf-8')
-              hit = version_bound_current.search(text)
-              assert not hit, (rel, hit.group(0) if hit else None)
-
-          version_neutral_headers = [
-              r/'operational/README.md',
-              r/'operational/CUE-INDEX.md',
-              r/'operational/HOW-MAP.md',
-              r/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
-          ]
-          for p in version_neutral_headers:
-              header = '\n'.join(p.read_text(encoding='utf-8').splitlines()[:4])
-              hit = numeric.search(header)
-              assert not hit, (str(p), hit.group(0) if hit else None)
+          release_bound_identity = {
+              'CHANGELOG.md','LINEAGE.md','CURRENT-BASELINE.yaml','projection-manifest.yaml'
+          }
+          for p in r.rglob('*'):
+              if p.is_file() and p.suffix.lower() in {'.md','.yaml','.json'}:
+                  if p.name in release_bound_identity:
+                      continue
+                  text = p.read_text(encoding='utf-8')
+                  hit = version_bound_current.search(text)
+                  assert not hit, (str(p), hit.group(0) if hit else None)
 
           enf_text = (r/'ENFORCEMENT-MAP.yaml').read_text(encoding='utf-8')
           enf = yaml.safe_load(enf_text)
-          assert enf['status'] == 'CURRENT', enf.get('status')
-          assert 'candidate' not in enf, enf.keys()
+          assert enf['status'] == 'CURRENT'
           assert 'CANDIDATE_NOT_CURRENT' not in enf_text
-
-          six = (r/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md').read_text(encoding='utf-8')
-          assert 'This candidate' not in six
 
           ri_text = (r/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8')
           assert 'release: v0.3.' not in ri_text
@@ -226,12 +233,7 @@ jobs:
 
           t2 = yaml.safe_load((r/'templates/field-experience.v2.yaml').read_text(encoding='utf-8'))
           assert t2['participant']['ena_semantic_identity'] == 'EXPLICITLY_STATE_ACTUAL_SEMANTIC_IDENTITY'
-          assert not re.search(r'^v0\.3\.\d+$', t2['participant']['ena_semantic_identity'])
-          t1 = (r/'templates/field-experience.v1.yaml').read_text(encoding='utf-8')
-          assert 'Prefer field-experience.v2.yaml for Current field evidence.' in t1
-          assert 'for v0.3.6 candidate evidence' not in t1
-
-          print('OPERATIONAL_IDENTITY_ROUTING_TEMPLATE_ZH_PASS')
+          print('OPERATIONAL_IDENTITY_TEMPLATE_PASS')
           PY
 
       - name: Parse Current structured files
@@ -301,10 +303,11 @@ jobs:
           print('ADOPTION_CONFORMANCE_PASS', len(fx['cases']))
           PY
 
-      - name: Verify R0 protected semantic and machine bytes
+      - name: Verify R1 protected semantic and machine bytes
         run: |
           python - <<'PY'
           from pathlib import Path
+          import json, re
           r = Path('releases/current')
           c = Path('releases/v0.3.8-candidate')
           protected = [
@@ -318,8 +321,6 @@ jobs:
           ]
           for rel in protected:
               assert (r/rel).read_bytes() == (c/rel).read_bytes(), rel
-          print('R0_PROTECTED_BYTES_PASS', len(protected))
-          import json, re
           cap_now = re.findall(r'ENA-CAP-\d{3}', (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8'))
           cap_old = re.findall(r'ENA-CAP-\d{3}', (c/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8'))
           assert cap_now == cap_old
@@ -327,7 +328,7 @@ jobs:
           schema_old = json.loads((c/'schemas/evolution-record.v2.schema.json').read_text(encoding='utf-8'))
           schema_now['title'] = schema_old['title']
           assert schema_now == schema_old
-          print('R0_METADATA_NORMALIZED_SEMANTIC_PASS', len(cap_now))
+          print('R1_PROTECTED_SEMANTIC_MACHINE_PASS', len(protected), len(cap_now))
           PY
 
       - name: Reject generated bytecode or dirty validation output

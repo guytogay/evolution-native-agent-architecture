@@ -15,10 +15,25 @@ Its purpose is viable agency: useful evolution without turning every stimulus in
 3. Make `ENFORCEMENT-MAP.yaml` retrievable when you need to know whether a property is model guidance, machine-guarded, externally controlled, or still field evidence.
 4. Keep HOWs, references, fixtures, Constitution detail, and research lineage cold until they can change a decision.
 5. Prefer an existing Host-native mechanism when it already preserves the required property and boundary.
+6. After adoption, and after a material Host/runtime change, do one bounded **local operationalization pass**:
+   - identify which relevant ENA boundaries are already embodied by local controls;
+   - treat a boundary as relevant/applicable only when its absence, uncertainty, or failure could plausibly change a current or recurring decision, authority/effect/recovery/evidence boundary, or durable evolution loop on this Host;
+   - for a concrete uncovered gap, propose the smallest cheap/reversible Host-native mechanism that could materially improve the decision or recovery boundary;
+   - do not install or activate consequential machinery beyond actual authority;
+   - explicitly allow `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` outcomes;
+   - stop when another mechanism would not plausibly pay rent.
+
+A **material Host/runtime change** is one that can invalidate a cached Local Projection fact or change a decision boundary—for example model/provider/route, effective loading or persistence, authority/effect topology, recovery topology, Variation Space, or language projection. Irrelevant environment churn does not by itself retrigger the pass.
+
+Variation Space is relevant only when an actual mutation/experiment needs a bounded reality-contact surface. An ordinary consequential external action with no variation under test does **not** require inventing a Variation Space.
+
+This is not a request to install every ENA mechanism. A rescue snapshot, canary, ledger, baseline, watcher, or validator may be useful on one Host and unnecessary on another.
 
 ```text
 DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
 AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
+SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
+LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
 ```
 
 ## What not to do
@@ -28,6 +43,7 @@ AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 - Do not treat prose as hard enforcement.
 - Do not install every bundled reference merely because it ships with Current.
 - Do not make research lineage mandatory adoption context.
+- Do not manufacture local machinery where the Host already preserves the property or where no real decision boundary needs it.
 
 ## Useful outcomes
 
@@ -41,4 +57,4 @@ Match claims to evidence:
 
 Machine selftests do not prove external authority, effect settlement, recovery, provenance, or universal Host fitness.
 
-> **Keep one semantic kernel hot; retrieve the HOW; enforce outside the model where the property actually lives.**
+> **Keep one semantic kernel hot; retrieve the HOW; operationalize only where a real local gap earns it; enforce outside the model where the property actually lives.**

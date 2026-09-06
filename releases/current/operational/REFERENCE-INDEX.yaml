@@ -1,4 +1,4 @@
-schema_version: '1.0'
+schema_version: '1.1'
 status: CURRENT_OPERATIONAL_REFERENCE_INDEX
 rules:
   reference_exists_implies_applicable: false
@@ -135,15 +135,29 @@ routes:
     - failure-domain witness
     applicability: MATERIAL_EVIDENCE_CONTEXT_ONLY_FOR_ADVANCED_REFERENCES
   OA-EVO-01:
-    what: evolution and variation
+    what: executable evolution loop; signal capture, latent variation, bounded trial, outcome evidence, local selection and retention
     primary:
+    - procedures/EVOLUTION-LOOP.md
+    - ../templates/evolution-record.v2.json
     - ../schemas/evolution-record.v2.schema.json
     - ../tools/validate_evolution_record_v2.py
     - ../tools/ena_evolve_v2.py
     fallback:
-    - direct schema/template plus validator
+    - Host-native durable inbox or candidate queue
     - Host-native variation store
-    tool_state: CURRENT_MACHINE_CHECKED
+    - branch/worktree/sandbox/canary or bounded real-task trial
+    - before/after smoke baseline or task metric
+    - selection/decision ledger
+    - event/scheduled/manual wake
+    tool_state: NARROW_HELPER_NOT_FULL_LIFECYCLE_ENGINE
+    machine_checked: true
+    valid_host_outcomes:
+    - EXISTING
+    - PROPOSE
+    - IMPLEMENTED_AND_DRILLED
+    - NOT_REQUIRED
+    - NOT_APPLICABLE
+    - UNKNOWN
   OA-MIG-01:
     what: migration and Commons
     primary:
@@ -179,4 +193,10 @@ routes:
     - ../10-LANGUAGE-PORTABILITY.md
     - ../language-projections/zh-CN/
     - ../references/REFERENCE-MANIFEST.yaml
+    adoption_time_local_operationalization: REQUIRED_BOUNDED_PASS
+    operationalization_valid_outcomes:
+    - EXISTING
+    - PROPOSE
+    - NOT_REQUIRED
+    - NOT_APPLICABLE
     evidence: LANGUAGE_BEHAVIORAL_EQUIVALENCE_OPEN

@@ -17,13 +17,15 @@ Each node is a property/problem family with plural possible implementations. A l
 - **OA-AUTHOR-01 Contested Authorship** — attributable lineage for durable material self-surface change; ordinary cache/task state may be out of scope.
 - **OA-STAND-01 Standing Input** — correction-bearing objection can matter without granting sovereignty/veto.
 - **OA-EVID-01 Evidence** — provenance/support/applicability/dependency; schema-valid metadata is not evidence truth.
-- **OA-EVO-01 Evolution** — latent variation, Variation Space, reality contact, local selection; source/popularity is not fitness.
+- **OA-EVO-01 Evolution** — use `procedures/EVOLUTION-LOOP.md`: capture signal/idea durably -> form a latent candidate -> decide whether a trial is worth the cost -> capture decision-relevant baseline/recovery/authority boundaries -> express in the lightest real Variation Space -> record outcomes -> select locally -> integrate/retain/dormant/reject/archive -> observe again. Existing v2 record/schema/helper may represent the candidate; Host-native inbox/ledger/baseline/experiment/wake mechanisms are allowed and often preferable. `EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP`.
 - **OA-MIG-01 Migration/Commons** — packet/Git/registry/object-store/live protocol patterns; receiver performs local selection.
 - **OA-ECO-01 Ecology** — control retirement, quotas/resources/reputation where applicable; no universal risk score or retirement age.
-- **OA-ADOPT-01 Adoption** — singular Current, compact kernel, cold library, optional references, Host mappings, language projection, exact release identity.
+- **OA-ADOPT-01 Adoption** — singular Current, compact kernel, cold library, optional references, Host mappings, language projection, exact release identity; after adoption/material Host change, run one bounded local operationalization pass rather than assuming semantic adoption created local mechanisms.
 
 Common compositions:
 
-`Retrieval -> Projection`; `Authority -> Effect`; `Effect -> Recovery`; `Evidence -> Dependency`; `Evolution -> Packet -> Commons -> receiver selection`; `Runtime cue -> HOW -> Host adapter`.
+`Retrieval -> Projection`; `Authority -> Effect`; `Effect -> Recovery`; `Evidence -> Dependency`; `Evolution signal -> inbox -> candidate -> trial -> selection -> retention`; `Evolution -> Packet -> Commons -> receiver selection`; `Runtime cue -> HOW -> Host adapter`.
 
 Composition does not transfer evidence maturity between organs.
+
+> **Protection keeps evolution viable; OA-EVO-01 is where viable possibility becomes measured local change.**

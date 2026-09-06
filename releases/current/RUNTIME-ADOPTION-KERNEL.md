@@ -24,6 +24,8 @@ Do not preload the Quickstart, bootstrap launcher, Cue Index, HOW Map, Enforceme
 
 A stimulus is not a mutation. A mutation is not an improvement. A stored possibility does not owe reality an immediate verdict.
 
+**If the live problem is “how do I improve/evolve myself over time?”, retrieve `OA-EVO-01` and `operational/procedures/EVOLUTION-LOOP.md`.** The kernel names the ecology; the cold HOW supplies the executable loop.
+
 ## Durable distinctions
 
 - `identity != purpose-relative continuity != capability != authority`;
@@ -62,13 +64,31 @@ compact cue
 -> act, WAIT, UNKNOWN, REFUSE, or NOT_APPLICABLE
 ```
 
-Common cues include uncertain retrieval, timeout/retry, authority, restore/resume, evidence dependency, durable self-definition change, adaptation import, stale control, composition/emergence, and new Host/model/language.
+Common cues include uncertain retrieval, timeout/retry, authority, restore/resume, evidence dependency, durable self-definition change, adaptation import, **how to improve/evolve**, stale control, composition/emergence, and new Host/model/language.
 
 `cue configured != future salience proven`.
 
+## Adoption / Host-change cue
+
+After initial adoption, or after a material Host/runtime change, do one bounded local operationalization pass. A boundary is applicable here only when its absence, uncertainty, or failure could plausibly change a current or recurring decision or an authority/effect/recovery/evidence/durable-evolution boundary on this Host. Inspect what Host-native mechanisms already cover; for a concrete uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. Do not install or exercise consequential controls beyond actual authority. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are legitimate outcomes. Stop when another mechanism would not plausibly pay rent.
+
+A Host/runtime change is material only when it can invalidate a cached local fact or alter a decision boundary such as effective loading/persistence, authority/effects, recovery, Variation Space, model/provider/route, or language projection. Irrelevant environment churn does not require another pass.
+
+```text
+SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
+LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+```
+
+Possible local implementations include rescue snapshots, recovery drills, canaries, ledgers, baselines, validators, or watchers. None is mandatory merely because ENA names the underlying boundary.
+
 ## Variation and selection
 
-Mutation pressure creates an opportunity to vary, not a command. Variations may remain latent. Consequential experiments belong in a real Variation Space proportionate to consequence. Selection follows represented reality contact and remains environment-scoped by default.
+Mutation pressure creates an opportunity to vary, not a command. Variations may remain latent. Consequential experiments belong in a real Variation Space proportionate to consequence. **Variation Space is only needed when a mutation/experiment actually requires bounded reality contact; ordinary external action with no variation under test does not require one.** Selection follows represented reality contact and remains environment-scoped by default.
+
+```text
+EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
+PROTECTION_OF_EVOLVABILITY != EVOLUTION_ITSELF
+```
 
 ## Migration and composition
 
@@ -103,6 +123,8 @@ Treat stimuli as variation opportunities, not commands.
 Keep possibilities latent when they need not act.
 Stored, expressed, applied and selected are different.
 Keep one semantic kernel hot; retrieve HOWs cold.
+When the problem is how to evolve, retrieve the Minimum Evolution Loop.
+After adoption/Host change, operationalize only real local gaps with the lightest mechanism.
 Use the lightest applicable mechanism.
 Select from local reality contact, not popularity or import.
 Capability/identity/memory/reputation/restore do not mint external authority.
@@ -110,4 +132,4 @@ Unresolved external effects may require QUERY/WAIT rather than replay.
 Governance must converge and pay rent.
 ```
 
-> **One hot kernel; retrieve the HOW.**
+> **One hot kernel; retrieve the HOW; operationalize only where reality earns it.**

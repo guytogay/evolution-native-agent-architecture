@@ -1,4 +1,4 @@
-schema_version: '5.3'
+schema_version: '5.5'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-06'
 normal_continuation:
@@ -25,17 +25,19 @@ current_project_authorities:
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   final_metamemory_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
 current_adoption:
-  version: v0.3.12
+  version: v0.3.13
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  release_lane: R0_FIELD_PATCH_EXTERNAL_CONTRIBUTION_COHERENCE
-  predecessor_version: v0.3.11
+  release_lane: R1_OPERATIONAL_EVOLUTION_LOOP
+  predecessor_version: v0.3.12
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
-  source_contribution_pr: 216
-  source_contribution_commit: 34f7adfeaebaa99defe2b0030f3e0b2067c9d72f
-  source_issues: [217, 218]
   default_agent_hot_payload_count: 1
   default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
+  how_to_evolve_route: releases/current/operational/procedures/EVOLUTION-LOOP.md
+  evolution_route_id: OA-EVO-01
+  bounded_local_operationalization_pass_after_adoption_or_host_change: REQUIRED
+  local_operationalization_install_every_control: FORBIDDEN
+  local_operationalization_valid_outcomes: [EXISTING, PROPOSE, NOT_REQUIRED, NOT_APPLICABLE]
   same_version_same_effective_content: REQUIRED
   known_bounded_defect_before_recommendation: FORBIDDEN
   current_pointer_should_remain_here_if_better_successor_ready: false
@@ -63,7 +65,13 @@ active_field_validation:
   - F-208-04_CONTRIBUTION_RULE_OBSOLETE_VERSION_SCOPE
   - F-208-05_CURRENT_OPERATIONAL_IDENTITY_AND_GATE_COVERAGE_GAP
   - F-208-06_REFERENCE_INDEX_DEAD_HOW_MAP_ANCHORS
-  next_product_rule: Continue the version-neutral Current field stream. Verified external contributions are legitimate reality contact. When a bounded defect has a clear fix, create the smallest successor promptly; preserve contribution provenance separately from promotion authority.
+  - F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION
+  - F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP
+  field_causality:
+    owner_intervention: The owner explicitly asked whether ENA lacked support for helping the Agent itself evolve.
+    agent_response: DSH inspected its LXC Host, found missing local evolution/recovery organs, proposed rescue + durable variation ledger + lightweight baseline, and implemented them after owner authorization.
+    boundary: OWNER_TRIGGERED_HOST_AUDIT_NE_OWNER_DESIGNED_ORGANS; SEMANTIC_ADOPTION_NE_SPONTANEOUS_OPERATIONALIZATION
+  next_product_rule: Continue the version-neutral Current field stream. Make practical evolution and Host operationalization discoverable without forcing continuous self-editing or universal machinery. When a bounded defect has a clear fix, create the smallest successor promptly.
 active_research:
   state: NONE
   phase: NONE
@@ -105,4 +113,9 @@ receiver_contract:
   reopen_closed_research_campaign_for_scientific_interest_only: FORBIDDEN
   knowingly_recommend_current_with_confirmed_bounded_fixable_defect: FORBIDDEN
   erase_external_contribution_provenance_during_promotion: FORBIDDEN
-rule: 'ENA Current is v0.3.12 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-05 and F-208-06 are closed by the verified DSH contribution plus maintainer release projection and template/gate hardening. The evolutionary-memory mechanism-discrimination campaign remains closed and no active mechanism primary remains.'
+  confuse_semantic_adoption_with_local_operationalization: FORBIDDEN
+  install_every_possible_control_during_operationalization: FORBIDDEN
+  confuse_evolution_vocabulary_with_executable_evolution_loop: FORBIDDEN
+  confuse_protection_of_evolvability_with_evolution_itself: FORBIDDEN
+  imply_ena_evolve_v2_is_full_lifecycle_engine: FORBIDDEN
+rule: 'ENA Current is v0.3.13 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-07 and F-208-08 are closed by adding a bounded local operationalization pass and a discoverable Host-neutral Minimum Evolution Loop without making one Host runtime or continuous self-editing mandatory. The evolutionary-memory mechanism-discrimination campaign remains closed and no active mechanism primary remains.'
