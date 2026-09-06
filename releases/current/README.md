@@ -1,10 +1,8 @@
-# ENA v0.3.10 — Current
+# ENA Current
 
 Status: **CURRENT / FIELD_VALIDATION**
 
-v0.3.10 is the current adopter-facing ENA release.
-
-It is an R0 publication-coherence successor to v0.3.9. The 38-ID Constitution and core behavior remain inherited; the change removes stale active release identity from stable cold surfaces and prevents that defect class from recurring.
+The authoritative numeric release identity is `CURRENT-BASELINE.yaml`. This directory is the complete adopter-facing Current package.
 
 ## One default hot payload
 
@@ -27,24 +25,21 @@ AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 - Conformance evidence: semantic fixtures / executable validators
 - Deep semantics / lineage / research: retrieve only when decision-material
 
-## What changed from v0.3.9
+## Version identity and stable semantics
 
-Issue #208 F-208-03 showed that Current still contained stable English cold surfaces labeled as `v0.3.7 Current` and one active-sounding `v0.3.6 candidate` narration.
+Stable semantic/adoption instructions should not duplicate the mutable numeric Current version unless their meaning genuinely depends on that identity.
 
-v0.3.10 therefore:
+```text
+COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN
+HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
+```
 
-- makes stable English cold semantics version-neutral by default;
-- preserves source-version text only where it is genuine historical provenance;
-- removes the stale active candidate narration from the Capability Map;
-- extends Current validation to reject old `vX.Y.Z Current` labels on designated version-neutral cold surfaces;
-- refines R0 protected-byte checks so release-label metadata can change without silently changing capability IDs or evolution-record schema behavior.
-
-No new Constitution IDs are introduced and no Metamemory fixture policy is promoted into doctrine.
+Use `CURRENT-BASELINE.yaml` for active release identity and `CHANGELOG.md` / `LINEAGE.md` for release-specific history.
 
 ## Evidence boundary
 
 Machine PASS proves only the exercised representation and regressions. Natural future-session salience, external authority/effect/recovery truth, universal Host fitness, and bilingual behavioral equivalence remain field evidence.
 
-A new bounded defect should create the smallest justified successor rather than silently rewrite v0.3.10.
+A known decision-bearing defect should not remain in the shareable Current merely because the previous version is immutable. Preserve the defective release as occurrence truth and move Current through the smallest justified successor.
 
-> **Version the identity surface; keep stable cold semantics stable.**
+> **Version the identity surface; keep stable semantics stable; do not knowingly ship a defect you already understand how to fix.**
