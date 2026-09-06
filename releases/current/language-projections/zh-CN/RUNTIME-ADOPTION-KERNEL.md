@@ -63,7 +63,7 @@ rescue snapshot、恢复演练、canary、ledger、baseline、validator、watche
 
 ## 变异、选择与进化循环
 
-mutation pressure 是产生/重看 variation 的机会，不是命令。variation 可以保持 latent。有后果的实验进入与 consequence 相称的 Variation Space。正负 selection 默认只属于实际环境；传播或流行不是本地证明。
+mutation pressure 是产生/重看 variation 的机会，不是命令。variation 可以保持 latent。有后果的实验进入与 consequence 相称的 Variation Space。**Variation Space 只有在确实存在 mutation/experiment、需要有边界的 reality contact 时才适用；普通 external action 如果没有任何 variation 在测试，不要求制造 Variation Space。** 正负 selection 默认只属于实际环境；传播或流行不是本地证明。
 
 ```text
 进化词汇 != 可执行进化循环
