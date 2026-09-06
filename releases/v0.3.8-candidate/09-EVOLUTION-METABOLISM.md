@@ -1,8 +1,8 @@
-# 9. Evolution Metabolism and Ecology — v0.3.7
+# 9. Evolution Metabolism and Ecology — v0.3.8-candidate.0
 
-Status: `CURRENT / FIELD_VALIDATION`.
+Status: `CANDIDATE / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED`.
 
-This candidate preserves the v0.3.6 evolution-ecology semantics and adds practical routing/tool surfaces. It does **not** introduce a new universal evolution ontology or Constitution rule.
+Released Current remains v0.3.7. This candidate inherits the v0.3.7 evolution-ecology semantics and practical routing/tool surfaces. It does **not** introduce a new universal evolution ontology or Constitution rule merely because a successor candidate exists.
 
 ## 9.1 Ecological metabolism
 
@@ -56,13 +56,13 @@ Expression does not mint authority.
 
 ## 9.5 Cue-triggered salience -> Operational Architecture
 
-This candidate turns the v0.3.6 hot-cue direction into a concrete release-local navigation surface:
+Candidate.0 preserves the concrete hot-cue navigation surface:
 
 ```text
 hot cue / failure shape
 -> operational/CUE-INDEX.md
 -> operational/HOW-MAP.md
--> operational/REFERENCE-INDEX.yaml
+-> operational/REFERENCE-INDEX.yaml when an exact local implementation/reference path is needed
 -> procedure / optional reference / Host-native pattern
 ```
 
@@ -70,7 +70,7 @@ The exact resident cue mechanism remains Host-selectable. The entire HOW library
 
 `configured cue != future salience proven`
 
-Candidate routing adds explicit branches for Retrieval, WAIT, Authority, Effect Lifecycle, Recovery, Continuity, Standing Input, Evidence dependency, Contested Authorship, Evolution/Commons, Control Retirement, Host mapping, language, and adoption.
+Candidate routing includes Retrieval, WAIT, Authority, Effect Lifecycle, Recovery, Continuity, Standing Input, Evidence dependency, Contested Authorship, Evolution/Commons, Control Retirement, Host mapping, language, adoption, runtime salience, memory metabolism, and projection/compaction.
 
 This branch set is a practical map, not a claim of exhaustive ontology.
 
@@ -126,23 +126,25 @@ Hosts may use:
 
 Pruning does not rewrite selection history.
 
-For safeguards/controls rather than adaptations, this candidate provides `operational/procedures/CONTROL-RETIREMENT.md`: recover original purpose, inspect replacement/coverage, preserve secondary dependencies, choose reversible narrowing/shadow/dormancy where useful, and preserve reactivation/lineage.
+For safeguards/controls rather than adaptations, use `operational/procedures/CONTROL-RETIREMENT.md`: recover original purpose, inspect replacement/coverage, preserve secondary dependencies, choose reversible narrowing/shadow/dormancy where useful, and preserve evidence, reactivation conditions, and lineage.
 
 `NO_INCIDENT != CONTROL_NOT_NEEDED`
 
 ## 9.10 Migration, inheritance, propagation, and Commons
 
-Migration transfers a possibility plus represented source history; it does not transfer a conclusion.
+Migration transfers a possibility plus represented source history; it does not transfer a receiver-local conclusion.
 
 Source and receiver results remain separate. A receiver may import, ignore, adapt, recombine, reject, keep unknown, or re-test.
 
-This candidate provides:
+Candidate.0 inherits:
 
-- `adaptation-packet.v2` as inherited portable represented context;
+- `adaptation-packet.v2` as portable represented source context;
 - `tools/ena_evolve_v2.py export-packet/import-packet` as a narrow practical path;
 - `operational/patterns/EVOLUTION-COMMONS.md` for Git/OCI/object-store/direct-transfer/active-protocol composition patterns.
 
 A packet digest checks content consistency; it does not authenticate the source. Imported source selection remains source context and never becomes receiver-local selection merely through transport.
+
+`migration != local validation`
 
 ## 9.11 Recombination and emergence
 
@@ -150,15 +152,19 @@ Recombination remains a first-class variation generator. It may produce conflict
 
 Expectation of emergence is not evidence. Observe the composed subject when interaction can change the decision.
 
+`local validity/improvement != composed outcome`
+
 ## 9.12 Recovery and rescue
 
 Where a self-affecting mutation can disable its own recovery path and consequence warrants it, preserve a rescue path reachable outside the damaged variation: last-known-viable snapshot, watchdog/timer, recovery manifest, narrow recovery credential, peer/human handoff, independent startup path, or another Host-native mechanism.
 
-This candidate bundles optional `references/general/recovery-adapter/` and maps Host alternatives in `operational/patterns/HOST-MAPPINGS.md`.
+Candidate.0 inherits optional `references/general/recovery-adapter/` and Host alternatives in `operational/patterns/HOST-MAPPINGS.md`.
 
 Rescue authority stays narrow.
 
-`restore success != external consequence rollback != restored authority`
+`restore/resume != complete history != restored authority`
+
+`state rollback != reversal of external consequences`
 
 ## 9.13 Authority, effect, continuity, and standing around evolution
 
@@ -166,6 +172,7 @@ Evolution does not erase other consequence boundaries.
 
 - consequential authority may use `references/general/authority-lease/` or Host equivalent;
 - retry/restart/world-effect ambiguity may use `references/general/effect-lifecycle/` or Host equivalent;
+- `cancel != rollback != compensation`;
 - continuity questions should use `operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md` only when continuity changes the decision;
 - decision-material objections may use `operational/procedures/STANDING-INPUT.md` without granting sovereignty;
 - durable material self-surface changes may use optional Contested Authorship; ordinary state writes may be out of scope.
@@ -174,16 +181,16 @@ These HOWs are optional/applicability-scoped. They are not a mandatory checklist
 
 ## 9.14 Candidate tool boundary
 
-This candidate now supplies a primary narrow practical v2 tool:
+Candidate.0 inherits the primary narrow practical v2 tool:
 
 `tools/ena_evolve_v2.py`
 
-Its scope is intentionally bounded:
+Its scope is intentionally bounded.
 
 The shipped JSON record template is intentionally uninstantiated: its `created_at` placeholder must be replaced before validator PASS. `build_latent_record` supplies a real UTC timestamp automatically.
 
 - create valid latent v2 records without early Variation Space;
-- delegate evolution-record semantics to the Current-local v2 validator;
+- delegate evolution-record semantics to the candidate-local v2 validator;
 - export/import packet v2 with canonical digest and narrow represented consistency;
 - preserve source evidence/selection vs receiver-local selection.
 
@@ -191,7 +198,17 @@ It does **not** implement the complete experiment/evaluation/integration/archive
 
 The inherited v1.2 tool is preserved only as `tools/legacy/ena_evolve_v1_2.py`. Its old `--variation-space` propose/import limitation remains a legacy implementation fact, not candidate semantic law.
 
-## 9.15 Retained residuals
+## 9.15 Enforcement boundary
+
+Use `ENFORCEMENT-MAP.yaml` to distinguish semantic/model cues, local machine guards, external controls, and claims that still require field/independent evidence.
+
+```text
+MODEL_CUE != MACHINE_GUARD
+MACHINE_GUARD != EXTERNAL_TRUTH
+STATIC_PACKAGE != FUTURE_FIELD_BEHAVIOR
+```
+
+## 9.16 Retained residuals
 
 Keep visible where applicable:
 
@@ -202,7 +219,8 @@ Keep visible where applicable:
 - `experiment` versus broader `reality contact` terminology remains research wording;
 - the candidate v2 helper is intentionally partial rather than full lifecycle runtime;
 - optional reference machine PASS does not establish universal applicability/external truth;
-- zh-CN paired decision fixtures do not prove bilingual behavioral equivalence.
+- zh-CN paired decision fixtures do not prove bilingual behavioral equivalence;
+- candidate.0 remains mutable and unvalidated until its own checks/freeze/independent review occur.
 
 > **Variation does not owe reality an immediate verdict.**
 >
