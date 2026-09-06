@@ -52,11 +52,14 @@ Cue Index、HOW Map、Enforcement Map、fixtures、Constitution、references 都
 
 初次采用 ENA 后，或 Host/runtime 发生实质变化后，做一次有边界的本地 operationalization pass。只有当某个边界的缺失、不确定或失效可能改变当前/反复出现的决策，或 authority/effect/recovery/evidence/长期进化边界时，才把它视为适用。先检查哪些边界已经由 Host-native mechanism 保护；若存在真实缺口，只提出能实质改变/保护当前决策的最小、低成本、可逆机制。不得超越真实 authority 自动安装或启动有后果的控制。`EXISTING`、`PROPOSE`、`NOT_REQUIRED`、`NOT_APPLICABLE` 都是合法结果；继续加机制已经不可能改善决策时就停止。
 
+如果某些已观察到的 Host 事实会反复改变后续决策，就保留一份**最小可复用 Local Projection**并只刷新变旧的部分。它是 Host reality cache，不是第二套 ENA baseline、授权来源或必装 subsystem。
+
 Host/runtime 变化只有在它可能让已有本地事实失效或改变 effective loading/persistence、authority/effect、recovery、Variation Space、model/provider/route、language projection 等决策边界时才算“实质变化”。无关环境抖动不要求重跑。
 
 ```text
 语义采用 != 本地落地
 本地落地 != 把所有控制都装上
+Local Projection != 第二套 ENA baseline
 ```
 
 rescue snapshot、恢复演练、canary、ledger、baseline、validator、watcher 都只是可能的 Host 实现，不因为 ENA 提到相应边界就自动成为必装组件。
@@ -88,4 +91,4 @@ mutation pressure 是产生/重看 variation 的机会，不是命令。variatio
 
 模型指导不是硬控制；机器 validator 也不证明外部世界事实。
 
-> **常驻核心；需要进化时检索 Evolution Loop；按需检索其他 HOW；只在真实本地缺口值得时落地。**
+> **常驻核心；需要进化时检索 Evolution Loop；按需检索其他 HOW；只在真实本地缺口值得时落地；只缓存会反复改变决策的 Host 事实。**
