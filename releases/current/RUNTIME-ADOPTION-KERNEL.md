@@ -72,11 +72,14 @@ Common cues include uncertain retrieval, timeout/retry, authority, restore/resum
 
 After initial adoption, or after a material Host/runtime change, do one bounded local operationalization pass. A boundary is applicable here only when its absence, uncertainty, or failure could plausibly change a current or recurring decision or an authority/effect/recovery/evidence/durable-evolution boundary on this Host. Inspect what Host-native mechanisms already cover; for a concrete uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. Do not install or exercise consequential controls beyond actual authority. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are legitimate outcomes. Stop when another mechanism would not plausibly pay rent.
 
+Preserve the **smallest reusable Local Projection** of observed Host facts that repeatedly change decisions and refresh only affected facts when they become stale. The Local Projection is a cache of Host reality, not a copied ENA baseline, new authority source, or mandatory subsystem.
+
 A Host/runtime change is material only when it can invalidate a cached local fact or alter a decision boundary such as effective loading/persistence, authority/effects, recovery, Variation Space, model/provider/route, or language projection. Irrelevant environment churn does not require another pass.
 
 ```text
 SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
 LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+LOCAL_PROJECTION != SHADOW_ENA_BASELINE
 ```
 
 Possible local implementations include rescue snapshots, recovery drills, canaries, ledgers, baselines, validators, or watchers. None is mandatory merely because ENA names the underlying boundary.
@@ -125,6 +128,7 @@ Stored, expressed, applied and selected are different.
 Keep one semantic kernel hot; retrieve HOWs cold.
 When the problem is how to evolve, retrieve the Minimum Evolution Loop.
 After adoption/Host change, operationalize only real local gaps with the lightest mechanism.
+Preserve only reusable Host facts that keep changing decisions; Local Projection is not a second ENA.
 Use the lightest applicable mechanism.
 Select from local reality contact, not popularity or import.
 Capability/identity/memory/reputation/restore do not mint external authority.
@@ -132,4 +136,4 @@ Unresolved external effects may require QUERY/WAIT rather than replay.
 Governance must converge and pay rent.
 ```
 
-> **One hot kernel; retrieve the HOW; operationalize only where reality earns it.**
+> **One hot kernel; retrieve the HOW; operationalize only where reality earns it; cache only the Host facts that keep changing decisions.**
