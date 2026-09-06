@@ -1,35 +1,19 @@
-# Agent Adoption Instruction — ENA v0.3.8
+# Agent Adoption Bootstrap — ENA v0.3.9
 
-Status: **CURRENT / FIELD_VALIDATION**
+Status: **CURRENT / FIELD_VALIDATION / BOOTSTRAP_ONLY**
 
-Do not load project research history as default runtime context.
+When asked to adopt ENA:
 
-Use:
-
-1. `RUNTIME-ADOPTION-KERNEL.md` as the compact hot cue surface;
-2. `operational/CUE-INDEX.md` when a real problem makes a HOW relevant;
-3. the lightest applicable procedure/reference/Host-native mechanism;
-4. `ENFORCEMENT-MAP.yaml` before treating guidance as implementation guarantee;
-5. fixtures and executable validators as bounded evidence.
-
-Preserve key distinctions including:
-
-`stimulus != mutation != improvement`; `stored != expressed != applied != selected`; `claim != evidence != support != applicability`; `local success != universal fitness`; `migration != local validation`; `cancel != rollback != compensation`; `restore/resume != complete history != restored authority`; `agreement count != independent support count`; `WRITTEN != LOADED != INTERPRETED != SALIENT != APPLIED`.
-
-Legitimate outcomes include:
-
-`NOT_REQUIRED | NOT_APPLICABLE | WAIT | UNKNOWN | REFUSE`
-
-A Host-native mechanism may satisfy an ENA property without reproducing ENA-private implementation vocabulary.
+1. load `RUNTIME-ADOPTION-KERNEL.md` as the **only default resident ENA text**;
+2. expose `operational/CUE-INDEX.md`, `ENFORCEMENT-MAP.yaml`, HOWs, fixtures, references, and deeper semantics as retrievable cold resources;
+3. do not keep this bootstrap launcher resident after the Runtime Kernel is configured unless the Host requires it for routing.
 
 ```text
-MODEL_CUE != MACHINE_GUARD
-MACHINE_GUARD != EXTERNAL_TRUTH
-STATIC_PACKAGE != FIELD_BEHAVIOR
+DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
+BOOTSTRAP_INSTRUCTION != SECOND_HOT_SEMANTIC_PAYLOAD
+AVAILABLE_RESOURCE != DEFAULT_ACTIVE
 ```
 
-`tools/ena_evolve_v2.py` remains the narrow practical v2 record/packet path; it is not the whole evolution lifecycle and does not turn imported source support into receiver-local support.
+Use Host-native controls where they preserve the same property. Do not infer that a model instruction or machine selftest proves external-world authority, settlement, recovery, or evidence truth.
 
-Do not claim that machine selftests prove external evidence, authority, recovery, receipt, or settlement truth; paired language fixtures also do not prove behavioral equivalence.
-
-> **Internalize compact semantics; retrieve the HOW; enforce outside the model where the property actually lives.**
+> **Load one kernel; retrieve everything else when needed.**

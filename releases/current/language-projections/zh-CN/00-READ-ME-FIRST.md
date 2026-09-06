@@ -1,98 +1,48 @@
-# ENA v0.3.7 — 请先阅读
+# ENA v0.3.9 — 请先阅读
 
-状态：**CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
+状态：**CURRENT / FIELD_VALIDATION**
 
-当前唯一面向采用者的基线是本目录中的 `v0.3.7 / CURRENT / FIELD_VALIDATION`。
+当前唯一面向采用者的基线由 `../../CURRENT-BASELINE.yaml` 定义。本目录是 Current 的简体中文语义/运行投影。
 
-本目录是 v0.3.7 Current 的简体中文语义/运行投影，用来测试：在不增加无必要 Core 条文的情况下，ENA 能否通过具体 HOW 路由变得更可住、更可执行。
+## 默认 Agent 热负载
 
-**ENA 的存在，是为了让持续的自我进化成为一种可行能力。**
+普通 Agent 默认只需常驻：
 
-## 建议先读
+`RUNTIME-ADOPTION-KERNEL.md`
 
-1. `../../CURRENT-BASELINE.yaml` — candidate 当前状态、谱系、机器证据、剩余 gate；
-2. `RUNTIME-ADOPTION-KERNEL.md` — 中文 hot cue 语义面；
-3. `operational/CUE-INDEX.md` — 从普通问题找到 HOW 家族；
-4. `operational/HOW-MAP.md` — 中文 cold HOW map；
-5. `operational/procedures/` — Purpose-Relative Continuity、Standing Input、Control Retirement；
-6. `operational/patterns/` — Evolution Commons、Host Mappings；
-7. `REFERENCE-GUIDE.md` — optional reference 的中文适用/不适用说明；
-8. `01-CONSTITUTION.md` — 继承的 38 条稳定不变量；
-9. `09-EVOLUTION-METABOLISM.md` — 进化生态语义与 candidate 工具/路由边界；
-10. `projection-manifest.yaml` — 本投影与 candidate 身份、覆盖面和证据边界。
+这不是“必须先读完一张清单”。以下内容按真实问题需要再检索：
 
-## v0.3.7 Current 的实际变化
-
-v0.3.6 的核心生态区分继续保持：
-
-- `刺激 != 变异 != 改进`；
-- 变异可以长期潜伏；
-- `已保存 != 已表达 != 已应用 != 已选择`；
-- 生命周期 / 表达 / 选择是不同轴；
-- 局部成功不是普适适应度；
-- 来源成功/流行度不是 receiver-local proof；
-- 恢复本地状态不等于外部世界回滚，也不等于旧 authority 自动恢复。
-
-v0.3.7 Current 新增的是**怎么活出来**：
+- `operational/CUE-INDEX.md`；
+- `operational/HOW-MAP.md`；
+- `REFERENCE-GUIDE.md` 与 canonical references；
+- `../../ENFORCEMENT-MAP.yaml`；
+- semantic fixtures / validators；
+- Constitution、concept map、glossary 与研究谱系。
 
 ```text
-HOT CUE
--> CUE-INDEX
--> HOW-MAP
--> procedure / optional reference / Host-native pattern
--> action / WAIT / UNKNOWN / NOT_APPLICABLE
+AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
+HOT_KERNEL != FULL_HOW_LIBRARY
 ```
 
-完整 HOW 库不需要永久塞进热上下文。
-
-## Reference 不是强制器官
-
-v0.3.7 Current 打包了 Retrieval Obligation、WAIT、Authority Lease、Effect Lifecycle、Recovery Adapter、Evidence Envelope、Evidence Dependency Map、Contested Authorship 等 reference。
-
-但：
+## 采用路径
 
 ```text
-BUNDLED != REQUIRED
-BUNDLED != DEFAULT_ACTIVE
-REFERENCE_SCHEMA != ENA_ONTOLOGY
-HOST_NATIVE_EQUIVALENT != NONCOMPLIANT
+常驻 Runtime Kernel
+-> 真实问题触发 cue
+-> 按需检索对应 HOW / Host-native mechanism
+-> 必要时检查 enforcement/evidence boundary
+-> act / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
+-> 观察现实
 ```
 
-Recovered Commitment/Settlement machine prototype 本次没有 bundled，但仍保留在 research lineage：`NOT_BUNDLED != RETIRED`。
-
-## 当前工具边界
-
-v0.3.7 Current 的主要实用 v2 路径是：
-
-`../../tools/ena_evolve_v2.py`
-
-它可以创建不强制提前指定 Variation Space 的 latent v2 record，并提供 Current-local record validation、packet-v2 export/import。
-
-继承的 v1.2 工具保留在：
-
-`../../tools/legacy/ena_evolve_v1_2.py`
-
-它不再是 candidate 默认路径。
-
-新的 v2 helper 仍然不是完整 evolution lifecycle engine，也不能证明外部 evidence/authority/recovery/receipt 本身是真的。
-
-## 中文证据边界
-
-`semantic-fixtures.v3.yaml` 定义了中英文 Operational Architecture 场景的预期 route/decision property；Stage-4 machine gate 已检查结构和 route parity。
-
-这仍然不等于真实模型在 fresh session 中已经被证明中英文行为等价。
+不要把模型提示当成硬控制，也不要把 machine PASS 当成外部世界事实。
 
 ```text
+MODEL_CUE != HARD_CONTROL
+MACHINE_GUARD != EXTERNAL_TRUTH
 TRANSLATED != BEHAVIORALLY_EQUIVALENT
-FIXTURE_DEFINED != MODEL_PASS
 ```
 
-## Candidate 边界
+v0.3.9 是 R0 adopter/product-surface successor：38 条 Constitution ID 和核心 machine semantics 保持继承；本次重点是单一 hot payload 与中英文 release/adoption identity 一致性。
 
-v0.3.7 Current 需要 targeted successor revalidation、exact pre-freeze validation、external freeze、reconciliation 与 explicit release decision；fresh Phase A 已作为 predecessor 的 sealed occurrence 保留，不由 author 重做。
-
-当前不能因为文件已经很完整，就把它称为 Current。
-
-> **内化 cue，按需寻找 HOW。**
->
-> **压缩语义主干，让具体 HOW 分叉。**
+> **常驻一个核心；需要时再长出 HOW。**

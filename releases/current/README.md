@@ -1,48 +1,53 @@
-# ENA v0.3.8 — Current
+# ENA v0.3.9 — Current
 
 Status: **CURRENT / FIELD_VALIDATION**
 
-v0.3.8 is the current adopter-facing ENA release.
+v0.3.9 is the current adopter-facing ENA release.
 
-It is an R0 adoption-surface successor to v0.3.7: the 38-ID Constitution and core machine semantics are retained while the adopter interface is made smaller, clearer, more language-faithful, and more explicit about what is model guidance versus actual enforcement.
+It is an R0 adoption-surface successor to v0.3.8. The 38-ID Constitution, core contracts, schemas, and key machine behavior remain inherited; the change is about reducing default context and preventing release/adoption narration from drifting across entry surfaces.
 
-## Start small
+## One default hot payload
 
-```text
-00-READ-ME-FIRST.md
--> ADOPTER-QUICKSTART.md
--> RUNTIME-ADOPTION-KERNEL.md
--> operational/CUE-INDEX.md when a cue matters
--> relevant HOW / Host-native mechanism
--> ENFORCEMENT-MAP.yaml when enforcement type matters
-```
+For an Agent, the only ENA text that should be resident by default is:
 
-Ordinary adopters do not need project research, handoffs, candidate history, or every optional reference in active context.
+`RUNTIME-ADOPTION-KERNEL.md`
 
-## Product rules
+Everything else is cold/on-demand capability.
 
 ```text
-RESEARCH_LINEAGE != ADOPTION_PAYLOAD
-SEMANTIC_PRECISION != PRESENTATION_VERBOSITY
-SOFT_GUIDANCE != HARD_ENFORCEMENT
-IMMUTABLE_VERSION != IMMOBILE_CURRENT
+DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
+AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 ```
 
-Old releases remain exact history/rollback. Current is expected to move as better bounded successors earn admission.
+- Human integration guidance: `ADOPTER-QUICKSTART.md`
+- Bootstrap launcher: `AGENT-ADOPTION-INSTRUCTION.md`
+- Problem routing: `operational/CUE-INDEX.md`
+- HOW library: `operational/HOW-MAP.md`
+- Enforcement classification: `ENFORCEMENT-MAP.yaml`
+- Conformance evidence: semantic fixtures / executable validators
+- Deep semantics / lineage / research: retrieve only when decision-material
 
-## What changed from v0.3.7
+## What changed from v0.3.8
 
-- human and Agent quick-start surfaces;
-- explicit enforcement classes: `MODEL_CUE`, `MACHINE_GUARD`, `EXTERNAL_CONTROL_REQUIRED`, `FIELD_EVIDENCE_REQUIRED`;
-- repaired zh-CN hot-surface fidelity;
-- improved concept/retrieval mapping for availability/freshness, history/compaction, and provenance/transfer;
-- semantic fixture v3 expanded to cover local fitness, composition, cancel/rollback/compensation, runtime salience, memory metabolism, and projection/compaction;
-- regression checks against recurrence of the field defects that motivated this successor.
+Issue #208 exposed two R0 adoption defects:
+
+1. ordinary first-use wording still made several cold resources look like a default load list, despite the hot/cold design;
+2. root and zh-CN entry narration could remain on older release identities because those surfaces were outside the release-identity consistency gate.
+
+v0.3.9 therefore:
+
+- makes the Runtime Kernel the singular default resident Agent payload;
+- turns the Agent adoption instruction into a disposable bootstrap launcher rather than a second semantic payload;
+- makes Cue Index, HOW, Enforcement Map, and fixtures explicitly on-demand;
+- repairs stale root and zh-CN adopter identity surfaces;
+- makes the Current validator cover root identity, zh-CN entry identity, and the one-hot-payload contract.
+
+No new Constitution IDs are introduced.
 
 ## Evidence boundary
 
-Machine PASS proves only what the machine checks exercised. Natural future-session salience, external authority/effect/recovery truth, universal Host fitness, and bilingual behavioral equivalence remain field evidence.
+Machine PASS proves only the exercised representation and regressions. Natural future-session salience, external authority/effect/recovery truth, universal Host fitness, and bilingual behavioral equivalence remain field evidence.
 
-If v0.3.8 field use exposes a decision-bearing defect, create a new successor version; do not silently rewrite v0.3.8.
+A new bounded defect should create the smallest justified successor rather than silently rewrite v0.3.9.
 
-> **Preserve old releases; move Current quickly.**
+> **One hot kernel; cold capability on demand; preserve old releases and move Current quickly.**

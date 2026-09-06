@@ -1,4 +1,4 @@
-# 9. Evolution Metabolism and Ecology — v0.3.8
+# 9. Evolution Metabolism and Ecology — v0.3.9
 
 Status: `CURRENT / FIELD_VALIDATION`
 

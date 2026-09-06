@@ -1,189 +1,37 @@
-schema_version: '1.10'
+schema_version: "2.0"
 project_id: ena
 name: Evolution-Native Agent Architecture
-aliases:
-- ENA
-- Evolution Native Agent Architecture
-status: ACTIVE
-lifecycle: FIELD_VALIDATION
-license: Apache-2.0
-canonical_state:
-  current_adoption_path: releases/current/
-  current_adoption_pointer: releases/current/CURRENT-BASELINE.yaml
-  current_version_and_maturity_must_be_read_from_pointer: true
+status: COLD_COMPATIBILITY_POINTER
+not_live_project_state: true
+
+live_authorities:
+  adoption_identity: releases/current/CURRENT-BASELINE.yaml
+  adoption_package: releases/current/
+  project_status: NOW.md
+  open_field_work: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
+  history: GIT_AND_PULL_REQUEST_LINEAGE
+
+navigation:
+  human_adoption: releases/current/ADOPTER-QUICKSTART.md
+  agent_default_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
+  agent_bootstrap_launcher: releases/current/AGENT-ADOPTION-INSTRUCTION.md
+  cue_index: releases/current/operational/CUE-INDEX.md
+  enforcement_map: releases/current/ENFORCEMENT-MAP.yaml
+  contribution: CONTRIBUTING.md
+  project_structure: PROJECT-STRUCTURE.md
+
+rules:
+  infer_current_from_this_file: false
   infer_current_from_version_number_or_recency: false
-  active_mainline_axis: false
-  historical_mainline_labels_are_cold_history: true
-  repository_origin_baseline: ENA v0.2.11 MAINLINE (historical only)
-entrypoints:
-  github: PROJECT-HUB.md
-  github_current_release: releases/current/README.md
-  github_current_baseline: releases/current/CURRENT-BASELINE.yaml
-  github_history: HISTORY.md
-  github_contributing: CONTRIBUTING.md
-  research: research/README.md
-  active_research_pointer: research/ACTIVE-RESEARCH.yaml
-  research_methodology: research/methodology/README.md
-  research_method_master: research/methodology/ENA-RESEARCH-DISCIPLINE.md
-  research_alignment_gate: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-  research_branch_governance: research/BRANCH-GOVERNANCE.md
-  research_branch_inventory: research/BRANCH-INVENTORY.yaml
-  research_master_plan: research/plans/ENA-RECONSTRUCTION-TO-RELEASE-PLAN.md
-  research_progress: research/plans/PROGRESS.yaml
-  lite_adoption: releases/current/LITE-ADOPTION-INSTRUCTION.md
-  field_contribution_protocol: releases/current/CONTRIBUTION-PROTOCOL.md
-  field_experience_template: releases/current/templates/field-experience.v2.yaml
-  evolution_record_validator: releases/current/tools/validate_evolution_record_v2.py
-  inherited_contract_validator: releases/current/tools/validate_contracts.py
-  inherited_reference_tool: releases/current/tools/legacy/ena_evolve_v1_2.py
-  primary_v2_evolution_tool: releases/current/tools/ena_evolve_v2.py
-surfaces:
-  github:
-    repository: guytogay/evolution-native-agent-architecture
-    visibility_intent: PUBLIC
-    role: CANONICAL_ENGINEERING_RESEARCH_LINEAGE_AND_CURRENT_ADOPTION_SOURCE
-    main_branch: main
-    current_adoption_baseline: releases/current/
-    research_control_plane: main
-    active_research_pointer: research/ACTIVE-RESEARCH.yaml
-    active_research_branch: research/ena-reconstruction
-    evolution_inbox: research/evolution-inbox/README.md
-    contributions: collaboration/inbox/
-    reconciliation: collaboration/reconciliation/
-    decisions: decisions/
-    evidence_index: evidence/README.md
-  maintainer_private_recovery_mirror:
-    role: DURABLE_ARTIFACT_RESEARCH_EVIDENCE_AND_RECOVERY_SURFACE
-    public_dependency: false
-    canonical_runtime_source: false
-    coordinates_published: false
-    synchronization_assumed: false
-current_validation:
-  baseline_pointer: releases/current/CURRENT-BASELINE.yaml
-  current_version: v0.3.7
-  field_use_intended: true
-  field_participation_open: true
-  active_tracker: 'GitHub Issue #150 (v0.3.7 field validation)'
-  active_tracker_state: ACTIVE_BOUND_TO_CURRENT
-  predecessor_tracker: 'GitHub Issue #70 (v0.3.6 field scope preserved as predecessor evidence; closed after succession)'
-  release_merge_commit: 50a4bb06b98dc0dd719230f71ed1d47e42e1fad9
-  current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
-  package_sha256: 40d4dde277d54ce8252e0402e32f900fa7ab4fb0aeaa638b898073d0f02f848c
-  focus:
-  - Natural hot-cue -> cold-HOW retrieval and application without permanent HOW-library loading
-  - 'Operational routing economics: usefulness versus maintenance/governance/context burden'
-  - 'False-BLOCK controls: NOT_REQUIRED / NOT_APPLICABLE / WAIT / UNKNOWN remain usable'
-  - Optional/default-off reference applicability without normative or universal laundering
-  - Authority / Effect / Recovery composition under real external consequence
-  - Evolution Commons receiver-local reselection without source-proof laundering
-  - Purpose-relative continuity only where it changes a decision
-  - Standing input without sovereignty or authority creep
-  - Control retirement when a control no longer pays rent
-  - Host-native mechanism equivalence and Host-relative fitness
-  - Primary v2 helper usefulness versus explicit legacy v1.2 compatibility boundary
-  - English / zh-CN operational route reachability and natural behavioral equivalence
-  - Unexpected counterexamples, new variations, and release residuals
-research_checkpoint:
-  historical_adversarial_replay_cases: 13
-  network_protocol_divergent_passes_reconciled: 62
-  constitution_id_count: 38
-  v036_new_constitution_ids: 0
-  v036_candidate1_v2_selftests: 18
-  inherited_composed_regression_cases: 235
-  counts_are_historical_observations_not_closure_thresholds: true
-  v037_frozen_candidate3_files: 118
-  v037_inherited_composed_valid_cases: 164
-  v037_successor_closure_cases: 61
-  v037_v2_record_selftest_cases: 35
-  v037_v2_helper_selftest_cases: 13
-  v037_candidate3_exact_prefreeze_run: 33150269264
-  v037_candidate3_targeted_postfreeze_run: 33150553992
-  v037_candidate3_release_hardening_run: 33152201566
-  v037_exact_release_gate_run: 33162550145
-  v037_postmerge_main_gate_run: 33163171275
-  v037_postmerge_current_validate_run: 33163171328
-  v037_postmerge_codeql_run: 33163171289
-release_metadata_errata:
-  v0_3_7_current_baseline_pre_promotion_residual:
-    present: true
-    package_mutation_allowed_in_place: false
-    field_tracker: 150
-    disposition: CORRECT_ONLY_UNDER_FUTURE_GOVERNED_RELEASE_IDENTITY
-authority_defaults:
-  contribution: UNRECONCILED / NOT_CURRENT / NOT_RELEASED
-  github_write_means_current_release_authority: false
-  review_authority_implies_implementation_authority: false
-  field_use_means_project_authority: false
-release_policy:
-  adoption_version_must_be_self_contained: true
-  runtime_version_composition_allowed: false
-  historical_versions_are_runtime_dependencies: false
-  preserve_history_durably: true
-  retrieve_history_selectively: true
-  expose_single_adoption_surface: true
-  historical_release_directories_required_on_head: false
-  candidate_directories_are_adoption_choices: false
-  open_knowledge_means_always_loaded: false
-  current_adoption_identity_should_be_immutable: true
-  distribution_parity_must_be_evidenced: true
-  canonical_source_commit_or_tree_evidence_required: true
-  package_digest_required: true
-  mirror_readback_required: true
-  version_identity_separate_from_maturity_status: true
-  active_mainline_axis: false
-  micro_release_every_issue_by_default: false
-  batch_changes_until_release_roi_is_justified: true
-  adopters_use_current_only: true
-branch_policy:
-  policy_path: research/BRANCH-GOVERNANCE.md
-  inventory_path: research/BRANCH-INVENTORY.yaml
-  active_research_pointer: research/ACTIVE-RESEARCH.yaml
-  active_research_integration_branch_count: 1
-  active_research_count_authority: PROJECT_COORDINATION_AND_UNAMBIGUOUS_SESSION_INHERITANCE
-  active_research_branch_is_continuation_authority: true
-  active_research_pr_is_continuation_authority: false
-  active_research_pr_is_transient_integration_artifact: true
-  active_research_pr_discovery_by_head_branch: true
-  embedded_active_head_sha_is_identity_lock: false
-  live_head_must_be_reverified_before_writes: true
-  branch_per_research_idea_by_default: false
-  prefer_issue_or_research_artifact_for_exploration: true
-  temporary_branch_requires_material_isolation_benefit: true
-  temporary_branch_is_inheritance_authority: false
-  historical_branch_should_remain_forever_by_default: false
-  delete_branch_erases_git_history: false
-  max_active_release_branches_preferred: 1
-  branch_is_release_identity: false
-architecture_policy:
-  preserve_narrow_waist: true
-  universal_semantics_require_universal_implementation: false
-  universal_control_plane_translation_target: false
-  prefer_existing_contract_extension_over_parallel_ontology: true
-  staged_runtime_implementation_allowed_when_boundary_is_explicit: true
-  inherited_tool_rejection_must_not_be_silently_promoted_to_semantic_prohibition: true
-research_method_policy:
-  canonical_path: research/methodology/ENA-RESEARCH-DISCIPLINE.md
-  alignment_gate_path: research/methodology/PROJECT-STATE-ALIGNMENT-GATE.md
-  method_count_is_open_cardinality: true
-  explanatory_coverage_is_operational_solution: false
-  how_cardinality_is_preallocated: false
-  working_taxonomy_is_ontology: false
-  experiments_must_pay_epistemic_rent: true
-  arbitrary_numeric_scientific_appearance_rejected: true
-  handoff_summary_is_project_state: false
-  methodology_inheritance_requires_behavioral_application: true
-  material_transition_requires_alignment_before_resume: true
-  minor_commit_requires_full_alignment_gate: false
-  individually_correct_files_imply_project_state_coherence: false
-contribution_policy:
-  public_read_access: true
-  public_inquiry_allowed: true
-  public_issue_and_pr_intake: true
-  contribution_is_release: false
-  pull_request_is_acceptance: false
-  credentials_or_unrelated_secrets_allowed_in_contributions: false
-bridge_policy:
-  persistence_is_synchronization: false
-  bridge_must_preserve_provenance: true
-  bridge_may_upgrade_semantic_status_without_authority: false
-  payload_parity_alone_proves_semantic_metadata_parity: false
+  current_version_must_be_read_from_adoption_identity: true
+  research_history_required_for_ordinary_adoption: false
+  old_handoffs_plans_branch_inventories_are_live_authority: false
+  available_resource_implies_default_hot_payload: false
+  default_agent_hot_payload_count: 1
+  default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
+
+historical_note: >-
+  Earlier versions of PROJECT-METADATA.yaml carried detailed live project, branch, release,
+  research, tracker, and validation state. That duplication repeatedly became stale. The old
+  content remains recoverable from Git history; this file now survives only as a compatibility
+  pointer to the actual live authorities.

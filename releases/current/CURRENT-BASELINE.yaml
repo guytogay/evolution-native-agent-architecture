@@ -1,6 +1,6 @@
-schema_version: "3.3"
+schema_version: "3.4"
 baseline_kind: CURRENT_RELEASE_IDENTITY
-ena_version: v0.3.8
+ena_version: v0.3.9
 adoption_status: CURRENT
 maturity: FIELD_VALIDATION
 current: true
@@ -13,24 +13,23 @@ release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
 release_method: RAPID_CURRENT_SUCCESSION
 
 lineage:
-  predecessor_current_version: v0.3.7
-  predecessor_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  predecessor_current_version: v0.3.8
+  predecessor_current_tree: 44fd1771e51f69bf4d8e7e32b3035ed846525c03
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
-  source_candidate_id: v0.3.8-candidate.0
-  source_candidate_commit: 3e62530957a5c73ef1230a638f4c0f0c422dc6df
-  source_candidate_tree: d791cfdce6da76e5b34b747f2f6ed9293e659987
-  source_candidate_pr: 202
-  release_policy_pr: 205
-  primary_field_issue: 201
+  source_release_branch: release/v0.3.9
+  primary_field_stream: 208
+  field_findings:
+    - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
+    - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
 
 release_thesis:
   new_constitution_rule_required: 0_DEMONSTRATED
   new_core_semantic_delta_required: 0_DEMONSTRATED
-  primary_delta: ADOPTION_PRODUCT_SURFACE_CONSOLIDATION
+  primary_delta: SINGLE_HOT_PAYLOAD_AND_ADOPTION_IDENTITY_COHERENCE
   summary: >-
-    Preserve the v0.3.7 semantic/operational trunk while reducing adopter context burden,
-    reconciling release narration, making enforcement classes explicit, repairing decision-bearing
-    zh-CN projection gaps, expanding conformance fixtures, and hardening recurrence checks.
+    Preserve the v0.3.8 semantic/operational and machine behavior while making the Runtime
+    Adoption Kernel the singular default resident Agent payload, moving other adoption resources
+    cold/on-demand, and extending release/adoption identity checks to root and zh-CN entry surfaces.
 
 constitution:
   inherited_stable_ids: 38
@@ -40,22 +39,33 @@ constitution:
 adoption_surface:
   state: CURRENT_FIELD_VALIDATION
   human_entrypoint: ADOPTER-QUICKSTART.md
-  agent_entrypoint: AGENT-ADOPTION-INSTRUCTION.md
-  hot_kernel: RUNTIME-ADOPTION-KERNEL.md
+  agent_bootstrap: AGENT-ADOPTION-INSTRUCTION.md
+  default_agent_hot_payload_count: 1
+  default_agent_hot_payload:
+    - RUNTIME-ADOPTION-KERNEL.md
   cue_index: operational/CUE-INDEX.md
   how_map: operational/HOW-MAP.md
   reference_index: operational/REFERENCE-INDEX.yaml
   enforcement_map: ENFORCEMENT-MAP.yaml
+  cold_on_demand:
+    - operational/CUE-INDEX.md
+    - operational/HOW-MAP.md
+    - operational/REFERENCE-INDEX.yaml
+    - ENFORCEMENT-MAP.yaml
+    - language-projections/semantic-fixtures.v3.yaml
+    - 01-CONSTITUTION.md
+    - CONSTITUTION-CONCEPT-MAP.yaml
+    - references/
+    - research-lineage-via-repository
   research_required_for_ordinary_adoption: false
   full_how_library_should_be_permanently_loaded: false
   host_native_equivalents_allowed: true
 
 operational_architecture:
-  inherited_from: v0.3.7
+  inherited_from: v0.3.8
   state: CURRENT_FIELD_VALIDATION
   route_structure_materially_rewritten: false
-  candidate_machine_gate: PASS
-  candidate_codeql: PASS
+  core_machine_behavior_materially_rewritten: false
 
 language:
   authoring_language: en
@@ -64,6 +74,8 @@ language:
   projection_manifest: language-projections/zh-CN/projection-manifest.yaml
   operational_fixture_set: language-projections/semantic-fixtures.v3.yaml
   semantic_fixture_count: 18
+  decision_semantic_parity_machine_checked_in_scope: true
+  release_adoption_identity_parity_machine_checked_in_scope: true
   structural_parity_is_behavioral_equivalence: false
   natural_behavioral_equivalence_proven: false
 
@@ -84,9 +96,12 @@ release_identity:
   predecessor_recoverable: true
   ordinary_adopter_must_repeat_release_author_ceremony: false
   correction_after_release_requires_successor_version: true
+  atomic_r0_release_and_live_alignment_allowed: true
 
 field_validation:
   field_use_intended: true
+  active_stream_issue: 208
+  stream_is_version_neutral: true
   natural_fresh_session_salience_application_proven: false
   universal_host_applicability_proven: false
   universal_bilingual_behavioral_equivalence_proven: false
@@ -95,8 +110,8 @@ field_validation:
 accepted_residuals:
   - Natural fresh-session cue salience and bilingual behavioral equivalence remain field evidence.
   - External mandate, receipt, recovery, provenance and other outside-world facts are not proved by package prose or schema validation.
-  - Metamemory Update Policy v1 is a separate preregistered research round and is not assumed as v0.3.8 law.
-  - R0 release admission does not claim universal Host fitness; v0.3.7 remains recoverable as predecessor rollback/history.
+  - Metamemory Update Policy v1 is a separate preregistered research round and is not assumed as v0.3.9 law.
+  - R0 release admission does not claim universal Host fitness; v0.3.8 remains recoverable predecessor occurrence truth.
 
 evidence_boundaries:
   - MACHINE_PASS_NE_EXTERNAL_TRUTH
@@ -106,17 +121,21 @@ evidence_boundaries:
   - LOCAL_SUCCESS_NE_UNIVERSAL_FITNESS
   - SOURCE_SUCCESS_NE_RECEIVER_LOCAL_PROOF
   - RELEASED_NE_UNIVERSALLY_VALIDATED
+  - AVAILABLE_RESOURCE_NE_DEFAULT_HOT_PAYLOAD
 
 invariants:
   - IMMUTABLE_VERSION_NE_IMMOBILE_CURRENT
   - INHERITED_38_CONSTITUTION_IDS_REMAIN_STABLE
   - RESEARCH_LINEAGE_NE_ADOPTION_PAYLOAD
+  - DEFAULT_AGENT_HOT_PAYLOAD_COUNT_EQ_1
+  - AVAILABLE_RESOURCE_NE_DEFAULT_HOT_PAYLOAD
   - HOT_KERNEL_NE_FULL_HOW_LIBRARY
   - REFERENCE_IMPLEMENTATION_NE_REQUIRED_HOST_IMPLEMENTATION
   - SOFT_GUIDANCE_NE_HARD_ENFORCEMENT
   - MACHINE_GUARD_NE_EXTERNAL_TRUTH
   - SIMPLER_SURFACE_NE_WEAKER_SEMANTICS
   - OPEN_RESEARCH_NE_RELEASE_BLOCKER_BY_DEFAULT
+  - RELEASE_IDENTITY_PARITY_NE_BEHAVIORAL_EQUIVALENCE
 
 profiles:
   - LITE
@@ -127,6 +146,9 @@ profiles:
 lite_entrypoint: LITE-ADOPTION-INSTRUCTION.md
 runtime_adoption:
   kernel_entrypoint: RUNTIME-ADOPTION-KERNEL.md
+  default_hot_payload_count: 1
+  default_hot_payload:
+    - RUNTIME-ADOPTION-KERNEL.md
   cue_index: operational/CUE-INDEX.md
   how_map: operational/HOW-MAP.md
   hot_kernel_should_load_full_how_library: false

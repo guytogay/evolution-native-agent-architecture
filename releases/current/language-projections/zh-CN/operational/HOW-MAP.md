@@ -1,8 +1,8 @@
-# Operational HOW Map — v0.3.7 Current（简体中文投影）
+# Operational HOW Map（简体中文投影）
 
 状态：`CURRENT / COLD_HOW_LIBRARY`
 
-这是 candidate 的 cold practical map，故意比 Runtime Kernel 大。每个节点都遵循：
+这是 Current 的 cold practical map，故意比 Runtime Kernel 大。每个节点都遵循：
 
 ```text
 WHAT / WHY
@@ -92,9 +92,9 @@ WHAT / WHY
 
 **WHAT / WHY：** executor 可以变化，而 obligation 仍存在；completion 必须绑定真实 settlement subject。
 
-**v0.3.7 Current HOW：** Host state 中明确 obligation subject + current executor + effect identity + settlement evidence；物理后果组合 Effect Lifecycle；executor mandate 组合 Authority；Host 支持时做 explicit handoff/transfer/cancel；无法建立 settlement 时保持 unresolved commitment。
+**Current HOW：** Host state 中明确 obligation subject + current executor + effect identity + settlement evidence；物理后果组合 Effect Lifecycle；executor mandate 组合 Authority；Host 支持时做 explicit handoff/transfer/cancel；无法建立 settlement 时保持 unresolved commitment。
 
-**Deferred：** recovered Commitment/Settlement machine prototype 本次不 bundled，等待 fresh independent review。
+**Deferred：** recovered Commitment/Settlement machine prototype 仍在 research lineage；未 bundled 不等于 retired，也不阻止 Current 使用现有组合 HOW。
 
 **不要推断：**
 
@@ -185,7 +185,7 @@ LEASE_EXPIRED -> COMMITMENT_CANCELLED
 
 **WHAT / WHY：** package availability != runtime activation；translation structure parity != decision equivalence。
 
-**HOW：** promotion 后保持 singular Current；compact Runtime Kernel + cold operational library；machine-readable optional reference manifest；Host mapping 而不是 forced reference implementation；zh-CN 覆盖 decision-bearing operational surfaces；paired decision fixtures；release 时 exact source/tree/package identity。
+**HOW：** 保持 singular Current；ordinary Agent 默认只常驻 Runtime Kernel；Quickstart、Cue Index、HOW、references、fixtures、enforcement map 按需检索；Host mapping 而不是 forced reference implementation；zh-CN 覆盖 decision-bearing operational surfaces；paired decision fixtures；release 时 exact source/tree/package identity。
 
 **不要：** 普通 adopter 重演 release-author ceremony，也不要要求加载历史 research。
 
@@ -209,4 +209,4 @@ Runtime cue -> Operational HOW -> Host adapter
 
 如果某条 branch 已经给出安全、具体的行动，而再加一个机制也不可能改变决策，就停止加治理。
 
-`CURRENT_CHANGE = NO`，直到 candidate validation、freeze、falsification、reconciliation、release packaging 和 explicit promotion 真正完成。
+Current 的改变遵循风险分层 release discipline：R0 产品/采用面修复可快速 succession；R1/R2 按行为与语义后果提高证据成本。不要把旧 candidate freeze/reconciliation ceremony 当作所有后续 Current 修复的默认前置条件。

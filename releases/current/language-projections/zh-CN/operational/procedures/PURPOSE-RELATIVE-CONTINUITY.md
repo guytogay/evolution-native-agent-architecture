@@ -1,6 +1,6 @@
 # Purpose-Relative Continuity Procedure（简体中文投影）
 
-状态：`v0.3.7 Current / BOUNDED_OPERATIONAL_PROCEDURE / OPTIONAL`
+状态：`CURRENT / BOUNDED_OPERATIONAL_PROCEDURE / OPTIONAL`
 
 ## 何时使用
 
@@ -44,7 +44,7 @@ UNKNOWN
 NOT_APPLICABLE
 ```
 
-Host 有真实 identifier/evidence 时就用，例如 commit/tree、account/key、checkpoint、obligation id、authority grant、evidence source、lineage edge。
+Host 有真实 identifier/evidence 时就用，例如 commit/tree、account/key/address、checkpoint、obligation id、authority grant、evidence source、lineage edge。
 
 缺证据就保持 `UNKNOWN`；名字没变不能证明所有 continuity 都没变。
 
