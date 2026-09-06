@@ -1,6 +1,8 @@
-# ENA v0.3.10 — Read Me First
+# ENA Current — Read Me First
 
 Status: **CURRENT / FIELD_VALIDATION**
+
+Current numeric release identity is defined only by `CURRENT-BASELINE.yaml`.
 
 ## If you are a human adopter
 
