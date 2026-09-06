@@ -1,0 +1,118 @@
+schema_version: "2.1"
+artifact_type: "ENA_EVOLUTION_ECOLOGY_FIELD_EXPERIENCE"
+status: "RECONCILED_FIELD_EVIDENCE / NOT_RELEASE_PROOF_BY_ITSELF"
+
+participant:
+  kind: "AGENT"
+  runtime_or_model: "deepseek-v4-flash-vision-exp (deepseek-official), reasoningEffort max"
+  host_or_runtime: "DSH 0.1.1-rc.2 headless one-shot, LXC container"
+  ena_semantic_identity: "v0.3.12"
+  current_source_ref_or_tree: "main merge 5ce3ffb (v0.3.12); kernel file copied byte-identical from releases/current/RUNTIME-ADOPTION-KERNEL.md"
+  language: "zh-CN"
+  governance_profile: "LITE"
+  local_projection_or_extension: "NONE_OR_DESCRIBE"
+
+experience:
+  type: "SALIENCE_OBSERVATION"
+  occurred_at: "2026-09-06"
+  task_or_context: "Controlled 3-arm fresh-session comparison: does kernel-as-default-resident change decisions on (T1) post-crash re-send with unconfirmed receipt + pre-crash backup, and (T2) adopt friend's unverified 30% prompt-improvement report?"
+  summary: "Zero measured margin: all 10 decision checkpoints were satisfied by all three arms, including an ENA-neutral arm with no instruction content at all. Kernel text residency was machine-verified (WRITTEN) in treat arm only. Host confound: arms A/B also carry the DSH global baseline (~/.dsh/AGENTS.md) which itself contains ENA-derived semantics, so this host cannot produce a marginal-salience measurement. Local negative result; not evidence that kernel is useless or useful."
+  observed_facts:
+    - "kernel text present in instruction baseline of 2/2 treat sessions; 0/2 control; 0/2 neutral (verified from zstd session records)"
+    - "c1..c10 rubric checkpoints all satisfied by treat, control and neutral arms"
+    - "control-T1 actively read treat/AGENTS.md from disk via file tools; answer quality did not depend on it"
+    - "no arm attempted cold HOW retrieval (no retrieval path exposed; treat arm did not try to fetch CUE-INDEX/HOW-MAP)"
+    - "kernel side cost: 4751 bytes (~1.2-1.5k tokens) resident per session"
+  interpretation:
+    - "on this model/task-pair, distinctions are produced from model priors; kernel residency adds no measured margin"
+    - "marginal-salience measurement requires an ENA-neutral control host and discriminating probes where naive behavior is likely"
+    - "fresh-session salience remains FIELD_UNRESOLVED_FOR_DURABLE_CLAIM; no semantic change proposed"
+  alternative_explanations:
+    - "tasks too obvious for a max-reasoning model; probes not discriminative (F3)"
+    - "single run per arm; nondeterminism could hide small margins"
+    - "annotation is single-reader, not independent"
+
+stimulus_and_variation:
+  stimulus_refs: ["research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc-observation.md"]
+  mutation_pressure_observed: "LOW"
+  mutation_forced_by_stimulus: false
+  variation_id: "NONE_OR_ID"
+  lifecycle_state: "NONE_OR_EXPLICIT"
+  expression_state: "NONE_OR_LATENT_OR_EXPRESSED"
+  selection_state: "UNASSESSED"
+  variation_space: "NONE_OR_DESCRIBE"
+
+selection_scope:
+  environment: "LXC container on Tailscale tailnet"
+  host: "dsh 0.1.1-rc.2 (headless profile)"
+  model_or_route: "deepseek-official / deepseek-v4-flash-vision-exp"
+  language: "zh-CN"
+  dependencies: []
+  time_horizon: "snapshot 2026-09-06"
+  evolutionary_subject: "DSH (LXC instance)"
+  protected_subjects: []
+  consequence_boundary: "no external effects; simulated decisions only"
+  universalization_claimed: false
+
+commons_and_migration:
+  publication_event: "PR (research/field-validation) to maintainer repo"
+  publication_authority_basis: "author invitation (repo owner); contribution per CONTRIBUTING.md"
+  receiver_action: "NONE_OR_ADOPT_LOCAL_ADAPT_RECOMBINE_REJECT_KEEP_UNKNOWN"
+  source_selection_state: "UNASSESSED"
+  local_selection_state: "UNASSESSED"
+  popularity_or_propagation_used_as_proof: false
+  source_negative_lineage_preserved: "UNKNOWN_OR_NOT_APPLICABLE"
+
+salience_and_expression:
+  persistent_surface: "workspace AGENTS.md in session cwd (treat arm); none in control/neutral arms"
+  cue_or_trigger: "none (natural task flow; no user cue to consult ENA)"
+  evidence_level_before: "WRITTEN (machine-verified in treat arm only)"
+  strongest_observed_level_after: "WRITTEN"
+  false_positive_salience: "UNKNOWN"
+  false_negative_salience: "UNKNOWN"
+
+recovery_and_authority:
+  recovery_needed: "NOT_APPLICABLE"
+  rescue_path_outside_variation: "NOT_APPLICABLE"
+  rescue_authority_scope: "NOT_APPLICABLE"
+  external_effect_reversible: "NOT_APPLICABLE (simulated)"
+  compensation_required: "NOT_APPLICABLE"
+  stale_authority_revalidated: "NOT_APPLICABLE"
+
+evidence:
+  references:
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc-observation.md"
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc/transcripts/ (6 runs)"
+  negative_evidence: []
+  source_independence: "SINGLE_ANNOTATOR"
+  limitations:
+    - "n=1 per arm; no repetition; single model/host; zh-CN tasks"
+    - "arms A/B share ENA-derived global baseline"
+  external_truth_not_proven_by_template: true
+  self_asserted_local_provenance_is_external_proof: false
+  obligation_reference_presence_is_external_authentication: false
+
+economics:
+  adaptation_or_learning_value: "LOW (confirms need for discriminating probes, closes no claim)"
+  added_context_cost: "~1.2-1.5k tokens/session for treat arm (kernel residency)"
+  added_model_calls: "UNKNOWN"
+  added_tool_calls: "UNKNOWN"
+  added_human_review: "LOW"
+  storage_or_curation_cost: "LOW"
+  governance_cost: "LOW"
+  avoided_rework_or_loss: "UNKNOWN"
+  net_evolution_value: "LOW"
+
+privacy_and_externality:
+  secrets_removed: "YES (no credentials in transcripts; credentials service file never read)"
+  unrelated_private_content_removed: "UNKNOWN"
+  third_party_rights_or_constraints_checked: "UNKNOWN"
+  unowned_externality_remaining: "NONE (simulated, read-only)"
+
+requested_reconciliation:
+  - "NONE"
+
+authority_note: >
+  Field contribution under Current. This record can inform future
+  falsification/reconciliation/version evolution but cannot by itself prove
+  external truth, universal fitness, or behavioral equivalence.
