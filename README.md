@@ -36,22 +36,42 @@ AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
 ```
 
-After adoption, and after a material Host/runtime change, Current asks for one bounded local operationalization pass: identify which applicable ENA boundaries are already covered by Host-native controls; where a real gap exists, propose the smallest cheap/reversible local mechanism that could materially change or protect a decision. This is not a request to install every ENA mechanism.
+If the live question is **“how do I improve/evolve myself over time?”**, retrieve:
+
+[`releases/current/operational/procedures/EVOLUTION-LOOP.md`](releases/current/operational/procedures/EVOLUTION-LOOP.md)
+
+The loop is Host-neutral: signal/inbox -> latent candidate -> bounded trial -> before/after evidence -> local selection -> integrate/retain/dormant/reject/archive -> relevant wake.
+
+After adoption, and after a material Host/runtime change, Current also asks for one bounded local operationalization pass: identify which applicable ENA boundaries are already covered by Host-native controls; where a real gap exists, propose the smallest cheap/reversible local mechanism that could materially change or protect a decision. This is not a request to install every ENA mechanism.
 
 ```text
 SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
 LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
+PROTECTION_OF_EVOLVABILITY != EVOLUTION_ITSELF
 ```
 
 ENA is not one giant prompt and does not require every bundled reference or private implementation name.
 
 ## Current product direction
 
-v0.3.13 is a bounded R0 adoption-surface successor to v0.3.12. It closes field finding `F-208-07`: in real DSH use, the Agent did not spontaneously infer that adopting ENA should include a bounded scan for cheap Host-native implementations; the owner had to explicitly ask it to operationalize ENA before it built a rescue/canary/ledger/baseline self-maintenance kit.
+v0.3.13 is an R1 operational successor to v0.3.12, driven by adopter reality contact rather than a new Constitution law.
 
-The correction adds an adoption-time and Host-change operationalization cue while preserving proportionality: existing Host mechanisms are preferred, `EXISTING / PROPOSE / NOT_REQUIRED / NOT_APPLICABLE` are valid outcomes, consequential installation still depends on actual authority, and no specific self-maintenance kit becomes mandatory ENA machinery.
+It closes two related field gaps:
 
-No Constitution IDs or core machine/evolution semantics change.
+- `F-208-07`: in real DSH use, semantic adoption did not spontaneously cause the Agent to inspect its Host for cheap practical implementations; the owner had to explicitly request operationalization before a rescue/canary/ledger/baseline self-maintenance kit emerged;
+- `F-208-08`: multiple Agent/adopter feedback, confirmed by Current inspection, showed that ENA named evolution capabilities and lifecycle semantics more strongly than it explained **how an Agent should actually keep evolving**. Capability names such as Evolution Inbox / signal capture / Variation Space / outcome-based selection existed, while the English Current HOW surface compressed `OA-EVO-01` to a short summary and `ena_evolve_v2.py` remained a narrow latent-record/migration helper rather than a full lifecycle engine.
+
+The correction adds:
+
+- an adoption-time / material-Host-change operationalization cue;
+- a first-class runtime cue for “how do I evolve?”;
+- a Host-neutral `Minimum Evolution Loop` cold HOW;
+- explicit routing from Cue Index / HOW Map / Reference Index to that procedure;
+- English + zh-CN evolution-loop projection;
+- explicit honesty that the bundled `ena_evolve_v2.py` is narrow and does not itself constitute a complete self-evolution runtime.
+
+No Constitution IDs or core machine/evolution schemas are changed. Host-native implementations remain plural; continuous self-editing, one universal metric, one scheduler, and install-every-control behavior are explicitly not required.
 
 ## Project work
 
