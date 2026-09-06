@@ -19,6 +19,8 @@ Its purpose is viable agency: useful evolution without turning every stimulus in
    - identify which relevant ENA boundaries are already embodied by local controls;
    - treat a boundary as relevant/applicable only when its absence, uncertainty, or failure could plausibly change a current or recurring decision, authority/effect/recovery/evidence boundary, or durable evolution loop on this Host;
    - for a concrete uncovered gap, propose the smallest cheap/reversible Host-native mechanism that could materially improve the decision or recovery boundary;
+   - preserve the **smallest reusable Local Projection** of Host facts that repeatedly change decisions (for example effective loading/persistence, authority/effect boundaries, recovery topology, or available Variation Space); update only affected facts when they become stale;
+   - keep that Local Projection a cache of observed Host reality, **not** a copied ENA baseline, new authority source, or mandatory subsystem;
    - do not install or activate consequential machinery beyond actual authority;
    - explicitly allow `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` outcomes;
    - stop when another mechanism would not plausibly pay rent.
@@ -34,6 +36,7 @@ DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md
 AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
 SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
 LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+LOCAL_PROJECTION != SHADOW_ENA_BASELINE
 ```
 
 ## What not to do
@@ -44,6 +47,7 @@ LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
 - Do not install every bundled reference merely because it ships with Current.
 - Do not make research lineage mandatory adoption context.
 - Do not manufacture local machinery where the Host already preserves the property or where no real decision boundary needs it.
+- Do not turn the Local Projection into a second copy of ENA; retain only observed Host facts that repeatedly change decisions.
 
 ## Useful outcomes
 
@@ -57,4 +61,4 @@ Match claims to evidence:
 
 Machine selftests do not prove external authority, effect settlement, recovery, provenance, or universal Host fitness.
 
-> **Keep one semantic kernel hot; retrieve the HOW; operationalize only where a real local gap earns it; enforce outside the model where the property actually lives.**
+> **Keep one semantic kernel hot; retrieve the HOW; operationalize only where a real local gap earns it; preserve only the Host facts that keep changing decisions; enforce outside the model where the property actually lives.**

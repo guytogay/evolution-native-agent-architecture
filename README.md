@@ -17,7 +17,7 @@ Current adoption truth is always:
 - machine identity: [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml)
 - effective package: [`releases/current/`](releases/current/)
 
-Current is **v0.3.13 / FIELD_VALIDATION**.
+Current is **v0.3.14 / FIELD_VALIDATION**.
 
 ### Human adopter
 
@@ -42,11 +42,14 @@ If the live question is **“how do I improve/evolve myself over time?”**, ret
 
 The loop is Host-neutral: signal/inbox -> latent candidate -> bounded trial -> before/after evidence -> local selection -> integrate/retain/dormant/reject/archive -> relevant wake.
 
-After adoption, and after a material Host/runtime change, Current also asks for one bounded local operationalization pass: identify which applicable ENA boundaries are already covered by Host-native controls; where a real gap exists, propose the smallest cheap/reversible local mechanism that could materially change or protect a decision. This is not a request to install every ENA mechanism.
+After adoption, and after a material Host/runtime change, Current asks for one bounded local operationalization pass: identify which applicable ENA boundaries are already covered by Host-native controls; where a real gap exists, propose the smallest cheap/reversible local mechanism that could materially change or protect a decision. This is not a request to install every ENA mechanism.
+
+When Host facts repeatedly change decisions, preserve the **smallest reusable Local Projection** needed for those decisions—for example effective loading/persistence, authority/effect boundaries, recovery topology, relevant Variation Spaces, material capability restrictions, and revalidation triggers. Reuse an existing Host-native durable surface when possible. This is a cache of observed Host reality, not a copied ENA baseline, new authority source, or mandatory database.
 
 ```text
 SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
 LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+LOCAL_PROJECTION != SHADOW_ENA_BASELINE
 EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
 PROTECTION_OF_EVOLVABILITY != EVOLUTION_ITSELF
 ```
@@ -55,23 +58,13 @@ ENA is not one giant prompt and does not require every bundled reference or priv
 
 ## Current product direction
 
-v0.3.13 is an R1 operational successor to v0.3.12, driven by adopter reality contact rather than a new Constitution law.
+v0.3.14 is a bounded R0 adoption-surface successor to v0.3.13. It does not add a new Constitution rule, evolution stage, Host subsystem, runtime, metric, scheduler, or machine behavior.
 
-It closes two related field gaps:
+Fresh one-shot review of v0.3.13 reconstructed the existing Compiled Local Projection contract from the deeper self-positioning file, but flagged that the Minimum integration path did not explicitly tell adopters to preserve the smallest reusable Host facts that repeatedly change decisions. That is `F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH`.
 
-- `F-208-07`: the owner first questioned whether ENA lacked support for helping the Agent itself evolve. That question caused a DSH Agent to inspect its real LXC Host; the Agent then proposed rescue/canary + durable variation ledger + lightweight baseline organs and implemented them after owner authorization. This shows that semantic adoption had not made local operationalization sufficiently salient; it does **not** mean the owner designed the organs or that every Host needs the same kit.
-- `F-208-08`: multiple Agent/adopter feedback, confirmed by Current inspection, showed that ENA named evolution capabilities and lifecycle semantics more strongly than it explained **how an Agent should actually keep evolving**. Capability names such as Evolution Inbox / signal capture / Variation Space / outcome-based selection existed, while the English Current HOW surface compressed `OA-EVO-01` to a short summary and `ena_evolve_v2.py` remained a narrow latent-record/migration helper rather than a full lifecycle engine.
+v0.3.14 closes that usability gap by surfacing the existing Local Projection contract in Quickstart, Agent bootstrap, Runtime Kernel, and supported zh-CN adoption surfaces. v0.3.13 remains immutable predecessor occurrence truth and retains the R1 executable evolution-loop work behind F-208-07 / F-208-08.
 
-The correction adds:
-
-- an adoption-time / material-Host-change operationalization cue;
-- a first-class runtime cue for “how do I evolve?”;
-- a Host-neutral `Minimum Evolution Loop` cold HOW;
-- explicit routing from Cue Index / HOW Map / Reference Index to that procedure;
-- English + zh-CN evolution-loop projection;
-- explicit honesty that the bundled `ena_evolve_v2.py` is narrow and does not itself constitute a complete self-evolution runtime.
-
-No Constitution IDs or core machine/evolution schemas are changed. Host-native implementations remain plural; continuous self-editing, one universal metric, one scheduler, and install-every-control behavior are explicitly not required.
+No Constitution IDs or core machine/evolution schemas are changed. Host-native implementations remain plural; continuous self-editing, one universal metric, one scheduler, install-every-control behavior, and a mandatory Local Projection database are explicitly not required.
 
 ## Project work
 

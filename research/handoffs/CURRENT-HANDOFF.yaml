@@ -1,6 +1,6 @@
-schema_version: '5.5'
+schema_version: '5.6'
 status: CURRENT_DEEP_SUCCESSION_POINTER
-updated_at: '2026-09-06'
+updated_at: '2026-09-07'
 normal_continuation:
   default_entry: NOW.md
   full_handoff_required_by_default: false
@@ -25,11 +25,11 @@ current_project_authorities:
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   final_metamemory_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
 current_adoption:
-  version: v0.3.13
+  version: v0.3.14
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  release_lane: R1_OPERATIONAL_EVOLUTION_LOOP
-  predecessor_version: v0.3.12
+  release_lane: R0_ADOPTION_SURFACE_LOCAL_PROJECTION_CUE
+  predecessor_version: v0.3.13
   predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
   default_agent_hot_payload_count: 1
   default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
@@ -38,6 +38,10 @@ current_adoption:
   bounded_local_operationalization_pass_after_adoption_or_host_change: REQUIRED
   local_operationalization_install_every_control: FORBIDDEN
   local_operationalization_valid_outcomes: [EXISTING, PROPOSE, NOT_REQUIRED, NOT_APPLICABLE]
+  local_projection_persistence_cue: REQUIRED_WHEN_HOST_FACTS_REPEATEDLY_CHANGE_DECISIONS
+  local_projection_shadow_ena_baseline: FORBIDDEN
+  local_projection_new_authority_source: FORBIDDEN
+  local_projection_mandatory_database: FORBIDDEN
   same_version_same_effective_content: REQUIRED
   known_bounded_defect_before_recommendation: FORBIDDEN
   current_pointer_should_remain_here_if_better_successor_ready: false
@@ -67,11 +71,13 @@ active_field_validation:
   - F-208-06_REFERENCE_INDEX_DEAD_HOW_MAP_ANCHORS
   - F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION
   - F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP
+  - F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH
   field_causality:
-    owner_intervention: The owner explicitly asked whether ENA lacked support for helping the Agent itself evolve.
-    agent_response: DSH inspected its LXC Host, found missing local evolution/recovery organs, proposed rescue + durable variation ledger + lightweight baseline, and implemented them after owner authorization.
-    boundary: OWNER_TRIGGERED_HOST_AUDIT_NE_OWNER_DESIGNED_ORGANS; SEMANTIC_ADOPTION_NE_SPONTANEOUS_OPERATIONALIZATION
-  next_product_rule: Continue the version-neutral Current field stream. Make practical evolution and Host operationalization discoverable without forcing continuous self-editing or universal machinery. When a bounded defect has a clear fix, create the smallest successor promptly.
+    v0313_owner_intervention: The owner explicitly asked whether ENA lacked support for helping the Agent itself evolve.
+    v0313_agent_response: DSH inspected its LXC Host, found missing local evolution/recovery organs, proposed rescue + durable variation ledger + lightweight baseline, and implemented them after owner authorization.
+    v0314_fresh_review: A fresh one-shot adopter review correctly inferred the deeper Local Projection contract but flagged that Minimum integration did not explicitly tell adopters to persist the smallest reusable Host facts that repeatedly change decisions.
+    boundary: OWNER_TRIGGERED_HOST_AUDIT_NE_OWNER_DESIGNED_ORGANS; SEMANTIC_ADOPTION_NE_SPONTANEOUS_OPERATIONALIZATION; LOCAL_PROJECTION_CUE_NE_NEW_HOST_SUBSYSTEM
+  next_product_rule: Continue the version-neutral Current field stream. Keep practical evolution, bounded operationalization, and minimal Host reality persistence discoverable without forcing continuous self-editing, universal machinery, or duplicated ENA baselines. When a bounded defect has a clear fix, create the smallest successor promptly.
 active_research:
   state: NONE
   phase: NONE
@@ -115,7 +121,10 @@ receiver_contract:
   erase_external_contribution_provenance_during_promotion: FORBIDDEN
   confuse_semantic_adoption_with_local_operationalization: FORBIDDEN
   install_every_possible_control_during_operationalization: FORBIDDEN
+  confuse_local_projection_with_shadow_ena_baseline: FORBIDDEN
+  confuse_local_projection_with_new_authority_source: FORBIDDEN
+  require_dedicated_local_projection_database_without_host_need: FORBIDDEN
   confuse_evolution_vocabulary_with_executable_evolution_loop: FORBIDDEN
   confuse_protection_of_evolvability_with_evolution_itself: FORBIDDEN
   imply_ena_evolve_v2_is_full_lifecycle_engine: FORBIDDEN
-rule: 'ENA Current is v0.3.13 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-07 and F-208-08 are closed by adding a bounded local operationalization pass and a discoverable Host-neutral Minimum Evolution Loop without making one Host runtime or continuous self-editing mandatory. The evolutionary-memory mechanism-discrimination campaign remains closed and no active mechanism primary remains.'
+rule: 'ENA Current is v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-09 is closed by surfacing the already-existing Local Projection persistence contract in Minimum integration without creating a new Host subsystem, authority source, or duplicated ENA baseline. v0.3.13 remains immutable predecessor occurrence truth. The evolutionary-memory mechanism-discrimination campaign remains closed and no active mechanism primary remains.'
