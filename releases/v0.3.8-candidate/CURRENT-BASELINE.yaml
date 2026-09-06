@@ -1,0 +1,151 @@
+schema_version: "3.2-candidate"
+baseline_kind: CANDIDATE_WORKING_STATE_COMPATIBILITY_FILENAME
+ena_version: v0.3.8-candidate.0
+adoption_status: NOT_CURRENT
+maturity: CANDIDATE_ASSEMBLY
+current: false
+frozen: false
+released: false
+complete_adoption_baseline: false
+package_scope: ALL_FILES_UNDER_RELEASES_V038_CANDIDATE
+
+current_release:
+  version: v0.3.7
+  adoption_status: CURRENT
+  maturity: FIELD_VALIDATION
+  path: ../current/
+  tree_at_candidate_birth: f33e73ed997c1b66a4572685ab5474182e136e97
+  rule: RELEASED_CURRENT_REMAINS_UNCHANGED_WHILE_CANDIDATE_IS_MUTABLE
+
+candidate_identity:
+  id: v0.3.8-candidate.0
+  branch: candidate/v0.3.8-candidate.0
+  seed_parent_main: 8928693b746864dece2a66d625a01cbc328b0d7e
+  seed_commit: 381f9fdf3d3233fee31d444b6e4bab1ec8c25fcd
+  source_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
+  freeze_binding: null
+  branch_head_is_frozen_identity: false
+  self_description_mints_status: false
+
+candidate_thesis:
+  new_constitution_rule_required: 0_DEMONSTRATED
+  new_core_semantic_delta_required: 0_DEMONSTRATED
+  primary_delta: ADOPTION_PRODUCT_SURFACE_CONSOLIDATION
+  summary: >-
+    Preserve the v0.3.7 semantic and operational trunk while reducing adopter context burden,
+    reconciling status narration, making enforcement classes explicit, repairing decision-bearing
+    zh-CN projection gaps, and expanding conformance fixtures for claimed hot guardrails.
+
+field_inputs:
+  issue_201:
+    state: ACCEPTED_AS_DECISION_BEARING_FIELD_EVIDENCE
+    findings:
+      - POST_RELEASE_NARRATION_DRIFT
+      - ZH_CN_HOT_SURFACE_FIDELITY_GAPS
+      - CONSTITUTION_CONCEPT_MAP_MISFIT
+      - SEMANTIC_FIXTURE_COVERAGE_GAPS
+  external_usability_review:
+    state: ADOPTION_PROJECTION_EVIDENCE
+    lesson:
+      - RESEARCH_LINEAGE_NE_ADOPTION_PAYLOAD
+      - SEMANTIC_PRECISION_NE_PRESENTATION_VERBOSITY
+      - SOFT_GUIDANCE_NE_HARD_ENFORCEMENT
+
+constitution:
+  inherited_stable_ids: 38
+  new_ids_added_in_candidate: 0
+  constitution_change_planned: false
+  exact_constitution_rewrite_required_by_current_evidence: false
+
+adoption_surface:
+  state: ACTIVE_REPAIR
+  human_entrypoint: ADOPTER-QUICKSTART.md
+  agent_entrypoint: AGENT-ADOPTION-INSTRUCTION.md
+  hot_kernel: RUNTIME-ADOPTION-KERNEL.md
+  cue_index: operational/CUE-INDEX.md
+  how_map: operational/HOW-MAP.md
+  enforcement_map: ENFORCEMENT-MAP.yaml
+  research_required_for_ordinary_adoption: false
+  full_how_library_should_be_permanently_loaded: false
+  host_native_equivalents_allowed: true
+
+operational_architecture:
+  inherited_from: v0.3.7
+  route_structure_rewrite_planned: false
+  known_positive_predecessor_evidence:
+    - V2_EVOLUTION_TOOL_ROUNDTRIP_PASSED_IN_DSH_FIELD_REVIEW
+    - INVALID_RECORDS_REJECTED
+    - SOURCE_SELECTION_NOT_UPGRADED_TO_RECEIVER_LOCAL_SELECTION
+    - DIGEST_TAMPER_REJECTED
+    - VALIDATOR_SELFTEST_35_PASS_REPORTED
+    - ROUTING_17_OF_17_BIDIRECTIONAL_CLOSURE_REPORTED
+    - BUNDLED_REFERENCE_8_OF_8_PATH_CONSISTENCY_REPORTED
+  candidate_regression_status: NOT_YET_RERUN
+
+language:
+  authoring_language: en
+  supported_projection_target: zh-CN
+  state: CANDIDATE_RECONCILIATION
+  projection_manifest: language-projections/zh-CN/projection-manifest.yaml
+  operational_fixture_set: language-projections/semantic-fixtures.v3.yaml
+  structural_parity_is_behavioral_equivalence: false
+  natural_behavioral_equivalence_proven: false
+  issue_201_hot_surface_omissions_targeted_for_repair: true
+
+conformance:
+  semantic_fixture_count_current_candidate: 18
+  fixture_cardinality_is_completeness_proof: false
+  expected_new_route_coverage:
+    - OA-RT-01
+    - OA-MEM-01
+    - OA-PROJ-01
+  enforcement_classification_present: true
+  field_behavior_required_for_salience_and_language_claims: true
+
+release_identity:
+  immutable_effective_content_required_at_release: true
+  exact_file_set_and_hash_parity_required: true
+  package_digest_required: true
+  published_readback_required: true
+  ordinary_adopter_must_repeat_release_author_ceremony: false
+  material_change_after_freeze_requires_successor_identity: true
+
+accepted_residuals:
+  - v0.3.8-candidate.0 is mutable and not adopter-facing Current.
+  - Candidate-wide narration/status audit is not yet complete.
+  - Candidate regression/machine checks have not yet been rerun after adoption-surface changes.
+  - Natural fresh-session cue salience and bilingual behavioral equivalence remain field/independent evidence.
+  - External mandate, receipt, recovery, provenance and other outside-world facts are not proved by package prose or schema validation.
+  - Metamemory Update Policy v1 remains a separate preregistered research round; its result is not assumed as candidate law.
+
+evidence_boundaries:
+  - MACHINE_PASS_NE_EXTERNAL_TRUTH
+  - MODEL_CUE_NE_HARD_CONTROL
+  - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
+  - FIXTURE_DEFINED_NE_MODEL_PASS
+  - LOCAL_SUCCESS_NE_UNIVERSAL_FITNESS
+  - SOURCE_SUCCESS_NE_RECEIVER_LOCAL_PROOF
+  - CANDIDATE_EXISTS_NE_CURRENT
+
+invariants:
+  - RELEASED_V037_CURRENT_REMAINS_UNCHANGED
+  - INHERITED_38_CONSTITUTION_IDS_REMAIN_STABLE_BY_DEFAULT
+  - RESEARCH_LINEAGE_NE_ADOPTION_PAYLOAD
+  - HOT_KERNEL_NE_FULL_HOW_LIBRARY
+  - REFERENCE_IMPLEMENTATION_NE_REQUIRED_HOST_IMPLEMENTATION
+  - SOFT_GUIDANCE_NE_HARD_ENFORCEMENT
+  - MACHINE_GUARD_NE_EXTERNAL_TRUTH
+  - SIMPLER_SURFACE_NE_WEAKER_SEMANTICS
+
+profiles:
+  - LITE
+  - STANDARD
+  - HIGH_ASSURANCE
+  - CUSTOM
+
+next_candidate_actions:
+  - COMPLETE_ADOPTER_NARRATION_AUDIT
+  - COMPLETE_ZH_CN_PROJECTION_RECONCILIATION
+  - RUN_TARGETED_ADOPTION_SURFACE_VALIDATION
+  - RUN_INHERITED_REGRESSION_CHECKS
+  - FRESH_FALSIFIER_REVIEW_BEFORE_FREEZE_DECISION

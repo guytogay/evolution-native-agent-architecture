@@ -1,0 +1,197 @@
+schema_version: "0.1"
+status: CANDIDATE_NOT_CURRENT
+candidate: v0.3.8-candidate.0
+purpose: >-
+  Make enforcement boundaries explicit. ENA semantics may require a property without
+  claiming that prompt text alone can guarantee it. This map classifies representative
+  high-value properties by the strongest evidence/control type available in this package.
+
+classes:
+  MODEL_CUE:
+    meaning: >-
+      Semantic/reasoning guidance intended to shape model interpretation or retrieval.
+      It may fail under model behavior and is not a hard security boundary by itself.
+  MACHINE_GUARD:
+    meaning: >-
+      A local executable schema, validator, deterministic tool invariant, or machine check
+      can reject/guard a represented condition within its stated scope.
+  EXTERNAL_CONTROL_REQUIRED:
+    meaning: >-
+      Correctness depends on facts, permissions, effects, identities, or infrastructure
+      outside model narration and outside static ENA package bytes. Host/system controls
+      or external verification are required when material.
+  FIELD_EVIDENCE_REQUIRED:
+    meaning: >-
+      Static packaging cannot guarantee future retrieval, salience, behavioral fidelity,
+      Host fitness, or cross-language model behavior. Actual field/independent evidence is required.
+
+rules:
+  - id: ENF-AUTHORITY-REALITY
+    property: capability_or_credential_does_not_self_mint_current_external_authority
+    semantics:
+      - "capability != authority"
+      - "credential possession != current mandate"
+      - "reputation != authority"
+    enforcement:
+      - MODEL_CUE
+      - EXTERNAL_CONTROL_REQUIRED
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - operational/CUE-INDEX.md
+      - references/general/authority-lease/
+    hard_boundary_note: >-
+      A model can preserve the distinction but cannot authenticate a real external mandate
+      merely from prose. IAM, authorization service, signed/verified authority source, or an
+      equivalent Host control is required when authority is consequential.
+
+  - id: ENF-EFFECT-REALITY
+    property: attempt_receipt_settlement_remain_distinct
+    semantics:
+      - "attempt != receipt != settlement"
+      - "cancel != rollback != compensation"
+    enforcement:
+      - MODEL_CUE
+      - MACHINE_GUARD
+      - EXTERNAL_CONTROL_REQUIRED
+    package_surfaces:
+      - operational/CUE-INDEX.md
+      - references/general/effect-lifecycle/
+    hard_boundary_note: >-
+      Represented lifecycle state may be machine-checked. External settlement truth still
+      requires provider/system evidence; local narration cannot prove it.
+
+  - id: ENF-RETRIEVAL-SUFFICIENCY
+    property: stored_or_known_does_not_imply_retrieved_or_sufficient
+    semantics:
+      - "object exists != relevant bytes loaded != semantics available"
+      - "WRITTEN != LOADED != INTERPRETED != SALIENT != APPLIED"
+    enforcement:
+      - MODEL_CUE
+      - FIELD_EVIDENCE_REQUIRED
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - operational/CUE-INDEX.md
+      - references/general/retrieval-obligation/
+    hard_boundary_note: >-
+      Search/index tooling can improve retrieval, but future model salience and semantic use
+      remain behavioral properties that static files cannot guarantee.
+
+  - id: ENF-LOCAL-SELECTION
+    property: source_or_local_success_does_not_become_universal_or_receiver_local_proof
+    semantics:
+      - "local success != universal fitness"
+      - "PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED"
+      - "migration != local validation"
+    enforcement:
+      - MODEL_CUE
+      - MACHINE_GUARD
+      - FIELD_EVIDENCE_REQUIRED
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - schemas/adaptation-packet.v2.schema.json
+      - schemas/evolution-record.v2.schema.json
+      - tools/ena_evolve_v2.py
+      - tools/validate_evolution_record_v2.py
+    machine_guard_scope: >-
+      The candidate inherits a machine path that preserves represented source-selection
+      provenance without automatically minting receiver-local selection. It does not prove
+      real-world fitness or applicability.
+
+  - id: ENF-LATENT-VARIATION
+    property: storage_of_a_possibility_does_not_force_expression_experiment_or_selection
+    semantics:
+      - "stored != expressed != applied != selected"
+      - "UNASSESSED may remain honest before selection attempt"
+    enforcement:
+      - MODEL_CUE
+      - MACHINE_GUARD
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - tools/ena_evolve_v2.py
+      - schemas/evolution-record.v2.schema.json
+
+  - id: ENF-CORRELATED-EVIDENCE
+    property: agreement_count_does_not_equal_independent_support_count
+    enforcement:
+      - MODEL_CUE
+      - FIELD_EVIDENCE_REQUIRED
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - references/advanced/evidence-dependency-map/
+    hard_boundary_note: >-
+      Dependency can be represented and analyzed, but the truth of real provenance/dependency
+      claims may require external evidence.
+
+  - id: ENF-RECOVERY
+    property: restore_does_not_restore_world_state_complete_history_or_authority
+    semantics:
+      - "restore/resume != complete history != restored authority"
+      - "state rollback != reversal of external consequences"
+    enforcement:
+      - MODEL_CUE
+      - EXTERNAL_CONTROL_REQUIRED
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - references/general/recovery-adapter/
+      - references/general/effect-lifecycle/
+    hard_boundary_note: >-
+      Real external effects, current authority, and independently reachable rescue depend on
+      Host/infrastructure reality, not the existence of a backup record.
+
+  - id: ENF-CONTROL-RETIREMENT
+    property: quietness_age_or_low_incident_count_does_not_prove_control_obsolete
+    enforcement:
+      - MODEL_CUE
+      - FIELD_EVIDENCE_REQUIRED
+    package_surfaces:
+      - operational/procedures/CONTROL-RETIREMENT.md
+    hard_boundary_note: >-
+      Retirement requires evidence about original failure, replacement/coverage, consequence,
+      and reactivation conditions. The package cannot infer those external facts automatically.
+
+  - id: ENF-COMPOSITION
+    property: component_validity_or_improvement_does_not_determine_composed_outcome
+    semantics:
+      - "local validity/improvement != composed outcome"
+    enforcement:
+      - MODEL_CUE
+      - FIELD_EVIDENCE_REQUIRED
+    package_surfaces:
+      - RUNTIME-ADOPTION-KERNEL.md
+      - operational/HOW-MAP.md
+    hard_boundary_note: >-
+      Emergent interaction effects require observation/evaluation of the composed subject when
+      they can change the decision.
+
+  - id: ENF-LANGUAGE-PROJECTION
+    property: translated_or_structurally_parallel_does_not_prove_behavioral_equivalence
+    enforcement:
+      - MACHINE_GUARD
+      - FIELD_EVIDENCE_REQUIRED
+    package_surfaces:
+      - 10-LANGUAGE-PORTABILITY.md
+      - language-projections/zh-CN/projection-manifest.yaml
+      - language-projections/semantic-fixtures.v3.yaml
+    machine_guard_scope: >-
+      Structural/path/fixture checks can detect represented drift. Natural model behavior across
+      language/Host combinations still requires observed tests.
+
+  - id: ENF-CANONICAL-STATUS
+    property: branch_or_self_description_does_not_mint_current_release_authority
+    enforcement:
+      - MACHINE_GUARD
+      - EXTERNAL_CONTROL_REQUIRED
+    package_surfaces:
+      - 08-RELEASE-DISCIPLINE.md
+      - LINEAGE.md
+    hard_boundary_note: >-
+      Canonical status depends on governed reproducible lineage and explicit release/admission,
+      not on candidate prose. Repository history/records are the current carrier, not metaphysical truth.
+
+claims_not_allowed:
+  - "All ENA safety properties are hard-coded."
+  - "Prompt compliance proves security."
+  - "A passing schema/validator proves external facts."
+  - "Fixture presence proves future model behavior."
+  - "Translated text is behaviorally equivalent by construction."
+  - "A bundled reference implementation is mandatory for every Host."

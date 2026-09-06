@@ -67,3 +67,7 @@ jobs:
 
       - name: Run compact Current semantic selftest
         run: python releases/current/tools/validate_contracts.py selftest
+
+      - name: Validate v0.3.8 candidate adoption surface
+        if: ${{ hashFiles('releases/v0.3.8-candidate/tools/validate_adoption_surface_v038.py') != '' }}
+        run: python releases/v0.3.8-candidate/tools/validate_adoption_surface_v038.py
