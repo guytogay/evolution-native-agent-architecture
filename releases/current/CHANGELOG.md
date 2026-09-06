@@ -1,6 +1,18 @@
 # ENA Changelog
 
-## v0.3.12 — CURRENT / FIELD_VALIDATION
+## v0.3.13 — CURRENT / FIELD_VALIDATION
+
+R0 adoption-surface successor driven by Current field stream #208 and owner-directed DSH dogfood.
+
+- closed F-208-07 by making a bounded local operationalization pass explicit after ENA adoption and after material Host/runtime change;
+- made `SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION` explicit so reading/loading ENA is not confused with implementing useful Host-native mechanisms;
+- made `LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL` explicit so the correction does not create new ceremony or mandatory machinery;
+- defined `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` as valid operationalization outcomes and kept consequential installation subject to actual authority;
+- projected the same cue into the supported zh-CN Runtime Kernel;
+- preserved the 38-ID Constitution and core machine/evolution behavior unchanged;
+- retained v0.3.12 as immutable predecessor and occurrence truth, including reconciled DSH salience PR #220.
+
+## v0.3.12 — PREDECESSOR / RELEASED / FIELD_VALIDATION OCCURRENCE TRUTH
 
 R0 adoption/identity/routing-coherence successor driven by external DSH contribution PR #216 and verified Issues #217 / #218.
 
