@@ -1,15 +1,15 @@
-schema_version: "1.2"
+schema_version: "1.3"
 purpose: >
-  Cognitive/retrieval map for the inherited 38-ID ENA Constitution. v0.3.7
-  retains all 38 IDs and adds Operational Architecture routing without creating new Constitution rules.
+  Cognitive/retrieval map for the inherited 38-ID ENA Constitution. v0.3.8-candidate.0
+  preserves all 38 IDs while repairing retrieval/applicability compression exposed in field review.
 rule: "compress loaded text != compress applicability"
 
 families:
   - id: evolution-agency
     name: "Evolution, mutation pressure, and viable agency"
-    intent: "Keep sustained self-evolution possible; allow stimuli and latent possibilities without turning every signal into forced mutation."
-    constitution_ids: [ENA-CON-005, ENA-CON-006, ENA-CON-013, ENA-CON-015, ENA-CON-021, ENA-CON-025, ENA-CON-026, ENA-CON-038]
-    trigger_cues: ["self-mutation", "positive/negative stimulus", "repeated friction/correction/success", "mutation pressure", "latent variation", "no current Variation Space", "wake/periodic review", "risk of losing future correction", "governance blocking useful variation"]
+    intent: "Keep sustained self-evolution possible; allow stimuli and latent possibilities without turning every signal into forced mutation, and do not assume dormant capability/evidence stays fresh forever."
+    constitution_ids: [ENA-CON-005, ENA-CON-006, ENA-CON-013, ENA-CON-015, ENA-CON-021, ENA-CON-025, ENA-CON-026, ENA-CON-035, ENA-CON-038]
+    trigger_cues: ["self-mutation", "positive/negative stimulus", "repeated friction/correction/success", "mutation pressure", "latent variation", "no current Variation Space", "wake/periodic review", "long dormancy / capability may be stale", "risk of losing future correction", "governance blocking useful variation"]
 
   - id: authority-power
     name: "Capability, authority, and anti-sovereignty"
@@ -18,28 +18,28 @@ families:
     trigger_cues: ["administrator/root credential", "clone/sub-agent", "internal permission mutation", "dormant capability becomes expressed", "external production effect", "expired/restored mandate", "rescue credential expands scope", "one actor claims permanent final truth"]
 
   - id: evidence-truth
-    name: "Evidence, uncertainty, and local selection truth"
-    intent: "Make claims and selection track represented reality rather than narration, popularity, or universalized local success."
-    constitution_ids: [ENA-CON-004, ENA-CON-011, ENA-CON-022, ENA-CON-023, ENA-CON-028, ENA-CON-032]
-    trigger_cues: ["claim of improvement", "UNASSESSED/UNKNOWN", "local success generalized", "popularity/propagation", "negative result", "correlated/repeated evidence", "validator PASS", "tradeoff hidden by one score"]
+    name: "Evidence, uncertainty, freshness, and local selection truth"
+    intent: "Make claims and selection track represented reality rather than narration, popularity, stale assumptions, or universalized local success."
+    constitution_ids: [ENA-CON-004, ENA-CON-011, ENA-CON-022, ENA-CON-023, ENA-CON-028, ENA-CON-032, ENA-CON-035]
+    trigger_cues: ["claim of improvement", "UNASSESSED/UNKNOWN", "local success generalized", "popularity/propagation", "negative result", "correlated/repeated evidence", "validator PASS", "evidence/authorization may be stale after time or dormancy", "tradeoff hidden by one score"]
 
   - id: recovery-history
     name: "Recovery, rescue, history, and lawful retention"
-    intent: "Allow bold experimentation while preserving externally reachable correction where material and truthful occurrence history."
+    intent: "Allow bold experimentation while preserving externally reachable correction where material and truthful occurrence history without requiring prohibited payload retention."
     constitution_ids: [ENA-CON-007, ENA-CON-008, ENA-CON-009, ENA-CON-012, ENA-CON-014, ENA-CON-019, ENA-CON-026]
-    trigger_cues: ["rollback/restore", "self-disabling mutation", "external rescue path", "backup", "secret/privacy payload", "context reset", "irreversible external effect", "recovery root"]
+    trigger_cues: ["rollback/restore", "self-disabling mutation", "external rescue path", "backup", "occurrence history", "compaction/summarization", "reclassification", "redaction/data minimization", "lawful deletion", "secret/privacy payload", "append-only-in-meaning", "context reset", "irreversible external effect", "recovery root"]
 
   - id: diversity-portability
-    name: "Diversity, Commons, migration, and language portability"
-    intent: "Permit heterogeneous cognition/Hosts/languages and fast discovery/transfer without turning publication, popularity, or source outcome into receiver proof."
-    constitution_ids: [ENA-CON-016, ENA-CON-017, ENA-CON-030, ENA-CON-035]
-    trigger_cues: ["different language", "different model/Host", "Evolution Commons", "publisher/receiver", "imported adaptation", "long dormancy", "semantic projection"]
+    name: "Diversity, Commons, migration, provenance, and language portability"
+    intent: "Permit heterogeneous cognition/Hosts/languages and fast discovery/transfer while preserving provenance and without turning publication, recurrence, popularity, source outcome, or transformed copies into receiver proof."
+    constitution_ids: [ENA-CON-016, ENA-CON-017, ENA-CON-028, ENA-CON-030]
+    trigger_cues: ["different language", "different model/Host", "Evolution Commons", "publisher/receiver", "imported adaptation", "transformed/paraphrased/imported evidence provenance", "correlated copies", "semantic projection", "source outcome transferred across environment"]
 
   - id: composition-effects
     name: "Composition, effects, and emergence"
     intent: "Treat composed systems as new selection subjects that may fail or emerge positively."
     constitution_ids: [ENA-CON-012, ENA-CON-029, ENA-CON-036, ENA-CON-037]
-    trigger_cues: ["parallelism/retry", "multi-Agent", "shared resource", "recombination", "emergent capability", "effect-equivalent bypass"]
+    trigger_cues: ["parallelism/retry", "multi-Agent", "shared resource", "recombination", "emergent capability", "effect-equivalent bypass", "cancel/rollback/compensation", "components valid but composition unknown"]
 
   - id: governance-evolution
     name: "Governance evolution, ecological restraint, and closure"
@@ -52,3 +52,4 @@ navigation:
   exact_constitution_file: "01-CONSTITUTION.md"
   evolution_process_file: "09-EVOLUTION-METABOLISM.md"
   language_file: "10-LANGUAGE-PORTABILITY.md"
+  enforcement_file: "ENFORCEMENT-MAP.yaml"

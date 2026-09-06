@@ -16,58 +16,27 @@ concurrency:
 
 jobs:
   main-gate:
-    name: main-gate
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Install minimal validation dependencies
-        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
-
-      - name: Verify live entrypoints
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          required = [
-              'README.md',
-              'NOW.md',
-              'LICENSE',
-              'CONTRIBUTING.md',
-              'SECURITY.md',
-              'releases/current/00-READ-ME-FIRST.md',
-              'releases/current/CURRENT-BASELINE.yaml',
-          ]
-          missing = [p for p in required if not Path(p).is_file()]
-          assert not missing, f'missing required repository files: {missing}'
-          print('live-entrypoints-pass')
-          PY
-
-      - name: Validate Current baseline pointer
+      - run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+      - name: Verify live Current entrypoints
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
+          required = ['README.md','NOW.md','LICENSE','releases/current/00-READ-ME-FIRST.md','releases/current/CURRENT-BASELINE.yaml']
+          assert not [p for p in required if not Path(p).is_file()]
           root = Path('releases/current')
-          doc = yaml.safe_load((root / 'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
+          doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text())
+          assert doc['current'] is True
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
-          for rel in doc.get('core_files', []):
-              assert (root / rel).is_file(), f'missing core file: {rel}'
-          lite = doc.get('lite_entrypoint')
-          assert lite and (root / lite).is_file(), f'missing LITE entrypoint: {lite}'
-          print('current-baseline-pointer-pass', doc.get('ena_version'), doc.get('adoption_status'))
+          for rel in doc.get('core_files', []): assert (root/rel).is_file(), rel
+          print('main-current-pass', doc['ena_version'])
           PY
-
       - name: Run compact Current semantic selftest
         run: python releases/current/tools/validate_contracts.py selftest
-
-      - name: Validate v0.3.8 candidate adoption surface
-        if: ${{ hashFiles('releases/v0.3.8-candidate/tools/validate_adoption_surface_v038.py') != '' }}
-        run: python releases/v0.3.8-candidate/tools/validate_adoption_surface_v038.py

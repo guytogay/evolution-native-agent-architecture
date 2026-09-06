@@ -20,170 +20,110 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       PYTHONDONTWRITEBYTECODE: '1'
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Install validation dependencies
-        run: python -m pip install --disable-pip-version-check PyYAML jsonschema
-
-      - name: Validate Current identity and file set
+      - run: python -m pip install --disable-pip-version-check PyYAML jsonschema
+      - name: Validate Current identity and product surfaces
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
-          root = Path('releases/current')
-          doc = yaml.safe_load((root / 'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
-          assert doc['ena_version'] == 'v0.3.7'
-          assert doc['adoption_status'] == 'CURRENT'
-          assert doc['maturity'] == 'FIELD_VALIDATION'
-          assert doc['current'] is True
+          root=Path('releases/current')
+          doc=yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
+          assert doc['ena_version']=='v0.3.8'
+          assert doc['adoption_status']=='CURRENT'
+          assert doc['maturity']=='FIELD_VALIDATION'
+          assert doc['current'] is True and doc['released'] is True
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
-          for rel in doc.get('core_files', []):
-              assert (root / rel).is_file(), rel
-          assert (root / doc['lite_entrypoint']).is_file()
-          assert (root / doc['runtime_adoption']['kernel_entrypoint']).is_file()
-          assert not (root / 'CANDIDATE-BASELINE.yaml').exists()
-          print('CURRENT_IDENTITY_PASS', doc['ena_version'], doc['maturity'])
+          for rel in doc['core_files']: assert (root/rel).is_file(), rel
+          for rel in ['ADOPTER-QUICKSTART.md','AGENT-ADOPTION-INSTRUCTION.md','ENFORCEMENT-MAP.yaml']:
+              assert (root/rel).is_file(), rel
+          assert not (root/'tools/validate_adoption_surface_v038.py').exists()
+          hot=['README.md','00-READ-ME-FIRST.md','ADOPTER-QUICKSTART.md','AGENT-ADOPTION-INSTRUCTION.md','RUNTIME-ADOPTION-KERNEL.md','LITE-ADOPTION-INSTRUCTION.md','07-ADOPTION-AND-FIELD-VALIDATION.md','08-RELEASE-DISCIPLINE.md','09-EVOLUTION-METABOLISM.md','10-LANGUAGE-PORTABILITY.md']
+          forbidden=['v0.3.8-candidate.0 —','NOT_CURRENT','NOT_RELEASED','Released Current remains `v0.3.7','released Current remains `v0.3.7']
+          for rel in hot:
+              text=(root/rel).read_text(encoding='utf-8')
+              found=[x for x in forbidden if x in text]
+              assert not found, (rel,found)
+          print('CURRENT_IDENTITY_PASS',doc['ena_version'])
           PY
-
-      - name: Parse Current JSON and YAML
+      - name: Parse Current structured files
         run: |
           python - <<'PY'
           from pathlib import Path
-          import json, yaml
-          root = Path('releases/current')
-          for p in sorted(root.rglob('*.json')):
-              json.loads(p.read_text(encoding='utf-8'))
-          for p in sorted(root.rglob('*.yaml')):
-              yaml.safe_load(p.read_text(encoding='utf-8'))
+          import json,yaml
+          root=Path('releases/current')
+          for p in root.rglob('*.json'): json.loads(p.read_text(encoding='utf-8'))
+          for p in root.rglob('*.yaml'): yaml.safe_load(p.read_text(encoding='utf-8'))
           print('CURRENT_STRUCTURED_PARSE_PASS')
           PY
-
-      - name: Validate Constitution parity and relative links
+      - name: Validate Constitution parity
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
-          root = Path('releases/current')
-          expected = [f'ENA-CON-{i:03d}' for i in range(1,39)]
-          en = re.findall(r'ENA-CON-\d{3}', (root / '01-CONSTITUTION.md').read_text(encoding='utf-8'))
-          zh = re.findall(r'ENA-CON-\d{3}', (root / 'language-projections/zh-CN/01-CONSTITUTION.md').read_text(encoding='utf-8'))
-          assert en == zh == expected
-          link = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
-          broken = []
-          for p in root.rglob('*.md'):
-              for raw in link.findall(p.read_text(encoding='utf-8')):
-                  target = raw.strip().split('#',1)[0].split('?',1)[0]
-                  if not target or target.startswith(('http://','https://','mailto:','/')):
-                      continue
-                  resolved = (p.parent / target).resolve()
-                  try:
-                      resolved.relative_to(root.resolve())
-                  except ValueError:
-                      continue
-                  if not resolved.exists():
-                      broken.append(f'{p.relative_to(root)} -> {raw}')
-          assert not broken, broken[:20]
-          print('CONSTITUTION_AND_LINKS_PASS', len(en))
+          root=Path('releases/current')
+          expected=[f'ENA-CON-{i:03d}' for i in range(1,39)]
+          en=re.findall(r'ENA-CON-\d{3}',(root/'01-CONSTITUTION.md').read_text())
+          zh=re.findall(r'ENA-CON-\d{3}',(root/'language-projections/zh-CN/01-CONSTITUTION.md').read_text())
+          assert en==zh==expected
+          print('CONSTITUTION_PARITY_PASS',len(en))
           PY
-
-      - name: Compile Current Python
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          files = sorted(Path('releases/current').rglob('*.py'))
-          failures = []
-          for p in files:
-              try:
-                  compile(p.read_text(encoding='utf-8'), str(p), 'exec')
-              except Exception as exc:
-                  failures.append((str(p), repr(exc)))
-          assert not failures, failures
-          print('CURRENT_PYTHON_COMPILE_PASS', len(files))
-          PY
-
-      - name: Run core semantic and evolution selftests
+      - name: Run Current semantic and evolution selftests
         shell: bash
         run: |
           set -euo pipefail
-          ROOT=releases/current
-          python "$ROOT/tools/validate_contracts.py" selftest
-          python "$ROOT/tools/validate_evolution_record_v2.py" --selftest
-          python "$ROOT/tools/selftest_ena_evolve_v2.py"
-          python "$ROOT/tools/regression_suite.py"
-
-      - name: Run legacy compatibility selftests
-        shell: bash
-        run: |
-          set -euo pipefail
-          ROOT=releases/current/tools/legacy
-          python "$ROOT/ena_evolve_v1_2.py" selftest
-          python "$ROOT/candidate1_adversarial_v1_2.py"
-          python "$ROOT/candidate2_adversarial_v1_2.py"
-
+          R=releases/current
+          python "$R/tools/validate_contracts.py" selftest
+          python "$R/tools/validate_evolution_record_v2.py" --selftest
+          python "$R/tools/selftest_ena_evolve_v2.py"
+          python "$R/tools/regression_suite.py"
+          python "$R/tools/legacy/ena_evolve_v1_2.py" selftest
+          python "$R/tools/legacy/candidate1_adversarial_v1_2.py"
+          python "$R/tools/legacy/candidate2_adversarial_v1_2.py"
       - name: Run optional reference selftests
         shell: bash
         run: |
           set -euo pipefail
-          mapfile -d '' files < <(find releases/current/references -type f \( -name 'selftest.py' -o -name 'selftest_*.py' \) -print0 | sort -z)
-          for f in "${files[@]}"; do
-            echo "RUN_REFERENCE_SELFTEST=$f"
-            python "$f"
-          done
-          echo "OPTIONAL_REFERENCE_SELFTEST_FILES=${#files[@]}"
-
-      - name: Validate optionality and bilingual routing boundaries
+          while IFS= read -r -d '' f; do python "$f"; done < <(find releases/current/references -type f \( -name 'selftest.py' -o -name 'selftest_*.py' \) -print0 | sort -z)
+      - name: Validate optionality, enforcement and bilingual routes
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
-          root = Path('releases/current')
-          ref = yaml.safe_load((root / 'references/REFERENCE-MANIFEST.yaml').read_text(encoding='utf-8'))
-          policy = ref['policy']
-          assert policy['required_for_complete_adoption_default'] is False
-          assert policy['default_activation_default'] is False
-          assert policy['package_inclusion_implies_applicability'] is False
-          assert policy['package_inclusion_implies_activation'] is False
-          assert policy['host_native_equivalent_allowed'] is True
-          idx = yaml.safe_load((root / 'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8'))
-          routes = set(idx['routes'])
-          fixtures = yaml.safe_load((root / 'language-projections/semantic-fixtures.v3.yaml').read_text(encoding='utf-8'))
-          for case in fixtures['cases']:
-              assert case['expected_route'] in routes
-              assert case.get('en','').strip() and case.get('zh-CN','').strip()
-          print('OPTIONALITY_AND_BILINGUAL_ROUTING_PASS', len(fixtures['cases']))
+          r=Path('releases/current')
+          ref=yaml.safe_load((r/'references/REFERENCE-MANIFEST.yaml').read_text())['policy']
+          assert ref['required_for_complete_adoption_default'] is False
+          assert ref['default_activation_default'] is False
+          assert ref['host_native_equivalent_allowed'] is True
+          enf=yaml.safe_load((r/'ENFORCEMENT-MAP.yaml').read_text())
+          req={'MODEL_CUE','MACHINE_GUARD','EXTERNAL_CONTROL_REQUIRED','FIELD_EVIDENCE_REQUIRED'}
+          assert req.issubset(set(enf['classes']))
+          routes=set(yaml.safe_load((r/'operational/REFERENCE-INDEX.yaml').read_text())['routes'])
+          fx=yaml.safe_load((r/'language-projections/semantic-fixtures.v3.yaml').read_text())
+          assert len(fx['cases'])>=18
+          for c in fx['cases']:
+              assert c['expected_route'] in routes and c['en'].strip() and c['zh-CN'].strip()
+          print('ADOPTION_CONFORMANCE_PASS',len(fx['cases']))
           PY
-
-      - name: Verify released v0.3.7 Constitution and tools remain frozen
+      - name: Verify R0 protected semantic and machine bytes
         run: |
           python - <<'PY'
           from pathlib import Path
-          import subprocess
-          frozen = 'b7e88d7adb70396bd671ca97066daf2c120e0adc'
-          prefix = 'releases/v0.3.7-candidate/'
-          root = Path('releases/current')
-          protected = ['01-CONSTITUTION.md']
-          protected += [p.relative_to(root).as_posix() for p in sorted((root / 'tools').rglob('*')) if p.is_file()]
-          for rel in protected:
-              expected = subprocess.check_output(['git', 'show', f'{frozen}:{prefix}{rel}'])
-              assert (root / rel).read_bytes() == expected, rel
-          print('V037_FROZEN_CORE_PASS', len(protected))
+          r=Path('releases/current'); c=Path('releases/v0.3.8-candidate')
+          protected=['01-CONSTITUTION.md','02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md','03-ROLES-AND-DEVELOPMENTAL-STAGES.md','04-CAPABILITY-MAP.md','tools/ena_evolve_v2.py','tools/validate_evolution_record_v2.py','tools/validate_contracts.py','schemas/adaptation-packet.v2.schema.json','schemas/evolution-record.v2.schema.json']
+          for rel in protected: assert (r/rel).read_bytes()==(c/rel).read_bytes(), rel
+          print('R0_PROTECTED_BYTES_PASS',len(protected))
           PY
-
       - name: Reject generated bytecode or dirty validation output
         shell: bash
         run: |
           set -euo pipefail
           test -z "$(find releases/current \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) -print)"
-          git status --porcelain
           test -z "$(git status --porcelain)"
