@@ -25,6 +25,8 @@ Its purpose is viable agency: useful evolution without turning every stimulus in
 
 A **material Host/runtime change** is one that can invalidate a cached Local Projection fact or change a decision boundary—for example model/provider/route, effective loading or persistence, authority/effect topology, recovery topology, Variation Space, or language projection. Irrelevant environment churn does not by itself retrigger the pass.
 
+Variation Space is relevant only when an actual mutation/experiment needs a bounded reality-contact surface. An ordinary consequential external action with no variation under test does **not** require inventing a Variation Space.
+
 This is not a request to install every ENA mechanism. A rescue snapshot, canary, ledger, baseline, watcher, or validator may be useful on one Host and unnecessary on another.
 
 ```text
