@@ -11,6 +11,8 @@ When asked to adopt ENA:
    - treat a boundary as applicable only when a gap or uncertainty could plausibly change a current/recurring decision or an authority, effect, recovery, evidence, or durable-evolution boundary on this Host;
    - where a real gap exists, identify the smallest cheap/reversible mechanism that could materially change or protect an actual decision;
    - prefer existing Host-native mechanisms over ENA-specific machinery;
+   - preserve the smallest reusable **Local Projection** of observed Host facts that repeatedly change decisions; refresh only affected facts when they become stale;
+   - do not turn the Local Projection into a copied ENA baseline, new authority source, or mandatory subsystem;
    - do not install, enable, or exercise consequential controls beyond actual authority; use `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, or `NOT_APPLICABLE` when appropriate;
    - stop when another mechanism would not plausibly improve the decision or resilience boundary;
 4. do not keep this bootstrap launcher resident after the Runtime Kernel is configured unless the Host requires it for routing.
@@ -25,8 +27,9 @@ BOOTSTRAP_INSTRUCTION != SECOND_HOT_SEMANTIC_PAYLOAD
 AVAILABLE_RESOURCE != DEFAULT_ACTIVE
 SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
 LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+LOCAL_PROJECTION != SHADOW_ENA_BASELINE
 ```
 
 Use Host-native controls where they preserve the same property. Do not infer that a model instruction or machine selftest proves external-world authority, settlement, recovery, or evidence truth.
 
-> **Load one kernel; retrieve everything else when needed; operationalize only where a real local gap earns it.**
+> **Load one kernel; retrieve everything else when needed; operationalize only where a real local gap earns it; retain only reusable Host facts that change decisions.**
