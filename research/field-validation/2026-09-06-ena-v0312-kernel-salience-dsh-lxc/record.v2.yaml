@@ -1,0 +1,137 @@
+schema_version: "2.1"
+artifact_type: "ENA_EVOLUTION_ECOLOGY_FIELD_EXPERIENCE"
+status: "MAINTAINER_RECONCILED_WITH_NARROWING / NOT_RELEASE_PROOF_BY_ITSELF"
+
+participant:
+  kind: "AGENT"
+  runtime_or_model: "deepseek-v4-flash-vision-exp (deepseek-official), reasoningEffort max"
+  host_or_runtime: "DSH 0.1.1-rc.2 headless one-shot, LXC container"
+  ena_semantic_identity: "v0.3.12"
+  current_source_ref_or_tree: "main merge 5ce3ffb (v0.3.12); kernel file copied byte-identical from releases/current/RUNTIME-ADOPTION-KERNEL.md"
+  language: "zh-CN"
+  governance_profile: "LITE"
+  local_projection_or_extension: "A/B inherited DSH global ENA-derived baseline; B additionally loaded exact v0.3.12 kernel as workspace AGENTS.md; C used fresh DSH_HOME with no ENA AGENTS baseline"
+
+experience:
+  type: "SALIENCE_OBSERVATION"
+  occurred_at: "2026-09-06"
+  task_or_context: "Controlled fresh-session observation across T1 post-crash resend and T2 external 30% prompt-improvement transfer; nominal 3-arm design, with A-control T1 later found contaminated by reading treat/AGENTS.md"
+  summary: "Local negative/narrowing result. Treat and ENA-neutral runs reached the same key decisions on both tasks, so these probes did not discriminate kernel residency on this high-reasoning model. Exact 0/10 pre-registered margin is NOT claimed because the report remapped T2 rubric checkpoints post hoc, the frozen rubric specified treat-minus-control rather than treat-minus-neutral, and control-T1 was contaminated. No evidence that the kernel is useless or useful in general."
+  observed_facts:
+    - "kernel text present in instruction baseline of 2/2 treat sessions; absent from reported neutral ENA instruction surfaces"
+    - "neutral-T1 independently rejected blind replay and required query/reconciliation or preserved uncertainty"
+    - "neutral-T2 independently rejected immediate import of the external 30% claim and proposed bounded local validation"
+    - "control-T1 discovered and read treat/AGENTS.md during the run; it is not a clean untreated comparator"
+    - "A/B inherited a DSH global baseline containing ENA-derived semantics"
+    - "no arm exercised the cold HOW retrieval leg"
+    - "kernel side context cost reported as 4751 bytes (~1.2-1.5k tokens) per treat session"
+  interpretation:
+    - "T1/T2 are low-discrimination probes for this high-reasoning model/effort setting"
+    - "fresh-session kernel salience remains FIELD_UNRESOLVED_FOR_DURABLE_CLAIM"
+    - "no Current semantic or release change is justified"
+    - "future work requires a genuinely discriminating, pre-frozen comparator/rubric and strict prevention of cross-arm file discovery"
+  alternative_explanations:
+    - "model priors already solve these classic reasoning pitfalls"
+    - "single run per arm; nondeterminism could hide small effects"
+    - "single annotator and post-hoc report remapping limit exact score claims"
+    - "A/B global ENA baseline masks marginal ENA contribution"
+
+stimulus_and_variation:
+  stimulus_refs:
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc-observation.md"
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc/MAINTAINER-RECONCILIATION.md"
+  mutation_pressure_observed: "LOW"
+  mutation_forced_by_stimulus: false
+  variation_id: "NOT_APPLICABLE"
+  lifecycle_state: "NOT_APPLICABLE"
+  expression_state: "NOT_APPLICABLE"
+  selection_state: "SELECTED_AS_FIELD_EVIDENCE_WITH_NARROWING"
+  variation_space: "NOT_APPLICABLE"
+
+selection_scope:
+  environment: "LXC container on Tailscale tailnet"
+  host: "DSH 0.1.1-rc.2 headless profile"
+  model_or_route: "deepseek-official / deepseek-v4-flash-vision-exp / reasoningEffort max"
+  language: "zh-CN"
+  dependencies:
+    - "DSH instruction-loading behavior"
+    - "global ~/.dsh/AGENTS.md for A/B"
+    - "fresh temporary DSH_HOME for C"
+  time_horizon: "snapshot 2026-09-06"
+  evolutionary_subject: "ENA v0.3.12 Runtime Adoption Kernel salience on this DSH/LXC host"
+  protected_subjects: []
+  consequence_boundary: "simulated decisions only; no real external effects"
+  universalization_claimed: false
+
+commons_and_migration:
+  publication_event: "PR #220 research/field-validation contribution"
+  publication_authority_basis: "contribution under repository policy; maintainer reconciliation required for canonical admission"
+  receiver_action: "ADOPT_LOCAL_AS_NARROW_FIELD_EVIDENCE"
+  source_selection_state: "CONTRIBUTOR_OBSERVATION"
+  local_selection_state: "MAINTAINER_SELECTED_WITH_NARROWING"
+  popularity_or_propagation_used_as_proof: false
+  source_negative_lineage_preserved: "YES"
+
+salience_and_expression:
+  persistent_surface: "workspace AGENTS.md in treat sessions; A/B global DSH baseline; neutral C without ENA AGENTS baseline"
+  cue_or_trigger: "natural task flow; no task-side instruction to consult ENA"
+  evidence_level_before: "WRITTEN for treat kernel residency"
+  strongest_observed_level_after: "WRITTEN"
+  false_positive_salience: "UNKNOWN"
+  false_negative_salience: "UNKNOWN"
+
+recovery_and_authority:
+  recovery_needed: "NOT_APPLICABLE"
+  rescue_path_outside_variation: "NOT_APPLICABLE"
+  rescue_authority_scope: "NOT_APPLICABLE"
+  external_effect_reversible: "NOT_APPLICABLE (simulated)"
+  compensation_required: "NOT_APPLICABLE"
+  stale_authority_revalidated: "NOT_APPLICABLE"
+
+evidence:
+  references:
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc-observation.md"
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc/rubric.md"
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc/transcripts/"
+    - "research/field-validation/2026-09-06-ena-v0312-kernel-salience-dsh-lxc/MAINTAINER-RECONCILIATION.md"
+  negative_evidence:
+    - "neutral arm reached the key T1/T2 decisions without ENA instruction content, so the chosen probes show no demonstrated marginal kernel benefit on this model/setting"
+    - "control-T1 contamination prevents treating that run as a clean no-kernel comparator"
+    - "pre-written rubric and report checkpoint mapping diverged, so exact post-hoc 0/10 scoring is not promoted to preregistered evidence"
+  source_independence: "CONTRIBUTOR_SINGLE_ANNOTATOR_PLUS_MAINTAINER_READBACK"
+  limitations:
+    - "n=1 per arm per task; no repetition; single model/host; zh-CN tasks"
+    - "A/B share ENA-derived global baseline"
+    - "control-T1 read treat/AGENTS.md during the run"
+    - "rubric/report checkpoint mapping mismatch"
+    - "raw machine session records remain host-local; repository contains full final transcripts, not full hidden/session event records"
+  external_truth_not_proven_by_template: true
+  self_asserted_local_provenance_is_external_proof: false
+  obligation_reference_presence_is_external_authentication: false
+
+economics:
+  adaptation_or_learning_value: "LOW_BUT_POSITIVE_METHOD_NARROWING"
+  added_context_cost: "reported ~1.2-1.5k tokens/session for treat kernel residency"
+  added_model_calls: "6 one-shot runs"
+  added_tool_calls: "UNKNOWN"
+  added_human_review: "single contributor annotation plus maintainer reconciliation/readback"
+  storage_or_curation_cost: "LOW"
+  governance_cost: "LOW"
+  avoided_rework_or_loss: "avoids launching a non-discriminating primary and avoids overclaiming a zero-margin result"
+  net_evolution_value: "POSITIVE_AS_NARROWING_EVIDENCE"
+
+privacy_and_externality:
+  secrets_removed: "CONTRIBUTOR_REPORTS_YES; maintainer did not inspect host-local credential files"
+  unrelated_private_content_removed: "UNKNOWN"
+  third_party_rights_or_constraints_checked: "UNKNOWN"
+  unowned_externality_remaining: "NONE_KNOWN_FROM_REPOSITORY_ARTIFACTS; simulated/read-only task effects"
+
+requested_reconciliation:
+  - "COMPLETED: ACCEPT_AS_FIELD_EVIDENCE_WITH_NARROWING"
+  - "NO_CURRENT_CHANGE"
+  - "NO_NEW_PRIMARY_UNTIL_A_CONCRETE_DISCRIMINATOR_EXISTS"
+
+authority_note: >
+  Field contribution under Current. Contributor observations are preserved as occurrence truth;
+  canonical interpretation is governed by MAINTAINER-RECONCILIATION.md. This record cannot by
+  itself prove external truth, universal fitness, behavioral equivalence, or future Current promotion.
