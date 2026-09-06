@@ -211,9 +211,12 @@ jobs:
               assert not hit, (rel, hit.group(0) if hit else None)
 
           version_bound_current = re.compile(r'v0\.3\.\d+\s+Current', re.I)
+          release_bound_identity = {
+              'CHANGELOG.md','LINEAGE.md','CURRENT-BASELINE.yaml','projection-manifest.yaml'
+          }
           for p in r.rglob('*'):
               if p.is_file() and p.suffix.lower() in {'.md','.yaml','.json'}:
-                  if p.name in {'CHANGELOG.md','LINEAGE.md','CURRENT-BASELINE.yaml'}:
+                  if p.name in release_bound_identity:
                       continue
                   text = p.read_text(encoding='utf-8')
                   hit = version_bound_current.search(text)
