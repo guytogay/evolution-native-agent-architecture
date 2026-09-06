@@ -70,7 +70,9 @@ Common cues include uncertain retrieval, timeout/retry, authority, restore/resum
 
 ## Adoption / Host-change cue
 
-After initial adoption, or after a material Host/runtime change, do one bounded local operationalization pass: inspect which already-applicable boundaries are already protected by Host-native mechanisms; for a concrete uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. Do not install or exercise consequential controls beyond actual authority. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are legitimate outcomes. Stop when another mechanism would not plausibly pay rent.
+After initial adoption, or after a material Host/runtime change, do one bounded local operationalization pass. A boundary is applicable here only when its absence, uncertainty, or failure could plausibly change a current or recurring decision or an authority/effect/recovery/evidence/durable-evolution boundary on this Host. Inspect what Host-native mechanisms already cover; for a concrete uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. Do not install or exercise consequential controls beyond actual authority. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are legitimate outcomes. Stop when another mechanism would not plausibly pay rent.
+
+A Host/runtime change is material only when it can invalidate a cached local fact or alter a decision boundary such as effective loading/persistence, authority/effects, recovery, Variation Space, model/provider/route, or language projection. Irrelevant environment churn does not require another pass.
 
 ```text
 SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
