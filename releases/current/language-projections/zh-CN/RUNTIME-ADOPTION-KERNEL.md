@@ -59,7 +59,8 @@ Host/runtime 变化只有在它可能让已有本地事实失效或改变 effect
 ```text
 语义采用 != 本地落地
 本地落地 != 把所有控制都装上
-Local Projection != 第二套 ENA baseline
+LOCAL_PROJECTION != SHADOW_ENA_BASELINE
+本地投影 != 影子 ENA 基线
 ```
 
 rescue snapshot、恢复演练、canary、ledger、baseline、validator、watcher 都只是可能的 Host 实现，不因为 ENA 提到相应边界就自动成为必装组件。
