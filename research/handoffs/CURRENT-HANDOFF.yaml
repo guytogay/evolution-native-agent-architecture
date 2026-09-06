@@ -1,4 +1,4 @@
-schema_version: "4.8"
+schema_version: "4.9"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-06"
 
@@ -72,11 +72,16 @@ active_research:
   preregistration: research/field-validation/2026-09-04-metamemory-update-policy-preregistration.md
   fixture_root: research/field-validation/fixtures/metamemory-update-policy-v1/
   primary_launch_bundle: research/field-validation/metamemory-update-policy-v1/PRIMARY-LAUNCH-BUNDLE.md
+  manager_only_surface: research/field-validation/metamemory-update-policy-v1/manager/
+  manager_scorer: research/field-validation/metamemory-update-policy-v1/manager/score_primary_bundle.py
+  manager_scorer_selftest: METAMEMORY_MANAGER_SCORER_SELFTEST_PASS
+  treatment_blob_binding_reverified_at: "2026-09-06"
   initial_primary_runs: 4
   maximum_primary_runs_after_frozen_replication_trigger: 8
   next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
   blocks_current_release: false
   selective_extra_runs_for_preferred_result: FORBIDDEN
+  expose_manager_oracle_to_primary_worker: FORBIDDEN
 
 research_closure:
   audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
@@ -97,6 +102,7 @@ receiver_contract:
   use_full_handoff_for_fresh_validator: FORBIDDEN
   treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
   expose_preregistration_or_hidden_oracle_to_primary_worker: FORBIDDEN
+  expose_manager_scorer_to_primary_worker: FORBIDDEN
   confuse_version_immutability_with_current_immobility: FORBIDDEN
   block_R0_release_on_unrelated_research: FORBIDDEN
   reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
@@ -104,4 +110,5 @@ receiver_contract:
 rule: >-
   ENA Current is v0.3.9 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream.
   The ordinary Agent default hot payload is one Runtime Adoption Kernel; other ENA resources are cold/on-demand.
-  Metamemory Update Policy v1 is the only currently planned fresh-session primary and does not block product successors.
+  Metamemory Update Policy v1 is the only currently planned fresh-session primary. Its manager-side scorer is ready,
+  but primary workers must see only their frozen treatment, never the preregistration/oracle/manager surface.

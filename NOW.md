@@ -61,6 +61,14 @@ The broad evolutionary-memory divergence campaign is closed behind explicit disp
 
 Initial sample: four one-shot fresh Temporary Chats. Maximum eight only under the frozen all-arm replication trigger. No selective extra runs.
 
+Freeze binding was reverified on 2026-09-06: all four treatment blobs on `main` still match the frozen launch bundle.
+
+Manager-side post-capture scorer:
+
+`research/field-validation/metamemory-update-policy-v1/manager/score_primary_bundle.py`
+
+Its synthetic selftest reproduces the preregistered mechanical M1-M6 expectations and exercises all three frozen replication-trigger paths. The scorer contains hidden expected states/oracle material and **must never be exposed to a primary worker before first-output capture**.
+
 Exact research next action:
 
 `COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY`
@@ -93,4 +101,4 @@ CONTROL_MUST_PAY_RENT
 ## Open work
 
 - GitHub Issue `#208` — Current field validation.
-- Metamemory Update Policy v1 — collect the four frozen initial primary runs, adjudicate mechanically, then close the mechanism-discrimination campaign unless a genuinely new discriminator appears.
+- Metamemory Update Policy v1 — collect the four frozen initial primary runs, score/adjudicate mechanically, then close the mechanism-discrimination campaign unless the frozen all-arm replication trigger fires or a genuinely new discriminator appears.
