@@ -1,6 +1,17 @@
 # ENA Changelog
 
-## v0.3.13 — CURRENT / FIELD_VALIDATION
+## v0.3.14 — CURRENT / FIELD_VALIDATION
+
+R0 adoption-surface successor driven by the v0.3.13 fresh one-shot adopter review and Current field stream #208.
+
+- closed `F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH` by surfacing the already-existing Compiled Local Projection contract in Minimum integration;
+- made Quickstart, Agent bootstrap, Runtime Kernel, and supported zh-CN adoption surfaces explicitly tell adopters to preserve only the smallest reusable Host facts that repeatedly change decisions;
+- clarified that a Local Projection is a cache of observed Host reality, not a copied ENA baseline, authority source, mandatory database, or new Host subsystem;
+- retained the bounded local operationalization pass and v0.3.13 Minimum Evolution Loop unchanged in meaning;
+- preserved the 38-ID Constitution, evolution-record schemas, core machine semantics, and protected semantic floor unchanged;
+- retained v0.3.13 as immutable predecessor and occurrence truth.
+
+## v0.3.13 — PREDECESSOR / RELEASED / FIELD_VALIDATION OCCURRENCE TRUTH
 
 R1 operational successor driven by Current field stream #208, owner-directed DSH dogfood, and repeated adopter feedback that ENA was clearer about not dying than about how to keep evolving.
 
