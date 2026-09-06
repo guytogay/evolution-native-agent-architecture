@@ -23,19 +23,21 @@
 - latent idea 重新与现实问题相关；
 - Host/runtime 实质变化使旧假设失效。
 
+只有当 signal 如果丢失，可能影响后续 selection、recovery、evidence 或反复工作决策时，才值得持久化。**不要因为存在 inbox 就把每个一闪而过的念头都记成进化记录。**
+
 没有 signal 也是信息：不能因为“有进化循环”就强迫自己持续修改。
 
 ## 最小循环
 
-### 1. 先把 signal 持久化
+### 1. 先把 decision-relevant signal 持久化
 
-在决定改什么以前，把 observation 放进 durable inbox / queue。
+在决定改什么以前，把真正可能影响后续判断的 observation 放进 durable inbox / queue。无法合理改变后续决策的 trivial/transient thought 可以直接丢弃，不要把记录本身变成仪式。
 
 最小字段：`time / source-author / subject / signal-observation / why-it-matters / evidence-link / state`。
 
 对 `evolution-record.v2`，可把 occurrence ref 放进 `signal_refs` / `mutation_pressure_refs`。
 
-**边界：** 聊天里出现过 != 已持久捕获。Capability Map 里写着 `Evolution Inbox` != Host 真的有 inbox。
+**边界：** 聊天里出现过 != 已持久捕获；Capability Map 里写着 `Evolution Inbox` != Host 真的有 inbox；持久捕获也 != 每个想法都必须记账。
 
 ### 2. 形成 candidate，但默认保持 latent
 
@@ -166,4 +168,4 @@ Current 已提供 `evolution-record.v2` template/schema、validator 和窄的 `e
 
 以下情况重新验证或缩减：Host/model/tooling 实质变化；recovery/authority boundary 改变；inbox/candidate 长期不再被调用；metric 开始被优化而不再代表目标；循环成本高于产生的 useful variation/evidence。
 
-> **捕获压力，保存变异，接触现实，局部选择，保留证据，再继续观察。**
+> **捕获有决策价值的压力，保存变异，接触现实，局部选择，保留证据，再继续观察。**
