@@ -135,7 +135,7 @@ periodic scan 可有可无；没有可能改变 selection 的东西时就什么�
 
 ```text
 没有新 signal != 没有进化
-进化循环 != 连续 self-editing
+进化循环 != 持续自我修改
 ```
 
 ## 最小 Host 器官
