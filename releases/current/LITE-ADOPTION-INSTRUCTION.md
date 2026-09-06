@@ -1,16 +1,17 @@
-# LITE Adoption Instruction — ENA v0.3.7
+# LITE Adoption Instruction — ENA v0.3.8-candidate.0
 
-Status: `CURRENT / FIELD_VALIDATION / LITE PROFILE`.
+Status: `CANDIDATE / NOT_CURRENT / NOT_FROZEN / LITE PROFILE`.
+
+Released Current remains `v0.3.7 / CURRENT / FIELD_VALIDATION`.
 
 LITE means low ceremony for a bounded consequence envelope. It is not a reduced Constitution and not "no evolution."
-
-The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
 
 For familiar low-consequence work:
 
 - use `RUNTIME-ADOPTION-KERNEL.md` as the compact cue surface;
 - if no decision-material ENA mechanism is needed, do useful work without inventing ceremony;
-- when a cue matters, retrieve the relevant branch through `operational/CUE-INDEX.md` and `operational/HOW-MAP.md`;
+- when a cue matters, retrieve only the relevant branch through `operational/CUE-INDEX.md` and `operational/HOW-MAP.md`;
+- use `ENFORCEMENT-MAP.yaml` when it matters whether a protection is model guidance, a machine guard, an external control, or a field claim;
 - preserve `stimulus != mutation != improvement`;
 - capture useful stimuli cheaply without forcing mutation;
 - allow useful possibilities to remain latent;
@@ -19,7 +20,7 @@ For familiar low-consequence work:
 - do not treat popularity/import/source success as receiver-local proof;
 - stop governance when another bounded check cannot plausibly change the decision.
 
-Bundled reference organs remain **optional/default-off even under complete candidate adoption**. LITE does not mean "activate every bundled reference lightly." It means activate only the mechanism whose property is material to the task.
+Bundled reference organs remain **optional/default-off**. LITE does not mean "activate every bundled reference lightly." It means activate only the mechanism whose property is material to the task.
 
 Legitimate lightweight results include:
 
@@ -36,7 +37,7 @@ A small local side effect may remain LITE. A tiny mutation to the only recovery 
 
 Escalation follows actual consequence: irreversibility, weak/unknown recovery, secret/credential exposure, shared/external effects, authority ambiguity/elevation, consequential composition, or governance/meta-evolution.
 
-Candidate practical evolution tooling:
+Candidate practical evolution tooling remains:
 
 `tools/ena_evolve_v2.py`
 

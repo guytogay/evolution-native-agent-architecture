@@ -1,155 +1,117 @@
-# ENA v0.3.7 — Operational Architecture successor candidate
+# ENA v0.3.8-candidate.0 — Adoption-Surface Consolidation
 
-Status: **CURRENT / FIELD_VALIDATION / COMPLETE_ADOPTION_BASELINE**
+Status: **R0_FIELD_PATCH_ADOPTION_SURFACE / NOT_CURRENT / NOT_RELEASED**
 
-The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
-
-Do **not** adopt this directory as Current. v0.3.7 Current successor repairs are reconciled; exact pre-freeze validation is next, followed only on PASS by external freeze and explicit post-freeze independence/release reconciliation.
+Released Current is still `v0.3.7 / CURRENT / FIELD_VALIDATION` until promotion. v0.3.7 is the rollback/history anchor, not a target to keep Current fixed on.
 
 ## Candidate thesis
 
-v0.3.7 is a practical Operational Architecture candidate, not a manufactured Constitution expansion.
+v0.3.8 does not manufacture new Constitution law.
+
+It preserves the earned semantic protection while making ENA easier to adopt, integrate, verify, and explain.
 
 ```text
-v0.3.6 semantic trunk
+v0.3.7 semantic + operational trunk
 +
-concrete HOW navigation
+coherent adopter-state narration
 +
-optional reference organs
+minimal human/Agent entry surfaces
 +
-Host implementation patterns
+explicit enforcement classes
 +
-Current-local minimal v2 tooling
+stronger cross-language hot-surface fidelity
 +
-decision-bearing zh-CN operational projection
+conformance-fixture coverage of claimed guardrails
+=
+v0.3.8 R0 successor
 ```
+
+Primary field inputs include GitHub Issue #201 and adoption/usability evidence exposing the difference between research lineage and adopter payload.
+
+## Product rule
 
 ```text
-NEW_CONSTITUTION_IDS = 0
-NEW_CORE_SEMANTIC_DELTA_REQUIRED = 0_DEMONSTRATED
-PRACTICAL_OPERATIONAL_RELEASE_VALUE = MATERIAL
+RESEARCH_LINEAGE != ADOPTION_PAYLOAD
+SEMANTIC_PRECISION != PRESENTATION_VERBOSITY
+SEMANTIC_COMPLETENESS != RUNTIME_CONTEXT_COMPLETENESS
+SOFT_GUIDANCE != HARD_ENFORCEMENT
+IMMUTABLE_VERSION != IMMOBILE_CURRENT
 ```
 
-## Minimum adopter traversal
+Research, adjudication, negative results, and historical lineage remain durable. They are not default runtime payload.
 
-A reviewer/adopter should not need to inspect `research/` to reach a usable mechanism.
+## Minimum evaluation/adoption path
 
 ```text
 00-READ-ME-FIRST.md
+-> ADOPTER-QUICKSTART.md
 -> RUNTIME-ADOPTION-KERNEL.md
--> operational/CUE-INDEX.md
--> operational/HOW-MAP.md
--> operational/REFERENCE-INDEX.yaml
--> bounded procedure / optional reference / Host pattern
--> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
+-> operational/CUE-INDEX.md when a cue matters
+-> exact HOW / Host-native equivalent
+-> ENFORCEMENT-MAP.yaml for control type
+-> semantic fixtures / executable validators for conformance evidence
 ```
 
-For the rationale and package boundary of this layer, see `operational/README.md`.
+No `research/` path is required for ordinary adoption.
 
-The HOW library is cold capability, not mandatory active context.
+## Candidate goals
 
-`HOW_LIBRARY_SIZE != ACTIVE_CONTEXT_SIZE`
+1. remove adopter-facing release/candidate narration contradictions;
+2. make it obvious what humans should read and what Agents should load;
+3. separate model cues from machine guards, external controls, and field claims;
+4. preserve decision-bearing semantics in supported language projections;
+5. test high-value claimed guardrails rather than relying on prose presence alone;
+6. keep private implementation names optional where Host-native equivalents preserve the property;
+7. preserve v0.3.7 positive tool/routing behavior unless evidence requires change.
 
-## What is now assembled
+## Release lane
 
-### Operational routing
-
-`operational/CUE-INDEX.md` is the ordinary-problem router. `operational/HOW-MAP.md` preserves plural concrete implementation branches. `operational/REFERENCE-INDEX.yaml` binds those branches to exact Current-local procedures, references, and patterns.
+This successor is classified:
 
 ```text
-ordinary cue / failure / decision
--> consequence-first routing
--> CUE-INDEX
--> HOW-MAP
--> REFERENCE-INDEX
--> bounded procedure / optional reference / Host pattern
--> action / WAIT / UNKNOWN / REFUSE / NOT_APPLICABLE
+LANE = R0_FIELD_PATCH_ADOPTION_SURFACE
+CORE_CONSTITUTION_DELTA = NONE
+CORE_CONTRACT_SEMANTIC_DELTA = NONE_DEMONSTRATED
+ROLLBACK_ANCHOR = v0.3.7
 ```
 
-### Optional reference library
+Its Main Gate has passed with candidate-specific regression checks. CodeQL is part of the ordinary machine gate set.
 
-Selected reusable references are bundled under `references/` with machine-readable policy in `references/REFERENCE-MANIFEST.yaml`.
+Under the rapid Current release discipline, **generic fresh cleanroom validation is not a mandatory pre-release gate for R0**. The remaining path is exact release projection/readback/promotion, followed by field validation. If reality exposes a material defect, cut a rapid successor rather than holding Current back indefinitely.
 
-```text
-BUNDLED_REFERENCE
-!= REQUIRED_FOR_COMPLETE_ADOPTION
-!= DEFAULT_ACTIVE
-!= UNIVERSALLY_APPLICABLE
-!= NORMATIVE_ONTOLOGY
-```
+Metamemory research is independent and does not block this release.
 
-A Host-native implementation may satisfy the same property without instantiating the bundled schema.
+## What this candidate does not claim
 
-### Evolution tooling
+- It is not Current until explicit promotion completes.
+- It does not add Constitution IDs merely because a successor version exists.
+- It does not claim every ENA semantic rule can or should be hard-coded.
+- It does not claim fixtures prove future model behavior.
+- It does not make GitHub, one model, one language, or one bundled reference implementation sovereign.
 
-Primary candidate practical path:
+## Scope
 
-`tools/ena_evolve_v2.py`
+Candidate.0 is bounded to:
 
-It provides a narrow Current-local v2 path for latent records and packet-v2 export/import/validation. It delegates record semantics to the Current-local v2 validator rather than implementing a second semantic engine.
+- Issue #201 narration reconciliation;
+- zh-CN hot-surface fidelity repair;
+- concept/retrieval-map correction;
+- semantic-fixture expansion;
+- product-facing Quickstart;
+- enforcement classification;
+- targeted adoption-surface consistency checks;
+- risk-tiered release-discipline correction.
 
-The inherited v1.2 tool is retained only as:
+Scope record:
 
-`tools/legacy/ena_evolve_v1_2.py`
+`../../collaboration/reconciliation/2026-09-06-v038-adoption-surface-successor-scope.md`
 
-It is compatibility history, not an equally prominent default.
+## Release discipline
 
-### zh-CN operational projection
+Version identity remains exact: once v0.3.8 is released, corrections create v0.3.9 rather than silently mutating v0.3.8.
 
-Decision-bearing operational surfaces are available under:
+`08-RELEASE-DISCIPLINE.md` defines the R0/R1/R2 release lanes.
 
-`language-projections/zh-CN/operational/`
-
-Machine reference bytes remain single/canonical; Chinese adopters use `language-projections/zh-CN/REFERENCE-GUIDE.md` rather than a second translated machine implementation.
-
-`language-projections/semantic-fixtures.v3.yaml` defines paired candidate operational decision expectations. Fixture structure is machine-checked; natural bilingual behavior remains field/independent evidence.
-
-## Machine assembly evidence
-
-Stage 3 exact head `8ba109528ecb14f9a22a372c897ac8d9ea1759f3` passed Assembly Gate run `33004330491`.
-
-Stage 4 exact head `7a59ac9b10e18f804ce7141b0beae2aef5e75cf6` passed Assembly Gate run `33007647412`, including zh-CN operational-route checks.
-
-Machine PASS establishes exercised represented consistency and packaging facts. It does not establish external truth, universal Host applicability, future salience, or independent semantic support.
-
-## Deferred without ablation
-
-The recovered Commitment/Settlement machine prototype remains durable research lineage but is not bundled in v0.3.7 Current; deferral remains reversible if renewed candidate-critical evidence warrants it.
-
-```text
-NOT_BUNDLED != RETIRED
-SILENT_DISSOLUTION != EVIDENCE_BACKED_RETIREMENT
-```
-
-## Lineage
-
-Candidate branch:
-
-`candidate/v0.3.7`
-
-Exact v0.3.7 Current birth base / predecessor frozen source:
-
-`bda470e0a6b170cec61225a905957a501454a2fe`
-
-Predecessor frozen candidate.2 subtree:
-
-`d5fefc8c786d7e40b3e9a59211ee7045bccee5bf`
-
-v0.3.7 Current was created directly from frozen candidate.2 after candidate.2 fresh A-S/A-P and Phase B required a material successor. Candidate.2 remains immutable occurrence truth; v0.3.7 Current does not rewrite it.
-
-Round-1 successor repair gate `33149597432` passed and committed bounded Authority, Effect Lifecycle, transferred-source chronology, and regression-provenance repairs at `55e08740fa2e4b033cfb5bd9e8f7a4214a479f08` while preserving inherited valid behavior.
-
-## What remains before freeze
-
-1. finish v0.3.7 Current package identity/lineage/zh-CN reconciliation without expanding executable semantic scope;
-2. rerun inherited/targeted machine checks without treating their counts as completeness;
-3. run exact-head v0.3.7 Current pre-freeze machine validation;
-4. bind the exact immutable source/tree with an external governed freeze record;
-5. targeted post-freeze reconciliation must verify the sealed candidate.2 blockers are closed; another full fresh A-S/A-P cycle is not automatic;
-6. if no material blocker remains, perform explicit v0.3.7 release reconciliation and promotion decision.
-
-Any material correction after freeze requires a successor candidate identity.
-
-> **Compress the semantic trunk; let concrete HOWs branch.**
+> **v0.3.8 should require the adopter to know less while preserving or improving the protection they actually receive.**
 >
-> **Assembled is not independently supported.**
+> **Preserve old releases; move Current quickly.**

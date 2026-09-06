@@ -1,8 +1,8 @@
-# 9. 进化代谢与进化生态 — v0.3.7
+# 9. 进化代谢与进化生态 — v0.3.8-candidate.0
 
-状态：`CURRENT / FIELD_VALIDATION`。
+状态：`CANDIDATE / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED`。
 
-v0.3.7 Current 保留 v0.3.6 的进化生态语义，新增的是具体 HOW 路由、Host mapping 和实用 v2 工具路径；没有新增 Constitution 条文，也没有宣称新的 universal evolution ontology。
+已发布 Current 仍是 v0.3.7。本 candidate 继承其进化生态语义，并集中修复 adoption/product surface；没有因为版本号变化而新增 Constitution 条文，也没有宣称新的 universal evolution ontology。
 
 ## 9.1 生态代谢
 
@@ -48,12 +48,13 @@ candidate 实用创建路径：
 
 ## 9.5 Cue-triggered salience -> Operational Architecture
 
-v0.3.7 Current 把 v0.3.6 的 hot-cue 方向接成具体路径：
+candidate 继承 hot-cue -> cold-HOW 路由，并补全精确引用层：
 
 ```text
 hot cue / failure shape
 -> operational/CUE-INDEX.md
 -> operational/HOW-MAP.md
+-> operational/REFERENCE-INDEX.yaml（需要精确本地路径/可选实现时）
 -> procedure / optional reference / Host-native pattern
 ```
 
@@ -61,7 +62,7 @@ hot cue / failure shape
 
 `cue configured != future salience proven`
 
-中文对应入口位于本目录的 `operational/`。
+中文对应入口位于本目录的 `operational/`。`REFERENCE-INDEX.yaml` 是共享 canonical machine/path surface，不要求复制出第二套中文机器实现。
 
 ## 9.6 Variation Space 与现实接触
 
@@ -107,15 +108,15 @@ integration 不等于永久 expression。Host 可使用：
 
 pruning 不重写 selection history。
 
-若对象是 safeguard/control，而不是 adaptation，可使用 `operational/procedures/CONTROL-RETIREMENT.md`：恢复 original failure，检查 replacement/coverage，必要时 narrow/shadow/dormant，保留 reactivation + lineage。
+若对象是 safeguard/control，而不是 adaptation，可使用 `operational/procedures/CONTROL-RETIREMENT.md`：恢复 original failure，检查 replacement/coverage，必要时 narrow/shadow/dormant，依靠 evidence + lineage 决定退役，并保留 reactivation condition。
 
 `NO_INCIDENT != CONTROL_NOT_NEEDED`
 
 ## 9.10 Migration / Commons
 
-迁移传递“可能性 + 来源历史”，不传递结论。
+迁移传递“可能性 + 来源历史”，不传递 receiver-local 结论。
 
-v0.3.7 Current 提供：
+candidate 继承：
 
 - `adaptation-packet.v2` 作为来源上下文 carrier；
 - `../../tools/ena_evolve_v2.py export-packet/import-packet`；
@@ -123,19 +124,23 @@ v0.3.7 Current 提供：
 
 packet digest 只检查内容一致性，不认证 source。source selection 不会因为 transport 自动变成 receiver-local selection。
 
+`迁移 != 本地验证`
+
 ## 9.11 重组与涌现
 
 重组可以产生 conflict、抵消、放大、emergent capability、新 externality 或无用变化。
 
-期待涌现不是 evidence；interaction 会改变决策时，应观察 composed subject。
+期待涌现不是 evidence；组件各自局部有效/改进不能预测组合结果。interaction 会改变决策时，应观察 composed subject。
 
 ## 9.12 Recovery / Rescue
 
-self-mutation 可能破坏自身 recovery 时，在 consequence 值得且可控的情况下，保留 damaged variation 之外可达的 rescue path。
+self-mutation 可能破坏自身 recovery 时，在 consequence 值得且可控的情况下，保留 damaged variation 之外可达的 rescue path，并保持 rescue authority 狭窄。
 
-v0.3.7 Current bundled optional `references/general/recovery-adapter/`，Host 替代方式见 `operational/patterns/HOST-MAPPINGS.md`。
+candidate 继承 optional `references/general/recovery-adapter/`，Host 替代方式见 `operational/patterns/HOST-MAPPINGS.md`。
 
-`restore success != external consequence rollback != authority restoration`
+`restore/resume != 完整历史 != authority 恢复`
+
+`状态回滚 != 外部后果逆转`
 
 ## 9.13 Authority / Effect / Continuity / Standing
 
@@ -143,6 +148,7 @@ v0.3.7 Current bundled optional `references/general/recovery-adapter/`，Host �
 
 - consequential authority 可用 optional Authority Lease 或 Host equivalent；
 - retry/restart/world-effect ambiguity 可用 Effect Lifecycle；
+- `cancel != rollback != compensation`；
 - continuity 只有会改变决策时才用 Purpose-Relative Continuity；
 - material objection 可用 Standing Input，但不会因此获得 sovereignty；
 - material durable self-surface change 可用 Contested Authorship，普通 state write 可 out of scope。
@@ -151,14 +157,14 @@ v0.3.7 Current bundled optional `references/general/recovery-adapter/`，Host �
 
 ## 9.14 Candidate 工具边界
 
-v0.3.7 Current 的主要实用 v2 工具：
+candidate 继承的主要实用 v2 工具：
 
 `../../tools/ena_evolve_v2.py`
 
 范围：
 
 - latent v2 creation，不强迫 early Variation Space；
-- delegate 给 Current-local v2 validator；
+- delegate 给 candidate-local v2 validator；
 - packet-v2 export/import + canonical digest/narrow consistency；
 - 保留 source evidence/selection 与 receiver-local selection 的边界。
 
@@ -170,7 +176,15 @@ v0.3.7 Current 的主要实用 v2 工具：
 
 旧 `--variation-space` limitation 是 legacy implementation fact，不是 candidate semantic law。
 
-## 9.15 继续可见的 residual
+## 9.15 Enforcement 边界
+
+具体语义属于哪种保证，见：
+
+`../../ENFORCEMENT-MAP.yaml`
+
+不要把 `MODEL_CUE` 当成 hard security boundary，也不要把 `MACHINE_GUARD` 当成 external truth。
+
+## 9.16 继续可见的 residual
 
 - self-asserted `LOCAL` provenance 不是 external proof；
 - obligation reference 结构存在不等于真实性认证；
@@ -179,7 +193,8 @@ v0.3.7 Current 的主要实用 v2 工具：
 - experiment 与 broader reality contact 的术语边界仍可继续研究；
 - v2 helper 是窄实用路径，不是 full lifecycle runtime；
 - reference machine PASS 不证明 universal applicability/external truth；
-- zh-CN paired fixtures 不证明 bilingual behavioral equivalence。
+- zh-CN paired fixtures 不证明 bilingual behavioral equivalence；
+- candidate.0 尚未完成 freeze/independent validation。
 
 > **变异不欠现实一个立即判决。**
 >

@@ -1,8 +1,8 @@
-# Operational Cue Index — v0.3.7 Current
+# Operational Cue Index — v0.3.8-candidate.0
 
-Status: `CURRENT / OPERATIONAL_ROUTER`
+Status: `CANDIDATE / NOT_CURRENT / OPERATIONAL_ROUTER`
 
-Use this when the Agent knows **what problem it has** but does not yet know which ENA mechanism to retrieve.
+Released Current remains v0.3.7. Use this when the Agent knows **what problem it has** but does not yet know which ENA mechanism to retrieve.
 
 This is a cue surface, not a universal keyword classifier. Host-native routers, skills, memory indexes, event hooks, or semantic retrieval may implement the same function.
 
@@ -32,19 +32,19 @@ If none are materially relevant, prefer the lightweight path. ENA does not requi
 | "Am I actually allowed to do this consequential action?" | `OA-AUTH-01 Authority` | `references/general/authority-lease/`; use `NOT_REQUIRED` when authority is genuinely irrelevant |
 | "This external write may be retried/replayed after timeout or restart." | `OA-EFF-01 Effect Lifecycle` | `references/general/effect-lifecycle/`; choose idempotency/fencing/status/compensation/WAIT by target semantics |
 | "The process restarted or restored state. Can it safely resume?" | `OA-REC-01 Recovery` | `references/general/recovery-adapter/` + effect/authority reconciliation |
-| "A worker changed, forked, or failed. Who still owes the obligation?" | `OA-COM-01 Commitment/Settlement` | shared distinction in `HOW-MAP`; first candidate uses Effect + Authority + explicit settlement guidance; recovered machine organ is deferred |
+| "A worker changed, forked, or failed. Who still owes the obligation?" | `OA-COM-01 Commitment/Settlement` | shared distinction in `HOW-MAP`; candidate uses Effect + Authority + explicit settlement guidance; recovered machine organ remains deferred |
 | "Is this still the same Agent?" | `OA-ID-01 Purpose-relative continuity` | `operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md`; ask continuity-for-what-decision, not metaphysical sameness |
 | "A durable purpose/value/refusal/self-definition is being changed." | `OA-AUTHOR-01 Contested Authorship` | `references/advanced/contested-authorship/`; ordinary task/cache state may be out of scope |
 | "Someone/another Agent raises an objection that could change a consequential decision." | `OA-STAND-01 Standing Input` | `operational/procedures/STANDING-INPUT.md`; being heard does not create sovereignty or authority |
 | "Several reviewers agree. Are these actually independent supports?" | `OA-EVID-01 Evidence dependency` | `references/advanced/evidence-dependency-map/`; preserve common causes, no fake scalar independence score |
 | "I have evidence, but does it support this claim for this subject now?" | `OA-EVID-01 Evidence envelope` | `references/advanced/evidence-envelope/`; keep evidence/support/applicability/provenance/witness/activation distinct |
-| "A failure, friction, discovery, or success suggests the Agent should change." | `OA-EVO-01 Evolution` | Current v2 evolution record + candidate `tools/ena_evolve_v2.py` when assembled; variation may remain latent |
+| "A failure, friction, discovery, or success suggests the Agent should change." | `OA-EVO-01 Evolution` | candidate-local v2 evolution record + `tools/ena_evolve_v2.py`; variation may remain latent |
 | "I want to share/import an adaptation from another Agent/Host." | `OA-MIG-01 Migration/Commons` | packet v2 + `operational/patterns/EVOLUTION-COMMONS.md`; source success is not receiver-local proof |
 | "Agents need to discover or task each other live." | `OA-MIG-01 Active interoperability` | Host/A2A-style live protocol pattern; do not confuse active protocol with durable Commons |
 | "A safeguard/control may no longer be necessary." | `OA-ECO-01 Control Retirement` | `operational/procedures/CONTROL-RETIREMENT.md`; no-incident/low-use alone is not retirement evidence |
 | "A metric, reputation rule, or resource limit is shaping the population." | `OA-ECO-01 Ecology` | Host/field/mesocosm branch; measurement is itself selection pressure |
 | "The rules exist in the repository but are not salient at runtime." | `OA-RT-01 Runtime routing` | compact hot cues -> cold operational retrieval; exact resident kernel remains Host-selectable |
-| "How much ENA must I activate to adopt it?" | `OA-ADOPT-01 Adoption` | semantic baseline + operational routing; bundled references remain optional/default-off |
+| "How much ENA must I activate to adopt it?" | `OA-ADOPT-01 Adoption` | semantic baseline + operational routing; bundled references remain optional/default-off; use `ENFORCEMENT-MAP.yaml` for control type |
 | "English and Chinese wording may lead to different decisions." | `OA-ADOPT-01 Language` | candidate zh-CN operational projection + paired semantic fixtures; structural parity is not behavioral proof |
 
 ## Failure-shape routes
@@ -101,11 +101,17 @@ After selecting a route:
 ```text
 CUE-INDEX
 -> HOW-MAP
--> REFERENCE-INDEX.yaml
+-> REFERENCE-INDEX.yaml when exact candidate-local path is needed
 -> exact procedure/reference/Host pattern
 ```
 
 If the exact reference is absent or not applicable, do not invent universal machinery. Use the Host-native branch or retain an honest residual.
+
+## Enforcement boundary
+
+A route can tell you **which property matters**; it does not tell you that the property is already hard-enforced.
+
+Consult `../ENFORCEMENT-MAP.yaml` when the distinction between model cue, machine guard, external control, or field evidence can change implementation/review.
 
 ## Evidence boundary
 
@@ -114,6 +120,7 @@ A cue match proves only that a branch may be worth retrieving.
 ```text
 CUE_MATCH != APPLICABILITY_PROVEN
 ROUTER_CONFIGURED != FUTURE_SALIENCE_PROVEN
+MODEL_CUE != HARD_ENFORCEMENT
 ```
 
 Natural fresh-session salience remains field evidence.
