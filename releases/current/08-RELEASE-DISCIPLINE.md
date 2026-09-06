@@ -1,4 +1,4 @@
-# 8. Release and Canonical-Lineage Discipline — v0.3.10
+# 8. Release and Canonical-Lineage Discipline — Current
 
 Status: `CURRENT / FIELD_VALIDATION / RELEASED`
 
@@ -12,13 +12,18 @@ IMMUTABLE_VERSION != IMMOBILE_CURRENT
 
 Current should move when a better bounded successor has paid the evidence cost appropriate to its change.
 
+A known, decision-bearing defect with a clear bounded fix should not remain in recommended Current merely because the predecessor is immutable.
+
+```text
+PRESERVE_PREDECESSOR != KEEP_DEFECTIVE_CURRENT
+RECORD_OCCURRENCE != DEFER_KNOWN_FIX
+```
+
 ## Release lanes
 
 - **R0 Field patch / adoption / projection / publication coherence** — machine/regression checks + exact readback + rollback anchor; fresh independent validation may be post-release field evidence.
 - **R1 Operational behavior change** — targeted adversarial/independent evidence when decision-material.
 - **R2 Core semantic/high consequence** — heavy freeze + fresh independent falsification/reconciliation by default.
-
-v0.3.10 is an R0 successor to v0.3.9. It changes publication/release-identity narration and recurrence checks on stable cold surfaces; it does not add Constitution IDs or rewrite core machine semantics.
 
 ## R0 atomic transition
 
@@ -46,4 +51,13 @@ observe defect/opportunity
 
 Do not demand R2 evidence for an R0 change. Do not hide a semantic/high-consequence change inside an R0 label.
 
-> **Release immutability protects truth; Current mobility protects evolution.**
+## Share-ready rule
+
+Before recommending Current to another adopter/Agent, perform a bounded self-review of the known changed/identity surfaces and current machine gates. Unknown defects can still emerge in field validation; already-confirmed defects with an available bounded fix should not be knowingly exported.
+
+```text
+FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
+UNKNOWN_FUTURE_DEFECT != KNOWN_UNFIXED_DEFECT
+```
+
+> **Release immutability protects truth; Current mobility protects evolution; share-ready review protects adopters from defects we already know about.**
