@@ -86,8 +86,9 @@ routes:
     composition:
     - OA-AUTH-01
     - OA-EFF-01
-    deferred_reference: commitment-settlement-recovered
-    deferred_reason: FRESH_INDEPENDENT_REVIEW_REQUIRED_BEFORE_FIRST_CANDIDATE_BUNDLING
+    research_only_reference: commitment-settlement-recovered
+    reference_state: NOT_BUNDLED_RESEARCH_PROTOTYPE
+    reference_reason: CURRENT_HOW_ALREADY_COVERS_THE_DECISION_BOUNDARY; BUNDLING_REQUIRES_A_CURRENT_ADOPTION_NEED_AND_EVIDENCE
   OA-REC-01:
     what: recovery and safe resume
     primary:
