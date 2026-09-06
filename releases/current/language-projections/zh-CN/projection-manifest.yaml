@@ -1,11 +1,11 @@
-schema_version: '2.6'
+schema_version: '2.7'
 language: zh-CN
-projection_version: v0.3.13.zh-CN.1
-source_semantic_version: v0.3.13
+projection_version: v0.3.14.zh-CN.1
+source_semantic_version: v0.3.14
 status: CURRENT_SEMANTIC_OPERATIONAL_PROJECTION
 not_current: false
 release_identity:
-  current_version: v0.3.13
+  current_version: v0.3.14
   current_status: CURRENT
   maturity: FIELD_VALIDATION
   identity_source: ../../CURRENT-BASELINE.yaml
@@ -17,6 +17,8 @@ runtime_adoption:
   other_projection_surfaces_default_residency: COLD_ON_DEMAND
   how_to_evolve_runtime_cue_present: true
   local_operationalization_cue_present: true
+  local_projection_persistence_cue_present: true
+  local_projection_is_shadow_ena_baseline: false
 coverage:
   release_bound_projection:
   - projection-manifest.yaml
@@ -50,6 +52,7 @@ validation:
   active_identity_header_drift_rejected: true
   historical_provenance_versions_allowed_in_cold_body: true
   evolution_loop_projection_present: true
+  local_projection_persistence_cue_projected: true
   natural_behavioral_equivalence: FIELD_EVIDENCE_REQUIRED
 machine_artifact_policy:
   translate_machine_reference_files_one_by_one: false
@@ -61,9 +64,11 @@ known_gaps:
 - Paired semantic fixtures define expected decisions; they are not behavioral proof.
 - Long-tail machine schemas/tools remain in canonical authoring language by design.
 - The translated Minimum Evolution Loop does not prove universal Host fitness or natural invocation.
+- The explicit Local Projection cue does not prove that every Host needs the same fields or storage mechanism.
 evidence_boundary:
 - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
 - FIXTURE_DEFINED_NE_MODEL_PASS
 - CURRENT_STATUS_NE_UNIVERSAL_HOST_APPLICABILITY
 - RELEASE_IDENTITY_PARITY_NE_BEHAVIORAL_EQUIVALENCE
 - EVOLUTION_LOOP_TRANSLATED_NE_HOST_RUNTIME_IMPLEMENTED
+- LOCAL_PROJECTION_CUE_NE_UNIVERSAL_STORAGE_REQUIREMENT
