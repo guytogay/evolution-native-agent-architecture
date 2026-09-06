@@ -1,11 +1,11 @@
-schema_version: '2.5'
+schema_version: '2.6'
 language: zh-CN
-projection_version: v0.3.12.zh-CN.1
-source_semantic_version: v0.3.12
+projection_version: v0.3.13.zh-CN.1
+source_semantic_version: v0.3.13
 status: CURRENT_SEMANTIC_OPERATIONAL_PROJECTION
 not_current: false
 release_identity:
-  current_version: v0.3.12
+  current_version: v0.3.13
   current_status: CURRENT
   maturity: FIELD_VALIDATION
   identity_source: ../../CURRENT-BASELINE.yaml
@@ -15,6 +15,8 @@ runtime_adoption:
   default_agent_hot_payload:
   - RUNTIME-ADOPTION-KERNEL.md
   other_projection_surfaces_default_residency: COLD_ON_DEMAND
+  how_to_evolve_runtime_cue_present: true
+  local_operationalization_cue_present: true
 coverage:
   release_bound_projection:
   - projection-manifest.yaml
@@ -28,6 +30,7 @@ coverage:
   - operational/README.md
   - operational/CUE-INDEX.md
   - operational/HOW-MAP.md
+  - operational/procedures/EVOLUTION-LOOP.md
   - operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md
   - operational/procedures/STANDING-INPUT.md
   - operational/procedures/CONTROL-RETIREMENT.md
@@ -46,6 +49,7 @@ validation:
   release_adoption_identity_parity: MACHINE_CHECKED_IN_SCOPE
   active_identity_header_drift_rejected: true
   historical_provenance_versions_allowed_in_cold_body: true
+  evolution_loop_projection_present: true
   natural_behavioral_equivalence: FIELD_EVIDENCE_REQUIRED
 machine_artifact_policy:
   translate_machine_reference_files_one_by_one: false
@@ -56,8 +60,10 @@ known_gaps:
 - Natural fresh-session retrieval/salience parity between English and zh-CN is unproven.
 - Paired semantic fixtures define expected decisions; they are not behavioral proof.
 - Long-tail machine schemas/tools remain in canonical authoring language by design.
+- The translated Minimum Evolution Loop does not prove universal Host fitness or natural invocation.
 evidence_boundary:
 - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
 - FIXTURE_DEFINED_NE_MODEL_PASS
 - CURRENT_STATUS_NE_UNIVERSAL_HOST_APPLICABILITY
 - RELEASE_IDENTITY_PARITY_NE_BEHAVIORAL_EQUIVALENCE
+- EVOLUTION_LOOP_TRANSLATED_NE_HOST_RUNTIME_IMPLEMENTED
