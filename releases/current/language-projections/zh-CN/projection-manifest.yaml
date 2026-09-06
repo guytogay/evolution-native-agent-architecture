@@ -1,11 +1,11 @@
-schema_version: '2.3'
+schema_version: '2.4'
 language: zh-CN
-projection_version: v0.3.10.zh-CN.1
-source_semantic_version: v0.3.10
+projection_version: v0.3.11.zh-CN.1
+source_semantic_version: v0.3.11
 status: CURRENT_SEMANTIC_OPERATIONAL_PROJECTION
 not_current: false
 release_identity:
-  current_version: v0.3.10
+  current_version: v0.3.11
   current_status: CURRENT
   maturity: FIELD_VALIDATION
   identity_source: ../../CURRENT-BASELINE.yaml
@@ -17,10 +17,10 @@ runtime_adoption:
   other_projection_surfaces_default_residency: COLD_ON_DEMAND
 coverage:
   release_bound_projection:
-  - 00-READ-ME-FIRST.md
-  - RUNTIME-ADOPTION-KERNEL.md
   - projection-manifest.yaml
   version_neutral_semantic_projection:
+  - 00-READ-ME-FIRST.md
+  - RUNTIME-ADOPTION-KERNEL.md
   - 01-CONSTITUTION.md
   - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
   - CONSTITUTION-CONCEPT-MAP.md
