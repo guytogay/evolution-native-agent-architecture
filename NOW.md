@@ -4,17 +4,17 @@ This is the default live project-status surface.
 
 ## Current
 
-- `v0.3.10 / CURRENT / FIELD_VALIDATION`
+- `v0.3.11 / CURRENT / FIELD_VALIDATION`
 - authority: `releases/current/CURRENT-BASELINE.yaml`
 - effective adopter package: `releases/current/`
-- predecessor / rollback / occurrence truth: `v0.3.9`
+- predecessor / rollback / occurrence truth: `v0.3.10`
 - field stream: GitHub Issue `#208` — version-neutral Current field validation
 
-v0.3.10 is an R0 publication-coherence successor. It preserves the 38-ID Constitution and core behavior while closing `F-208-03`: stable English cold surfaces no longer carry stale active release identities. Genuine historical provenance remains allowed.
+v0.3.11 is an R0 share-readiness successor. It preserves the 38-ID Constitution and core behavior while closing `F-208-04`: the Current-wide contribution rule no longer refers to obsolete v0.3.7, and stable adopter/semantic surfaces no longer duplicate numeric Current identity by default.
 
 ```text
-COLD_SEMANTIC_SURFACE != RELEASE_ID_LABEL_MAINTENANCE_BURDEN
-HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
+RECORD_OCCURRENCE != DEFER_KNOWN_FIX
+FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
 ```
 
 ## Adoption contract
@@ -28,6 +28,20 @@ HOT_KERNEL != FULL_HOW_LIBRARY
 For ordinary Agent runtime, only the Runtime Adoption Kernel is resident by default. Cue Index, HOW Map, Enforcement Map, fixtures, references, Constitution detail, and research lineage are cold/on-demand.
 
 Human adopters start at `releases/current/ADOPTER-QUICKSTART.md`.
+
+## Share-ready contract
+
+Before recommending Current to another adopter/Agent:
+
+- known decision-bearing defects with a clear bounded fix must be resolved through the smallest successor;
+- current machine/regression gates must pass;
+- bounded identity/adopter readback must agree with `CURRENT-BASELINE.yaml`;
+- unknown future defects remain legitimate field-validation risk, but known unfixed defects are not an acceptable recommendation state.
+
+```text
+UNKNOWN_FUTURE_DEFECT != KNOWN_UNFIXED_DEFECT
+PRESERVE_PREDECESSOR != KEEP_DEFECTIVE_CURRENT
+```
 
 ## Release posture
 
@@ -44,7 +58,7 @@ Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
 
 ## Active field stream
 
-Issue `#208` follows Current, not one release number. F-208-01/02/03 have produced rapid R0 successors; new bounded defects should continue to create the smallest justified successor instead of freezing Current.
+Issue `#208` follows Current, not one release number. F-208-01/02/03/04 have produced rapid R0 successors; new bounded defects should continue to create the smallest justified successor instead of freezing Current or sitting knowingly unfixed.
 
 ## Research status
 
