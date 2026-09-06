@@ -1,0 +1,103 @@
+{
+  "experiment": "Metamemory Update Policy v1",
+  "collection_date": "2026-09-06",
+  "freeze_commit": "dffd1179d260788e5c763facdf61876c3162401f",
+  "host": "ChatGPT Temporary Chat",
+  "model": "GPT-5.6 Sol",
+  "protocol_assessment": {
+    "operator_reported_fresh_session_per_run": true,
+    "objective_execution_failures_reported": 0,
+    "all_four_outputs_complete": true,
+    "all_four_required_shapes_exact": true,
+    "treatment_blob_binding_reverified_before_collection": true,
+    "instrumented_host_trace_available": false
+  },
+  "runs": [
+    {
+      "run_id": "S0-1",
+      "arm": "S0_STATIC_EQUAL",
+      "M1_policy_state_reconstruction": "5/5",
+      "M2_overall_transfer_accuracy": "2/18",
+      "M3_known_context_action_coverage": "0/16",
+      "M4_adaptation_lag_true_shifts": 8,
+      "M5_noise_capture_false_plasticity": 0,
+      "M6_unseen_context_false_activation": 0,
+      "state_transfer_incompatibility_count": 0,
+      "M7_confidence": {
+        "mean_justified_insufficient": 100.0,
+        "n_justified_insufficient": 2,
+        "mean_unjustified_insufficient": 100.0,
+        "n_unjustified_insufficient": 16
+      }
+    },
+    {
+      "run_id": "G1-1",
+      "arm": "G1_GLOBAL_RECENT3",
+      "M1_policy_state_reconstruction": "5/5",
+      "M2_overall_transfer_accuracy": "8/18",
+      "M3_known_context_action_coverage": "16/16",
+      "M4_adaptation_lag_true_shifts": 0,
+      "M5_noise_capture_false_plasticity": 8,
+      "M6_unseen_context_false_activation": 2,
+      "state_transfer_incompatibility_count": 0,
+      "M7_confidence": {
+        "mean_correct_action": 100.0,
+        "n_correct_action": 8,
+        "mean_incorrect_action": 100.0,
+        "n_incorrect_action": 10
+      }
+    },
+    {
+      "run_id": "C1-1",
+      "arm": "C1_CONTEXT_RECENT3",
+      "M1_policy_state_reconstruction": "5/5",
+      "M2_overall_transfer_accuracy": "10/18",
+      "M3_known_context_action_coverage": "16/16",
+      "M4_adaptation_lag_true_shifts": 0,
+      "M5_noise_capture_false_plasticity": 8,
+      "M6_unseen_context_false_activation": 0,
+      "state_transfer_incompatibility_count": 0,
+      "M7_confidence": {
+        "mean_correct_action": 100.0,
+        "n_correct_action": 8,
+        "mean_incorrect_action": 100.0,
+        "n_incorrect_action": 8,
+        "mean_justified_insufficient": 100.0,
+        "n_justified_insufficient": 2
+      }
+    },
+    {
+      "run_id": "C2-1",
+      "arm": "C2_CONTEXT_REVERSIBLE3",
+      "M1_policy_state_reconstruction": "5/5",
+      "M2_overall_transfer_accuracy": "10/18",
+      "M3_known_context_action_coverage": "16/16",
+      "M4_adaptation_lag_true_shifts": 4,
+      "M5_noise_capture_false_plasticity": 4,
+      "M6_unseen_context_false_activation": 0,
+      "state_transfer_incompatibility_count": 0,
+      "M7_confidence": {
+        "mean_correct_action": 100.0,
+        "n_correct_action": 8,
+        "mean_incorrect_action": 100.0,
+        "n_incorrect_action": 8,
+        "mean_justified_insufficient": 100.0,
+        "n_justified_insufficient": 2
+      }
+    }
+  ],
+  "replication_trigger": {
+    "ready_to_apply": true,
+    "triggered": false,
+    "reasons": [],
+    "required_next_action": "NO_REPLICATION_TRIGGER_CLOSE_WITH_ADJUDICATION"
+  },
+  "aggregate_observations": {
+    "policy_state_reconstruction_exact_for_all_arms": true,
+    "distinct_expected_arm_profiles_observed": true,
+    "context_scope_prevented_GREEN_false_activation_for_C1_C2": true,
+    "plasticity_inertia_tradeoff_observed_between_C1_and_C2": true,
+    "confidence_channel_discriminative_on_this_host_task": false,
+    "confidence_note": "Every emitted answer carried confidence 100, including correct actions, incorrect actions, justified insufficiency, and unjustified insufficiency."
+  }
+}
