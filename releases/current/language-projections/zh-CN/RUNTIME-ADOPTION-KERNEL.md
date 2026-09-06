@@ -44,6 +44,17 @@ Cue Index、HOW Map、Enforcement Map、fixtures、Constitution、references 都
 
 `cue 已配置 != 未来自然想起已证明`。
 
+## Adoption / Host 变化后的本地落地检查
+
+初次采用 ENA 后，或 Host/runtime 发生实质变化后，做一次有边界的本地 operationalization pass：检查哪些已经适用的边界已经由 Host-native mechanism 保护；若存在真实缺口，只提出能实质改变/保护当前决策的最小、低成本、可逆机制。不得超越真实 authority 自动安装或启动有后果的控制。`EXISTING`、`PROPOSE`、`NOT_REQUIRED`、`NOT_APPLICABLE` 都是合法结果；继续加机制已经不可能改善决策时就停止。
+
+```text
+语义采用 != 本地落地
+本地落地 != 把所有控制都装上
+```
+
+rescue snapshot、恢复演练、canary、ledger、baseline、validator、watcher 都只是可能的 Host 实现，不因为 ENA 提到相应边界就自动成为必装组件。
+
 ## 变异、选择与迁移
 
 mutation pressure 是产生/重看 variation 的机会，不是命令。variation 可以保持 latent。有后果的实验进入与 consequence 相称的 Variation Space。正负 selection 默认只属于实际环境；传播或流行不是本地证明。
@@ -64,4 +75,4 @@ mutation pressure 是产生/重看 variation 的机会，不是命令。variatio
 
 模型指导不是硬控制；机器 validator 也不证明外部世界事实。
 
-> **常驻核心；按需检索 HOW；让治理支付成本。**
+> **常驻核心；按需检索 HOW；只在真实本地缺口值得时落地；让治理支付成本。**
