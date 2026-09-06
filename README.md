@@ -17,7 +17,7 @@ Current adoption truth is always:
 - machine identity: [`releases/current/CURRENT-BASELINE.yaml`](releases/current/CURRENT-BASELINE.yaml)
 - effective package: [`releases/current/`](releases/current/)
 
-Current is **v0.3.11 / FIELD_VALIDATION**.
+Current is **v0.3.12 / FIELD_VALIDATION**.
 
 ### Human adopter
 
@@ -40,14 +40,18 @@ ENA is not one giant prompt and does not require every bundled reference or priv
 
 ## Current product direction
 
-v0.3.11 is a bounded R0 share-readiness successor to v0.3.10. It adds no Constitution IDs and does not rewrite core machine semantics.
+v0.3.12 is a bounded R0 adoption/identity/routing-coherence successor to v0.3.11. It incorporates external DSH contribution PR #216 and the verified findings in Issues #217 and #218.
 
-Issue #208 finding F-208-04 showed that `CONTRIBUTION-PROTOCOL.md` still bound one Current-wide contribution rule to obsolete release `v0.3.7`. v0.3.11 fixes that applicability defect immediately and further reduces future release-number synchronization debt by keeping stable adopter/semantic surfaces version-neutral by default.
+It closes stale candidate-era identity on Current operational surfaces, makes `ENFORCEMENT-MAP.yaml` self-identify as Current, removes dead HOW-MAP fragment routes, and removes an obsolete v0.3.7 semantic-identity default from the active field-experience template. The maintainer release review also narrows the recurrence gate so active identity drift is rejected without forbidding genuine historical provenance in cold semantic text.
 
 ```text
-RECORD_OCCURRENCE != DEFER_KNOWN_FIX
+CONTRIBUTOR != PROMOTION_AUTHORITY
+EXTERNAL_CONTRIBUTION != UNTRUSTED_BY_DEFAULT
+HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
 FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
 ```
+
+No Constitution IDs or core machine/evolution semantics change.
 
 ## Project work
 
@@ -55,7 +59,7 @@ Live project state: [`NOW.md`](NOW.md)
 
 Current field stream: GitHub Issue **#208**.
 
-The current evolutionary-memory mechanism-discrimination campaign is closed after the completed Metamemory Update Policy v1 primary. No mechanism experiment is active by default; new research must earn its own discriminator.
+The evolutionary-memory mechanism-discrimination campaign is closed. No mechanism experiment is active by default; new research must earn its own discriminator.
 
 Old plans, handoffs, candidate records, prototype workflows, adjudications, and research artifacts remain cold lineage. Retrieve them only when a concrete question requires them.
 

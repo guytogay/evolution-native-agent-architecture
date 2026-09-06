@@ -42,13 +42,16 @@ jobs:
           root = Path('releases/current')
           doc = yaml.safe_load((root/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
 
-          assert doc['ena_version'] == 'v0.3.11'
+          assert doc['ena_version'] == 'v0.3.12'
           assert doc['adoption_status'] == 'CURRENT'
           assert doc['maturity'] == 'FIELD_VALIDATION'
           assert doc['current'] is True and doc['released'] is True
           assert doc['complete_adoption_baseline'] is True
           assert doc['requires_older_release_composition'] is False
           assert doc['release_identity']['known_bounded_defect_must_be_fixed_before_recommending_current'] is True
+          assert doc['release_identity']['contribution_provenance_preserved'] is True
+          assert doc['lineage']['source_contribution_pr'] == 216
+          assert doc['lineage']['source_issues'] == [217, 218]
 
           for rel in doc['core_files']:
               assert (root/rel).is_file(), rel
@@ -64,8 +67,9 @@ jobs:
           assert r['hot_kernel_should_load_full_how_library'] is False
 
           root_readme = Path('README.md').read_text(encoding='utf-8')
-          assert 'Current is **v0.3.11 / FIELD_VALIDATION**.' in root_readme
+          assert 'Current is **v0.3.12 / FIELD_VALIDATION**.' in root_readme
           assert 'DEFAULT_AGENT_HOT_PAYLOAD = RUNTIME-ADOPTION-KERNEL.md' in root_readme
+          assert 'PR #216' in root_readme and 'Issues #217 and #218' in root_readme
 
           meta = yaml.safe_load(Path('PROJECT-METADATA.yaml').read_text(encoding='utf-8'))
           assert meta['status'] == 'COLD_COMPATIBILITY_POINTER'
@@ -108,7 +112,7 @@ jobs:
           print('CURRENT_IDENTITY_HOT_PAYLOAD_SHARE_READY_PASS', doc['ena_version'])
           PY
 
-      - name: Validate root and zh-CN release/adoption identity parity
+      - name: Validate operational identity, routing, templates and zh-CN projection
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -119,12 +123,13 @@ jobs:
           baseline = yaml.safe_load((r/'CURRENT-BASELINE.yaml').read_text(encoding='utf-8'))
           manifest = yaml.safe_load((z/'projection-manifest.yaml').read_text(encoding='utf-8'))
 
-          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.11'
-          assert manifest['release_identity']['current_version'] == 'v0.3.11'
+          assert manifest['source_semantic_version'] == baseline['ena_version'] == 'v0.3.12'
+          assert manifest['release_identity']['current_version'] == 'v0.3.12'
           assert manifest['release_identity']['current_status'] == 'CURRENT'
           assert manifest['runtime_adoption']['default_agent_hot_payload_count'] == 1
           assert manifest['runtime_adoption']['default_agent_hot_payload'] == ['RUNTIME-ADOPTION-KERNEL.md']
           assert manifest['coverage']['release_bound_projection'] == ['projection-manifest.yaml']
+          assert manifest['validation']['historical_provenance_versions_allowed_in_cold_body'] is True
 
           z00 = (z/'00-READ-ME-FIRST.md').read_text(encoding='utf-8')
           zk = (z/'RUNTIME-ADOPTION-KERNEL.md').read_text(encoding='utf-8')
@@ -133,7 +138,7 @@ jobs:
           assert not re.search(r'v0\.3\.\d+', z00)
           assert not re.search(r'v0\.3\.\d+', zk)
 
-          cold = [
+          zh_cold = [
               '01-CONSTITUTION.md',
               'CONSTITUTION-CONCEPT-MAP.md',
               'SEMANTIC-GLOSSARY.zh-CN.yaml',
@@ -149,29 +154,84 @@ jobs:
               '09-EVOLUTION-METABOLISM.md',
           ]
           stale = ['v0.3.7 Current', 'Candidate Assembly Gate', 'CURRENT_CHANGE = NO']
-          zh_numeric = re.compile(r'v0\.3\.\d+')
-          for rel in cold:
+          numeric = re.compile(r'v0\.3\.\d+')
+          for rel in zh_cold:
               text = (z/rel).read_text(encoding='utf-8')
               found = [s for s in stale if s in text]
               assert not found, (rel, found)
-              hit = zh_numeric.search(text)
+              # Identity headers must be version-neutral; historical provenance in body is allowed.
+              header = '\n'.join(text.splitlines()[:4])
+              hit = numeric.search(header)
               assert not hit, (rel, hit.group(0) if hit else None)
 
-          en_cold = ['releases/current/CONTRIBUTION-PROTOCOL.md', 'releases/current/references/general/wait-state/README.md', 'releases/current/references/general/authority-lease/README.md', 'releases/current/references/general/effect-lifecycle/README.md', 'releases/current/references/general/recovery-adapter/README.md', 'releases/current/references/advanced/evidence-envelope/README.md', 'releases/current/references/general/retrieval-obligation/README.md', 'releases/current/references/advanced/contested-authorship/README.md', 'releases/current/references/advanced/evidence-dependency-map/README.md', 'releases/current/operational/procedures/STANDING-INPUT.md', 'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md', 'releases/current/operational/patterns/HOST-MAPPINGS.md', 'releases/current/operational/patterns/EVOLUTION-COMMONS.md', 'releases/current/operational/procedures/CONTROL-RETIREMENT.md', 'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md', 'releases/current/SEMANTIC-GLOSSARY.yaml', 'releases/current/references/REFERENCE-MANIFEST.yaml', 'releases/current/schemas/evolution-record.v2.schema.json', 'releases/current/language-projections/semantic-fixtures.v2.yaml', 'releases/current/templates/field-experience.v2.yaml', 'releases/current/04-CAPABILITY-MAP.md', 'releases/current/operational/README.md', 'releases/current/operational/CUE-INDEX.md', 'releases/current/operational/HOW-MAP.md', 'releases/current/operational/REFERENCE-INDEX.yaml', 'releases/current/ENFORCEMENT-MAP.yaml', 'releases/current/06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md', 'releases/current/language-projections/zh-CN/09-EVOLUTION-METABOLISM.md']
+          en_cold = [
+              'releases/current/CONTRIBUTION-PROTOCOL.md',
+              'releases/current/references/general/wait-state/README.md',
+              'releases/current/references/general/authority-lease/README.md',
+              'releases/current/references/general/effect-lifecycle/README.md',
+              'releases/current/references/general/recovery-adapter/README.md',
+              'releases/current/references/advanced/evidence-envelope/README.md',
+              'releases/current/references/general/retrieval-obligation/README.md',
+              'releases/current/references/advanced/contested-authorship/README.md',
+              'releases/current/references/advanced/evidence-dependency-map/README.md',
+              'releases/current/operational/procedures/STANDING-INPUT.md',
+              'releases/current/05-CORE-OPERATIONAL-CONTRACTS.md',
+              'releases/current/operational/patterns/HOST-MAPPINGS.md',
+              'releases/current/operational/patterns/EVOLUTION-COMMONS.md',
+              'releases/current/operational/procedures/CONTROL-RETIREMENT.md',
+              'releases/current/operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md',
+              'releases/current/SEMANTIC-GLOSSARY.yaml',
+              'releases/current/references/REFERENCE-MANIFEST.yaml',
+              'releases/current/schemas/evolution-record.v2.schema.json',
+              'releases/current/language-projections/semantic-fixtures.v2.yaml',
+              'releases/current/templates/field-experience.v2.yaml',
+              'releases/current/04-CAPABILITY-MAP.md',
+              'releases/current/operational/README.md',
+              'releases/current/operational/CUE-INDEX.md',
+              'releases/current/operational/HOW-MAP.md',
+              'releases/current/operational/REFERENCE-INDEX.yaml',
+              'releases/current/ENFORCEMENT-MAP.yaml',
+              'releases/current/06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
+              'releases/current/language-projections/zh-CN/09-EVOLUTION-METABOLISM.md',
+          ]
           version_bound_current = re.compile(r'v0\.3\.\d+\s+Current', re.I)
           for rel in en_cold:
               text = Path(rel).read_text(encoding='utf-8')
               hit = version_bound_current.search(text)
               assert not hit, (rel, hit.group(0) if hit else None)
-          assert 'v0.3.6 candidate' not in (r/'04-CAPABILITY-MAP.md').read_text(encoding='utf-8')
-          enf = yaml.safe_load((r/'ENFORCEMENT-MAP.yaml').read_text(encoding='utf-8'))
+
+          version_neutral_headers = [
+              r/'operational/README.md',
+              r/'operational/CUE-INDEX.md',
+              r/'operational/HOW-MAP.md',
+              r/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md',
+          ]
+          for p in version_neutral_headers:
+              header = '\n'.join(p.read_text(encoding='utf-8').splitlines()[:4])
+              hit = numeric.search(header)
+              assert not hit, (str(p), hit.group(0) if hit else None)
+
+          enf_text = (r/'ENFORCEMENT-MAP.yaml').read_text(encoding='utf-8')
+          enf = yaml.safe_load(enf_text)
           assert enf['status'] == 'CURRENT', enf.get('status')
-          assert 'This candidate' not in (r/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md').read_text(encoding='utf-8')
+          assert 'candidate' not in enf, enf.keys()
+          assert 'CANDIDATE_NOT_CURRENT' not in enf_text
+
+          six = (r/'06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md').read_text(encoding='utf-8')
+          assert 'This candidate' not in six
+
           ri_text = (r/'operational/REFERENCE-INDEX.yaml').read_text(encoding='utf-8')
           assert 'release: v0.3.' not in ri_text
           assert 'HOW-MAP.md#' not in ri_text
 
-          print('ROOT_ZH_RELEASE_IDENTITY_PARITY_PASS')
+          t2 = yaml.safe_load((r/'templates/field-experience.v2.yaml').read_text(encoding='utf-8'))
+          assert t2['participant']['ena_semantic_identity'] == 'EXPLICITLY_STATE_ACTUAL_SEMANTIC_IDENTITY'
+          assert not re.search(r'^v0\.3\.\d+$', t2['participant']['ena_semantic_identity'])
+          t1 = (r/'templates/field-experience.v1.yaml').read_text(encoding='utf-8')
+          assert 'Prefer field-experience.v2.yaml for Current field evidence.' in t1
+          assert 'for v0.3.6 candidate evidence' not in t1
+
+          print('OPERATIONAL_IDENTITY_ROUTING_TEMPLATE_ZH_PASS')
           PY
 
       - name: Parse Current structured files

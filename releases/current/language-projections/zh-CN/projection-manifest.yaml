@@ -1,11 +1,11 @@
-schema_version: '2.4'
+schema_version: '2.5'
 language: zh-CN
-projection_version: v0.3.11.zh-CN.1
-source_semantic_version: v0.3.11
+projection_version: v0.3.12.zh-CN.1
+source_semantic_version: v0.3.12
 status: CURRENT_SEMANTIC_OPERATIONAL_PROJECTION
 not_current: false
 release_identity:
-  current_version: v0.3.11
+  current_version: v0.3.12
   current_status: CURRENT
   maturity: FIELD_VALIDATION
   identity_source: ../../CURRENT-BASELINE.yaml
@@ -33,6 +33,7 @@ coverage:
   - operational/procedures/CONTROL-RETIREMENT.md
   - operational/patterns/EVOLUTION-COMMONS.md
   - operational/patterns/HOST-MAPPINGS.md
+  - 09-EVOLUTION-METABOLISM.md
   - REFERENCE-GUIDE.md
 semantic_fixture_sets:
 - ../semantic-fixtures.v1.yaml
@@ -43,6 +44,8 @@ validation:
   constitution_id_parity: INHERITED_38_IDS
   operational_route_parity: FIXTURE_DEFINED_NOT_BEHAVIORALLY_PROVEN
   release_adoption_identity_parity: MACHINE_CHECKED_IN_SCOPE
+  active_identity_header_drift_rejected: true
+  historical_provenance_versions_allowed_in_cold_body: true
   natural_behavioral_equivalence: FIELD_EVIDENCE_REQUIRED
 machine_artifact_policy:
   translate_machine_reference_files_one_by_one: false

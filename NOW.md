@@ -4,18 +4,27 @@ This is the default live project-status surface.
 
 ## Current
 
-- `v0.3.11 / CURRENT / FIELD_VALIDATION`
+- `v0.3.12 / CURRENT / FIELD_VALIDATION`
 - authority: `releases/current/CURRENT-BASELINE.yaml`
 - effective adopter package: `releases/current/`
-- predecessor / rollback / occurrence truth: `v0.3.10`
+- predecessor / rollback / occurrence truth: `v0.3.11`
 - field stream: GitHub Issue `#208` — version-neutral Current field validation
 
-v0.3.11 is an R0 share-readiness successor. It preserves the 38-ID Constitution and core behavior while closing `F-208-04`: the Current-wide contribution rule no longer refers to obsolete v0.3.7, and stable adopter/semantic surfaces no longer duplicate numeric Current identity by default.
+v0.3.12 is an R0 adoption/identity/routing-coherence successor. It preserves the 38-ID Constitution and core behavior while incorporating external DSH contribution PR `#216` and verified Issues `#217` / `#218`.
+
+Closed findings:
+
+- `F-208-05_CURRENT_OPERATIONAL_IDENTITY_AND_GATE_COVERAGE_GAP` — Current operational surfaces no longer carry v0.3.8/v0.3.7 candidate-era active identity; `ENFORCEMENT-MAP.yaml` now self-identifies as `CURRENT`; the active field template no longer defaults new records to v0.3.7 semantic identity; recurrence checks cover this class without forbidding genuine historical provenance.
+- `F-208-06_REFERENCE_INDEX_DEAD_HOW_MAP_ANCHORS` — dead `HOW-MAP.md#...` fragments are no longer published; routing falls back to the valid file-level HOW Map reference until stable deep-linkable nodes are deliberately introduced.
 
 ```text
-RECORD_OCCURRENCE != DEFER_KNOWN_FIX
+CONTRIBUTOR != PROMOTION_AUTHORITY
+EXTERNAL_CONTRIBUTION != UNTRUSTED_BY_DEFAULT
+HISTORICAL_PROVENANCE != ACTIVE_RELEASE_IDENTITY
 FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
 ```
+
+The original DSH contribution commit remains in release lineage; maintainer release projection is a separate successor step.
 
 ## Adoption contract
 
@@ -38,11 +47,6 @@ Before recommending Current to another adopter/Agent:
 - bounded identity/adopter readback must agree with `CURRENT-BASELINE.yaml`;
 - unknown future defects remain legitimate field-validation risk, but known unfixed defects are not an acceptable recommendation state.
 
-```text
-UNKNOWN_FUTURE_DEFECT != KNOWN_UNFIXED_DEFECT
-PRESERVE_PREDECESSOR != KEEP_DEFECTIVE_CURRENT
-```
-
 ## Release posture
 
 ```text
@@ -58,21 +62,13 @@ Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
 
 ## Active field stream
 
-Issue `#208` follows Current, not one release number. F-208-01/02/03/04 have produced rapid R0 successors; new bounded defects should continue to create the smallest justified successor instead of freezing Current or sitting knowingly unfixed.
+Issue `#208` follows Current, not one release number. F-208-01 through F-208-06 have produced rapid R0 successors. New bounded defects should create the smallest justified successor instead of remaining knowingly unfixed.
 
 ## Research status
 
-The evolutionary-memory mechanism-discrimination campaign is **CLOSED**.
-
-- closure dispositions: `research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml`
-- broad-track audit: `research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md`
-- final primary adjudication: `research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md`
-
-Metamemory Update Policy v1 completed four valid initial runs, triggered no preregistered replication condition, and was adjudicated `MECHANISM_ACTIVE_BUT_POLICY_OPTIMUM_UNRESOLVED / FIELD_UNRESOLVED_FOR_DURABLE_SELF_MODIFICATION / NO_CURRENT_SEMANTIC_CHANGE`.
-
-No active mechanism primary remains. Reopen research only for a concrete decision-changing failure or a genuinely new non-derivable discriminator.
+The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No active mechanism primary remains. Reopen research only for a concrete decision-changing failure or a genuinely new non-derivable discriminator.
 
 ## Open work
 
 - GitHub Issue `#208` — version-neutral Current field validation.
-- Continue reality contact; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
+- Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
