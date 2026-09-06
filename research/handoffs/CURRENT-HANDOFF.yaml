@@ -15,7 +15,7 @@ handoff_framework:
 
 current_handoff_record:
   id: "2026-09-04-temporal-assimilation-primary-complete"
-  state: HISTORICAL_DEEP_SUCCESSION_RECORD
+  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
   record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
   readback_state: PASS
   note: >-
