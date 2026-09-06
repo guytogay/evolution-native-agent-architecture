@@ -83,7 +83,7 @@ Possible local implementations include rescue snapshots, recovery drills, canari
 
 ## Variation and selection
 
-Mutation pressure creates an opportunity to vary, not a command. Variations may remain latent. Consequential experiments belong in a real Variation Space proportionate to consequence. Selection follows represented reality contact and remains environment-scoped by default.
+Mutation pressure creates an opportunity to vary, not a command. Variations may remain latent. Consequential experiments belong in a real Variation Space proportionate to consequence. **Variation Space is only needed when a mutation/experiment actually requires bounded reality contact; ordinary external action with no variation under test does not require one.** Selection follows represented reality contact and remains environment-scoped by default.
 
 ```text
 EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
