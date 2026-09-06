@@ -1,6 +1,8 @@
-# ENA v0.3.10 — Adopter Quickstart
+# ENA Current — Adopter Quickstart
 
 Status: `CURRENT / FIELD_VALIDATION / HUMAN_INTEGRATION_GUIDE`
+
+Current numeric release identity is defined by `CURRENT-BASELINE.yaml`.
 
 ENA is a design method and operational rule set for Agents that may learn, adapt, use tools, affect external systems, recover, or pass adaptations onward.
 
