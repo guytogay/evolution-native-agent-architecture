@@ -1,117 +1,48 @@
-# ENA v0.3.8-candidate.0 — Adoption-Surface Consolidation
+# ENA v0.3.8 — Current
 
-Status: **R0_FIELD_PATCH_ADOPTION_SURFACE / NOT_CURRENT / NOT_RELEASED**
+Status: **CURRENT / FIELD_VALIDATION**
 
-Released Current is still `v0.3.7 / CURRENT / FIELD_VALIDATION` until promotion. v0.3.7 is the rollback/history anchor, not a target to keep Current fixed on.
+v0.3.8 is the current adopter-facing ENA release.
 
-## Candidate thesis
+It is an R0 adoption-surface successor to v0.3.7: the 38-ID Constitution and core machine semantics are retained while the adopter interface is made smaller, clearer, more language-faithful, and more explicit about what is model guidance versus actual enforcement.
 
-v0.3.8 does not manufacture new Constitution law.
-
-It preserves the earned semantic protection while making ENA easier to adopt, integrate, verify, and explain.
-
-```text
-v0.3.7 semantic + operational trunk
-+
-coherent adopter-state narration
-+
-minimal human/Agent entry surfaces
-+
-explicit enforcement classes
-+
-stronger cross-language hot-surface fidelity
-+
-conformance-fixture coverage of claimed guardrails
-=
-v0.3.8 R0 successor
-```
-
-Primary field inputs include GitHub Issue #201 and adoption/usability evidence exposing the difference between research lineage and adopter payload.
-
-## Product rule
-
-```text
-RESEARCH_LINEAGE != ADOPTION_PAYLOAD
-SEMANTIC_PRECISION != PRESENTATION_VERBOSITY
-SEMANTIC_COMPLETENESS != RUNTIME_CONTEXT_COMPLETENESS
-SOFT_GUIDANCE != HARD_ENFORCEMENT
-IMMUTABLE_VERSION != IMMOBILE_CURRENT
-```
-
-Research, adjudication, negative results, and historical lineage remain durable. They are not default runtime payload.
-
-## Minimum evaluation/adoption path
+## Start small
 
 ```text
 00-READ-ME-FIRST.md
 -> ADOPTER-QUICKSTART.md
 -> RUNTIME-ADOPTION-KERNEL.md
 -> operational/CUE-INDEX.md when a cue matters
--> exact HOW / Host-native equivalent
--> ENFORCEMENT-MAP.yaml for control type
--> semantic fixtures / executable validators for conformance evidence
+-> relevant HOW / Host-native mechanism
+-> ENFORCEMENT-MAP.yaml when enforcement type matters
 ```
 
-No `research/` path is required for ordinary adoption.
+Ordinary adopters do not need project research, handoffs, candidate history, or every optional reference in active context.
 
-## Candidate goals
-
-1. remove adopter-facing release/candidate narration contradictions;
-2. make it obvious what humans should read and what Agents should load;
-3. separate model cues from machine guards, external controls, and field claims;
-4. preserve decision-bearing semantics in supported language projections;
-5. test high-value claimed guardrails rather than relying on prose presence alone;
-6. keep private implementation names optional where Host-native equivalents preserve the property;
-7. preserve v0.3.7 positive tool/routing behavior unless evidence requires change.
-
-## Release lane
-
-This successor is classified:
+## Product rules
 
 ```text
-LANE = R0_FIELD_PATCH_ADOPTION_SURFACE
-CORE_CONSTITUTION_DELTA = NONE
-CORE_CONTRACT_SEMANTIC_DELTA = NONE_DEMONSTRATED
-ROLLBACK_ANCHOR = v0.3.7
+RESEARCH_LINEAGE != ADOPTION_PAYLOAD
+SEMANTIC_PRECISION != PRESENTATION_VERBOSITY
+SOFT_GUIDANCE != HARD_ENFORCEMENT
+IMMUTABLE_VERSION != IMMOBILE_CURRENT
 ```
 
-Its Main Gate has passed with candidate-specific regression checks. CodeQL is part of the ordinary machine gate set.
+Old releases remain exact history/rollback. Current is expected to move as better bounded successors earn admission.
 
-Under the rapid Current release discipline, **generic fresh cleanroom validation is not a mandatory pre-release gate for R0**. The remaining path is exact release projection/readback/promotion, followed by field validation. If reality exposes a material defect, cut a rapid successor rather than holding Current back indefinitely.
+## What changed from v0.3.7
 
-Metamemory research is independent and does not block this release.
+- human and Agent quick-start surfaces;
+- explicit enforcement classes: `MODEL_CUE`, `MACHINE_GUARD`, `EXTERNAL_CONTROL_REQUIRED`, `FIELD_EVIDENCE_REQUIRED`;
+- repaired zh-CN hot-surface fidelity;
+- improved concept/retrieval mapping for availability/freshness, history/compaction, and provenance/transfer;
+- semantic fixture v3 expanded to cover local fitness, composition, cancel/rollback/compensation, runtime salience, memory metabolism, and projection/compaction;
+- regression checks against recurrence of the field defects that motivated this successor.
 
-## What this candidate does not claim
+## Evidence boundary
 
-- It is not Current until explicit promotion completes.
-- It does not add Constitution IDs merely because a successor version exists.
-- It does not claim every ENA semantic rule can or should be hard-coded.
-- It does not claim fixtures prove future model behavior.
-- It does not make GitHub, one model, one language, or one bundled reference implementation sovereign.
+Machine PASS proves only what the machine checks exercised. Natural future-session salience, external authority/effect/recovery truth, universal Host fitness, and bilingual behavioral equivalence remain field evidence.
 
-## Scope
+If v0.3.8 field use exposes a decision-bearing defect, create a new successor version; do not silently rewrite v0.3.8.
 
-Candidate.0 is bounded to:
-
-- Issue #201 narration reconciliation;
-- zh-CN hot-surface fidelity repair;
-- concept/retrieval-map correction;
-- semantic-fixture expansion;
-- product-facing Quickstart;
-- enforcement classification;
-- targeted adoption-surface consistency checks;
-- risk-tiered release-discipline correction.
-
-Scope record:
-
-`../../collaboration/reconciliation/2026-09-06-v038-adoption-surface-successor-scope.md`
-
-## Release discipline
-
-Version identity remains exact: once v0.3.8 is released, corrections create v0.3.9 rather than silently mutating v0.3.8.
-
-`08-RELEASE-DISCIPLINE.md` defines the R0/R1/R2 release lanes.
-
-> **v0.3.8 should require the adopter to know less while preserving or improving the protection they actually receive.**
->
 > **Preserve old releases; move Current quickly.**

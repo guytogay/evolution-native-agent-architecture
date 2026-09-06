@@ -1,46 +1,20 @@
-# LITE Adoption Instruction — ENA v0.3.8-candidate.0
+# LITE Adoption Instruction — ENA v0.3.8
 
-Status: `CANDIDATE / NOT_CURRENT / NOT_FROZEN / LITE PROFILE`.
+Status: `CURRENT / FIELD_VALIDATION / LITE_PROFILE`
 
-Released Current remains `v0.3.7 / CURRENT / FIELD_VALIDATION`.
+LITE means low ceremony for a bounded consequence envelope; it is not a reduced Constitution.
 
-LITE means low ceremony for a bounded consequence envelope. It is not a reduced Constitution and not "no evolution."
+- Use `RUNTIME-ADOPTION-KERNEL.md` as the compact cue surface.
+- If no decision-material ENA mechanism is needed, do useful work without inventing ceremony.
+- Retrieve only the relevant HOW when a cue matters.
+- Use `ENFORCEMENT-MAP.yaml` when control type matters.
+- Preserve `stimulus != mutation != improvement` and `stored != expressed != applied != selected`.
+- Keep selection local to the actual environment.
+- Do not turn popularity/import/source success into receiver-local proof.
+- Stop governance when another bounded check cannot change the decision.
 
-For familiar low-consequence work:
+Valid lightweight results include `Authority -> NOT_REQUIRED`, `Continuity -> NOT_REQUIRED`, `WAIT -> NOT_APPLICABLE`, simple direct evidence instead of a full envelope, and no independent rescue drill for cheap disposable state.
 
-- use `RUNTIME-ADOPTION-KERNEL.md` as the compact cue surface;
-- if no decision-material ENA mechanism is needed, do useful work without inventing ceremony;
-- when a cue matters, retrieve only the relevant branch through `operational/CUE-INDEX.md` and `operational/HOW-MAP.md`;
-- use `ENFORCEMENT-MAP.yaml` when it matters whether a protection is model guidance, a machine guard, an external control, or a field claim;
-- preserve `stimulus != mutation != improvement`;
-- capture useful stimuli cheaply without forcing mutation;
-- allow useful possibilities to remain latent;
-- preserve `stored != expressed != applied != selected`;
-- keep selection scoped to the actual environment;
-- do not treat popularity/import/source success as receiver-local proof;
-- stop governance when another bounded check cannot plausibly change the decision.
+Escalate with actual consequence: irreversibility, weak recovery, secrets/credentials, shared/external effects, authority ambiguity, consequential composition, or governance/meta-evolution.
 
-Bundled reference organs remain **optional/default-off**. LITE does not mean "activate every bundled reference lightly." It means activate only the mechanism whose property is material to the task.
-
-Legitimate lightweight results include:
-
-```text
-Authority -> NOT_REQUIRED
-Continuity -> NOT_REQUIRED
-Contested Authorship -> OUT_OF_SCOPE
-WAIT -> NOT_APPLICABLE
-Evidence Envelope -> simple direct evidence is sufficient
-Recovery -> no independent rescue/drill required for cheap disposable state
-```
-
-A small local side effect may remain LITE. A tiny mutation to the only recovery root may require stronger governance because consequence changed.
-
-Escalation follows actual consequence: irreversibility, weak/unknown recovery, secret/credential exposure, shared/external effects, authority ambiguity/elevation, consequential composition, or governance/meta-evolution.
-
-Candidate practical evolution tooling remains:
-
-`tools/ena_evolve_v2.py`
-
-It permits latent-now/experiment-later v2 records without forcing early Variation Space. The inherited v1.2 tool lives under `tools/legacy/` and must not be used to manufacture a semantic prohibition through its old CLI constraint.
-
-> **Do useful work. Retrieve only the HOW that matters. Let possibilities sleep when they do not need to act.**
+> **Do useful work. Retrieve only the HOW that matters.**

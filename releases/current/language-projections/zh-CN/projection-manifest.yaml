@@ -1,16 +1,9 @@
-schema_version: "2.1-candidate"
+schema_version: "2.1"
 language: zh-CN
-projection_version: v0.3.8-candidate.0.zh-CN.0
-source_semantic_version: v0.3.8-candidate.0
-source_identity_binding: >-
-  Working projection for mutable candidate/v0.3.8-candidate.0 seeded from released
-  v0.3.7 Current tree f33e73ed997c1b66a4572685ab5474182e136e97. No frozen
-  candidate identity exists yet. Released Current remains v0.3.7 under ../current/.
-status: CANDIDATE_SEMANTIC_OPERATIONAL_PROJECTION
-not_current: true
-frozen: false
-released: false
-
+projection_version: v0.3.8.zh-CN.1
+source_semantic_version: v0.3.8
+status: CURRENT_SEMANTIC_OPERATIONAL_PROJECTION
+not_current: false
 coverage:
   inherited_semantic_projection:
     - 00-READ-ME-FIRST.md
@@ -30,61 +23,24 @@ coverage:
     - operational/patterns/EVOLUTION-COMMONS.md
     - operational/patterns/HOST-MAPPINGS.md
     - REFERENCE-GUIDE.md
-
 semantic_fixture_sets:
   - ../semantic-fixtures.v1.yaml
   - ../semantic-fixtures.v2.yaml
   - ../semantic-fixtures.v3.yaml
-
 validation:
-  structural_parity: CANDIDATE_RECONCILIATION_NOT_YET_RERUN
+  structural_parity: CURRENT_DECISION_SURFACE_CHECKABLE
   constitution_id_parity: INHERITED_38_IDS
   operational_route_parity: FIXTURE_DEFINED_NOT_BEHAVIORALLY_PROVEN
-  issue_201_hot_surface_repair: APPLIED_PENDING_TARGETED_VALIDATION
-  predecessor_v035_single_model_behavioral_result: "8/8 aligned on DeepSeek v4-flash; predecessor evidence only"
-  v037_operational_behavioral_conformance: UNPROVEN_FIELD_OR_INDEPENDENT_EVIDENCE_REQUIRED
-  v038_candidate_behavioral_conformance: UNPROVEN
-  universal_behavioral_semantic_conformance: UNPROVEN
-
+  v038_operational_behavioral_conformance: FIELD_EVIDENCE_REQUIRED
 machine_artifact_policy:
   translate_machine_reference_files_one_by_one: false
-  canonical_machine_reference_bytes: Candidate-local canonical machine paths under references/, schemas/, templates/, tools/
+  canonical_machine_reference_bytes: Current machine paths under references/, schemas/, templates/, tools/
   zh_cn_reference_usage_guide: REFERENCE-GUIDE.md
-  rationale: >-
-    Keep one canonical machine surface while making decision-bearing applicability, routing,
-    enforcement boundaries and usage guidance reachable in zh-CN.
-
-issue_201_reconciliation_targets:
-  hot_kernel_guardrails:
-    - MIGRATION_NE_LOCAL_VALIDATION
-    - LOCAL_VALIDITY_NE_COMPOSED_OUTCOME
-    - CANCEL_NE_ROLLBACK_NE_COMPENSATION
-    - OBJECT_EXISTS_NE_RELEVANT_BYTES_LOADED_NE_SEMANTICS_AVAILABLE
-    - RESTORE_RESUME_NE_COMPLETE_HISTORY_NE_RESTORED_AUTHORITY
-    - RESCUE_PATH_OUTSIDE_SELF_DISABLING_MUTATION_WITH_NARROW_AUTHORITY
-    - CONTROL_RETIREMENT_REQUIRES_EVIDENCE_AND_LINEAGE
-    - SELECTION_ENVIRONMENT_SCOPED_BY_DEFAULT
-    - REPUTATION_NE_AUTHORITY
-  routing:
-    - REFERENCE_INDEX_STEP_WHEN_EXACT_IMPLEMENTATION_PATH_IS_NEEDED
-  status: REPAIRED_IN_WORKING_CANDIDATE_PENDING_MACHINE_AND_FRESH_REVIEW
-
 known_gaps:
   - Natural fresh-session retrieval/salience parity between English and zh-CN is unproven.
   - Paired semantic fixtures define expected decisions; they are not behavioral proof.
   - Long-tail machine schemas/tools remain in canonical authoring language by design.
-  - Structural or lexical parity does not prove equivalent model decisions.
-  - Candidate.0 is mutable and has not yet passed targeted projection validation or independent falsification.
-
-conflict_policy: >-
-  A material discrepancy is a projection defect, not permission to choose whichever wording is convenient.
-  Resolve against the v0.3.8 candidate English semantic/operational source, stable inherited Constitution IDs,
-  and explicit evidence. Before release, reconcile any decision-bearing discrepancy on the candidate identity;
-  after freeze, a material correction requires successor discipline rather than silent rewrite.
-
 evidence_boundary:
   - TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
   - FIXTURE_DEFINED_NE_MODEL_PASS
-  - CANDIDATE_IDENTITY_NE_FIELD_TRUTH
-  - STRUCTURAL_PARITY_NE_DECISION_PARITY
   - CURRENT_STATUS_NE_UNIVERSAL_HOST_APPLICABILITY
