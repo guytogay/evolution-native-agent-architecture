@@ -26,13 +26,13 @@ lineage:
   - F-208-07_SEMANTIC_ADOPTION_DOES_NOT_RELIABLY_TRIGGER_LOCAL_OPERATIONALIZATION
   - F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP
   field_occurrences:
-  - OWNER_EXPLICITLY_PROMPTED_DSH_TO_OPERATIONALIZE_ENA_BEFORE_SELFKIT_EMERGED
+  - OWNER_QUESTIONED_WHETHER_ENA_LACKED_SELF_EVOLUTION_SUPPORT; THIS_TRIGGERED_DSH_HOST_AUDIT_AND_AGENT_PROPOSED_SELFKIT_ORGANS
   - MULTIPLE_AGENT_FEEDBACK_ENA_IS_STRONGER_ON_NOT_DYING_THAN_ON_HOW_TO_EVOLVE
 release_thesis:
   new_constitution_rule_required: 0_DEMONSTRATED
   new_core_semantic_delta_required: 0_DEMONSTRATED
   primary_delta: EXECUTABLE_MINIMUM_EVOLUTION_LOOP_PLUS_BOUNDED_LOCAL_OPERATIONALIZATION
-  summary: Preserve the 38-ID Constitution and core machine semantics while correcting two operational gaps exposed by adopter reality contact. Semantic adoption did not reliably trigger a Host-local implementation pass, and Current named evolution capabilities/lifecycle states without giving adopters a sufficiently executable self-evolution loop. v0.3.13 adds a bounded adoption/Host-change operationalization pass and a Host-neutral Minimum Evolution Loop that turns signals into durable candidates, bounded reality contact, before/after evidence, local selection, retention/integration/dormancy/rejection/archive, and future wake/review. It explicitly does not mandate one runtime, one metric, continuous self-editing, or install-every-control behavior.
+  summary: Preserve the 38-ID Constitution and core machine semantics while correcting two operational gaps exposed by adopter reality contact. Semantic adoption did not reliably trigger a Host-local implementation pass until the owner explicitly asked whether ENA lacked support for helping the Agent itself evolve; the DSH Agent then inspected its Host and proposed concrete local organs. Current also named evolution capabilities/lifecycle states more strongly than it explained how an Agent should actually keep evolving. v0.3.13 adds a bounded adoption/Host-change operationalization pass and a Host-neutral Minimum Evolution Loop that turns signals into durable candidates, bounded reality contact, before/after evidence, local selection, retention/integration/dormancy/rejection/archive, and future wake/review. It explicitly does not mandate one runtime, one metric, continuous self-editing, or install-every-control behavior.
 constitution:
   inherited_stable_ids: 38
   new_ids_added: 0
@@ -148,7 +148,7 @@ accepted_residuals:
 - Natural fresh-session cue salience and bilingual behavioral equivalence remain field evidence.
 - External mandate, receipt, recovery, provenance and other outside-world facts are not proved by package prose or schema validation.
 - R1 operational release admission does not claim universal Host fitness; v0.3.12 remains recoverable predecessor occurrence truth.
-- The local operationalization cue does not prove that an Agent will naturally identify the right Host mechanism, nor that any particular self-maintenance kit is universally fit.
+- The local operationalization cue does not prove that an Agent will naturally identify the right Host mechanism without a salient problem or question, nor that any particular self-maintenance kit is universally fit.
 - The Minimum Evolution Loop defines an executable Host-neutral operating contract but does not prove one universal runtime, scheduler, inbox, benchmark, recovery stack, or self-modification engine.
 - `ena_evolve_v2.py` remains a narrow candidate/packet helper; Current does not misrepresent it as a full lifecycle engine.
 - Metamemory Update Policy v1 completed its frozen primary with no replication trigger; its result is research evidence, not a mandatory Current trust-update threshold.
