@@ -8,58 +8,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: main-gate-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  prepare-v0310:
-    if: github.event_name == 'pull_request' && github.head_ref == 'release/v0.3.10'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python -m pip install --disable-pip-version-check PyYAML
-      - name: Patch one-shot preparation for complete stale-identity census and connector-safe workflow handoff
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('research/_tmp_prepare_v0310.py')
-          s = p.read_text(encoding='utf-8')
-
-          old_tail = "    'releases/current/language-projections/semantic-fixtures.v2.yaml',\n]"
-          new_tail = "    'releases/current/language-projections/semantic-fixtures.v2.yaml',\n    'releases/current/templates/field-experience.v2.yaml',\n]"
-          assert old_tail in s
-          s = s.replace(old_tail, new_tail, 1)
-
-          old_loop = "for rel in version_neutral_cold:\n    replace_exact(rel, 'v0.3.7 Current', 'Current')\n"
-          new_loop = "for rel in version_neutral_cold:\n    p = Path(rel)\n    text = p.read_text(encoding='utf-8')\n    text, count = re.subn(r'v0\\.3\\.\\d+\\s+Current', 'Current', text, flags=re.I)\n    assert count >= 1, f'{rel}: expected at least one old active Current label'\n    p.write_text(text, encoding='utf-8')\n"
-          assert old_loop in s
-          s = s.replace(old_loop, new_loop, 1)
-
-          old_cv_write = "cv_path.write_text(cv, encoding='utf-8')"
-          new_cv_write = "cv_path.write_text(cv, encoding='utf-8')\nPath('research/_generated_current_validate_v0310.yml').write_text(cv, encoding='utf-8')"
-          assert old_cv_write in s
-          s = s.replace(old_cv_write, new_cv_write, 1)
-
-          old_restore = "subprocess.run(['git', 'checkout', 'origin/main', '--', '.github/workflows/main-gate.yml'], check=True)"
-          new_restore = "subprocess.run(['git', 'checkout', 'origin/main', '--', '.github/workflows/current-validate.yml'], check=True)"
-          assert old_restore in s
-          s = s.replace(old_restore, new_restore, 1)
-
-          p.write_text(s, encoding='utf-8')
-          print('ONE_SHOT_PREPARATION_PATCHED')
-          PY
-      - name: Build, read back, and push ordinary v0.3.10 product files
-        run: python research/_tmp_prepare_v0310.py
-
   main-gate:
     runs-on: ubuntu-latest
     steps:
