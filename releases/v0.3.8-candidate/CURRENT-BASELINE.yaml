@@ -1,0 +1,188 @@
+schema_version: '3.1'
+ena_version: v0.3.7
+adoption_status: CURRENT
+maturity: FIELD_VALIDATION
+current: true
+complete_adoption_baseline: true
+requires_older_release_composition: false
+active_mainline_axis: false
+version_identity_includes_maturity_status: false
+package_scope: ALL_FILES_UNDER_RELEASES_CURRENT
+lineage:
+  predecessor_current_version: v0.3.6
+  predecessor_current_tree: 7dcbb3934883ffa6cc5292a662588cafc1533cff
+  frozen_candidate3_identity: v0.3.7-candidate.3
+  frozen_candidate3_source_commit: b7e88d7adb70396bd671ca97066daf2c120e0adc
+  frozen_candidate3_tree: e3a9a20d16cecd78df7f32f19fca56e21159e810
+  candidate3_exact_prefreeze_run: 33150269264
+  candidate3_targeted_postfreeze_run: 33150553992
+  candidate3_release_hardening_run: 33152201566
+  candidate3_release_preparation_decision: RELEASE_PREPARATION_SUPPORTED
+  candidate_succession_stop: true
+  candidate4_required_by_current_evidence: false
+  candidate2_fresh_a_s_sha256: 0e6bb214cc3398b34c13fc6a3bebd1f548ae00ea067b4c338e8ce88f42ad955f
+  candidate2_fresh_a_p_sha256: 80987d24a80c2aff90fddd96bc1891ee03c6ac02b25381d8af2a22418ebbe1db
+  candidate2_phase_b_verdict: NEEDS_REVISION / CANDIDATE_3_REQUIRED
+release_identity:
+  immutable_effective_content_required: true
+  validated_source_commit_or_tree_evidence_required: true
+  package_digest_required: true
+  exact_file_set_and_hash_parity_required: true
+  published_readback_required: true
+  bundled_manifest_alone_is_canonical_authority: false
+  ordinary_adopter_must_repeat_release_author_ceremony: false
+  frozen_source_is_release_semantic_source: true
+  release_projection_may_change_identity_status_only_without_semantic_drift: true
+release_thesis:
+  new_constitution_rule_required: 0_DEMONSTRATED
+  new_core_semantic_delta_required: 0_DEMONSTRATED
+  practical_operational_release_value: MATERIAL
+  reference_library_delta: MATERIAL_SELECTED_OPTIONAL
+  tooling_delta: MATERIAL_SELECTED
+  language_adoption_delta: MATERIAL_SELECTED
+  summary: Preserve the v0.3.6 semantic trunk while making concrete HOWs discoverable, selectable, Host-mappable,
+    and executable without requiring adopters to read research history.
+constitution:
+  inherited_stable_ids: 38
+  new_ids_added_in_candidate: 0
+  constitution_change_planned: false
+semantic_trunk:
+  base: v0.3.6 Current
+  material_semantic_rewrite_planned: false
+  identity_reconciliation_complete: true
+  freeze_requires_candidate_identity_reconciliation: false
+  exact_byte_preserved:
+  - 01-CONSTITUTION.md
+  - 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
+  - 03-ROLES-AND-DEVELOPMENTAL-STAGES.md
+  - 04-CAPABILITY-MAP.md
+  - schemas/adaptation-packet.v2.schema.json
+  identity_only_projection_allowed:
+  - 05-CORE-OPERATIONAL-CONTRACTS.md
+  - schemas/evolution-record.v2.schema.json
+  core_contract_identity_projection_rule: 05 must equal v0.3.6 Current bytes except for the three explicitly machine-checked
+    version/identity substitutions in the Candidate Identity Gate.
+evolution: {}
+operational_architecture:
+  state: CURRENT_MACHINE_CHECKED
+  entrypoint: operational/README.md
+  cue_index: operational/CUE-INDEX.md
+  how_map: operational/HOW-MAP.md
+  reference_index: operational/REFERENCE-INDEX.yaml
+  hot_kernel_should_load_full_how_library: false
+  concrete_how_is_universal_mandate: false
+  host_local_realization_allowed: true
+  selected_procedures:
+  - operational/procedures/PURPOSE-RELATIVE-CONTINUITY.md
+  - operational/procedures/STANDING-INPUT.md
+  - operational/procedures/CONTROL-RETIREMENT.md
+  selected_patterns:
+  - operational/patterns/EVOLUTION-COMMONS.md
+  - operational/patterns/HOST-MAPPINGS.md
+  candidate_local_paths_exist: true
+references:
+  state: CURRENT_BUNDLED_OPTIONAL_DEFAULT_OFF
+  manifest: references/REFERENCE-MANIFEST.yaml
+  required_for_complete_adoption_default: false
+  default_activation_default: false
+  package_inclusion_implies_applicability: false
+  package_inclusion_implies_activation: false
+  normative_semantic_authority: false
+  selected_general:
+  - retrieval-obligation-0.5
+  - wait-state
+  - authority-lease
+  - effect-lifecycle
+  - recovery-adapter
+  selected_advanced_or_specialized:
+  - evidence-envelope
+  - evidence-dependency-map
+  - contested-authorship
+  deferred_not_retired:
+  - commitment-settlement-recovered
+tooling:
+  state: CURRENT_FIELD_VALIDATION
+  primary_v2_tool: tools/ena_evolve_v2.py
+  primary_v2_tool_role: thin orchestration over candidate-local v2 record validator/schema plus packet-v2 digest
+    and narrow consistency
+  helper_selftest: tools/selftest_ena_evolve_v2.py
+  legacy_tool_target: tools/legacy/ena_evolve_v1_2.py
+  legacy_tool_default_path: false
+  narrow_legacy_variation_space_repair_selected_as_primary: false
+  v2_tool_must_not_delegate_to_releases_current: true
+  v2_tool_must_not_reimplement_second_evolution_semantic_engine: true
+language:
+  state: CURRENT_OPERATIONAL_PROJECTION_FIELD_VALIDATION
+  authoring_language: en
+  supported_projection_target: zh-CN
+  projection_manifest: language-projections/zh-CN/projection-manifest.yaml
+  operational_projection_root: language-projections/zh-CN/operational/
+  machine_reference_zh_cn_guide: language-projections/zh-CN/REFERENCE-GUIDE.md
+  operational_fixture_set: language-projections/semantic-fixtures.v3.yaml
+  machine_reference_file_by_file_translation_required: false
+  structural_parity_is_behavioral_equivalence: false
+  natural_fresh_session_bilingual_equivalence_proven: false
+accepted_residuals:
+- Current v0.3.6 remains the only adopter-facing baseline until explicit promotion.
+- Selected bundled references are optional machine references; package inclusion does not establish applicability,
+  activation, or external truth.
+- The candidate-local v2 helper covers latent record and packet-v2 orchestration, not the entire evolution lifecycle
+  state machine.
+- Natural fresh-session cue salience and bilingual behavioral equivalence remain field/independent evidence, not
+  candidate-author proof.
+- Commitment/Settlement recovered reconstruction remains durable but unbundled pending fresh independent review
+  or renewed candidate-critical need.
+- Source/receiver candidate-ID collision remains a visible namespace residual; no current contract establishes cross-environment
+  global candidate-ID uniqueness.
+evidence_boundaries:
+- attack_cardinality = OPEN; observed corpora are not completeness proofs
+- external mandate and credential authenticity are not established by represented Authority fields
+- external Effect receipt authenticity and exactly-once execution are not established by reference validation
+- imported source consistency does not authenticate source evidence or create receiver-local proof
+- cross-environment candidate_id uniqueness is not universalized absent a governing contract
+- natural fresh-session cue salience and Host application remain field evidence
+- paired/structural zh-CN fixtures do not prove universal behavioral equivalence
+- Host applicability and operational fitness remain environment-relative field evidence
+invariants:
+- CURRENT_V037_IS_SINGULAR_ADOPTION_SURFACE
+- FROZEN_CANDIDATE3_BYTES_REMAIN_OCCURRENCE_TRUTH
+- BUNDLED_REFERENCE_NE_REQUIRED_RUNTIME_ORGAN
+- REFERENCE_SCHEMA_NE_NORMATIVE_ENA_ONTOLOGY
+- HOST_PATTERN_NE_UNIVERSAL_IMPLEMENTATION
+- HOT_KERNEL_NE_FULL_HOW_LIBRARY
+- SEMANTIC_TRUNK_STABILITY_NE_NO_RELEASE_VALUE
+- IDENTITY_PROJECTION_NE_SEMANTIC_DRIFT
+- MACHINE_PASS_NE_EXTERNAL_TRUTH
+- TRANSLATED_NE_BEHAVIORALLY_EQUIVALENT
+profiles:
+- LITE
+- STANDARD
+- HIGH_ASSURANCE
+- CUSTOM
+lite_entrypoint: LITE-ADOPTION-INSTRUCTION.md
+runtime_adoption:
+  kernel_entrypoint: RUNTIME-ADOPTION-KERNEL.md
+  cue_index: operational/CUE-INDEX.md
+  how_map: operational/HOW-MAP.md
+  hot_kernel_should_load_full_how_library: false
+field_validation:
+  field_use_intended: true
+  fresh_session_salience_application_proven: false
+  universal_host_applicability_proven: false
+  universal_bilingual_behavioral_equivalence_proven: false
+core_files:
+- README.md
+- 00-READ-ME-FIRST.md
+- CONSTITUTION-CONCEPT-MAP.yaml
+- 01-CONSTITUTION.md
+- 02-SELF-POSITIONING-AND-LOCAL-PROJECTION.md
+- RUNTIME-ADOPTION-KERNEL.md
+- 03-ROLES-AND-DEVELOPMENTAL-STAGES.md
+- 04-CAPABILITY-MAP.md
+- 05-CORE-OPERATIONAL-CONTRACTS.md
+- 06-EVOLUTION-KNOWLEDGE-AND-OPEN-PARTICIPATION.md
+- 07-ADOPTION-AND-FIELD-VALIDATION.md
+- 08-RELEASE-DISCIPLINE.md
+- 09-EVOLUTION-METABOLISM.md
+- 10-LANGUAGE-PORTABILITY.md
+- SEMANTIC-GLOSSARY.yaml
