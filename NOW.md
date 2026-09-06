@@ -9,9 +9,9 @@ This is the default live project-status surface.
 - effective adopter package: `releases/current/`
 - promotion PR: `#206`
 - promotion merge: `625973fb3aa8cc503d0860d2c5f07e021c4dc266`
-- predecessor/rollback/history: `v0.3.7`
+- predecessor / rollback / occurrence truth: `v0.3.7`
 
-v0.3.8 was admitted through the `R0_FIELD_PATCH_ADOPTION_SURFACE` lane after prospective Current Validate + Main Gate PASS.
+v0.3.8 entered Current through the `R0_FIELD_PATCH_ADOPTION_SURFACE` rapid-succession lane after machine/regression gates passed.
 
 ## Release posture
 
@@ -28,31 +28,39 @@ Method:
 - R1 — operational behavior change: targeted adversarial/independent evidence when decision-material.
 - R2 — core semantic/high consequence: heavy freeze/fresh falsification by default.
 
-Open unrelated research is not a release blocker.
+Open unrelated research does not block product succession.
 
-## v0.3.8 field-selection focus
+## Active field stream
 
-v0.3.8 separates adopter payload from research lineage, adds product-first human/Agent entrypoints, exposes enforcement class explicitly, repairs zh-CN hot-surface fidelity and retrieval mappings, expands semantic fixture v3 to 18 cases, and guards the product surface against recurrence.
+Issue `#208` — `ENA v0.3.8 field validation — product-surface adoption and real Host behavior`
 
-Primary predecessor evidence: Issue `#201`.
+High-value evidence includes:
 
-If field use exposes a decision-bearing defect, prefer a bounded `v0.3.9` successor rather than keeping known bad Current bytes in place.
+- fresh adopter reaches the correct first-use path without reading research history;
+- product-first surfaces reduce context burden without erasing applicability;
+- `MODEL_CUE / MACHINE_GUARD / EXTERNAL_CONTROL_REQUIRED / FIELD_EVIDENCE_REQUIRED` remains clear in use;
+- natural cue -> cold HOW retrieval works without permanently loading the full library;
+- English / zh-CN hot surfaces remain decision-compatible in actual use;
+- Host-native equivalents preserve properties without ENA-specific ceremony;
+- unexpected decision-bearing defects create a bounded `v0.3.9+` successor rather than release debt.
+
+Predecessor streams #150 and #201 are closed occurrence evidence.
 
 ## Research
 
-The evolutionary-memory campaign is closing.
+The broad evolutionary-memory divergence campaign is closed behind explicit dispositions except for one already-preregistered experiment.
 
 Closure dispositions:
+
 `research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml`
 
 Closure audit:
+
 `research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md`
 
 ### Active experiment
 
 **Metamemory Update Policy v1** remains preregistered; primary collection has not started.
-
-Arms:
 
 ```text
 S0 — STATIC_EQUAL
@@ -63,11 +71,25 @@ C2 — CONTEXT_REVERSIBLE3
 
 Initial sample: four one-shot fresh Temporary Chats. Maximum eight only under the frozen all-arm replication trigger. No selective extra runs.
 
-Research next action:
+Exact research next action:
 
 `COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY`
 
-Metamemory is the only currently planned fresh-session primary. After adjudication, close the campaign unless a genuinely new non-derivable discriminator appears.
+Metamemory is the only currently planned fresh-session primary. After adjudication, close this mechanism-discrimination campaign unless a genuinely new non-derivable discriminator appears.
+
+## Closed project campaigns
+
+- #89–#94 — WHAT / WHY / HOW / EVIDENCE reconstruction campaign and its five child ledgers: **closed as reconstruction complete**; unresolved reality questions moved to field evidence rather than kept as permanent architecture work.
+- #153 — project simplification / reality-first migration: **closed after v0.3.8 product-surface and rapid-release changes landed**.
+- #150 — v0.3.7 field stream: **closed as predecessor stream**.
+- #201 — v0.3.7 adopter-facing defect report: **closed after v0.3.8 successor and readback**.
+
+Closing a campaign does not mean all future field questions are solved.
+
+```text
+RECONSTRUCTION_COMPLETE != REALITY_COMPLETE
+OPEN_FIELD_QUESTION != OPEN_RECONSTRUCTION_CAMPAIGN
+```
 
 ## Project rules
 
@@ -82,6 +104,5 @@ CONTROL_MUST_PAY_RENT
 
 ## Open work
 
-- #150 — predecessor/field-validation lineage; reconcile toward v0.3.8 field tracking
-- #153 — project-operation simplification
-- #201 — field evidence that drove v0.3.8; close when reconciliation/readback is recorded
+- GitHub issue `#208` — v0.3.8 field validation.
+- Metamemory Update Policy v1 — collect the four frozen initial primary runs, then adjudicate and close the research campaign.
