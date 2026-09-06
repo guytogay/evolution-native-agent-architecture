@@ -1,10 +1,11 @@
-schema_version: "1.0"
-status: CAMPAIGN_CLOSURE_DISPOSITIONS
+schema_version: "1.1"
+status: CAMPAIGN_CLOSED_DISPOSITIONS
 updated_at: "2026-09-06"
 current_change_by_this_record: false
 supersedes_open_experiment_implication_only: true
 preserves_original_coverage_ledger_as_history: true
 primary_audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
+final_primary_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
 
 closure_rule: >-
   NOT_DIRECTLY_TESTED does not imply MUST_RUN_AN_ENA_EXPERIMENT. Keep a new primary
@@ -13,13 +14,21 @@ closure_rule: >-
   identifiable, informative fixture. Otherwise close this campaign branch as
   SUBSUMED, SEMANTICALLY_COVERED, FIELD_UNRESOLVED, METAPHOR_ONLY, NARROWED, or REJECTED.
 
-active_primary:
+campaign_status: CLOSED
+active_primary: NONE
+
+completed_primary:
   track: 5
   name: Metamemory Update Policy
-  state: PREREGISTERED_PRIMARY_NOT_STARTED
-  role: FINAL_CURRENTLY_JUSTIFIED_FRESH_SESSION_PRIMARY
-  close_after_formal_adjudication: true
-  reopen_other_tracks_from_metamemory_result_only_if_new_discriminator_emerges: true
+  state: PRIMARY_COMPLETE_NO_REPLICATION_TRIGGER_FORMALLY_ADJUDICATED
+  disposition: MECHANISM_ACTIVE_BUT_POLICY_OPTIMUM_UNRESOLVED
+  durable_self_modification_boundary: FIELD_UNRESOLVED
+  adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
+  raw_bundle: research/field-validation/metamemory-update-policy-v1/primary/2026-09-06-initial-primary-bundle.txt
+  score_record: research/field-validation/metamemory-update-policy-v1/primary/2026-09-06-initial-primary-score.json
+  replication_triggered: false
+  current_semantic_change: false
+  reopen_other_tracks_only_if_new_discriminator_emerges: true
 
 tracks:
   9:
@@ -113,12 +122,15 @@ tracks:
     covered_by: [PURPOSE_RELATIVE_CONTINUITY]
     reopen_on: CONCRETE_RESPONSIBILITY_RECOVERY_INHERITANCE_OR_SELECTION_DECISION_NOT_REPRESENTABLE_BY_EXISTING_CONTINUITY_RELATIONS
 
-campaign_stop_condition: >-
-  After formal adjudication of Metamemory Update Policy v1, mark the current
-  evolutionary-memory mechanism-discrimination campaign CLOSED unless that adjudication
-  exposes a genuinely new non-derivable discriminator. Scientific interest alone is not
-  sufficient reason to reopen a track.
+campaign_stop_condition: SATISFIED
+campaign_stop_reason: >-
+  Metamemory Update Policy v1 completed its four frozen initial runs, triggered no
+  preregistered replication condition, and was formally adjudicated without exposing a
+  new non-derivable discriminator. The current evolutionary-memory mechanism-discrimination
+  campaign is therefore closed.
 
 release_boundary: >-
-  These closure dispositions earn no new Constitution law by themselves. The active
-  v0.3.8 adoption-surface successor is independently justified by field/adoption evidence.
+  The completed campaign earns no new Constitution law by itself. Metamemory supports
+  policy-level trade-offs inside the existing scoped-trust / evidence / local-selection
+  semantic surface. Any future Current successor must be justified by an independent
+  product, field, or semantic defect rather than by a desire to encode one fixture policy.
