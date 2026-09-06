@@ -17,10 +17,13 @@ Its purpose is viable agency: useful evolution without turning every stimulus in
 5. Prefer an existing Host-native mechanism when it already preserves the required property and boundary.
 6. After adoption, and after a material Host/runtime change, do one bounded **local operationalization pass**:
    - identify which relevant ENA boundaries are already embodied by local controls;
+   - treat a boundary as relevant/applicable only when its absence, uncertainty, or failure could plausibly change a current or recurring decision, authority/effect/recovery/evidence boundary, or durable evolution loop on this Host;
    - for a concrete uncovered gap, propose the smallest cheap/reversible Host-native mechanism that could materially improve the decision or recovery boundary;
    - do not install or activate consequential machinery beyond actual authority;
    - explicitly allow `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` outcomes;
    - stop when another mechanism would not plausibly pay rent.
+
+A **material Host/runtime change** is one that can invalidate a cached Local Projection fact or change a decision boundary—for example model/provider/route, effective loading or persistence, authority/effect topology, recovery topology, Variation Space, or language projection. Irrelevant environment churn does not by itself retrigger the pass.
 
 This is not a request to install every ENA mechanism. A rescue snapshot, canary, ledger, baseline, watcher, or validator may be useful on one Host and unnecessary on another.
 
