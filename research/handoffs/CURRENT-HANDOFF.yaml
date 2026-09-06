@@ -1,4 +1,4 @@
-schema_version: "4.9"
+schema_version: "5.0"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-06"
 
@@ -29,6 +29,7 @@ current_project_authorities:
   field_stream: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
   research_closure_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
+  final_metamemory_adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
 
 current_adoption:
   version: v0.3.9
@@ -61,38 +62,42 @@ active_field_validation:
   current_findings:
     - F-208-01_DEFAULT_HOT_PAYLOAD_LIST_AMBIGUITY
     - F-208-02_ROOT_AND_ZH_CN_IDENTITY_DRIFT
+    - F-208-03_CAPABILITY_MAP_STALE_CANDIDATE_NARRATION
   next_product_rule: >-
-    When field evidence exposes a bounded decision-bearing defect, classify it R0/R1/R2 and create the
-    smallest useful successor. Do not create a new field tracker merely because Current moved.
+    Handle F-208-03 through the smallest R0 successor and extend recurrence checks so active-sounding
+    stale release identity cannot persist in cold Current surfaces. Do not mutate v0.3.9 in place.
 
 active_research:
-  phase: MECHANISM_DISCRIMINATION
-  target: METAMEMORY_UPDATE_POLICY_V1
-  state: PREREGISTERED_PRIMARY_NOT_STARTED
-  preregistration: research/field-validation/2026-09-04-metamemory-update-policy-preregistration.md
-  fixture_root: research/field-validation/fixtures/metamemory-update-policy-v1/
-  primary_launch_bundle: research/field-validation/metamemory-update-policy-v1/PRIMARY-LAUNCH-BUNDLE.md
-  manager_only_surface: research/field-validation/metamemory-update-policy-v1/manager/
-  manager_scorer: research/field-validation/metamemory-update-policy-v1/manager/score_primary_bundle.py
-  manager_scorer_selftest: METAMEMORY_MANAGER_SCORER_SELFTEST_PASS
-  treatment_blob_binding_reverified_at: "2026-09-06"
-  initial_primary_runs: 4
-  maximum_primary_runs_after_frozen_replication_trigger: 8
-  next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
-  blocks_current_release: false
-  selective_extra_runs_for_preferred_result: FORBIDDEN
-  expose_manager_oracle_to_primary_worker: FORBIDDEN
+  state: NONE
+  phase: NONE
+  next_action: NONE
+
+completed_research:
+  evolutionary_memory_mechanism_discrimination:
+    state: CLOSED
+    final_primary: METAMEMORY_UPDATE_POLICY_V1
+    final_primary_state: PRIMARY_COMPLETE_NO_REPLICATION_TRIGGER_FORMALLY_ADJUDICATED
+    disposition: MECHANISM_ACTIVE_BUT_POLICY_OPTIMUM_UNRESOLVED
+    durable_self_modification_boundary: FIELD_UNRESOLVED
+    current_semantic_change: false
+    adjudication: research/field-validation/2026-09-06-metamemory-update-policy-v1-adjudication.md
+    raw_bundle: research/field-validation/metamemory-update-policy-v1/primary/2026-09-06-initial-primary-bundle.txt
+    score_record: research/field-validation/metamemory-update-policy-v1/primary/2026-09-06-initial-primary-score.json
+    replication_triggered: false
+    confidence_channel_discriminative: false
 
 research_closure:
   audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
   dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   broad_open_track_status: CLOSED_BEHIND_EXPLICIT_DISPOSITIONS
+  campaign_status: CLOSED
 
 open_work:
   github_issues:
     - 208
-  research:
-    - COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
+  product:
+    - F-208-03_R0_SUCCESSOR
+  research: []
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -102,13 +107,13 @@ receiver_contract:
   use_full_handoff_for_fresh_validator: FORBIDDEN
   treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
   expose_preregistration_or_hidden_oracle_to_primary_worker: FORBIDDEN
-  expose_manager_scorer_to_primary_worker: FORBIDDEN
   confuse_version_immutability_with_current_immobility: FORBIDDEN
   block_R0_release_on_unrelated_research: FORBIDDEN
   reopen_broad_reconstruction_without_concrete_failure: FORBIDDEN
+  reopen_closed_research_campaign_for_scientific_interest_only: FORBIDDEN
 
 rule: >-
   ENA Current is v0.3.9 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream.
-  The ordinary Agent default hot payload is one Runtime Adoption Kernel; other ENA resources are cold/on-demand.
-  Metamemory Update Policy v1 is the only currently planned fresh-session primary. Its manager-side scorer is ready,
-  but primary workers must see only their frozen treatment, never the preregistration/oracle/manager surface.
+  The evolutionary-memory mechanism-discrimination campaign is closed after Metamemory Update Policy v1
+  completed four valid initial runs without triggering replication. No active mechanism primary remains.
+  The next concrete project action is the bounded F-208-03 R0 product successor, not another research experiment.
