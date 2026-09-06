@@ -1,4 +1,4 @@
-schema_version: "4.5"
+schema_version: "4.6"
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: "2026-09-06"
 
@@ -31,10 +31,9 @@ current_handoff_record:
   readback: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/HANDOFF-READBACK.md
   readback_state: PASS
   note: >-
-    This dated record remains occurrence truth for the boundary at which primary collection ended.
-    Live project state has advanced through formal adjudication, Metamemory preregistration,
-    evolutionary-memory closure audit, an active v0.3.8 successor, and a rapid-Current release-policy correction.
-    Use NOW.md plus the active blocks below for current facts rather than rewriting the dated snapshot.
+    This dated record remains occurrence truth for its boundary. Live state has advanced through
+    research adjudication/closure, release-policy correction, and v0.3.8 promotion. Use NOW.md and
+    the active blocks below for current facts.
 
 previous_deep_handoff:
   id: "2026-09-03-evolutionary-memory-validation-and-cleanup"
@@ -50,12 +49,16 @@ current_project_authorities:
   branch_governance: research/BRANCH-GOVERNANCE.md
 
 current_adoption:
-  version: v0.3.7
+  version: v0.3.8
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  role: PREDECESSOR_CURRENT_AND_ROLLBACK_ANCHOR_PENDING_V038_PROMOTION
-  version_bytes_immutable: true
-  current_pointer_should_remain_here: false
+  release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
+  promotion_pr: 206
+  promotion_merge: 625973fb3aa8cc503d0860d2c5f07e021c4dc266
+  predecessor_version: v0.3.7
+  predecessor_role: ROLLBACK_AND_OCCURRENCE_TRUTH
+  same_version_same_effective_content: REQUIRED
+  current_pointer_should_remain_here_if_better_successor_ready: false
 
 release_policy:
   core_distinction: IMMUTABLE_VERSION_NE_IMMOBILE_CURRENT
@@ -71,38 +74,20 @@ release_policy:
   open_unrelated_research_blocks_release: false
   rollback_anchor_required: true
 
-active_release_candidate:
-  id: v0.3.8-candidate.0
-  state: ACTIVE_R0_RAPID_CURRENT_SUCCESSOR
+last_release_transition:
+  id: v0.3.8
+  source_candidate: v0.3.8-candidate.0
+  source_candidate_pr: 202
+  release_policy_pr: 205
+  release_pr: 206
   release_lane: R0_FIELD_PATCH_ADOPTION_SURFACE
-  reason: ADOPTION_PRODUCT_SURFACE_SUCCESSOR_FROM_FIELD_EVIDENCE
-  branch: candidate/v0.3.8-candidate.0
-  pr: 202
-  candidate_root: releases/v0.3.8-candidate/
-  seed_parent_main: 8928693b746864dece2a66d625a01cbc328b0d7e
-  predecessor_current_tree: f33e73ed997c1b66a4572685ab5474182e136e97
-  rollback_anchor: v0.3.7
   primary_field_issue: 201
-  scope: collaboration/reconciliation/2026-09-06-v038-adoption-surface-successor-scope.md
-  thesis:
-    - RESEARCH_LINEAGE_NE_ADOPTION_PAYLOAD
-    - SEMANTIC_PRECISION_NE_PRESENTATION_VERBOSITY
-    - SOFT_GUIDANCE_NE_HARD_ENFORCEMENT
   new_constitution_ids: 0
   core_contract_semantic_delta: NONE_DEMONSTRATED
-  candidate_main_gate_state: PASS
-  candidate_codeql_state: PASS
-  candidate_gate_guards:
-    - RELEASED_V037_BASELINE_BYTES_UNCHANGED_DURING_CANDIDATE_BUILD
-    - CONSTITUTION_01_04_BYTE_IDENTICAL_TO_V037
-    - KEY_MACHINE_PATHS_BYTE_IDENTICAL_TO_V037
-    - CANDIDATE_STATUS_COHERENCE
-    - EXPLICIT_ENFORCEMENT_CLASSES
-    - ZH_CN_HOT_GUARDRAIL_FIDELITY
-    - CONCEPT_MAP_APPLICABILITY_REPAIR
-    - SEMANTIC_FIXTURE_REQUIRED_CASES_AND_ROUTES
-  fresh_cleanroom_as_prerelease_gate: NOT_REQUIRED_FOR_R0
-  next_action: PROMOTE_V038_THROUGH_R0_RAPID_CURRENT_LANE
+  prospective_current_validate: PASS
+  prospective_main_gate: PASS
+  release_result: PROMOTED_CURRENT
+  field_rule: DECISION_BEARING_DEFECT_SHOULD_CREATE_RAPID_SUCCESSOR
 
 last_completed_research:
   phase: MECHANISM_DISCRIMINATION
@@ -130,27 +115,21 @@ active_research:
   preregistration: research/field-validation/2026-09-04-metamemory-update-policy-preregistration.md
   fixture_root: research/field-validation/fixtures/metamemory-update-policy-v1/
   primary_launch_bundle: research/field-validation/metamemory-update-policy-v1/PRIMARY-LAUNCH-BUNDLE.md
-  required_contrast: HOLD_OBJECT_LEVEL_EXPERIENCE_CONSTANT_WHILE_VARYING_SOURCE_TRUST_UPDATE_POLICY
   arms: [S0_STATIC_EQUAL, G1_GLOBAL_RECENT3, C1_CONTEXT_RECENT3, C2_CONTEXT_REVERSIBLE3]
   initial_primary_runs: 4
   maximum_primary_runs_after_frozen_replication_trigger: 8
   run_shape: ONE_COMPLETE_TREATMENT_DELIVERY_PER_FRESH_TEMPORARY_CHAT
   next_action: COLLECT_METAMEMORY_UPDATE_POLICY_V1_INITIAL_PRIMARY
-  blocks_v038_release: false
+  blocks_current_release: false
   campaign_closure_intent: >-
-    Treat Metamemory v1 as the last currently planned fresh-session primary mechanism round.
-    After formal adjudication close the campaign unless a genuinely new non-derivable discriminator appears.
+    Treat Metamemory v1 as the last currently planned fresh-session primary. Close the campaign after
+    formal adjudication unless a genuinely new non-derivable discriminator appears.
   selective_extra_runs_for_preferred_result: FORBIDDEN
 
 research_closure:
   audit: research/field-validation/2026-09-06-evolutionary-memory-open-track-closure-audit.md
   dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
   rule: NOT_DIRECTLY_TESTED_NE_MUST_RUN_LOCAL_ENA_EXPERIMENT
-
-important_evidence_notes:
-  issue_201: DECISION_BEARING_ADOPTION_FIELD_EVIDENCE_WITH_POSITIVE_AND_NEGATIVE_FINDINGS
-  v038_candidate0: PRODUCT_SUCCESSOR_CAN_BE_JUSTIFIED_WITHOUT_NEW_NATURAL_LAW
-  rapid_release_correction: CURRENT_IMMOBILITY_IS_NOT_A_QUALITY_METRIC
 
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -165,9 +144,8 @@ receiver_contract:
   demand_fresh_cleanroom_prerelease_validation_for_R0_by_default: FORBIDDEN
 
 rule: >-
-  v0.3.7 remains Current only until the bounded v0.3.8 R0 release projection is admitted; it is a predecessor/rollback
-  anchor, not a quality target to keep fixed. The project now uses risk-tiered rapid Current succession: preserve exact
-  old versions while moving Current quickly. v0.3.8-candidate.0 is an R0 adoption-surface successor with no new
-  Constitution IDs and no demonstrated core-contract semantic delta; its Main Gate and CodeQL are PASS, so full fresh
-  cleanroom falsification is not a pre-release requirement. Promote it through the bounded R0 lane independently of
-  Metamemory research. Metamemory v1 remains the only planned fresh-session primary experiment and does not block release.
+  ENA Current is v0.3.8 / FIELD_VALIDATION after R0 promotion PR #206. v0.3.7 is immutable predecessor/rollback
+  occurrence truth, not a target to keep Current fixed on. Release governance is risk-tiered and optimized for
+  truthful evolutionary throughput. Metamemory Update Policy v1 is the only currently planned fresh-session primary
+  experiment and does not block product successors. When decision-bearing field evidence appears, classify the
+  smallest useful successor R0/R1/R2 and move Current after proportional gates rather than accumulating release debt.
