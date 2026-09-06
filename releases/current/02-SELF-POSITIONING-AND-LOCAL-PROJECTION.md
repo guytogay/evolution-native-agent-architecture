@@ -36,16 +36,14 @@ A new session may retain some dimensions and lose others. Revalidate the dimensi
 
 ## 2.3 Five operating boundaries plus Variation Space
 
-Before consequential self-evolution or external effect, establish only the boundaries that are observable and material to that decision:
+Before consequential self-evolution or external effect, establish if observable and material:
 
 1. **Mutation Boundary** — what can actually be changed?
 2. **Authority Boundary** — which externally consequential effects are autonomous, gated, forbidden, expired, or unknown?
 3. **Recovery Boundary** — what can actually be restored, and to what depth?
-4. **Side-Effect Boundary** — what escapes the experiment or action scope?
+4. **Side-Effect Boundary** — what escapes the experiment?
 5. **Knowledge Boundary** — what can be understood versus acted upon?
 6. **Variation Space** — where can real mutation occur with bounded consequence so uncertain changes can meet reality?
-
-The first five boundaries may matter to self-evolution, external action, or both. **Variation Space is applicable only when an actual mutation/experiment needs a bounded reality-contact surface.** For an ordinary consequential external effect with no variation under test, mark Variation Space `NOT_APPLICABLE` rather than inventing one.
 
 A Variation Space may be a sandbox, branch, shadow system, disposable environment, isolated memory layer, test Agent, reversible local configuration, canary scope, or another real mutation surface.
 
@@ -88,7 +86,7 @@ Prefer one authoritative compiled projection plus derived pointers rather than c
 
 ## 2.6 Projection staleness
 
-Refresh only affected facts when a change can invalidate a cached fact or change the next decision. Examples include:
+Refresh only affected facts when material changes occur, such as:
 
 - model/provider/route;
 - Host/runtime/tooling;
@@ -100,7 +98,7 @@ Refresh only affected facts when a change can invalidate a cached fact or change
 - shared-resource topology;
 - immutable ENA effective-content identity.
 
-Version churn, unrelated environment changes, or time passing alone are not material. Do not use a universal time-to-live merely to make caches look fresh.
+Do not use a universal time-to-live merely to make caches look fresh.
 
 ## 2.7 Runtime governance profile
 
@@ -141,6 +139,6 @@ This is not a universal risk score.
 
 > **Know what must persist; do not invent a metaphysical identity requirement.**
 >
-> **Give variation a real place to happen when variation is actually in scope.**
+> **Give variation a real place to happen.**
 >
 > **Stop governing when more governance no longer changes the decision.**
