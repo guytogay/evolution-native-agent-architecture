@@ -1,8 +1,8 @@
-# Operational HOW Map — v0.3.7 Current
+# Operational HOW Map — v0.3.8-candidate.0
 
-Status: `CURRENT / COLD_HOW_LIBRARY`
+Status: `CANDIDATE / NOT_CURRENT / COLD_HOW_LIBRARY`
 
-This is the candidate's cold practical map. It is intentionally larger than the Runtime Kernel.
+Released Current remains v0.3.7. This is the candidate's cold practical map. It is intentionally larger than the Runtime Kernel.
 
 Each node preserves:
 
@@ -10,11 +10,11 @@ Each node preserves:
 WHAT / WHY
 -> plural HOW branches
 -> applicability / non-applicability
--> exact Current-local implementation path or Host pattern
--> evidence boundary / open residual
+-> exact candidate-local implementation path or Host pattern
+-> enforcement/evidence boundary / open residual
 ```
 
-A listed HOW is not automatically required. A Host-native mechanism may realize the same property.
+A listed HOW is not automatically required. A Host-native mechanism may realize the same property. Use `../ENFORCEMENT-MAP.yaml` when it matters whether a property is only a model cue, locally machine-guarded, externally controlled, or still field evidence.
 
 ---
 
@@ -102,7 +102,7 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 ## OA-AUTH-01 — Authority binding
 
-**WHAT / WHY:** capability, credential, identity, history, or self-description do not manufacture current external authority.
+**WHAT / WHY:** capability, credential, identity, reputation, history, or self-description do not manufacture current external authority.
 
 **HOW branches:**
 - selected `references/general/authority-lease/`;
@@ -114,7 +114,7 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** require a lease for every harmless local mutation.
 
-**Evidence boundary:** represented grant match != external mandate truth.
+**Evidence boundary:** represented grant match != external mandate truth. External control/verification is required when authority reality is consequential.
 
 ## OA-EFF-01 — Effect Lifecycle
 
@@ -132,20 +132,20 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** promise universal exactly-once or use idempotency ceremony for read-only/repeatable work.
 
-**Boundary:** local rollback != reversal of escaped consequence.
+**Boundary:** `cancel != rollback != compensation`; local rollback != reversal of escaped consequence.
 
 ## OA-COM-01 — Commitment / Settlement
 
 **WHAT / WHY:** executor assignment can change while an obligation remains; completion must bind a real settlement subject.
 
-**HOW branches in first candidate:**
+**HOW branches:**
 - explicit obligation subject + current executor + effect identity + settlement evidence in Host workflow/state;
 - compose Effect Lifecycle for physical world consequences;
 - compose Authority for current executor mandate;
 - explicit handoff/transfer/cancel record where Host supports it;
 - honest unresolved commitment when settlement cannot be established.
 
-**Deferred reference:** the recovered Commitment/Settlement machine prototype is not bundled in v0.3.7 Current pending fresh independent review.
+**Deferred reference:** the recovered Commitment/Settlement machine prototype remains unbundled pending fresh independent review or renewed candidate-critical need.
 
 **Do not:** infer `EXECUTOR_REASSIGNED -> OBLIGATION_TRANSFERRED` or `LEASE_EXPIRED -> COMMITMENT_CANCELLED`.
 
@@ -163,7 +163,7 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** require independent rescue/drills for every cheap/disposable state.
 
-**Boundary:** restore success != world rollback != authority restoration.
+**Boundary:** restore/resume != complete history != world rollback != authority restoration.
 
 ## OA-ID-01 — Purpose-relative continuity
 
@@ -221,14 +221,14 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** require full envelope/dependency graph for every observation.
 
-**Boundary:** schema-valid evidence metadata != evidence truth.
+**Boundary:** schema-valid evidence metadata != evidence truth; transformed/imported evidence retains provenance obligations.
 
 ## OA-EVO-01 — Evolution / variation / selection
 
 **WHAT / WHY:** stimuli should create evolutionary possibility without forced mutation or immediate verdict.
 
 **HOW branches:**
-- v2 evolution record + Current-local minimal helper;
+- v2 evolution record + candidate-local minimal helper;
 - direct schema/template + validator use;
 - Host-native variation store;
 - latent/dormant candidate library;
@@ -238,7 +238,7 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** require Variation Space at latent storage time or interpret popularity as fitness.
 
-**Boundary:** local selection != universal fitness; stored != expressed != applied != selected.
+**Boundary:** local selection != universal fitness; survival/reward != moral correctness; stored != expressed != applied != selected.
 
 ## OA-MIG-01 — Migration / Commons / interoperability
 
@@ -256,6 +256,8 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** collapse `ACTIVE_PROTOCOL` into `DURABLE_COMMONS`, or publication into adoption.
 
+**Boundary:** migration != local validation.
+
 ## OA-ECO-01 — Ecology / controls / resources
 
 **WHAT / WHY:** metrics, controls, resource limits, reputation, and coordination rules become selection pressure; controls can also outlive the failures that justified them.
@@ -269,22 +271,24 @@ A listed HOW is not automatically required. A Host-native mechanism may realize 
 
 **Do not:** use a universal risk score or fixed control age/count threshold.
 
-**Boundary:** `NO_INCIDENT != CONTROL_NOT_NEEDED`.
+**Boundary:** `NO_INCIDENT != CONTROL_NOT_NEEDED`; retirement needs evidence + lineage when material.
 
 ## OA-ADOPT-01 — Adoption / language / release
 
 **WHAT / WHY:** package availability is not runtime activation, and structural translation parity does not prove equivalent decisions.
 
 **HOW branches:**
-- one singular Current after promotion;
+- one singular Current after explicit promotion;
 - compact runtime kernel + cold operational library;
+- product-facing `ADOPTER-QUICKSTART.md`;
+- explicit `ENFORCEMENT-MAP.yaml`;
 - machine-readable optional reference manifest;
 - Host mapping rather than forced reference implementation;
 - zh-CN projection for decision-bearing operational entry surfaces;
 - paired decision fixtures;
 - exact source/tree/package identity during release.
 
-**Do not:** force adopters to replay release-author ceremony or load historical research for ordinary use.
+**Do not:** force adopters to replay release-author ceremony, load historical research for ordinary use, or treat a candidate branch as Current.
 
 ---
 
@@ -304,8 +308,10 @@ Runtime cue -> Operational HOW -> Host adapter
 
 Composition does not allow one organ to inherit another organ's evidence maturity.
 
+`local validity/improvement != composed outcome`
+
 ## Stop rule
 
 If a branch already yields a safe, concrete action and another mechanism cannot plausibly change the decision, stop adding governance.
 
-`CURRENT_CHANGE = NO` until candidate validation, freeze, falsification, reconciliation, release packaging, and explicit promotion occur.
+`CURRENT_CHANGE = NO` until candidate validation, freeze, independent falsification, reconciliation, release packaging, and explicit promotion occur.
