@@ -1,23 +1,22 @@
-# Agent Adoption Instruction — ENA v0.3.7
+# Agent Adoption Instruction — ENA v0.3.8-candidate.0
 
-Status: **CURRENT ADOPTION / FIELD_VALIDATION**.
+Status: **CANDIDATE / NOT_CURRENT / NOT_FROZEN / NOT_RELEASED**
 
-The singular adopter-facing baseline is this `v0.3.7 / CURRENT / FIELD_VALIDATION` release.
+Released Current remains `v0.3.7 / CURRENT / FIELD_VALIDATION` under `../current/`.
 
-This file describes how to evaluate the candidate as a complete operational package and, only after an explicit future release decision, how its surfaces are intended to be adopted.
+This file is the compact Agent-facing adoption instruction for evaluating this successor candidate. It is not a release grant.
 
-## Current adoption traversal
+## Primary rule
 
-1. Read `CURRENT-BASELINE.yaml` and bind review to exact candidate content, not branch name alone.
-2. Read `00-READ-ME-FIRST.md`.
-3. Preserve the inherited 38-ID `01-CONSTITUTION.md`; v0.3.7 Current adds no Constitution ID.
-4. Use `RUNTIME-ADOPTION-KERNEL.md` as the compact cue surface.
-5. When a concrete mechanism is needed, route through `operational/CUE-INDEX.md` -> `operational/HOW-MAP.md` -> exact procedure/reference/Host pattern.
-6. Treat `references/REFERENCE-MANIFEST.yaml` as packaging/optionality metadata: bundled references are not complete-adoption requirements and are default-off.
-7. Use `tools/ena_evolve_v2.py` as the candidate's narrow practical v2 latent-record/packet path; keep `tools/legacy/ena_evolve_v1_2.py` as explicit compatibility history.
-8. For Chinese operation, use `language-projections/zh-CN/operational/` and `REFERENCE-GUIDE.md`; machine reference bytes remain canonical/shared.
-9. Record Host/model/language/authority/recovery assumptions when they materially affect applicability.
-10. Treat future salience/application and bilingual behavioral equivalence as field/independent evidence; same-session readback is not proof.
+Do not load project research history as default runtime context.
+
+Use:
+
+1. `RUNTIME-ADOPTION-KERNEL.md` as the compact hot semantic/cue surface;
+2. `operational/CUE-INDEX.md` when an ordinary problem makes a HOW relevant;
+3. the lightest applicable procedure/reference/Host-native mechanism;
+4. `ENFORCEMENT-MAP.yaml` to distinguish reasoning guidance from actual machine/external control;
+5. semantic fixtures and executable validators as bounded conformance evidence.
 
 ## Durable distinctions
 
@@ -26,53 +25,85 @@ Preserve at least:
 - `stimulus != mutation != improvement`;
 - `stored != expressed != applied != selected`;
 - lifecycle != expression != selection;
+- `claim != evidence != support != applicability`;
 - `INTEGRATED != SUPPORTED`;
 - `ARCHIVED/RETIRED != selection verdict`;
-- local success != universal fitness;
-- source success != receiver-local proof;
+- `local success != universal fitness`;
+- `source success != receiver-local proof`;
 - `PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`;
-- capability/credential/identity != current authority;
+- `migration != local validation`;
+- capability/credential/identity/reputation != current external authority;
 - attempt/receipt/settlement are distinct;
-- state restore != world rollback != restored mandate;
+- `cancel != rollback != compensation`;
+- restore/resume != complete history != restored authority;
 - recurrence/agreement != independent evidence;
-- being heard != sovereignty/authority;
+- local validity/improvement != composed outcome;
+- `durable object exists != relevant bytes loaded != semantics available`;
 - bundled reference != required/default-active;
 - `WRITTEN != LOADED != INTERPRETED != SALIENT != APPLIED`.
 
-## Operational applicability rule
+These are semantic boundaries/cues. They are not all hard controls.
 
-Use the lightest mechanism that can change/protect the decision.
+## Operational applicability
+
+Use the lightest mechanism that can materially change or protect the decision.
 
 Legitimate outcomes include:
 
 `NOT_REQUIRED | NOT_APPLICABLE | WAIT | UNKNOWN | REFUSE`
 
-A Host-native mechanism may satisfy an ENA property without using a bundled reference schema.
+A Host-native implementation may satisfy an ENA property without reproducing a bundled ENA reference implementation or private vocabulary literally.
 
-## Tool boundary
+## Enforcement boundary
 
-This candidate formally contains v2 schema/validator/packet representation plus `tools/ena_evolve_v2.py` for a narrow practical path.
+Consult `ENFORCEMENT-MAP.yaml` before treating a semantic rule as an implementation guarantee.
 
-The helper does **not** implement the entire evolution lifecycle state machine and does not prove external facts. The inherited v1.2 tool remains non-default legacy compatibility.
+```text
+MODEL_CUE != MACHINE_GUARD
+MACHINE_GUARD != EXTERNAL_TRUTH
+STATIC PACKAGE != FIELD BEHAVIOR
+```
 
-## Claim boundary
+Examples:
 
-Do not report that:
+- external authority reality requires a real Host/system authority source when consequential;
+- effect settlement may require provider/system evidence;
+- schema validation can reject represented inconsistency but cannot prove outside-world truth;
+- future cue salience and bilingual behavioral equivalence require observed field/independent evidence.
 
-- v0.3.7 Current is Current, frozen, released, or independently supported;
-- every bundled reference is universally applicable or mandatory;
-- machine selftests prove external evidence/authority/recovery/receipt truth;
-- a latent variation is an improvement;
-- `EXPRESSED` creates authority;
-- source selection/popularity creates receiver-local proof;
-- cue configuration proves future natural salience;
-- paired zh-CN fixtures prove behavioral equivalence;
-- GitHub itself is the permanent source of ENA validity.
+## Evolution tooling
 
-When making a strong claim, distinguish:
+`tools/ena_evolve_v2.py` remains the inherited narrow practical path for latent records and packet-v2 handling.
+
+It does not implement the entire evolution lifecycle and does not upgrade imported source support into receiver-local support.
+
+The inherited v1.2 tool remains under `tools/legacy/` as compatibility history, not the default path.
+
+## Candidate-state honesty
+
+You may accurately report:
+
+- this package is `v0.3.8-candidate.0`;
+- it is **not Current, not frozen, and not released**;
+- released Current remains v0.3.7;
+- candidate.0 exists to improve adopter/product surfaces while preserving the semantic trunk unless evidence warrants more;
+- branch existence and passing checks do not promote the candidate.
+
+Do not claim:
+
+- candidate.0 is Current because it is newer;
+- every bundled reference is mandatory;
+- every semantic rule is hard-coded;
+- machine selftests prove external evidence/authority/recovery/effect truth;
+- paired language fixtures prove behavioral equivalence;
+- local/source success proves universal/receiver-local fitness.
+
+## Evidence levels
+
+Keep claim strength explicit:
 
 `PROSE_PRESENT | STRUCTURALLY_REPRESENTED | MACHINE_GUARDED | EXECUTED | EXTERNALLY_OBSERVED | INDEPENDENTLY_SUPPORTED`
 
 Do not upgrade one level into another.
 
-**Review the candidate; do not promote it by narration.**
+> **Internalize compact semantics; retrieve the HOW; enforce outside the model where the property actually lives.**
