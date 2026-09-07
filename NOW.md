@@ -1,195 +1,116 @@
 # ENA — NOW
 
-This is the default live project-status surface.
+This is the default live project-status surface. Read this first; use handoff/issues/history only when needed.
 
 ## Current
 
 - `v0.3.14 / CURRENT / FIELD_VALIDATION`
-- authority: `releases/current/CURRENT-BASELINE.yaml`
-- effective adopter package: `releases/current/`
-- predecessor / rollback / occurrence truth: `v0.3.13`
-- field stream: GitHub Issue `#208` — version-neutral Current field validation
+- identity authority: `releases/current/CURRENT-BASELINE.yaml`
+- effective package: `releases/current/`
+- predecessor / rollback occurrence: `v0.3.13`
+- field stream: Issue `#208`
 
-v0.3.14 is a bounded **R0 adoption-surface successor**. It preserves the v0.3.13 R1 evolution loop, 38-ID Constitution, protected semantic floor, and core machine behavior while closing:
+Do not mutate `releases/current/**` without successor identity.
 
-- `F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH`.
+## Strategic product pivot
 
-A fresh one-shot v0.3.13 adopter review correctly reconstructed the existing Compiled Local Projection contract from the deeper self-positioning file but flagged that Minimum integration did not explicitly tell adopters to preserve the smallest reusable Host facts that repeatedly change decisions. The review otherwise returned `ADOPT_WITH_NONBLOCKING_CLARIFICATIONS` and did not infer mandatory seven-tool installation, continuous self-editing, a universal metric, or universal runtime.
+The active design direction is no longer incremental repair of the v0.3.x adopter-facing structure.
 
-## Evolution contract
+Field and owner review found a structural practicality problem:
 
-Current keeps the v0.3.13 **how to evolve** path unchanged:
+- adopter/runtime attention is over-spent on theory, semantic distinctions and derivations;
+- many `X != Y` statements are true but do not tell an Agent what to do;
+- the hot projection is more defensive than ENA's agency-first purpose;
+- practical HOW/action is too far downstream from the default product surface.
 
-```text
-signal / idea / correction / failure / success
--> durable inbox / candidate store when decision-relevant
--> latent candidate by default
--> decide whether a trial is worth running
--> decision-relevant before-state + recovery/authority boundary
--> bounded expression / real task / Variation Space when applicable
--> observe outcomes
--> local selection
--> integrate / retain / adapt / dormant / reject / archive
--> wake on relevant signal or environment change
-```
+Working findings:
 
-Canonical cold HOW:
+- `F-208-13_AGENCY_FIRST_SEMANTICS_CAN_PROJECT_AS_DEFENSIVE_FIRST_HOT_POSTURE`
+- `F-208-14_DURABLE_DISTINCTIONS_DO_NOT_BY_THEMSELVES_PROVIDE_AN_ACTION_BRIDGE_TO_HOW`
+- `F-208-15_THEORY_FIRST_ADOPTER_SURFACE_WEAKENS_PRACTICAL_UTILITY`
+- `F-208-16_DERIVATION_TAX_SPENDS_RUNTIME_ATTENTION_PROVING_BOUNDARIES_INSTEAD_OF_ENABLING_ACTION`
 
-`releases/current/operational/procedures/EVOLUTION-LOOP.md`
+## v0.4 clean-root rebuild
 
-Route:
+Branch: `rebuild/v0.4.0-practical-core`
+Status: `ACTIVE_REBUILD / NOT_CURRENT / NOT_PROMOTED`
 
-`Runtime Kernel -> CUE-INDEX -> OA-EVO-01 -> EVOLUTION-LOOP.md -> Host-native organ`
+Primary artifacts:
 
-```text
-EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
-PROTECTION_OF_EVOLVABILITY != EVOLUTION_ITSELF
-EVOLUTION_LOOP != CONTINUOUS_SELF_EDITING
-```
+- `rebuild/v0.4.0/START-HERE.md`
+- `rebuild/v0.4.0/PRACTICAL-CORE.md`
 
-`tools/ena_evolve_v2.py` remains a narrow latent-record / migration packet helper, not a full lifecycle engine.
-
-## Adoption / Host operationalization
-
-After adoption, and after a material Host/runtime change, do one bounded local operationalization pass:
+Core decision:
 
 ```text
-SEMANTIC_ADOPTION != LOCAL_OPERATIONALIZATION
-LOCAL_OPERATIONALIZATION != INSTALL_EVERY_CONTROL
+V0.3.X = PRESERVED RESEARCH + SEMANTIC + PROVENANCE ASSET
+V0.4.0 = PRACTICE-FIRST PRODUCT REBUILD
+PRESERVE_HISTORY != PRESERVE_PRODUCT_SHAPE
 ```
 
-Inspect which applicable boundaries are already covered by Host-native mechanisms. For a real uncovered gap, propose the smallest cheap/reversible mechanism that could materially change or protect a real decision. `EXISTING`, `PROPOSE`, `NOT_REQUIRED`, and `NOT_APPLICABLE` are valid outcomes. Consequential installation still requires actual authority.
+Do not copy the v0.3.x tree and edit it down. Extract decision-material value and redesign from practical problems/actions outward.
 
-When Host facts repeatedly change decisions, preserve the smallest reusable **Local Projection** needed for those decisions. Reuse existing durable Host-native storage when possible. The Local Projection is an observed-reality cache, not a copied ENA baseline, authority source, or mandatory database.
+Target product order:
 
 ```text
-LOCAL_PROJECTION != SHADOW_ENA_BASELINE
-LOCAL_PROJECTION != NEW_AUTHORITY_SOURCE
-LOCAL_PROJECTION != MANDATORY_DATABASE
+PROBLEM / OPPORTUNITY
+-> DO NOW
+-> OBSERVE
+-> SELECT / STOP / REVALIDATE
+-> OPTIONAL BOUNDARY / THEORY
 ```
 
-## Adoption contract
+## Issue #234
+
+Issue `#234` reports the same "cabbage != radish" hot prose-rent failure from a DSH field-adopter Host.
+
+Maintainer disposition: `ACCEPT_CORE_DEFECT / NARROW_MACHINE_ONLY_CLAIM / ADVANCE_NOW_IN_V040_REBUILD`.
+
+Keep the useful rule:
 
 ```text
-DEFAULT_AGENT_HOT_PAYLOAD = releases/current/RUNTIME-ADOPTION-KERNEL.md
-AVAILABLE_RESOURCE != DEFAULT_HOT_PAYLOAD
-HOT_KERNEL != FULL_HOW_LIBRARY
+MACHINE_FIRST_WHEN_MACHINE_FIT != MACHINE_ONLY
 ```
 
-For ordinary Agent runtime, only the Runtime Adoption Kernel is resident by default. Cue Index, HOW Map, Evolution Loop, Enforcement Map, fixtures, references, Constitution detail, and research lineage are cold/on-demand.
+Machine guards should carry machine-fit properties, but local validators cannot by themselves prove external mandate, real-world effects, causal support, or future field behavior.
 
-Human adopters start at `releases/current/ADOPTER-QUICKSTART.md`.
+## Immediate next action
 
-## Share-ready contract
+`BUILD_V040_LEGACY_SEMANTIC_COVERAGE_LEDGER_AND_TEST_PRACTICAL_CORE_ON_REAL_WORK`
 
-Before recommending Current to another adopter/Agent:
+For major v0.3.x properties, decide based on practical consequence rather than inheritance:
 
-- known decision-bearing defects with a clear bounded fix must be resolved through the smallest successor;
-- current machine/regression gates must pass;
-- bounded identity/adopter/operational readback must agree with `CURRENT-BASELINE.yaml`;
-- unknown future defects remain legitimate field-validation risk, but known unfixed defects are not an acceptable recommendation state.
+`PRACTICAL_CORE | ACTION_CARD | MACHINE_GUARD | EXTERNAL_CONTROL | COLD_HOW | THEORY_ONLY | RETIRE`
 
-The same-version rule is machine-enforced by `.github/workflows/current-immutability.yml`: any change under `releases/current/**` must change a canonical Current `ena_version`, otherwise CI rejects the mutation. After F-208-11 the guard also rejects ambiguous/non-canonical top-level version serialization before comparing predecessor and proposed identity.
+Ask:
 
-```text
-SAME_VERSION -> SAME_EFFECTIVE_CONTENT
-POLICY_DECLARED != MACHINE_GUARDED
-GREEN_EXISTING_GATES != COMPLETE_GATE_COVERAGE
-MACHINE_GUARD_PRESENT != MACHINE_GUARD_SEMANTICALLY_CLOSED
-```
+1. What wrong action does this prevent?
+2. What positive action/capability does this enable?
+3. What is the cheapest representation that preserves that value?
 
-## Release posture
+Then dogfood the Practical Core on real ENA work and at least one real non-ENA Agent task. Use bounded fresh tests only when their result can change the product decision.
 
-```text
-IMMUTABLE_VERSION != IMMOBILE_CURRENT
-PRESERVE_OLD_RELEASES + MOVE_CURRENT_QUICKLY
-```
+## Active occurrences
 
-Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
-
-- R0 — adoption / projection / bounded tooling or publication-coherence field patch: machine/regression/readback + rollback;
-- R1 — operational behavior change: targeted operational validation + regression/readback + rollback;
-- R2 — core semantic/high-consequence change: heavy freeze/fresh falsification by default.
-
-If a bounded defect is found before promotion, fix it before promotion. If a known decision-bearing bounded defect is found after release, preserve the released occurrence and move Current through the smallest justified successor promptly rather than holding the fix for a later planned release.
-
-```text
-DEFECT_FOUND_BEFORE_PROMOTION -> FIX_BEFORE_PROMOTION
-KNOWN_BOUNDED_CURRENT_DEFECT -> RECORD_OCCURRENCE + SMALLEST_RAPID_SUCCESSOR
-FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
-```
-
-## Opportunity liveness
-
-Project method: `research/methodology/OPPORTUNITY-LIVENESS-DISCIPLINE.md`.
-
-A material external contribution or design opportunity may legitimately remain latent, but once the project decides it is worth preserving, it must have one explicit current liveness disposition:
-
-`ADVANCE_NOW | WAIT_FOR_SIGNAL | BLOCKED | REJECT | ARCHIVE`.
-
-`OPEN`, `DRAFT`, `ACCEPT_DIRECTION`, `EVIDENCE_NEEDED`, and `NO_SUCCESSOR_TRIGGER_YET` are not complete liveness dispositions by themselves.
-
-```text
-LATENT != FORGOTTEN
-WAIT != UNSPECIFIED_DELAY
-ACCEPT_DIRECTION != COMPLETE_RECONCILIATION
-NO_SUCCESSOR_TRIGGER_YET -> NAME_THE_TRIGGER_OR_CLOSE_THE_PATH
-DECISION_CHANGING_ACTION_AVAILABLE + AUTHORITY_AVAILABLE + TOOLING_AVAILABLE -> ADVANCE_NOW
-PRESERVE_POSSIBILITY != PRESERVE_UNBOUNDED_BACKLOG
-BUG != ONLY_VALID_SUCCESSOR_TRIGGER
-DEMONSTRATED_BOUNDED_VALUE -> SMALLEST_JUSTIFIED_SUCCESSOR
-```
-
-Do not add arbitrary deadlines merely to create motion. `WAIT_FOR_SIGNAL` requires an observable wake context and the first decision-changing action to perform after wake; `BLOCKED` requires an explicit boundary and unblock condition.
-
-## Active field stream
-
-Issue `#208` follows Current, not one release number. F-208-01 through F-208-12 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
-
-`F-208-10_SAME_VERSION_CURRENT_BYTE_MUTATION_NOT_MACHINE_REJECTED` was exposed by external Agent contribution PR `#224`: the PR changed an already released Current kernel while retaining v0.3.14 identity, and the existing gates passed. Control-plane PR `#225` added the version-neutral Current Immutability Guard and merged as `becd83529e58d166f907c519d30da081180d260a`. Current v0.3.14 bytes did not change.
-
-Successor-session re-verification then exposed `F-208-11_SEMANTIC_VERSION_SERIALIZATION_CAN_BYPASS_IMMUTABILITY_GUARD`: the guard compared raw YAML scalar text, so a representation-only change such as quoted `v0.3.14` could look like a changed identity while YAML consumers still saw the same version. Control-plane PR `#228` closed this normalization gap and merged as `b685d709fbcd98bf0412336d64ce5395dc23ad54`. Current v0.3.14 bytes again did not change.
-
-`F-208-12_VALUABLE_OPPORTUNITY_CAN_REMAIN_LATENT_WITHOUT_LIVENESS_DISPOSITION` was exposed while reconciling PR `#224` and Issue `#222`: Current already permits latent candidates, `WAIT_FOR_CONTEXT`, triggered obligations, activation/wake semantics, and rapid opportunity succession, but the project had no explicit requirement connecting an accepted opportunity to a decision-changing next action, observable wake signal, real blocker/unblock condition, or reject/archive state. PR `#231` added immediate project-level containment through `OPPORTUNITY-LIVENESS-DISCIPLINE.md` without changing v0.3.14 bytes. Whether the same property needs an adopter-facing Current successor is now a bounded active design decision rather than an indefinite backlog item.
-
-PR `#224` remains useful contribution occurrence/provenance. Its trigger-style positive-rule direction is accepted for further consideration, but the submitted expansion is not semantics-neutral and expands the Durable distinctions section by roughly 4x. Live review retained the original five blockers (#1 continuity, #6 local success, #8 migration, #17 evidence independence, #19 UNKNOWN), identified further narrowing needs, and recorded a compact-hybrid comparison candidate. The current judgment remains `ATTRACTIVE_EXPRESSION_DIRECTION != DEMONSTRATED_SUCCESSOR_VALUE`.
-
-PR `#224` liveness disposition is now `BLOCKED / FRESH_EXECUTION_SURFACE`. Exact unblock condition: a genuinely fresh adopter/Agent, not pre-exposed to #224's hypothesis, encounters frozen v0.3.14 through the ordinary adoption path and produces preserved first output on a bounded real-use/readback task. After unblock, adjudicate whether the current negation form causes a material missed boundary, wrong action, false confidence, or recurring inference/context burden. It must not be merged into v0.3.14 in place; any adopted refinement requires successor identity and proportional release assessment.
-
-Issue `#222` remains preserved as a design occurrence but is no longer one undifferentiated active backlog item. Its directions now have explicit liveness dispositions: kernel shrinking, mechanism-first, rent-accounted retirement, three-verb interface, Host-independent management plane and card-style documentation are `WAIT_FOR_SIGNAL` with named reality triggers; the dashboard concept is `ARCHIVE_AS_DESIGN_SKETCH` unless recurring operator need appears.
-
-Recent reality contact also includes reconciled DSH PR `#220`: the tested high-reasoning salience probes were non-discriminating and do not justify a new primary or a claim that the Runtime Kernel is useful/useless.
-
-## Project ecosystem
-
-Canonical scope/ownership: `PROJECT-ECOSYSTEM.md`.
-
-The active project manager/session maintains three canonical repositories as one cooperating project ecosystem while preserving separate ownership boundaries:
-
-- `guytogay/evolution-native-agent-architecture` — ENA theory, Current/release semantics, research/field evidence;
-- `guytogay/human-ai-workbench` — reusable project-general human-AI working method;
-- `guytogay/ena-field-guide` — evidence-backed practical ENA HOW.
-
-Reusable/disposable `independent-validation-cleanroom*` repositories are experimental execution surfaces, not a fourth canonical knowledge store. Create/reset/delete them as useful for isolation; preserve unique evidence/provenance before disposal.
-
-When available Agent tooling can perform experiment setup, repository operations, transport, scoring, or evidence capture without violating the required boundary, the Agent should execute those steps directly instead of assigning copy/paste or relay work to the human.
-
-```text
-ROUTE_BY_CANONICAL_OWNERSHIP
-AGENT_CAN_SELF_EXECUTE_WITH_REQUIRED_BOUNDARY -> AGENT_EXECUTES
-HUMAN_IN_THE_LOOP != HUMAN_AS_THE_LOOP
-CLEAN_REPOSITORY != INDEPENDENT_AI_WORKER
-```
+- Issue `#208` — Current field validation umbrella; do not close cosmetically.
+- Issue `#222` — broad design occurrence; re-adjudicate useful directions through agency-first/practicality-first lens.
+- PR `#224` — contribution occurrence showing the actionability problem; do not merge its paragraph-scale rewrite into v0.3.14.
+- Issue `#234` — active prose-rent/practicality input to v0.4.
+- `ena-field-guide` PR `#6` — admission candidate; helper existence is not recovery proof.
 
 ## Research status
 
-The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No active mechanism primary remains. Reopen research only for a concrete decision-changing failure or a genuinely new non-derivable discriminator.
+Evolutionary-memory mechanism-discrimination campaign remains `CLOSED`. Reopen only for a concrete decision-changing failure or genuinely new non-derivable discriminator.
 
-## Open work
+## Project ecosystem
 
-- GitHub Issue `#208` — version-neutral Current field validation; F-208-12 is contained at project-control-plane level and requires a bounded decision on whether Current itself needs an opportunity-liveness successor.
-- GitHub PR `#224` — trigger-style Durable distinctions contribution; semantic disposition `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`; liveness `BLOCKED / FRESH_EXECUTION_SURFACE` with exact unblock condition recorded on the PR.
-- GitHub Issue `#222` — broad design occurrence; sub-directions have explicit `WAIT_FOR_SIGNAL` or `ARCHIVE_AS_DESIGN_SKETCH` dispositions instead of unspecified active work.
-- `ena-field-guide` PR `#6` — active admission candidate; `PORTABLE_SMOKE_PASS` is complete; liveness is `WAIT_FOR_SIGNAL / REAL_AGENT_HOST_RECOVERY_CONTEXT`. More synthetic smoke is not the missing evidence.
-- Maintain Human-AI Workbench and ENA Field Guide when ENA work produces method/HOW material that belongs there; cite rather than mirror.
-- Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
+- ENA repo — theory, Current/release semantics, evidence, field findings, v0.4 product rebuild.
+- `human-ai-workbench` — reusable project-general working/succession/coordination method.
+- `ena-field-guide` — evidence-backed practical ENA-derived HOW.
+- `independent-validation-cleanroom*` — disposable execution surfaces, not canonical knowledge stores.
+
+## Operating restraint
+
+Do not solve ENA's complexity by writing a larger framework about simplicity.
+
+> What is the simplest useful thing to do next?
