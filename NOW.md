@@ -23,8 +23,6 @@ Current rebuild surfaces:
 - `rebuild/v0.4.0/PRACTICAL-CORE.md` — provisional early draft; do not extend mechanically.
 - `rebuild/v0.4.0/archive/LEGACY-SEMANTIC-COVERAGE-2026-09-07.md` — archived regression/evidence aid, not a product blueprint.
 
-The previous active-root `LEGACY-SEMANTIC-COVERAGE.md` has been removed from the rebuild root and archived.
-
 ## Owner direction correction — mandatory
 
 The owner identified a deeper defect than verbosity alone: **product/project boundary contamination**.
@@ -57,16 +55,22 @@ Previously named families such as `EVIDENCE/SUPPORT`, `EFFECT LIFECYCLE`, `RECOV
 
 ## Cleanup / migration direction
 
-The owner explicitly directed the maintainer to:
+The owner explicitly directed the maintainer to archive, delete, or transfer accumulated material according to its real role, and not to make the owner manually clean it.
 
-- archive material that deserves preservation but not live/product prominence;
-- delete material that no longer earns a live place and is already recoverable through Git history;
-- transfer reusable general human-AI/project-working methods to the repository that owns them, primarily `guytogay/human-ai-workbench`;
-- avoid asking the owner to manually clean the accumulated contamination.
+First cleanup pass:
 
-The owner explicitly permits creating a new repository for the clean v0.4 product if that is the best way to avoid carrying structural contamination forward. No new v0.4 product repository has been created yet.
+- moved the v0.4 legacy coverage ledger out of the active rebuild root into `rebuild/v0.4.0/archive/`;
+- archived the historical repository-adoption origin record under `research/history/`;
+- removed obsolete root `PROJECT-HUB.md`, `PROJECT-STRUCTURE.md`, and `PROJECT-ECOSYSTEM.md`;
+- reduced `collaboration/README.md` to a cold-history notice instead of a current project protocol;
+- shortened root `README.md` back to a product/adoption entry;
+- minimized `PROJECT-METADATA.yaml`; it remains temporarily because the v0.3.14 Current validation workflow still reads it.
 
-The current repository may therefore become primarily the v0.3.x Current/history/research/evidence source while a clean product home is established separately.
+Reusable human-AI project-working method belongs in `guytogay/human-ai-workbench`; its live state already carries the human-relay/self-execution method, so ENA should not duplicate it.
+
+The owner explicitly permits a separate clean repository for the v0.4 product. `guytogay/ena` appears unused and is a suitable candidate name, but no new product repository has been created yet.
+
+The current repository may therefore become primarily the v0.3.x Current/history/research/evidence source while a clean v0.4 product home is established separately.
 
 ## Active occurrences
 
@@ -78,6 +82,6 @@ The current repository may therefore become primarily the v0.3.x Current/history
 
 ## Immediate next action
 
-`ESTABLISH_CLEAN_V040_PRODUCT_BOUNDARY_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS`
+`ESTABLISH_CLEAN_V040_PRODUCT_HOME_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS`
 
 Do not continue legacy-family Action Card derivation until the product boundary is clean.
