@@ -1,4 +1,4 @@
-schema_version: '5.7'
+schema_version: '5.8'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-07'
 normal_continuation:
@@ -11,11 +11,19 @@ handoff_framework:
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
 current_handoff_record:
-  id: 2026-09-04-temporal-assimilation-primary-complete
+  id: 2026-09-07-v0314-pr224-review
   state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
-  record_root: research/handoffs/records/2026-09-04-temporal-assimilation-primary-complete/
+  record_root: research/handoffs/records/2026-09-07-v0314-pr224-review/
+  start_here: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-START-HERE.md
+  manifest: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-MANIFEST.yaml
+  project_state: research/handoffs/records/2026-09-07-v0314-pr224-review/PROJECT-STATE.md
+  recent_rounds: research/handoffs/records/2026-09-07-v0314-pr224-review/RECENT-THREE-ROUNDS.md
+  file_catalog: research/handoffs/records/2026-09-07-v0314-pr224-review/FILE-CATALOG.md
+  lessons: research/handoffs/records/2026-09-07-v0314-pr224-review/LESSONS-AND-REMINDERS.md
+  repo_ecosystem: research/handoffs/records/2026-09-07-v0314-pr224-review/REPO-ECOSYSTEM.md
+  readback: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-READBACK.md
   readback_state: PASS
-  note: This dated record remains occurrence truth for its boundary. Live state has advanced through research closure and rapid Current succession. Use NOW.md plus the live pointers below for current facts.
+  note: This record captures v0.3.14 Current after F-208-10 control-plane repair and the active narrowed review of external Agent PR #224. Reverify PR #224 live head and main before writes.
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
@@ -109,6 +117,7 @@ open_work:
   - 208
   product:
   - 'PR #224: trigger-style Durable distinctions; ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED'
+  - 'ena-field-guide PR #6: admission candidate; corrected live restore path not yet drilled'
   research: []
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -126,6 +135,8 @@ receiver_contract:
   erase_external_contribution_provenance_during_promotion: FORBIDDEN
   mutate_releases_current_without_successor_identity: FORBIDDEN
   treat_green_existing_gates_as_complete_release_identity_enforcement: FORBIDDEN
+  treat_trigger_style_rewrite_as_semantics_neutral_without_review: FORBIDDEN
+  assume_hot_payload_expansion_pays_rent_without_evidence: FORBIDDEN
   confuse_semantic_adoption_with_local_operationalization: FORBIDDEN
   install_every_possible_control_during_operationalization: FORBIDDEN
   confuse_local_projection_with_shadow_ena_baseline: FORBIDDEN
@@ -134,4 +145,4 @@ receiver_contract:
   confuse_evolution_vocabulary_with_executable_evolution_loop: FORBIDDEN
   confuse_protection_of_evolvability_with_evolution_itself: FORBIDDEN
   imply_ena_evolve_v2_is_full_lifecycle_engine: FORBIDDEN
-rule: 'ENA Current remains v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-10 is closed at the control-plane level by PR #225: changes under releases/current now require a successor ena_version, so same-version effective-content immutability is machine-guarded. PR #224 remains an external Agent contribution candidate whose trigger-style direction is accepted but whose current wording requires semantic narrowing and a successor release identity before adoption. The evolutionary-memory mechanism-discrimination campaign remains closed and no active mechanism primary remains.'
+rule: 'ENA Current remains v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-10 is closed at the control-plane level by PR #225. PR #224 remains an external Agent contribution candidate whose trigger-style direction is accepted but current wording needs semantic narrowing, hot-payload-cost judgment, and a successor identity before any adoption. No active mechanism primary remains.'

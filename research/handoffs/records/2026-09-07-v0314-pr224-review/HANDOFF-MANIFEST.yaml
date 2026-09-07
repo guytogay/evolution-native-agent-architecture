@@ -1,0 +1,54 @@
+schema_version: "1.0"
+handoff_id: "2026-09-07-v0314-pr224-review"
+status: DEEP_PROJECT_SESSION_SUCCESSION_CURRENT_STABLE_EXTERNAL_CONTRIBUTION_REVIEW_ACTIVE
+created_at: "2026-09-07"
+
+required_read_order:
+  - NOW.md
+  - research/handoffs/CURRENT-HANDOFF.yaml
+  - HANDOFF-START-HERE.md
+  - HANDOFF-MANIFEST.yaml
+  - PROJECT-STATE.md
+  - RECENT-THREE-ROUNDS.md
+  - LESSONS-AND-REMINDERS.md
+  - REPO-ECOSYSTEM.md
+  - FILE-CATALOG.md
+
+current_version: v0.3.14
+current_status: CURRENT
+current_maturity: FIELD_VALIDATION
+current_release_merge: d21477663013c460c88719bebdcc3f7dfe9ba3d7
+main_head_at_handoff: 6092517d374c09980621664f8e004dac07a902a3
+released_bytes_changed_after_v0314_release: false
+
+active_field_stream: 208
+active_research_primary: NONE
+research_campaign_state: CLOSED
+
+active_product_candidate:
+  pr: 224
+  head_at_handoff: b4b0369d5a4e20550a64d1abf5b13968588fddff
+  state_at_handoff: OPEN_DRAFT
+  disposition: ACCEPT_DIRECTION_REQUEST_NARROWING_SUCCESSOR_REQUIRED
+  merge_into_v0314_in_place: FORBIDDEN
+
+recent_control_plane_fix:
+  finding: F-208-10_SAME_VERSION_CURRENT_BYTE_MUTATION_NOT_MACHINE_REJECTED
+  fix_pr: 225
+  fix_merge: becd83529e58d166f907c519d30da081180d260a
+  live_state_pr: 226
+  live_state_merge: 6092517d374c09980621664f8e004dac07a902a3
+  current_immutability_guard: .github/workflows/current-immutability.yml
+
+next_action: REVIEW_PR224_LIVE_HEAD_AND_NARROW_TRIGGER_STYLE_CANDIDATE_WITHOUT_PRECOMMITTING_TO_V0315
+
+receiver_rules:
+  - REVERIFY_LIVE_MUTABLE_FACTS_BEFORE_WRITES
+  - DO_NOT_ASK_USER_TO_REPEAT_PERSISTED_BACKGROUND
+  - PRESERVE_EXTERNAL_CONTRIBUTION_PROVENANCE
+  - DO_NOT_MUTATE_RELEASES_CURRENT_WITHOUT_SUCCESSOR_IDENTITY
+  - DO_NOT_TREAT_GREEN_EXISTING_GATES_AS_COMPLETE_GATE_COVERAGE
+  - DO_NOT_PROMOTE_TRIGGER_STYLE_WORDING_AS_SEMANTICS_NEUTRAL_WITHOUT_REVIEW
+  - DO_NOT_ASSUME_HOT_PAYLOAD_EXPANSION_PAYS_RENT_WITHOUT_EVIDENCE
+  - DO_NOT_REOPEN_CLOSED_RESEARCH_FOR_ACTIVITY
+  - PRESERVE_NEGATIVE_NULL_AND_NARROWED_RESULTS
