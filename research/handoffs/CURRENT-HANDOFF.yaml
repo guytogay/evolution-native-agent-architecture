@@ -1,4 +1,4 @@
-schema_version: '5.9'
+schema_version: '6.0'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-07'
 normal_continuation:
@@ -11,17 +11,18 @@ handoff_framework:
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
 current_handoff_record:
-  id: 2026-09-07-v040-practical-rebuild
-  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
-  record_root: research/handoffs/records/2026-09-07-v040-practical-rebuild/
-  start_here: research/handoffs/records/2026-09-07-v040-practical-rebuild/HANDOFF-START-HERE.md
-  manifest: research/handoffs/records/2026-09-07-v040-practical-rebuild/HANDOFF-MANIFEST.yaml
-  project_state: research/handoffs/records/2026-09-07-v040-practical-rebuild/PROJECT-STATE.md
-  recent_rounds: research/handoffs/records/2026-09-07-v040-practical-rebuild/RECENT-THREE-ROUNDS.md
-  file_catalog: research/handoffs/records/2026-09-07-v040-practical-rebuild/FILE-CATALOG.md
-  lessons: research/handoffs/records/2026-09-07-v040-practical-rebuild/LESSONS-AND-REMINDERS.md
-  repo_ecosystem: research/handoffs/records/2026-09-07-v040-practical-rebuild/REPO-ECOSYSTEM.md
-  readback: research/handoffs/records/2026-09-07-v040-practical-rebuild/HANDOFF-READBACK.md
+  id: 2026-09-07-v040-boundary-contamination-correction
+  state: DEEP_PROJECT_SESSION_SUCCESSION_READY
+  record_root: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/
+  start_here: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/HANDOFF-START-HERE.md
+  owner_direction_correction: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/OWNER-DIRECTION-CORRECTION.md
+  manifest: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/HANDOFF-MANIFEST.yaml
+  project_state: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/PROJECT-STATE.md
+  recent_rounds: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/RECENT-THREE-ROUNDS.md
+  file_catalog: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/FILE-CATALOG.md
+  lessons: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/LESSONS-AND-REMINDERS.md
+  repo_ecosystem: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/REPO-ECOSYSTEM.md
+  readback: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/HANDOFF-READBACK.md
   readback_state: PASS
 current_project_authorities:
   live_status: NOW.md
@@ -38,20 +39,13 @@ current_adoption:
 v040_rebuild:
   state: ACTIVE_REBUILD_NOT_CURRENT_NOT_PROMOTED
   branch: rebuild/v0.4.0-practical-core
-  start_here: rebuild/v0.4.0/START-HERE.md
   practical_core: rebuild/v0.4.0/PRACTICAL-CORE.md
-  thesis: PRACTICE_FIRST_THEORY_ON_DEMAND_DERIVE_ONCE_USE_MANY
-  legacy_role: PRESERVED_RESEARCH_SEMANTIC_PROVENANCE_ASSET
-  copy_v03_tree_as_product_structure: FORBIDDEN
-  next_action: BUILD_V040_LEGACY_SEMANTIC_COVERAGE_LEDGER_AND_TEST_PRACTICAL_CORE_ON_REAL_WORK
-  placement_classes:
-    - PRACTICAL_CORE
-    - ACTION_CARD
-    - MACHINE_GUARD
-    - EXTERNAL_CONTROL
-    - COLD_HOW
-    - THEORY_ONLY
-    - RETIRE
+  legacy_coverage: rebuild/v0.4.0/LEGACY-SEMANTIC-COVERAGE.md
+  legacy_role: EVIDENCE_HISTORY_REGRESSION_ORACLE_NOT_DESIGN_SKELETON
+  copy_v03_tree_or_taxonomy_as_product_structure: FORBIDDEN
+  mechanically_continue_five_legacy_action_card_families: FORBIDDEN
+  next_action: ESTABLISH_CLEAN_V040_PRODUCT_BOUNDARY_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS
+  clean_product_repo_option: ALLOWED_NOT_YET_CREATED
 active_product_findings:
   - F-208-12_VALUABLE_OPPORTUNITY_CAN_REMAIN_LATENT_WITHOUT_LIVENESS_DISPOSITION
   - F-208-13_AGENCY_FIRST_SEMANTICS_CAN_PROJECT_AS_DEFENSIVE_FIRST_HOT_POSTURE
@@ -62,18 +56,18 @@ issue_234:
   state: OPEN_ADVANCE_NOW
   disposition: ACCEPT_CORE_DEFECT_NARROW_MACHINE_ONLY_CLAIM_ADVANCE_IN_V040_REBUILD
   maintainer_comment_id: 5569005018
-  rule: MACHINE_FIRST_WHEN_MACHINE_FIT_NE_MACHINE_ONLY
 completed_research:
   evolutionary_memory_mechanism_discrimination:
     state: CLOSED
     reopen_without_concrete_decision_changing_trigger: FORBIDDEN
 open_work:
   ena_issue_208: ACTIVE_FIELD_VALIDATION
-  ena_issue_222: PROACTIVE_REVIEW_THROUGH_AGENCY_AND_PRACTICALITY_LENS
+  ena_issue_222: REVIEW_THROUGH_CORRECTED_CLEAN_DERIVATION_LENS
   ena_pr_224: PRESERVE_AS_CONTRIBUTION_OCCURRENCE_DO_NOT_MERGE_PARAGRAPH_REWRITE_INTO_V0314
   ena_issue_234: ACTIVE_V040_INPUT
   field_guide_pr_6: ADMISSION_CANDIDATE_NEEDS_REAL_FORWARD_RISK_JUDGMENT
 receiver_contract:
+  read_owner_direction_correction_before_v040_design: REQUIRED
   ask_user_to_repeat_persisted_background: FORBIDDEN
   reverify_live_mutable_facts_before_writes: REQUIRED
   preserve_negative_and_null_results: REQUIRED
@@ -81,8 +75,8 @@ receiver_contract:
   mutate_releases_current_without_successor_identity: FORBIDDEN
   treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
   reopen_closed_research_for_curiosity_only: FORBIDDEN
-  copy_v03_structure_into_v04_by_default: FORBIDDEN
-  solve_simplicity_problem_with_larger_framework: FORBIDDEN
-  assume_machine_guard_can_prove_external_reality: FORBIDDEN
-  default_check: WHAT_IS_THE_SIMPLEST_USEFUL_THING_TO_DO_NEXT
-rule: 'ENA Current remains v0.3.14. The active product direction is a clean-root v0.4 Practical Core rebuild. Preserve v0.3.x as semantic/research/provenance substrate, extract value by practical consequence, and do not preserve the old product shape by default.'
+  copy_owner_maintainer_instructions_into_ena_product_by_default: FORBIDDEN
+  copy_v03_structure_or_taxonomy_into_v04_by_default: FORBIDDEN
+  treat_legacy_coverage_ledger_as_v04_blueprint: FORBIDDEN
+  turn_handoff_or_project_management_method_into_ena_product_without_independent_justification: FORBIDDEN
+rule: 'Current remains v0.3.14. For v0.4, separate ENA product from ENA-maintainer/project/history machinery. Re-derive the clean product from ENA purpose and real Agent problems first; use v0.3.x only afterward as evidence and regression/omission checking. The owner correction record is mandatory succession context.'
