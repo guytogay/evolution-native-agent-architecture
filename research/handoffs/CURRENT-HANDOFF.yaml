@@ -119,7 +119,7 @@ open_work:
   github_issues:
   - 208
   product:
-  - 'PR #224: trigger-style Durable distinctions; ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED_IF_PROMOTED / NO_SUCCESSOR_TRIGGER_YET'
+  - 'PR #224: trigger-style Durable distinctions; maintainer disposition ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED; current release judgment NO_SUCCESSOR_TRIGGER_YET'
   - 'ena-field-guide PR #6: admission candidate; corrected live restore path not yet drilled'
   research: []
 receiver_contract:
@@ -148,4 +148,4 @@ receiver_contract:
   confuse_evolution_vocabulary_with_executable_evolution_loop: FORBIDDEN
   confuse_protection_of_evolvability_with_evolution_itself: FORBIDDEN
   imply_ena_evolve_v2_is_full_lifecycle_engine: FORBIDDEN
-rule: 'ENA Current remains v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-10 and F-208-11 are closed at the control-plane level by PR #225 and PR #228 respectively, with Current bytes unchanged. PR #224 remains an external Agent contribution candidate: trigger-style direction accepted, semantic narrowing required, compact hybrid retained for comparison, and no successor release trigger demonstrated yet. No active mechanism primary remains.'
+rule: 'ENA Current remains v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-10 and F-208-11 are closed at the control-plane level by PR #225 and PR #228 respectively, with Current bytes unchanged. PR #224 remains an external Agent contribution candidate with maintainer disposition ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED; compact hybrid is retained for comparison, but no successor release trigger is demonstrated yet. No active mechanism primary remains.'
