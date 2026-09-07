@@ -28,12 +28,51 @@ jobs:
         run: |
           set -euo pipefail
 
+          read_version() {
+            local text key_count canonical_count line
+            text="$(cat)"
+            key_count="$(printf '%s\n' "$text" | grep -Ec '^[[:space:]]*ena_version[[:space:]]*:' || true)"
+            canonical_count="$(printf '%s\n' "$text" | grep -Ec '^ena_version: v[0-9]+\.[0-9]+\.[0-9]+$' || true)"
+
+            if [[ "$key_count" -ne 1 || "$canonical_count" -ne 1 ]]; then
+              echo "::error::CURRENT-BASELINE.yaml must contain exactly one canonical top-level identity line: ena_version: vN.N.N" >&2
+              return 2
+            fi
+
+            line="$(printf '%s\n' "$text" | grep -E '^ena_version: v[0-9]+\.[0-9]+\.[0-9]+$')"
+            printf '%s\n' "${line#ena_version: }"
+          }
+
+          assert_version_pass() {
+            local expected="$1" input="$2" actual
+            actual="$(printf '%s' "$input" | read_version)"
+            if [[ "$actual" != "$expected" ]]; then
+              echo "::error::Version parser self-test expected $expected, got $actual"
+              exit 1
+            fi
+          }
+
+          assert_version_reject() {
+            local input="$1"
+            if printf '%s' "$input" | read_version >/dev/null 2>&1; then
+              echo "::error::Version parser self-test accepted a non-canonical or ambiguous ena_version representation."
+              exit 1
+            fi
+          }
+
+          # F-208-11 regression coverage: semantic no-op serialization or duplicate
+          # keys must not masquerade as a successor identity.
+          assert_version_pass 'v0.3.14' $'ena_version: v0.3.14\n'
+          assert_version_reject $"ena_version: 'v0.3.14'\n"
+          assert_version_reject $'ena_version: v0.3.14 # same semantic value\n'
+          assert_version_reject $'ena_version: v0.3.15\nena_version: v0.3.14\n'
+
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
             BASE_SHA="${{ github.event.pull_request.base.sha }}"
           elif [[ "${{ github.event_name }}" == "push" ]]; then
             BASE_SHA="${{ github.event.before }}"
           else
-            echo "workflow_dispatch: no predecessor comparison required"
+            echo "workflow_dispatch: parser self-test passed; no predecessor comparison required"
             exit 0
           fi
 
@@ -49,17 +88,8 @@ jobs:
             exit 0
           fi
 
-          read_version() {
-            awk -F': *' '$1 == "ena_version" {print $2; exit}'
-          }
-
           BASE_VERSION="$(git show "$BASE_SHA:releases/current/CURRENT-BASELINE.yaml" | read_version)"
           HEAD_VERSION="$(read_version < releases/current/CURRENT-BASELINE.yaml)"
-
-          if [[ -z "$BASE_VERSION" || -z "$HEAD_VERSION" ]]; then
-            echo "::error::Unable to resolve ena_version from predecessor or proposed CURRENT-BASELINE.yaml."
-            exit 1
-          fi
 
           echo "Current predecessor version: $BASE_VERSION"
           echo "Current proposed version:    $HEAD_VERSION"
