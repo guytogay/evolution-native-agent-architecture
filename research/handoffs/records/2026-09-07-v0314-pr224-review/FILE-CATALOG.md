@@ -8,6 +8,17 @@
 - `research/handoffs/CURRENT-HANDOFF.yaml` — current deep-succession router.
 - `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md` — release-lane method.
 
+## Handoff-local entry/support
+
+- `HANDOFF-START-HERE.md` — exact read order and next action.
+- `HANDOFF-MANIFEST.yaml` — structured snapshot of Current, active PR, control-plane fix, and receiver rules.
+- `PROJECT-STATE.md` — detailed product/research/PR #224 state.
+- `RECENT-THREE-ROUNDS.md` — DSH→v0.3.13, fresh review→v0.3.14, Doubao PR #224→F-208-10.
+- `LESSONS-AND-REMINDERS.md` — non-regression rules and interpretation discipline.
+- `REPO-ECOSYSTEM.md` — upstream/downstream ownership and live related PRs.
+- `SESSION-NEXT-PROMPT.md` — copy/paste launch prompt for the next ordinary project-manager session; never use for a fresh validator.
+- `HANDOFF-READBACK.md` — handoff completeness and authority readback.
+
 ## Current product paths relevant to active review
 
 - `releases/current/RUNTIME-ADOPTION-KERNEL.md` — one default hot semantic payload; PR #224 proposes changing only its Durable distinctions section.
