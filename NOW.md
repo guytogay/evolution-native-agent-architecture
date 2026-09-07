@@ -39,6 +39,7 @@ Primary artifacts:
 
 - `rebuild/v0.4.0/START-HERE.md`
 - `rebuild/v0.4.0/PRACTICAL-CORE.md`
+- `rebuild/v0.4.0/LEGACY-SEMANTIC-COVERAGE.md`
 
 Core decision:
 
@@ -60,6 +61,16 @@ PROBLEM / OPPORTUNITY
 -> OPTIONAL BOUNDARY / THEORY
 ```
 
+## Rebuild progress
+
+The first legacy semantic coverage pass is complete on the rebuild branch.
+
+- 29 major legacy property/failure families now have practical placements.
+- The 19-item durable-distinction catalogue is marked `RETIRE` as a product unit; decision-material slices move to action/guard/cold locations.
+- Mandatory `semantic -> Cue Index -> HOW Map` traversal is marked for retirement as the default product path; problem/action surfaces should link deeper HOW directly when needed.
+- Practical Core dogfood covered ENA rebuild work and a real non-ENA Human-AI Workbench decision.
+- Dogfood exposed one bounded gap: material opportunities that cannot move immediately needed explicit wake/unblock semantics. `PRACTICAL-CORE.md` now carries the compact `ACT_NOW | WAIT_FOR_SIGNAL | BLOCKED | DROP` liveness rule.
+
 ## Issue #234
 
 Issue `#234` reports the same "cabbage != radish" hot prose-rent failure from a DSH field-adopter Host.
@@ -74,21 +85,25 @@ MACHINE_FIRST_WHEN_MACHINE_FIT != MACHINE_ONLY
 
 Machine guards should carry machine-fit properties, but local validators cannot by themselves prove external mandate, real-world effects, causal support, or future field behavior.
 
+The initial placement pass now exists, but Issue #234 remains open until the rebuilt practical surface demonstrates material protection with lower prose/derivation rent.
+
 ## Immediate next action
 
-`BUILD_V040_LEGACY_SEMANTIC_COVERAGE_LEDGER_AND_TEST_PRACTICAL_CORE_ON_REAL_WORK`
+`DERIVE_MINIMUM_V040_ACTION_CARDS_AND_REALITY_TEST_THEIR_RENT`
 
-For major v0.3.x properties, decide based on practical consequence rather than inheritance:
+Start only with the legacy families that still appear to need practical detail beyond the Core:
 
-`PRACTICAL_CORE | ACTION_CARD | MACHINE_GUARD | EXTERNAL_CONTROL | COLD_HOW | THEORY_ONLY | RETIRE`
+`EVIDENCE/SUPPORT | EFFECT LIFECYCLE | RECOVERY/RESUME | ADAPTATION IMPORT | COMPOSITION`
 
-Ask:
+For each candidate card:
 
-1. What wrong action does this prevent?
-2. What positive action/capability does this enable?
-3. What is the cheapest representation that preserves that value?
+1. use a real problem/task rather than mirroring an old concept;
+2. keep `TRIGGER -> DO NOW -> OBSERVE -> SELECT/STOP/REVALIDATE` compact;
+3. add only the boundary that changes the action;
+4. prefer direct Host-local synthesis or a cold HOW link when a card adds no decision value;
+5. retire the card idea if it cannot outperform the cheaper path.
 
-Then dogfood the Practical Core on real ENA work and at least one real non-ENA Agent task. Use bounded fresh tests only when their result can change the product decision.
+Do not run broad fresh-model experiments yet. Use bounded fresh acceptance only when a concrete uncertainty can change the product decision.
 
 ## Active occurrences
 
