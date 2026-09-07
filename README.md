@@ -22,11 +22,13 @@ LOCAL_PROJECTION != SHADOW_ENA_BASELINE
 EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
 ```
 
-## Development
+## Next ENA
 
-A clean-root v0.4 rebuild is in progress. It is **not Current and not promoted**.
+The clean product home for the next ENA is [`guytogay/ENA`](https://github.com/guytogay/ENA).
 
-Project-maintainer status is in [`NOW.md`](NOW.md). Historical research and evidence remain available only when a concrete question needs them.
+It is under active development and is **not yet Current or promoted**. This repository remains the source for v0.3.14 Current, legacy research, evidence, experiments, and historical provenance until a successor is formally promoted.
+
+Project-maintainer status is in [`NOW.md`](NOW.md).
 
 ## Contribute
 
