@@ -63,8 +63,8 @@ jobs:
           # F-208-11 regression coverage: semantic no-op serialization or duplicate
           # keys must not masquerade as a successor identity.
           assert_version_pass 'v0.3.14' $'ena_version: v0.3.14\n'
-          assert_version_reject $"ena_version: 'v0.3.14'\n"
-          assert_version_reject $'ena_version: v0.3.14 # same semantic value\n'
+          assert_version_reject "ena_version: 'v0.3.14'"
+          assert_version_reject 'ena_version: v0.3.14 # same semantic value'
           assert_version_reject $'ena_version: v0.3.15\nena_version: v0.3.14\n'
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
