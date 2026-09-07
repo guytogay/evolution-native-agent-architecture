@@ -31,7 +31,7 @@ jobs:
           read_version() {
             local text key_count canonical_count line
             text="$(cat)"
-            key_count="$(printf '%s\n' "$text" | grep -Ec '^[[:space:]]*ena_version[[:space:]]*:' || true)"
+            key_count="$(printf '%s\n' "$text" | grep -Ec '^ena_version[[:space:]]*:' || true)"
             canonical_count="$(printf '%s\n' "$text" | grep -Ec '^ena_version: v[0-9]+\.[0-9]+\.[0-9]+$' || true)"
 
             if [[ "$key_count" -ne 1 || "$canonical_count" -ne 1 ]]; then
@@ -61,7 +61,7 @@ jobs:
           }
 
           # F-208-11 regression coverage: semantic no-op serialization or duplicate
-          # keys must not masquerade as a successor identity.
+          # top-level keys must not masquerade as a successor identity.
           assert_version_pass 'v0.3.14' $'ena_version: v0.3.14\n'
           assert_version_reject "ena_version: 'v0.3.14'"
           assert_version_reject 'ena_version: v0.3.14 # same semantic value'
