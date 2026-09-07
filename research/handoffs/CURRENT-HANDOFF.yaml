@@ -1,4 +1,4 @@
-schema_version: '6.0'
+schema_version: '6.1'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-07'
 normal_continuation:
@@ -11,84 +11,71 @@ handoff_framework:
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
 current_handoff_record:
-  id: 2026-09-07-v040-boundary-contamination-correction
+  id: 2026-09-07-v040-clean-product-home
   state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
-  record_root: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/
-  start_here: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/HANDOFF-START-HERE.md
-  owner_direction_correction: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/OWNER-DIRECTION-CORRECTION.md
-  manifest: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/HANDOFF-MANIFEST.yaml
-  project_state: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/PROJECT-STATE.md
-  recent_rounds: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/RECENT-THREE-ROUNDS.md
-  file_catalog: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/FILE-CATALOG.md
-  lessons: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/LESSONS-AND-REMINDERS.md
-  repo_ecosystem: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/REPO-ECOSYSTEM.md
-  readback: research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/HANDOFF-READBACK.md
+  record_root: research/handoffs/records/2026-09-07-v040-clean-product-home/
+  start_here: research/handoffs/records/2026-09-07-v040-clean-product-home/HANDOFF-START-HERE.md
+  consensus_lock: research/handoffs/records/2026-09-07-v040-clean-product-home/CONSENSUS-LOCK.md
+  manifest: research/handoffs/records/2026-09-07-v040-clean-product-home/HANDOFF-MANIFEST.yaml
+  project_state: research/handoffs/records/2026-09-07-v040-clean-product-home/PROJECT-STATE.md
+  recent_rounds: research/handoffs/records/2026-09-07-v040-clean-product-home/RECENT-THREE-ROUNDS.md
+  file_catalog: research/handoffs/records/2026-09-07-v040-clean-product-home/FILE-CATALOG.md
+  lessons: research/handoffs/records/2026-09-07-v040-clean-product-home/LESSONS-AND-REMINDERS.md
+  repo_ecosystem: research/handoffs/records/2026-09-07-v040-clean-product-home/REPO-ECOSYSTEM.md
+  readback: research/handoffs/records/2026-09-07-v040-clean-product-home/HANDOFF-READBACK.md
   readback_state: PASS
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   current_package: releases/current/
   field_stream: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
-current_adoption:
+legacy_current:
+  repository: guytogay/evolution-native-agent-architecture
   version: v0.3.14
   adoption_status: CURRENT
   maturity: FIELD_VALIDATION
-  predecessor_version: v0.3.13
   same_version_same_effective_content: REQUIRED
   same_version_immutability_machine_guard: .github/workflows/current-immutability.yml
-v040_rebuild:
-  state: ACTIVE_REBUILD_NOT_CURRENT_NOT_PROMOTED
-  branch: rebuild/v0.4.0-practical-core
-  start_here: rebuild/v0.4.0/START-HERE.md
-  practical_core: rebuild/v0.4.0/PRACTICAL-CORE.md
-  legacy_coverage_archive: rebuild/v0.4.0/archive/LEGACY-SEMANTIC-COVERAGE-2026-09-07.md
-  legacy_role: EVIDENCE_HISTORY_REGRESSION_ORACLE_NOT_DESIGN_SKELETON
-  copy_v03_tree_or_taxonomy_as_product_structure: FORBIDDEN
-  mechanically_continue_five_legacy_action_card_families: FORBIDDEN
-  next_action: ESTABLISH_CLEAN_V040_PRODUCT_HOME_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS
-  clean_product_repo_option: PREFERRED_IF_IT_REDUCES_STRUCTURAL_CONTAMINATION
-  clean_product_repo_candidate: guytogay/ena
-  clean_product_repo_state: NOT_YET_CREATED
-cleanup_progress:
-  legacy_coverage_moved_out_of_active_rebuild_root: true
-  repository_adoption_record_archived: true
-  root_project_hub_removed: true
-  root_project_structure_removed: true
-  root_project_ecosystem_removed: true
-  collaboration_entry_demoted_to_history: true
-  root_readme_product_first: true
-  project_metadata_retained_only_for_v0314_ci_dependency: true
-active_product_findings:
-  - F-208-12_VALUABLE_OPPORTUNITY_CAN_REMAIN_LATENT_WITHOUT_LIVENESS_DISPOSITION
-  - F-208-13_AGENCY_FIRST_SEMANTICS_CAN_PROJECT_AS_DEFENSIVE_FIRST_HOT_POSTURE
-  - F-208-14_DURABLE_DISTINCTIONS_DO_NOT_BY_THEMSELVES_PROVIDE_AN_ACTION_BRIDGE_TO_HOW
-  - F-208-15_THEORY_FIRST_ADOPTER_SURFACE_WEAKENS_PRACTICAL_UTILITY
-  - F-208-16_DERIVATION_TAX_SPENDS_RUNTIME_ATTENTION_PROVING_BOUNDARIES_INSTEAD_OF_ENABLING_ACTION
-issue_234:
-  state: OPEN_ADVANCE_NOW
-  disposition: ACCEPT_CORE_DEFECT_NARROW_MACHINE_ONLY_CLAIM_ADVANCE_IN_V040_REBUILD
-  maintainer_comment_id: 5569005018
+new_product:
+  repository: guytogay/ENA
+  state: ACTIVE_DEVELOPMENT_NOT_CURRENT_NOT_PROMOTED
+  initialized_from_empty_repository: true
+  first_commit: 0e695a754b63987078bfe2d0bdd3369887a52b3c
+  role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
+  copy_legacy_repo_tree: FORBIDDEN
+  copy_legacy_handoff_project_management_research_structure: FORBIDDEN
+  derive_from: ENA_PURPOSE_AND_REAL_AGENT_PROBLEMS
+  consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
+  next_action: REDERIVE_MINIMUM_ENA_PRODUCT_IN_GUYTOGAY_ENA_FROM_REAL_AGENT_PROBLEMS
+field_guide:
+  repository: guytogay/ena-field-guide
+  disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
+  pr_6_role: USEFUL_CANDIDATE_AND_EVIDENCE_OCCURRENCE_NOT_AUTOMATIC_PRODUCT_MIGRATION
+  recreate_theory_vs_how_repo_split: FORBIDDEN
+human_ai_workbench:
+  repository: guytogay/human-ai-workbench
+  role: GENERAL_HUMAN_AI_PROJECT_WORKING_METHOD
+  copy_general_handoff_coordination_method_into_ena_product_by_default: FORBIDDEN
 completed_research:
   evolutionary_memory_mechanism_discrimination:
     state: CLOSED
     reopen_without_concrete_decision_changing_trigger: FORBIDDEN
-open_work:
+open_legacy_occurrences:
   ena_issue_208: ACTIVE_FIELD_VALIDATION
-  ena_issue_222: REVIEW_THROUGH_CORRECTED_CLEAN_DERIVATION_LENS
+  ena_issue_222: REVIEW_ONLY_THROUGH_CLEAN_PRODUCT_LENS
   ena_pr_224: PRESERVE_AS_CONTRIBUTION_OCCURRENCE_DO_NOT_MERGE_PARAGRAPH_REWRITE_INTO_V0314
-  ena_issue_234: ACTIVE_V040_INPUT
-  field_guide_pr_6: ADMISSION_CANDIDATE_NEEDS_REAL_FORWARD_RISK_JUDGMENT
+  ena_issue_234: PRACTICALITY_PROSE_RENT_EVIDENCE
 receiver_contract:
-  read_owner_direction_correction_before_v040_design: REQUIRED
+  read_consensus_lock_before_new_ena_design: REQUIRED
   ask_user_to_repeat_persisted_background: FORBIDDEN
   reverify_live_mutable_facts_before_writes: REQUIRED
   preserve_negative_and_null_results: REQUIRED
-  use_full_handoff_for_fresh_validator: FORBIDDEN
-  mutate_releases_current_without_successor_identity: FORBIDDEN
-  treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
-  reopen_closed_research_for_curiosity_only: FORBIDDEN
-  copy_owner_maintainer_instructions_into_ena_product_by_default: FORBIDDEN
-  copy_v03_structure_or_taxonomy_into_v04_by_default: FORBIDDEN
-  treat_legacy_coverage_ledger_as_v04_blueprint: FORBIDDEN
-  turn_handoff_or_project_management_method_into_ena_product_without_independent_justification: FORBIDDEN
-rule: 'Current remains v0.3.14. For v0.4, separate ENA product from ENA-maintainer/project/history machinery. Prefer a clean product home when it prevents inherited structural contamination. Re-derive the product from ENA purpose and real Agent problems first; use v0.3.x only afterward as evidence and regression/omission checking.'
+  mutate_legacy_current_without_successor_identity: FORBIDDEN
+  copy_owner_or_maintainer_instructions_into_ena_product_by_default: FORBIDDEN
+  copy_legacy_structure_taxonomy_terminology_or_handoff_machinery_into_new_ena_by_default: FORBIDDEN
+  use_legacy_coverage_as_product_blueprint: FORBIDDEN
+  mechanically_continue_legacy_action_card_families: FORBIDDEN
+  recreate_separate_field_guide_product: FORBIDDEN
+  turn_clear_simple_practical_grounded_build_feedback_into_product_meta_doctrine: FORBIDDEN
+  allow_succession_to_soften_product_boundary_correction: FORBIDDEN
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA is now the clean product home for the next ENA. Derive the product from ENA purpose and real Agent problems first. Treat legacy ENA as Current/history/research/evidence and use it only afterward for lessons/regression checking. Field Guide is sunset as a separate product. Maintainer and handoff instructions are not ENA product content by default.'
