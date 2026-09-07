@@ -89,6 +89,14 @@ Before recommending Current to another adopter/Agent:
 - bounded identity/adopter/operational readback must agree with `CURRENT-BASELINE.yaml`;
 - unknown future defects remain legitimate field-validation risk, but known unfixed defects are not an acceptable recommendation state.
 
+The same-version rule is now machine-enforced by `.github/workflows/current-immutability.yml`: any change under `releases/current/**` must change `ena_version`, otherwise CI rejects the mutation.
+
+```text
+SAME_VERSION -> SAME_EFFECTIVE_CONTENT
+POLICY_DECLARED != MACHINE_GUARDED
+GREEN_EXISTING_GATES != COMPLETE_GATE_COVERAGE
+```
+
 ## Release posture
 
 ```text
@@ -104,7 +112,11 @@ Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
 
 ## Active field stream
 
-Issue `#208` follows Current, not one release number. F-208-01 through F-208-09 are the accumulated field findings; new bounded defects should create the smallest justified successor instead of remaining knowingly unfixed.
+Issue `#208` follows Current, not one release number. F-208-01 through F-208-10 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
+
+`F-208-10_SAME_VERSION_CURRENT_BYTE_MUTATION_NOT_MACHINE_REJECTED` was exposed by external Agent contribution PR `#224`: the PR changed an already released Current kernel while retaining v0.3.14 identity, and the existing gates passed. Control-plane PR `#225` added the version-neutral Current Immutability Guard and merged as `becd83529e58d166f907c519d30da081180d260a`. Current v0.3.14 bytes did not change.
+
+PR `#224` remains useful contribution occurrence/provenance. Its trigger-style positive-rule direction is accepted for further consideration, but the submitted expansion is not semantics-neutral in several places and materially enlarges the only default hot payload. It must not be merged into v0.3.14 in place; any adopted refinement requires a successor identity and proportional release assessment.
 
 Recent reality contact also includes reconciled DSH PR `#220`: the tested high-reasoning salience probes were non-discriminating and do not justify a new primary or a claim that the Runtime Kernel is useful/useless.
 
@@ -115,5 +127,6 @@ The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No acti
 ## Open work
 
 - GitHub Issue `#208` — version-neutral Current field validation.
+- GitHub PR `#224` — trigger-style Durable distinctions contribution; `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`.
 - Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
 - Downstream Field Guide / Workbench contributions remain subject to their own evidence boundaries; owner-triggered DSH operationalization and one-shot adopter review are useful reality contact, not independent universal proof.
