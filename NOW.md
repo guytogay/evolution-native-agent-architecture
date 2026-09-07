@@ -119,15 +119,44 @@ KNOWN_BOUNDED_CURRENT_DEFECT -> RECORD_OCCURRENCE + SMALLEST_RAPID_SUCCESSOR
 FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
 ```
 
+## Opportunity liveness
+
+Project method: `research/methodology/OPPORTUNITY-LIVENESS-DISCIPLINE.md`.
+
+A material external contribution or design opportunity may legitimately remain latent, but once the project decides it is worth preserving, it must have one explicit current liveness disposition:
+
+`ADVANCE_NOW | WAIT_FOR_SIGNAL | BLOCKED | REJECT | ARCHIVE`.
+
+`OPEN`, `DRAFT`, `ACCEPT_DIRECTION`, `EVIDENCE_NEEDED`, and `NO_SUCCESSOR_TRIGGER_YET` are not complete liveness dispositions by themselves.
+
+```text
+LATENT != FORGOTTEN
+WAIT != UNSPECIFIED_DELAY
+ACCEPT_DIRECTION != COMPLETE_RECONCILIATION
+NO_SUCCESSOR_TRIGGER_YET -> NAME_THE_TRIGGER_OR_CLOSE_THE_PATH
+DECISION_CHANGING_ACTION_AVAILABLE + AUTHORITY_AVAILABLE + TOOLING_AVAILABLE -> ADVANCE_NOW
+PRESERVE_POSSIBILITY != PRESERVE_UNBOUNDED_BACKLOG
+BUG != ONLY_VALID_SUCCESSOR_TRIGGER
+DEMONSTRATED_BOUNDED_VALUE -> SMALLEST_JUSTIFIED_SUCCESSOR
+```
+
+Do not add arbitrary deadlines merely to create motion. `WAIT_FOR_SIGNAL` requires an observable wake context and the first decision-changing action to perform after wake; `BLOCKED` requires an explicit boundary and unblock condition.
+
 ## Active field stream
 
-Issue `#208` follows Current, not one release number. F-208-01 through F-208-11 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
+Issue `#208` follows Current, not one release number. F-208-01 through F-208-12 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
 
 `F-208-10_SAME_VERSION_CURRENT_BYTE_MUTATION_NOT_MACHINE_REJECTED` was exposed by external Agent contribution PR `#224`: the PR changed an already released Current kernel while retaining v0.3.14 identity, and the existing gates passed. Control-plane PR `#225` added the version-neutral Current Immutability Guard and merged as `becd83529e58d166f907c519d30da081180d260a`. Current v0.3.14 bytes did not change.
 
 Successor-session re-verification then exposed `F-208-11_SEMANTIC_VERSION_SERIALIZATION_CAN_BYPASS_IMMUTABILITY_GUARD`: the guard compared raw YAML scalar text, so a representation-only change such as quoted `v0.3.14` could look like a changed identity while YAML consumers still saw the same version. Control-plane PR `#228` closed this normalization gap and merged as `b685d709fbcd98bf0412336d64ce5395dc23ad54`. Current v0.3.14 bytes again did not change.
 
-PR `#224` remains useful contribution occurrence/provenance. Its trigger-style positive-rule direction is accepted for further consideration, but the submitted expansion is not semantics-neutral and expands the Durable distinctions section by roughly 4x. Live review retained the original five blockers (#1 continuity, #6 local success, #8 migration, #17 evidence independence, #19 UNKNOWN), identified further narrowing needs, and recorded a compact-hybrid comparison candidate. The current judgment is `ATTRACTIVE_EXPRESSION_DIRECTION != DEMONSTRATED_SUCCESSOR_VALUE`: no successor release is justified yet. It must not be merged into v0.3.14 in place; any eventual adopted refinement requires a successor identity and proportional release assessment.
+`F-208-12_VALUABLE_OPPORTUNITY_CAN_REMAIN_LATENT_WITHOUT_LIVENESS_DISPOSITION` was exposed while reconciling PR `#224` and Issue `#222`: Current already permits latent candidates, `WAIT_FOR_CONTEXT`, triggered obligations, activation/wake semantics, and rapid opportunity succession, but the project had no explicit requirement connecting an accepted opportunity to a decision-changing next action, observable wake signal, real blocker/unblock condition, or reject/archive state. PR `#231` added immediate project-level containment through `OPPORTUNITY-LIVENESS-DISCIPLINE.md` without changing v0.3.14 bytes. Whether the same property needs an adopter-facing Current successor is now a bounded active design decision rather than an indefinite backlog item.
+
+PR `#224` remains useful contribution occurrence/provenance. Its trigger-style positive-rule direction is accepted for further consideration, but the submitted expansion is not semantics-neutral and expands the Durable distinctions section by roughly 4x. Live review retained the original five blockers (#1 continuity, #6 local success, #8 migration, #17 evidence independence, #19 UNKNOWN), identified further narrowing needs, and recorded a compact-hybrid comparison candidate. The current judgment remains `ATTRACTIVE_EXPRESSION_DIRECTION != DEMONSTRATED_SUCCESSOR_VALUE`.
+
+PR `#224` liveness disposition is now `BLOCKED / FRESH_EXECUTION_SURFACE`. Exact unblock condition: a genuinely fresh adopter/Agent, not pre-exposed to #224's hypothesis, encounters frozen v0.3.14 through the ordinary adoption path and produces preserved first output on a bounded real-use/readback task. After unblock, adjudicate whether the current negation form causes a material missed boundary, wrong action, false confidence, or recurring inference/context burden. It must not be merged into v0.3.14 in place; any adopted refinement requires successor identity and proportional release assessment.
+
+Issue `#222` remains preserved as a design occurrence but is no longer one undifferentiated active backlog item. Its directions now have explicit liveness dispositions: kernel shrinking, mechanism-first, rent-accounted retirement, three-verb interface, Host-independent management plane and card-style documentation are `WAIT_FOR_SIGNAL` with named reality triggers; the dashboard concept is `ARCHIVE_AS_DESIGN_SKETCH` unless recurring operator need appears.
 
 Recent reality contact also includes reconciled DSH PR `#220`: the tested high-reasoning salience probes were non-discriminating and do not justify a new primary or a claim that the Runtime Kernel is useful/useless.
 
@@ -158,8 +187,9 @@ The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No acti
 
 ## Open work
 
-- GitHub Issue `#208` — version-neutral Current field validation.
-- GitHub PR `#224` — trigger-style Durable distinctions contribution; maintainer disposition remains `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`; current release judgment is `NO_SUCCESSOR_TRIGGER_YET`.
-- `ena-field-guide` PR `#6` — active admission candidate; corrected live restore path still requires a controlled live drill and bounded portable smoke check before admission.
+- GitHub Issue `#208` — version-neutral Current field validation; F-208-12 is contained at project-control-plane level and requires a bounded decision on whether Current itself needs an opportunity-liveness successor.
+- GitHub PR `#224` — trigger-style Durable distinctions contribution; semantic disposition `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`; liveness `BLOCKED / FRESH_EXECUTION_SURFACE` with exact unblock condition recorded on the PR.
+- GitHub Issue `#222` — broad design occurrence; sub-directions have explicit `WAIT_FOR_SIGNAL` or `ARCHIVE_AS_DESIGN_SKETCH` dispositions instead of unspecified active work.
+- `ena-field-guide` PR `#6` — active admission candidate; `PORTABLE_SMOKE_PASS` is complete; liveness is `WAIT_FOR_SIGNAL / REAL_AGENT_HOST_RECOVERY_CONTEXT`. More synthetic smoke is not the missing evidence.
 - Maintain Human-AI Workbench and ENA Field Guide when ENA work produces method/HOW material that belongs there; cite rather than mirror.
 - Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
