@@ -111,6 +111,14 @@ Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
 - R1 — operational behavior change: targeted operational validation + regression/readback + rollback;
 - R2 — core semantic/high-consequence change: heavy freeze/fresh falsification by default.
 
+If a bounded defect is found before promotion, fix it before promotion. If a known decision-bearing bounded defect is found after release, preserve the released occurrence and move Current through the smallest justified successor promptly rather than holding the fix for a later planned release.
+
+```text
+DEFECT_FOUND_BEFORE_PROMOTION -> FIX_BEFORE_PROMOTION
+KNOWN_BOUNDED_CURRENT_DEFECT -> RECORD_OCCURRENCE + SMALLEST_RAPID_SUCCESSOR
+FIELD_VALIDATION != KNOWN_DEFECT_TOLERANCE
+```
+
 ## Active field stream
 
 Issue `#208` follows Current, not one release number. F-208-01 through F-208-11 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
@@ -123,6 +131,27 @@ PR `#224` remains useful contribution occurrence/provenance. Its trigger-style p
 
 Recent reality contact also includes reconciled DSH PR `#220`: the tested high-reasoning salience probes were non-discriminating and do not justify a new primary or a claim that the Runtime Kernel is useful/useless.
 
+## Project ecosystem
+
+Canonical scope/ownership: `PROJECT-ECOSYSTEM.md`.
+
+The active project manager/session maintains three canonical repositories as one cooperating project ecosystem while preserving separate ownership boundaries:
+
+- `guytogay/evolution-native-agent-architecture` — ENA theory, Current/release semantics, research/field evidence;
+- `guytogay/human-ai-workbench` — reusable project-general human-AI working method;
+- `guytogay/ena-field-guide` — evidence-backed practical ENA HOW.
+
+Reusable/disposable `independent-validation-cleanroom*` repositories are experimental execution surfaces, not a fourth canonical knowledge store. Create/reset/delete them as useful for isolation; preserve unique evidence/provenance before disposal.
+
+When available Agent tooling can perform experiment setup, repository operations, transport, scoring, or evidence capture without violating the required boundary, the Agent should execute those steps directly instead of assigning copy/paste or relay work to the human.
+
+```text
+ROUTE_BY_CANONICAL_OWNERSHIP
+AGENT_CAN_SELF_EXECUTE_WITH_REQUIRED_BOUNDARY -> AGENT_EXECUTES
+HUMAN_IN_THE_LOOP != HUMAN_AS_THE_LOOP
+CLEAN_REPOSITORY != INDEPENDENT_AI_WORKER
+```
+
 ## Research status
 
 The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No active mechanism primary remains. Reopen research only for a concrete decision-changing failure or a genuinely new non-derivable discriminator.
@@ -131,5 +160,6 @@ The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No acti
 
 - GitHub Issue `#208` — version-neutral Current field validation.
 - GitHub PR `#224` — trigger-style Durable distinctions contribution; maintainer disposition remains `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`; current release judgment is `NO_SUCCESSOR_TRIGGER_YET`.
+- `ena-field-guide` PR `#6` — active admission candidate; corrected live restore path still requires a controlled live drill and bounded portable smoke check before admission.
+- Maintain Human-AI Workbench and ENA Field Guide when ENA work produces method/HOW material that belongs there; cite rather than mirror.
 - Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
-- Downstream Field Guide / Workbench contributions remain subject to their own evidence boundaries; owner-triggered DSH operationalization and one-shot adopter review are useful reality contact, not independent universal proof.
