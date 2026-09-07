@@ -76,6 +76,8 @@ open_work:
 receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
   reverify_live_mutable_facts_before_writes: REQUIRED
+  preserve_negative_and_null_results: REQUIRED
+  use_full_handoff_for_fresh_validator: FORBIDDEN
   mutate_releases_current_without_successor_identity: FORBIDDEN
   treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
   reopen_closed_research_for_curiosity_only: FORBIDDEN
