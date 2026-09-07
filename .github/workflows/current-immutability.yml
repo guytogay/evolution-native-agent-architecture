@@ -49,8 +49,17 @@ jobs:
             exit 0
           fi
 
-          BASE_VERSION="$(git show "$BASE_SHA:releases/current/CURRENT-BASELINE.yaml" | python -c 'import sys,yaml; print(yaml.safe_load(sys.stdin)["ena_version"])')"
-          HEAD_VERSION="$(python -c 'import yaml; print(yaml.safe_load(open("releases/current/CURRENT-BASELINE.yaml", encoding="utf-8"))["ena_version"])')"
+          read_version() {
+            awk -F': *' '$1 == "ena_version" {print $2; exit}'
+          }
+
+          BASE_VERSION="$(git show "$BASE_SHA:releases/current/CURRENT-BASELINE.yaml" | read_version)"
+          HEAD_VERSION="$(read_version < releases/current/CURRENT-BASELINE.yaml)"
+
+          if [[ -z "$BASE_VERSION" || -z "$HEAD_VERSION" ]]; then
+            echo "::error::Unable to resolve ena_version from predecessor or proposed CURRENT-BASELINE.yaml."
+            exit 1
+          fi
 
           echo "Current predecessor version: $BASE_VERSION"
           echo "Current proposed version:    $HEAD_VERSION"
