@@ -1,0 +1,24 @@
+schema_version: '1.0'
+id: 2026-09-07-v040-practical-rebuild
+status: DEEP_SUCCESSION_READY
+created_at: '2026-09-07'
+current_release: v0.3.14
+current_status: CURRENT_FIELD_VALIDATION
+next_product_direction: V040_PRACTICE_FIRST_CLEAN_ROOT_REBUILD
+next_action: BUILD_V040_LEGACY_SEMANTIC_COVERAGE_LEDGER_AND_TEST_PRACTICAL_CORE_ON_REAL_WORK
+record_files:
+  start_here: HANDOFF-START-HERE.md
+  project_state: PROJECT-STATE.md
+  recent_rounds: RECENT-THREE-ROUNDS.md
+  file_catalog: FILE-CATALOG.md
+  lessons: LESSONS-AND-REMINDERS.md
+  repo_ecosystem: REPO-ECOSYSTEM.md
+  readback: HANDOFF-READBACK.md
+readback_state: PASS
+mutable_state_reverification_required: true
+receiver_must_not:
+  - COPY_V03_TREE_AS_V04_PRODUCT_STRUCTURE
+  - MUTATE_CURRENT_WITHOUT_SUCCESSOR_IDENTITY
+  - SOLVE_SIMPLICITY_WITH_MORE_FRAMEWORK
+  - REOPEN_CLOSED_RESEARCH_WITHOUT_DECISION_CHANGING_TRIGGER
+  - TREAT_MACHINE_GUARD_AS_ABLE_TO_PROVE_ALL_EXTERNAL_REALITY
