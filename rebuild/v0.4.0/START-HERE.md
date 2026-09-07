@@ -10,7 +10,7 @@ Date: 2026-09-07
 - `LEGACY-SEMANTIC-COVERAGE.md` now places 29 major legacy property/failure families by practical consequence rather than old file location.
 - The durable-distinction catalogue and mandatory `semantic -> Cue Index -> HOW Map` traversal are marked for retirement as primary product units; their decision-material value is redistributed to action/guard/cold surfaces.
 - Dogfood has covered ENA rebuild work and a real non-ENA Human-AI Workbench decision without manufacturing a synthetic experiment.
-- Next build: derive the smallest useful Action Cards for `EVIDENCE/SUPPORT | EFFECT LIFECYCLE | RECOVERY/RESUME | ADAPTATION IMPORT | COMPOSITION`. A card should exist only if it earns more decision value than a direct Core/cold-HOW/Host-local path.
+- Next build: process all five remaining practical families `EVIDENCE/SUPPORT | EFFECT LIFECYCLE | RECOVERY/RESUME | ADAPTATION IMPORT | COMPOSITION`. Each must be fully covered; the representation may be Core, Action Card, machine/external control, cold HOW, or a combination.
 
 ## Decision
 
@@ -27,6 +27,35 @@ V0.3.X = PRESERVED RESEARCH + SEMANTIC + PROVENANCE ASSET
 V0.4.0 = PRACTICE-FIRST PRODUCT REBUILD
 PRESERVE_HISTORY != PRESERVE_PRODUCT_SHAPE
 ```
+
+## Product direction
+
+v0.4 should be:
+
+```text
+SIMPLE
+CLEAR
+PRACTICAL
+GROUNDED_IN_REAL_WORK
+```
+
+In ordinary language: **简洁、清楚、实用、接地气**.
+
+This is a product standard, not permission to drop useful capability.
+
+```text
+ALL_DECISION_MATERIAL_CAPABILITIES_MUST_BE_COVERED
+!= EVERY_CAPABILITY_NEEDS_ITS_OWN_TERM_FILE_CARD_OR_FRAMEWORK
+```
+
+Prefer ordinary language. Coin or retain an ENA-specific term only when plain language would lose decision-material precision and the term earns its learning cost through repeated useful reuse.
+
+```text
+PLAIN_LANGUAGE_FIRST
+TERM_ONLY_WHEN_IT_PAYS_RENT
+```
+
+An Agent should not need to learn an ENA dialect before solving the real problem.
 
 ## Product question
 
@@ -106,7 +135,7 @@ Initial families to derive from real ENA use, not frozen names:
 - stale control / retirement;
 - changed Host / environment / composition.
 
-Do not create a card merely to mirror every v0.3.x concept.
+Do not create a card merely to mirror every v0.3.x concept. But do not leave a decision-material capability uncovered merely because a separate card is unnecessary.
 
 ### Layer C — Compact Semantic Floor
 
@@ -158,7 +187,7 @@ The new root assumes a capable evolutionary actor.
 
 ```text
 AGENT = CAPABLE_EVOLUTIONARY_ACTOR_BY_DEFAULT
-BOUNDARIES = AIRBAGS, NOT STEERING WHEEL
+BOUNDARIES = AIRBAGS, NOT STEERING_WHEEL
 UNKNOWN != STOP_BY_DEFAULT
 NO_FAILURE != NO_REASON_TO_EVOLVE
 ```
@@ -173,7 +202,8 @@ ENA should increase exploration, learning, useful variation and capability while
 - a mandatory ENA runtime/tool stack;
 - a safety/governance framework whose main job is restraining Agents;
 - a motivational manifesto with no executable value;
-- a collection of action cards that simply paraphrase old theory.
+- a collection of action cards that simply paraphrase old theory;
+- a renamed jargon system where old ENA terms are merely replaced by new ENA terms.
 
 ## Legacy-value extraction
 
@@ -199,7 +229,7 @@ A legacy property may be:
 - kept only as theory/reference;
 - retired from the product while history remains preserved.
 
-Nothing is retained merely because it already exists.
+Nothing is retained merely because it already exists. Nothing decision-material is lost merely because its old representation is retired.
 
 ## Acceptance standard
 
@@ -214,7 +244,8 @@ It should demonstrate that a capable fresh Agent can, with less default context:
 5. preserve real authority/effect/recovery/evidence boundaries;
 6. avoid ceremonial governance when no material boundary exists;
 7. observe outcomes and integrate/narrow/reject rather than merely describe distinctions;
-8. explain ENA operationally as increased viable agency, not increased caution.
+8. explain ENA operationally as increased viable agency, not increased caution;
+9. use the product without first learning unnecessary ENA-specific vocabulary.
 
 Validation should use decision-changing acceptance cases and real project dogfood. Do not run many model sessions merely to collect diverse-looking outputs.
 
@@ -256,9 +287,9 @@ Do not keep adding structural repair to v0.3.15 if the change is actually part o
 ## Immediate build order
 
 1. Define a one-page `PRACTICAL-CORE` candidate from zero.
-2. Derive the smallest initial action-card set from real recurring ENA problems/opportunities.
-3. Build the legacy semantic coverage ledger.
-4. Use the ledger to discover missing material protection, not to force one-to-one migration.
+2. Process all decision-material capability families and choose the cheapest representation that fully covers each one.
+3. Build and maintain the legacy semantic coverage ledger to detect missing protection, not to force one-to-one migration.
+4. Delete or demote unnecessary product structure and jargon while preserving capability coverage.
 5. Dogfood the Practical Core on ENA's own active work and other real Agent tasks.
 6. Run bounded fresh-adopter acceptance only where it can change the design decision.
 7. Promote only after practical utility and semantic protection both survive.
@@ -268,7 +299,12 @@ Do not keep adding structural repair to v0.3.15 if the change is actually part o
 > ENA should be something an Agent uses to become more capable, adaptive and resilient — not something it studies in order to understand ENA.
 
 ```text
+SIMPLE
+CLEAR
+PRACTICAL
+GROUNDED
 PRACTICE_FIRST
+PLAIN_LANGUAGE_FIRST
 THEORY_ON_DEMAND
 DERIVE_ONCE_USE_MANY
 PRESERVE_SEMANTIC_VALUE_WITHOUT_PRESERVING_PRODUCT_DEBT
