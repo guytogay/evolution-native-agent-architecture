@@ -89,12 +89,13 @@ Before recommending Current to another adopter/Agent:
 - bounded identity/adopter/operational readback must agree with `CURRENT-BASELINE.yaml`;
 - unknown future defects remain legitimate field-validation risk, but known unfixed defects are not an acceptable recommendation state.
 
-The same-version rule is now machine-enforced by `.github/workflows/current-immutability.yml`: any change under `releases/current/**` must change `ena_version`, otherwise CI rejects the mutation.
+The same-version rule is machine-enforced by `.github/workflows/current-immutability.yml`: any change under `releases/current/**` must change a canonical Current `ena_version`, otherwise CI rejects the mutation. After F-208-11 the guard also rejects ambiguous/non-canonical top-level version serialization before comparing predecessor and proposed identity.
 
 ```text
 SAME_VERSION -> SAME_EFFECTIVE_CONTENT
 POLICY_DECLARED != MACHINE_GUARDED
 GREEN_EXISTING_GATES != COMPLETE_GATE_COVERAGE
+MACHINE_GUARD_PRESENT != MACHINE_GUARD_SEMANTICALLY_CLOSED
 ```
 
 ## Release posture
@@ -112,11 +113,13 @@ Method: `research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md`
 
 ## Active field stream
 
-Issue `#208` follows Current, not one release number. F-208-01 through F-208-10 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
+Issue `#208` follows Current, not one release number. F-208-01 through F-208-11 are the accumulated field findings; new bounded defects should create the smallest justified successor or control-plane fix instead of remaining knowingly unfixed.
 
 `F-208-10_SAME_VERSION_CURRENT_BYTE_MUTATION_NOT_MACHINE_REJECTED` was exposed by external Agent contribution PR `#224`: the PR changed an already released Current kernel while retaining v0.3.14 identity, and the existing gates passed. Control-plane PR `#225` added the version-neutral Current Immutability Guard and merged as `becd83529e58d166f907c519d30da081180d260a`. Current v0.3.14 bytes did not change.
 
-PR `#224` remains useful contribution occurrence/provenance. Its trigger-style positive-rule direction is accepted for further consideration, but the submitted expansion is not semantics-neutral in several places and materially enlarges the only default hot payload. It must not be merged into v0.3.14 in place; any adopted refinement requires a successor identity and proportional release assessment.
+Successor-session re-verification then exposed `F-208-11_SEMANTIC_VERSION_SERIALIZATION_CAN_BYPASS_IMMUTABILITY_GUARD`: the guard compared raw YAML scalar text, so a representation-only change such as quoted `v0.3.14` could look like a changed identity while YAML consumers still saw the same version. Control-plane PR `#228` closed this normalization gap and merged as `b685d709fbcd98bf0412336d64ce5395dc23ad54`. Current v0.3.14 bytes again did not change.
+
+PR `#224` remains useful contribution occurrence/provenance. Its trigger-style positive-rule direction is accepted for further consideration, but the submitted expansion is not semantics-neutral and expands the Durable distinctions section by roughly 4x. Live review retained the original five blockers (#1 continuity, #6 local success, #8 migration, #17 evidence independence, #19 UNKNOWN), identified further narrowing needs, and recorded a compact-hybrid comparison candidate. The current judgment is `ATTRACTIVE_EXPRESSION_DIRECTION != DEMONSTRATED_SUCCESSOR_VALUE`: no successor release is justified yet. It must not be merged into v0.3.14 in place; any eventual adopted refinement requires a successor identity and proportional release assessment.
 
 Recent reality contact also includes reconciled DSH PR `#220`: the tested high-reasoning salience probes were non-discriminating and do not justify a new primary or a claim that the Runtime Kernel is useful/useless.
 
@@ -127,6 +130,6 @@ The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No acti
 ## Open work
 
 - GitHub Issue `#208` — version-neutral Current field validation.
-- GitHub PR `#224` — trigger-style Durable distinctions contribution; `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`.
+- GitHub PR `#224` — trigger-style Durable distinctions contribution; maintainer disposition remains `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`; current release judgment is `NO_SUCCESSOR_TRIGGER_YET`.
 - Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
 - Downstream Field Guide / Workbench contributions remain subject to their own evidence boundaries; owner-triggered DSH operationalization and one-shot adopter review are useful reality contact, not independent universal proof.

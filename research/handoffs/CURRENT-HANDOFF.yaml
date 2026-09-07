@@ -23,7 +23,7 @@ current_handoff_record:
   repo_ecosystem: research/handoffs/records/2026-09-07-v0314-pr224-review/REPO-ECOSYSTEM.md
   readback: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-READBACK.md
   readback_state: PASS
-  note: This record captures v0.3.14 Current after F-208-10 control-plane repair and the active narrowed review of external Agent PR #224. Reverify PR #224 live head and main before writes.
+  note: This dated record captures v0.3.14 Current after F-208-10 control-plane repair and the initial narrowed review of external Agent PR #224. Live state has since closed F-208-11 via PR #228 and advanced PR #224 to a compact-hybrid comparison candidate with no successor trigger yet; reverify mutable facts before writes.
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
@@ -82,14 +82,17 @@ active_field_validation:
   - F-208-08_EVOLUTION_VOCABULARY_WITHOUT_SUFFICIENTLY_EXECUTABLE_EVOLUTION_LOOP
   - F-208-09_LOCAL_PROJECTION_PERSISTENCE_CUE_MISSING_FROM_MINIMUM_ADOPTION_PATH
   - F-208-10_SAME_VERSION_CURRENT_BYTE_MUTATION_NOT_MACHINE_REJECTED
+  - F-208-11_SEMANTIC_VERSION_SERIALIZATION_CAN_BYPASS_IMMUTABILITY_GUARD
   field_causality:
     v0313_owner_intervention: The owner explicitly asked whether ENA lacked support for helping the Agent itself evolve.
     v0313_agent_response: DSH inspected its LXC Host, found missing local evolution/recovery organs, proposed rescue + durable variation ledger + lightweight baseline, and implemented them after owner authorization.
     v0314_fresh_review: A fresh one-shot adopter review correctly inferred the deeper Local Projection contract but flagged that Minimum integration did not explicitly tell adopters to persist the smallest reusable Host facts that repeatedly change decisions.
     pr224_gate_finding: External Agent PR #224 changed released Current kernel bytes while retaining v0.3.14 identity; Main Gate and Validate Current both passed, proving same-version immutability was policy-only rather than machine-guarded.
     pr225_fix: Control-plane PR #225 added a version-neutral Current Immutability Guard and merged as becd83529e58d166f907c519d30da081180d260a without changing v0.3.14 Current bytes.
-    boundary: OWNER_TRIGGERED_HOST_AUDIT_NE_OWNER_DESIGNED_ORGANS; SEMANTIC_ADOPTION_NE_SPONTANEOUS_OPERATIONALIZATION; LOCAL_PROJECTION_CUE_NE_NEW_HOST_SUBSYSTEM; POLICY_DECLARED_NE_MACHINE_GUARDED; GREEN_EXISTING_GATES_NE_COMPLETE_GATE_COVERAGE
-  next_product_rule: Continue the version-neutral Current field stream. Keep practical evolution, bounded operationalization, minimal Host reality persistence, and release-identity immutability machine-checkable. External trigger-style Kernel reform remains a candidate until semantic narrowing, hot-payload cost, and successor release scope are resolved.
+    f208_11_guard_followup: Successor-session re-verification found that raw YAML scalar comparison could treat quoted or otherwise non-canonical serialization of the same semantic ena_version as a changed identity. PR #228 closed the normalization gap as b685d709fbcd98bf0412336d64ce5395dc23ad54 without changing v0.3.14 Current bytes.
+    pr224_narrowing_followup: Live PR #224 remained at original head b4b0369d5a4e20550a64d1abf5b13968588fddff. Full review preserved the original five blockers, found additional expression-level drift, measured roughly 4x expansion in the Durable distinctions block, and recorded a compact-hybrid comparison candidate. No successor release trigger is demonstrated yet.
+    boundary: OWNER_TRIGGERED_HOST_AUDIT_NE_OWNER_DESIGNED_ORGANS; SEMANTIC_ADOPTION_NE_SPONTANEOUS_OPERATIONALIZATION; LOCAL_PROJECTION_CUE_NE_NEW_HOST_SUBSYSTEM; POLICY_DECLARED_NE_MACHINE_GUARDED; GREEN_EXISTING_GATES_NE_COMPLETE_GATE_COVERAGE; MACHINE_GUARD_PRESENT_NE_MACHINE_GUARD_SEMANTICALLY_CLOSED; ATTRACTIVE_EXPRESSION_DIRECTION_NE_DEMONSTRATED_SUCCESSOR_VALUE
+  next_product_rule: Continue the version-neutral Current field stream. Keep practical evolution, bounded operationalization, minimal Host reality persistence, and release-identity immutability machine-checkable. PR #224 remains a contribution/design candidate: preserve its original provenance, prefer compact hybrid triggers over paragraph expansion, and require actual decision-changing value before creating a successor release.
 active_research:
   state: NONE
   phase: NONE
@@ -116,7 +119,7 @@ open_work:
   github_issues:
   - 208
   product:
-  - 'PR #224: trigger-style Durable distinctions; ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED'
+  - 'PR #224: trigger-style Durable distinctions; maintainer disposition ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED; current release judgment NO_SUCCESSOR_TRIGGER_YET'
   - 'ena-field-guide PR #6: admission candidate; corrected live restore path not yet drilled'
   research: []
 receiver_contract:
@@ -145,4 +148,4 @@ receiver_contract:
   confuse_evolution_vocabulary_with_executable_evolution_loop: FORBIDDEN
   confuse_protection_of_evolvability_with_evolution_itself: FORBIDDEN
   imply_ena_evolve_v2_is_full_lifecycle_engine: FORBIDDEN
-rule: 'ENA Current remains v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-10 is closed at the control-plane level by PR #225. PR #224 remains an external Agent contribution candidate whose trigger-style direction is accepted but current wording needs semantic narrowing, hot-payload-cost judgment, and a successor identity before any adoption. No active mechanism primary remains.'
+rule: 'ENA Current remains v0.3.14 / FIELD_VALIDATION. Issue #208 is the version-neutral Current field stream. F-208-10 and F-208-11 are closed at the control-plane level by PR #225 and PR #228 respectively, with Current bytes unchanged. PR #224 remains an external Agent contribution candidate with maintainer disposition ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED; compact hybrid is retained for comparison, but no successor release trigger is demonstrated yet. No active mechanism primary remains.'
