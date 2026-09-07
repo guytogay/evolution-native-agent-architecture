@@ -12,7 +12,7 @@ handoff_framework:
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
 current_handoff_record:
   id: 2026-09-07-v0314-pr224-review
-  state: DEEP_PROJECT_SESSION_SUCCESSION_READY
+  state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
   record_root: research/handoffs/records/2026-09-07-v0314-pr224-review/
   start_here: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-START-HERE.md
   manifest: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-MANIFEST.yaml
@@ -22,7 +22,7 @@ current_handoff_record:
   lessons: research/handoffs/records/2026-09-07-v0314-pr224-review/LESSONS-AND-REMINDERS.md
   repo_ecosystem: research/handoffs/records/2026-09-07-v0314-pr224-review/REPO-ECOSYSTEM.md
   readback: research/handoffs/records/2026-09-07-v0314-pr224-review/HANDOFF-READBACK.md
-  readback_state: PASS_AT_HANDOFF_CREATION
+  readback_state: PASS
   note: This record captures v0.3.14 Current after F-208-10 control-plane repair and the active narrowed review of external Agent PR #224. Reverify PR #224 live head and main before writes.
 current_project_authorities:
   live_status: NOW.md
