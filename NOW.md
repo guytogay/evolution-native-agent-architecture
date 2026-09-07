@@ -1,87 +1,91 @@
 # ENA — NOW
 
-This is the live project-status surface. It is maintainer/project context, not ENA adopter/runtime content.
+This is live maintainer/project status. It is not ENA adopter/runtime content.
 
-## Current
+## Legacy Current
 
+- repository: `guytogay/evolution-native-agent-architecture`
 - `v0.3.14 / CURRENT / FIELD_VALIDATION`
 - identity authority: `releases/current/CURRENT-BASELINE.yaml`
 - effective package: `releases/current/`
-- predecessor: `v0.3.13`
 - field stream: Issue `#208`
 
 Do not mutate `releases/current/**` without successor identity.
 
-## v0.4 status
+## New ENA product home
 
-Branch: `rebuild/v0.4.0-practical-core`
-Status: `ACTIVE_REBUILD / NOT_CURRENT / NOT_PROMOTED`
+Repository: `guytogay/ENA`
 
-Current rebuild surfaces:
+State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
-- `rebuild/v0.4.0/START-HERE.md` — maintainer-only rebuild entry.
-- `rebuild/v0.4.0/PRACTICAL-CORE.md` — provisional early draft; do not extend mechanically.
-- `rebuild/v0.4.0/archive/LEGACY-SEMANTIC-COVERAGE-2026-09-07.md` — archived regression/evidence aid, not a product blueprint.
+The repository now exists, is public, and was intentionally initialized from empty state with only a minimal README. It is the clean product home for the next ENA.
 
-## Owner direction correction — mandatory
+Do not copy the legacy repository tree, old handoffs, project-management machinery, research structure, legacy vocabulary/taxonomy, or the old rebuild branch wholesale into the new product repository.
 
-The owner identified a deeper defect than verbosity alone: **product/project boundary contamination**.
+## Mandatory owner consensus
 
-Prior sessions sometimes copied instructions about how to maintain, research, hand off, or write ENA into ENA itself. Some of that material may now be embedded in legacy terminology, distinctions, workflows, and architecture rather than existing only as separate project-management files.
+The owner identified **product/project boundary contamination** as a core legacy problem.
 
-Analogy from the owner: a coin inserted into a tree trunk can later be wrapped by layers of growth until it cannot be cleanly separated from the wood. Deep embedding is therefore not proof that a legacy concept intrinsically belongs to ENA.
+Prior sessions sometimes copied instructions about how to maintain, research, hand off, or write ENA into ENA itself. Some of this may also have become embedded in legacy concepts and architecture.
 
-Mandatory full correction record:
+Two owner analogies define the correction:
 
-`research/handoffs/records/2026-09-07-v040-boundary-contamination-correction/OWNER-DIRECTION-CORRECTION.md`
+- exam paper: instructions such as "keep the paper clean" should improve the work, not be written as part of the answer;
+- tree/coin: a foreign object can become deeply wrapped by later growth; deep embedding does not prove it intrinsically belongs to ENA.
 
-A deep successor must read it before continuing v0.4 design.
+Therefore:
 
-## Consequence for v0.4
+- maintainer/build instructions are not ENA product content by default;
+- desired qualities such as clear/practical/grounded writing should be demonstrated by the product rather than turned into product meta-doctrine;
+- legacy ENA is not the next product blueprint;
+- derive the new product from ENA purpose + real Agent problems first;
+- consult legacy ENA afterward for meaningful omissions/regressions and costly lessons.
 
-Do not use v0.3.x taxonomy, terminology, module boundaries, distinction catalogues, Action Card families, handoff mechanics, or project-management practice as the v0.4 skeleton merely because they already exist.
+Mandatory deep-succession record:
 
-Correct derivation order:
+`research/handoffs/records/2026-09-07-v040-clean-product-home/`
 
-1. start from ENA's actual purpose;
-2. start from real Agent problems/opportunities;
-3. derive the minimum useful capabilities from those problems;
-4. build the clean product;
-5. only afterward compare with v0.3.x for important omissions/regressions.
+A deep successor must read `CONSENSUS-LOCK.md` before designing the new ENA.
 
-The archived legacy coverage ledger is a secondary regression/coverage aid only.
+## Repository roles
 
-Previously named families such as `EVIDENCE/SUPPORT`, `EFFECT LIFECYCLE`, `RECOVERY/RESUME`, `ADAPTATION IMPORT`, and `COMPOSITION` may represent real capabilities worth preserving, but their old names and boundaries do not require five cards/modules. Mechanical continuation of that plan is paused.
+### `guytogay/ENA`
+New ENA product home.
 
-## Cleanup / migration direction
+### `guytogay/evolution-native-agent-architecture`
+Legacy v0.3.14 Current + research + experiments + evidence + history + provenance + maintainer succession.
 
-The owner explicitly directed the maintainer to archive, delete, or transfer accumulated material according to its real role, and not to make the owner manually clean it.
+### `guytogay/human-ai-workbench`
+Canonical general human-AI project-working method. Handoff, continuation, coordination reduction, and similar general methods belong there rather than in the ENA product by default.
 
-First cleanup pass:
+### `guytogay/ena-field-guide`
+Disposition: `SUNSET_AS_INDEPENDENT_PRODUCT / PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE`.
 
-- moved the v0.4 legacy coverage ledger out of the active rebuild root into `rebuild/v0.4.0/archive/`;
-- archived the historical repository-adoption origin record under `research/history/`;
-- removed obsolete root `PROJECT-HUB.md`, `PROJECT-STRUCTURE.md`, and `PROJECT-ECOSYSTEM.md`;
-- reduced `collaboration/README.md` to a cold-history notice instead of a current project protocol;
-- shortened root `README.md` back to a product/adoption entry;
-- minimized `PROJECT-METADATA.yaml`; it remains temporarily because the v0.3.14 Current validation workflow still reads it.
+The old theory-vs-practical-HOW split is no longer desired. Practical HOW necessary to use ENA should live naturally in the ENA product rather than require a second product repository.
 
-Reusable human-AI project-working method belongs in `guytogay/human-ai-workbench`; its live state already carries the human-relay/self-execution method, so ENA should not duplicate it.
+PR #6 remains a useful candidate/evidence occurrence. Re-evaluate its demonstrated capability value before bringing anything into the new ENA. Do not migrate Field Guide README/NOW/product-boundary structure.
 
-The owner explicitly permits a separate clean repository for the v0.4 product. `guytogay/ena` appears unused and is a suitable candidate name, but no new product repository has been created yet.
+## Cleanup already completed in legacy repo
 
-The current repository may therefore become primarily the v0.3.x Current/history/research/evidence source while a clean v0.4 product home is established separately.
+- legacy coverage ledger moved out of active rebuild root into archive;
+- historical repository-adoption record moved under `research/history/`;
+- obsolete root `PROJECT-HUB.md`, `PROJECT-STRUCTURE.md`, and `PROJECT-ECOSYSTEM.md` removed;
+- legacy collaboration entry demoted;
+- root README shortened to product/adoption routing;
+- `PROJECT-METADATA.yaml` minimized and retained only because v0.3.14 Current CI still reads it.
 
-## Active occurrences
+Continue archive/delete/transfer by actual role. Do not preserve live clutter merely because it has history; Git already preserves history.
+
+## Active legacy occurrences
 
 - Issue `#208` — Current field validation umbrella.
-- Issue `#222` — design occurrence; re-evaluate through the corrected clean-derivation direction.
-- PR `#224` — contribution occurrence showing actionability/prose-rent problems; do not merge paragraph-scale rewrite into v0.3.14.
-- Issue `#234` — active practicality/prose-rent evidence.
+- Issue `#222` — design occurrence; re-evaluate only through clean-product lens.
+- PR `#224` — contribution occurrence showing actionability/prose-rent problem; do not merge paragraph-scale rewrite into v0.3.14.
+- Issue `#234` — practicality/prose-rent evidence.
 - evolutionary-memory mechanism-discrimination campaign remains `CLOSED`.
 
 ## Immediate next action
 
-`ESTABLISH_CLEAN_V040_PRODUCT_HOME_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS`
+`REDERIVE_MINIMUM_ENA_PRODUCT_IN_GUYTOGAY_ENA_FROM_REAL_AGENT_PROBLEMS`
 
-Do not continue legacy-family Action Card derivation until the product boundary is clean.
+Start with real Agent problems/opportunities in the clean product repository. Do not mechanically continue legacy Action Card families and do not recreate a separate Field Guide product.
