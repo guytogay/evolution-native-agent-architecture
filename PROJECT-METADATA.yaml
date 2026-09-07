@@ -9,29 +9,15 @@ live_authorities:
   adoption_package: releases/current/
   project_status: NOW.md
   open_field_work: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
-  history: GIT_AND_PULL_REQUEST_LINEAGE
-
-navigation:
-  human_adoption: releases/current/ADOPTER-QUICKSTART.md
-  agent_default_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
-  agent_bootstrap_launcher: releases/current/AGENT-ADOPTION-INSTRUCTION.md
-  cue_index: releases/current/operational/CUE-INDEX.md
-  enforcement_map: releases/current/ENFORCEMENT-MAP.yaml
-  contribution: CONTRIBUTING.md
-  project_structure: PROJECT-STRUCTURE.md
 
 rules:
   infer_current_from_this_file: false
-  infer_current_from_version_number_or_recency: false
   current_version_must_be_read_from_adoption_identity: true
   research_history_required_for_ordinary_adoption: false
-  old_handoffs_plans_branch_inventories_are_live_authority: false
-  available_resource_implies_default_hot_payload: false
   default_agent_hot_payload_count: 1
   default_agent_hot_payload: releases/current/RUNTIME-ADOPTION-KERNEL.md
 
 historical_note: >-
-  Earlier versions of PROJECT-METADATA.yaml carried detailed live project, branch, release,
-  research, tracker, and validation state. That duplication repeatedly became stale. The old
-  content remains recoverable from Git history; this file now survives only as a compatibility
-  pointer to the actual live authorities.
+  This file is temporarily retained because the v0.3.14 Current validation workflow still
+  checks it as a compatibility pointer. It is not live project state or ENA product content.
+  Remove it when that legacy validation dependency is retired or superseded.
