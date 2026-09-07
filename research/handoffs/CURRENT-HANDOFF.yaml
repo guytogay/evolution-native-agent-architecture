@@ -70,6 +70,9 @@ receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
   reverify_live_mutable_facts_before_writes: REQUIRED
   preserve_negative_and_null_results: REQUIRED
+  use_full_handoff_for_fresh_validator: FORBIDDEN
+  treat_dated_handoff_snapshot_as_live_without_reverification: FORBIDDEN
+  reopen_closed_research_for_curiosity_only: FORBIDDEN
   mutate_legacy_current_without_successor_identity: FORBIDDEN
   copy_owner_or_maintainer_instructions_into_ena_product_by_default: FORBIDDEN
   copy_legacy_structure_taxonomy_terminology_or_handoff_machinery_into_new_ena_by_default: FORBIDDEN
