@@ -1,0 +1,72 @@
+name: Current Immutability Guard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'releases/current/**'
+      - '.github/workflows/current-immutability.yml'
+  pull_request:
+    paths:
+      - 'releases/current/**'
+      - '.github/workflows/current-immutability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard-same-version-bytes:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reject same-version Current byte mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            BASE_SHA="${{ github.event.before }}"
+          else
+            echo "workflow_dispatch: no predecessor comparison required"
+            exit 0
+          fi
+
+          HEAD_SHA="${{ github.sha }}"
+
+          if [[ -z "$BASE_SHA" || "$BASE_SHA" =~ ^0+$ ]]; then
+            echo "No comparable predecessor SHA; skipping immutability comparison."
+            exit 0
+          fi
+
+          if git diff --quiet "$BASE_SHA" "$HEAD_SHA" -- releases/current/; then
+            echo "No releases/current byte changes."
+            exit 0
+          fi
+
+          read_version() {
+            awk -F': *' '$1 == "ena_version" {print $2; exit}'
+          }
+
+          BASE_VERSION="$(git show "$BASE_SHA:releases/current/CURRENT-BASELINE.yaml" | read_version)"
+          HEAD_VERSION="$(read_version < releases/current/CURRENT-BASELINE.yaml)"
+
+          if [[ -z "$BASE_VERSION" || -z "$HEAD_VERSION" ]]; then
+            echo "::error::Unable to resolve ena_version from predecessor or proposed CURRENT-BASELINE.yaml."
+            exit 1
+          fi
+
+          echo "Current predecessor version: $BASE_VERSION"
+          echo "Current proposed version:    $HEAD_VERSION"
+
+          if [[ "$BASE_VERSION" == "$HEAD_VERSION" ]]; then
+            echo "::error::releases/current bytes changed while ena_version remained $HEAD_VERSION. SAME_VERSION => SAME_EFFECTIVE_CONTENT; publish a successor version instead of mutating released Current in place."
+            exit 1
+          fi
+
+          echo "CURRENT_SUCCESSOR_IDENTITY_CHANGED_PASS: $BASE_VERSION -> $HEAD_VERSION"
