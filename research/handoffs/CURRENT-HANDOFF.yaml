@@ -39,8 +39,9 @@ current_adoption:
 v040_rebuild:
   state: ACTIVE_REBUILD_NOT_CURRENT_NOT_PROMOTED
   branch: rebuild/v0.4.0-practical-core
+  start_here: rebuild/v0.4.0/START-HERE.md
   practical_core: rebuild/v0.4.0/PRACTICAL-CORE.md
-  legacy_coverage: rebuild/v0.4.0/LEGACY-SEMANTIC-COVERAGE.md
+  legacy_coverage_archive: rebuild/v0.4.0/archive/LEGACY-SEMANTIC-COVERAGE-2026-09-07.md
   legacy_role: EVIDENCE_HISTORY_REGRESSION_ORACLE_NOT_DESIGN_SKELETON
   copy_v03_tree_or_taxonomy_as_product_structure: FORBIDDEN
   mechanically_continue_five_legacy_action_card_families: FORBIDDEN
