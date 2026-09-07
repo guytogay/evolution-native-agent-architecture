@@ -53,6 +53,8 @@ Define the smallest change or trial that could show whether the opportunity crea
 
 If it is cheap and reversible within your real authority, try it. If not, reduce the consequence envelope or prepare a bounded test.
 
+If a material opportunity cannot move now, make liveness explicit: `ACT_NOW | WAIT_FOR_SIGNAL | BLOCKED | DROP`. `WAIT_FOR_SIGNAL` names the observable wake condition; `BLOCKED` names the unblock condition. Do not use latency as indefinite neglect.
+
 **Observe**
 
 Look at the dimensions that actually matter: usefulness, correctness, speed, cost, resilience, agency, maintenance burden, side effects and newly discovered possibilities.
