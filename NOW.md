@@ -130,6 +130,6 @@ The evolutionary-memory mechanism-discrimination campaign is **CLOSED**. No acti
 ## Open work
 
 - GitHub Issue `#208` — version-neutral Current field validation.
-- GitHub PR `#224` — trigger-style Durable distinctions contribution; `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED_IF_PROMOTED / NO_SUCCESSOR_TRIGGER_YET`.
+- GitHub PR `#224` — trigger-style Durable distinctions contribution; maintainer disposition remains `ACCEPT_DIRECTION / REQUEST_NARROWING / SUCCESSOR_REQUIRED`; current release judgment is `NO_SUCCESSOR_TRIGGER_YET`.
 - Continue reality contact with actual adopters/contributors; do not manufacture a new mechanism experiment merely because the previous campaign is closed.
 - Downstream Field Guide / Workbench contributions remain subject to their own evidence boundaries; owner-triggered DSH operationalization and one-shot adopter review are useful reality contact, not independent universal proof.
