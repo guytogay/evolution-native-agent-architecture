@@ -17,11 +17,13 @@ Do not mutate `releases/current/**` without successor identity.
 Branch: `rebuild/v0.4.0-practical-core`
 Status: `ACTIVE_REBUILD / NOT_CURRENT / NOT_PROMOTED`
 
-Existing working artifacts:
+Current rebuild surfaces:
 
-- `rebuild/v0.4.0/PRACTICAL-CORE.md`
-- `rebuild/v0.4.0/LEGACY-SEMANTIC-COVERAGE.md`
-- `rebuild/v0.4.0/START-HERE.md`
+- `rebuild/v0.4.0/START-HERE.md` — maintainer-only rebuild entry.
+- `rebuild/v0.4.0/PRACTICAL-CORE.md` — provisional early draft; do not extend mechanically.
+- `rebuild/v0.4.0/archive/LEGACY-SEMANTIC-COVERAGE-2026-09-07.md` — archived regression/evidence aid, not a product blueprint.
+
+The previous active-root `LEGACY-SEMANTIC-COVERAGE.md` has been removed from the rebuild root and archived.
 
 ## Owner direction correction — mandatory
 
@@ -49,7 +51,7 @@ Correct derivation order:
 4. build the clean product;
 5. only afterward compare with v0.3.x for important omissions/regressions.
 
-`LEGACY-SEMANTIC-COVERAGE.md` is now a secondary regression/coverage aid, not a product blueprint.
+The archived legacy coverage ledger is a secondary regression/coverage aid only.
 
 Previously named families such as `EVIDENCE/SUPPORT`, `EFFECT LIFECYCLE`, `RECOVERY/RESUME`, `ADAPTATION IMPORT`, and `COMPOSITION` may represent real capabilities worth preserving, but their old names and boundaries do not require five cards/modules. Mechanical continuation of that plan is paused.
 
