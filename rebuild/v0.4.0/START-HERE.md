@@ -4,6 +4,14 @@ Status: `ACTIVE_REBUILD / NOT_CURRENT / NOT_PROMOTED`
 
 Date: 2026-09-07
 
+## Current build progress
+
+- `PRACTICAL-CORE.md` exists and has survived initial real-work dogfood with one compact opportunity-liveness repair.
+- `LEGACY-SEMANTIC-COVERAGE.md` now places 29 major legacy property/failure families by practical consequence rather than old file location.
+- The durable-distinction catalogue and mandatory `semantic -> Cue Index -> HOW Map` traversal are marked for retirement as primary product units; their decision-material value is redistributed to action/guard/cold surfaces.
+- Dogfood has covered ENA rebuild work and a real non-ENA Human-AI Workbench decision without manufacturing a synthetic experiment.
+- Next build: derive the smallest useful Action Cards for `EVIDENCE/SUPPORT | EFFECT LIFECYCLE | RECOVERY/RESUME | ADAPTATION IMPORT | COMPOSITION`. A card should exist only if it earns more decision value than a direct Core/cold-HOW/Host-local path.
+
 ## Decision
 
 Do **not** refactor v0.3.x in place into the desired product.
