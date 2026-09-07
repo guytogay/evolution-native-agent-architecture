@@ -1,15 +1,11 @@
-# GitHub Repository Adoption
+# GitHub Repository Adoption — Historical Record
 
-Status: **HISTORICAL REPOSITORY-ORIGIN RECORD / NOT A CURRENT ADOPTION INSTRUCTION**
-
-For current ENA adoption, start at [`PROJECT-HUB.md`](PROJECT-HUB.md) and use only [`releases/current/`](releases/current/) as the effective baseline. The v0.2.11 `MAINLINE` terminology below records the repository's historical origin and is not an active maturity/adoption axis for v0.3.5 or later.
+Status: **ARCHIVED REPOSITORY-ORIGIN RECORD / NOT CURRENT ADOPTION INSTRUCTION**
 
 Date: 2026-08-20
 Repository: `guytogay/evolution-native-agent-architecture`
 Initial visibility at repository adoption: `PRIVATE`
 Public-readiness decision: `APPROVED / APACHE-2.0 / PUBLICATION_PREPARATION`
-
-## Meaning of this repository
 
 This repository was created after ENA v0.2.11 MAINLINE had already been developed, tested against the DSH reference host, reconciled, and promoted.
 
@@ -33,16 +29,6 @@ This section is historical. Do not infer today's Current, maturity, or adoption 
 
 GitHub adoption does not authorize rewriting ENA semantics, DSH host evidence, historical defects, or previous lineage.
 
-> Repository adoption is not architecture migration.
+Repository adoption is not architecture migration. Promotion changes status; it does not rewrite evidence.
 
-> Promotion changes status; it does not rewrite evidence.
-
-## Public canonical surface and private recovery
-
-GitHub is the canonical engineering lineage and current-adoption source for editable ENA specification, diffs, Issues, research, evidence links, contributions, and future releases.
-
-The maintainer may retain private recovery mirrors for durable backup of complete artifacts and research material. Those private coordinates are not public project dependencies, not runtime version layers, and do not replace GitHub as the canonical public adoption source.
-
-> Persistence != synchronization.
-
-> Preserve history durably; retrieve history selectively.
+Git history and release artifacts remain the canonical engineering lineage. Private recovery mirrors, if any, are backup surfaces rather than public project dependencies.

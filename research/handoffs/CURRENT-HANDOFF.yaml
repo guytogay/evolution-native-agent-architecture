@@ -45,8 +45,19 @@ v040_rebuild:
   legacy_role: EVIDENCE_HISTORY_REGRESSION_ORACLE_NOT_DESIGN_SKELETON
   copy_v03_tree_or_taxonomy_as_product_structure: FORBIDDEN
   mechanically_continue_five_legacy_action_card_families: FORBIDDEN
-  next_action: ESTABLISH_CLEAN_V040_PRODUCT_BOUNDARY_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS
-  clean_product_repo_option: ALLOWED_NOT_YET_CREATED
+  next_action: ESTABLISH_CLEAN_V040_PRODUCT_HOME_AND_REDERIVE_FROM_REAL_AGENT_PROBLEMS
+  clean_product_repo_option: PREFERRED_IF_IT_REDUCES_STRUCTURAL_CONTAMINATION
+  clean_product_repo_candidate: guytogay/ena
+  clean_product_repo_state: NOT_YET_CREATED
+cleanup_progress:
+  legacy_coverage_moved_out_of_active_rebuild_root: true
+  repository_adoption_record_archived: true
+  root_project_hub_removed: true
+  root_project_structure_removed: true
+  root_project_ecosystem_removed: true
+  collaboration_entry_demoted_to_history: true
+  root_readme_product_first: true
+  project_metadata_retained_only_for_v0314_ci_dependency: true
 active_product_findings:
   - F-208-12_VALUABLE_OPPORTUNITY_CAN_REMAIN_LATENT_WITHOUT_LIVENESS_DISPOSITION
   - F-208-13_AGENCY_FIRST_SEMANTICS_CAN_PROJECT_AS_DEFENSIVE_FIRST_HOT_POSTURE
@@ -80,4 +91,4 @@ receiver_contract:
   copy_v03_structure_or_taxonomy_into_v04_by_default: FORBIDDEN
   treat_legacy_coverage_ledger_as_v04_blueprint: FORBIDDEN
   turn_handoff_or_project_management_method_into_ena_product_without_independent_justification: FORBIDDEN
-rule: 'Current remains v0.3.14. For v0.4, separate ENA product from ENA-maintainer/project/history machinery. Re-derive the clean product from ENA purpose and real Agent problems first; use v0.3.x only afterward as evidence and regression/omission checking. The owner correction record is mandatory succession context.'
+rule: 'Current remains v0.3.14. For v0.4, separate ENA product from ENA-maintainer/project/history machinery. Prefer a clean product home when it prevents inherited structural contamination. Re-derive the product from ENA purpose and real Agent problems first; use v0.3.x only afterward as evidence and regression/omission checking.'
