@@ -1,4 +1,4 @@
-schema_version: '6.5'
+schema_version: '6.6'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-10'
 normal_continuation:
@@ -43,9 +43,82 @@ new_product:
   first_commit: 0e695a754b63987078bfe2d0bdd3369887a52b3c
   role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
   product_entry: README.md
-  first_use: FIRST-USE.md
-  premature_reasoning_core_removed: true
-  removed_file: CORE.md
+  working_product_shape_state: DRAFTED_END_TO_END_NOT_LIVE_TESTED
+  product_files:
+    first_use: FIRST-USE.md
+    a2a: A2A.md
+    survival: SURVIVAL.md
+    acms: ACMS.md
+    evolution: EVOLUTION.md
+    config_example: ENA.example.yaml
+    body_example: examples/BODY.example.yaml
+    rescue_example: examples/acms/RESCUE.example.yaml
+    status_example: examples/acms/STATUS.example.yaml
+    evolution_candidate_example: examples/evolution/CANDIDATE.example.yaml
+  first_use_contract:
+    jobs:
+      - INSPECT_REAL_AGENT_AND_HOST
+      - NORMALIZE_SHARED_OPERATING_CONVENTIONS
+    user_confirmed_settings:
+      - CANONICAL_TIMEZONE
+      - CANONICAL_LANGUAGE
+      - ENA_HOME
+    default_timezone_suggestion: Asia/Shanghai
+    timezone_storage: IANA_TIMEZONE_NAME
+    clock_sync_check: REQUIRED
+    ena_text_encoding: UTF_8
+    durable_outputs:
+      - ENA.yaml
+      - BODY.yaml
+  a2a_contract:
+    reuse_existing_agent_card_identity: REQUIRED_WHERE_AVAILABLE
+    parallel_ena_identity_namespace: FORBIDDEN
+    real_bidirectional_exchange: REQUIRED
+    usable_rescue_peer: REQUIRED_WHERE_HOST_CAN_SUPPORT_IT
+    exact_change_package_ack_before_acms_mutation: REQUIRED
+  survival_contract:
+    recovery_controller_outside_main_agent_failure_surface: REQUIRED_WHERE_HOST_ALLOWS
+    recovery_ladder: REPROBE_THEN_RESTART_THEN_VERIFY_THEN_RESTORE_RELEVANT_KNOWN_GOOD_THEN_VERIFY_THEN_A2A_OR_HUMAN_ESCALATION
+    process_running_alone_proves_recovery: false
+  acms_contract:
+    one_change_one_package: REQUIRED
+    timestamp_precision: SECOND
+    timestamp_timezone: CANONICAL_TIMEZONE_WITH_ACTUAL_UTC_OFFSET
+    package_core:
+      - rescue.yaml
+      - change.md
+      - status.yaml
+      - known_good_material
+      - executable_or_host_native_rollback
+    package_survives_changed_component_failure: REQUIRED
+    independent_timed_rollback_before_mutation: REQUIRED
+    normal_window: 5_TO_10_MINUTES
+    rescue_peer_ack_before_mutation: REQUIRED
+    post_change_external_conversation_before_retain: REQUIRED
+    normal_lifecycle:
+      - preparing
+      - armed
+      - applied
+      - retained
+    recovery_lifecycle:
+      - restoring
+      - restored
+      - failed
+    pre_mutation_abort_state: cancelled
+    rollback_idempotent_or_atomic_race_protected: REQUIRED_WHERE_HOST_ALLOWS
+    route_critical_self_change_through_acms_technically_where_practical: REQUIRED
+    unresolved_bypass_surfaces_recorded_in_body: REQUIRED
+  evolution_contract:
+    preserve_candidate: REQUIRED
+    capture_relevant_real_baseline_before_trial: REQUIRED
+    body_affecting_trial_uses_acms: REQUIRED
+    survival_is_not_improvement_evidence: REQUIRED
+    outcomes:
+      - retain
+      - revise
+      - reject
+      - restore
+    preserve_failed_and_successful_results: REQUIRED
   product_scope_correction_2026_09_10:
     rule: ADD_MISSING_AGENT_CAPABILITY_DO_NOT_DUPLICATE_CAPABLE_MODEL_JUDGMENT
     closed_out_of_scope_issue: https://github.com/guytogay/ENA/issues/7
@@ -54,40 +127,24 @@ new_product:
       - https://github.com/guytogay/ENA/issues/6
   adopter_utility_correction_2026_09_10:
     rule: OWNER_EXPLANATION_IS_NOT_PRODUCT_CONTENT_WITHOUT_INDEPENDENT_ADOPTER_UTILITY
-    cleaned_product_files:
-      - README.md
-      - FIRST-USE.md
-    cleaned_active_issue_bodies:
-      - https://github.com/guytogay/ENA/issues/8
-      - https://github.com/guytogay/ENA/issues/9
-      - https://github.com/guytogay/ENA/issues/10
-      - https://github.com/guytogay/ENA/issues/11
-  active_capability_0:
-    issue: https://github.com/guytogay/ENA/issues/10
-    description: INSPECT_ACTUAL_AGENT_RUNTIME_CAPABILITIES_BODY_AND_RECOVERY_SURFACE
-    executable_guidance: FIRST-USE.md
-  active_capability_1:
-    issue: https://github.com/guytogay/ENA/issues/11
-    description: ESTABLISH_PRACTICAL_BIDIRECTIONAL_A2A_PATH
-    minimum_survival_check: NORMAL_BIDIRECTIONAL_CONVERSATION
-  active_capability_2:
-    issue: https://github.com/guytogay/ENA/issues/8
-    description: HELP_AGENT_BUILD_SURVIVABLE_BODY_CHANGE_AND_RECOVERY
-    minimum_pattern: PRESERVE_OLD_STATE_RECORD_CHANGE_AND_REVERSAL_ARM_INDEPENDENT_TIMED_ROLLBACK_SHARE_RECOVERY_GUIDE_OVER_A2A_APPLY_CHANGE_CANCEL_ROLLBACK_ONLY_AFTER_EXTERNAL_CONVERSATION
-  active_capability_3:
-    issue: https://github.com/guytogay/ENA/issues/9
-    description: HELP_AGENT_BUILD_EXECUTABLE_EVOLUTION_SYSTEM
-    dependency_hint: SURVIVABILITY_AND_RECOVERY_ENABLE_SAFER_SELF_CHANGE
+    require_direct_adopter_utility_for_product_prose: true
+  active_issues:
+    self_inspection: https://github.com/guytogay/ENA/issues/10
+    a2a: https://github.com/guytogay/ENA/issues/11
+    survivability: https://github.com/guytogay/ENA/issues/8
+    evolution: https://github.com/guytogay/ENA/issues/9
+  owner_phase_direction:
+    finish_remaining_design_before_testing: REQUIRED
+    practical_testing_now: DEFERRED
   copy_legacy_repo_tree: FORBIDDEN
   copy_legacy_handoff_project_management_research_structure: FORBIDDEN
   derive_from: ENA_PURPOSE_REAL_AGENT_PROBLEMS_AND_MISSING_CAPABILITIES
   consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
-  next_action: DESIGN_ACMS_V01_PROTECTED_BODY_CHANGE_PATH_THEN_EXECUTABLE_EVOLUTION_SYSTEM
+  next_action: PRE_TEST_COMPLETENESS_AND_OMISSION_REVIEW_ONLY
 field_guide:
   repository: guytogay/ena-field-guide
   disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
   pr_6_role: USEFUL_CANDIDATE_AND_EVIDENCE_OCCURRENCE_NOT_AUTOMATIC_PRODUCT_MIGRATION
-  pr_6_relevance_to_next_action: CONSULT_AFTER_CLEAN_SURVIVAL_DERIVATION_FOR_REGRESSION_OMISSION_CHECK
   recreate_theory_vs_how_repo_split: FORBIDDEN
 human_ai_workbench:
   repository: guytogay/human-ai-workbench
@@ -122,4 +179,5 @@ receiver_contract:
   allow_succession_to_soften_product_boundary_correction: FORBIDDEN
   turn_ordinary_capable_model_reasoning_into_ena_specific_framework_by_default: FORBIDDEN
   prefer_missing_durable_agent_capabilities_over_duplicate_reasoning_rules: REQUIRED
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home for the next ENA. Product prose must earn its place by direct adopter utility; owner explanations and maintainer corrections belong in project context unless independently useful to an adopter. Current clean build path: inspect the real Agent body, establish A2A, build protected ACMS-style body change/recovery, then build executable cumulative evolution.'
+  start_live_practical_testing_before_owner_moves_phase: FORBIDDEN
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA now has a coherent working draft path: First Use -> A2A -> Survival -> ACMS -> Evolution. The draft is not Current and has not been live-tested. Current next action is bounded completeness/omission review only; practical testing remains deferred by owner direction.'
