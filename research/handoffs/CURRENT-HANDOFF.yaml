@@ -1,4 +1,4 @@
-schema_version: '6.4'
+schema_version: '6.5'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-10'
 normal_continuation:
@@ -43,6 +43,7 @@ new_product:
   first_commit: 0e695a754b63987078bfe2d0bdd3369887a52b3c
   role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
   product_entry: README.md
+  first_use: FIRST-USE.md
   premature_reasoning_core_removed: true
   removed_file: CORE.md
   product_scope_correction_2026_09_10:
@@ -51,11 +52,29 @@ new_product:
     regression_evidence_only:
       - https://github.com/guytogay/ENA/issues/1
       - https://github.com/guytogay/ENA/issues/6
+  adopter_utility_correction_2026_09_10:
+    rule: OWNER_EXPLANATION_IS_NOT_PRODUCT_CONTENT_WITHOUT_INDEPENDENT_ADOPTER_UTILITY
+    cleaned_product_files:
+      - README.md
+      - FIRST-USE.md
+    cleaned_active_issue_bodies:
+      - https://github.com/guytogay/ENA/issues/8
+      - https://github.com/guytogay/ENA/issues/9
+      - https://github.com/guytogay/ENA/issues/10
+      - https://github.com/guytogay/ENA/issues/11
+  active_capability_0:
+    issue: https://github.com/guytogay/ENA/issues/10
+    description: INSPECT_ACTUAL_AGENT_RUNTIME_CAPABILITIES_BODY_AND_RECOVERY_SURFACE
+    executable_guidance: FIRST-USE.md
   active_capability_1:
-    issue: https://github.com/guytogay/ENA/issues/8
-    description: HELP_AGENT_BUILD_SURVIVABLE_RUNTIME_AROUND_ITSELF
-    examples_not_mandates: DURABLE_STATE_RESTART_RESUME_WATCHDOG_ROLLBACK_CANARY_RECOVERY_DRILL
+    issue: https://github.com/guytogay/ENA/issues/11
+    description: ESTABLISH_PRACTICAL_BIDIRECTIONAL_A2A_PATH
+    minimum_survival_check: NORMAL_BIDIRECTIONAL_CONVERSATION
   active_capability_2:
+    issue: https://github.com/guytogay/ENA/issues/8
+    description: HELP_AGENT_BUILD_SURVIVABLE_BODY_CHANGE_AND_RECOVERY
+    minimum_pattern: PRESERVE_OLD_STATE_RECORD_CHANGE_AND_REVERSAL_ARM_INDEPENDENT_TIMED_ROLLBACK_SHARE_RECOVERY_GUIDE_OVER_A2A_APPLY_CHANGE_CANCEL_ROLLBACK_ONLY_AFTER_EXTERNAL_CONVERSATION
+  active_capability_3:
     issue: https://github.com/guytogay/ENA/issues/9
     description: HELP_AGENT_BUILD_EXECUTABLE_EVOLUTION_SYSTEM
     dependency_hint: SURVIVABILITY_AND_RECOVERY_ENABLE_SAFER_SELF_CHANGE
@@ -63,7 +82,7 @@ new_product:
   copy_legacy_handoff_project_management_research_structure: FORBIDDEN
   derive_from: ENA_PURPOSE_REAL_AGENT_PROBLEMS_AND_MISSING_CAPABILITIES
   consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
-  next_action: DESIGN_SURVIVABLE_AGENT_RUNTIME_THEN_EXECUTABLE_EVOLUTION_SYSTEM
+  next_action: DESIGN_ACMS_V01_PROTECTED_BODY_CHANGE_PATH_THEN_EXECUTABLE_EVOLUTION_SYSTEM
 field_guide:
   repository: guytogay/ena-field-guide
   disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
@@ -93,6 +112,8 @@ receiver_contract:
   reopen_closed_research_for_curiosity_only: FORBIDDEN
   mutate_legacy_current_without_successor_identity: FORBIDDEN
   copy_owner_or_maintainer_instructions_into_ena_product_by_default: FORBIDDEN
+  copy_owner_explanation_or_design_correction_into_product_without_independent_adopter_utility: FORBIDDEN
+  require_direct_adopter_utility_for_product_prose: REQUIRED
   copy_legacy_structure_taxonomy_terminology_or_handoff_machinery_into_new_ena_by_default: FORBIDDEN
   use_legacy_coverage_as_product_blueprint: FORBIDDEN
   mechanically_continue_legacy_action_card_families: FORBIDDEN
@@ -101,4 +122,4 @@ receiver_contract:
   allow_succession_to_soften_product_boundary_correction: FORBIDDEN
   turn_ordinary_capable_model_reasoning_into_ena_specific_framework_by_default: FORBIDDEN
   prefer_missing_durable_agent_capabilities_over_duplicate_reasoning_rules: REQUIRED
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home for the next ENA. The 2026-09-10 owner correction removes the premature reasoning core: ENA should add missing Agent capabilities rather than duplicate capable-model judgment. Current concrete product work is a survivable runtime first, then an executable evolution system. Use legacy material only afterward for evidence, lessons and regression checking.'
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home for the next ENA. Product prose must earn its place by direct adopter utility; owner explanations and maintainer corrections belong in project context unless independently useful to an adopter. Current clean build path: inspect the real Agent body, establish A2A, build protected ACMS-style body change/recovery, then build executable cumulative evolution.'
