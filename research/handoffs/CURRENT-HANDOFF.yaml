@@ -1,4 +1,4 @@
-schema_version: '6.2'
+schema_version: '6.3'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-09'
 normal_continuation:
@@ -44,15 +44,21 @@ new_product:
   role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
   product_entry: README.md
   first_working_core: CORE.md
-  first_real_problem:
+  real_problem_1:
     issue: https://github.com/guytogay/ENA/issues/1
     description: ACTIONABLE_PROBLEMS_GET_DEFERRED_WITHOUT_A_REAL_BLOCKER
     live_dogfood_reproduction_on_2026_09_09: true
+    legacy_evidence: F-208-17
+  real_problem_2:
+    issue: https://github.com/guytogay/ENA/issues/6
+    description: USEFUL_GUIDANCE_GETS_ACKNOWLEDGED_BUT_NOT_APPLIED
+    legacy_evidence: F-208-07
+  current_core_behavior: 'If there is a useful next step you can responsibly take now, take it. When new information changes what you should do, use it in the current work. Stop only for a real reason.'
   copy_legacy_repo_tree: FORBIDDEN
   copy_legacy_handoff_project_management_research_structure: FORBIDDEN
   derive_from: ENA_PURPOSE_AND_REAL_AGENT_PROBLEMS
   consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
-  next_action: DOGFOOD_FORWARD_PROGRESS_CORE_AND_CONTINUE_CLEAN_DERIVATION_FROM_REAL_AGENT_PROBLEMS
+  next_action: DOGFOOD_CURRENT_CORE_ON_REAL_WORK_AND_CONTINUE_CLEAN_DERIVATION_FROM_NEW_REAL_FAILURES
 field_guide:
   repository: guytogay/ena-field-guide
   disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
@@ -67,7 +73,7 @@ completed_research:
     state: CLOSED
     reopen_without_concrete_decision_changing_trigger: FORBIDDEN
 open_legacy_occurrences:
-  ena_issue_208: ACTIVE_FIELD_VALIDATION
+  ena_issue_208: ACTIVE_FIELD_VALIDATION_INCLUDES_F20817
   ena_issue_222: REVIEW_ONLY_THROUGH_CLEAN_PRODUCT_LENS
   ena_pr_224: PRESERVE_AS_CONTRIBUTION_OCCURRENCE_DO_NOT_MERGE_PARAGRAPH_REWRITE_INTO_V0314
   ena_issue_234: PRACTICALITY_PROSE_RENT_EVIDENCE
@@ -88,4 +94,5 @@ receiver_contract:
   turn_clear_simple_practical_grounded_build_feedback_into_product_meta_doctrine: FORBIDDEN
   allow_succession_to_soften_product_boundary_correction: FORBIDDEN
   if_useful_responsible_next_action_exists_without_real_blocker_continue_without_waiting_for_human_prompt: REQUIRED
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home for the next ENA. The first clean-product problem is now a live observed failure: Agents can recognize actionable work yet stop without a real blocker and wait for a human push. CORE.md begins the correction. Continue useful work while it remains responsible and actionable; stop only for a real reason. Derive further product behavior from real Agent problems first, then use legacy ENA only for lessons and regression checking.'
+  when_new_information_changes_relevant_action_apply_it_rather_than_merely_acknowledge_or_record_it: REQUIRED
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home for the next ENA. Two real failures now anchor the first working core: actionable work can stop without a real blocker, and useful guidance can be acknowledged without being applied. Continue useful responsible work, apply relevant learning, and stop only for a real reason. Derive further product behavior from new real Agent problems first; use legacy ENA only for evidence, lessons and regression checking.'
