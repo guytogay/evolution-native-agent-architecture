@@ -35,31 +35,73 @@ Therefore:
 - Issues `#1` and `#6` remain regression evidence that legacy ENA can suppress useful initiative or turn acknowledgement into a stopping point, but they do not justify a new ENA-specific reasoning layer;
 - the clean product now focuses on concrete missing Agent infrastructure.
 
-First active product work:
-
-1. `guytogay/ENA` Issue `#10` — inspect the Agent's actual runtime, capabilities, critical operating components, communication paths, A2A, and recovery surfaces. Executable first-use guidance now lives in `FIRST-USE.md`.
-
-2. `guytogay/ENA` Issue `#11` — establish a practical bidirectional A2A path when one does not already exist.
-
-3. `guytogay/ENA` Issue `#8` — build survivable body-change/recovery around the current Host. The current minimum pattern is: preserve the old state, record the intended change and reversal, arm an independent 5–10 minute rollback, send the same recovery record to another Agent through A2A, then apply the change. Normal bidirectional communication after the change is enough to cancel the pending rollback; otherwise the rollback remains armed.
-
-4. `guytogay/ENA` Issue `#9` — build an executable evolution system on top of that recovery foundation so useful self-improvements can be tried, observed, retained, revised, rejected, or rolled back.
-
 ### 2026-09-10 adopter-utility correction
 
-While drafting `FIRST-USE.md`, the maintainer again copied owner explanation/correction language into the product, including a sentence explaining that memory loss is not Agent death. The owner correctly identified that this explanation had no concrete value for an adopter reading the first-use instructions and would be confusing out of conversational context.
+While drafting `FIRST-USE.md`, the maintainer again copied owner explanation/correction language into the product. The owner correctly identified that explanation used to steer the maintainer is not automatically useful to an adopter.
 
 Correction:
 
 - owner explanations used to steer or correct the maintainer are maintainer/project context by default;
 - a sentence belongs in ENA product text only when it independently gives the adopter a concrete capability, action, constraint, recovery path, or necessary understanding for use;
 - if removing a sentence does not reduce the adopter's ability to use ENA correctly, prefer removing it;
-- rationale about why the maintainer rejected another design belongs in project history/handoff, not in adopter instructions;
-- `README.md`, `FIRST-USE.md`, and active Issue `#8`–`#11` bodies were cleaned to remove owner/meta/reasoning-boundary commentary from active product-facing text. Historical comments remain as project evidence, not runtime guidance.
-
-A useful maintainer check before adding product prose is: **what specific action or capability does this sentence enable for the adopter?** If there is no concrete answer, do not put it in the product merely because it was useful in the design conversation.
+- rationale about why the maintainer rejected another design belongs in project history/handoff, not in adopter instructions.
 
 This check is a maintainer discipline. Do not copy the check itself into ENA adopter/runtime content unless it independently becomes necessary there.
+
+### 2026-09-10 clean working product shape
+
+The first coherent working product shape is now present in `guytogay/ENA`. It remains a working draft and has **not** been live-tested, promoted, or made Current.
+
+Current adopter path:
+
+1. `FIRST-USE.md` — inspect the actual Agent/Host and normalize shared operating conventions.
+   - user confirms canonical timezone, canonical language, and ENA home;
+   - default timezone suggestion is `Asia/Shanghai`, but adopters may choose another IANA timezone;
+   - Host clock synchronization is checked because timed rollback requires trustworthy time;
+   - ENA-owned text records use UTF-8;
+   - First Use leaves `ENA.yaml` for stable configuration/pointers and `BODY.yaml` for grounded body/recovery inspection results.
+
+2. `A2A.md` — establish or reuse practical bidirectional Agent-to-Agent reach.
+   - reuse the A2A Agent Card/discovery mechanism rather than inventing a parallel ENA identity;
+   - verify a real two-way exchange;
+   - retain at least one usable rescue peer;
+   - ACMS rescue material must be acknowledged for the exact change package before mutation.
+
+3. `SURVIVAL.md` — build an external survivable runtime path.
+   - external start/restart mechanism;
+   - simple reachability/communication check;
+   - recovery ladder: probe again → restart → verify → restore relevant known-good state → verify → A2A/human escalation;
+   - recovery controls should remain outside the failure surface of the Agent being protected.
+
+4. `ACMS.md` — protected body-change path.
+   - one second-precise change package per protected change, named in canonical timezone with actual UTC offset;
+   - package includes `rescue.yaml`, `change.md`, `status.yaml`, known-good backup/restore material, and executable/Host-native rollback;
+   - package must survive failure of the changed component;
+   - lifecycle: `preparing → armed → applied → retained` or `restoring → restored/failed`, with `cancelled` before mutation;
+   - independent 5–10 minute rollback is armed before mutation;
+   - rescue peer receives and acknowledges executable recovery information before mutation;
+   - rollback should be idempotent or protected against timer/rescue-peer races;
+   - where practical, normal critical self-change should be technically routed through ACMS rather than relying on remembered checklist behavior.
+
+5. `EVOLUTION.md` — executable cumulative improvement.
+   - preserve a candidate;
+   - capture the smallest relevant real baseline before changing anything;
+   - use ACMS for body-affecting trials;
+   - distinguish survival of the mutation from evidence that the change actually improved anything;
+   - compare post-change reality with baseline and `retain / revise / reject / restore`;
+   - preserve successful and failed outcomes so later cycles inherit reality rather than rediscovering it.
+
+Current example artifacts include:
+
+- `ENA.example.yaml`
+- `examples/BODY.example.yaml`
+- `examples/acms/RESCUE.example.yaml`
+- `examples/acms/STATUS.example.yaml`
+- `examples/evolution/CANDIDATE.example.yaml`
+
+Active Issues `#8`–`#11` have been updated to point at the current working design.
+
+Owner direction for this point in the work: **finish the remaining working design first; do not start practical failure/evolution tests yet.**
 
 ## Mandatory owner consensus
 
@@ -101,7 +143,7 @@ Canonical general human-AI project-working method. Handoff, continuation, coordi
 ### `guytogay/ena-field-guide`
 Disposition: `SUNSET_AS_INDEPENDENT_PRODUCT / PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE`.
 
-PR #6 remains useful evidence for bounded self-maintenance (`snapshot + canary + ledger + restore drill`) and may now be consulted only after the clean survival need has independently earned attention. Do not migrate the old Field Guide structure.
+PR #6 remains useful evidence for bounded self-maintenance (`snapshot + canary + ledger + restore drill`) and may be consulted only after the clean need has independently earned attention. Do not migrate the old Field Guide structure.
 
 ## Active legacy occurrences
 
@@ -113,8 +155,8 @@ PR #6 remains useful evidence for bounded self-maintenance (`snapshot + canary +
 
 ## Immediate next action
 
-`DESIGN_ACMS_V01_PROTECTED_BODY_CHANGE_PATH_THEN_EXECUTABLE_EVOLUTION_SYSTEM`
+`PRE_TEST_COMPLETENESS_AND_OMISSION_REVIEW_ONLY`
 
-Use `FIRST-USE.md`, Issue #10 and Issue #11 as prerequisites. Design the smallest real ACMS-style protected change path for the current Host pattern: preserve old state, record the exact change/reversal, arm independent timed rollback, share the recovery record through A2A before mutation, apply the change, and cancel rollback only after a normal external conversation confirms a rescue channel still exists.
+The working product path is now drafted end-to-end. Before any live failure, rescue, interoperability, or evolution test, perform a bounded completeness/consistency review of the new `guytogay/ENA` files and examples only. Look for missing practical dependencies, contradictions between First Use/A2A/Survival/ACMS/Evolution, and any remaining prose that does not directly help an adopter.
 
-Then use that recovery base to support Issue #9: safe cumulative evolution. Keep adopter-facing text free of maintainer-only rationale.
+Do **not** start practical tests until the owner explicitly moves the project into that phase. Do not use the review as an excuse to reopen closed legacy research or re-import legacy architecture.
