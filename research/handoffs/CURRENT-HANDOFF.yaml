@@ -1,4 +1,4 @@
-schema_version: '6.6'
+schema_version: '6.7'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-10'
 normal_continuation:
@@ -43,7 +43,7 @@ new_product:
   first_commit: 0e695a754b63987078bfe2d0bdd3369887a52b3c
   role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
   product_entry: README.md
-  working_product_shape_state: DRAFTED_END_TO_END_NOT_LIVE_TESTED
+  working_product_shape_state: FOUNDATION_DRAFTED_EVOLUTION_STILL_INCOMPLETE_NOT_LIVE_TESTED
   product_files:
     first_use: FIRST-USE.md
     a2a: A2A.md
@@ -109,16 +109,45 @@ new_product:
     route_critical_self_change_through_acms_technically_where_practical: REQUIRED
     unresolved_bypass_surfaces_recorded_in_body: REQUIRED
   evolution_contract:
-    preserve_candidate: REQUIRED
-    capture_relevant_real_baseline_before_trial: REQUIRED
-    body_affecting_trial_uses_acms: REQUIRED
-    survival_is_not_improvement_evidence: REQUIRED
-    outcomes:
-      - retain
-      - revise
-      - reject
-      - restore
-    preserve_failed_and_successful_results: REQUIRED
+    state: ACTIVE_DESIGN_INCOMPLETE
+    memory_consolidation:
+      purpose: ORGANIZE_AND_TRANSFORM_ACCUMULATED_EXPERIENCE_INTO_BETTER_DURABLE_MEMORY_AND_ADAPTATION
+      candidate_operations:
+        - MERGE_DUPLICATES
+        - CONNECT_RELATED_MEMORY
+        - COMPILE_REPEATED_EXPERIENCE_INTO_PROCEDURE
+        - STRENGTHEN_USEFUL_ASSOCIATIONS_OR_CUES
+        - NARROW_OVERGENERALIZATION
+        - PRESERVE_COUNTEREVIDENCE_AND_UNCERTAINTY
+        - DORMANT_OR_SUPERSEDE_STALE_MATERIAL
+        - PRUNE_WHERE_EARNED
+      destructive_memory_change_reversible_where_host_allows: REQUIRED
+    dreaming_recombination:
+      purpose: GENERATE_NEW_ASSOCIATIONS_HYPOTHESES_SCENARIOS_AND_VARIATIONS_FROM_EXISTING_MEMORY
+      generated_material_is_factual_evidence: false
+      dream_output_may_feed_candidate_queue: true
+      reality_selection_outside_dream_state: REQUIRED
+    reality_selection:
+      preserve_candidate: REQUIRED
+      capture_relevant_real_baseline_before_trial: REQUIRED
+      body_affecting_trial_uses_acms: REQUIRED
+      survival_is_not_improvement_evidence: REQUIRED
+      outcomes:
+        - retain
+        - revise
+        - reject
+        - restore
+      preserve_failed_and_successful_results: REQUIRED
+    feedback_loop: SELECTED_RESULTS_FEED_BACK_INTO_MEMORY_CONSOLIDATION_AND_FUTURE_DREAMING
+  recovered_legacy_evolution_evidence:
+    current_metabolism: releases/current/09-EVOLUTION-METABOLISM.md
+    preserved_adaptation: research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md
+    sleep_dreaming: research/evolution-inbox/MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md
+    closed_campaign_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
+    use_as_blueprint: FORBIDDEN
+    use_for_prior_evidence_and_omission_checking: REQUIRED_WHEN_RELEVANT
+    old_sleep_track_disposition: SUBSUMED_SEMANTICALLY_COVERED_POLICY_OPTIMUM_FIELD_UNRESOLVED
+    old_dream_track_disposition: SUBSUMED_AS_VARIATION_IMPLEMENTATION_FAMILY_FIELD_UNRESOLVED_FOR_INVOCATION_POLICY
   product_scope_correction_2026_09_10:
     rule: ADD_MISSING_AGENT_CAPABILITY_DO_NOT_DUPLICATE_CAPABLE_MODEL_JUDGMENT
     closed_out_of_scope_issue: https://github.com/guytogay/ENA/issues/7
@@ -128,19 +157,21 @@ new_product:
   adopter_utility_correction_2026_09_10:
     rule: OWNER_EXPLANATION_IS_NOT_PRODUCT_CONTENT_WITHOUT_INDEPENDENT_ADOPTER_UTILITY
     require_direct_adopter_utility_for_product_prose: true
+    project_phase_language_in_active_product_issue_bodies: REMOVED
   active_issues:
     self_inspection: https://github.com/guytogay/ENA/issues/10
     a2a: https://github.com/guytogay/ENA/issues/11
     survivability: https://github.com/guytogay/ENA/issues/8
     evolution: https://github.com/guytogay/ENA/issues/9
   owner_phase_direction:
-    finish_remaining_design_before_testing: REQUIRED
+    continue_remaining_evolution_design_before_testing: REQUIRED
     practical_testing_now: DEFERRED
+    phase_direction_belongs_in_project_status_not_adopter_product_text: REQUIRED
   copy_legacy_repo_tree: FORBIDDEN
   copy_legacy_handoff_project_management_research_structure: FORBIDDEN
   derive_from: ENA_PURPOSE_REAL_AGENT_PROBLEMS_AND_MISSING_CAPABILITIES
   consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
-  next_action: PRE_TEST_COMPLETENESS_AND_OMISSION_REVIEW_ONLY
+  next_action: CONTINUE_CLEAN_EVOLUTION_DESIGN_FROM_MEMORY_CONSOLIDATION_DREAMING_AND_REALITY_SELECTION
 field_guide:
   repository: guytogay/ena-field-guide
   disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
@@ -180,4 +211,4 @@ receiver_contract:
   turn_ordinary_capable_model_reasoning_into_ena_specific_framework_by_default: FORBIDDEN
   prefer_missing_durable_agent_capabilities_over_duplicate_reasoning_rules: REQUIRED
   start_live_practical_testing_before_owner_moves_phase: FORBIDDEN
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA now has a coherent working draft path: First Use -> A2A -> Survival -> ACMS -> Evolution. The draft is not Current and has not been live-tested. Current next action is bounded completeness/omission review only; practical testing remains deferred by owner direction.'
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA has a drafted First Use/A2A/Survival/ACMS foundation, while Evolution remains under active design. Evolution currently consists of memory consolidation + dream-like recombination + reality selection/ACMS trial + feedback into memory. Continue owner-guided evolution design before practical testing; phase guidance belongs in project status, not adopter product instructions.'
