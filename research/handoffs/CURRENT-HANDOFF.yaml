@@ -1,6 +1,6 @@
-schema_version: '6.1'
+schema_version: '6.2'
 status: CURRENT_DEEP_SUCCESSION_POINTER
-updated_at: '2026-09-07'
+updated_at: '2026-09-09'
 normal_continuation:
   default_entry: NOW.md
   full_handoff_required_by_default: false
@@ -42,11 +42,17 @@ new_product:
   initialized_from_empty_repository: true
   first_commit: 0e695a754b63987078bfe2d0bdd3369887a52b3c
   role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
+  product_entry: README.md
+  first_working_core: CORE.md
+  first_real_problem:
+    issue: https://github.com/guytogay/ENA/issues/1
+    description: ACTIONABLE_PROBLEMS_GET_DEFERRED_WITHOUT_A_REAL_BLOCKER
+    live_dogfood_reproduction_on_2026_09_09: true
   copy_legacy_repo_tree: FORBIDDEN
   copy_legacy_handoff_project_management_research_structure: FORBIDDEN
   derive_from: ENA_PURPOSE_AND_REAL_AGENT_PROBLEMS
   consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
-  next_action: REDERIVE_MINIMUM_ENA_PRODUCT_IN_GUYTOGAY_ENA_FROM_REAL_AGENT_PROBLEMS
+  next_action: DOGFOOD_FORWARD_PROGRESS_CORE_AND_CONTINUE_CLEAN_DERIVATION_FROM_REAL_AGENT_PROBLEMS
 field_guide:
   repository: guytogay/ena-field-guide
   disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
@@ -81,4 +87,5 @@ receiver_contract:
   recreate_separate_field_guide_product: FORBIDDEN
   turn_clear_simple_practical_grounded_build_feedback_into_product_meta_doctrine: FORBIDDEN
   allow_succession_to_soften_product_boundary_correction: FORBIDDEN
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA is now the clean product home for the next ENA. Derive the product from ENA purpose and real Agent problems first. Treat legacy ENA as Current/history/research/evidence and use it only afterward for lessons/regression checking. Field Guide is sunset as a separate product. Maintainer and handoff instructions are not ENA product content by default.'
+  if_useful_responsible_next_action_exists_without_real_blocker_continue_without_waiting_for_human_prompt: REQUIRED
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home for the next ENA. The first clean-product problem is now a live observed failure: Agents can recognize actionable work yet stop without a real blocker and wait for a human push. CORE.md begins the correction. Continue useful work while it remains responsible and actionable; stop only for a real reason. Derive further product behavior from real Agent problems first, then use legacy ENA only for lessons and regression checking.'

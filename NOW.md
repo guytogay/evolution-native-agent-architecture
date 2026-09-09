@@ -18,9 +18,30 @@ Repository: `guytogay/ENA`
 
 State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
-The repository now exists, is public, and was intentionally initialized from empty state with only a minimal README. It is the clean product home for the next ENA.
+The repository was intentionally initialized from empty state and is the clean product home for the next ENA.
 
 Do not copy the legacy repository tree, old handoffs, project-management machinery, research structure, legacy vocabulary/taxonomy, or the old rebuild branch wholesale into the new product repository.
+
+### First clean-product reality problem
+
+`guytogay/ENA` Issue `#1` — **Actionable problems get deferred without a real blocker**.
+
+Observed repeatedly in v0.3.14 adopters and reproduced live by the ENA maintainer Agent on 2026-09-09:
+
+- a real problem is recognized;
+- the desired future behavior is explained or recorded;
+- no real blocker exists;
+- the Agent nevertheless stops and waits for another human prompt instead of taking the next useful action.
+
+This is broader than legacy F-208-12 opportunity latency. It includes ordinary work that is already actionable.
+
+The first new-product behavior has now been implemented in `guytogay/ENA/CORE.md`:
+
+> If there is a useful next step you can responsibly take now, take it. Stop only for a real reason.
+
+The core also requires a concrete blocker/unblock condition when progress truly cannot continue, and a reality check after meaningful action.
+
+This is a working slice, not a claim that the new ENA is complete.
 
 ## Mandatory owner consensus
 
@@ -86,6 +107,6 @@ Continue archive/delete/transfer by actual role. Do not preserve live clutter me
 
 ## Immediate next action
 
-`REDERIVE_MINIMUM_ENA_PRODUCT_IN_GUYTOGAY_ENA_FROM_REAL_AGENT_PROBLEMS`
+`DOGFOOD_FORWARD_PROGRESS_CORE_AND_CONTINUE_CLEAN_DERIVATION_FROM_REAL_AGENT_PROBLEMS`
 
-Start with real Agent problems/opportunities in the clean product repository. Do not mechanically continue legacy Action Card families and do not recreate a separate Field Guide product.
+Do not stop after merely recording or explaining a problem when a useful, responsible next action is already available. Use real work to test the new core, then derive additional ENA behavior only from observed Agent problems/opportunities rather than legacy taxonomy.
