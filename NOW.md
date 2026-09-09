@@ -37,20 +37,29 @@ Therefore:
 
 First active product work:
 
-1. `guytogay/ENA` Issue `#8` — **Help an Agent build a survivable runtime around itself**.
-   - inspect the current Host;
-   - use Host-native mechanisms where suitable;
-   - make interruption, restart, bad self-change and recovery less destructive;
-   - prove recovery actually works rather than merely claiming backup exists.
+1. `guytogay/ENA` Issue `#10` — inspect the Agent's actual runtime, capabilities, critical operating components, communication paths, A2A, and recovery surfaces. Executable first-use guidance now lives in `FIRST-USE.md`.
 
-2. `guytogay/ENA` Issue `#9` — **Help an Agent build an executable evolution system**.
-   - preserve candidate improvements;
-   - make bounded changes without destroying known-good state;
-   - test against reality;
-   - keep, revise, reject or roll back changes;
-   - carry useful improvement across sessions/restarts.
+2. `guytogay/ENA` Issue `#11` — establish a practical bidirectional A2A path when one does not already exist.
 
-The user summarized the intended level concretely: ENA should be able to guide a model to build an "不死的框架" around the current Agent and to build an actual evolution system around it.
+3. `guytogay/ENA` Issue `#8` — build survivable body-change/recovery around the current Host. The current minimum pattern is: preserve the old state, record the intended change and reversal, arm an independent 5–10 minute rollback, send the same recovery record to another Agent through A2A, then apply the change. Normal bidirectional communication after the change is enough to cancel the pending rollback; otherwise the rollback remains armed.
+
+4. `guytogay/ENA` Issue `#9` — build an executable evolution system on top of that recovery foundation so useful self-improvements can be tried, observed, retained, revised, rejected, or rolled back.
+
+### 2026-09-10 adopter-utility correction
+
+While drafting `FIRST-USE.md`, the maintainer again copied owner explanation/correction language into the product, including a sentence explaining that memory loss is not Agent death. The owner correctly identified that this explanation had no concrete value for an adopter reading the first-use instructions and would be confusing out of conversational context.
+
+Correction:
+
+- owner explanations used to steer or correct the maintainer are maintainer/project context by default;
+- a sentence belongs in ENA product text only when it independently gives the adopter a concrete capability, action, constraint, recovery path, or necessary understanding for use;
+- if removing a sentence does not reduce the adopter's ability to use ENA correctly, prefer removing it;
+- rationale about why the maintainer rejected another design belongs in project history/handoff, not in adopter instructions;
+- `README.md`, `FIRST-USE.md`, and active Issue `#8`–`#11` bodies were cleaned to remove owner/meta/reasoning-boundary commentary from active product-facing text. Historical comments remain as project evidence, not runtime guidance.
+
+A useful maintainer check before adding product prose is: **what specific action or capability does this sentence enable for the adopter?** If there is no concrete answer, do not put it in the product merely because it was useful in the design conversation.
+
+This check is a maintainer discipline. Do not copy the check itself into ENA adopter/runtime content unless it independently becomes necessary there.
 
 ## Mandatory owner consensus
 
@@ -63,11 +72,12 @@ Two owner analogies define the correction:
 - exam paper: instructions such as "keep the paper clean" should improve the work, not be written as part of the answer;
 - tree/coin: a foreign object can become deeply wrapped by later growth; deep embedding does not prove it intrinsically belongs to ENA.
 
-The 2026-09-10 correction extends this boundary:
+The 2026-09-10 corrections extend this boundary:
 
 - ordinary capable-model reasoning is not automatically an ENA product gap;
 - do not rebuild generic judgment, tradeoff analysis, feedback handling or bug reasoning as ENA machinery merely because those behaviors matter;
-- prefer concrete missing capabilities, durable mechanisms and executable systems that materially extend what the Agent can actually do.
+- prefer concrete missing capabilities, durable mechanisms and executable systems that materially extend what the Agent can actually do;
+- do not copy explanatory language from owner/maintainer design conversations into product text unless it independently helps an adopter use the product.
 
 Legacy ENA remains evidence/regression history, not the next product blueprint.
 
@@ -75,7 +85,7 @@ Mandatory deep-succession record remains:
 
 `research/handoffs/records/2026-09-07-v040-clean-product-home/`
 
-A deep successor must read `CONSENSUS-LOCK.md` before designing the new ENA, then apply this newer live correction from `NOW.md` and `CURRENT-HANDOFF.yaml`.
+A deep successor must read `CONSENSUS-LOCK.md` before designing the new ENA, then apply the newer live corrections from `NOW.md` and `CURRENT-HANDOFF.yaml`.
 
 ## Repository roles
 
@@ -103,8 +113,8 @@ PR #6 remains useful evidence for bounded self-maintenance (`snapshot + canary +
 
 ## Immediate next action
 
-`DESIGN_SURVIVABLE_AGENT_RUNTIME_THEN_EXECUTABLE_EVOLUTION_SYSTEM`
+`DESIGN_ACMS_V01_PROTECTED_BODY_CHANGE_PATH_THEN_EXECUTABLE_EVOLUTION_SYSTEM`
 
-Start from Issue #8 as the first concrete capability. Derive the smallest Host-adaptive survivability/recovery guidance that gives an Agent something it does not already have through model reasoning alone. Use Field Guide PR #6 and legacy recovery evidence only afterward as regression/omission checks.
+Use `FIRST-USE.md`, Issue #10 and Issue #11 as prerequisites. Design the smallest real ACMS-style protected change path for the current Host pattern: preserve old state, record the exact change/reversal, arm independent timed rollback, share the recovery record through A2A before mutation, apply the change, and cancel rollback only after a normal external conversation confirms a rescue channel still exists.
 
-Then use that recovery base to support Issue #9: safe cumulative evolution. Do not add generic reasoning rules unless a real missing capability cannot be supplied without them.
+Then use that recovery base to support Issue #9: safe cumulative evolution. Keep adopter-facing text free of maintainer-only rationale.
