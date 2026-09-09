@@ -22,7 +22,7 @@ The repository was intentionally initialized from empty state and is the clean p
 
 Do not copy the legacy repository tree, old handoffs, project-management machinery, research structure, legacy vocabulary/taxonomy, or the old rebuild branch wholesale into the new product repository.
 
-### First clean-product reality problem
+### First clean-product reality problems
 
 `guytogay/ENA` Issue `#1` — **Actionable problems get deferred without a real blocker**.
 
@@ -33,15 +33,26 @@ Observed repeatedly in v0.3.14 adopters and reproduced live by the ENA maintaine
 - no real blocker exists;
 - the Agent nevertheless stops and waits for another human prompt instead of taking the next useful action.
 
-This is broader than legacy F-208-12 opportunity latency. It includes ordinary work that is already actionable.
+This is broader than legacy F-208-12 opportunity latency. It includes ordinary work that is already actionable. Legacy Issue #208 now preserves this occurrence as F-208-17.
 
-The first new-product behavior has now been implemented in `guytogay/ENA/CORE.md`:
+`guytogay/ENA` Issue `#6` — **Useful guidance gets acknowledged but not applied**.
 
-> If there is a useful next step you can responsibly take now, take it. Stop only for a real reason.
+A real v0.3.14 field occurrence (legacy F-208-07) showed an Agent could adopt/understand ENA without inspecting its own Host or turning relevant guidance into practical action until explicitly prompted by the owner. The same pattern appeared in the current rebuild: correct agreement and explanation did not automatically become changed behavior.
+
+The two problems are related but not identical:
+
+- Issue #1: an actionable next step is already visible, but the Agent stops;
+- Issue #6: new information should create a practical next step, but the Agent may fail to recognize/apply it.
+
+The new product currently addresses both with one small `guytogay/ENA/CORE.md` behavior rather than separate modules:
+
+> If there is a useful next step you can responsibly take now, take it. When new information changes what you should do, use it in the current work. Stop only for a real reason.
 
 The core also requires a concrete blocker/unblock condition when progress truly cannot continue, and a reality check after meaningful action.
 
-This is a working slice, not a claim that the new ENA is complete.
+Immediate dogfood showed the rule can increase forward motion without overriding real authority/risk boundaries. It also caused a bad README issue link to be caught and fixed immediately rather than deferred.
+
+This remains a working slice, not a claim that the new ENA is complete.
 
 ## Mandatory owner consensus
 
@@ -99,7 +110,7 @@ Continue archive/delete/transfer by actual role. Do not preserve live clutter me
 
 ## Active legacy occurrences
 
-- Issue `#208` — Current field validation umbrella.
+- Issue `#208` — Current field validation umbrella; includes F-208-17 forward-progress evidence.
 - Issue `#222` — design occurrence; re-evaluate only through clean-product lens.
 - PR `#224` — contribution occurrence showing actionability/prose-rent problem; do not merge paragraph-scale rewrite into v0.3.14.
 - Issue `#234` — practicality/prose-rent evidence.
@@ -107,6 +118,6 @@ Continue archive/delete/transfer by actual role. Do not preserve live clutter me
 
 ## Immediate next action
 
-`DOGFOOD_FORWARD_PROGRESS_CORE_AND_CONTINUE_CLEAN_DERIVATION_FROM_REAL_AGENT_PROBLEMS`
+`DOGFOOD_CURRENT_CORE_ON_REAL_WORK_AND_CONTINUE_CLEAN_DERIVATION_FROM_NEW_REAL_FAILURES`
 
-Do not stop after merely recording or explaining a problem when a useful, responsible next action is already available. Use real work to test the new core, then derive additional ENA behavior only from observed Agent problems/opportunities rather than legacy taxonomy.
+Do not stop after merely recording, agreeing with, or explaining a problem when a useful, responsible next action is already available. Use real work to test the current core. Add product behavior only when a real Agent failure/opportunity shows that the existing core is insufficient; do not manufacture modules from legacy taxonomy.
