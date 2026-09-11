@@ -22,123 +22,89 @@ The repository was intentionally initialized from empty state and is the clean p
 
 Do not copy the legacy repository tree, old handoffs, project-management machinery, research structure, legacy vocabulary/taxonomy, or the old rebuild branch wholesale into the new product repository.
 
-### 2026-09-10 product-scope correction
+## Mandatory clean-product boundary
 
-The clean rebuild briefly started turning ordinary model reasoning into ENA product rules: how to notice bugs/feedback, how to weigh tradeoffs, when to continue, and how to judge changes.
-
-Owner correction: **this is too much and is the wrong layer.** A capable model already has substantial judgment ability. ENA should primarily add capabilities the model/Agent does not possess merely by reasoning.
-
-Therefore:
-
-- `guytogay/ENA/CORE.md` was removed rather than allowed to grow into another reasoning framework;
-- Issue `#7` was closed `not planned / out of product scope`;
-- Issues `#1` and `#6` remain regression evidence that legacy ENA can suppress useful initiative or turn acknowledgement into a stopping point, but they do not justify a new ENA-specific reasoning layer;
-- the clean product now focuses on concrete missing Agent infrastructure.
-
-### 2026-09-10 adopter-utility correction
-
-While drafting `FIRST-USE.md`, the maintainer again copied owner explanation/correction language into the product. The owner correctly identified that explanation used to steer the maintainer is not automatically useful to an adopter.
-
-Correction:
-
-- owner explanations used to steer or correct the maintainer are maintainer/project context by default;
-- a sentence belongs in ENA product text only when it independently gives the adopter a concrete capability, action, constraint, recovery path, or necessary understanding for use;
-- if removing a sentence does not reduce the adopter's ability to use ENA correctly, prefer removing it;
-- rationale about why the maintainer rejected another design belongs in project history/handoff, not in adopter instructions.
-
-This check is a maintainer discipline. Do not copy the check itself into ENA adopter/runtime content unless it independently becomes necessary there.
-
-### 2026-09-10 current clean-product foundation
-
-The clean product currently has a coherent **foundation**, but the overall design is not yet complete because the evolution subsystem was initially narrowed too early.
-
-Current adopter-facing foundation:
-
-1. `FIRST-USE.md` — inspect the actual Agent/Host and normalize shared operating conventions.
-   - user confirms canonical timezone, canonical language, and ENA home;
-   - default timezone suggestion is `Asia/Shanghai`, but adopters may choose another IANA timezone;
-   - Host clock synchronization is checked because timed rollback requires trustworthy time;
-   - ENA-owned text records use UTF-8;
-   - First Use leaves `ENA.yaml` for stable configuration/pointers and `BODY.yaml` for grounded body/recovery inspection results.
-
-2. `A2A.md` — establish or reuse practical bidirectional Agent-to-Agent reach.
-   - reuse the A2A Agent Card/discovery mechanism rather than inventing a parallel ENA identity;
-   - verify a real two-way exchange;
-   - retain at least one usable rescue peer;
-   - ACMS rescue material must be acknowledged for the exact change package before mutation.
-
-3. `SURVIVAL.md` — build an external survivable runtime path.
-   - external start/restart mechanism;
-   - simple reachability/communication check;
-   - recovery ladder: probe again → restart → verify → restore relevant known-good state → verify → A2A/human escalation;
-   - recovery controls should remain outside the failure surface of the Agent being protected.
-
-4. `ACMS.md` — protected body-change path.
-   - one second-precise change package per protected change, named in canonical timezone with actual UTC offset;
-   - package includes `rescue.yaml`, `change.md`, `status.yaml`, known-good backup/restore material, and executable/Host-native rollback;
-   - package must survive failure of the changed component;
-   - lifecycle: `preparing → armed → applied → retained` or `restoring → restored/failed`, with `cancelled` before mutation;
-   - independent 5–10 minute rollback is armed before mutation;
-   - rescue peer receives and acknowledges executable recovery information before mutation;
-   - rollback should be idempotent or protected against timer/rescue-peer races;
-   - where practical, normal critical self-change should be technically routed through ACMS rather than relying on remembered checklist behavior.
-
-5. `EVOLUTION.md` — **still under active design**.
-   - the first draft captured candidate → baseline → ACMS trial → observation → `retain / revise / reject / restore`;
-   - owner correction: this is only the reality-selection/execution portion and does not by itself constitute an evolution system;
-   - evolution must also include memory consolidation that improves the Agent's durable memory/adaptive substrate, and dream-like recombination that creates new associations/variation from accumulated experience;
-   - `EVOLUTION.md` has been expanded to the current working shape: experience/memory → consolidation → dreaming/recombination → candidate → reality contact/selection → feed result back into memory.
-
-### Recovered legacy evolution evidence relevant to the clean design
-
-Legacy ENA is being consulted here as evidence and prior work, not as the new product blueprint.
-
-Relevant preserved material includes:
-
-- `releases/current/09-EVOLUTION-METABOLISM.md` — retains the general metabolism `stimulus → variation → reality contact → local selection → retention/dormancy/loss → migration/recombination → renewed variation`;
-- `research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md` — distinguishes preserved information from preserved adaptation and treats memory as what experience changes about future behavior;
-- `research/evolution-inbox/MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md` — preserves the earlier `ai-dreaming` lineage, sleep-like offline consolidation, associative memory, dream-like recombination, and the boundary that generated dream material is variation rather than factual evidence;
-- `research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml` — closed the old mechanism-discrimination campaign without rejecting these functions: sleep-like consolidation was subsumed under memory/metamemory/local selection; dream-like recombination was subsumed as a variation-generation implementation family whose invocation policy remained field-unresolved.
-
-Do not mechanically recreate the old ontology, experiments, or research terminology in the clean product. Extract only practical capabilities that independently earn adopter utility.
-
-Current example artifacts include:
-
-- `ENA.example.yaml`
-- `examples/BODY.example.yaml`
-- `examples/acms/RESCUE.example.yaml`
-- `examples/acms/STATUS.example.yaml`
-- `examples/evolution/CANDIDATE.example.yaml`
-
-Active Issues `#8`–`#11` point at the current working product needs. Project-phase/testing commentary was removed from those issue bodies because it does not belong in adopter/product requirements.
-
-Owner phase direction belongs here in project status, not in product instructions: continue the remaining design before moving to practical failure/evolution testing.
-
-## Mandatory owner consensus
-
-The owner identified **product/project boundary contamination** as a core legacy problem.
-
-Prior sessions sometimes copied instructions about how to maintain, research, hand off, or write ENA into ENA itself. Some of this may also have become embedded in legacy concepts and architecture.
-
-Two owner analogies define the correction:
-
-- exam paper: instructions such as "keep the paper clean" should improve the work, not be written as part of the answer;
-- tree/coin: a foreign object can become deeply wrapped by later growth; deep embedding does not prove it intrinsically belongs to ENA.
-
-The 2026-09-10 corrections extend this boundary:
+Owner corrections remain binding:
 
 - ordinary capable-model reasoning is not automatically an ENA product gap;
-- do not rebuild generic judgment, tradeoff analysis, feedback handling or bug reasoning as ENA machinery merely because those behaviors matter;
-- prefer concrete missing capabilities, durable mechanisms and executable systems that materially extend what the Agent can actually do;
-- do not copy explanatory language from owner/maintainer design conversations into product text unless it independently helps an adopter use the product.
+- prefer concrete missing capabilities, durable mechanisms and executable systems;
+- owner explanations used to steer/correct the maintainer are project context unless they independently help an adopter act;
+- if removing product prose does not reduce the adopter's ability to use ENA correctly, prefer removing it;
+- legacy ENA is evidence/regression history and omission-checking material, not the next product blueprint.
 
-Legacy ENA remains evidence/regression history, not the next product blueprint.
+The legacy contamination analogies remain authoritative for maintainers: exam instructions do not belong in the exam answer; a foreign coin wrapped by later tree growth does not thereby become native wood.
 
-Mandatory deep-succession record remains:
+## Current clean-product foundation
 
-`research/handoffs/records/2026-09-07-v040-clean-product-home/`
+The clean product currently includes:
 
-A deep successor must read `CONSENSUS-LOCK.md` before designing the new ENA, then apply the newer live corrections from `NOW.md` and `CURRENT-HANDOFF.yaml`.
+1. `FIRST-USE.md` — inspect the actual Agent/Host and normalize canonical timezone, language and ENA home. First Use now also inspects the real memory/evolution substrate: durable stores, episodic/history sources, retrieval/index, write/update path, reversibility, scheduler/wake mechanisms, and excluded sources. It leaves `ENA.yaml` plus `BODY.yaml`.
+2. `A2A.md` — establish/reuse practical bidirectional Agent-to-Agent reach, reuse Agent Card/discovery identity, and keep a usable rescue peer.
+3. `SURVIVAL.md` — external restart/recovery ladder outside the main Agent failure surface.
+4. `ACMS.md` — protected body-change path with known-good state, executable/Host-native rollback, independent timed recovery, rescue-peer acknowledgement, and machine-readable lifecycle state.
+5. `EVOLUTION.md` — experience/memory → consolidation → recombination → candidate → reality contact/selection → retained positive/negative outcome back into memory.
+
+## 2026-09-12 — Sleep/Dream v0.1 available for bounded field use
+
+Owner direction changed from design-only deferral to: produce a usable first version for other Agents, let them try it, and improve the mechanism from concrete feedback.
+
+`guytogay/ENA` now contains:
+
+- `SLEEP-DREAM.md` — directly actionable Sleep/Dream v0.1 mechanism;
+- `SLEEP-DREAM-QUICKSTART.md` — first deployment/run path;
+- `examples/evolution/SLEEP-DREAM.example.yaml` — starting configuration;
+- `examples/evolution/SLEEP-RUN.example.yaml` — machine-readable Sleep run record;
+- `examples/evolution/DREAM-RUN.example.yaml` — machine-readable Dream run record;
+- Issue `#12` — `Sleep/Dream v0.1 field feedback`.
+
+Current v0.1 mechanics:
+
+### Sleep
+
+Sleep is reversible memory consolidation, not summary generation.
+
+It:
+
+- consumes new experience plus only the existing memory needed for the current consolidation question;
+- detects repetition, duplication, fragmentation, contradiction, staleness, overgeneralization, reusable procedure, boundaries, unresolved material and missing links;
+- produces a consolidation plan before durable writes;
+- preserves a reversible prior memory state;
+- may add/merge/link/refine/correct/strengthen/weaken/dormant/supersede/archive or create an evolution candidate;
+- verifies the memory store after the write and restores on failed verification;
+- should change actual memory/retrieval behavior where the Host allows, not merely produce a prettier summary.
+
+### Dream
+
+Dream is a variation generator and does not directly create factual memory.
+
+It:
+
+- supports `FREE` and problem-anchored `PROBLEM` modes;
+- samples with biased randomness from recent, old, underused, external-or-unresolved, distant, salient and occasional unrestricted-random pools;
+- uses associative distance when vector similarity exists, preferring a middle-distance band rather than only nearest neighbors or pure random noise;
+- does not hard-code one universal similarity threshold across embedding models;
+- uses the owner's Divergent Explorer pattern as the main variation operator: delay convergence, seek remote structural connections, hybridize, invert, transfer mechanisms across domains, counterfactualize, follow strange connections, and generate multiple variants;
+- extracts speculative candidates, not dream prose or factual claims;
+- routes worthwhile candidates back through normal reasoning, real work/research and ACMS when the body changes.
+
+### Wake / reality
+
+Sleep-created and Dream-created candidates share the existing Evolution selection path. Positive, negative and null outcomes return to experience so later Sleep/Dream cycles inherit reality rather than only successful stories.
+
+## Legacy evolution evidence used for omission checking
+
+Relevant preserved legacy material remains:
+
+- `releases/current/09-EVOLUTION-METABOLISM.md`;
+- `research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md`;
+- `research/evolution-inbox/MEMORY-ECOLOGY-SLEEP-DREAMING-AND-ADAPTIVE-CONSOLIDATION.md`;
+- `research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml`.
+
+The old mechanism-discrimination campaign remains `CLOSED`. Field-using the clean implementation does not reopen the old research campaign.
+
+Detailed transition note:
+
+`research/status-notes/2026-09-12-sleep-dream-v01.md`
 
 ## Repository roles
 
@@ -149,12 +115,10 @@ New ENA product home.
 Legacy v0.3.14 Current + research + experiments + evidence + history + provenance + maintainer succession.
 
 ### `guytogay/human-ai-workbench`
-Canonical general human-AI project-working method. Handoff, continuation, coordination reduction, and similar general methods belong there rather than in the ENA product by default.
+Canonical general human-AI project-working method. General handoff/coordination method does not enter ENA product by default.
 
 ### `guytogay/ena-field-guide`
 Disposition: `SUNSET_AS_INDEPENDENT_PRODUCT / PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE`.
-
-PR #6 remains useful evidence for bounded self-maintenance (`snapshot + canary + ledger + restore drill`) and may be consulted only after the clean need has independently earned attention. Do not migrate the old Field Guide structure.
 
 ## Active legacy occurrences
 
@@ -162,17 +126,32 @@ PR #6 remains useful evidence for bounded self-maintenance (`snapshot + canary +
 - Issue `#222` — design occurrence; re-evaluate only through clean-product lens.
 - PR `#224` — contribution occurrence showing actionability/prose-rent problem; do not merge paragraph-scale rewrite into v0.3.14.
 - Issue `#234` — practicality/prose-rent evidence.
-- evolutionary-memory mechanism-discrimination campaign remains `CLOSED`; consult its preserved results without reopening it merely because the clean product now needs an evolution implementation.
+- evolutionary-memory mechanism-discrimination campaign — `CLOSED`.
+
+## Succession authority
+
+Mandatory deep-succession record remains:
+
+`research/handoffs/records/2026-09-07-v040-clean-product-home/`
+
+A deep successor must read `CONSENSUS-LOCK.md`, then apply newer live corrections from this `NOW.md` and `CURRENT-HANDOFF.yaml`.
 
 ## Immediate next action
 
-`CONTINUE_CLEAN_EVOLUTION_DESIGN_FROM_MEMORY_CONSOLIDATION_DREAMING_AND_REALITY_SELECTION`
+`FIELD_TRY_SLEEP_DREAM_V01_AND_COLLECT_CONCRETE_FEEDBACK`
 
-Continue the clean evolution design with the owner before practical testing. Use the recovered legacy evolution material as prior evidence/omission checking only. Work out the smallest useful mechanisms by which an Agent can:
+Give the clean Sleep/Dream v0.1 to real Agents/Hosts using `SLEEP-DREAM-QUICKSTART.md` and collect observations in `guytogay/ENA` Issue #12.
 
-1. consolidate/organize its own durable memory so accumulated experience improves future competence;
-2. perform dream-like recombination that creates genuinely new candidate associations/variations without treating generated material as fact;
-3. route selected candidates through reality contact and ACMS where body-affecting change is involved;
-4. feed positive and negative outcomes back into future memory/consolidation/dreaming cycles.
+Priority evidence:
 
-Do not treat the first candidate-selection draft as a completed evolution system, and do not move to practical testing until the owner moves the phase.
+- whether Sleep improves later retrieval/application rather than merely rewriting text;
+- whether consolidation overcompresses nuance, creates contradictions, or produces rigid/dogmatic memories;
+- whether Dream produces useful candidates ordinary retrieval/reasoning likely would not produce;
+- whether recent/high-salience memory dominates despite the sampling policy;
+- whether middle-distance and random-jump sampling produce novelty versus noise;
+- whether problem-triggered Dream helps after repeated convergence;
+- whether speculative Dream material leaks into factual memory;
+- actual resource cost, scheduler friction and Host-specific integration failures;
+- negative and null results.
+
+Do not promote Sleep/Dream v0.1 to Current merely because the first runs are interesting. Iterate from field evidence while preserving the clean product boundary.
