@@ -1,4 +1,4 @@
-schema_version: '7.3'
+schema_version: '7.4'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-12'
 
@@ -43,7 +43,7 @@ legacy_current:
 new_product:
   repository: guytogay/ENA
   state: ACTIVE_DEVELOPMENT_NOT_CURRENT_NOT_PROMOTED
-  main_commit: 9ad47c9efa9823167aa42e2062550295a97901d6
+  main_commit: 3c92d25889f7571eebcdb60196c47c6ed9b7aaa6
   product_entry: README.md
   readiness: READY_FOR_REAL_HOST_FIELD_TRIAL_NOT_FIELD_VALIDATED
 
@@ -83,12 +83,17 @@ new_product:
     - tools/ena_init.py
     - tools/ena_preflight.py
     - tools/change_scaffold.py
+    - tools/safe_change_state.py
     - tools/validate_change.py
     - tools/freshness_scan.py
     - tools/sleep_prepare.py
     - tools/combine_dream_material.py
     - tools/dream_sample.py
     - tools/candidate_record.py
+    - tools/control_yaml.py
+    - tools/timezone_utils.py
+    - tools/test_control_yaml.py
+    - tools/test_timezone_utils.py
     - tools/self_test.py
 
   first_use_contract:
@@ -110,6 +115,11 @@ new_product:
       - session
     startup_preflight: tools/ena_preflight.py
     important_change_rechecks_relevant_mutable_facts_even_if_system_not_expired: true
+    timezone_portability:
+      utc_requires_external_tz_database: false
+      non_utc_iana_zone_may_require_tzdata_on_windows: true
+      unavailable_zone_must_fail_with_actionable_guidance: true
+      silently_substitute_different_timezone: false
 
   survival_contract:
     host_profiles:
@@ -130,8 +140,13 @@ new_product:
     a2a_ack_required_only_when_a2a_peer_is_selected_recovery_actor: true
     session_profile_may_use_git_worktree_backup_and_new_session: true
     session_git_reference_example: examples/change/SESSION-GIT-WORKTREE.md
-    session_git_example_flow: BASE_COMMIT_TO_ISOLATED_WORKTREE_TO_BOUNDED_COMMIT_TO_FF_ONLY_APPLY_TO_VERIFY_TO_RETAIN_OR_REVERT
     blind_hard_reset_over_unrelated_new_history: DISCOURAGED
+    state_gate: tools/safe_change_state.py
+    preparing_to_armed_blocks_unresolved_recovery_fields: true
+    retained_restored_failed_require_evidence_reference: true
+    failed_reachable_only_after_restoring: true
+    direct_manual_control_file_edit_can_bypass_reference_gate_without_host_boundary: true
+    host_must_route_state_change_through_gate_or_equivalent_for_enforcement: true
     deterministic_validation_close_to_mutation: REQUIRED_WHEN_PRACTICAL_AND_RELEVANT_CHECK_EXISTS
     deterministic_tool_should_replace_model_guess_for_measurable_property: true
     incremental_pass_replaces_final_validation: false
@@ -190,6 +205,14 @@ new_product:
       universal_ttl: NONE
     sampler_numbers_are_normative: false
     current_counts_weights_distance_bands: EXPERIMENTAL_PARAMETERS
+    dream_artifact_provenance:
+      effective_seed_persisted: true
+      generated_seed_persisted_when_cli_seed_omitted: true
+      input_reference_persisted: true
+      input_sha256_persisted: true
+      input_record_count_persisted: true
+      free_mode_sampled_anchor_field: sampled_anchor_id
+      problem_guided_explicit_anchor_field: anchor_id
     add_new_modes_without_field_failure_evidence: DISCOURAGED
     dream_material_combiner: tools/combine_dream_material.py
     candidate_writer: tools/candidate_record.py
@@ -212,8 +235,33 @@ new_product:
       - VALIDATION_REPAIR_TRAJECTORY_AS_EVOLUTION_EXPERIENCE
       - FRESHNESS_DRIFT_AS_LONG_LIVED_KNOWLEDGE_MAINTENANCE
 
+  dsh_execution_signal_2026_09_12:
+    source: TWO_INDEPENDENT_DSH_ADOPTER_EXECUTIONS
+    evidence_level: PARTIAL_FIELD_EXECUTION_NOT_FULL_RUNTIME_CHAIN
+    executed_paths:
+      - CONTROL_YAML_TESTS
+      - REFERENCE_SELF_TEST
+      - INIT_AND_PREFLIGHT
+      - SAFE_CHANGE_SCAFFOLD_AND_STATE_GATE
+      - VALIDATION_FAIL_REPAIR_PASS
+      - FRESHNESS_SCAN
+      - SLEEP_PREPARE
+      - MULTI_SOURCE_DREAM_MATERIAL
+      - FREE_AND_PROBLEM_GUIDED_DREAM
+      - SPECULATIVE_CANDIDATE_RECORDING
+    findings:
+      - DREAM_SEED_NOT_PERSISTED
+      - FREE_ANCHOR_SEMANTIC_AMBIGUITY
+      - WINDOWS_ZONEINFO_DEPENDENCY_WITHOUT_TZDATA
+    corrected_in_product_commit: 3c92d25889f7571eebcdb60196c47c6ed9b7aaa6
+    linux_ci: PASS
+    windows_ci: PASS
+    closes_issue_14: false
+    status_note: research/status-notes/2026-09-12-dsh-field-execution-findings.md
+
   field_validation:
     smoke_test_is_field_evidence: false
+    independent_sandbox_execution_is_partial_field_evidence: true
     minimum_runtime_chain_issue: https://github.com/guytogay/ENA/issues/14
     sleep_dream_issue: https://github.com/guytogay/ENA/issues/12
     minimum_runtime_chain:
@@ -222,6 +270,10 @@ new_product:
       - ONE_REAL_BOUNDED_SAFE_CHANGE
       - ONE_EVIDENCED_EVOLUTION_OUTCOME
       - NEW_SESSION_OR_RESTART_READS_PERSISTED_STATE
+    remaining_issue_14_gaps_after_dsh_runs:
+      - REAL_EXTERNAL_RECOVERY_PATH
+      - NONTRIVIAL_LIVE_SAFE_CHANGE
+      - GENUINELY_NEW_SESSION_OR_RESTART_CONTINUATION
     priority_observations:
       - POST_CHANGE_VALIDATION_HOOK_SHORTENS_DEFECT_LIFETIME
       - REAL_FAIL_REPAIR_PASS_TRAJECTORY_CAN_FEED_LATER_SLEEP
@@ -230,6 +282,7 @@ new_product:
       - CROSS_SESSION_HISTORY_CAN_BE_USED_WITH_PROVENANCE
       - KNOWLEDGE_BASE_MATERIAL_ADDS_VALUE_WITHOUT_UNBOUNDED_CONTEXT_DUMP
       - CAPABILITY_AWARE_DREAM_DOES_NOT_CONFUSE_ADVERTISED_OR_INSTALLABLE_WITH_INSTALLED
+      - DREAM_CANDIDATE_USEFULNESS_OR_NULL_RESULT_MEASURED_AGAINST_ORDINARY_REASONING
       - SELECTED_CANDIDATE_CAN_REACH_PRODUCTION_THROUGH_PROTECTED_APPLICATION
 
   repository_relationship:
@@ -238,7 +291,7 @@ new_product:
     archive_older_repository_now: false
     archive_revisit_condition: CLEAN_PRODUCT_HAS_SUFFICIENT_FIELD_EVIDENCE_AND_TRANSITION_NO_LONGER_DEPENDS_ON_LEGACY_REPO
 
-  next_action: RUN_FRESH_AGENT_MINIMUM_RUNTIME_CHAIN_AND_SLEEP_DREAM_FIELD_TRIALS
+  next_action: RUN_REAL_HOST_MINIMUM_RUNTIME_CHAIN_AND_SLEEP_DREAM_FIELD_TRIALS
 
 product_boundary:
   add_missing_agent_capability_instead_of_duplicate_model_reasoning: true
@@ -252,6 +305,7 @@ product_boundary:
   advertised_or_discoverable_capability_must_not_be_treated_as_installed_without_live_check: true
   deterministic_validation_scope_must_not_be_overclaimed: true
   vendor_specific_harness_components_must_not_be_copied_without_independent_product_need: true
+  execution_findings_should_fix_concrete_defects_before_inspiring_new_mechanisms: true
 
 field_guide:
   repository: guytogay/ena-field-guide
@@ -283,11 +337,13 @@ receiver_contract:
   force_resident_daemon_recovery_semantics_onto_session_agents: FORBIDDEN
   require_a2a_when_host_cannot_practically_support_it: FORBIDDEN
   treat_reference_tool_ci_as_field_validation: FORBIDDEN
+  treat_independent_sandbox_execution_as_full_real_host_validation: FORBIDDEN
   turn_sleep_dream_experimental_numbers_into_normative_spec_without_evidence: FORBIDDEN
   fill_missing_unattended_policy_with_guessed_product_defaults: FORBIDDEN
   invent_inaccessible_cross_session_or_knowledge_context: FORBIDDEN
   treat_agent_card_or_catalog_capability_as_installed_without_live_verification: FORBIDDEN
   treat_deterministic_check_pass_as_general_evolution_success: FORBIDDEN
   copy_vendor_specific_harness_architecture_into_ena_by_default: FORBIDDEN
+  expand_mechanisms_from_review_novelty_without_field_failure_evidence: FORBIDDEN
 
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA main at 9ad47c9efa9823167aa42e2062550295a97901d6 is ready for real Host field trials, not field-validated. Important bounded changes should use the smallest relevant deterministic checks near the mutation when practical; linked validation/repair trajectories become evolution experience; volatile knowledge/capability facts keep explicit freshness state rather than silently hardening old truth.'
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA main at 3c92d25889f7571eebcdb60196c47c6ed9b7aaa6 has partial independent execution evidence and is ready for real Host field trials, not field-validated. DSH execution found and corrected Dream provenance/anchor ambiguity plus Windows timezone-data portability; Issue #14 remains open until a real recovery path, non-trivial live SAFE-CHANGE, and genuine new-session/restart continuation are proven.'
