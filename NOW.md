@@ -20,7 +20,7 @@ State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
 Latest product correction merged to `main` at:
 
-`96c021ecff39145997be13008d76eb009910797d`
+`c9479425bd3aa6713674dc142c2c2fe9cebc1dc2`
 
 Direct adopter path remains:
 
@@ -33,34 +33,62 @@ FIRST-USE.md
 → SLEEP-DREAM-QUICKSTART.md
 ```
 
-## 2026-09-12 external field-readiness review
+## 2026-09-12 external field-readiness reviews
 
-A Grok review was treated as decision-changing product feedback rather than commentary.
+The Grok review established the current field-readiness corrections:
 
-Accepted corrections:
+1. **Reading is not installation.** `tools/ena_preflight.py` provides a startup/session gate for missing/incomplete/stale First Use.
+2. **Two Host profiles.** Resident runtimes and session/coding Agents use different recovery mechanisms.
+3. **Human rescue is first-class.** A2A and timed rollback are not universal gates.
+4. **First Use is minimum-first.** Explicit `UNKNOWN` values are valid; `SYSTEM.yaml` expires through `checked_at` / `valid_until`.
+5. **Sleep/Dream parameters are experimental.** Counts, weights, distance bands and cadence are field parameters rather than ENA requirements.
+6. **Speculative candidates are isolated.** Generated candidates live under `evolution/candidates/speculative/` and require reality contact before selected outcomes.
+7. **Reference-tool CI is not field evidence.** ENA Issue #14 requires a real fresh-Agent runtime chain; Issue #12 collects Sleep/Dream evidence.
+8. **Repository relationship is explicit.** New adopters use `guytogay/ENA`; this older repository remains previous-release/research/history/succession and is not archived yet.
 
-1. **Reading is not installation.** `tools/ena_preflight.py` now provides a startup/session gate: missing ENA files, incomplete minimum First Use, missing real recovery/rescuer, or stale `SYSTEM.yaml` returns `REFRESH REQUIRED`. README explicitly says acknowledgement/summary does not install a capability.
-2. **Two Host profiles.** `SURVIVAL.md` and `SAFE-CHANGE.md` now distinguish resident runtimes from session/coding Agents. Resident Agents may use supervisor + timed rollback; session Agents may use Git/worktree/backup + new session/human recovery. Do not force daemon semantics onto conversational/coding sessions.
-3. **Human rescue is first-class.** A2A remains useful where supported but is not a universal installation/safe-change gate. A human or Host-native recovery mechanism may be the selected recovery actor.
-4. **First Use is minimum-first.** Unknown facts may remain `UNKNOWN`. Minimum readiness requires confirmed shared settings, one real recovery path, one rescuer, and `ENA.yaml` + freshness-aware `SYSTEM.yaml`.
-5. **SYSTEM expires.** `SYSTEM.yaml` now carries `checked_at`, `valid_until`, and `minimum_ready`; consequential self-change rechecks the specific mutable recovery facts it depends on even before global expiry.
-6. **No author environment defaults.** Adopter examples no longer present `Asia/Shanghai` / `zh-CN` as product defaults. First Use detects/hints then asks the user to confirm.
-7. **Sleep/Dream is explicitly experimental.** Counts, weights, distance bands and cadence are field parameters rather than ENA requirements. Negative/null results are evidence; do not add new Dream modes/sampler complexity without field evidence that the current paths systematically fail.
-8. **Speculative isolation is stronger.** New generated candidates live under `evolution/candidates/speculative/`; `tools/candidate_record.py` always writes `truth_status: speculative`. Selected outcomes are recorded separately after reality contact; Dream never directly becomes factual memory.
-9. **CI is not field evidence.** ENA Issue #14 now requires one fresh-Agent real runtime chain: First Use → real recovery path → one bounded Safe Change → one evidenced evolution outcome → new session/restart can read persisted state.
-10. **Repository relationship is explicit.** New adopters are directed to `guytogay/ENA`; the older repository is described as previous release/research/history, not the install path for the clean product.
+The subsequent Zhipu review largely confirmed the product is now directly usable and identified two remaining adoption-friction gaps. Both were accepted because they reduce Host mapping cost without expanding ENA theory.
 
-Not adopted literally:
+### Trusted preset / unattended First Use
 
-- Do **not** archive `evolution-native-agent-architecture` yet. It still carries legacy Current, evidence/history, Issue #208 and maintainer succession. Revisit archival after the clean product has enough field evidence and transition authority no longer depends on this repo.
+`FIRST-USE.md` now permits non-interactive adoption when timezone, language, ENA home, Host profile, recovery path and rescuer were already supplied by a trusted deployment/workspace policy or Host integration.
+
+Important boundary:
+
+- unattended mode does **not** introduce ENA product defaults;
+- a missing value remains unresolved rather than guessed;
+- `tools/ena_init.py` accepts caller-provided `--host-profile`, `--recovery`, `--rescuer`, and `--rescuer-type`;
+- `--verified-minimum` is explicit and only valid when the caller/integration already verified the supplied recovery/rescue facts;
+- `ena_preflight.py` remains the startup/session gate after initialization.
+
+### Session/coding Agent Git example
+
+The product now includes:
+
+`examples/change/SESSION-GIT-WORKTREE.md`
+
+It gives a concrete safe-change path:
+
+```text
+record known-good base commit
+→ create isolated change branch + worktree
+→ make/test one bounded commit
+→ prepare exact recovery before application
+→ apply only with git merge --ff-only
+→ verify useful operation
+→ retain or recover with git revert
+```
+
+The example explicitly avoids blind `git reset --hard` over later valid history. A conflict during revert stops for human/new-session inspection rather than forcing destructive cleanup.
+
+This is an implementation example for the existing `session` Host profile, not a new ENA subsystem.
 
 ## Current product evidence state
 
-Reference-tool CI passed for PR #15 before merge. This proves only that the reference tools execute against included examples.
+Reference-tool CI passed for PR #16 before merge. This proves only that the updated reference tools—including caller-verified preset initialization—execute against included examples.
 
-It does **not** prove the product works on a real Host.
+It still does **not** prove the product works on a real Host.
 
-Field evidence now has two explicit streams:
+Field evidence remains:
 
 - ENA Issue #12 — Sleep/Dream field feedback, including negative/null results and parameter evidence;
 - ENA Issue #14 — minimum fresh-Agent runtime-chain proof.
@@ -76,7 +104,8 @@ Still binding:
 - owner/maintainer explanations are project context unless they independently help an adopter act;
 - legacy ENA is evidence/regression/omission-checking material, not the new product blueprint;
 - do not re-import old structure, terminology, handoff machinery or closed research merely because it exists;
-- do not let Sleep/Dream experimental parameters harden into doctrine without field evidence.
+- do not let Sleep/Dream experimental parameters harden into doctrine without field evidence;
+- unattended adoption may consume trusted policy, but may not manufacture missing policy through guessed defaults.
 
 Mandatory deep-succession record remains:
 
@@ -97,8 +126,9 @@ A deep successor reads `CONSENSUS-LOCK.md`, then applies newer live state from t
 
 Priority order:
 
-1. run ENA Issue #14 on at least one real session/coding Agent Host and one resident Host when practical;
-2. confirm `ena_preflight.py` can actually be integrated into a session/startup hook rather than merely invoked manually;
-3. collect Sleep/Dream evidence in Issue #12 only after the basic runtime chain works;
-4. iterate from concrete friction, failure, null and recovery evidence;
-5. do not promote or expand mechanisms from novelty alone.
+1. run ENA Issue #14 on at least one real session/coding Agent Host using the new Git/worktree example where appropriate;
+2. also run a resident Host when practical;
+3. confirm `ena_preflight.py` can actually be integrated into a session/startup hook or trusted unattended deployment flow rather than merely invoked manually;
+4. collect Sleep/Dream evidence in Issue #12 only after the basic runtime chain works;
+5. iterate from concrete friction, failure, null and recovery evidence;
+6. do not promote or expand mechanisms from novelty alone.

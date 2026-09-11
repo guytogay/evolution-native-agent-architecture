@@ -1,4 +1,4 @@
-schema_version: '7.0'
+schema_version: '7.1'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-12'
 
@@ -43,7 +43,7 @@ legacy_current:
 new_product:
   repository: guytogay/ENA
   state: ACTIVE_DEVELOPMENT_NOT_CURRENT_NOT_PROMOTED
-  main_commit: 96c021ecff39145997be13008d76eb009910797d
+  main_commit: c9479425bd3aa6713674dc142c2c2fe9cebc1dc2
   product_entry: README.md
   readiness: READY_FOR_REAL_HOST_FIELD_TRIAL_NOT_FIELD_VALIDATED
 
@@ -71,6 +71,7 @@ new_product:
     system_example: examples/SYSTEM.example.yaml
     rescue_example: examples/change/RESCUE.example.yaml
     status_example: examples/change/STATUS.example.yaml
+    session_git_worktree_example: examples/change/SESSION-GIT-WORKTREE.md
     evolution_candidate_example: examples/evolution/CANDIDATE.example.yaml
     sleep_dream_config_example: examples/evolution/SLEEP-DREAM.example.yaml
 
@@ -88,14 +89,18 @@ new_product:
     unknown_is_valid_state: true
     product_default_timezone: NONE
     product_default_language: NONE
-    minimum_ready_requires:
-      - CONFIRMED_TIMEZONE
-      - CONFIRMED_LANGUAGE
-      - ENA_HOME
-      - REAL_RECOVERY_PATH
-      - HUMAN_OR_AGENT_RESCUER
-      - SYSTEM_CHECKED_AT
-      - SYSTEM_VALID_UNTIL
+    trusted_preset_unattended_adoption: SUPPORTED
+    unattended_may_guess_missing_policy_values: false
+    verified_minimum_flag: tools/ena_init.py --verified-minimum
+    verified_minimum_requires:
+      - EXPLICIT_TIMEZONE
+      - EXPLICIT_LANGUAGE
+      - VERIFIED_RECOVERY_PATH
+      - VERIFIED_RESCUER
+      - VERIFIED_RESCUER_TYPE
+    optional_preset_host_profile:
+      - resident
+      - session
     startup_preflight: tools/ena_preflight.py
     important_change_rechecks_relevant_mutable_facts_even_if_system_not_expired: true
 
@@ -108,6 +113,7 @@ new_product:
         examples: [codex, claude_code, terminal_agent, chat_tool_session]
         preferred_recovery: DURABLE_REPOSITORY_OR_BACKUP_PLUS_NEW_SESSION_OR_HUMAN
     human_rescue_is_first_class: true
+    host_native_rescuer_is_valid: true
     a2a_is_universal_gate: false
     timed_rollback_is_universal_gate: false
 
@@ -116,6 +122,9 @@ new_product:
     profile_specific_recovery_required: true
     a2a_ack_required_only_when_a2a_peer_is_selected_recovery_actor: true
     session_profile_may_use_git_worktree_backup_and_new_session: true
+    session_git_reference_example: examples/change/SESSION-GIT-WORKTREE.md
+    session_git_example_flow: BASE_COMMIT_TO_ISOLATED_WORKTREE_TO_BOUNDED_COMMIT_TO_FF_ONLY_APPLY_TO_VERIFY_TO_RETAIN_OR_REVERT
+    blind_hard_reset_over_unrelated_new_history: DISCOURAGED
 
   evolution_contract:
     loop: EXPERIENCE_TO_SLEEP_TO_MEMORY_TO_CANDIDATE_VARIATION_TO_REALITY_TO_OUTCOME_TO_EXPERIENCE
@@ -163,6 +172,7 @@ product_boundary:
   legacy_repo_is_evidence_not_new_product_blueprint: true
   general_project_handoff_method_belongs_outside_ena_product: true
   experimental_parameters_must_not_harden_into_doctrine_without_field_evidence: true
+  unattended_adoption_must_use_explicit_policy_not_guessed_defaults: true
 
 field_guide:
   repository: guytogay/ena-field-guide
@@ -195,5 +205,6 @@ receiver_contract:
   require_a2a_when_host_cannot_practically_support_it: FORBIDDEN
   treat_reference_tool_ci_as_field_validation: FORBIDDEN
   turn_sleep_dream_experimental_numbers_into_normative_spec_without_evidence: FORBIDDEN
+  fill_missing_unattended_policy_with_guessed_product_defaults: FORBIDDEN
 
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA main at 96c021ecff39145997be13008d76eb009910797d is ready for real Host field trials, not field-validated. Next prove the minimum runtime chain in ENA Issue #14 and collect Sleep/Dream evidence in Issue #12. Keep resident and session Host recovery profiles distinct, human rescue first-class, and experimental Dream parameters provisional.'
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA main at c9479425bd3aa6713674dc142c2c2fe9cebc1dc2 is ready for real Host field trials, not field-validated. Trusted preset/unattended First Use is supported without guessed defaults; session/coding Agents have a concrete Git worktree/revert safe-change example. Next prove the minimum runtime chain in ENA Issue #14 and collect Sleep/Dream evidence in Issue #12.'
