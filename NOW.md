@@ -20,7 +20,7 @@ State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
 Latest product correction merged to `main` at:
 
-`3c92d25889f7571eebcdb60196c47c6ed9b7aaa6`
+`bac14d3bc84093a48b914d13b4955c15720fc960`
 
 Direct adopter path remains:
 
@@ -162,13 +162,18 @@ Merged product PR #20 at `3c92d25889f7571eebcdb60196c47c6ed9b7aaa6` corrects the
 
 Both Linux and Windows CI jobs passed before merge.
 
+The DSH adopters then re-ran the corrected toolchain and independently reported `test_timezone_utils.py` 2/2, `test_control_yaml.py` 7/7, and `self_test.py` exit 0. One adopter additionally verified Dream input digests, same-seed replay, anchor semantics, and the tightened recovery-state path.
+
+That follow-up execution found one remaining provenance asymmetry: `sleep_prepare.py` did not record the source references/digests and bounded slice used to prepare a Sleep bundle. Product PR #21 merged at `bac14d3bc84093a48b914d13b4955c15720fc960` closes that defect by recording preparation time plus per-source reference, SHA-256 digest, total source record count, selected record count, and explicit tail-selection policy. Linux and Windows CI both passed.
+
 These DSH runs are stronger than prose-only review, but they are **partial field evidence** rather than Issue #14 completion because they did not prove a real external recovery path plus a non-trivial live SAFE-CHANGE plus genuine new-session continuation.
 
 The findings are persisted in:
 
 - ENA Issue #14 — execution evidence and remaining minimum runtime-chain gap;
-- ENA Issue #12 — Dream provenance/replay evidence and the still-open question of actual candidate usefulness;
-- `research/status-notes/2026-09-12-dsh-field-execution-findings.md`.
+- ENA Issue #12 — Dream/Sleep provenance evidence and the still-open question of actual candidate/retrieval usefulness;
+- `research/status-notes/2026-09-12-dsh-field-execution-findings.md`;
+- `research/status-notes/2026-09-12-sleep-input-provenance.md`.
 
 ## Current product evidence state
 
