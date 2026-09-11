@@ -20,7 +20,7 @@ State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
 Latest product correction merged to `main` at:
 
-`f6147330293fec4a536096a5eb98dbe905836ed8`
+`3c92d25889f7571eebcdb60196c47c6ed9b7aaa6`
 
 Direct adopter path remains:
 
@@ -62,7 +62,7 @@ Important boundary:
 
 ### Session/coding Agent Git example
 
-The product includes `examples/change/SESSION-GIT-WORKTREE.md` with a concrete safe-change path for durable Git state plus a human or fresh Agent session as recovery. The example is now aligned to the executable SAFE-CHANGE state gate rather than asking an adopter to edit status manually.
+The product includes `examples/change/SESSION-GIT-WORKTREE.md` with a concrete safe-change path for durable Git state plus a human or fresh Agent session as recovery. The example is aligned to the executable SAFE-CHANGE state gate rather than asking an adopter to edit status manually.
 
 ## 2026-09-12 cross-session / knowledge / capability Dream scope
 
@@ -126,14 +126,58 @@ Detailed note:
 
 `research/status-notes/2026-09-12-safe-change-enforcement.md`
 
+## 2026-09-12 DSH execution findings
+
+Two independent DSH adopters actually executed the reference tools rather than only reviewing the product prose.
+
+One adopter ran the complete tool path in an isolated `/tmp/ena-trial` sandbox and verified:
+
+- parser and self-test success;
+- First Use initialization and preflight ready/not-ready/stale behavior;
+- SAFE-CHANGE scaffold generation and rejection of unresolved recovery fields / illegal transitions / terminal states without evidence;
+- linked validation FAIL -> repair -> PASS records;
+- freshness scanning;
+- Sleep input preparation;
+- multi-source Dream sampling in free and problem-guided modes;
+- speculative candidate isolation.
+
+A second adopter ran the suite on Windows and found a real portability defect: direct `ZoneInfo(...)` use failed on a Python installation without IANA timezone data. Installing `tzdata` made the suite pass.
+
+The same execution feedback found two Dream provenance defects:
+
+- the sampler used `--seed` but did not persist the effective seed in its artifact;
+- free mode exposed the internally sampled start through `anchor_id`, which could be mistaken for the explicit problem-guided anchor.
+
+Merged product PR #20 at `3c92d25889f7571eebcdb60196c47c6ed9b7aaa6` corrects these findings:
+
+- every Dream artifact records the effective seed;
+- an omitted seed is generated and persisted so exact sampling can be replayed;
+- input reference, SHA-256 digest, and record count are recorded;
+- `anchor_id` is reserved for an explicit problem-guided anchor; free mode records `sampled_anchor_id`;
+- UTC works without an external timezone database;
+- unavailable non-UTC IANA zones fail with actionable `tzdata` guidance rather than a raw traceback or silent timezone substitution;
+- initialization, change scaffolding, validation events, and SAFE-CHANGE timestamps share the portable timezone helper;
+- reference CI now runs on both Ubuntu and Windows;
+- `failed` is reachable only from `restoring`, aligning the state machine with the documented meaning of failed recovery.
+
+Both Linux and Windows CI jobs passed before merge.
+
+These DSH runs are stronger than prose-only review, but they are **partial field evidence** rather than Issue #14 completion because they did not prove a real external recovery path plus a non-trivial live SAFE-CHANGE plus genuine new-session continuation.
+
+The findings are persisted in:
+
+- ENA Issue #14 — execution evidence and remaining minimum runtime-chain gap;
+- ENA Issue #12 — Dream provenance/replay evidence and the still-open question of actual candidate usefulness;
+- `research/status-notes/2026-09-12-dsh-field-execution-findings.md`.
+
 ## Current product evidence state
 
-Reference-tool CI proves only that the reference tools execute against included examples. It does **not** prove the product works on a real Host.
+Reference-tool CI proves only that the reference tools execute against included examples. The DSH sandbox/Windows runs add independent execution evidence, but they still do **not** prove the full product works on a real Host with external recovery and cross-session continuation.
 
 Field evidence remains:
 
-- ENA Issue #12 — Sleep/Dream field feedback, including negative/null results and parameter evidence;
-- ENA Issue #14 — minimum fresh-Agent runtime-chain proof.
+- ENA Issue #12 — Sleep/Dream field feedback, including negative/null results, provenance/replay evidence, and candidate usefulness;
+- ENA Issue #14 — minimum fresh-Agent runtime-chain proof, now with partial execution evidence but still open.
 
 Do not claim field validation from smoke tests, documentation review, workshop architecture similarity, or an Agent saying the design looks correct.
 
@@ -151,7 +195,8 @@ Still binding:
 - inaccessible sessions/knowledge must be recorded as unavailable rather than imagined;
 - advertised or discoverable capabilities remain unverified possibilities until checked against live reality;
 - deterministic validation proves only the property it directly checks; it is not evidence by itself that an evolution candidate is useful;
-- reference enforcement must not be described as stronger than the Host wiring that actually invokes it.
+- reference enforcement must not be described as stronger than the Host wiring that actually invokes it;
+- execution findings should fix concrete defects before inspiring new mechanisms.
 
 Mandatory deep-succession record remains:
 
@@ -168,15 +213,17 @@ A deep successor reads `CONSENSUS-LOCK.md`, then applies newer live state from t
 
 ## Immediate next action
 
-`RUN_FRESH_AGENT_MINIMUM_RUNTIME_CHAIN_AND_SLEEP_DREAM_FIELD_TRIALS`
+`RUN_REAL_HOST_MINIMUM_RUNTIME_CHAIN_AND_SLEEP_DREAM_FIELD_TRIALS`
 
 Priority order:
 
-1. run ENA Issue #14 on at least one real session/coding Agent Host;
-2. route SAFE-CHANGE status transitions through `safe_change_state.py` or an equivalent Host-native gate and observe real friction/bypass attempts;
-3. confirm `ena_preflight.py` can actually be integrated into a real session/startup hook;
-4. preserve at least one real `FAIL → repair → PASS` validation trajectory;
-5. field-test Sleep/Dream with cross-session history, knowledge-base material and capability/possibility material in Issue #12;
-6. verify at least one selected candidate can move through a protected production application path when appropriate;
-7. iterate only from concrete friction, failure, null and recovery evidence;
-8. do not add new mechanisms merely because another review can imagine them.
+1. run ENA Issue #14 on at least one real session/coding Agent Host, not only a sandbox;
+2. configure a real external recovery path + rescuer and route SAFE-CHANGE transitions through `safe_change_state.py` or an equivalent Host-native gate;
+3. perform one non-trivial live bounded SAFE-CHANGE and preserve the actual validation/recovery evidence;
+4. start a genuinely new Agent/session and confirm it can read the persisted ENA/system/change/evolution state and continue without reconstructing from chat history;
+5. confirm `ena_preflight.py` can be integrated into a real session/startup hook;
+6. preserve at least one real `FAIL → repair → PASS` validation trajectory;
+7. field-test Sleep/Dream candidate usefulness, including null/noisy outcomes, through Issue #12;
+8. verify at least one selected candidate can move through a protected production application path when appropriate;
+9. iterate only from concrete friction, failure, null and recovery evidence;
+10. do not add new mechanisms merely because another review can imagine them.
