@@ -1,15 +1,18 @@
-schema_version: '6.7'
+schema_version: '6.8'
 status: CURRENT_DEEP_SUCCESSION_POINTER
-updated_at: '2026-09-10'
+updated_at: '2026-09-12'
+
 normal_continuation:
   default_entry: NOW.md
   full_handoff_required_by_default: false
   rule: READ_NOW_AND_DIRECTLY_RELEVANT_ARTIFACT_THEN_WORK
+
 handoff_framework:
   protocol: research/handoffs/HANDOFF-PROTOCOL.md
   required_takeover_context: research/handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml
   project_management_discipline: research/handoffs/PROJECT-MANAGEMENT-DISCIPLINE.md
   rapid_release_discipline: research/methodology/RAPID-CURRENT-RELEASE-DISCIPLINE.md
+
 current_handoff_record:
   id: 2026-09-07-v040-clean-product-home
   state: DEEP_PROJECT_SESSION_SUCCESSION_COMPLETE
@@ -24,11 +27,13 @@ current_handoff_record:
   repo_ecosystem: research/handoffs/records/2026-09-07-v040-clean-product-home/REPO-ECOSYSTEM.md
   readback: research/handoffs/records/2026-09-07-v040-clean-product-home/HANDOFF-READBACK.md
   readback_state: PASS
+
 current_project_authorities:
   live_status: NOW.md
   current_baseline: releases/current/CURRENT-BASELINE.yaml
   current_package: releases/current/
   field_stream: https://github.com/guytogay/evolution-native-agent-architecture/issues/208
+
 legacy_current:
   repository: guytogay/evolution-native-agent-architecture
   version: v0.3.14
@@ -36,6 +41,7 @@ legacy_current:
   maturity: FIELD_VALIDATION
   same_version_same_effective_content: REQUIRED
   same_version_immutability_machine_guard: .github/workflows/current-immutability.yml
+
 new_product:
   repository: guytogay/ENA
   state: ACTIVE_DEVELOPMENT_NOT_CURRENT_NOT_PROMOTED
@@ -43,22 +49,30 @@ new_product:
   first_commit: 0e695a754b63987078bfe2d0bdd3369887a52b3c
   role: CLEAN_PRODUCT_HOME_FOR_NEXT_ENA
   product_entry: README.md
-  working_product_shape_state: FOUNDATION_DRAFTED_EVOLUTION_STILL_INCOMPLETE_NOT_LIVE_TESTED
+  working_product_shape_state: FOUNDATION_PLUS_SLEEP_DREAM_V01_READY_FOR_BOUNDED_FIELD_USE
+
   product_files:
     first_use: FIRST-USE.md
     a2a: A2A.md
     survival: SURVIVAL.md
     acms: ACMS.md
     evolution: EVOLUTION.md
+    sleep_dream: SLEEP-DREAM.md
+    sleep_dream_quickstart: SLEEP-DREAM-QUICKSTART.md
     config_example: ENA.example.yaml
     body_example: examples/BODY.example.yaml
     rescue_example: examples/acms/RESCUE.example.yaml
     status_example: examples/acms/STATUS.example.yaml
     evolution_candidate_example: examples/evolution/CANDIDATE.example.yaml
+    sleep_dream_config_example: examples/evolution/SLEEP-DREAM.example.yaml
+    sleep_run_example: examples/evolution/SLEEP-RUN.example.yaml
+    dream_run_example: examples/evolution/DREAM-RUN.example.yaml
+
   first_use_contract:
     jobs:
       - INSPECT_REAL_AGENT_AND_HOST
       - NORMALIZE_SHARED_OPERATING_CONVENTIONS
+      - INSPECT_REAL_MEMORY_AND_EVOLUTION_SUBSTRATE
     user_confirmed_settings:
       - CANONICAL_TIMEZONE
       - CANONICAL_LANGUAGE
@@ -67,19 +81,30 @@ new_product:
     timezone_storage: IANA_TIMEZONE_NAME
     clock_sync_check: REQUIRED
     ena_text_encoding: UTF_8
+    memory_inspection:
+      - DURABLE_MEMORY_SOURCES
+      - EPISODIC_OR_EXPERIENCE_HISTORY
+      - RETRIEVAL_OR_INDEX
+      - WRITE_OR_UPDATE_METHOD
+      - REVERSIBLE_HISTORY_OR_SNAPSHOT
+      - SCHEDULER_OR_WAKE_MECHANISM
+      - EXCLUDED_SOURCES
     durable_outputs:
       - ENA.yaml
       - BODY.yaml
+
   a2a_contract:
     reuse_existing_agent_card_identity: REQUIRED_WHERE_AVAILABLE
     parallel_ena_identity_namespace: FORBIDDEN
     real_bidirectional_exchange: REQUIRED
     usable_rescue_peer: REQUIRED_WHERE_HOST_CAN_SUPPORT_IT
     exact_change_package_ack_before_acms_mutation: REQUIRED
+
   survival_contract:
     recovery_controller_outside_main_agent_failure_surface: REQUIRED_WHERE_HOST_ALLOWS
     recovery_ladder: REPROBE_THEN_RESTART_THEN_VERIFY_THEN_RESTORE_RELEVANT_KNOWN_GOOD_THEN_VERIFY_THEN_A2A_OR_HUMAN_ESCALATION
     process_running_alone_proves_recovery: false
+
   acms_contract:
     one_change_one_package: REQUIRED
     timestamp_precision: SECOND
@@ -90,43 +115,62 @@ new_product:
       - status.yaml
       - known_good_material
       - executable_or_host_native_rollback
-    package_survives_changed_component_failure: REQUIRED
     independent_timed_rollback_before_mutation: REQUIRED
     normal_window: 5_TO_10_MINUTES
     rescue_peer_ack_before_mutation: REQUIRED
     post_change_external_conversation_before_retain: REQUIRED
-    normal_lifecycle:
-      - preparing
-      - armed
-      - applied
-      - retained
-    recovery_lifecycle:
-      - restoring
-      - restored
-      - failed
-    pre_mutation_abort_state: cancelled
     rollback_idempotent_or_atomic_race_protected: REQUIRED_WHERE_HOST_ALLOWS
     route_critical_self_change_through_acms_technically_where_practical: REQUIRED
-    unresolved_bypass_surfaces_recorded_in_body: REQUIRED
+
   evolution_contract:
-    state: ACTIVE_DESIGN_INCOMPLETE
-    memory_consolidation:
-      purpose: ORGANIZE_AND_TRANSFORM_ACCUMULATED_EXPERIENCE_INTO_BETTER_DURABLE_MEMORY_AND_ADAPTATION
+    state: SLEEP_DREAM_V01_IMPLEMENTED_FOR_FIELD_FEEDBACK
+    loop: EXPERIENCE_TO_SLEEP_TO_MEMORY_TO_DREAM_TO_CANDIDATE_TO_REALITY_TO_OUTCOME_TO_EXPERIENCE
+    sleep:
+      role: REVERSIBLE_MEMORY_CONSOLIDATION
+      summary_generation_alone_is_success: false
+      plan_before_durable_write: REQUIRED
+      reversible_prior_state_before_write: REQUIRED
+      verification_after_write: REQUIRED
       candidate_operations:
-        - MERGE_DUPLICATES
-        - CONNECT_RELATED_MEMORY
-        - COMPILE_REPEATED_EXPERIENCE_INTO_PROCEDURE
-        - STRENGTHEN_USEFUL_ASSOCIATIONS_OR_CUES
-        - NARROW_OVERGENERALIZATION
-        - PRESERVE_COUNTEREVIDENCE_AND_UNCERTAINTY
-        - DORMANT_OR_SUPERSEDE_STALE_MATERIAL
-        - PRUNE_WHERE_EARNED
-      destructive_memory_change_reversible_where_host_allows: REQUIRED
-    dreaming_recombination:
-      purpose: GENERATE_NEW_ASSOCIATIONS_HYPOTHESES_SCENARIOS_AND_VARIATIONS_FROM_EXISTING_MEMORY
-      generated_material_is_factual_evidence: false
-      dream_output_may_feed_candidate_queue: true
-      reality_selection_outside_dream_state: REQUIRED
+        - ADD
+        - MERGE
+        - LINK
+        - REFINE
+        - CORRECT
+        - STRENGTHEN
+        - WEAKEN
+        - DORMANT
+        - SUPERSEDE
+        - ARCHIVE
+        - NO_CHANGE
+        - CREATE_CANDIDATE
+    dream:
+      role: VARIATION_GENERATION
+      modes:
+        - FREE
+        - PROBLEM
+      sampling: BIASED_RANDOMNESS_PLUS_ASSOCIATIVE_DISTANCE
+      pools:
+        - RECENT
+        - OLD
+        - UNDERUSED
+        - EXTERNAL_OR_UNRESOLVED
+        - DISTANT
+        - SALIENT
+        - RANDOM
+      fixed_universal_embedding_threshold: FORBIDDEN
+      divergent_operator:
+        - DELAY_CONVERGENCE
+        - REMOTE_STRUCTURAL_CONNECTIONS
+        - HYBRIDIZE
+        - INVERT
+        - CROSS_DOMAIN_TRANSFER
+        - COUNTERFACTUALIZE
+        - FOLLOW_STRANGE_CONNECTIONS
+        - GENERATE_MULTIPLE_VARIANTS
+      generated_material_truth_status: SPECULATIVE
+      direct_factual_memory_promotion: FORBIDDEN
+      direct_live_self_mutation_from_dream: FORBIDDEN
     reality_selection:
       preserve_candidate: REQUIRED
       capture_relevant_real_baseline_before_trial: REQUIRED
@@ -137,8 +181,14 @@ new_product:
         - revise
         - reject
         - restore
-      preserve_failed_and_successful_results: REQUIRED
-    feedback_loop: SELECTED_RESULTS_FEED_BACK_INTO_MEMORY_CONSOLIDATION_AND_FUTURE_DREAMING
+      preserve_failed_successful_and_null_results: REQUIRED
+    feedback_loop: SELECTED_RESULTS_FEED_BACK_INTO_EXPERIENCE_AND_LATER_SLEEP_DREAM
+
+  field_feedback:
+    issue: https://github.com/guytogay/ENA/issues/12
+    priority: REAL_AGENT_AND_HOST_OBSERVATIONS
+    preserve_negative_and_null_results: REQUIRED
+
   recovered_legacy_evolution_evidence:
     current_metabolism: releases/current/09-EVOLUTION-METABOLISM.md
     preserved_adaptation: research/evolution-inbox/EVOLUTIONARY-MEMORY-PRESERVED-ADAPTATION.md
@@ -146,50 +196,59 @@ new_product:
     closed_campaign_dispositions: research/evolution-inbox/EVOLUTIONARY-MEMORY-CLOSURE-DISPOSITIONS.yaml
     use_as_blueprint: FORBIDDEN
     use_for_prior_evidence_and_omission_checking: REQUIRED_WHEN_RELEVANT
-    old_sleep_track_disposition: SUBSUMED_SEMANTICALLY_COVERED_POLICY_OPTIMUM_FIELD_UNRESOLVED
-    old_dream_track_disposition: SUBSUMED_AS_VARIATION_IMPLEMENTATION_FAMILY_FIELD_UNRESOLVED_FOR_INVOCATION_POLICY
+    reopen_closed_campaign_for_v01_field_use: FORBIDDEN
+
   product_scope_correction_2026_09_10:
     rule: ADD_MISSING_AGENT_CAPABILITY_DO_NOT_DUPLICATE_CAPABLE_MODEL_JUDGMENT
     closed_out_of_scope_issue: https://github.com/guytogay/ENA/issues/7
     regression_evidence_only:
       - https://github.com/guytogay/ENA/issues/1
       - https://github.com/guytogay/ENA/issues/6
+
   adopter_utility_correction_2026_09_10:
     rule: OWNER_EXPLANATION_IS_NOT_PRODUCT_CONTENT_WITHOUT_INDEPENDENT_ADOPTER_UTILITY
     require_direct_adopter_utility_for_product_prose: true
-    project_phase_language_in_active_product_issue_bodies: REMOVED
+
   active_issues:
     self_inspection: https://github.com/guytogay/ENA/issues/10
     a2a: https://github.com/guytogay/ENA/issues/11
     survivability: https://github.com/guytogay/ENA/issues/8
     evolution: https://github.com/guytogay/ENA/issues/9
+    sleep_dream_feedback: https://github.com/guytogay/ENA/issues/12
+
   owner_phase_direction:
-    continue_remaining_evolution_design_before_testing: REQUIRED
-    practical_testing_now: DEFERRED
+    sleep_dream_v01_bounded_field_use: PERMITTED_AND_DESIRED
+    improve_from_concrete_feedback: REQUIRED
+    current_promotion_from_first_interesting_runs: FORBIDDEN
     phase_direction_belongs_in_project_status_not_adopter_product_text: REQUIRED
+
   copy_legacy_repo_tree: FORBIDDEN
   copy_legacy_handoff_project_management_research_structure: FORBIDDEN
   derive_from: ENA_PURPOSE_REAL_AGENT_PROBLEMS_AND_MISSING_CAPABILITIES
   consult_legacy_after_derivation_for: EVIDENCE_LESSONS_REGRESSION_OMISSION_CHECK
-  next_action: CONTINUE_CLEAN_EVOLUTION_DESIGN_FROM_MEMORY_CONSOLIDATION_DREAMING_AND_REALITY_SELECTION
+  next_action: FIELD_TRY_SLEEP_DREAM_V01_AND_COLLECT_CONCRETE_FEEDBACK
+
 field_guide:
   repository: guytogay/ena-field-guide
   disposition: SUNSET_AS_INDEPENDENT_PRODUCT_PRESERVE_USEFUL_EVIDENCE_THEN_ARCHIVE
-  pr_6_role: USEFUL_CANDIDATE_AND_EVIDENCE_OCCURRENCE_NOT_AUTOMATIC_PRODUCT_MIGRATION
   recreate_theory_vs_how_repo_split: FORBIDDEN
+
 human_ai_workbench:
   repository: guytogay/human-ai-workbench
   role: GENERAL_HUMAN_AI_PROJECT_WORKING_METHOD
   copy_general_handoff_coordination_method_into_ena_product_by_default: FORBIDDEN
+
 completed_research:
   evolutionary_memory_mechanism_discrimination:
     state: CLOSED
     reopen_without_concrete_decision_changing_trigger: FORBIDDEN
+
 open_legacy_occurrences:
   ena_issue_208: ACTIVE_FIELD_VALIDATION_INCLUDES_F20817
   ena_issue_222: REVIEW_ONLY_THROUGH_CLEAN_PRODUCT_LENS
   ena_pr_224: PRESERVE_AS_CONTRIBUTION_OCCURRENCE_DO_NOT_MERGE_PARAGRAPH_REWRITE_INTO_V0314
   ena_issue_234: PRACTICALITY_PROSE_RENT_EVIDENCE
+
 receiver_contract:
   read_consensus_lock_before_new_ena_design: REQUIRED
   ask_user_to_repeat_persisted_background: FORBIDDEN
@@ -204,11 +263,9 @@ receiver_contract:
   require_direct_adopter_utility_for_product_prose: REQUIRED
   copy_legacy_structure_taxonomy_terminology_or_handoff_machinery_into_new_ena_by_default: FORBIDDEN
   use_legacy_coverage_as_product_blueprint: FORBIDDEN
-  mechanically_continue_legacy_action_card_families: FORBIDDEN
   recreate_separate_field_guide_product: FORBIDDEN
-  turn_clear_simple_practical_grounded_build_feedback_into_product_meta_doctrine: FORBIDDEN
-  allow_succession_to_soften_product_boundary_correction: FORBIDDEN
   turn_ordinary_capable_model_reasoning_into_ena_specific_framework_by_default: FORBIDDEN
   prefer_missing_durable_agent_capabilities_over_duplicate_reasoning_rules: REQUIRED
-  start_live_practical_testing_before_owner_moves_phase: FORBIDDEN
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA has a drafted First Use/A2A/Survival/ACMS foundation, while Evolution remains under active design. Evolution currently consists of memory consolidation + dream-like recombination + reality selection/ACMS trial + feedback into memory. Continue owner-guided evolution design before practical testing; phase guidance belongs in project status, not adopter product instructions.'
+  allow_sleep_dream_field_use_to_reopen_closed_legacy_campaign: FORBIDDEN
+
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA is the clean product home. Sleep/Dream v0.1 is now directly usable for bounded field feedback: Sleep performs reversible memory consolidation, Dream performs biased-random distant-memory recombination with Divergent Explorer, and reality selection remains outside Dream. Collect real Host/Agent evidence in ENA Issue #12; do not promote from novelty alone.'
