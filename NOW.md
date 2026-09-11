@@ -20,7 +20,7 @@ State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
 Latest product correction merged to `main` at:
 
-`c9479425bd3aa6713674dc142c2c2fe9cebc1dc2`
+`a555f535fd1287e11cf96ad183b8e92b0372ba0e`
 
 Direct adopter path remains:
 
@@ -50,7 +50,7 @@ The subsequent Zhipu review largely confirmed the product is now directly usable
 
 ### Trusted preset / unattended First Use
 
-`FIRST-USE.md` now permits non-interactive adoption when timezone, language, ENA home, Host profile, recovery path and rescuer were already supplied by a trusted deployment/workspace policy or Host integration.
+`FIRST-USE.md` permits non-interactive adoption when timezone, language, ENA home, Host profile, recovery path and rescuer were already supplied by a trusted deployment/workspace policy or Host integration.
 
 Important boundary:
 
@@ -62,11 +62,7 @@ Important boundary:
 
 ### Session/coding Agent Git example
 
-The product now includes:
-
-`examples/change/SESSION-GIT-WORKTREE.md`
-
-It gives a concrete safe-change path:
+The product includes `examples/change/SESSION-GIT-WORKTREE.md` with a concrete safe-change path:
 
 ```text
 record known-good base commit
@@ -78,15 +74,34 @@ record known-good base commit
 → retain or recover with git revert
 ```
 
-The example explicitly avoids blind `git reset --hard` over later valid history. A conflict during revert stops for human/new-session inspection rather than forcing destructive cleanup.
-
 This is an implementation example for the existing `session` Host profile, not a new ENA subsystem.
+
+## 2026-09-12 cross-session / knowledge / capability Dream scope
+
+Owner clarified that Sleep/Dream material should reflect the Agent's broader accessible life and capability surface, not only the current conversation.
+
+Accepted product changes in `guytogay/ENA` PR #17:
+
+- past and future sessions/task history may feed later Sleep/Dream when the Host or authorized integration exposes them;
+- authorized knowledge bases, note systems, project documentation, repositories and connected files may be used as bounded Dream material;
+- Dream may include the Agent's current verified tools/skills/connectors/APIs;
+- discoverable but not installed/enabled capabilities may also participate as **possibilities**, but must not be treated as already available;
+- capability truth should come first from First Use/live Host discovery; an A2A Agent Card may contribute advertised skills/capabilities but does not override live verification;
+- a capability-dependent candidate must re-check installation, permissions/authorization and current interface before reality contact or production use;
+- a candidate that survives a sandbox/worktree/preview trial is `selected`, not automatically production-applied;
+- selected changes that are not already live must be applied to production separately, using `SAFE-CHANGE.md` when critical runtime state is affected, then observed in live operation.
+
+New reference material/tools:
+
+- `examples/evolution/KNOWLEDGE.example.jsonl`;
+- `examples/evolution/CAPABILITIES.example.jsonl`;
+- `tools/combine_dream_material.py` to combine memory/session material + knowledge material + capability material into one bounded Dream input stream.
+
+Reference-tool CI passed for PR #17 before merge.
 
 ## Current product evidence state
 
-Reference-tool CI passed for PR #16 before merge. This proves only that the updated reference tools—including caller-verified preset initialization—execute against included examples.
-
-It still does **not** prove the product works on a real Host.
+Reference-tool CI proves only that the reference tools execute against included examples. It does **not** prove the product works on a real Host.
 
 Field evidence remains:
 
@@ -105,7 +120,9 @@ Still binding:
 - legacy ENA is evidence/regression/omission-checking material, not the new product blueprint;
 - do not re-import old structure, terminology, handoff machinery or closed research merely because it exists;
 - do not let Sleep/Dream experimental parameters harden into doctrine without field evidence;
-- unattended adoption may consume trusted policy, but may not manufacture missing policy through guessed defaults.
+- unattended adoption may consume trusted policy, but may not manufacture missing policy through guessed defaults;
+- inaccessible sessions/knowledge must be recorded as unavailable rather than imagined;
+- advertised or discoverable capabilities remain unverified possibilities until checked against live reality.
 
 Mandatory deep-succession record remains:
 
@@ -126,9 +143,11 @@ A deep successor reads `CONSENSUS-LOCK.md`, then applies newer live state from t
 
 Priority order:
 
-1. run ENA Issue #14 on at least one real session/coding Agent Host using the new Git/worktree example where appropriate;
+1. run ENA Issue #14 on at least one real session/coding Agent Host using the Git/worktree example where appropriate;
 2. also run a resident Host when practical;
 3. confirm `ena_preflight.py` can actually be integrated into a session/startup hook or trusted unattended deployment flow rather than merely invoked manually;
-4. collect Sleep/Dream evidence in Issue #12 only after the basic runtime chain works;
-5. iterate from concrete friction, failure, null and recovery evidence;
-6. do not promote or expand mechanisms from novelty alone.
+4. field-test Sleep/Dream with cross-session history, knowledge-base material and capability/possibility material in Issue #12;
+5. observe whether capability-aware Dream generates useful candidates without confusing advertised/discoverable ability with installed ability;
+6. verify at least one selected candidate can move through a protected production application path when appropriate;
+7. iterate from concrete friction, failure, null and recovery evidence;
+8. do not promote or expand mechanisms from novelty alone.
