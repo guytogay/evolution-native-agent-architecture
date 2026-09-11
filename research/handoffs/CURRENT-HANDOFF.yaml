@@ -1,4 +1,4 @@
-schema_version: '7.2'
+schema_version: '7.3'
 status: CURRENT_DEEP_SUCCESSION_POINTER
 updated_at: '2026-09-12'
 
@@ -43,7 +43,7 @@ legacy_current:
 new_product:
   repository: guytogay/ENA
   state: ACTIVE_DEVELOPMENT_NOT_CURRENT_NOT_PROMOTED
-  main_commit: a555f535fd1287e11cf96ad183b8e92b0372ba0e
+  main_commit: 9ad47c9efa9823167aa42e2062550295a97901d6
   product_entry: README.md
   readiness: READY_FOR_REAL_HOST_FIELD_TRIAL_NOT_FIELD_VALIDATED
 
@@ -76,11 +76,15 @@ new_product:
     sleep_dream_config_example: examples/evolution/SLEEP-DREAM.example.yaml
     knowledge_material_example: examples/evolution/KNOWLEDGE.example.jsonl
     capability_material_example: examples/evolution/CAPABILITIES.example.jsonl
+    validation_trajectory_example: examples/evolution/VALIDATION-TRAJECTORY.example.jsonl
+    freshness_example: examples/evolution/FRESHNESS.example.jsonl
 
   reference_tools:
     - tools/ena_init.py
     - tools/ena_preflight.py
     - tools/change_scaffold.py
+    - tools/validate_change.py
+    - tools/freshness_scan.py
     - tools/sleep_prepare.py
     - tools/combine_dream_material.py
     - tools/dream_sample.py
@@ -128,6 +132,12 @@ new_product:
     session_git_reference_example: examples/change/SESSION-GIT-WORKTREE.md
     session_git_example_flow: BASE_COMMIT_TO_ISOLATED_WORKTREE_TO_BOUNDED_COMMIT_TO_FF_ONLY_APPLY_TO_VERIFY_TO_RETAIN_OR_REVERT
     blind_hard_reset_over_unrelated_new_history: DISCOURAGED
+    deterministic_validation_close_to_mutation: REQUIRED_WHEN_PRACTICAL_AND_RELEVANT_CHECK_EXISTS
+    deterministic_tool_should_replace_model_guess_for_measurable_property: true
+    incremental_pass_replaces_final_validation: false
+    failed_validation_should_stop_further_expansion_when_practical: true
+    validation_recorder: tools/validate_change.py
+    change_package_records_incremental_checks_and_event_refs: true
 
   evolution_contract:
     loop: EXPERIENCE_TO_SLEEP_TO_MEMORY_AND_KNOWLEDGE_TO_CANDIDATE_VARIATION_TO_REALITY_TO_SELECTION_TO_PRODUCTION_WHEN_NEEDED_TO_OUTCOME_TO_EXPERIENCE
@@ -141,6 +151,9 @@ new_product:
     isolated_trial_selected_candidate_requires_separate_production_application: true
     production_critical_change_uses_safe_change: true
     capability_dependent_candidate_rechecks_live_availability_and_authorization: true
+    deterministic_validation_is_property_specific_evidence_not_improvement_proof: true
+    validation_repair_trajectory_is_experience: true
+    repeated_repair_pattern_may_be_consolidated_only_with_sufficient_evidence: true
 
   sleep_dream_contract:
     state: EXPERIMENTAL_FIELD_MECHANISM
@@ -162,12 +175,42 @@ new_product:
       - DISCOVERABLE_INSTALLABLE_CAPABILITY_CATALOG
     advertised_capability_is_live_truth: false
     discoverable_not_enabled_capability_state: POSSIBILITY
+    validation_repair_trajectories_may_participate: true
+    freshness_drift_maintenance:
+      volatile_sources_include:
+        - KNOWLEDGE
+        - A2A_AGENT_CARD
+        - CONNECTOR_OR_PLUGIN_CATALOG
+        - CAPABILITY_INVENTORY
+        - SYSTEM_MAP
+      explicit_checked_at_valid_until_or_host_signal_preferred: true
+      stale_or_unknown_may_be_strengthened_as_current_truth_without_refresh: false
+      stale_material_may_remain_as_history_or_speculative_input: true
+      reporter: tools/freshness_scan.py
+      universal_ttl: NONE
     sampler_numbers_are_normative: false
     current_counts_weights_distance_bands: EXPERIMENTAL_PARAMETERS
     add_new_modes_without_field_failure_evidence: DISCOURAGED
     dream_material_combiner: tools/combine_dream_material.py
     candidate_writer: tools/candidate_record.py
     field_feedback: https://github.com/guytogay/ENA/issues/12
+
+  external_implementation_signal_2026_09_12:
+    source: KINGDEE_LINGJI_DEVELOPMENT_WORKSHOP_USER_OBSERVATION_AND_PHOTOS
+    observed_patterns:
+      - VALIDATION_INSIDE_EXECUTION_LOOP
+      - POST_TOOL_OR_POST_EDIT_INCREMENTAL_CHECKS
+      - DETERMINISTIC_QUALITY_GATES
+      - FEEDBACK_TRAJECTORY_ARCHIVE
+      - CHECKPOINT_AND_RECOVERY_INFRASTRUCTURE
+      - TOOL_DISCOVERY_AND_SKILLS_MCP
+      - MEMORY_INCLUDING_DREAM
+      - DOCUMENT_FRESHNESS_AUTOMATION
+    copy_vendor_specific_harness_architecture: FORBIDDEN
+    transferable_product_changes:
+      - INCREMENTAL_DETERMINISTIC_VALIDATION
+      - VALIDATION_REPAIR_TRAJECTORY_AS_EVOLUTION_EXPERIENCE
+      - FRESHNESS_DRIFT_AS_LONG_LIVED_KNOWLEDGE_MAINTENANCE
 
   field_validation:
     smoke_test_is_field_evidence: false
@@ -179,7 +222,11 @@ new_product:
       - ONE_REAL_BOUNDED_SAFE_CHANGE
       - ONE_EVIDENCED_EVOLUTION_OUTCOME
       - NEW_SESSION_OR_RESTART_READS_PERSISTED_STATE
-    sleep_dream_priority_observations:
+    priority_observations:
+      - POST_CHANGE_VALIDATION_HOOK_SHORTENS_DEFECT_LIFETIME
+      - REAL_FAIL_REPAIR_PASS_TRAJECTORY_CAN_FEED_LATER_SLEEP
+      - SLEEP_DOES_NOT_OVERGENERALIZE_FROM_ONE_REPAIR_EVENT
+      - REAL_KNOWLEDGE_OR_CAPABILITY_DRIFT_CAN_BE_DETECTED_WITHOUT_FALSE_FRESHNESS
       - CROSS_SESSION_HISTORY_CAN_BE_USED_WITH_PROVENANCE
       - KNOWLEDGE_BASE_MATERIAL_ADDS_VALUE_WITHOUT_UNBOUNDED_CONTEXT_DUMP
       - CAPABILITY_AWARE_DREAM_DOES_NOT_CONFUSE_ADVERTISED_OR_INSTALLABLE_WITH_INSTALLED
@@ -203,6 +250,8 @@ product_boundary:
   unattended_adoption_must_use_explicit_policy_not_guessed_defaults: true
   inaccessible_history_or_knowledge_must_not_be_invented: true
   advertised_or_discoverable_capability_must_not_be_treated_as_installed_without_live_check: true
+  deterministic_validation_scope_must_not_be_overclaimed: true
+  vendor_specific_harness_components_must_not_be_copied_without_independent_product_need: true
 
 field_guide:
   repository: guytogay/ena-field-guide
@@ -238,5 +287,7 @@ receiver_contract:
   fill_missing_unattended_policy_with_guessed_product_defaults: FORBIDDEN
   invent_inaccessible_cross_session_or_knowledge_context: FORBIDDEN
   treat_agent_card_or_catalog_capability_as_installed_without_live_verification: FORBIDDEN
+  treat_deterministic_check_pass_as_general_evolution_success: FORBIDDEN
+  copy_vendor_specific_harness_architecture_into_ena_by_default: FORBIDDEN
 
-rule: 'Legacy Current remains v0.3.14. guytogay/ENA main at a555f535fd1287e11cf96ad183b8e92b0372ba0e is ready for real Host field trials, not field-validated. Sleep/Dream may use accessible cross-session history, authorized knowledge sources, verified capabilities and clearly marked capability possibilities. Selected candidates are not automatically production-applied; protected live application and observation remain separate when needed.'
+rule: 'Legacy Current remains v0.3.14. guytogay/ENA main at 9ad47c9efa9823167aa42e2062550295a97901d6 is ready for real Host field trials, not field-validated. Important bounded changes should use the smallest relevant deterministic checks near the mutation when practical; linked validation/repair trajectories become evolution experience; volatile knowledge/capability facts keep explicit freshness state rather than silently hardening old truth.'

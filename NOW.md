@@ -20,7 +20,7 @@ State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
 Latest product correction merged to `main` at:
 
-`a555f535fd1287e11cf96ad183b8e92b0372ba0e`
+`9ad47c9efa9823167aa42e2062550295a97901d6`
 
 Direct adopter path remains:
 
@@ -99,6 +99,27 @@ New reference material/tools:
 
 Reference-tool CI passed for PR #17 before merge.
 
+## 2026-09-12 workshop-derived validation / feedback / freshness path
+
+A Kingdee Lingji development workshop provided concrete external implementation evidence around Agent harness quality: validation inside the execution loop, deterministic checks after edits, feedback/trajectory retention, checkpoint/recovery infrastructure, tool discovery, Skills/MCP, and memory including Dream. The clean ENA product did **not** copy the product-specific harness architecture.
+
+Three transferable capabilities were added in `guytogay/ENA` PR #18:
+
+1. **Validate close to the mutation.** When the Host exposes PostToolUse/Git/IDE/CI/service hooks, run the smallest relevant deterministic check immediately after a bounded change instead of waiting for the whole task to finish. Examples include parser/schema, compilation, type, targeted test, build, health, access and retrieval checks.
+2. **Validation/repair trajectory becomes experience.** Preserve linked sequences such as `change → FAIL → bounded repair → PASS` as evolution evidence. Sleep may later consolidate repeated trajectories into narrower procedures, cues or preventive checks when repeated evidence justifies it.
+3. **Freshness/drift belongs in long-lived knowledge maintenance.** Knowledge, Agent Cards, connector catalogs, capability inventories and system maps can become stale. Preserve explicit freshness metadata when available; refresh from authoritative sources when practical; otherwise keep stale/unknown status visible instead of silently strengthening old data as current truth.
+
+New product tools/examples:
+
+- `tools/validate_change.py` — wraps a deterministic Host-native check, returns its exit status, and appends compact validation experience;
+- `tools/freshness_scan.py` — reports JSONL records as `fresh / stale / unknown` from explicit freshness metadata without inventing a universal TTL;
+- `examples/evolution/VALIDATION-TRAJECTORY.example.jsonl`;
+- `examples/evolution/FRESHNESS.example.jsonl`.
+
+`tools/change_scaffold.py` now asks each new safe-change package for incremental deterministic checks, validation-event references and final verification.
+
+Reference-tool CI passed for PR #18 before merge. This remains smoke-test evidence, not real-Host field validation.
+
 ## Current product evidence state
 
 Reference-tool CI proves only that the reference tools execute against included examples. It does **not** prove the product works on a real Host.
@@ -108,7 +129,7 @@ Field evidence remains:
 - ENA Issue #12 — Sleep/Dream field feedback, including negative/null results and parameter evidence;
 - ENA Issue #14 — minimum fresh-Agent runtime-chain proof.
 
-Do not claim field validation from smoke tests, documentation review, or an Agent saying the design looks correct.
+Do not claim field validation from smoke tests, documentation review, workshop architecture similarity, or an Agent saying the design looks correct.
 
 ## Product boundary
 
@@ -122,7 +143,9 @@ Still binding:
 - do not let Sleep/Dream experimental parameters harden into doctrine without field evidence;
 - unattended adoption may consume trusted policy, but may not manufacture missing policy through guessed defaults;
 - inaccessible sessions/knowledge must be recorded as unavailable rather than imagined;
-- advertised or discoverable capabilities remain unverified possibilities until checked against live reality.
+- advertised or discoverable capabilities remain unverified possibilities until checked against live reality;
+- deterministic validation proves only the property it directly checks; it is not evidence by itself that an evolution candidate is useful;
+- do not copy Kingdee-specific Harness components into ENA merely because the workshop implementation appeared high quality.
 
 Mandatory deep-succession record remains:
 
@@ -144,10 +167,12 @@ A deep successor reads `CONSENSUS-LOCK.md`, then applies newer live state from t
 Priority order:
 
 1. run ENA Issue #14 on at least one real session/coding Agent Host using the Git/worktree example where appropriate;
-2. also run a resident Host when practical;
-3. confirm `ena_preflight.py` can actually be integrated into a session/startup hook or trusted unattended deployment flow rather than merely invoked manually;
-4. field-test Sleep/Dream with cross-session history, knowledge-base material and capability/possibility material in Issue #12;
-5. observe whether capability-aware Dream generates useful candidates without confusing advertised/discoverable ability with installed ability;
-6. verify at least one selected candidate can move through a protected production application path when appropriate;
-7. iterate from concrete friction, failure, null and recovery evidence;
-8. do not promote or expand mechanisms from novelty alone.
+2. wire `validate_change.py` or an equivalent Host-native mechanism into at least one real post-change hook and observe whether it shortens defect lifetime;
+3. preserve at least one real `FAIL → repair → PASS` trajectory and verify later Sleep can consume it without overgeneralizing from one occurrence;
+4. also run a resident Host when practical;
+5. confirm `ena_preflight.py` can actually be integrated into a session/startup hook or trusted unattended deployment flow rather than merely invoked manually;
+6. field-test Sleep/Dream with cross-session history, knowledge-base material and capability/possibility material in Issue #12;
+7. observe real freshness/drift behavior for at least one knowledge/capability source instead of assuming TTLs are useful;
+8. verify at least one selected candidate can move through a protected production application path when appropriate;
+9. iterate from concrete friction, failure, null and recovery evidence;
+10. do not promote or expand mechanisms from novelty alone.
