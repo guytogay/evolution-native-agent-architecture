@@ -46,7 +46,6 @@ new_product:
   main_commit: c45767d23b3aeeb086a1bb1104fddaed68518d55
   product_entry: README.md
   readiness: AGENT_READY_FOR_BOUNDED_FIELD_USE
-
   use_order:
     - FIRST-USE.md
     - A2A.md
@@ -54,11 +53,9 @@ new_product:
     - SAFE-CHANGE.md
     - EVOLUTION.md
     - SLEEP-DREAM-QUICKSTART.md
-
   durable_outputs:
     - ENA.yaml
     - SYSTEM.yaml
-
   product_files:
     first_use: FIRST-USE.md
     a2a: A2A.md
@@ -71,14 +68,12 @@ new_product:
     system_example: examples/SYSTEM.example.yaml
     rescue_example: examples/change/RESCUE.example.yaml
     status_example: examples/change/STATUS.example.yaml
-
   reference_tools:
     - tools/ena_init.py
     - tools/change_scaffold.py
     - tools/sleep_prepare.py
     - tools/dream_sample.py
     - tools/self_test.py
-
   cleanup_2026_09_12:
     removed_internal_product_term_acms: true
     safe_change_name: SAFE-CHANGE.md
@@ -87,7 +82,6 @@ new_product:
     removed_branded_divergent_explorer_wording: true
     removed_project_status_prose_from_product_files: true
     reference_tool_ci_passed: true
-
   evolution_loop: EXPERIENCE_TO_SLEEP_TO_MEMORY_TO_DREAM_TO_CANDIDATE_TO_REALITY_TO_OUTCOME_TO_EXPERIENCE
   sleep_role: REVERSIBLE_MEMORY_CONSOLIDATION
   dream_modes:
@@ -96,11 +90,9 @@ new_product:
   dream_sampling: BIASED_RANDOMNESS_PLUS_ASSOCIATIVE_DISTANCE
   dream_generated_material: SPECULATIVE_UNTIL_REALITY_CONTACT
   important_runtime_change_path: SAFE_CHANGE
-
   field_feedback:
     issue: https://github.com/guytogay/ENA/issues/12
     preserve_negative_and_null_results: true
-
   next_action: FIELD_TRY_CLEAN_ENA_AND_SLEEP_DREAM_V01
 
 product_boundary:
@@ -132,6 +124,7 @@ receiver_contract:
   ask_user_to_repeat_persisted_background: FORBIDDEN
   reverify_live_mutable_facts_before_writes: REQUIRED
   preserve_negative_and_null_results: REQUIRED
+  use_full_handoff_for_fresh_validator: FORBIDDEN
   mutate_legacy_current_without_successor_identity: FORBIDDEN
   copy_maintainer_process_into_product_by_default: FORBIDDEN
   reintroduce_removed_internal_product_terms: FORBIDDEN
