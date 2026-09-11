@@ -20,7 +20,7 @@ State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
 
 Latest product correction merged to `main` at:
 
-`9ad47c9efa9823167aa42e2062550295a97901d6`
+`f6147330293fec4a536096a5eb98dbe905836ed8`
 
 Direct adopter path remains:
 
@@ -62,19 +62,7 @@ Important boundary:
 
 ### Session/coding Agent Git example
 
-The product includes `examples/change/SESSION-GIT-WORKTREE.md` with a concrete safe-change path:
-
-```text
-record known-good base commit
-→ create isolated change branch + worktree
-→ make/test one bounded commit
-→ prepare exact recovery before application
-→ apply only with git merge --ff-only
-→ verify useful operation
-→ retain or recover with git revert
-```
-
-This is an implementation example for the existing `session` Host profile, not a new ENA subsystem.
+The product includes `examples/change/SESSION-GIT-WORKTREE.md` with a concrete safe-change path for durable Git state plus a human or fresh Agent session as recovery. The example is now aligned to the executable SAFE-CHANGE state gate rather than asking an adopter to edit status manually.
 
 ## 2026-09-12 cross-session / knowledge / capability Dream scope
 
@@ -105,20 +93,38 @@ A Kingdee Lingji development workshop provided concrete external implementation 
 
 Three transferable capabilities were added in `guytogay/ENA` PR #18:
 
-1. **Validate close to the mutation.** When the Host exposes PostToolUse/Git/IDE/CI/service hooks, run the smallest relevant deterministic check immediately after a bounded change instead of waiting for the whole task to finish. Examples include parser/schema, compilation, type, targeted test, build, health, access and retrieval checks.
-2. **Validation/repair trajectory becomes experience.** Preserve linked sequences such as `change → FAIL → bounded repair → PASS` as evolution evidence. Sleep may later consolidate repeated trajectories into narrower procedures, cues or preventive checks when repeated evidence justifies it.
-3. **Freshness/drift belongs in long-lived knowledge maintenance.** Knowledge, Agent Cards, connector catalogs, capability inventories and system maps can become stale. Preserve explicit freshness metadata when available; refresh from authoritative sources when practical; otherwise keep stale/unknown status visible instead of silently strengthening old data as current truth.
-
-New product tools/examples:
-
-- `tools/validate_change.py` — wraps a deterministic Host-native check, returns its exit status, and appends compact validation experience;
-- `tools/freshness_scan.py` — reports JSONL records as `fresh / stale / unknown` from explicit freshness metadata without inventing a universal TTL;
-- `examples/evolution/VALIDATION-TRAJECTORY.example.jsonl`;
-- `examples/evolution/FRESHNESS.example.jsonl`.
-
-`tools/change_scaffold.py` now asks each new safe-change package for incremental deterministic checks, validation-event references and final verification.
+1. **Validate close to the mutation.** When the Host exposes PostToolUse/Git/IDE/CI/service hooks, run the smallest relevant deterministic check immediately after a bounded change instead of waiting for the whole task to finish.
+2. **Validation/repair trajectory becomes experience.** Preserve linked sequences such as `change → FAIL → bounded repair → PASS` as evolution evidence.
+3. **Freshness/drift belongs in long-lived knowledge maintenance.** Knowledge, Agent Cards, connector catalogs, capability inventories and system maps can become stale; keep freshness state explicit rather than silently hardening old data as current truth.
 
 Reference-tool CI passed for PR #18 before merge. This remains smoke-test evidence, not real-Host field validation.
+
+## 2026-09-12 SAFE-CHANGE enforcement correction
+
+Claude Code's review identified a real implementation gap: the product documented a SAFE-CHANGE state machine but the reference code did not yet enforce it. Grok simultaneously advised against adding more mechanisms before real Host evidence. The accepted correction therefore implements the already-promised state machine without adding a new governance layer.
+
+Merged product PR #19 at `f6147330293fec4a536096a5eb98dbe905836ed8` adds:
+
+- `tools/safe_change_state.py` as a non-zero gate for allowed SAFE-CHANGE transitions;
+- blocking of `preparing -> armed` while required recovery fields remain unresolved;
+- evidence requirements for `retained`, `restored`, and `failed`;
+- `transitions.jsonl` for transition history;
+- shared strict control-file parsing through `tools/control_yaml.py` instead of duplicated ad-hoc readers;
+- fail-closed handling for unsupported control-YAML constructs rather than silent partial parsing;
+- parser edge-case tests in `tools/test_control_yaml.py`, run by CI;
+- an explicit non-working `rollback.py` placeholder from `change_scaffold.py`, so scaffold creation cannot be mistaken for configured recovery;
+- simplified machine-readable `rescue.yaml` / `status.yaml` examples aligned to what the gate can actually enforce.
+
+Important enforcement boundary:
+
+- reference gates only have force when the Host/Agent actually routes work through them;
+- direct manual edits can bypass a reference script unless Host hooks/permissions prevent bypass;
+- multi-rescuer locking/idempotent rollback remains Host-dependent and is not falsely claimed as solved by the reference gate;
+- no mandatory human/independent-review gate was added for evolution decisions because that would be a new governance mechanism without field evidence.
+
+Detailed note:
+
+`research/status-notes/2026-09-12-safe-change-enforcement.md`
 
 ## Current product evidence state
 
@@ -145,7 +151,7 @@ Still binding:
 - inaccessible sessions/knowledge must be recorded as unavailable rather than imagined;
 - advertised or discoverable capabilities remain unverified possibilities until checked against live reality;
 - deterministic validation proves only the property it directly checks; it is not evidence by itself that an evolution candidate is useful;
-- do not copy Kingdee-specific Harness components into ENA merely because the workshop implementation appeared high quality.
+- reference enforcement must not be described as stronger than the Host wiring that actually invokes it.
 
 Mandatory deep-succession record remains:
 
@@ -166,13 +172,11 @@ A deep successor reads `CONSENSUS-LOCK.md`, then applies newer live state from t
 
 Priority order:
 
-1. run ENA Issue #14 on at least one real session/coding Agent Host using the Git/worktree example where appropriate;
-2. wire `validate_change.py` or an equivalent Host-native mechanism into at least one real post-change hook and observe whether it shortens defect lifetime;
-3. preserve at least one real `FAIL → repair → PASS` trajectory and verify later Sleep can consume it without overgeneralizing from one occurrence;
-4. also run a resident Host when practical;
-5. confirm `ena_preflight.py` can actually be integrated into a session/startup hook or trusted unattended deployment flow rather than merely invoked manually;
-6. field-test Sleep/Dream with cross-session history, knowledge-base material and capability/possibility material in Issue #12;
-7. observe real freshness/drift behavior for at least one knowledge/capability source instead of assuming TTLs are useful;
-8. verify at least one selected candidate can move through a protected production application path when appropriate;
-9. iterate from concrete friction, failure, null and recovery evidence;
-10. do not promote or expand mechanisms from novelty alone.
+1. run ENA Issue #14 on at least one real session/coding Agent Host;
+2. route SAFE-CHANGE status transitions through `safe_change_state.py` or an equivalent Host-native gate and observe real friction/bypass attempts;
+3. confirm `ena_preflight.py` can actually be integrated into a real session/startup hook;
+4. preserve at least one real `FAIL → repair → PASS` validation trajectory;
+5. field-test Sleep/Dream with cross-session history, knowledge-base material and capability/possibility material in Issue #12;
+6. verify at least one selected candidate can move through a protected production application path when appropriate;
+7. iterate only from concrete friction, failure, null and recovery evidence;
+8. do not add new mechanisms merely because another review can imagine them.
