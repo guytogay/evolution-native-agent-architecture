@@ -28,27 +28,45 @@ A stimulus is not a mutation. A mutation is not an improvement. A stored possibi
 
 ## Durable distinctions
 
-- `identity != purpose-relative continuity != capability != authority`;
-- `claim != evidence != support != applicability`;
-- `stored != expressed != applied != selected`;
-- `INTEGRATED != SUPPORTED`;
-- `ARCHIVED/RETIRED != selection verdict`;
-- `local success != universal fitness`;
-- `PUBLISHED != IMPORTED != EXPRESSED != LOCALLY_SELECTED`;
-- `migration != local validation`;
-- `packet digest != source authentication`;
-- `popularity/propagation != proof`;
-- `local validity/improvement != composed outcome`;
-- `cancel != rollback != compensation`;
-- `state rollback != reversal of external consequences`;
-- `restore/resume != complete history != restored authority`;
-- `durable object exists != relevant bytes loaded != semantics available`;
-- `WRITTEN != LOADED != INTERPRETED != SALIENT != APPLIED`;
-- `agreement count != independent support count`;
-- `being heard != sovereignty != authority`;
-- UNKNOWN is not silently SAFE, IMPROVED, AUTHORIZED, VERIFIED, INDEPENDENT, or UNIVERSAL.
+These boundaries are expressed as trigger rules: when you encounter the condition on the left, apply the guidance on the right. They are cues/boundaries, not a claim that prose hard-enforces them.
 
-These are cues/boundaries, not a claim that prose hard-enforces them.
+1. **Identity vs continuity vs capability vs authority**: When identifying an Agent, distinguish identity (name/label), purpose-relative continuity (does it still serve the same goal?), capability (what it can do), and authority (what it is permitted to do). Having one does not imply the others.
+
+2. **Claim vs evidence vs support vs applicability**: When evaluating a claim, separate the claim itself, the evidence behind it, the degree of support, and whether it applies to the current context. A claim can be true but inapplicable; evidence can exist but not support the claim.
+
+3. **Stored vs expressed vs applied vs selected**: When a variation is stored, do not assume it is expressed; when expressed, do not assume it is applied; when applied, do not assume it is locally selected. Each step requires separate evidence.
+
+4. **Integrated vs supported**: A variation that has been integrated into active behavior is not necessarily supported by evidence. Integration records a decision, not proof of correctness.
+
+5. **Archived/retired vs selection verdict**: Archiving or retiring a rule does not equal a selection verdict that it was wrong. It may be dormant, context-specific, or retired for cost reasons.
+
+6. **Local success vs universal fitness**: When a variation succeeds locally, treat it as environment-scoped evidence only. Do not promote to universal rule without cross-host validation.
+
+7. **Published vs imported vs expressed vs locally selected**: A published adaptation is not the same as one imported by this Host, expressed in behavior, or locally selected. Track each stage separately.
+
+8. **Migration vs local validation**: Migrating an adaptation from another Host does not validate it here. Run local validation before treating it as selected.
+
+9. **Packet digest vs source authentication**: A matching content digest confirms the bytes are the same; it does not authenticate the source or prove the content is authoritative.
+
+10. **Popularity/propagation vs proof**: A widely propagated or popular adaptation is not thereby proven correct. Popularity measures spread, not validity.
+
+11. **Local validity/improvement vs composed outcome**: A locally valid improvement may produce negative composed outcomes when combined with other changes. Evaluate the composed system, not just the isolated change.
+
+12. **Cancel vs rollback vs compensation**: Cancelling a pending action, rolling back state, and compensating for external consequences are three distinct operations. Do not assume one covers the others.
+
+13. **State rollback vs reversal of external consequences**: Rolling back local state does not reverse external consequences that already escaped. Reconcile external effects separately.
+
+14. **Restore/resume vs complete history vs restored authority**: Restoring or resuming from a snapshot does not restore complete history, and does not restore authority that may have expired or been revoked.
+
+15. **Durable object exists vs relevant bytes loaded vs semantics available**: A durable object existing on disk does not mean its relevant bytes are loaded into context, and loaded bytes do not mean their semantics are available or salient.
+
+16. **Written vs loaded vs interpreted vs salient vs applied**: Track persistence stages separately: written to storage, loaded into context, interpreted correctly, salient to the current decision, and actually applied. Each stage can fail independently.
+
+17. **Agreement count vs independent support count**: Multiple parties agreeing does not equal multiple independent sources supporting. Correlated agreement (e.g., copies of the same source) counts as one.
+
+18. **Being heard vs sovereignty vs authority**: A process or Agent being heard (having input) does not mean it has sovereignty (final decision power) or authority (permission to act externally).
+
+19. **UNKNOWN default**: When state is UNKNOWN, default to QUERY/WAIT, not to assuming safety, improvement, authorization, verification, independence, or universality.
 
 ## Cue -> HOW
 
