@@ -16,11 +16,23 @@ Legacy Current is unchanged.
 
 Repository: `guytogay/ENA`
 
-State: `ACTIVE_DEVELOPMENT / NOT_CURRENT / NOT_PROMOTED`
+State: `RELEASED_v1.0.0 / NOT_CURRENT / NOT_PROMOTED`
 
-Latest clean-product main commit:
+Release identity (stable fact): `v1.0.0` tag -> `ea8a313`
 
-`703b6e8847c389aeeb6fec42eb088d9ba58e8376`
+Current ENA `main` head: **read it from the ENA repository** (`guytogay/ENA`, branch `main`). It is
+deliberately not copied here: a copied commit id becomes a drift source the moment the product
+moves, and this file previously carried a stale one for that reason.
+
+Promotion semantics (identity semantics of this repository, not a temporary note):
+
+```text
+PRODUCT RELEASE != CURRENT PROMOTION
+guytogay/ENA v1.0.0 = RELEASED CLEAN PRODUCT
+research Current    = v0.3.14 / FIELD_VALIDATION
+Current changes only through an explicit USER promotion decision.
+Publishing or tagging guytogay/ENA does not mutate releases/current/.
+```
 
 Adopter path:
 
@@ -47,7 +59,7 @@ Detailed evidence:
 
 Real DSH adoption found and corrected concrete defects including timezone portability, Dream/Sleep provenance, missing-input boundaries, SAFE-CHANGE state semantics, candidate overwrite, candidate canonical-time handling, and repository hygiene coverage.
 
-Product PR #28 / main `703b6e8847c389aeeb6fec42eb088d9ba58e8376` makes candidate artifacts collision-safe and canonical-time based.
+Product PR #28 made candidate artifacts collision-safe and canonical-time based at the time of that correction; the commit id is intentionally not repeated here, since the product has moved on and this file should not carry a second copy of its head.
 
 ## Sleep/Dream field state
 
@@ -63,18 +75,16 @@ The next evidence question is whether a Dream-origin candidate changes a real fu
 
 ## Field-discovered configuration debt
 
-ENA Issue #29 is open because `ENA.yaml` and `SYSTEM.yaml` overlap on recovery / communication facts.
-
-Target authority:
+RESOLVED. ENA Issue #29 (closed 2026-09-12) recorded that `ENA.yaml` and `SYSTEM.yaml` overlapped on recovery / communication facts. The authority split was implemented in the clean product (PR #36) and verified on a real Host:
 
 - `ENA.yaml`: stable configuration and stable pointers;
 - `SYSTEM.yaml`: mutable Host/runtime facts with freshness state.
 
-Resolve this through compatibility-safe migration rather than a third truth surface.
+No third truth surface was introduced, and a moved/copied legacy home now fails closed instead of writing back into its previous location (PR #46).
 
 ## Repository-governance debt
 
-ENA Issue #26 remains open: `main` still needs repository-admin protection requiring pull requests and the `Reference tools` status check.
+RESOLVED. ENA Issue #26 (closed 2026-09-12) required repository-admin protection for `main`. Protection is in place and verified: pull requests required, the `Reference tools` checks required on both platforms, force pushes and deletions blocked, `enforce_admins=false`, branch deletion on merge enabled.
 
 ## Evidence state
 
@@ -118,7 +128,11 @@ Repository roles:
 Priority:
 
 1. continue Issue #12 through natural real work and record whether Dream-origin candidates change later decisions/outcomes;
-2. design a compatibility-safe resolution for Issue #29;
-3. owner/admin completes Issue #26 branch protection;
+2. ~~design a compatibility-safe resolution for Issue #29~~ — done 2026-09-12 (closed; see *Field-discovered configuration debt* above);
+3. ~~owner/admin completes Issue #26 branch protection~~ — done 2026-09-12 (closed; see *Repository-governance debt* above);
 4. collect additional recovery/restore evidence only when a safe natural opportunity occurs;
 5. add new mechanisms only when concrete field evidence requires them.
+
+Operational queue for the clean product itself lives with the product, not here: see the ENA
+coordination issue (product repository, issue #34) for the current work item list, so this file does
+not keep a second copy of it.

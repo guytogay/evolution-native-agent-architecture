@@ -26,7 +26,20 @@ EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
 
 The clean product home for the next ENA is [`guytogay/ENA`](https://github.com/guytogay/ENA).
 
-It is under active development and is **not yet Current or promoted**. This repository remains the source for v0.3.14 Current, legacy research, evidence, experiments, and historical provenance until a successor is formally promoted.
+ENA **v1.0.0 is released** as a clean product. It is **not yet Current and not promoted**: this
+repository remains the source for v0.3.14 Current, legacy research, evidence, experiments, and
+historical provenance until a successor is formally promoted.
+
+```text
+PRODUCT RELEASE != CURRENT PROMOTION
+guytogay/ENA v1.0.0 = RELEASED CLEAN PRODUCT
+research Current    = v0.3.14 / FIELD_VALIDATION
+Current changes only through an explicit USER promotion decision.
+Publishing or tagging guytogay/ENA does not mutate releases/current/.
+```
+
+This is identity semantics for this repository, not a temporary status note: reading "ENA" must
+never be ambiguous between the released product and the promoted Current.
 
 Project-maintainer status is in [`NOW.md`](NOW.md).
 
