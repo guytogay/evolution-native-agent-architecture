@@ -112,6 +112,40 @@ This also sharpens one of the open questions below: the retirement rate is not m
 appears to be **zero** across that line, since V2.1 and V2.2 compose V2's protections rather than
 replacing them.
 
+## 6a. First retirement audit — a negative result, recorded as one
+
+Since removals are the fast-tracked direction, the obvious move is to hunt for enforced surface that
+nothing consumes. One was run on the two largest machine-enforced blocks of the shipped product:
+
+```text
+UNKNOWN lifecycle required metadata   state, reason, resolution_path, owner, revisit_by, last_attempt_at
+durable-artifact actor block          executor, initiated_by, channel, correlation_id, attribution_confidence
+```
+
+**Result: zero retirement candidates. All eleven fields have consumers.** The decisive evidence is
+logic, not counts: the validator parses `last_attempt_at` as an aware timestamp and rejects a
+`revisit_by` that is not later than it; `reason` / `resolution_path` / `owner` are checked for
+real non-placeholder values and filled from an initial-text table; the actor fields are parsed from
+the environment, carried through a dataclass, and written into durable artifacts.
+
+Two things about this result are worth more than the result itself:
+
+- **The instrument was wrong first, and it produced a plausible finding.** The first census stripped
+  every quoted literal before counting occurrences, on the assumption that quoted means
+  human-readable message. Field names are quoted in code too (`.get("field")`), so real reads were
+  classified as messages and `last_attempt_at` appeared to be required-but-never-read. It was
+  required, and it was read three lines later. A negative result that had been accepted on the first
+  reading would have retired a live cross-field check.
+- **A clean negative is the honest outcome here.** It says the enforced surface is not rotted, and it
+  means the retirement backlog is empty *with evidence* rather than by assumption. It does not
+  contradict the ratchet hypothesis: the hypothesis is about the growth rate of enforcement, not
+  about whether existing enforcement is dead weight.
+
+The one genuine zero-consumer finding is adjacent and weaker: `memory.sources` and `change_surfaces`
+are written into the initialized home and read by nothing. They are **not enforced** — no validator
+requires them, no tool rejects their absence — so they are not a retirement target either, and there
+is no field failure to justify touching them. Recorded as an observation.
+
 ## 7. Open questions this raises for ENA theory
 
 - Is there a natural law here, or only a project-management heuristic? Candidate form: *a system under continuous correctness pressure accumulates enforcement surfaces unless removal is cheaper than addition.* If it is a law, it should hold for other lineages, not just this one.
