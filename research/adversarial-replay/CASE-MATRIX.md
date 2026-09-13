@@ -20,6 +20,9 @@ This matrix is a synthesis layer over the individual HAR records. It does not re
 | HAR-008 | Knowledge in my memory implies I authored/performed the underlying work | Provenance, Subject, Session Context | `CLARIFICATION_GAP` | Autobiographical Provenance Integrity |
 | HAR-009 | Sincere belief or an immediate successful attempt proves a stable fix | State, Time, Evidence Grade | `COVERED` | Belief Is Not Completion Evidence (already covered) |
 | HAR-010 | A truthful local completion claim remains valid after silent temporal expansion | Time, State, Scope | `COVERED` | Evidence Applicability Boundary (interval support) |
+| HAR-011 | A durable-contribution persistence workflow is complete because the source-surface write succeeded | Composition, State, Other | `CLARIFICATION_GAP` | Triggered Obligation Externalization / Obligation Closure |
+| HAR-012 | The assigned task is complete and its expected output exists without a recoverable completion witness | State, Time, Other | `COVERED` | Delivery Claim Witness / Completion Evidence Contract (already covered) |
+| HAR-013 | Safety/continuity uncertainty means no useful recovery action may proceed until much stronger identity/history proof is supplied | Authority, Provenance, State, Other | `CLARIFICATION_GAP` | Agency-Preserving Uncertainty Resolution / Consequence-Scaled Verification |
 | HAR-014 | Wiring the readiness predicate into a session Host makes "unverified homes cannot do ordinary work" an enforced property | Product/Host enforcement locality, Self-asserted vs verified evidence, Freshness | `CLARIFICATION_GAP` | Host-Delegated Enforcement Boundary (supports the existing "the product is not a gate" decision) |
 
 ## Boundary recurrence
@@ -95,7 +98,7 @@ Interpretation: this strengthens existing Evidence Grade / Assertion Maturity / 
 
 ## Strongest synthesis so far
 
-The first ten cases do **not** support a general claim that ENA lacks many mechanisms.
+The fourteen indexed HAR records do **not** support a general claim that ENA lacks many mechanisms.
 
 They instead suggest three different maturity problems:
 
@@ -105,7 +108,7 @@ They instead suggest three different maturity problems:
 
 Current result:
 
-`10 HAR cases → 0 NORMATIVE_GAP`
+`14 HAR records → 0 NORMATIVE_GAP`
 
 This is compatible with the desired quality direction:
 
