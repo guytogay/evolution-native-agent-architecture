@@ -146,10 +146,36 @@ are written into the initialized home and read by nothing. They are **not enforc
 requires them, no tool rejects their absence — so they are not a retirement target either, and there
 is no field failure to justify touching them. Recorded as an observation.
 
+## 6b. Item four needs an independent-reproduction obligation
+
+The budget's fourth item asks the proposer to name **which legitimate positive cases the addition
+costs**. A salvage audit of this repository's own corpus (`OLD-LINE-SALVAGE-AUDIT-2026-09-14.md`) found
+that this is not sufficient as written, with a measured reason rather than a worry:
+
+```text
+v2.2 record:  five sacrificed positives described as "the intended cost of ... not a contract bug".
+v2.4 record:  an INDEPENDENT reproduction classified THREE of those five as
+              CONFIRMED_MATERIAL_DEFECT (false BLOCK) and fixed them.
+Conclusion:   two were legitimate cost; three were defects that had been declared a trade-off.
+```
+
+So item four now carries an obligation on the **verifier**, not on the proposer:
+
+```text
+an author's cost claim is a HYPOTHESIS, not evidence.
+The verifier reproduces the claimed cost before it counts toward item four.
+Absent reproduction, the addition fails the gate - a declaration cannot satisfy it.
+```
+
+This closes a real hole: without it, an addition could pass the budget by *asserting* a cost, which is
+strictly easier than naming a field failure, and the three false BLOCKs above would have entered the
+line as an accepted design trade-off. It also sharpens the question of what "cost" means — the five
+cases were identifiable to specific fixtures, which is what makes reproduction possible at all.
+
 ## 7. Open questions this raises for ENA theory
 
 - Is there a natural law here, or only a project-management heuristic? Candidate form: *a system under continuous correctness pressure accumulates enforcement surfaces unless removal is cheaper than addition.* If it is a law, it should hold for other lineages, not just this one.
-- What is the **retirement rate** of ENA's own controls, historically? If controls are added and never retired, the ratchet is confirmed regardless of intent, and the interesting quantity is the ratio of additions to retirements over a lineage.
+- ~~What is the **retirement rate** of ENA's own controls, historically?~~ **Partly answered** by the salvage audit: in the measurable range there is **one** true retirement (the adopter-facing `MAINLINE / NOT_MAINLINE` axis at v0.3.5) plus three demotions, while the validation-rule line V2→V2.2 retired **nothing** and only composed. The ratchet is therefore not refuted, and a documented retirement procedure (`CONTROL-RETIREMENT.md`) had **zero field use**. The remaining question is whether the low rate reflects careful design or an unmeasured accumulation.
 - Does "one in, one out" survive contact? It may be that some additions genuinely replace nothing — the budget then forces an explicit statement, which is still the useful outcome, but the rule's value is unmeasured.
 - Is the META/PRACTICAL ratio a leading indicator at all, or a lagging one that only moves after the drift is already a fact? One release is not evidence either way.
 
