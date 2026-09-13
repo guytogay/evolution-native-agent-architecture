@@ -1,0 +1,66 @@
+case_id: HAR-014
+title: "A host-side hard gate wired to the readiness predicate: perishable READY, string-level acceptance, and bootstrap deadlock"
+status: REPLAYED
+ena_baseline: "guytogay/ENA v2.0.0 (37e0c575)"
+
+source:
+  kind: DSH_HOST_EVIDENCE
+  repository: "guytogay/ENA"
+  artifact: "external review recommendation, then a controlled host-side run"
+  commit_or_ref: "37e0c575ab67dfc0cdfc31375705a2793a0c4911 (product, read-only) + a host-side wrapper"
+  evidence_refs:
+    - "guytogay/ENA issue #34 comment 5653760076 (raw readings, posted)"
+    - "guytogay/ena-independent-audit (external verifier oracle)"
+  cognitive_context_lineage: "external review by another model family recommended wiring the shipped readiness predicate into a real session Host so that failure forbids ordinary work; the recommendation was measured instead of adopted"
+
+incident:
+  observed_facts:
+    - "The host-side wrapper works as specified: preflight exit 0 -> allow, exit 2 -> refuse ordinary work and print the tool's own text plus the product doc path that defines READY, any other code (e.g. 127) -> refuse as UNKNOWN. Cost about 52 ms per call, wrapper overhead 1-3 ms."
+    - "The gate has zero coupling with the host's existing mechanical cycle: the cycle script and the three shipped Sleep/Dream tools contain no reference to the readiness tool, the home, or SYSTEM.yaml."
+    - "READY is perishable. Default window is seven days: the shared predicate reports no problems now, and after the recorded valid_until it reports 'SYSTEM.yaml expired' (reproduced in a read-only predicate query and in the earlier expiry probe)."
+    - "The predicate is syntactic, not truth-bearing. A negative control written through the product's own CLI, into a throwaway home, with strings that declare themselves not to be facts ('NEGATIVE-CONTROL: nobody was contacted', 'no reachability check was performed'), reached READY and preflight exit 0."
+    - "The same predicate rejects empty values and the UNKNOWN-family tokens, so the boundary is a documented self-asserted boundary rather than an unenforced one."
+    - "A host with no home at all returns exit 2 from the predicate, and the tool that resolves that state is the first row of the product's own 'intended to run while NOT_READY' table. A gate that refuses the session rather than ordinary work therefore deadlocks a virgin host."
+    - "Three bypass attempts all succeeded: calling the underlying tool directly; running a capability tool regardless; and, decisively, no host mechanism invokes the wrapper at all (no crontab entry, no shell-profile or host-settings reference)."
+    - "Nothing in the observed environment refreshes the readiness clock: the nightly job reads valid_until, prints remaining days and warns inside two days, but never writes back; the field node's own cycle does not reference it."
+  inferences:
+    - "A hard gate wired to this predicate enforces a string, not a verified fact. The honest path stays exit 2 indefinitely without human-attested facts, while one dishonest call reaches READY; the two paths are indistinguishable to the predicate."
+    - "Wiring the predicate to a host gate converts a documented staleness policy into a recurring outage: every expiry locks ordinary work out until a fresh evidence-bearing update happens, and no observed host mechanism performs that update."
+    - "A host-side wrapper is a discipline anchor, not a control: it binds only callers that choose to call it. Making it hard requires a host hook that can refuse to serve a session."
+    - "Enforcement locality: the product cannot host a universal gate without circularity, and its own documentation refuses to embed one in every helper for that reason. Therefore 'wire preflight into a session Host' is a host-capability problem, not a product-file problem."
+  unknowns:
+    - "Whether any host in the field actually exposes a session-start hook able to refuse service; none was observed."
+    - "Whether re-attestation could be automated without violating the product's own prohibition on fabricating provenance; not attempted."
+    - "Whether a gate that refuses only 'ordinary work' can be enforced by a host at all, rather than advised, without wrapping every entry point."
+  evidence_grade: DIRECT_CONTROLLED_MEASUREMENT
+
+false_claim:
+  claim_type: ACTIVATION
+  claim: "Wiring the shipped readiness predicate into a session Host makes 'unverified homes cannot do ordinary work' an enforced property."
+  why_false_or_overbroad: "The wiring is possible and reads correctly, but it enforces a string-shaped assertion with a seven-day lifetime, on a component that nothing is obliged to call. It changes what unready work looks like for cooperative callers; it does not change what is possible. Stated as a control it is overbroad; stated as a discipline anchor for cooperative callers it holds."
+
+boundary_crossed:
+  - "Product/Host enforcement locality"
+  - "Self-asserted evidence vs verified evidence"
+  - "Freshness of verified facts (expiry as an operational event)"
+
+current_ena_mapping:
+  references:
+    - "guytogay/ENA tools/README.md: readiness interaction table, 'intended to run while NOT_READY', and the refusal to make preflight a universal gate (blanket-blocking setup/repair tools would make bootstrap and recovery circular)"
+    - "guytogay/ENA FIRST-USE.md: the READY definition, the seven-day window, and 'SELF_ASSERTED is an epistemic boundary, not authentication'"
+    - "guytogay/ENA tools/EXIT-CODES.md: exit 2 as a controlled refusal, used here as the only signal the gate reads"
+    - "guytogay/ENA RELEASE-NOTES.md: 'Do not fabricate provenance simply to regain READY'"
+  analysis: "The product already decides not to be a gate; this case measures what happens when a host decides to be one on the product's behalf. The product's own semantics are consistent and the case supports them. What is missing is not a mechanism but a statement of the host-side contract: which actor may refuse which class of work, what refresh obligation follows from a perishable READY, and the explicit rule that a gate must never refuse the session that could repair the state."
+  expected_behavior: "Under NOT_READY: setup, repair, inspection and candidate helpers remain available; only ordinary ENA-active capability workflows are refused; the refusal path names the product's own READY definition; and the state is repairable by the same session that is refused."
+
+candidate_relation:
+  candidate: "Host-Delegated Enforcement Boundary (readiness is a predicate the product publishes, and a capability the Host may enforce)"
+  relation: SUPPORTS
+
+verdict: CLARIFICATION_GAP
+next_action: "If host integration is pursued, require in that host's own terms: (a) a session-start hook that can refuse service, (b) refusal limited to ordinary work with the bootstrap/repair class explicitly allowed, (c) a named refresh obligation for expiry, and (d) an honest description that the gate checks an assertion with a lifetime rather than truth. No product file is required or proposed."
+notes:
+  - "evidence_grade is a deliberately new value. REAL_INCIDENT_EVIDENCE, used by the other HAR records, was not reused because nothing here was an unplanned incident: this was a controlled measurement, commissioned after an external recommendation. Fitting it into the incident vocabulary would have overstated the evidence."
+  - "The measurement was run on a read-only product checkout with no product modification and no new data format; the only artifacts were a host-side wrapper script and throwaway homes."
+  - "A product-side proposal to publish a machine-readable classification of the readiness-table tool classes was deliberately NOT raised: no field failure was demonstrated for it, only a transcription burden. Recorded as an observation for an anti-ratchet rule rather than as a work item."
+  - "One host-hygiene side finding: 'version-control status is clean' does not imply 'no bytecode artifacts exist'. A bare interpreter call regenerated ignored files while the tree still reported clean. The two readings must be taken separately."

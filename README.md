@@ -26,13 +26,13 @@ EVOLUTION_VOCABULARY != EXECUTABLE_EVOLUTION_LOOP
 
 The clean product home for the next ENA is [`guytogay/ENA`](https://github.com/guytogay/ENA).
 
-ENA **v1.0.0 is released** as a clean product. It is **not yet Current and not promoted**: this
-repository remains the source for v0.3.14 Current, legacy research, evidence, experiments, and
-historical provenance until a successor is formally promoted.
+ENA **v2.0.0 is released** as a clean product. It is **not yet Current and not promoted**: this
+repository remains the source for v0.3.14 Current, ENA theory, research records, evidence,
+experiments, and historical provenance until a successor is formally promoted.
 
 ```text
 PRODUCT RELEASE != CURRENT PROMOTION
-guytogay/ENA v1.0.0 = RELEASED CLEAN PRODUCT
+guytogay/ENA v2.0.0 = RELEASED CLEAN PRODUCT
 research Current    = v0.3.14 / FIELD_VALIDATION
 Current changes only through an explicit USER promotion decision.
 Publishing or tagging guytogay/ENA does not mutate releases/current/.
@@ -40,6 +40,28 @@ Publishing or tagging guytogay/ENA does not mutate releases/current/.
 
 This is identity semantics for this repository, not a temporary status note: reading "ENA" must
 never be ambiguous between the released product and the promoted Current.
+
+## Where theory and practice live
+
+```text
+THEORY / RESEARCH / LINEAGE  -> this repository
+PRACTICAL PRODUCT            -> guytogay/ENA
+GENERAL HUMAN-AI METHOD      -> guytogay/human-ai-workbench
+```
+
+The split is a routing rule, not a hierarchy, and it is deliberately stated here because theory is
+this repository's continuing job rather than its history:
+
+- **A new idea, distinction, failure case, or counterexample discovered while working on the
+  product is recorded here**, including theory that only became visible while verifying the
+  product. The product repository is the wrong place for a theory claim: its readers are adopters.
+- **The practical tool, contract or procedure grown from that theory belongs in
+  `guytogay/ENA`**, where it can be released, versioned and adopted.
+- **Method that is reusable without any ENA concept belongs in `guytogay/human-ai-workbench`.**
+
+The research material here is therefore **not legacy**. `research/` holds live hypotheses with
+measurements attached, `research/adversarial-replay/` holds replayed failure cases, and `NOW.md`
+carries the maintainer status of both this repository and the relationship to the product.
 
 Project-maintainer status is in [`NOW.md`](NOW.md).
 

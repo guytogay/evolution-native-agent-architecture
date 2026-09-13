@@ -20,6 +20,7 @@ This matrix is a synthesis layer over the individual HAR records. It does not re
 | HAR-008 | Knowledge in my memory implies I authored/performed the underlying work | Provenance, Subject, Session Context | `CLARIFICATION_GAP` | Autobiographical Provenance Integrity |
 | HAR-009 | Sincere belief or an immediate successful attempt proves a stable fix | State, Time, Evidence Grade | `COVERED` | Belief Is Not Completion Evidence (already covered) |
 | HAR-010 | A truthful local completion claim remains valid after silent temporal expansion | Time, State, Scope | `COVERED` | Evidence Applicability Boundary (interval support) |
+| HAR-014 | Wiring the readiness predicate into a session Host makes "unverified homes cannot do ordinary work" an enforced property | Product/Host enforcement locality, Self-asserted vs verified evidence, Freshness | `CLARIFICATION_GAP` | Host-Delegated Enforcement Boundary (supports the existing "the product is not a gate" decision) |
 
 ## Boundary recurrence
 

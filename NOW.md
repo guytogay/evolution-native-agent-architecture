@@ -16,9 +16,9 @@ Legacy Current is unchanged.
 
 Repository: `guytogay/ENA`
 
-State: `RELEASED_v1.0.0 / NOT_CURRENT / NOT_PROMOTED`
+State: `RELEASED_v2.0.0 / NOT_CURRENT / NOT_PROMOTED`
 
-Release identity (stable fact): `v1.0.0` tag -> `ea8a313`
+Release identity (stable facts): `v1.0.0` tag -> `ea8a313`; `v2.0.0` tag -> `37e0c575`.
 
 Current ENA `main` head: **read it from the ENA repository** (`guytogay/ENA`, branch `main`). It is
 deliberately not copied here: a copied commit id becomes a drift source the moment the product
@@ -28,10 +28,21 @@ Promotion semantics (identity semantics of this repository, not a temporary note
 
 ```text
 PRODUCT RELEASE != CURRENT PROMOTION
-guytogay/ENA v1.0.0 = RELEASED CLEAN PRODUCT
+guytogay/ENA v2.0.0 = RELEASED CLEAN PRODUCT (v1.0.0 was a released baseline, superseded in under a day)
 research Current    = v0.3.14 / FIELD_VALIDATION
 Current changes only through an explicit USER promotion decision.
 Publishing or tagging guytogay/ENA does not mutate releases/current/.
+```
+
+This repository is **not** an archive of the product line, and its research material is **not
+legacy**: it remains the canonical home of ENA theory, research records and lineage, while
+`guytogay/ENA` carries the practical product grown from that theory. Theory discovered during
+product work — including during verification of the product — is recorded here, not in the product.
+
+```text
+THEORY / RESEARCH / LINEAGE  -> guytogay/evolution-native-agent-architecture (this repository)
+PRACTICAL PRODUCT            -> guytogay/ENA
+GENERAL HUMAN-AI METHOD      -> guytogay/human-ai-workbench
 ```
 
 Adopter path:
@@ -120,6 +131,31 @@ Repository roles:
 - `guytogay/evolution-native-agent-architecture` — legacy Current + research/evidence/history + succession;
 - `guytogay/human-ai-workbench` — general human-AI project-working method;
 - `guytogay/ena-field-guide` — sunset independent product, preserve useful evidence.
+
+## Theory intake
+
+Routing rule made explicit on 2026-09-13 (see README, *Where theory and practice live*): theory and
+research records land **here**, the practical product grown from them lands in `guytogay/ENA`, and
+ENA-independent working method lands in `guytogay/human-ai-workbench`. A theory claim discovered
+while verifying the product is recorded here, because the product's readers are adopters.
+
+Recorded this round, both from product-line work rather than from legacy material:
+
+- `research/evolution-inbox/CONTRACT-SURFACE-BUDGET-AND-ADOPTION-TAX.md` — the ratchet hypothesis
+  (correctness pressure accumulates enforcement surfaces), the measurable split between **adopter
+  contract surface** and **internal verification surface**, first counts over `v1.0.0 -> v2.0.0`
+  (five breaking migrations and eight upgrade blocks in 19.6 hours, while META/PRACTICAL prose ratio
+  moved only 0.031 — the theory takeover is a trend risk, not yet a measurement), the anti-ratchet
+  asymmetry, and the questions and falsifiers this raises.
+- `research/adversarial-replay/cases/HAR-014-host-wired-readiness-gate.yaml` — a controlled
+  measurement of a host-side hard gate wired to the readiness predicate: perishable READY (seven-day
+  window, nothing refreshes it), a string-level rather than truth-bearing predicate, bootstrap
+  deadlock if the gate refuses sessions, and three successful bypasses. Verdict
+  `CLARIFICATION_GAP`; it **supports** the existing product decision not to be a gate, and it
+  identifies the missing artefact as a **host-side** contract, not a product file.
+
+Both are `NOT_PROMOTED` research records. Neither changes Current, and neither asks the product to
+add a mechanism.
 
 ## Immediate next action
 
