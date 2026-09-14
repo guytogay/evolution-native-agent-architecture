@@ -56,6 +56,7 @@ METHOD_WRITTEN != METHOD_APPLIED
 10. `../handoffs/CURRENT-HANDOFF.yaml` — current succession pointer.
 11. `../handoffs/HANDOFF-PROTOCOL.md` — outgoing/incoming succession rules.
 12. `../handoffs/REQUIRED-TAKEOVER-CONTEXT.yaml` — explicit mandatory inheritance context for project-manager succession.
+13. `DIVERGENT-EXPLORER-ADOPTION-GAP.md` — the variation half: a method the repository already claimed to use, what actually shipped, and what landing it would cost. Its trial is `DIVERGENT-EXPLORER-TRIAL-2026-09-15.md`; the method text itself is reference material in `DIVERGENT-EXPLORER-METHODOLOGY.md`.
 
 Focused methodology files may be added when a distinction changes behavior; file count is not a completeness claim.
 
