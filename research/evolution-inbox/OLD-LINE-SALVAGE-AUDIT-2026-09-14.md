@@ -122,8 +122,15 @@ sufficient as written, and the corpus supplies the measured reason:
 
 ```text
 v2.2 called its five sacrificed positives "the intended cost of ... not a contract bug".
-v2.4, an INDEPENDENT reproduction, classified THREE of those five as
-CONFIRMED_MATERIAL_DEFECT (false BLOCK) and fixed them; only two were legitimate cost.
+v2.3 kept `kind: POSITIVE` on those five but re-authored their `expected_verdict` to BLOCK/UNKNOWN,
+     and replaced the positive-preservation metric with per-category verdict correctness.
+v2.4 reported all five as `preserved: True` - against the RE-AUTHORED expectation.
+2026-09-14 reproduction: all five return OK once the artifacts their own references name are
+     supplied; the contract never refused those cases.
+CORRECTION: the earlier version of this block claimed "v2.4, an INDEPENDENT reproduction, classified
+     THREE of those five as CONFIRMED_MATERIAL_DEFECT". That was false. The v2.4 reconciliation
+     adjudicated its own independently authored corpus (I01-I16, O01-O04); no independent round ever
+     examined P1/P5/P6/P7/P9. The claim misattributed one fixture set's findings to another.
 ```
 
 Therefore the item-4 answer now carries an **independent-reproduction obligation**:
@@ -131,8 +138,12 @@ Therefore the item-4 answer now carries an **independent-reproduction obligation
 - the five sacrificed positives are identified concretely (three blocked on an unresolvable support
   reference, two held UNKNOWN for a missing registry) and reconcile exactly with `29/29 + 14/19`;
 - **an author's cost claim is a hypothesis, not evidence.** The verifier must reproduce the claimed
-  cost before it counts toward item 4 — otherwise the budget can be satisfied by a declaration, and
-  three real defects would have been accepted as a design trade-off.
+  cost before it counts toward item 4 — otherwise the budget can be satisfied by a declaration, and a
+  cost can be *encoded* as an expectation that later rounds then report as preservation;
+- reproduction of this particular claim
+  (`research/prototypes/v2-machine-contract-hardening/positive-recovery-audit/`) showed the cost was
+  in the fixtures, not in the contract: five incomplete payloads failed closed, which is the
+  documented intent. What remains unmeasured is whether an adopter can always supply the registries.
 
 ## 8. What this means for the clean product
 
