@@ -1,0 +1,89 @@
+{
+  "question": "were five legitimate positives sacrificed by the composed contract, or were the fixtures never completed for it?",
+  "eval_time": "2026-08-20",
+  "as_is_control": {
+    "BLOCK": 3,
+    "UNKNOWN": 2
+  },
+  "F1_as_is_matches_recorded": true,
+  "F2_all_completed_accepted": true,
+  "F4_negative_control_blocks": true,
+  "negative_control": {
+    "id": "P1 with support_registry bound to C-NOT-P1",
+    "state": "BLOCK",
+    "codes": [
+      "SUPPORT_TARGET_MISMATCH"
+    ]
+  },
+  "rows": [
+    {
+      "id": "P1-supported-with-refs",
+      "as_is": "BLOCK",
+      "as_is_codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "completed": "OK",
+      "completed_codes": [],
+      "structural_problems": [],
+      "added_keys": [
+        "evidence_registry",
+        "support_registry"
+      ]
+    },
+    {
+      "id": "P5-completion-satisfied",
+      "as_is": "BLOCK",
+      "as_is_codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "completed": "OK",
+      "completed_codes": [],
+      "structural_problems": [],
+      "added_keys": [
+        "evidence_registry",
+        "support_registry"
+      ]
+    },
+    {
+      "id": "P6-nonmaterial-obligation-ok",
+      "as_is": "BLOCK",
+      "as_is_codes": [
+        "SUPPORT_REF_UNRESOLVABLE"
+      ],
+      "completed": "OK",
+      "completed_codes": [],
+      "structural_problems": [],
+      "added_keys": [
+        "evidence_registry",
+        "support_registry"
+      ]
+    },
+    {
+      "id": "P7-recovery-with-history-evidence",
+      "as_is": "UNKNOWN",
+      "as_is_codes": [
+        "PROVENANCE_REGISTRY_UNAVAILABLE"
+      ],
+      "completed": "OK",
+      "completed_codes": [],
+      "structural_problems": [],
+      "added_keys": [
+        "evidence_registry"
+      ]
+    },
+    {
+      "id": "P9-independence-distinct-roots",
+      "as_is": "UNKNOWN",
+      "as_is_codes": [
+        "ROOT_REGISTRY_UNAVAILABLE"
+      ],
+      "completed": "OK",
+      "completed_codes": [],
+      "structural_problems": [],
+      "added_keys": [
+        "evidence_registry",
+        "root_registry"
+      ]
+    }
+  ]
+}

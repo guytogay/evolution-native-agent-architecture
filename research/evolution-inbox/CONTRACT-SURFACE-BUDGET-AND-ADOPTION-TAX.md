@@ -73,6 +73,7 @@ Applies to the contract surface only:
         the surface may still grow;
      d. which LEGITIMATE positive cases it costs - the V2.2 precedent shows this is
         not hypothetical (14/19 preserved), and no adversarial scoreboard shows it.
+        The claim is a HYPOTHESIS until the verifier reproduces it (see 6b).
 3. Removals require none of the above and are fast-tracked.
 4. The internal verification surface has no budget. Never delete a test to look simpler.
 5. META prose growth in a release requires at least matching PRACTICAL growth.
@@ -107,6 +108,16 @@ in its purest measured form: protection gained on one axis, **legitimate capabil
 other**, and the loss is exactly the quantity that no adversarial scoreboard shows. Any contract
 budget that does not require the proposer to name the preserved-positive cost is measuring half the
 trade.
+
+**Corrected 2026-09-14** by a fixture-level reproduction
+(`research/prototypes/v2-machine-contract-hardening/positive-recovery-audit/`): all five are
+recovered to `OK` by supplying exactly the artifacts their own references name, with no other change
+to the payload, while a control that binds the supplied support to the wrong claim still blocks
+(`SUPPORT_TARGET_MISMATCH`). The composed contract never refused those five cases; it refused five
+incomplete payloads. Read the sentence above as **the fixture corpus lost five passing positives**,
+not as five legitimate cases lost to the contract — the second reading was never measured, and the
+measurement now available does not support it. What survives of the cost claim is different and
+still unmeasured: whether an adopter can always *supply* the registries a legitimate positive needs.
 
 This also sharpens one of the open questions below: the retirement rate is not merely unmeasured, it
 appears to be **zero** across that line, since V2.1 and V2.2 compose V2's protections rather than
@@ -154,9 +165,17 @@ that this is not sufficient as written, with a measured reason rather than a wor
 
 ```text
 v2.2 record:  five sacrificed positives described as "the intended cost of ... not a contract bug".
-v2.4 record:  an INDEPENDENT reproduction classified THREE of those five as
-              CONFIRMED_MATERIAL_DEFECT (false BLOCK) and fixed them.
-Conclusion:   two were legitimate cost; three were defects that had been declared a trade-off.
+v2.3 record:  the same five keep `kind: POSITIVE` but their `expected_verdict` is re-authored to
+              BLOCK (3) / UNKNOWN (2); the positive-preservation metric is replaced by per-category
+              verdict correctness.
+v2.4 record:  all five reported `preserved: True` - against the RE-AUTHORED expectation.
+Measured
+2026-09-14:   all five return OK once the artifacts their own references name are supplied
+              (positive-recovery-audit); the contract never refused those cases.
+Correction:   an earlier version of this block said an independent round classified three of the
+              five as CONFIRMED_MATERIAL_DEFECT. That was FALSE - the v2.4 reconciliation adjudicated
+              its own independently authored corpus (I01-I16, O01-O04), and no independent round ever
+              examined P1/P5/P6/P7/P9. The claim was a misattribution between two fixture sets.
 ```
 
 So item four now carries an obligation on the **verifier**, not on the proposer:
@@ -167,10 +186,16 @@ The verifier reproduces the claimed cost before it counts toward item four.
 Absent reproduction, the addition fails the gate - a declaration cannot satisfy it.
 ```
 
-This closes a real hole: without it, an addition could pass the budget by *asserting* a cost, which is
-strictly easier than naming a field failure, and the three false BLOCKs above would have entered the
-line as an accepted design trade-off. It also sharpens the question of what "cost" means — the five
-cases were identifiable to specific fixtures, which is what makes reproduction possible at all.
+Two measured failure modes make this necessary, and both are satisfied by the same procedure:
+
+- **asserting** a cost instead of reproducing it (the v2.2 claim above);
+- **encoding** the assertion as an expectation, after which later rounds inherit it as a preservation
+  result (v2.3 re-authored `expected_verdict`; v2.4/v2.4.1 reported `preserved: True` against it).
+
+Without the obligation, an addition could pass the budget by *asserting* a cost, which is strictly
+easier than naming a field failure. It also sharpens what "cost" means: the five cases were
+identifiable to specific fixtures, which is what made reproduction possible at all — and reproduction
+is what showed the cost was in the fixtures rather than in the contract.
 
 ## 7. Open questions this raises for ENA theory
 
@@ -186,5 +211,8 @@ The concern is overstated if, across the next releases: the contract surface sta
 ## 9. Provenance
 
 - Counts: `theory-drift-census.py` over tags `v1.0.0`, `v2.0.0`, `main` of `guytogay/ENA`, 2026-09-13; published in `guytogay/ena-independent-audit` and verified by a fresh clone reproducing the same table.
+- The five-positive cost figure was reproduced at fixture level on 2026-09-14:
+  `research/prototypes/v2-machine-contract-hardening/positive-recovery-audit/` (`recovery_probe.py`,
+  receipt `recovery.json`). That reproduction corrected both §5 and the earlier evidence block in §6b.
 - The measured enforcement case that motivated the "no product-side gate" half of this note is recorded as `HAR-014`.
 - The rule is held by the external verifier side; the raw receipts are in the clean product's coordination issue.
