@@ -157,3 +157,11 @@ removal and refusal — and the only direction that does not grow the surface.
 Four read-only digests over the theory repository at `main = 2f91bdf`, judged against the clean
 product at `main = d4f3e68`. Records cited by path above; the falsified entries quote the corpus's own
 words rather than paraphrase. Nothing in this repository or the product was modified by the audit.
+
+## 10. Follow-up: the same shape, seen live
+
+The audit's archive-coverage observation is not only historical. A current-line field run produced the
+same three failure shapes - a score never promoted to its pre-registered rubric, an archive that stored
+outputs but not the records needed to recompute the number, and a record id derived from a path so that
+"the material changed" could mean "the material moved". Recorded separately in
+`PROVENANCE-DEFECTS-AND-RECORD-IDENTITY.md`, because they generalise past this repository's history.
