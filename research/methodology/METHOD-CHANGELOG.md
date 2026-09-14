@@ -4,6 +4,38 @@ Status: `PROJECT_CONTROL_PLANE / METHOD_LINEAGE / OPEN_ENDED`
 
 This file records **why the research method changed**, not every wording edit.
 
+## 2026-09-15 — The variation half: a declared method that was never landed
+
+Trigger:
+
+The owner reported that a divergent-exploration methodology had been written for him and intended
+for ENA as the mechanism that **produces variation on the way to evolution**, and that it had then
+been forgotten. Checking found the repository claiming more than it shipped: the status note for the
+clean Sleep/Dream v0.1 transition states that the design uses "the owner's Divergent Explorer
+pattern as the main Dream variation operator", while the product surface contains an eight-line
+summary of it and nothing else — no operators, no branch state, no novelty test, no stop rule.
+
+Correction:
+
+```text
+DECLARED_METHOD != SHIPPED_MECHANISM
+INTENT_REMEMBERED_IN_CHAT != INTENT_RECORDED_IN_AN_ARTEFACT
+```
+
+Practical effect:
+
+- the methodology is landed verbatim in this directory as reference material, with provenance;
+- `DIVERGENT-EXPLORER-ADOPTION-GAP.md` records the gap, the mapping onto ENA's own vocabulary, and
+  the three routes with the authority each one needs (reference only / host mechanism behind a
+  meta-write lease / product surface behind an upstream ruling and a budget slot);
+- `DIVERGENT-EXPLORER-TRIAL-2026-09-15.md` records a first practical run, with criteria written
+  before the run, one live seed and one ordinary-object control;
+- the trial's own conclusion is that the useful output is a **discriminator comparison** rather than
+  more divergence, which reframes the standing Sleep/Dream question rather than answering it.
+
+Lesson worth keeping: an unlanded intent does not stay neutral. It becomes a false claim inside the
+artefacts that assumed it had landed, and that claim is what a future session reads.
+
 ## 2026-08-26 — Anti-dissolution reconstruction discipline
 
 Trigger:
